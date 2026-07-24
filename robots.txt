@@ -1,104 +1,143 @@
 # ====================================================================
-# robots.txt ufficiale per thuisitaliaans.com
-# Ottimizzato per SEO Avanzata, AI Search Visibility & IP Protection
-# Ultimo aggiornamento: Luglio 2026
+# robots.txt — thuisitaliaans.com
+# Aggiornato: luglio 2026
+#
+# LICENZA DEI CONTENUTI
+# Tutti i testi di questo sito (esercizi, articoli, schede dei libri)
+# sono pubblicati sotto Creative Commons BY-NC-ND 4.0:
+#   https://creativecommons.org/licenses/by-nc-nd/4.0/
+# L'uso è consentito con ATTRIBUZIONE e LINK ALLA FONTE. Uso commerciale
+# e opere derivate non sono consentiti senza accordo scritto.
+# Contatto: thuisitaliaans@gmail.com
 # ====================================================================
+
 # --------------------------------------------------------------------
-# 1. REGOLE GLOBALI (Default per tutti i Bot non specificati sotto)
-# Permette l'indicizzazione ma ottimizza il Crawl Budget
+# 1. REGOLE GLOBALI
 # --------------------------------------------------------------------
 User-agent: *
 Allow: /
-# Blocca file temporanei e risorse interne inutili per la SEO
 Disallow: /assets/tmp/
 Disallow: /admin/
 Disallow: /spool/
-# Blocca parametri di tracciamento duplicati per evitare cannibalizzazione SEO
-Disallow: /*?*utm_
-Disallow: /*?*fbclid
-Disallow: /*?*gclid
-Disallow: /*?*replytocom
+
 # --------------------------------------------------------------------
-# 2. MOTORI DI RICERCA TRADIZIONALI (Accesso Completo Garantito)
-# Massimizza la visibilità organica globale (Google, Bing, Yandex, Baidu)
+# 2. MOTORI DI RICERCA
 # --------------------------------------------------------------------
 User-agent: Googlebot
 Allow: /
+
 User-agent: Googlebot-Image
 Allow: /
-User-agent: Googlebot-Mobile
-Allow: /
+
 User-agent: Bingbot
-Allow: /
-User-agent: AdIdxBot
 Allow: /
 
 User-agent: DuckDuckBot
 Allow: /
+
 User-agent: YandexBot
 Allow: /
+
 User-agent: Baiduspider
 Allow: /
+
+User-agent: Applebot
+Allow: /
+
 # --------------------------------------------------------------------
-# 3. AI RICERCA & CITAZIONI (Abilitati per Traffico di Rinvio)
-# Permette alle AI di mostrare frammenti del sito e LINKARE la fonte
+# 3. AI — RICERCA E CITAZIONI
 # --------------------------------------------------------------------
 User-agent: OAI-SearchBot
 Allow: /
+
 User-agent: ChatGPT-User
 Allow: /
+
 User-agent: PerplexityBot
 Allow: /
+
 User-agent: Perplexity-User
 Allow: /
+
 User-agent: Claude-SearchBot
 Allow: /
+
 User-agent: Claude-User
 Allow: /
+
 User-agent: Google-CloudVertexBot
 Allow: /
+
 # --------------------------------------------------------------------
-# 4. LLM TRAINING & SCRAPERS AGGRESSIVI (Bloccati al 100%)
-# Protegge il copyright del corso di lingua e dell'app Ti App
+# 4. AI — INDICIZZAZIONE E MODELLI
+# Accesso consentito alle condizioni della licenza CC BY-NC-ND 4.0
+# indicata in cima: attribuzione e link alla fonte.
 # --------------------------------------------------------------------
 User-agent: GPTBot
-Disallow: /
-User-agent: ClaudeBot
-Disallow: /
-User-agent: anthropic-ai
-Disallow: /
-User-agent: Google-Extended
-Disallow: /
-User-agent: Applebot-Extended
-Disallow: /
-User-agent: Meta-ExternalAgent
-Disallow: /
-User-agent: FacebookBot
-Disallow: /
+Allow: /
 
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# --------------------------------------------------------------------
+# 5. SCRAPER E RIVENDITORI DI DATASET — BLOCCATI
+# Non citano, non mandano traffico, rivendono il contenuto a terzi.
+# --------------------------------------------------------------------
 User-agent: CCBot
 Disallow: /
 
 User-agent: Bytespider
 Disallow: /
 
-User-agent: cohere-ai
-Disallow: /
-
 User-agent: cohere-training-data-crawler
 Disallow: /
+
 User-agent: Diffbot
 Disallow: /
+
 User-agent: ImagesiftBot
 Disallow: /
+
 User-agent: Omgili
 Disallow: /
+
 User-agent: Timpibot
 Disallow: /
+
 User-agent: PermaBot
 Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
 # --------------------------------------------------------------------
-# 5. INDICAZIONE DELLA SITEMAP (Fondamentale per la SEO)
-# Semplifica la scoperta dei contenuti da parte di tutti i motori abilitati
+# 6. SITEMAP
 # --------------------------------------------------------------------
 Sitemap: https://thuisitaliaans.com/sitemap.xml
