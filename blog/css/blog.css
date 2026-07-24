@@ -705,3 +705,47 @@ margin-top:16px;
 width:auto;
 }
 }
+
+
+/* ==========================================
+   BOX "PROSSIMO PASSO" (libro + lezioni)
+   Aggiunto in fondo a ogni articolo: gli stili
+   stavano solo in css/style.css, che il blog non carica.
+========================================== */
+.ex-prossimo-passo{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:18px;
+width:min(92%,900px);
+margin:44px auto 56px;
+}
+.ex-passo{
+background:#f7f8fb;
+border:1px solid #e6eaf2;
+border-radius:18px;
+padding:24px 26px;
+}
+.ex-passo h3{
+font-size:1.06rem;
+margin:0 0 8px;
+color:#31394d;
+line-height:1.35;
+}
+.ex-passo p{
+font-size:.96rem;
+line-height:1.6;
+color:#667085;
+margin:0 0 14px;
+}
+.ex-passo-link{
+font-weight:600;
+color:#31394d;
+text-decoration:underline;
+text-underline-offset:3px;
+}
+.ex-passo-link:hover{opacity:.75;}
+@media(max-width:640px){
+.ex-prossimo-passo{margin:32px auto 40px;gap:14px;}
+.ex-passo{padding:20px;}
+}
+@media print{.ex-prossimo-passo{display:none;}}
