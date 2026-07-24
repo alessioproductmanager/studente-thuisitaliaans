@@ -1,5 +1,4 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
   "name": "studente-thuisitaliaans",
   "main": "js/index.js",
   "compatibility_date": "2026-07-19",
