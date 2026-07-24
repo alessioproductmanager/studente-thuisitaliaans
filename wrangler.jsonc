@@ -1,12 +1,13 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "studente-thuisitaliaans",
+  "main": "src/index.js", 
   "compatibility_date": "2026-07-19",
   "observability": {
     "enabled": true
   },
   "assets": {
-    "directory": "."
+    "directory": "./public"
   },
   "compatibility_flags": [
     "nodejs_compat"
