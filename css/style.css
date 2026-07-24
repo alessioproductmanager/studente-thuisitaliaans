@@ -766,3 +766,67 @@ border-radius:18px;padding:22px 24px;
 .ex-passo h3{font-size:1.08rem;margin-bottom:8px;}
 .ex-passo p{font-size:.97rem;margin-bottom:14px;}
 .ex-passo-link{font-weight:600;text-decoration:underline;}
+
+
+/* ==========================================
+   MENU: tendine e hamburger
+   (era inline in index.html: le pagine generate
+   non lo ricevevano, da qui i pulsanti sfasati)
+========================================== */
+/* menu mobile — allineato al breakpoint 900px di style.css */
+.nav-apri{display:none;background:none;border:0;padding:10px;cursor:pointer;margin-left:auto}
+.nav-apri span{display:block;width:24px;height:2.5px;background:#31394d;margin:5px 0;border-radius:2px;transition:transform .25s ease,opacity .25s ease}
+.nav-apri[aria-expanded="true"] span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.nav-apri[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav-apri[aria-expanded="true"] span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+@media(max-width:900px){
+  .nav-apri{display:block}
+  .header .navbar > .button{display:none}
+  /* pannello a tutta larghezza, agganciato sotto la barra (l'header sticky fa da ancora) */
+  .header nav#navPrincipale{display:none;position:absolute;top:100%;left:0;right:0;background:#ffffff;border-bottom:1px solid #e6eaf2;box-shadow:0 22px 34px rgba(49,57,77,.14);max-height:calc(100vh - 82px);overflow-y:auto;z-index:99}
+  .header nav#navPrincipale.aperto{display:block}
+  /* style.css nasconde .nav-menu sotto i 900px: qui la riattiviamo dentro il pannello */
+  .header nav#navPrincipale.aperto .nav-menu{display:flex !important;flex-direction:column;align-items:stretch;gap:0;width:min(92%,1180px);margin:0 auto;padding:8px 0 16px}
+  .header nav#navPrincipale .nav-menu li{list-style:none}
+  .header nav#navPrincipale .nav-menu a{display:block;padding:14px 6px;border-bottom:1px solid rgba(49,57,77,.08);text-decoration:none}
+}
+
+
+/* ==========================================
+   MENU: tendine e hamburger
+   (era inline in index.html: le pagine generate
+   non lo ricevevano, da qui i pulsanti sfasati)
+========================================== */
+/* sottomenu "Zelf leren" */
+.con-sotto{position:relative;list-style:none}
+.sotto-apri{background:none;border:0;cursor:pointer;font:inherit;font-weight:500;color:inherit;padding:0;display:inline-flex;align-items:center;gap:5px;transition:.35s ease}
+.sotto-apri:hover{color:black}
+.sotto-apri .freccia{font-size:.7em;transition:transform .2s ease}
+.con-sotto.aperto .sotto-apri .freccia{transform:rotate(180deg)}
+@media(min-width:901px){
+  .sotto-menu{display:none;position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%);background:#fff;border:1px solid #e6eaf2;border-radius:16px;box-shadow:0 12px 35px rgba(49,57,77,.12);padding:8px;min-width:190px;z-index:999;list-style:none;margin:0}
+  .sotto-menu::before{content:"";position:absolute;top:-14px;left:0;right:0;height:14px}
+  .con-sotto:hover .sotto-menu,.con-sotto:focus-within .sotto-menu,.con-sotto.aperto .sotto-menu{display:block}
+  .sotto-menu li{margin:0}
+  .sotto-menu a{display:block;padding:10px 14px;border-radius:10px;white-space:nowrap;text-decoration:none;font-weight:500}
+  .sotto-menu a:hover{background:#f7f8fb;color:black}
+}
+@media(max-width:900px){
+  .sotto-apri{display:block;width:100%;text-align:left;padding:13px 6px;border-bottom:1px solid rgba(49,57,77,.08);cursor:default;font-weight:600}
+  .sotto-apri .freccia{display:none}
+  .sotto-menu{display:block;list-style:none;margin:0;padding:0}
+  .sotto-menu a{padding-left:22px !important}
+}
+
+
+/* ==========================================
+   MENU: due tendine affiancate (Zelf leren + Taal)
+========================================== */
+.nav-menu .con-sotto + .con-sotto{margin-left:2px;}
+.nav-menu .sotto-apri{
+display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
+}
+.nav-menu .sotto-menu a[aria-current="true"]{font-weight:700;}
+@media(max-width:900px){
+.nav-menu .con-sotto + .con-sotto{margin-left:0;}
+}
