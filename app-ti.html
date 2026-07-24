@@ -63,41 +63,7 @@
     <meta name="twitter:image" content="https://thuisitaliaans.com/assets/icons/icon-512.png">
 
     <!-- JSON-LD: MobileApplication -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "MobileApplication",
-      "name": "Ti — Tuffo Italiano",
-      "alternateName": "Ti",
-      "description": "App iOS per imparare l'italiano dallo zero al C2, con percorso QCER, edicola tematica, romanzi classici graduati, dizionario multilingue con oltre 4.000 parole. Supporto in 14 lingue.",
-      "applicationCategory": "EducationalApplication",
-      "applicationSubCategory": "LanguageLearning",
-      "operatingSystem": "iOS 17.0",
-      "url": "https://thuisitaliaans.com/app-ti.html",
-      "image": "https://thuisitaliaans.com/assets/icons/icon-512.png",
-      "inLanguage": ["it", "en", "nl", "fr", "de", "es", "pt", "ro", "sq", "uk", "zh", "ar", "fil", "bn", "ti"],
-      "audience": {
-        "@type": "EducationalAudience",
-        "educationalRole": "student"
-      },
-      "teaches": "Italian language (CEFR A1 to C2)",
-      "educationalLevel": "A1, A2, B1, B2, C1, C2",
-      "author": {
-        "@type": "Organization",
-        "name": "Thuis Italiaans",
-        "url": "https://thuisitaliaans.com"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Thuis Italiaans",
-        "url": "https://thuisitaliaans.com",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://thuisitaliaans.com/assets/icons/icon-512.png"
-        }
-      }
-    }
-    </script>
+    
 
     <!-- JSON-LD: BreadcrumbList -->
     <script type="application/ld+json">
@@ -550,6 +516,126 @@
         }
     </style>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MobileApplication",
+      "@id": "https://thuisitaliaans.com/app-ti.html#app",
+      "name": "Ti — Tuffo Italiano",
+      "alternateName": "Tuffo Italiano",
+      "applicationCategory": "EducationalApplication",
+      "applicationSubCategory": "Language learning",
+      "operatingSystem": "iOS 17.0 or later",
+      "url": "https://thuisitaliaans.com/app-ti.html",
+      "installUrl": "https://apps.apple.com/app/id6791650799",
+      "downloadUrl": "https://apps.apple.com/app/id6791650799",
+      "inLanguage": [
+        "it",
+        "sq",
+        "ar",
+        "bn",
+        "zh",
+        "nl",
+        "en",
+        "fr",
+        "de",
+        "pt",
+        "ro",
+        "es",
+        "tl",
+        "ti",
+        "uk"
+      ],
+      "author": {
+        "@id": "https://thuisitaliaans.com/#alessio"
+      },
+      "publisher": {
+        "@id": "https://thuisitaliaans.com/#organizzazione"
+      },
+      "description": "App iOS per imparare l'italiano dall'A1 al C2: percorso QCER completo, edicola tematica, romanzi classici graduati e dizionario in 14 lingue.",
+      "featureList": [
+        "Percorso QCER completo A1–C2 con checkpoint ed esami di livello",
+        "Edicola tematica: lavoro, burocrazia, gergo, viaggi, moda, motori",
+        "Romanzi classici italiani riscritti e graduati per livello",
+        "Dizionario con oltre 4.000 parole, esempi, sinonimi e famiglie",
+        "Traduzioni e grammatica in 14 lingue di supporto",
+        "Funziona offline dopo il download"
+      ],
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": "0",
+        "highPrice": "4.99",
+        "availability": "https://schema.org/InStock"
+      },
+      "image": "https://thuisitaliaans.com/assets/icons/icon-512.png",
+      "audience": {
+        "@type": "EducationalAudience",
+        "educationalRole": "student"
+      },
+      "teaches": "Italian language (CEFR A1 to C2)",
+      "educationalLevel": "A1, A2, B1, B2, C1, C2"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://thuisitaliaans.com/app-ti.html#faq",
+      "inLanguage": "it",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quanto costa l'app Ti?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il download è gratuito e include il percorso QCER e il dizionario. I libri dell'edicola e i romanzi graduati si acquistano singolarmente (€1,49 per livello) oppure completi (€4,99 a titolo)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Funziona senza connessione?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sì. Una volta scaricato un libro o un livello, esercizi, letture e dizionario funzionano offline. Serve la rete solo per gli acquisti e per la sincronizzazione dei progressi."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "In quali lingue è disponibile?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Grammatica, traduzioni e dizionario sono in 14 lingue: albanese, arabo, bengalese, cinese, francese, inglese, olandese, portoghese, rumeno, spagnolo, tagalog, tedesco, tigrino e ucraino."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Va bene per prepararsi a CILS, CELI o PLIDA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sì. Il percorso segue i livelli QCER dall'A1 al C2 con checkpoint ed esami di livello, quindi copre le competenze richieste da quelle certificazioni. Non è però un simulatore d'esame ufficiale."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "È disponibile per Android?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Al momento Ti è un'app per iPhone e iPad. Su Android puoi usare gli oltre 700 esercizi gratuiti di questo sito, che funzionano da qualsiasi browser."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Che differenza c'è tra l'app e le lezioni private?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "L'app ti dà struttura, ripetizione e lessico, e funziona quando vuoi tu. Le lezioni servono per parlare, essere corretto e sbloccarti. Molti studenti usano l'app tra una lezione e l'altra."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 
 <body>
@@ -979,6 +1065,19 @@
         </section>
 
     </main>
+
+    
+    <section class="contenuto">
+      <div class="container container-stretto">
+        <h2>Domande frequenti sull'app Ti</h2>
+        <details class="faq-voce"><summary>Quanto costa l'app Ti?</summary><p>Il download è gratuito e include il percorso QCER e il dizionario. I libri dell'edicola e i romanzi graduati si acquistano singolarmente (€1,49 per livello) oppure completi (€4,99 a titolo).</p></details>
+        <details class="faq-voce"><summary>Funziona senza connessione?</summary><p>Sì. Una volta scaricato un libro o un livello, esercizi, letture e dizionario funzionano offline. Serve la rete solo per gli acquisti e per la sincronizzazione dei progressi.</p></details>
+        <details class="faq-voce"><summary>In quali lingue è disponibile?</summary><p>Grammatica, traduzioni e dizionario sono in 14 lingue: albanese, arabo, bengalese, cinese, francese, inglese, olandese, portoghese, rumeno, spagnolo, tagalog, tedesco, tigrino e ucraino.</p></details>
+        <details class="faq-voce"><summary>Va bene per prepararsi a CILS, CELI o PLIDA?</summary><p>Sì. Il percorso segue i livelli QCER dall'A1 al C2 con checkpoint ed esami di livello, quindi copre le competenze richieste da quelle certificazioni. Non è però un simulatore d'esame ufficiale.</p></details>
+        <details class="faq-voce"><summary>È disponibile per Android?</summary><p>Al momento Ti è un'app per iPhone e iPad. Su Android puoi usare gli oltre 700 esercizi gratuiti di questo sito, che funzionano da qualsiasi browser.</p></details>
+        <details class="faq-voce"><summary>Che differenza c'è tra l'app e le lezioni private?</summary><p>L'app ti dà struttura, ripetizione e lessico, e funziona quando vuoi tu. Le lezioni servono per parlare, essere corretto e sbloccarti. Molti studenti usano l'app tra una lezione e l'altra.</p></details>
+      </div>
+    </section>
 
     <footer>
 

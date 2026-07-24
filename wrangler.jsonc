@@ -1,15 +1,19 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "studente-thuisitaliaans",
-  "main": "src/index.js", 
+  "main": "js/index.js",
   "compatibility_date": "2026-07-19",
-  "observability": {
-    "enabled": true
-  },
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true },
   "assets": {
-    "directory": "./public"
+    "directory": ".",
+    "binding": "ASSETS"
   },
-  "compatibility_flags": [
-    "nodejs_compat"
+  "vars": {
+    "MAIL_A": "thuisitaliaans@gmail.com",
+    "MAIL_DA": "modulo@thuisitaliaans.com"
+  },
+  "send_email": [
+    { "name": "EMAIL", "destination_address": "thuisitaliaans@gmail.com" }
   ]
 }
