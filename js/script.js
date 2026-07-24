@@ -3,6 +3,8 @@
 ========================================== */
 document.addEventListener('DOMContentLoaded', () => {
 /* ===== REVIEWS CAROUSEL ===== */
+const LG = (document.documentElement.lang || 'nl').slice(0,2).toLowerCase();
+const ETICHETTA = ({nl:'Ga naar review', en:'Go to review', it:'Vai alla recensione'})[LG] || 'Ga naar review';
 const track = document.getElementById('carouselTrack');
 const dotsWrap = document.getElementById('carouselDots');
 const prevBtn = document.querySelector('.carousel-prev');
@@ -12,7 +14,7 @@ const cards = Array.from(track.children);
 // build dots
 cards.forEach((_, i) => {
 const dot = document.createElement('button');
-dot.setAttribute('aria-label', `Ga naar review ${i + 1}`);
+dot.setAttribute('aria-label', `${ETICHETTA} ${i + 1}`);
 if (i === 0) dot.classList.add('active');
 dot.addEventListener('click', () => {
 cards[i].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
