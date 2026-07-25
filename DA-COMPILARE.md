@@ -107,3 +107,45 @@ Dei buchi individuati nella competitor analysis, questi restano aperti:
 
 Il consolidamento del blog resta la cosa a più alto impatto: finché quel
 cluster è lì, anche queste pagine nuove partono in salita.
+
+---
+
+## 6. Pagine livello A1–C2 — i romanzi
+
+Le sei pagine `libri-italiano-facile-{a1..c2}.html` hanno il blocco dei
+romanzi **vuoto**, con un avviso visibile. Non ho inventato l'assegnazione
+dei titoli ai livelli perché non la conosco.
+
+Per completarle, apri `genera-livelli.py`, riempi la lista `libri` di ogni
+livello e rilancia lo script:
+
+```python
+"B1": {
+    ...
+    "libri": [
+        {"titolo": "Il servitore di due padroni", "autore": "Goldoni",
+         "nota": "20 capitoli, 60 voci di lessico"},
+        {"titolo": "Gian Burrasca", "autore": "Vamba", "nota": ""},
+    ],
+```
+
+```
+python3 genera-livelli.py
+```
+
+Le sei pagine si rigenerano con i titoli al posto dell'avviso.
+
+**Finché il blocco è vuoto, non pubblicare le pagine livello.** Il CTA in
+`ti-cta.js` ci punta: meglio lasciarlo su A1 per qualche giorno che mandare
+gli utenti su pagine con un avviso di redazione visibile.
+
+## 7. Le due lingue delle pagine livello
+
+Le sei pagine sono in **italiano**, coerenti con `/esercizi/` e con lo slug
+`libri-italiano-facile-*` a cui `ti-cta.js` già punta, e con il fatto che il
+CTA compare su post del blog in italiano.
+
+Se in futuro vuoi intercettare anche query olandesi tipo *"wat is niveau B1
+Italiaans"*, servono pagine separate (`/italiaans-niveau-b1`) collegate a
+queste con hreflang — **non** tradurre queste in olandese, altrimenti perdi
+la corrispondenza con il CTA e con gli slug esistenti.
