@@ -74,32 +74,48 @@ async function gestisciContatto(request, env) {
 
 /* ------------------------------------------------------------------
  * Risoluzione URL dopo la riorganizzazione in cartelle.
- * Gli URL pubblici NON cambiano: /zakelijk-italiaans continua a
- * rispondere 200 anche se il file ora sta in /lessen/.
- * Ordine di ricerca: root → lessen → niveaus.
+ * Gli URL pubblici NON cambiano: /zakelijk-italiaans risponde 200
+ * anche se il file ora sta in /lessen/.
+ *
+ * Nota su Cloudflare: wrangler.jsonc non imposta html_handling, quindi
+ * vale il default "auto-trailing-slash":
+ *   GET /foo        -> serve /foo.html          (200)
+ *   GET /foo.html   -> redirect a /foo          (mai 200)
+ *   GET /cartella/  -> serve /cartella/index.html
+ * Per questo qui si chiede sempre la forma SENZA estensione.
  * ------------------------------------------------------------------ */
 const CARTELLE = ["", "lessen/", "niveaus/"];
+const PASSANTI = /^\/(assets|css|js|esercizi|blog|libri|boeken|books|lingue|it|en)\//;
 
-async function risolviAsset(request, env) {
-	const url = new URL(request.url);
-	let p = url.pathname;
-
-	// Le cartelle già organizzate e i file statici passano diretti.
-	if (/^\/(assets|css|js|esercizi|blog|libri|boeken|books|lingue|it|en)\//.test(p)
-	    || /\.[a-z0-9]{2,5}$/i.test(p) && !p.endsWith(".html")) {
-		return env.ASSETS.fetch(request);
-	}
-
-	// Nome del documento, senza slash iniziale ed estensione.
-	let nome = p.replace(/^\//, "").replace(/\/$/, "").replace(/\.html$/, "");
-	if (!nome) return env.ASSETS.fetch(request);
-
+async function trovaIn(nome, url, request, env) {
 	for (const cartella of CARTELLE) {
-		const prova = new URL(`/${cartella}${nome}.html`, url.origin);
+		const prova = new URL(`/${cartella}${nome}`, url.origin);
 		const r = await env.ASSETS.fetch(new Request(prova, request));
 		if (r.status === 200) return r;
 	}
-	return env.ASSETS.fetch(request);
+	return null;
+}
+
+async function risolviAsset(request, env) {
+	const url = new URL(request.url);
+	const p = url.pathname;
+
+	// Cartelle già organizzate e file statici: passano diretti.
+	if (PASSANTI.test(p) || (/\.[a-z0-9]{2,5}$/i.test(p) && !p.endsWith(".html"))) {
+		return env.ASSETS.fetch(request);
+	}
+
+	// Richiesta con .html: si redirige alla forma canonica senza estensione.
+	if (p.endsWith(".html")) {
+		const pulito = p.replace(/\/index\.html$/, "/").replace(/\.html$/, "");
+		return Response.redirect(new URL(pulito + url.search, url.origin).toString(), 301);
+	}
+
+	const nome = p.replace(/^\//, "").replace(/\/$/, "");
+	if (!nome) return env.ASSETS.fetch(request);
+
+	const trovato = await trovaIn(nome, url, request, env);
+	return trovato || env.ASSETS.fetch(request);
 }
 
 export default {
