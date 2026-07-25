@@ -73,6 +73,88 @@ async function gestisciContatto(request, env) {
 
 
 /* ------------------------------------------------------------------
+ * 301 permanenti.
+ *
+ * 1) Vecchi articoli del blog accorpati in una pagina unica.
+ *    Erano stub in noindex con un link "questo articolo e' stato
+ *    ampliato": un 301 passa il valore dei link invece di sprecarlo.
+ * 2) Percorsi interni delle cartelle di riorganizzazione. Le pagine
+ *    sono servite alla radice; /lessen/x e /niveaus/x rispondevano
+ *    200 sulla stessa pagina, creando un secondo URL per lo stesso
+ *    contenuto.
+ * ------------------------------------------------------------------ */
+const REDIRECT_301 = {
+ "/blog/achieving-italian-language-certification-personalized-lessons": "/why-thuis-italiaans",
+ "/blog/custom-italian-courses-designed-for-effective-learning": "/why-thuis-italiaans",
+ "/blog/customized-italian-courses": "/why-thuis-italiaans",
+ "/blog/discover-our-customized-italian-courses": "/why-thuis-italiaans",
+ "/blog/discover-personalized-italian-language-courses": "/why-thuis-italiaans",
+ "/blog/discover-the-joy-of-learning-italian-online-with-me": "/why-thuis-italiaans",
+ "/blog/discover-the-unique-approach-to-learning-italian-with-alessio": "/why-thuis-italiaans",
+ "/blog/dive-into-interactive-italian-learning": "/why-thuis-italiaans",
+ "/blog/elevate-your-italian-learning-with-expert-led-online-courses": "/why-thuis-italiaans",
+ "/blog/embrace-the-richness-of-italian-culture": "/why-thuis-italiaans",
+ "/blog/engaging-personalized-italian-language-courses": "/why-thuis-italiaans",
+ "/blog/enhance-your-italian-listening-skills": "/why-thuis-italiaans",
+ "/blog/enhance-your-italian-with-conversational-classes": "/why-thuis-italiaans",
+ "/blog/enhance-your-italian-with-our-expert-led-online-courses": "/why-thuis-italiaans",
+ "/blog/expertly-crafted-italian-courses-with-alessio": "/why-thuis-italiaans",
+ "/blog/explore-personalized-online-italian-classes-tailored-to-you": "/why-thuis-italiaans",
+ "/blog/immerse-yourself-in-italian-culture-with-customized-language-classes": "/why-thuis-italiaans",
+ "/blog/impara-litaliano-ovunque-lezioni-online-e-in-presenza-ad-amsterdam": "/why-thuis-italiaans",
+ "/blog/italiaans-leren-in-amsterdam-privelessen-groepslessen-en-online-cursussen": "/waarom-thuis-italiaans",
+ "/blog/italian-classes-from-home": "/why-thuis-italiaans",
+ "/blog/italian-classes-near-you-and-online": "/why-thuis-italiaans",
+ "/blog/italian-courses-for-kids-play-learn-and-grow-with-tailored-italian-lessons": "/why-thuis-italiaans",
+ "/blog/italian-culture-courses": "/why-thuis-italiaans",
+ "/blog/italian-for-specific-professions-tailored-courses-for-healthcare-law-and-hospitality-and-more": "/why-thuis-italiaans",
+ "/blog/italian-for-travel-your-ultimate-guide": "/why-thuis-italiaans",
+ "/blog/italian-language-immersion-dive-deep-with-online-italian-lessons": "/why-thuis-italiaans",
+ "/blog/italian-private-classes-discover-the-advantages-of-personalized-learning": "/why-thuis-italiaans",
+ "/blog/learn-italian-as-a-kid-with-me": "/why-thuis-italiaans",
+ "/blog/learn-italian-comprehensive-guide-to-fast-and-effective-learning": "/why-thuis-italiaans",
+ "/blog/learn-italian-for-daily-use": "/why-thuis-italiaans",
+ "/blog/learn-italian-online-with-alessio": "/why-thuis-italiaans",
+ "/blog/learn-italian-online-with-confidence-and-alessio": "/why-thuis-italiaans",
+ "/blog/learn-italian-with-our-self-study-materials": "/why-thuis-italiaans",
+ "/blog/learning-italian-courses-and-tips-for-every-learner": "/why-thuis-italiaans",
+ "/blog/learning-italian-online-for-business-with-alessio": "/why-thuis-italiaans",
+ "/blog/leer-overal-italiaans-online-lessen-en-fysieke-lessen-in-amsterdam": "/waarom-thuis-italiaans",
+ "/blog/master-italian-for-business-with-alessio": "/why-thuis-italiaans",
+ "/blog/master-italian-pronunciation-with-expert-guidance": "/why-thuis-italiaans",
+ "/blog/master-italian-with-tailored-language-courses": "/why-thuis-italiaans",
+ "/blog/mastering-italian-gestures-with-italian-classes": "/why-thuis-italiaans",
+ "/blog/mastering-italian-online": "/why-thuis-italiaans",
+ "/blog/mastering-the-italian-language": "/why-thuis-italiaans",
+ "/blog/navigating-italian-learning-courses": "/why-thuis-italiaans",
+ "/blog/online-italian-courses-with-alessio": "/why-thuis-italiaans",
+ "/blog/personalized-italian-classes-tailored-just-for-you": "/why-thuis-italiaans",
+ "/blog/personalized-italian-language-learning-customized-courses-for-all-levels": "/why-thuis-italiaans",
+ "/blog/private-italian-classes-unlock-your-italian-language-potential-with-a-personalized-approach": "/why-thuis-italiaans",
+ "/blog/private-italian-course-exclusive-tailored-education-for-every-learner": "/why-thuis-italiaans",
+ "/blog/private-italian-lessons-master-the-language-with-customized-one-on-one-instruction": "/why-thuis-italiaans",
+ "/blog/speak-italian-like-a-local-with-alessio": "/why-thuis-italiaans",
+ "/blog/tailored-italian-courses-and-innovative-methodology": "/why-thuis-italiaans",
+ "/blog/the-power-of-one-on-one-italian-learning": "/why-thuis-italiaans",
+ "/blog/transform-your-italian-learning-experience": "/why-thuis-italiaans",
+ "/blog/unlocking-italian-fluency-custom-courses-for-you": "/why-thuis-italiaans"
+};
+
+const CARTELLE_INTERNE = /^\/(lessen|niveaus)\/([a-z0-9-]+)\/?$/;
+
+function redirectPermanente(url) {
+	const p = url.pathname.replace(/\/$/, "") || "/";
+
+	const diretto = REDIRECT_301[p];
+	if (diretto) return new URL(diretto + url.search, url.origin).toString();
+
+	const interno = p.match(CARTELLE_INTERNE);
+	if (interno) return new URL("/" + interno[2] + url.search, url.origin).toString();
+
+	return null;
+}
+
+/* ------------------------------------------------------------------
  * Risoluzione URL dopo la riorganizzazione in cartelle.
  * Gli URL pubblici NON cambiano: /zakelijk-italiaans risponde 200
  * anche se il file ora sta in /lessen/.
@@ -84,7 +166,7 @@ async function gestisciContatto(request, env) {
  *   GET /cartella/  -> serve /cartella/index.html
  * Per questo qui si chiede sempre la forma SENZA estensione.
  * ------------------------------------------------------------------ */
-const CARTELLE = ["", "lessen/", "niveaus/"];
+const CARTELLE = ["", "lessen/", "niveaus/", "app/"];
 const PASSANTI = /^\/(assets|css|js|esercizi|blog|libri|boeken|books|lingue|it|en)\//;
 
 async function trovaIn(nome, url, request, env) {
@@ -122,6 +204,9 @@ export default {
 	async fetch(request, env, ctx) {
 		const url = new URL(request.url);
 		if (url.pathname === "/api/contatto") return gestisciContatto(request, env);
+
+		const permanente = redirectPermanente(url);
+		if (permanente) return Response.redirect(permanente, 301);
 
 		const asset = await risolviAsset(request, env);
 		const contentType = asset.headers.get("content-type") || "";

@@ -1,0 +1,23 @@
+FILE MODIFICATI — versione corretta — 25 luglio 2026
+Stesso percorso nel repo. NIENTE DA CANCELLARE.
+
+app-ti.html         RESTANO IN RADICE, stesso nome, stesso URL.
+app-privacy.html    Sono le versioni pre-generate nella lingua di
+app-termini.html    default (it / nl), ora con hreflang, canonical e
+app-support.html    selettore di lingua a link. I link di App Store
+                    Connect e dei siti esterni continuano a funzionare
+                    esattamente come prima.
+
+app/  56 file       SOLO le 14 lingue aggiuntive per pagina.
+                    URL: /app-ti-en, /app-ti-de, /app-privacy-fr ...
+
+js/index.js         aggiunta la cartella app/ alla risoluzione URL.
+                    (Contiene gia' i 54 redirect 301 del primo giro.)
+index.html          telefono, indirizzo, mappa e link recensioni Google
+                    nello schema; blocco NAP nel footer; title con
+                    keyword; meta description. HERO E H1 NON TOCCATI.
+css/style.css       .footer-google
+sitemap.xml         1261 URL, le 4 voci app sostituite dalle 60.
+
+NON TOCCATI: libri/ books/ boeken/ libri.html books.html boeken.html
+             e le rispettive pagine privacy.

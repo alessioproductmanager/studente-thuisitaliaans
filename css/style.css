@@ -966,3 +966,63 @@ padding:7px 16px;
 font-size:.92rem;
 color:var(--secondary);
 }
+
+
+/* ==========================================
+   FOOTER — mappa del sito (link alle pagine interne)
+========================================== */
+.footer-sitemap{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:34px;
+padding:46px 0 10px;
+border-top:1px solid var(--border);
+}
+.footer-sitemap h2{
+font-size:.82rem;
+text-transform:uppercase;
+letter-spacing:.5px;
+font-weight:700;
+color:var(--primary);
+margin-bottom:14px;
+}
+.footer-sitemap ul{margin:0;}
+.footer-sitemap li{margin-bottom:9px;}
+.footer-sitemap a{
+font-size:.95rem;
+color:var(--secondary);
+transition:var(--transition);
+}
+.footer-sitemap a:hover{color:var(--primary);}
+@media(max-width:900px){
+.footer-sitemap{grid-template-columns:repeat(2,1fr);gap:28px;}
+}
+@media(max-width:560px){
+.footer-sitemap{grid-template-columns:1fr;gap:24px;padding-top:36px;}
+}
+
+
+/* ==========================================
+   FOOTER — scheda Google (NAP, mappa, recensioni)
+========================================== */
+.footer-google{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:34px;
+padding:34px 0 6px;
+border-top:1px solid var(--border);
+}
+.footer-google h2{
+font-size:.82rem;
+text-transform:uppercase;
+letter-spacing:.5px;
+font-weight:700;
+color:var(--primary);
+margin-bottom:14px;
+}
+.footer-google p{font-size:.95rem;line-height:1.9;}
+.footer-google a{color:var(--secondary);transition:var(--transition);}
+.footer-google a:hover{color:var(--primary);text-decoration:underline;}
+@media(max-width:560px){
+.footer-google{grid-template-columns:1fr;gap:24px;}
+}
