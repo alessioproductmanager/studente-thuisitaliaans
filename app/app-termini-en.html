@@ -276,11 +276,12 @@
         const saved = localStorage.getItem('ti-lang');
         if(saved && data[saved]) initial = saved;
       } catch(e){}
-      // browser language auto-detect on first visit
-      if(!localStorage.getItem('ti-lang')){
-        const browserLang = (navigator.language || 'nl').slice(0, 2).toLowerCase();
-        if(data[browserLang]) initial = browserLang;
-      }
+      // La lingua dell'URL vince sempre: questa pagina ESISTE in quella
+      // lingua e ha il suo canonical. Sovrascriverla con navigator.language
+      // rompeva l'hreflang e mostrava a Googlebot (che si presenta con "en")
+      // il contenuto inglese su tutte e 15 le versioni.
+      const langUrl = (document.documentElement.getAttribute('lang') || '').slice(0, 2).toLowerCase();
+      if(data[langUrl]) initial = langUrl;
       render(initial);
     })();
     </script>
