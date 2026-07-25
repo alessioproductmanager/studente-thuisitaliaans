@@ -15,7 +15,7 @@
 # matcha: i gruppi non si sommano. Elencare un bot in un gruppo proprio
 # con solo "Allow: /" gli farebbe ignorare i Disallow del gruppo "*".
 # Per questo i bot ammessi NON hanno un gruppo dedicato: sono già
-# coperti dal gruppo "*" qui sotto, Disallow inclusi. E 
+# coperti dal gruppo "*" qui sotto, Disallow inclusi.
 # ====================================================================
 
 # --------------------------------------------------------------------

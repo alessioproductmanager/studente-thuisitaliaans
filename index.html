@@ -805,7 +805,7 @@
 
             <a href="#" class="logo">
 
-                <img src="assets/icons/icon-512.png" alt="Thuis Italiaans" class="logo-mark">
+                <img src="assets/icons/icon-512.png" alt="Thuis Italiaans" class="logo-mark" width="512" height="512" fetchpriority="high">
 
             </a>
 
@@ -905,7 +905,7 @@
 
                     <div class="hero-rating">
 
-                        <div class="stars">
+                        <div class="stars" aria-label="Gemiddelde beoordeling: 5 van de 5 sterren">
 
                             ★★★★★
 
@@ -925,7 +925,7 @@
 
                     <div class="video-card">
 
-                        <video controls poster="assets/images/poster.jpg">
+                        <video controls preload="none" poster="assets/images/poster.jpg">
 
                             <source src="assets/video/intro.mp4" type="video/mp4">
 
@@ -949,7 +949,7 @@
 
                 <article>
 
-                    <h3>30+</h3>
+                    <p class="trust-value">30+</p>
 
                     <p>Tevreden studenten</p>
 
@@ -957,7 +957,7 @@
 
                 <article>
 
-                    <h3>★★★★★</h3>
+                    <p class="trust-value" aria-label="Gemiddelde beoordeling: 5 van de 5 sterren">★★★★★</p>
 
                     <p>Gemiddelde beoordeling</p>
 
@@ -965,7 +965,7 @@
 
                 <article>
 
-                    <h3>6+</h3>
+                    <p class="trust-value">6+</p>
 
                     <p>Jaar ervaring</p>
 
@@ -973,7 +973,7 @@
 
                 <article>
 
-                    <h3>Online & Locatie</h3>
+                    <p class="trust-value">Online &amp; Locatie</p>
 
                     <p>Ede t/m Amsterdam, en online wereldwijd</p>
 
@@ -1707,7 +1707,7 @@
 
             <a href="#" class="logo">
 
-                <img src="assets/icons/icon-512.png" alt="Thuis Italiaans" class="logo-mark">
+                <img src="assets/icons/icon-512.png" alt="Thuis Italiaans" class="logo-mark" width="512" height="512" loading="lazy" decoding="async">
 
             </a>
 
@@ -1747,13 +1747,13 @@
 
     </footer>
 
-    <script src="js/script.js"></script>
-    <script src="js/nav.js"></script>
+    <script src="js/script.js" defer></script>
+    <script src="js/nav.js" defer></script>
 
 
 
-    <script src="js/lingua.js"></script>
-    <script src="js/modulo-contatto.js"></script>
+    <script src="js/lingua.js" defer></script>
+    <script src="js/modulo-contatto.js" defer></script>
 </body>
 
 </html>
