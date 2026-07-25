@@ -1,43 +1,61 @@
-/* ti-cta.js — banner CTA multilingua + CTA libri per livello
+/* ti-cta.js v2 — banner CTA multilingua + CTA libri per livello
  *
- * Nessun analytics, nessun cookie, nessun localStorage, nessuna richiesta di rete.
- * Legge solo navigator.languages (non richiede consenso GDPR: non è storage).
+ * AUTOSUFFICIENTE. Non devi incollare HTML né CSS da nessuna parte.
+ * L'unica cosa da aggiungere ai template è questa riga prima di </body>:
  *
- * PRINCIPIO SEO: l'HTML della pagina contiene già la versione nella lingua
- * della pagina. Questo script SOSTITUISCE il testo solo se il browser è
- * impostato su un'altra lingua supportata. Senza JS il blocco funziona lo
- * stesso, e Google indicizza la versione server-side.
+ *     <script src="/js/ti-cta.js" defer></script>
  *
- * USO:
- *   <script src="/js/ti-cta.js" defer></script>
+ * Lo script fa tutto il resto:
+ *   - inietta il proprio CSS
+ *   - decide quale blocco serve in base alla pagina
+ *   - lo inserisce in fondo all'articolo
+ *   - risolve il livello CEFR leggendo la categoria dalla pagina
+ *   - traduce nella lingua del browser (15 lingue)
+ *
+ * Se in una pagina vuoi controllare tu il blocco, inserisci a mano un
+ * <aside data-ti-cta="app|esercizi|libri" data-livello="B1"></aside>:
+ * quando ne trova almeno uno, l'inserimento automatico si disattiva.
+ *
+ * Nessun cookie, nessun localStorage, nessuna richiesta di rete,
+ * nessun analytics. Legge solo navigator.languages.
  */
 (function () {
   'use strict';
 
+  /* ------------------------------------------------------------------ *
+   * CONFIGURAZIONE
+   * ------------------------------------------------------------------ */
+
+  var CFG = {
+    autoInserimento: true,
+    urlApp: '/app-ti.html',
+    libri: {
+      A1: '/libri-italiano-facile-a1.html',
+      A2: '/libri-italiano-facile-a2.html',
+      B1: '/libri-italiano-facile-b1.html',
+      B2: '/libri-italiano-facile-b2.html',
+      C1: '/libri-italiano-facile-c1.html',
+      C2: '/libri-italiano-facile-c2.html'
+    },
+    /* Livello del blocco libri in base alla categoria del post. */
+    livelloPerCategoria: {
+      'language-hacking': 'A1',
+      'cultura-italiana': 'A2',
+      'modi-di-dire': 'B1',
+      'reading-practice': 'B2'
+    },
+    /* Categorie dove il blocco libri è fuori posto: mostra l'app. */
+    categorieSenzaLibri: ['for-teachers', 'italian-classes'],
+    livelloDefault: 'A2',
+    colore: '#31394d'
+  };
+
   var LINGUE = ['sq','ar','bn','zh','de','en','es','fr','it','nl','pt','ro','tl','ti','uk'];
   var RTL = { ar: true };
 
-  /* URL dei libri per livello. Cambia qui se cambi i nomi dei file. */
-  var LIBRI = {
-    A1: '/libri-italiano-facile-a1.html',
-    A2: '/libri-italiano-facile-a2.html',
-    B1: '/libri-italiano-facile-b1.html',
-    B2: '/libri-italiano-facile-b2.html',
-    C1: '/libri-italiano-facile-c1.html',
-    C2: '/libri-italiano-facile-c2.html'
-  };
-
-  /* Fallback: livello dedotto dalla categoria del post, se manca data-livello.
-     Le categorie senza livello (for-teachers, italian-classes) non mostrano
-     il blocco libri: cambia il data-ti-cta a "app" su quelle pagine. */
-  var LIVELLO_PER_CATEGORIA = {
-    'language-hacking': 'A1',
-    'cultura-italiana': 'A2',
-    'modi-di-dire': 'B1',
-    'reading-practice': 'B2'
-  };
-
-  var LIVELLO_DEFAULT = 'A2';
+  /* ------------------------------------------------------------------ *
+   * TRADUZIONI
+   * ------------------------------------------------------------------ */
 
   var T = {
     it: {
@@ -209,45 +227,137 @@
 
   var PREFISSI = { app: 'app', esercizi: 'ese', libri: 'lib' };
 
+  /* ------------------------------------------------------------------ *
+   * CSS (iniettato una sola volta)
+   * ------------------------------------------------------------------ */
+
+  function iniettaCss() {
+    if (document.getElementById('ti-cta-css')) return;
+    var c = CFG.colore;
+    var css =
+      '.ti-cta{margin:3rem 0 0;padding:1.5rem 1.75rem;' +
+      'border:1px solid ' + c + '2e;border-left:3px solid ' + c + ';' +
+      'border-radius:10px;background:' + c + '0a;}' +
+      '.ti-cta__t{margin:0 0 .4rem;font-size:1.05rem;line-height:1.3;font-weight:700;color:' + c + ';}' +
+      '.ti-cta__d{margin:0 0 .9rem;font-size:.95rem;line-height:1.55;opacity:.85;}' +
+      '.ti-cta__a{display:inline-block;font-weight:600;text-decoration:none;color:' + c + ';' +
+      'border-bottom:2px solid currentColor;padding-bottom:1px;}' +
+      '.ti-cta__a:hover,.ti-cta__a:focus-visible{opacity:.7;}' +
+      '.ti-cta[dir="rtl"]{border-left:1px solid ' + c + '2e;border-right:3px solid ' + c + ';}' +
+      '@media(prefers-color-scheme:dark){.ti-cta{background:#ffffff0d;border-color:#ffffff26;}' +
+      '.ti-cta__t,.ti-cta__a{color:inherit;}}';
+    var s = document.createElement('style');
+    s.id = 'ti-cta-css';
+    s.textContent = css;
+    document.head.appendChild(s);
+  }
+
+  /* ------------------------------------------------------------------ *
+   * LINGUA
+   * ------------------------------------------------------------------ */
+
+  function normalizza(code) {
+    code = String(code || '').toLowerCase().split('-')[0];
+    if (code === 'fil') return 'tl';
+    if (code === 'tir') return 'ti';
+    return code;
+  }
+
   function linguaBrowser() {
-    var lista = navigator.languages && navigator.languages.length
-      ? navigator.languages
-      : [navigator.language || 'it'];
+    var lista = (navigator.languages && navigator.languages.length)
+      ? navigator.languages : [navigator.language || ''];
     for (var i = 0; i < lista.length; i++) {
-      var code = String(lista[i]).toLowerCase().split('-')[0];
-      if (code === 'fil') code = 'tl';          /* Filippino → Tagalog */
-      if (code === 'tir') code = 'ti';
-      if (LINGUE.indexOf(code) !== -1) return code;
+      var c = normalizza(lista[i]);
+      if (LINGUE.indexOf(c) !== -1) return c;
     }
     return null;
   }
 
   function linguaPagina() {
-    var l = (document.documentElement.getAttribute('lang') || 'it').toLowerCase().split('-')[0];
+    var l = normalizza(document.documentElement.getAttribute('lang') || 'it');
     return LINGUE.indexOf(l) !== -1 ? l : 'it';
   }
 
-  function livelloDi(blocco) {
-    /* 1. attributo esplicito sul blocco */
-    var l = blocco.getAttribute('data-livello');
-    if (l) return l.toUpperCase();
-    /* 2. <meta name="livello" content="B1"> nella pagina */
-    var meta = document.querySelector('meta[name="livello"]');
-    if (meta && meta.content) return meta.content.toUpperCase();
-    /* 3. categoria del post */
-    var cat = document.querySelector('meta[name="categoria"]');
-    if (cat && LIVELLO_PER_CATEGORIA[cat.content]) return LIVELLO_PER_CATEGORIA[cat.content];
-    /* 4. categoria dedotta dall'URL (…/category-modi-di-dire.html o body class) */
-    var chiavi = Object.keys(LIVELLO_PER_CATEGORIA);
-    var corpo = document.body.className + ' ' + location.pathname;
-    for (var i = 0; i < chiavi.length; i++) {
-      if (corpo.indexOf(chiavi[i]) !== -1) return LIVELLO_PER_CATEGORIA[chiavi[i]];
+  /* ------------------------------------------------------------------ *
+   * CATEGORIA E LIVELLO
+   * ------------------------------------------------------------------ */
+
+  /* La categoria si legge dal link "category-…" che ogni post ha già in
+     pagina. Nessuna modifica ai tuoi file necessaria. */
+  function categoriaPagina() {
+    var meta = document.querySelector('meta[name="categoria"]');
+    if (meta && meta.content) return meta.content.toLowerCase();
+
+    var link = document.querySelector('a[href*="category-"]');
+    if (link) {
+      var m = link.getAttribute('href').match(/category-([a-z0-9-]+)/i);
+      if (m) return m[1].toLowerCase();
     }
-    return LIVELLO_DEFAULT;
+
+    var testo = (document.body.className + ' ' + location.pathname).toLowerCase();
+    var tutte = Object.keys(CFG.livelloPerCategoria).concat(CFG.categorieSenzaLibri);
+    for (var i = 0; i < tutte.length; i++) {
+      if (testo.indexOf(tutte[i]) !== -1) return tutte[i];
+    }
+    return null;
   }
 
-  function scrivi(el, testo) {
-    if (el && testo) el.textContent = testo;
+  function livelloDi(blocco) {
+    var esplicito = blocco && blocco.getAttribute('data-livello');
+    if (esplicito) return esplicito.toUpperCase();
+
+    var meta = document.querySelector('meta[name="livello"]');
+    if (meta && meta.content) return meta.content.toUpperCase();
+
+    var cat = categoriaPagina();
+    if (cat && CFG.livelloPerCategoria[cat]) return CFG.livelloPerCategoria[cat];
+
+    return CFG.livelloDefault;
+  }
+
+  /* ------------------------------------------------------------------ *
+   * QUALE BLOCCO SERVE IN QUESTA PAGINA
+   * ------------------------------------------------------------------ */
+
+  function tipoPerPagina() {
+    var p = location.pathname.toLowerCase();
+    var eIndice = /(^|\/)(index(\.html)?)?$/.test(p) || p.indexOf('category-') !== -1;
+
+    if (p.indexOf('/esercizi') !== -1) return 'esercizi';
+
+    if (p.indexOf('/blog') !== -1) {
+      if (eIndice) return null;              /* niente sugli indici e sulle categorie */
+      var cat = categoriaPagina();
+      if (cat && CFG.categorieSenzaLibri.indexOf(cat) !== -1) return 'app';
+      return 'libri';
+    }
+    return null;
+  }
+
+  function contenitore() {
+    var candidati = ['article', '.post-content', '.entry-content', '.contenuto',
+                     '.articolo', 'main', '#content'];
+    for (var i = 0; i < candidati.length; i++) {
+      var el = document.querySelector(candidati[i]);
+      if (el) return el;
+    }
+    return null;
+  }
+
+  /* ------------------------------------------------------------------ *
+   * COSTRUZIONE E TRADUZIONE
+   * ------------------------------------------------------------------ */
+
+  function costruisci(tipo) {
+    var el = document.createElement('aside');
+    el.className = 'ti-cta ti-cta--' + tipo;
+    el.setAttribute('data-ti-cta', tipo);
+    el.setAttribute('data-ti-auto', '1');
+    el.innerHTML =
+      '<p class="ti-cta__t" data-ti="titolo"></p>' +
+      '<p class="ti-cta__d" data-ti="testo"></p>' +
+      '<a class="ti-cta__a" data-ti="cta" href="#"></a>';
+    return el;
   }
 
   function applica(blocco, lingua) {
@@ -255,42 +365,56 @@
     var p = PREFISSI[tipo];
     if (!p) return;
 
-    var dizionario = T[lingua] || T.it;
-    var livello = livelloDi(blocco);
-
-    var titolo = blocco.querySelector('[data-ti="titolo"]');
-    var testo = blocco.querySelector('[data-ti="testo"]');
-    var cta = blocco.querySelector('[data-ti="cta"]');
-
+    var diz = T[lingua] || T.it;
+    var liv = livelloDi(blocco);
     var freccia = RTL[lingua] ? ' \u2190' : ' \u2192';
 
-    scrivi(titolo, dizionario[p + '_t'].replace('{L}', livello));
-    scrivi(testo, dizionario[p + '_d'].replace('{L}', livello));
-    if (cta) {
-      cta.textContent = dizionario[p + '_c'].replace('{L}', livello) + freccia;
-      if (tipo === 'libri' && LIBRI[livello]) cta.setAttribute('href', LIBRI[livello]);
+    var t = blocco.querySelector('[data-ti="titolo"]');
+    var d = blocco.querySelector('[data-ti="testo"]');
+    var a = blocco.querySelector('[data-ti="cta"]');
+
+    if (t) t.textContent = diz[p + '_t'].replace('{L}', liv);
+    if (d) d.textContent = diz[p + '_d'].replace('{L}', liv);
+    if (a) {
+      a.textContent = diz[p + '_c'].replace('{L}', liv) + freccia;
+      if (tipo === 'libri') {
+        a.setAttribute('href', CFG.libri[liv] || CFG.libri[CFG.livelloDefault]);
+      } else if (!a.getAttribute('href') || a.getAttribute('href') === '#') {
+        a.setAttribute('href', CFG.urlApp);
+      }
     }
 
     blocco.setAttribute('lang', lingua);
     blocco.setAttribute('dir', RTL[lingua] ? 'rtl' : 'ltr');
   }
 
+  /* ------------------------------------------------------------------ *
+   * AVVIO
+   * ------------------------------------------------------------------ */
+
   function init() {
-    var blocchi = document.querySelectorAll('[data-ti-cta]');
-    if (!blocchi.length) return;
+    var lingua = linguaBrowser() || linguaPagina();
+    var esistenti = document.querySelectorAll('[data-ti-cta]');
 
-    var pagina = linguaPagina();
-    var browser = linguaBrowser();
-    var lingua = browser || pagina;
-
-    for (var i = 0; i < blocchi.length; i++) {
-      var b = blocchi[i];
-      /* Il livello va sempre risolto, anche se la lingua non cambia:
-         così la CTA libri smette di puntare sempre ad A1. */
-      if (lingua !== pagina || b.getAttribute('data-ti-cta') === 'libri') {
-        applica(b, lingua);
-      }
+    if (esistenti.length) {
+      /* Blocchi messi a mano: lo script li traduce e basta. */
+      iniettaCss();
+      for (var i = 0; i < esistenti.length; i++) applica(esistenti[i], lingua);
+      return;
     }
+
+    if (!CFG.autoInserimento) return;
+
+    var tipo = tipoPerPagina();
+    if (!tipo) return;
+
+    var padre = contenitore();
+    if (!padre) return;
+
+    iniettaCss();
+    var blocco = costruisci(tipo);
+    padre.appendChild(blocco);
+    applica(blocco, lingua);
   }
 
   if (document.readyState === 'loading') {
