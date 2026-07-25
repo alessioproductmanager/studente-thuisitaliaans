@@ -1,0 +1,5 @@
+# File che non devono finire online.
+*.md
+*.py
+.DS_Store
+__MACOSX/
