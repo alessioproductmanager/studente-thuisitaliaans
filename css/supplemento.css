@@ -1,0 +1,107 @@
+/* ==========================================
+   SUPPLEMENTO — solo ciò che manca in style.css
+   Da appendere in fondo a style.css, oppure servire come file a parte.
+   Usa le variabili già definite: --primary --secondary --surface --border
+   --radius --shadow --transition
+========================================== */
+
+/* Riquadro di nota — variante di .ex-passo, senza griglia */
+.nota{
+background:var(--surface);
+border-left:3px solid var(--primary);
+border-radius:0 var(--radius) var(--radius) 0;
+padding:24px 28px;
+margin:34px 0;
+}
+.nota p:last-child{margin-bottom:0;}
+.nota p{color:var(--secondary);}
+
+/* Elenco con spunta */
+.elenco-check{margin:20px 0;}
+.elenco-check li{
+position:relative;
+padding-left:30px;
+margin-bottom:12px;
+color:var(--secondary);
+font-size:1.06rem;
+line-height:1.7;
+}
+.elenco-check li::before{
+content:"";
+position:absolute;
+left:2px;top:.6em;
+width:10px;height:6px;
+border-left:2.5px solid var(--primary);
+border-bottom:2.5px solid var(--primary);
+transform:rotate(-45deg);
+}
+.elenco-check li strong{color:var(--primary);}
+
+/* Tabella (tariffe, confronto certificati) */
+.tabella{
+width:100%;
+border-collapse:collapse;
+margin:28px 0;
+}
+.tabella th,
+.tabella td{
+text-align:left;
+padding:15px 16px;
+border-bottom:1px solid var(--border);
+font-size:1rem;
+}
+.tabella th{
+font-size:.82rem;
+text-transform:uppercase;
+letter-spacing:.5px;
+color:var(--secondary);
+font-weight:700;
+}
+.tabella td{color:var(--secondary);}
+.tabella td strong{color:var(--primary);}
+.tabella td:last-child{white-space:nowrap;}
+@media(max-width:560px){
+.tabella th,.tabella td{padding:12px 8px;font-size:.92rem;}
+}
+
+/* Citazione da recensione */
+.citazione{
+border-left:3px solid var(--primary);
+margin:30px 0;
+padding:4px 0 4px 22px;
+}
+.citazione p{color:var(--secondary);font-style:italic;}
+.citazione footer{
+margin-top:8px;
+font-weight:600;
+color:var(--primary);
+font-style:normal;
+font-size:.95rem;
+padding:0;
+border:none;
+}
+
+/* Briciole di pane */
+.briciole{
+padding:22px 0 0;
+font-size:.88rem;
+color:var(--secondary);
+}
+.briciole a{text-decoration:underline;}
+
+/* Griglia comuni serviti */
+.comuni{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin:22px 0 30px;
+padding:0;
+}
+.comuni li{
+background:var(--surface);
+border:1px solid var(--border);
+border-radius:999px;
+padding:7px 16px;
+font-size:.92rem;
+color:var(--secondary);
+}

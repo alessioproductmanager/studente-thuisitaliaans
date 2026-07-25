@@ -71,12 +71,43 @@ async function gestisciContatto(request, env) {
 	return risposta({ ok: true, messaggio: TESTI[lingua].ok });
 }
 
+
+/* ------------------------------------------------------------------
+ * Risoluzione URL dopo la riorganizzazione in cartelle.
+ * Gli URL pubblici NON cambiano: /zakelijk-italiaans continua a
+ * rispondere 200 anche se il file ora sta in /lessen/.
+ * Ordine di ricerca: root → lessen → niveaus.
+ * ------------------------------------------------------------------ */
+const CARTELLE = ["", "lessen/", "niveaus/"];
+
+async function risolviAsset(request, env) {
+	const url = new URL(request.url);
+	let p = url.pathname;
+
+	// Le cartelle già organizzate e i file statici passano diretti.
+	if (/^\/(assets|css|js|esercizi|blog|libri|boeken|books|lingue|it|en)\//.test(p)
+	    || /\.[a-z0-9]{2,5}$/i.test(p) && !p.endsWith(".html")) {
+		return env.ASSETS.fetch(request);
+	}
+
+	// Nome del documento, senza slash iniziale ed estensione.
+	let nome = p.replace(/^\//, "").replace(/\/$/, "").replace(/\.html$/, "");
+	if (!nome) return env.ASSETS.fetch(request);
+
+	for (const cartella of CARTELLE) {
+		const prova = new URL(`/${cartella}${nome}.html`, url.origin);
+		const r = await env.ASSETS.fetch(new Request(prova, request));
+		if (r.status === 200) return r;
+	}
+	return env.ASSETS.fetch(request);
+}
+
 export default {
 	async fetch(request, env, ctx) {
 		const url = new URL(request.url);
 		if (url.pathname === "/api/contatto") return gestisciContatto(request, env);
 
-		const asset = await env.ASSETS.fetch(request);
+		const asset = await risolviAsset(request, env);
 		const contentType = asset.headers.get("content-type") || "";
 		if (!contentType.includes("text/html")) return asset;
 
