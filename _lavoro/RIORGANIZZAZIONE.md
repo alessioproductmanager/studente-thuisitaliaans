@@ -133,3 +133,113 @@ progetto.
 `index.html`, le pagine app, le legali, `boeken.html`/`books.html`/`libri.html`,
 `robots.txt` (che è fatto molto bene), `sitemap.xml`, e tutte le cartelle
 già organizzate — comprese `blog/`, che non era nello zip e resta dov'è.
+
+---
+
+# Sitemap e link — controllo completo
+
+## Il problema di fondo: gli URL rimbalzavano tutti
+
+`wrangler.jsonc` non imposta `html_handling`, quindi Cloudflare usa il default
+`auto-trailing-slash`, che fa **301 da `/pagina.html` a `/pagina`**.
+
+Confermato su tre fetch reali del sito: `app-ti.html`, `esercizi/index.html` e
+`blog/index.html` atterravano tutti sulla versione senza estensione.
+
+Conseguenza: sitemap, canonical, og:url, hreflang e link interni puntavano
+tutti alla forma `.html`, cioè a URL che rimbalzano. Google segue i redirect,
+ma per 1.230 URL è attrito costante, e il canonical che punta a un redirect è
+un segnale contraddittorio.
+
+### Corretto
+
+| Cosa | Quantità |
+|---|---:|
+| URL in sitemap portati alla forma senza estensione | 1.220 |
+| `hreflang` nella sitemap | 1.794 |
+| `<link rel="canonical">` nelle pagine | 1.031 |
+| `og:url` | 1.026 |
+| Link interni (relativi e assoluti) | 9.055 |
+| URL in `ti-cta.js` (`CFG.libri`, `CFG.urlApp`) | 7 |
+
+## Sitemap
+
+- **1.230 URL** (erano 1.220): aggiunte le 10 pagine che mancavano
+- `waarom-thuis-italiaans` **non era in sitemap** — è tua, mancava
+- `books-privacy` e `libri-privacy` **non erano in sitemap**
+- aggiunte le 5 città nuove, `libri-italiano-facile-c2`, `why-thuis-italiaans`
+- `waarom-` / `why-thuis-italiaans` hanno hreflang reciproco nella sitemap
+- XML valido, zero duplicati, zero URL senza file
+
+## Link interni dopo lo spostamento
+
+Le tue pagine servizio usavano link **relativi** (`index#contact`, `app-ti`,
+`css/style.css`). Spostandole in `lessen/` sarebbero diventati
+`/lessen/app-ti`, cioè 404 — CSS e JS compresi.
+
+Ho reso assoluti **286 riferimenti** nelle 16 pagine spostate. Le pagine in
+`niveaus/` usavano già path assoluti e non hanno avuto bisogno di nulla.
+
+Ho anche rimappato i link delle mie 5 pagine nuove sui nomi reali del sito:
+`/italiaans-online-leren` → `/italiaans-online`, `/cils-celi-plida-nederland`
+→ `/italiaans-examen-certificaat`, `/italiaanse-conversatieles` →
+`/conversatieles-italiaans`, Ede/Utrecht/Amersfoort →
+`/italiaanse-les-ede-utrecht`.
+
+**Link di pagina rotti rimasti: 0.**
+
+## Due cose rotte che c'erano già, non le ho create io
+
+### 1. `js/game-mode.js` non esiste
+
+È referenziato da **693 pagine di esercizi**. Il file non è nello zip. O l'hai
+dimenticato nell'archivio, o quelle 693 pagine caricano uno script che dà 404 —
+e allora i giochi (tris, battaglia navale, impiccato, ruota) non funzionano.
+
+**Controlla.** Se il file esiste sul server, ignora. Se no, quelle pagine sono
+rotte da un pezzo.
+
+### 2. Mancano 18 copertine su 52
+
+In `assets/books/` ci sono 34 immagini ma le pagine ne chiedono 52:
+
+```
+CanneAlVento_Copertina_eBook.jpg   IlPiacere_cover.jpg
+CorsaroNero_cover.jpg              MattiaPascal_cover.jpg
+Cuore_cover.jpg                    PaeseDiCuccagna_cover.jpg
+DemetrioPianelli_cover.jpg         PiccoloMondoAntico_cover.jpg
+Eva_cover.jpg                      Pinocchio_cover.jpg
+Giacinta_cover.jpg                 PromessiSposi_cover.jpg
+GianBurrasca_cover.jpg             ServitoreDuePadroni_cover.jpg
+GiovinezzaCesare_cover.jpg         Vicere_cover.jpg
+IlMilione_cover.jpg                Zeno_cover.jpg
+```
+
+Anche qui: o non erano nello zip, o sulle pagine dei romanzi ci sono immagini
+rotte. Da verificare sul sito.
+
+### Corretto al volo
+
+`app-support.html` aveva `href="privacy"` — pagina inesistente. Ora punta a
+`/app-privacy`.
+
+## Verifica finale
+
+```
+sitemap ........... 1.230 URL · 0 con .html · 0 duplicati · XML valido
+canonical ......... 1.031/1.031 pagine, tutti autoreferenziali
+hreflang .......... 0 rimandi non reciproci
+link rotti ........ 0
+href con .html .... 0
+JS ................ index.js e ti-cta.js validi
+```
+
+## Cosa resta a te
+
+Solo verifiche che richiedono il sito online:
+
+1. `npx wrangler deploy`
+2. Controlla che `/AUDIT-FINALE.md` dia **404**
+3. Controlla che `js/game-mode.js` esista sul server
+4. Controlla le 18 copertine in `assets/books/`
+5. Reinvia la sitemap in Search Console

@@ -28,14 +28,14 @@
 
   var CFG = {
     autoInserimento: true,
-    urlApp: '/app-ti.html',
+    urlApp: '/app-ti',
     libri: {
-      A1: '/libri-italiano-facile-a1.html',
-      A2: '/libri-italiano-facile-a2.html',
-      B1: '/libri-italiano-facile-b1.html',
-      B2: '/libri-italiano-facile-b2.html',
-      C1: '/libri-italiano-facile-c1.html',
-      C2: '/libri-italiano-facile-c2.html'
+      A1: '/libri-italiano-facile-a1',
+      A2: '/libri-italiano-facile-a2',
+      B1: '/libri-italiano-facile-b1',
+      B2: '/libri-italiano-facile-b2',
+      C1: '/libri-italiano-facile-c1',
+      C2: '/libri-italiano-facile-c2'
     },
     /* Livello del blocco libri in base alla categoria del post. */
     livelloPerCategoria: {
