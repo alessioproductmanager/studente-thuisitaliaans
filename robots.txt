@@ -9,10 +9,26 @@
 # L'uso è consentito con ATTRIBUZIONE e LINK ALLA FONTE. Uso commerciale
 # e opere derivate non sono consentiti senza accordo scritto.
 # Contatto: thuisitaliaans@gmail.com
+#
+# NOTA TECNICA
+# Un crawler obbedisce SOLO al gruppo User-agent più specifico che lo
+# matcha: i gruppi non si sommano. Elencare un bot in un gruppo proprio
+# con solo "Allow: /" gli farebbe ignorare i Disallow del gruppo "*".
+# Per questo i bot ammessi NON hanno un gruppo dedicato: sono già
+# coperti dal gruppo "*" qui sotto, Disallow inclusi. E 
 # ====================================================================
 
 # --------------------------------------------------------------------
 # 1. REGOLE GLOBALI
+# Vale per tutti i crawler non elencati nella sezione 2, inclusi:
+# Googlebot, Googlebot-Image, Bingbot, DuckDuckBot, YandexBot,
+# Baiduspider, Applebot, Applebot-Extended, Google-Extended,
+# Google-CloudVertexBot, OAI-SearchBot, ChatGPT-User, GPTBot,
+# PerplexityBot, Perplexity-User, Claude-SearchBot, Claude-User,
+# ClaudeBot, anthropic-ai, Meta-ExternalAgent, FacebookBot,
+# Amazonbot, cohere-ai.
+# L'accesso AI è consentito alle condizioni della licenza CC BY-NC-ND
+# 4.0 indicata in cima: attribuzione e link alla fonte.
 # --------------------------------------------------------------------
 User-agent: *
 Allow: /
@@ -21,87 +37,7 @@ Disallow: /admin/
 Disallow: /spool/
 
 # --------------------------------------------------------------------
-# 2. MOTORI DI RICERCA
-# --------------------------------------------------------------------
-User-agent: Googlebot
-Allow: /
-
-User-agent: Googlebot-Image
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
-
-User-agent: YandexBot
-Allow: /
-
-User-agent: Baiduspider
-Allow: /
-
-User-agent: Applebot
-Allow: /
-
-# --------------------------------------------------------------------
-# 3. AI — RICERCA E CITAZIONI
-# --------------------------------------------------------------------
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Perplexity-User
-Allow: /
-
-User-agent: Claude-SearchBot
-Allow: /
-
-User-agent: Claude-User
-Allow: /
-
-User-agent: Google-CloudVertexBot
-Allow: /
-
-# --------------------------------------------------------------------
-# 4. AI — INDICIZZAZIONE E MODELLI
-# Accesso consentito alle condizioni della licenza CC BY-NC-ND 4.0
-# indicata in cima: attribuzione e link alla fonte.
-# --------------------------------------------------------------------
-User-agent: GPTBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: Applebot-Extended
-Allow: /
-
-User-agent: Meta-ExternalAgent
-Allow: /
-
-User-agent: FacebookBot
-Allow: /
-
-User-agent: Amazonbot
-Allow: /
-
-User-agent: cohere-ai
-Allow: /
-
-# --------------------------------------------------------------------
-# 5. SCRAPER E RIVENDITORI DI DATASET — BLOCCATI
+# 2. SCRAPER E RIVENDITORI DI DATASET — BLOCCATI
 # Non citano, non mandano traffico, rivendono il contenuto a terzi.
 # --------------------------------------------------------------------
 User-agent: CCBot
@@ -138,6 +74,6 @@ User-agent: DotBot
 Disallow: /
 
 # --------------------------------------------------------------------
-# 6. SITEMAP
+# 3. SITEMAP
 # --------------------------------------------------------------------
 Sitemap: https://thuisitaliaans.com/sitemap.xml
