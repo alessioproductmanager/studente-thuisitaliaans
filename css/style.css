@@ -1157,3 +1157,104 @@ background:var(--surface);
 transform:translateY(-2px);
 }
 .footer-review-ster{color:#f5b400;font-size:1rem;}
+
+
+/* ===== FOOTER THUIS ITALIAANS v2 ===== */
+
+/* --- Sitemap: 5 colonne --- */
+.footer-sitemap{
+    display:grid;
+    grid-template-columns:repeat(5, minmax(0, 1fr));
+    gap:34px 26px;
+    padding:56px 0 38px;
+    border-bottom:1px solid var(--border);
+    align-items:start;
+}
+@media (max-width:1080px){ .footer-sitemap{ grid-template-columns:repeat(3, minmax(0, 1fr)); } }
+@media (max-width:700px){
+    .footer-sitemap{ grid-template-columns:repeat(2, minmax(0, 1fr)); gap:28px 18px; padding:40px 0 30px; }
+}
+@media (max-width:380px){ .footer-sitemap{ grid-template-columns:1fr; } }
+
+.footer-col-title{
+    margin:0 0 14px;
+    font-size:.76rem; font-weight:700;
+    text-transform:uppercase; letter-spacing:.09em;
+    color:var(--primary);
+}
+.footer-sitemap ul{ list-style:none; margin:0; padding:0; display:grid; gap:9px; }
+.footer-sitemap a{
+    font-size:.93rem; line-height:1.4;
+    color:var(--secondary); text-decoration:none;
+    overflow-wrap:break-word; transition:color .2s ease;
+}
+.footer-sitemap a:hover{ color:var(--primary); }
+
+/* --- Card: zona + review --- */
+.footer-extra{ display:grid; grid-template-columns:1.35fr 1fr; gap:18px; padding:30px 0 4px; }
+@media (max-width:700px){ .footer-extra{ grid-template-columns:1fr; padding:24px 0 4px; } }
+
+.footer-card{
+    display:flex; flex-direction:column; gap:7px;
+    padding:20px 22px;
+    border:1px solid var(--border);
+    border-radius:var(--radius, 16px);
+    background:var(--surface);
+    text-decoration:none;
+    transition:border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+}
+.footer-card:hover{
+    border-color:var(--primary);
+    box-shadow:0 10px 26px rgba(49,57,77,.08);
+    transform:translateY(-2px);
+}
+.footer-card-title{ font-size:1rem; font-weight:700; color:var(--primary); line-height:1.3; }
+.footer-card-text{ font-size:.9rem; line-height:1.5; color:var(--secondary); text-wrap:pretty; }
+.footer-card-cta{ margin-top:auto; padding-top:8px; font-size:.86rem; font-weight:600; color:var(--primary); }
+.footer-card-review .footer-review-ster{ color:#f5b301; font-size:1.02rem; letter-spacing:3px; line-height:1; }
+
+/* --- Riga lingua --- */
+.footer-taal{ display:flex; flex-wrap:wrap; align-items:center; gap:10px; padding:22px 0 0; font-size:.9rem; }
+.footer-taal-label{
+    font-size:.72rem; font-weight:700;
+    text-transform:uppercase; letter-spacing:.09em; color:var(--primary);
+}
+.footer-taal a{ color:var(--secondary); text-decoration:none; transition:color .2s ease; }
+.footer-taal a:hover{ color:var(--primary); }
+.footer-taal a[aria-current]{ color:var(--primary); font-weight:600; }
+.footer-taal > span[aria-hidden]{ color:var(--border); }
+
+/* --- Riga identificativi KVK / BTW --- */
+.footer-ids{
+    display:flex; flex-wrap:wrap;
+    justify-content:center; align-items:center;
+    gap:6px 10px; margin:0;
+    font-size:.85rem; color:var(--secondary);
+    direction:ltr;
+}
+.footer-ids-sep{ color:var(--border); }
+@media (max-width:420px){
+    .footer-ids{ flex-direction:column; gap:4px; }
+    .footer-ids-sep{ display:none; }
+}
+
+/* --- Badge prodotto (pagine app-ti) --- */
+.footer-badges{
+    display:flex; flex-wrap:wrap;
+    justify-content:center; align-items:center;
+    gap:14px; margin:18px 0 4px;
+    direction:ltr;
+}
+.footer-badges a{
+    display:inline-flex; line-height:0; opacity:.9;
+    transition:opacity .25s ease, transform .25s ease;
+}
+.footer-badges a:hover{ opacity:1; transform:translateY(-2px); }
+.footer-badges img{ height:54px; width:auto; display:block; }
+@media (max-width:480px){ .footer-badges img{ height:46px; } }
+
+@media (prefers-reduced-motion: reduce){
+    .footer-card, .footer-badges a{ transition:none; }
+    .footer-card:hover, .footer-badges a:hover{ transform:none; }
+}
+/* ===== fine footer v2 ===== */
