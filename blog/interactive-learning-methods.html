@@ -106,11 +106,21 @@
       <a href="../index#contact">Contatti</a>
     </div>
   </div>
+  <div class="sidebar-card sidebar-card-libro">
+    <p class="sidebar-eyebrow">Book pick</p>
+    <a href="../books/orlando-innamorato" class="sidebar-libro-cop"><picture><source srcset="../assets/books/OrlandoInnamorato_Copertina_eBook.webp" type="image/webp"><img src="../assets/books/OrlandoInnamorato_Copertina_eBook.jpg" alt="L&#x27;Orlando innamorato" width="800" height="1280" loading="lazy" decoding="async"></picture></a>
+    <h3>L&#x27;Orlando innamorato</h3>
+    <p class="sidebar-libro-liv">Level A2</p>
+    <a href="../books/orlando-innamorato" class="button button-libro">See the book &rarr;</a>
+  </div>
   <div class="sidebar-card sidebar-card-app">
-    <img src="../assets/icons/icon-512.png" alt="Icona app Ti" class="sidebar-logo" width="512" height="512" loading="lazy" decoding="async">
-    <h3>Studia anche da solo con Ti</h3>
-    <p>L'app iOS di Alessio per imparare l'italiano dall'A1 al C2: percorso QCER, edicola tematica, romanzi graduati e dizionario in 14 lingue.</p>
-    <a href="../app-ti" class="button button-app">Scopri l'app Ti →</a>
+    <p class="sidebar-eyebrow">What Ti looks like</p>
+    <div class="sb-shots" data-store-track><figure class="sb-shot"><picture><source srcset="../assets/store/en/01_edicola.webp" type="image/webp"><img src="../assets/store/en/01_edicola.jpg" alt="Ti" width="600" height="1298" loading="lazy" decoding="async"></picture></figure><figure class="sb-shot"><picture><source srcset="../assets/store/en/02_lettore.webp" type="image/webp"><img src="../assets/store/en/02_lettore.jpg" alt="Ti" width="600" height="1298" loading="lazy" decoding="async"></picture></figure><figure class="sb-shot"><picture><source srcset="../assets/store/en/03_percorso.webp" type="image/webp"><img src="../assets/store/en/03_percorso.jpg" alt="Ti" width="600" height="1298" loading="lazy" decoding="async"></picture></figure><figure class="sb-shot"><picture><source srcset="../assets/store/en/04_grammatica.webp" type="image/webp"><img src="../assets/store/en/04_grammatica.jpg" alt="Ti" width="600" height="1298" loading="lazy" decoding="async"></picture></figure><figure class="sb-shot"><picture><source srcset="../assets/store/en/05_verbo.webp" type="image/webp"><img src="../assets/store/en/05_verbo.jpg" alt="Ti" width="600" height="1298" loading="lazy" decoding="async"></picture></figure><figure class="sb-shot"><picture><source srcset="../assets/store/en/06_gioco.webp" type="image/webp"><img src="../assets/store/en/06_gioco.jpg" alt="Ti" width="600" height="1298" loading="lazy" decoding="async"></picture></figure></div>
+    <p class="sb-shots-hint">Swipe for more</p>
+    <a href="../app-ti" class="button button-app">Discover the app &rarr;</a>
+  </div>
+    <p class="sb-shots-hint">Swipe for more</p>
+    <a href="../app-ti" class="button button-app">Discover the app &rarr;</a>
   </div>
 </aside>
 
@@ -137,5 +147,21 @@
   </div>
 </footer>
 <script src="/js/whatsapp.js" defer></script>
+<script>
+/* Screenshot nella lingua del browser, con riserva in inglese.
+   Il markup parte gia' con la lingua del post: questo script interviene
+   solo se il browser dichiara una lingua diversa e disponibile. */
+(function(){
+  var disponibili = ['ar','bn','de','en','es','fr','it','nl','pt','ro','uk','zh'];
+  var lang = (navigator.language || 'en').slice(0,2).toLowerCase();
+  if (disponibili.indexOf(lang) === -1) lang = 'en';
+  document.querySelectorAll('[data-store-track] picture').forEach(function(p){
+    var img = p.querySelector('img'), src = p.querySelector('source');
+    if (!img) return;
+    img.src = img.src.replace(/\/assets\/store\/[a-z_]+\//, '/assets/store/' + lang + '/');
+    if (src) src.srcset = src.srcset.replace(/\/assets\/store\/[a-z_]+\//, '/assets/store/' + lang + '/');
+  });
+})();
+</script>
 </body>
 </html>

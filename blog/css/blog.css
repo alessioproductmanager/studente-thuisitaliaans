@@ -765,3 +765,30 @@ fill:none;stroke:currentColor;stroke-width:1.8;
 stroke-linecap:round;stroke-linejoin:round;
 flex:0 0 auto;
 }
+
+/* ========= BARRA LATERALE: libro consigliato e screenshot ========= */
+.sidebar-eyebrow{font-size:.72rem;font-weight:800;letter-spacing:.12em;
+text-transform:uppercase;opacity:.6;margin:0 0 14px;}
+.sidebar-card-libro{text-align:center;}
+.sidebar-libro-cop{display:block;margin:0 auto 16px;max-width:150px;}
+.sidebar-libro-cop img{width:100%;height:auto;border-radius:4px;
+box-shadow:0 10px 26px rgba(49,57,77,.20);transition:transform .25s ease;}
+.sidebar-libro-cop:hover img{transform:translateY(-4px);}
+.sidebar-card-libro h3{font-size:1.02rem;line-height:1.3;margin:0 0 4px;}
+.sidebar-libro-liv{font-size:.82rem;opacity:.65;margin:0 0 16px;}
+.button-libro{display:inline-flex;width:100%;justify-content:center;}
+
+.sidebar-card-app .sidebar-eyebrow{opacity:.75;}
+.sb-shots{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;
+scroll-behavior:smooth;margin:0 0 8px;padding-bottom:6px;scrollbar-width:thin;}
+.sb-shots::-webkit-scrollbar{height:4px;}
+.sb-shots::-webkit-scrollbar-thumb{background:rgba(255,255,255,.28);border-radius:99px;}
+.sb-shot{flex:0 0 auto;scroll-snap-align:center;width:230px;margin:0;
+border-radius:14px;overflow:hidden;background:rgba(255,255,255,.06);}
+.sb-shot img{width:100%;height:auto;display:block;}
+.sb-shots-hint{font-size:.74rem;opacity:.6;margin:0 0 14px;text-align:center;}
+
+@media (max-width:1000px){
+  .sb-shot{width:200px;}
+  .sidebar-libro-cop{max-width:130px;}
+}
