@@ -792,3 +792,27 @@ border-radius:14px;overflow:hidden;background:rgba(255,255,255,.06);}
   .sb-shot{width:200px;}
   .sidebar-libro-cop{max-width:130px;}
 }
+
+/* ========= Rifiniture di conversione (luglio 2026) ========= */
+
+/* riga sotto il livello nella card libro: la leva "gratis con Kindle Unlimited" */
+.sidebar-libro-nota{
+font-size:.78rem;
+line-height:1.45;
+opacity:.72;
+margin:-10px 0 16px;
+}
+
+/* la card app aveva solo l'occhiello: ora ha titolo e riga dei numeri */
+.sidebar-card-app h3{margin:0 0 6px;}
+.sidebar-card-app > p:not(.sidebar-eyebrow):not(.sb-shots-hint){
+font-size:.9rem;
+line-height:1.5;
+margin:0 0 14px;
+opacity:.85;
+}
+
+/* il box di fine articolo e' il punto di conversione piu' caldo:
+   un filo piu' di respiro e un bottone che si vede da lontano */
+.article-end-cta .button{font-weight:700;}
+.sidebar-card .button{font-weight:700;}
