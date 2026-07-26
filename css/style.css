@@ -401,13 +401,13 @@ margin-bottom:0;
 position:relative;
 display:flex;
 align-items:center;
-gap:16px;
-width:min(92%,var(--container));
+gap:14px;
+width:min(96%,1620px);
 margin:auto;
 }
 .carousel-track{
 display:flex;
-gap:24px;
+gap:20px;
 overflow-x:auto;
 scroll-snap-type:x mandatory;
 scroll-behavior:smooth;
@@ -423,16 +423,16 @@ border-radius:999px;
 }
 .review-card{
 flex:0 0 100%;
-max-width:420px;
+max-width:450px;
 scroll-snap-align:start;
 background:var(--background);
 border:1px solid var(--border);
 border-radius:var(--radius);
-padding:32px;
+padding:24px 28px;
 box-shadow:var(--shadow);
 display:flex;
 flex-direction:column;
-gap:16px;
+gap:12px;
 }
 .review-card .stars{
 font-size:.95rem;
@@ -440,7 +440,8 @@ letter-spacing:2px;
 }
 .review-text{
 color:var(--primary);
-font-size:.98rem;
+font-size:.95rem;
+line-height:1.6;
 flex:1;
 }
 .review-author{
