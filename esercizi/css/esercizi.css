@@ -865,33 +865,37 @@ border:1px solid var(--border);font-weight:700;cursor:pointer;transition:var(--t
 
 /* ========= SIDEBAR SHOP LAYOUT ========= */
 .shop-layout{
-display:grid;grid-template-columns:270px 1fr;gap:40px;align-items:start;
+display:grid;grid-template-columns:310px 1fr;gap:36px;align-items:start;
 padding-bottom:100px;
 }
 .shop-sidebar{
 position:sticky;top:90px;background:var(--surface);border-radius:var(--radius);
-padding:26px;display:flex;flex-direction:column;gap:26px;
+padding:22px;display:flex;flex-direction:column;gap:16px;
 }
-.filter-block{border-bottom:1px solid var(--border);padding-bottom:22px;}
+.filter-intro{border-bottom:1px solid var(--border);padding-bottom:14px;}
+.filter-intro h3{font-size:1rem;font-weight:800;color:var(--primary);margin:0 0 4px;}
+.filter-intro p{font-size:.8rem;line-height:1.4;color:var(--secondary);margin:0;}
+.shop-sidebar{scrollbar-width:thin;}
+.filter-block{border-bottom:1px solid var(--border);padding-bottom:14px;}
 .filter-block:last-child{border-bottom:none;padding-bottom:0;}
 .filter-block h4{
 font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;
-color:var(--primary);margin-bottom:14px;
+color:var(--primary);margin-bottom:9px;
 }
 .filter-pills-row{display:flex;flex-wrap:wrap;gap:8px;}
 .filter-pill{
-padding:8px 14px;border-radius:999px;border:1px solid var(--border);
+padding:6px 12px;border-radius:999px;border:1px solid var(--border);
 background:var(--background);font-size:.82rem;font-weight:600;color:var(--secondary);
 cursor:pointer;transition:var(--transition);
 }
 .filter-pill:hover{border-color:var(--gold);}
 .filter-pill.active{background:var(--primary);color:white;border-color:var(--primary);}
-.filter-check-list{display:flex;flex-direction:column;gap:10px;}
+.filter-check-list{display:flex;flex-direction:column;gap:7px;}
 .filter-check{
-display:flex;align-items:center;gap:10px;font-size:.86rem;color:var(--primary);
+display:flex;align-items:flex-start;gap:9px;font-size:.85rem;line-height:1.3;color:var(--primary);
 cursor:pointer;font-weight:500;
 }
-.filter-check input{width:16px;height:16px;accent-color:var(--primary);cursor:pointer;}
+.filter-check input{width:16px;height:16px;flex:0 0 16px;margin-top:1px;accent-color:var(--primary);cursor:pointer;}
 .filter-block.disabled{opacity:.4;pointer-events:none;}
 .shop-results-count{font-size:.85rem;color:var(--secondary);margin-bottom:20px;}
 .shop-clear-btn{
@@ -983,7 +987,7 @@ background:var(--surface);border-radius:var(--radius);
 .shop-sidebar {
     position: sticky;
     top: 94px;
-    max-height: calc(100vh - 120px);
+    max-height: calc(100vh - 104px);
     overflow-y: auto; /* Permette lo scroll interno */
     
     /* 👇 NASCONDE LA BARRA SU FIREFOX 👇 */
@@ -991,9 +995,9 @@ background:var(--surface);border-radius:var(--radius);
 }
 
 /* 👇 NASCONDE LA BARRA SU CHROME, SAFARI E EDGE 👇 */
-.shop-sidebar::-webkit-scrollbar {
-    display: none;
-}
+.shop-sidebar::-webkit-scrollbar{width:6px;}
+.shop-sidebar::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+.shop-sidebar::-webkit-scrollbar-track{background:transparent;}
 
 /* === RESPONSIVE (Mobile) === */
 @media (max-width: 992px) {
@@ -1081,3 +1085,27 @@ border-radius:18px;padding:22px 24px;
 .ex-passo p{font-size:.97rem;margin-bottom:14px;}
 .ex-passo-link{font-weight:600;text-decoration:underline;}
 @media print{.ex-prossimo-passo{display:none;}}
+
+
+/* ========= FILTRI: visibilita' completa =========
+   Su schermi bassi (portatili) la sidebar smette di essere sticky:
+   meglio scorrere la pagina che avere meta' filtri tagliati fuori.
+   Sopra i 900px di altezza resta agganciata, con barra e sfumatura
+   che segnalano che c'e' altro sotto. */
+@media (max-height: 900px){
+  .shop-sidebar{
+    position: static;
+    max-height: none;
+    overflow-y: visible;
+  }
+}
+@media (min-height: 901px){
+  .shop-sidebar{
+    -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 28px), transparent 100%);
+            mask-image: linear-gradient(to bottom, #000 calc(100% - 28px), transparent 100%);
+  }
+  .shop-sidebar:hover{
+    -webkit-mask-image: none;
+            mask-image: none;
+  }
+}
