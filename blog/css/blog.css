@@ -47,7 +47,7 @@ cursor:pointer;
 --radius:22px;
 --shadow:0 12px 35px rgba(49,57,77,.08);
 --transition:.35s ease;
---container:1280px;
+--container:1180px;
 --gold:#f5b400;
 }
 
@@ -749,3 +749,11 @@ text-underline-offset:3px;
 .ex-passo{padding:20px;}
 }
 @media print{.ex-prossimo-passo{display:none;}}
+
+
+/* ========= CREDITI FOTOGRAFICI ========= */
+.blog-foto-credit{
+margin:0 0 6px;
+font-size:.78rem;
+opacity:.65;
+}
