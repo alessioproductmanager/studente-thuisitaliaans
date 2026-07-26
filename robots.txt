@@ -83,4 +83,5 @@ Disallow: /
 # --------------------------------------------------------------------
 # 3. SITEMAP
 # --------------------------------------------------------------------
+Sitemap: https://thuisitaliaans.com/sitemap-index.xml
 Sitemap: https://thuisitaliaans.com/sitemap.xml
