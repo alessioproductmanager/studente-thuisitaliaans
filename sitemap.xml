@@ -6501,6 +6501,12 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/italian-books-c1"/>
   </url>
   <url>
+    <loc>https://thuisitaliaans.com/italiaanse-les-amersfoort</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://thuisitaliaans.com/italiaanse-les-amsterdam</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
@@ -6537,6 +6543,12 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://thuisitaliaans.com/it/lezioni-italiano-ede-utrecht"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://thuisitaliaans.com/italiaanse-les-ede-utrecht"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/italiaanse-les-ede-utrecht"/>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/italiaanse-les-utrecht</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://thuisitaliaans.com/italiaanse-les-veenendaal</loc>
