@@ -49,7 +49,7 @@ cursor:pointer;
 --radius:22px;
 --shadow:0 12px 35px rgba(49,57,77,.08);
 --transition:.35s ease;
---container:1180px;
+--container:1280px;
 }
 
 /* ========= CONTAINER ========= */
@@ -253,19 +253,22 @@ color:var(--primary);
 background:var(--background);
 }
 .section-heading{
-max-width:640px;
+max-width:720px;
 margin:0 auto 60px;
 text-align:center;
 }
 .section-heading p{
 margin-top:10px;
+text-wrap:balance;
 }
 
 /* ========= FONTE RECENSIONI (attribuzione piattaforme) ========= */
 .review-bron{
-margin-top:14px;
+display:block;
+margin-top:10px;
 font-size:.86rem;
 color:var(--secondary);
+text-wrap:balance;
 }
 .review-bron a{
 color:var(--secondary);
@@ -420,7 +423,7 @@ border-radius:999px;
 }
 .review-card{
 flex:0 0 100%;
-max-width:340px;
+max-width:420px;
 scroll-snap-align:start;
 background:var(--background);
 border:1px solid var(--border);
