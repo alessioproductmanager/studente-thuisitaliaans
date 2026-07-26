@@ -266,3 +266,12 @@ font-size:1.05rem;font-weight:700;letter-spacing:-.01em;
 /* Big CTA area — ensure App Store button remains visible on gradient */
 .big-cta .btn-app-store{background:#000 !important;color:#fff !important;}
 .big-cta .btn-app-store:hover{background:#1a1a1a !important;}
+
+/* ========= ICONE (sostituiscono le vecchie emoji) ========= */
+.ico{
+width:1.15em;height:1.15em;
+display:inline-block;vertical-align:-0.18em;
+fill:none;stroke:currentColor;stroke-width:1.8;
+stroke-linecap:round;stroke-linejoin:round;
+flex:0 0 auto;
+}

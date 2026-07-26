@@ -1109,3 +1109,12 @@ border-radius:18px;padding:22px 24px;
             mask-image: none;
   }
 }
+
+/* ========= ICONE (sostituiscono le vecchie emoji) ========= */
+.ico{
+width:1.15em;height:1.15em;
+display:inline-block;vertical-align:-0.18em;
+fill:none;stroke:currentColor;stroke-width:1.8;
+stroke-linecap:round;stroke-linejoin:round;
+flex:0 0 auto;
+}

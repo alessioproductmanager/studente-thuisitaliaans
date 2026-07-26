@@ -125,7 +125,7 @@
       </div>
       <div class="ex-badge-row">
         <span class="ex-badge ex-badge-level">B1</span>
-        <span class="ex-badge ex-badge-type">🔎 Crucipuzzle</span>
+        <span class="ex-badge ex-badge-type"><svg class="ico" viewBox="0 0 24 24" role="img" aria-label="Cerca"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg> Crucipuzzle</span>
         <span class="ex-badge ex-badge-type">Lessico</span>
       </div>
       <h1>Crucipuzzle: la pasta</h1>
@@ -140,7 +140,7 @@
           <ul id="wordlist"></ul>
         </div>
       </div>
-      <div class="ex-feedback good" id="winFeedback">Le hai trovate tutte! Complimenti 🎉</div>
+      <div class="ex-feedback good" id="winFeedback">Le hai trovate tutte! Complimenti <svg class="ico" viewBox="0 0 24 24" role="img" aria-label="Bravo"><path d="m12 3 1.9 4.3 4.6.5-3.4 3.1.9 4.6L12 13.3 8 15.5l.9-4.6L5.5 7.8l4.6-.5z"/><path d="M18.5 16.5v4"/><path d="M16.5 18.5h4"/></svg></div>
       <div class="ex-actions">
         <button class="ex-btn ex-btn-ghost" id="resetBtn">Nuova griglia</button>
       </div>
@@ -166,7 +166,7 @@
     </section>
 
     <div class="ex-explainer">
-      <h2>📘 Lessico: la pasta</h2>
+      <h2><svg class="ico" viewBox="0 0 24 24" role="img" aria-label="Spiegazione"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Lessico: la pasta</h2>
       <p>L'Italia ha centinaia di formati di pasta diversi, ognuno con il suo uso tradizionale.</p>
       <p>Padroneggiare questo argomento ti aiuta a affrontare conversazioni più articolate e argomentare le tue opinioni. Questo esercizio allena il lessico del cibo, un argomento centrale nella cultura italiana e nella vita quotidiana.</p>
       <p>Questo argomento fa parte del livello intermedio del QCER, la soglia in cui si inizia a comunicare con reale autonomia in italiano.</p>
@@ -193,13 +193,13 @@
     </div>
 
 
-    <p class="ex-blog-link">📖 Approfondisci con il blog: <a href="../blog/category-cultura-italiana">cultura italiana</a></p>
+    <p class="ex-blog-link"><svg class="ico" viewBox="0 0 24 24" role="img" aria-label="Articolo"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg> Approfondisci con il blog: <a href="../blog/category-cultura-italiana">cultura italiana</a></p>
     <div class="print-qr-block">
       <img src="../assets/qr/crucipuzzle-la-pasta.png" alt="Codice QR per questo esercizio" class="qr-image" id="qrImg" width="296" height="296" loading="lazy" decoding="async">
       <div class="print-qr-actions">
-        <a href="../assets/qr/crucipuzzle-la-pasta.png" download="crucipuzzle-la-pasta-qr.png" class="ex-btn ex-btn-ghost">⬇️ Scarica QR</a>
-        <button class="ex-btn ex-btn-ghost" id="copyLinkBtn" type="button">🔗 Copia link</button>
-        <button class="ex-btn ex-btn-ghost" onclick="window.print()" type="button">🖨️ Stampa / Salva PDF</button>
+        <a href="../assets/qr/crucipuzzle-la-pasta.png" download="crucipuzzle-la-pasta-qr.png" class="ex-btn ex-btn-ghost"><svg class="ico" viewBox="0 0 24 24" role="img" aria-label="Scarica"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg> Scarica QR</a>
+        <button class="ex-btn ex-btn-ghost" id="copyLinkBtn" type="button"><svg class="ico" viewBox="0 0 24 24" role="img" aria-label="Link"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.8 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg> Copia link</button>
+        <button class="ex-btn ex-btn-ghost" onclick="window.print()" type="button"><svg class="ico" viewBox="0 0 24 24" role="img" aria-label="Stampa"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg> Stampa / Salva PDF</button>
       </div>
     </div>
     <div class="print-footer">
@@ -352,7 +352,7 @@ document.getElementById('copyLinkBtn').addEventListener('click', function(){
   navigator.clipboard.writeText(window.location.href).then(() => {
     const btn = document.getElementById('copyLinkBtn');
     const original = btn.textContent;
-    btn.textContent = '✅ Copiato!';
+    btn.textContent = 'Copiato!';
     setTimeout(() => { btn.textContent = original; }, 1800);
   });
 });

@@ -165,7 +165,7 @@
     </section>
 
     <div class="ex-explainer">
-      <h2>📘 Comprensione del testo</h2>
+      <h2><svg class="ico" viewBox="0 0 24 24" role="img" aria-label="Spiegazione"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Comprensione del testo</h2>
       <p>Padroneggiare questo argomento ti aiuta a comunicare con sicurezza nelle situazioni più semplici e quotidiane. Questo esercizio allena il lessico del cibo, un argomento centrale nella cultura italiana e nella vita quotidiana.</p>
       <p>Questo argomento fa parte del livello base del QCER (Quadro Comune Europeo di Riferimento per le lingue), il punto di partenza per chi inizia lo studio dell'italiano da zero.</p>
       <p>Prima di rispondere alle affermazioni, prova a riassumere il testo con parole tue: è il modo migliore per verificare se hai capito davvero il contenuto, non solo riconosciuto singole parole.</p>
@@ -190,13 +190,13 @@
     </div>
 
 
-    <p class="ex-blog-link">📖 Approfondisci con il blog: <a href="../blog/category-cultura-italiana">cultura italiana</a></p>
+    <p class="ex-blog-link"><svg class="ico" viewBox="0 0 24 24" role="img" aria-label="Articolo"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg> Approfondisci con il blog: <a href="../blog/category-cultura-italiana">cultura italiana</a></p>
     <div class="print-qr-block">
       <img src="../assets/qr/il-gelato-artigianale.png" alt="Codice QR per questo esercizio" class="qr-image" id="qrImg" width="296" height="296" loading="lazy" decoding="async">
       <div class="print-qr-actions">
-        <a href="../assets/qr/il-gelato-artigianale.png" download="il-gelato-artigianale-qr.png" class="ex-btn ex-btn-ghost">⬇️ Scarica QR</a>
-        <button class="ex-btn ex-btn-ghost" id="copyLinkBtn" type="button">🔗 Copia link</button>
-        <button class="ex-btn ex-btn-ghost" onclick="window.print()" type="button">🖨️ Stampa / Salva PDF</button>
+        <a href="../assets/qr/il-gelato-artigianale.png" download="il-gelato-artigianale-qr.png" class="ex-btn ex-btn-ghost"><svg class="ico" viewBox="0 0 24 24" role="img" aria-label="Scarica"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg> Scarica QR</a>
+        <button class="ex-btn ex-btn-ghost" id="copyLinkBtn" type="button"><svg class="ico" viewBox="0 0 24 24" role="img" aria-label="Link"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.8 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg> Copia link</button>
+        <button class="ex-btn ex-btn-ghost" onclick="window.print()" type="button"><svg class="ico" viewBox="0 0 24 24" role="img" aria-label="Stampa"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg> Stampa / Salva PDF</button>
       </div>
     </div>
     <div class="print-footer">
@@ -289,7 +289,7 @@ document.getElementById('copyLinkBtn').addEventListener('click', function(){
   navigator.clipboard.writeText(window.location.href).then(() => {
     const btn = document.getElementById('copyLinkBtn');
     const original = btn.textContent;
-    btn.textContent = '✅ Copiato!';
+    btn.textContent = 'Copiato!';
     setTimeout(() => { btn.textContent = original; }, 1800);
   });
 });
