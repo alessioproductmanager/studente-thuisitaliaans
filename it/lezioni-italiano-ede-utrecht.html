@@ -35,9 +35,7 @@
     <link rel="alternate" hreflang="it" href="https://thuisitaliaans.com/it/lezioni-italiano-ede-utrecht">
     <link rel="alternate" hreflang="nl" href="https://thuisitaliaans.com/italiaanse-les-ede-utrecht">
     <link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/italiaanse-les-ede-utrecht">
-    <link rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en">
-
-    <script type="application/ld+json">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -52,16 +50,32 @@
         "@id": "https://thuisitaliaans.com/#organizzazione"
       },
       "areaServed": [
-        "Amsterdam",
-        "Ede",
-        "Utrecht",
-        "Amersfoort",
-        "Online"
+        {
+          "@type": "City",
+          "name": "Amsterdam"
+        },
+        {
+          "@type": "City",
+          "name": "Ede"
+        },
+        {
+          "@type": "City",
+          "name": "Utrecht"
+        },
+        {
+          "@type": "City",
+          "name": "Amersfoort"
+        },
+        {
+          "@type": "Place",
+          "name": "Online (wereldwijd)"
+        }
       ],
       "offers": {
         "@type": "Offer",
         "availability": "https://schema.org/InStock",
-        "description": "Dipende dalla tua situazione: frequenza, luogo, da solo o in due. Ne parliamo con calma nella lezione gratuita."
+        "description": "Dipende dalla tua situazione: frequenza, luogo, da solo o in due. Ne parliamo con calma nella lezione gratuita.",
+        "priceCurrency": "EUR"
       }
     },
     {
@@ -122,7 +136,8 @@
     }
   ]
 }
-    </script>
+</script>
+    <meta name="copyright" content="© 2026 Thuis Italiaans — All rights reserved">
 </head>
 <body>
     <header class="header">

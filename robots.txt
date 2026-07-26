@@ -3,11 +3,17 @@
 # Aggiornato: luglio 2026
 #
 # LICENZA DEI CONTENUTI
-# Tutti i testi di questo sito (esercizi, articoli, schede dei libri)
-# sono pubblicati sotto Creative Commons BY-NC-ND 4.0:
+# BLOG (/blog/): pubblicato sotto Creative Commons BY-NC-ND 4.0:
 #   https://creativecommons.org/licenses/by-nc-nd/4.0/
-# L'uso è consentito con ATTRIBUZIONE e LINK ALLA FONTE. Uso commerciale
-# e opere derivate non sono consentiti senza accordo scritto.
+#   Uso consentito con ATTRIBUZIONE e LINK ALLA FONTE. Uso commerciale
+#   e opere derivate non sono consentiti senza accordo scritto.
+#
+# TUTTO IL RESTO (esercizi, pagine lezioni, schede libri, contenuti app,
+# immagini, codice): © 2026 Thuis Italiaans — TUTTI I DIRITTI RISERVATI.
+#   Riproduzione, ridistribuzione e uso come materiale di addestramento
+#   per modelli linguistici non sono consentiti senza autorizzazione
+#   scritta preventiva.
+#
 # Contatto: thuisitaliaans@gmail.com
 #
 # NOTA TECNICA
@@ -27,7 +33,8 @@
 # PerplexityBot, Perplexity-User, Claude-SearchBot, Claude-User,
 # ClaudeBot, anthropic-ai, Meta-ExternalAgent, FacebookBot,
 # Amazonbot, cohere-ai.
-# L'accesso AI è consentito alle condizioni della licenza CC BY-NC-ND
+# L'accesso AI al blog è consentito alle condizioni CC BY-NC-ND;
+# sul resto del sito è consentita la sola indicizzazione per la ricerca.
 # 4.0 indicata in cima: attribuzione e link alla fonte.
 # --------------------------------------------------------------------
 User-agent: *

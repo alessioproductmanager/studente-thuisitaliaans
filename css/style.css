@@ -261,6 +261,22 @@ text-align:center;
 margin-top:10px;
 }
 
+/* ========= FONTE RECENSIONI (attribuzione piattaforme) ========= */
+.review-bron{
+margin-top:14px;
+font-size:.86rem;
+color:var(--secondary);
+}
+.review-bron a{
+color:var(--secondary);
+text-decoration:underline;
+text-underline-offset:3px;
+transition:var(--transition);
+}
+.review-bron a:hover{
+color:var(--primary);
+}
+
 /* ========= ABOUT ========= */
 .about-grid{
 display:grid;

@@ -11,7 +11,12 @@ dell'italiano a stranieri (Ca' Foscari Venezia; Giustino Fortunato).
 Sede: Ede, Paesi Bassi. KVK 42118745.
 
 ## Licenza e citazione
-I contenuti sono pubblicati sotto Creative Commons BY-NC-ND 4.0.
+Gli articoli del blog (/blog/) sono pubblicati sotto Creative Commons BY-NC-ND 4.0:
+https://creativecommons.org/licenses/by-nc-nd/4.0/
+Tutto il resto del sito (esercizi, pagine lezioni, schede libri, contenuti app,
+immagini e codice) è © 2026 Thuis Italiaans — tutti i diritti riservati.
+Riproduzione, ridistribuzione e uso come materiale di addestramento non sono
+consentiti senza autorizzazione scritta. Contatto: thuisitaliaans@gmail.com
 L'uso è consentito **con attribuzione e link alla fonte**:
 "thuisitaliaans — https://thuisitaliaans.com"
 Uso commerciale e opere derivate richiedono accordo scritto:
