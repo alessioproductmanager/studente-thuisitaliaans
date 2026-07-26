@@ -211,10 +211,10 @@
 
             .feature-visual img {
                 transition: transform .5s cubic-bezier(.2,.7,.2,1);
-            }
+            height:auto;}
             .feature-row:hover .feature-visual img {
                 transform: scale(1.03);
-            }
+            height:auto;}
 
             .cta-section .button {
                 transition: transform .25s ease, box-shadow .25s ease;
@@ -361,8 +361,7 @@
             max-width: 60%;
             max-height: 100%;
             border-radius: 22px;
-            box-shadow: 0 15px 40px rgba(49,57,77,.12);
-        }
+            box-shadow: 0 15px 40px rgba(49,57,77,.12); height: auto;}
         /* Modifier per immagini promozionali già "framate" (con dispositivi + margine bianco) */
         .feature-visual.wide {
             padding: 20px;
@@ -373,8 +372,7 @@
             max-width: 100%;
             max-height: 100%;
             border-radius: 0;
-            box-shadow: 0 20px 50px rgba(49,57,77,.15);
-        }
+            box-shadow: 0 20px 50px rgba(49,57,77,.15); height: auto;}
 
         /* "Fatta per te se..." */
         .for-you-section {
@@ -458,7 +456,7 @@
             }
             .feature-visual img {
                 max-width: 50%;
-            }
+            height:auto;}
         }
         @media (max-width: 560px) {
             .screenshot-card {
@@ -594,54 +592,54 @@
     {
       "@type": "FAQPage",
       "@id": "https://thuisitaliaans.com/app-ti.html#faq",
-      "inLanguage": "it",
+      "inLanguage": "nl",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Quanto costa l'app Ti?",
+          "name": "Wat kost de Ti-app?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Il download è gratuito. Con l'abbonamento (mensile o annuale) o con l'acquisto Lifetime sblocchi il percorso completo A1–C2, il dizionario e i giochi senza limiti; in più scegli 3 titoli con l'abbonamento e 6 con il Lifetime, liberamente fra i corsi a tappe dell'edicola e i romanzi graduati. Gli altri titoli si acquistano singolarmente. I prezzi sono mostrati nell'app prima dell'acquisto."
+            "text": "Downloaden is gratis. Met een abonnement (maandelijks of jaarlijks) of met de Lifetime-aankoop ontgrendel je het volledige traject A1–C2, het woordenboek en de spellen zonder limiet; daarnaast kies je 3 titels met het abonnement en 6 met Lifetime, vrij uit de cursussen van de kiosk en de gegradeerde romans. De overige titels koop je los. De prijzen staan in de app vóór de aankoop."
           }
         },
         {
           "@type": "Question",
-          "name": "Funziona senza connessione?",
+          "name": "Werkt de app zonder internet?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sì. Una volta scaricato un libro o un livello, esercizi, letture e dizionario funzionano offline. Serve la rete solo per gli acquisti e per la sincronizzazione dei progressi."
+            "text": "Ja. Zodra je een boek of een niveau hebt gedownload, werken de oefeningen, de teksten en het woordenboek offline. Je hebt alleen internet nodig voor aankopen en om je voortgang te synchroniseren."
           }
         },
         {
           "@type": "Question",
-          "name": "In quali lingue è disponibile?",
+          "name": "In welke talen is de app beschikbaar?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Grammatica, traduzioni e dizionario sono in 14 lingue: albanese, arabo, bengalese, cinese, francese, inglese, olandese, portoghese, rumeno, spagnolo, tagalog, tedesco, tigrino e ucraino."
+            "text": "Grammatica, vertalingen en woordenboek zijn er in 14 talen: Albanees, Arabisch, Bengaals, Chinees, Frans, Engels, Nederlands, Portugees, Roemeens, Spaans, Tagalog, Duits, Tigrinya en Oekraïens."
           }
         },
         {
           "@type": "Question",
-          "name": "Va bene per prepararsi a CILS, CELI o PLIDA?",
+          "name": "Is de app geschikt om je voor te bereiden op CILS, CELI of PLIDA?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sì. Il percorso segue i livelli QCER dall'A1 al C2 con checkpoint ed esami di livello, quindi copre le competenze richieste da quelle certificazioni. Non è però un simulatore d'esame ufficiale."
+            "text": "Ja. Het traject volgt de ERK-niveaus van A1 tot C2 met checkpoints en niveau-examens, en dekt dus de vaardigheden die die certificaten vragen. Het is echter geen officiële examensimulator."
           }
         },
         {
           "@type": "Question",
-          "name": "È disponibile per Android?",
+          "name": "Is de app beschikbaar voor Android?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Al momento Ti è un'app per iPhone e iPad. Su Android puoi usare gli oltre 700 esercizi gratuiti di questo sito, che funzionano da qualsiasi browser."
+            "text": "Op dit moment is Ti een app voor iPhone en iPad. Op Android kun je de meer dan 700 gratis oefeningen van deze site gebruiken, die in elke browser werken."
           }
         },
         {
           "@type": "Question",
-          "name": "Che differenza c'è tra l'app e le lezioni private?",
+          "name": "Wat is het verschil tussen de app en privéles?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "L'app ti dà struttura, ripetizione e lessico, e funziona quando vuoi tu. Le lezioni servono per parlare, essere corretto e sbloccarti. Molti studenti usano l'app tra una lezione e l'altra."
+            "text": "De app geeft je structuur, herhaling en woordenschat, en werkt wanneer het jou uitkomt. De lessen zijn er om te spreken, om verbeterd te worden en om los te komen. Veel cursisten gebruiken de app tussen twee lessen door."
           }
         }
       ]
@@ -664,7 +662,9 @@
 
             </a>
 
-            <nav>
+            <button class="nav-apri" id="navApri" aria-label="Menu" aria-expanded="false" aria-controls="navPrincipale"><span></span><span></span><span></span></button>
+
+            <nav id="navPrincipale">
 
                 <ul class="nav-menu">
 
@@ -1057,13 +1057,13 @@
     
     <section class="contenuto">
       <div class="container container-stretto">
-        <h2>Domande frequenti sull'app Ti</h2>
-        <details class="faq-voce"><summary>Quanto costa l'app Ti?</summary><p>Il download è gratuito. Con l'abbonamento (mensile o annuale) o con l'acquisto Lifetime sblocchi il percorso completo A1–C2, il dizionario e i giochi senza limiti; in più scegli 3 titoli con l'abbonamento e 6 con il Lifetime, liberamente fra i corsi a tappe dell'edicola e i romanzi graduati. Gli altri titoli si acquistano singolarmente. I prezzi sono mostrati nell'app prima dell'acquisto.</p></details>
-        <details class="faq-voce"><summary>Funziona senza connessione?</summary><p>Sì. Una volta scaricato un libro o un livello, esercizi, letture e dizionario funzionano offline. Serve la rete solo per gli acquisti e per la sincronizzazione dei progressi.</p></details>
-        <details class="faq-voce"><summary>In quali lingue è disponibile?</summary><p>Grammatica, traduzioni e dizionario sono in 14 lingue: albanese, arabo, bengalese, cinese, francese, inglese, olandese, portoghese, rumeno, spagnolo, tagalog, tedesco, tigrino e ucraino.</p></details>
-        <details class="faq-voce"><summary>Va bene per prepararsi a CILS, CELI o PLIDA?</summary><p>Sì. Il percorso segue i livelli QCER dall'A1 al C2 con checkpoint ed esami di livello, quindi copre le competenze richieste da quelle certificazioni. Non è però un simulatore d'esame ufficiale.</p></details>
-        <details class="faq-voce"><summary>È disponibile per Android?</summary><p>Al momento Ti è un'app per iPhone e iPad. Su Android puoi usare gli oltre 700 esercizi gratuiti di questo sito, che funzionano da qualsiasi browser.</p></details>
-        <details class="faq-voce"><summary>Che differenza c'è tra l'app e le lezioni private?</summary><p>L'app ti dà struttura, ripetizione e lessico, e funziona quando vuoi tu. Le lezioni servono per parlare, essere corretto e sbloccarti. Molti studenti usano l'app tra una lezione e l'altra.</p></details>
+        <h2>Veelgestelde vragen over de Ti-app</h2>
+        <details class="faq-voce"><summary>Wat kost de Ti-app?</summary><p>Downloaden is gratis. Met een abonnement (maandelijks of jaarlijks) of met de Lifetime-aankoop ontgrendel je het volledige traject A1–C2, het woordenboek en de spellen zonder limiet; daarnaast kies je 3 titels met het abonnement en 6 met Lifetime, vrij uit de cursussen van de kiosk en de gegradeerde romans. De overige titels koop je los. De prijzen staan in de app vóór de aankoop.</p></details>
+        <details class="faq-voce"><summary>Werkt de app zonder internet?</summary><p>Ja. Zodra je een boek of een niveau hebt gedownload, werken de oefeningen, de teksten en het woordenboek offline. Je hebt alleen internet nodig voor aankopen en om je voortgang te synchroniseren.</p></details>
+        <details class="faq-voce"><summary>In welke talen is de app beschikbaar?</summary><p>Grammatica, vertalingen en woordenboek zijn er in 14 talen: Albanees, Arabisch, Bengaals, Chinees, Frans, Engels, Nederlands, Portugees, Roemeens, Spaans, Tagalog, Duits, Tigrinya en Oekraïens.</p></details>
+        <details class="faq-voce"><summary>Is de app geschikt om je voor te bereiden op CILS, CELI of PLIDA?</summary><p>Ja. Het traject volgt de ERK-niveaus van A1 tot C2 met checkpoints en niveau-examens, en dekt dus de vaardigheden die die certificaten vragen. Het is echter geen officiële examensimulator.</p></details>
+        <details class="faq-voce"><summary>Is de app beschikbaar voor Android?</summary><p>Op dit moment is Ti een app voor iPhone en iPad. Op Android kun je de meer dan 700 gratis oefeningen van deze site gebruiken, die in elke browser werken.</p></details>
+        <details class="faq-voce"><summary>Wat is het verschil tussen de app en privéles?</summary><p>De app geeft je structuur, herhaling en woordenschat, en werkt wanneer het jou uitkomt. De lessen zijn er om te spreken, om verbeterd te worden en om los te komen. Veel cursisten gebruiken de app tussen twee lessen door.</p></details>
       </div>
     </section>
 
@@ -1097,9 +1097,18 @@
 
         <div class="container footer-legal">
 
-            <p data-i18n-footer="kvk">KVK 42118745</p>
+            <p class="footer-ids"><span>KVK: 42118745</span><span class="footer-ids-sep" aria-hidden="true">|</span><span>BTW: NL005508294B90</span></p>
 
-        </div>
+        
+            <!-- ti-badges -->
+            <div class="footer-badges">
+
+                <a href="https://www.producthunt.com/products/thuis-italiaans?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-thuis-italiaans" target="_blank" rel="noopener noreferrer"><img alt="Thuis Italiaans - learn Italian with a scientific method, easily every day | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1205572&amp;theme=neutral" loading="lazy"></a>
+
+                <a href="https://launchzone.co/p/ti-app-learn-italian" target="_blank" rel="noopener"><img src="https://launchzone.co/badge.svg" alt="Find us on LaunchZone" width="154" height="54" loading="lazy"></a>
+
+            </div>
+</div>
 
     </footer>
 
@@ -1955,6 +1964,7 @@
     })();
     </script>
 
+    <script src="/js/nav.js"></script>
     <script src="/js/app-nav.js"></script>
     <script>
     (function(){

@@ -34,7 +34,7 @@
 html{scroll-behavior:smooth}
 body{background:var(--carta);color:var(--inchiostro);font-family:"Source Serif 4",Georgia,serif;font-size:17px;line-height:1.65}
 a{color:var(--laguna)}
-.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 20px}
 header.sito{border-bottom:1px solid var(--bordo);background:var(--carta);position:sticky;top:0;z-index:20}
 header.sito .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
 .logo{font-family:Fraunces,serif;font-weight:700;font-size:1.15rem;color:var(--inchiostro);text-decoration:none}
@@ -123,6 +123,7 @@ footer.sito a{color:var(--nebbia)}
   .scheda .badge-livello{top:18px;left:6px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.scheda{transition:none}}
+@media(max-width:640px){footer.sito .wrap{justify-content:center;text-align:center;gap:6px}}
 </style>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": ["Book", "Product"], "name": "La coscienza di Zeno", "author": {"@type": "Person", "name": "Italo Svevo"}, "contributor": {"@type": "Person", "name": "Alessio Insegnante"}, "inLanguage": "it", "bookFormat": "https://schema.org/Paperback", "image": "https://thuisitaliaans.com/assets/books/Zeno_cover.jpg", "educationalLevel": "A2", "url": "https://thuisitaliaans.com/libri/la-coscienza-di-zeno.html", "publisher": {"@type": "Organization", "name": "thuisitaliaans", "url": "https://thuisitaliaans.com"}, "genre": "Letture graduate", "description": "La coscienza di Zeno di Italo Svevo adattato in italiano semplificato, livello QCER A2, con note, glossario e domande di comprensione.", "offers": {"@type": "Offer", "price": "4.99", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://www.amazon.it/dp/B0H9SHPT52"}, "brand": {"@type": "Brand", "name": "thuisitaliaans"}, "learningResourceType": "Graded reader", "teaches": "Italian language, CEFR level A2", "audience": {"@type": "EducationalAudience", "educationalRole": "student"}, "abridged": true, "bookEdition": "Graded reader edition (A2)", "keywords": "libro in italiano facile, letture graduate, italiano A2, La coscienza di Zeno, Italo Svevo"}
@@ -287,6 +288,7 @@ footer.sito a{color:var(--nebbia)}
   <div class="wrap">
     <span>© <span id="anno"></span> thuisitaliaans · Ede, the Netherlands</span>
     <span><a href="/libri">Tutti i libri</a> · <a href="https://www.amazon.it/stores/Alessio-Insegnante/author/B0H9R9CGNV/allbooks" target="_blank" rel="noopener">Amazon</a></span>
+    <span>KVK: 42118745 | BTW: NL005508294B90</span>
   </div>
 </footer>
 <script>document.getElementById('anno').textContent=new Date().getFullYear();</script>

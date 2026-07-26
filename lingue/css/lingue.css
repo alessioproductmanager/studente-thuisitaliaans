@@ -7,7 +7,7 @@ body{
 font-family:'Inter','Noto Sans Arabic','Noto Sans SC','Noto Sans Bengali','Noto Sans Ethiopic',sans-serif;
 background:#fff;color:#31394d;line-height:1.7;overflow-x:hidden;
 }
-img{display:block;max-width:100%;}
+img{display:block;max-width:100%; height:auto;}
 a{text-decoration:none;color:inherit;}
 ul,ol{margin-left:1.2em;}
 

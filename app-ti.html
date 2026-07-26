@@ -211,10 +211,10 @@
 
             .feature-visual img {
                 transition: transform .5s cubic-bezier(.2,.7,.2,1);
-            }
+            height:auto;}
             .feature-row:hover .feature-visual img {
                 transform: scale(1.03);
-            }
+            height:auto;}
 
             .cta-section .button {
                 transition: transform .25s ease, box-shadow .25s ease;
@@ -361,8 +361,7 @@
             max-width: 60%;
             max-height: 100%;
             border-radius: 22px;
-            box-shadow: 0 15px 40px rgba(49,57,77,.12);
-        }
+            box-shadow: 0 15px 40px rgba(49,57,77,.12); height: auto;}
         /* Modifier per immagini promozionali già "framate" (con dispositivi + margine bianco) */
         .feature-visual.wide {
             padding: 20px;
@@ -373,8 +372,7 @@
             max-width: 100%;
             max-height: 100%;
             border-radius: 0;
-            box-shadow: 0 20px 50px rgba(49,57,77,.15);
-        }
+            box-shadow: 0 20px 50px rgba(49,57,77,.15); height: auto;}
 
         /* "Fatta per te se..." */
         .for-you-section {
@@ -458,7 +456,7 @@
             }
             .feature-visual img {
                 max-width: 50%;
-            }
+            height:auto;}
         }
         @media (max-width: 560px) {
             .screenshot-card {
@@ -526,6 +524,35 @@
         }
         .mt-notice-wrap{
             padding:16px;
+        }
+
+        /* ========= BADGE FOOTER (LaunchZone + Product Hunt) ========= */
+        .footer-badges{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            align-items:center;
+            gap:14px;
+            margin:18px 0 4px;
+            direction:ltr;
+        }
+        .footer-badges a{
+            display:inline-flex;
+            line-height:0;
+            opacity:.9;
+            transition:opacity .25s ease, transform .25s ease;
+        }
+        .footer-badges a:hover{
+            opacity:1;
+            transform:translateY(-2px);
+        }
+        .footer-badges img{
+            height:54px;
+            width:auto;
+            display:block;
+        }
+        @media (max-width:480px){
+            .footer-badges img{ height:46px; }
         }
     </style>
 
@@ -664,7 +691,9 @@
 
             </a>
 
-            <nav>
+            <button class="nav-apri" id="navApri" aria-label="Menu" aria-expanded="false" aria-controls="navPrincipale"><span></span><span></span><span></span></button>
+
+            <nav id="navPrincipale">
 
                 <ul class="nav-menu">
 
@@ -1071,13 +1100,81 @@
 
         <div class="container">
 <nav class="footer-sitemap" aria-label="Sitemap">
-<div><h2>Lessen</h2><ul><li><a href="/italiaans-voor-beginners">Voor beginners</a></li><li><a href="/italiaans-voor-gevorderden">Voor gevorderden</a></li><li><a href="/conversatieles-italiaans">Conversatieles</a></li><li><a href="/zakelijk-italiaans">Zakelijk Italiaans</a></li><li><a href="/italiaans-voor-kinderen">Voor kinderen</a></li><li><a href="/italiaans-examen-certificaat">CILS · CELI · PLIDA</a></li><li><a href="/italiaans-online">Online les</a></li><li><a href="/tarieven">Tarieven</a></li></ul></div>
-<div><h2>Steden</h2><ul><li><a href="/italiaanse-les-ede-utrecht">Ede &amp; Utrecht</a></li><li><a href="/italiaanse-les-ede-utrecht">Amersfoort</a></li><li><a href="/italiaanse-les-amsterdam">Amsterdam</a></li><li><a href="/italiaanse-les-arnhem">Arnhem</a></li><li><a href="/italiaanse-les-wageningen">Wageningen</a></li><li><a href="/italiaanse-les-veenendaal">Veenendaal</a></li><li><a href="/italiaanse-les-barneveld">Barneveld</a></li><li><a href="/italiaanse-les-bennekom">Bennekom</a></li></ul><h2 style="margin-top:26px">Niveaus</h2><ul><li><a href="/italiaanse-boeken-a1">A1 · beginner</a></li><li><a href="/italiaanse-boeken-a2">A2 · elementair</a></li><li><a href="/italiaanse-boeken-b1">B1 · gemiddeld</a></li><li><a href="/italiaanse-boeken-b2">B2 · gevorderd</a></li><li><a href="/italiaanse-boeken-c1">C1 · vergevorderd</a></li></ul></div>
-<div><h2>Zelf leren</h2><ul><li><a href="/esercizi/">700+ oefeningen</a></li><li><a href="/boeken">Boeken per niveau</a></li><li><a href="/app-ti">De ti-app</a></li><li><a href="/blog/">Blog</a></li></ul><p class="footer-talen"><strong style="display:block;font-size:.82rem;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Taal</strong><a href="/" aria-current="true">Nederlands</a><span>·</span><a href="/it/">Italiano</a><span>·</span><a href="/en/">English</a></p></div>
-<div><h2>Thuis Italiaans</h2><ul><li><a href="/#about">Over Alessio</a></li><li><a href="/#reviews">Reviews</a></li><li><a href="/waarom-thuis-italiaans">Waarom Thuis Italiaans</a></li><li><a href="/#contact">Contact</a></li></ul>
-<p class="footer-zone"><strong>Ede Centrum</strong><br>Les op locatie in Ede, Amersfoort, Utrecht, Arnhem en omgeving &mdash; of online.</p>
-<a class="footer-review" href="https://maps.google.com/?cid=1518224867092056834" target="_blank" rel="noopener"><span class="footer-review-ster" aria-hidden="true">★★★★★</span><span>Laat een review achter<br>op Google</span></a></div>
+<div class="footer-col">
+<p class="footer-col-title">Lessen</p>
+<ul>
+<li><a href="/italiaans-voor-beginners">Voor beginners</a></li>
+<li><a href="/italiaans-voor-gevorderden">Voor gevorderden</a></li>
+<li><a href="/conversatieles-italiaans">Conversatieles</a></li>
+<li><a href="/zakelijk-italiaans">Zakelijk Italiaans</a></li>
+<li><a href="/italiaans-voor-kinderen">Voor kinderen</a></li>
+<li><a href="/italiaans-examen-certificaat">CILS &middot; CELI &middot; PLIDA</a></li>
+<li><a href="/italiaans-online">Online les</a></li>
+<li><a href="/tarieven">Tarieven</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<p class="footer-col-title">Steden</p>
+<ul>
+<li><a href="/italiaanse-les-ede-utrecht">Ede &amp; Utrecht</a></li>
+<li><a href="/italiaanse-les-ede-utrecht">Amersfoort</a></li>
+<li><a href="/italiaanse-les-amsterdam">Amsterdam</a></li>
+<li><a href="/italiaanse-les-arnhem">Arnhem</a></li>
+<li><a href="/italiaanse-les-wageningen">Wageningen</a></li>
+<li><a href="/italiaanse-les-veenendaal">Veenendaal</a></li>
+<li><a href="/italiaanse-les-barneveld">Barneveld</a></li>
+<li><a href="/italiaanse-les-bennekom">Bennekom</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<p class="footer-col-title">Niveaus</p>
+<ul>
+<li><a href="/italiaanse-boeken-a1">A1 &middot; beginner</a></li>
+<li><a href="/italiaanse-boeken-a2">A2 &middot; elementair</a></li>
+<li><a href="/italiaanse-boeken-b1">B1 &middot; gemiddeld</a></li>
+<li><a href="/italiaanse-boeken-b2">B2 &middot; gevorderd</a></li>
+<li><a href="/italiaanse-boeken-c1">C1 &middot; vergevorderd</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<p class="footer-col-title">Zelf leren</p>
+<ul>
+<li><a href="/esercizi/">700+ oefeningen</a></li>
+<li><a href="/boeken">Boeken per niveau</a></li>
+<li><a href="/app-ti">De ti-app</a></li>
+<li><a href="/blog/">Blog</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<p class="footer-col-title">Thuis Italiaans</p>
+<ul>
+<li><a href="/#about">Over Alessio</a></li>
+<li><a href="/#reviews">Reviews</a></li>
+<li><a href="/waarom-thuis-italiaans">Waarom Thuis Italiaans</a></li>
+<li><a href="/#contact">Contact</a></li>
+</ul>
+</div>
 </nav>
+<div class="footer-extra">
+<a class="footer-card" href="/#contact">
+<span class="footer-card-title">Ede Centrum</span>
+<span class="footer-card-text">Les op locatie in Ede, Amersfoort, Utrecht, Arnhem en omgeving &mdash; of online.</span>
+<span class="footer-card-cta">Neem contact op &rarr;</span>
+</a>
+<a class="footer-card footer-card-review" href="https://maps.google.com/?cid=1518224867092056834" target="_blank" rel="noopener">
+<span class="footer-review-ster" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+<span class="footer-card-title">Laat een review achter</span>
+<span class="footer-card-text">op Google &mdash; het helpt andere cursisten ons te vinden.</span>
+</a>
+</div>
+<div class="footer-taal">
+<span class="footer-taal-label">Taal</span>
+<a href="/" aria-current="true">Nederlands</a>
+<span aria-hidden="true">&middot;</span>
+<a href="/it/">Italiano</a>
+<span aria-hidden="true">&middot;</span>
+<a href="/en/">English</a>
+</div>
 </div>
 <div class="container footer-grid">
 
@@ -1107,7 +1204,18 @@
 
         <div class="container footer-legal">
 
-            <p data-i18n-footer="kvk">KVK 42118745</p>
+            <p class="footer-ids"><span>KVK: 42118745</span><span class="footer-ids-sep" aria-hidden="true">|</span><span>BTW: NL005508294B90</span></p>
+
+            <!-- ti-badges -->
+            <div class="footer-badges">
+
+                <a href="https://www.producthunt.com/products/thuis-italiaans?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-thuis-italiaans" target="_blank" rel="noopener noreferrer"><img alt="Thuis Italiaans - learn Italian with a scientific method, easily every day | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1205572&amp;theme=neutral&amp;t=1785060473054" loading="lazy"></a>
+
+                <a href="https://launchzone.co/p/ti-app-learn-italian" target="_blank" rel="noopener">
+                  <img src="https://launchzone.co/badge.svg" alt="Find us on LaunchZone" width="154" height="54" loading="lazy" />
+                </a>
+
+            </div>
 
         </div>
 
@@ -1965,6 +2073,7 @@
     })();
     </script>
 
+    <script src="/js/nav.js"></script>
     <script src="/js/app-nav.js"></script>
     <script>
     (function(){

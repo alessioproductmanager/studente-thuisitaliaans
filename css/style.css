@@ -23,8 +23,7 @@ overflow-x:hidden;
 img,
 video{
 display:block;
-max-width:100%;
-}
+max-width:100%; height:auto;}
 a{
 text-decoration:none;
 color:inherit;
@@ -49,7 +48,7 @@ cursor:pointer;
 --radius:22px;
 --shadow:0 12px 35px rgba(49,57,77,.08);
 --transition:.35s ease;
---container:1180px;
+--container:1280px;
 }
 
 /* ========= CONTAINER ========= */
@@ -253,19 +252,22 @@ color:var(--primary);
 background:var(--background);
 }
 .section-heading{
-max-width:640px;
+max-width:720px;
 margin:0 auto 60px;
 text-align:center;
 }
 .section-heading p{
 margin-top:10px;
+text-wrap:balance;
 }
 
 /* ========= FONTE RECENSIONI (attribuzione piattaforme) ========= */
 .review-bron{
-margin-top:14px;
+display:block;
+margin-top:10px;
 font-size:.86rem;
 color:var(--secondary);
+text-wrap:balance;
 }
 .review-bron a{
 color:var(--secondary);
@@ -398,13 +400,13 @@ margin-bottom:0;
 position:relative;
 display:flex;
 align-items:center;
-gap:16px;
-width:min(92%,var(--container));
+gap:14px;
+width:min(96%,1620px);
 margin:auto;
 }
 .carousel-track{
 display:flex;
-gap:24px;
+gap:20px;
 overflow-x:auto;
 scroll-snap-type:x mandatory;
 scroll-behavior:smooth;
@@ -420,16 +422,16 @@ border-radius:999px;
 }
 .review-card{
 flex:0 0 100%;
-max-width:340px;
+max-width:450px;
 scroll-snap-align:start;
 background:var(--background);
 border:1px solid var(--border);
 border-radius:var(--radius);
-padding:32px;
+padding:24px 28px;
 box-shadow:var(--shadow);
 display:flex;
 flex-direction:column;
-gap:16px;
+gap:12px;
 }
 .review-card .stars{
 font-size:.95rem;
@@ -437,7 +439,8 @@ letter-spacing:2px;
 }
 .review-text{
 color:var(--primary);
-font-size:.98rem;
+font-size:.95rem;
+line-height:1.6;
 flex:1;
 }
 .review-author{
@@ -985,40 +988,6 @@ color:var(--secondary);
 
 
 /* ==========================================
-   FOOTER — mappa del sito (link alle pagine interne)
-========================================== */
-.footer-sitemap{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:34px;
-padding:46px 0 10px;
-border-top:1px solid var(--border);
-}
-.footer-sitemap h2{
-font-size:.82rem;
-text-transform:uppercase;
-letter-spacing:.5px;
-font-weight:700;
-color:var(--primary);
-margin-bottom:14px;
-}
-.footer-sitemap ul{margin:0;}
-.footer-sitemap li{margin-bottom:9px;}
-.footer-sitemap a{
-font-size:.95rem;
-color:var(--secondary);
-transition:var(--transition);
-}
-.footer-sitemap a:hover{color:var(--primary);}
-@media(max-width:900px){
-.footer-sitemap{grid-template-columns:repeat(2,1fr);gap:28px;}
-}
-@media(max-width:560px){
-.footer-sitemap{grid-template-columns:1fr;gap:24px;padding-top:36px;}
-}
-
-
-/* ==========================================
    FOOTER — scheda Google (NAP, mappa, recensioni)
 ========================================== */
 .footer-google{
@@ -1044,116 +1013,121 @@ margin-bottom:14px;
 }
 
 
-/* ==========================================
-   FOOTER — zona servita e pulsante recensione
-========================================== */
-.
-     ══════════════════════════════════════════════════════════════════ -->
-
-<div class="container">
-  <nav class="footer-sitemap" aria-label="Sitemap">
-
-    <div>
-      <h2>Lessen</h2>
-      <ul>
-        <li><a href="/italiaans-voor-beginners">Voor beginners</a></li>
-        <li><a href="/italiaans-voor-gevorderden">Voor gevorderden</a></li>
-        <li><a href="/conversatieles-italiaans">Conversatieles</a></li>
-        <li><a href="/zakelijk-italiaans">Zakelijk Italiaans</a></li>
-        <li><a href="/italiaans-voor-kinderen">Voor kinderen</a></li>
-        <li><a href="/italiaans-examen-certificaat">CILS · CELI · PLIDA</a></li>
-        <li><a href="/italiaans-online">Online les</a></li>
-        <li><a href="/tarieven">Tarieven</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <h2>Steden</h2>
-      <ul>
-        <li><a href="/italiaanse-les-ede-utrecht">Ede &amp; Utrecht</a></li>
-        <li><a href="/italiaanse-les-ede-utrecht">Amersfoort</a></li>
-        <li><a href="/italiaanse-les-amsterdam">Amsterdam</a></li>
-        <li><a href="/italiaanse-les-arnhem">Arnhem</a></li>
-        <li><a href="/italiaanse-les-wageningen">Wageningen</a></li>
-        <li><a href="/italiaanse-les-veenendaal">Veenendaal</a></li>
-        <li><a href="/italiaanse-les-barneveld">Barneveld</a></li>
-        <li><a href="/italiaanse-les-bennekom">Bennekom</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <h2>Zelf leren</h2>
-      <ul>
-        <li><a href="/esercizi/">700+ oefeningen</a></li>
-        <li><a href="/boeken">Boeken per niveau</a></li>
-        <li><a href="/app-ti">De ti-app</a></li>
-        <li><a href="/blog/">Blog</a></li>
-      </ul>
-      <h2 style="margin-top:26px">Niveaus</h2>
-      <ul>
-        <li><a href="/italiaanse-boeken-a1">A1 · beginner</a></li>
-        <li><a href="/italiaanse-boeken-a2">A2 · elementair</a></li>
-        <li><a href="/italiaanse-boeken-b1">B1 · gemiddeld</a></li>
-        <li><a href="/italiaanse-boeken-b2">B2 · gevorderd</a></li>
-        <li><a href="/italiaanse-boeken-c1">C1 · vergevorderd</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <h2>Thuis Italiaans</h2>
-      <ul>
-        <li><a href="/#about">Over Alessio</a></li>
-        <li><a href="/#reviews">Reviews</a></li>
-        <li><a href="/waarom-thuis-italiaans">Waarom Thuis Italiaans</a></li>
-        <li><a href="/#contact">Contact</a></li>
-      </ul>
-
-      <p class="footer-zone">
-        <strong>Ede Centrum</strong><br>
-        Les op locatie in Ede, Amersfoort, Utrecht,
-        Arnhem en omgeving &mdash; of online.
-      </p>
-
-      <a class="footer-review"
-         href="https://maps.google.com/?cid=1518224867092056834"
-         target="_blank" rel="noopener">
-        <span class="footer-review-ster" aria-hidden="true">&#9733;</span>
-        Laat een review achter op Google
-      </a>
-    </div>
-
-  </nav>
-</div>
-
-
-<!-- ══════════════════════════════════════════════════════════════════
-     CSS — solo le due classi che non hai. Appendile a style.css.
-     .footer-sitemap c'è già: se non lo trovi, in fondo trovi anche quello.
-     ══════════════════════════════════════════════════════════════════ -->
-
-<style>
-.footer-zone{
-margin:22px 0 18px;
-font-size:.92rem;
-line-height:1.6;
-color:var(--secondary);
-}
-.footer-zone strong{color:var(--primary);}
-
-.footer-review{
-display:inline-flex;
-align-items:center;
-gap:8px;
-padding:10px 18px;
-border:1px solid var(--border);
-border-radius:999px;
-font-size:.9rem;
-font-weight:600;
-color:var(--primary);
-transition:var(--transition);
-}
-.footer-review:hover{
-background:var(--surface);
-transform:translateY(-2px);
-}
+/* .footer-zone / .footer-review: markup rimosso, regole eliminate */
 .footer-review-ster{color:#f5b400;font-size:1rem;}
+
+
+/* ===== FOOTER THUIS ITALIAANS v2 ===== */
+
+/* --- Sitemap: 5 colonne --- */
+.footer-sitemap{
+    display:grid;
+    grid-template-columns:repeat(5, minmax(0, 1fr));
+    gap:34px 26px;
+    padding:56px 0 38px;
+    border-bottom:1px solid var(--border);
+    align-items:start;
+}
+@media (max-width:1080px){ .footer-sitemap{ grid-template-columns:repeat(3, minmax(0, 1fr)); } }
+@media (max-width:700px){
+    .footer-sitemap{ grid-template-columns:repeat(2, minmax(0, 1fr)); gap:28px 18px; padding:40px 0 30px; }
+}
+@media (max-width:380px){ .footer-sitemap{ grid-template-columns:1fr; } }
+
+.footer-col-title{
+    margin:0 0 14px;
+    font-size:.76rem; font-weight:700;
+    text-transform:uppercase; letter-spacing:.09em;
+    color:var(--primary);
+}
+.footer-sitemap ul{ list-style:none; margin:0; padding:0; display:grid; gap:9px; }
+.footer-sitemap a{
+    font-size:.93rem; line-height:1.4;
+    color:var(--secondary); text-decoration:none;
+    overflow-wrap:break-word; transition:color .2s ease;
+}
+.footer-sitemap a:hover{ color:var(--primary); }
+
+/* --- Card: zona + review --- */
+.footer-extra{ display:grid; grid-template-columns:1.35fr 1fr; gap:18px; padding:30px 0 4px; }
+@media (max-width:700px){ .footer-extra{ grid-template-columns:1fr; padding:24px 0 4px; } }
+
+.footer-card{
+    display:flex; flex-direction:column; gap:7px;
+    padding:20px 22px;
+    border:1px solid var(--border);
+    border-radius:var(--radius, 16px);
+    background:var(--surface);
+    text-decoration:none;
+    transition:border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+}
+.footer-card:hover{
+    border-color:var(--primary);
+    box-shadow:0 10px 26px rgba(49,57,77,.08);
+    transform:translateY(-2px);
+}
+.footer-card-title{ font-size:1rem; font-weight:700; color:var(--primary); line-height:1.3; }
+.footer-card-text{ font-size:.9rem; line-height:1.5; color:var(--secondary); text-wrap:pretty; }
+.footer-card-cta{ margin-top:auto; padding-top:8px; font-size:.86rem; font-weight:600; color:var(--primary); }
+.footer-card-review .footer-review-ster{ color:#f5b301; font-size:1.02rem; letter-spacing:3px; line-height:1; }
+
+/* --- Riga lingua --- */
+.footer-taal{
+    display:flex; flex-wrap:wrap; align-items:center; gap:10px;
+    padding:22px 0 24px;
+    margin-bottom:24px;
+    border-bottom:1px solid var(--border);
+    font-size:.9rem;
+}
+.footer-taal-label{
+    font-size:.72rem; font-weight:700;
+    text-transform:uppercase; letter-spacing:.09em; color:var(--primary);
+}
+.footer-taal a{ color:var(--secondary); text-decoration:none; transition:color .2s ease; }
+.footer-taal a:hover{ color:var(--primary); }
+.footer-taal a[aria-current]{ color:var(--primary); font-weight:600; }
+.footer-taal > span[aria-hidden]{ color:var(--border); }
+
+/* --- Riga identificativi KVK / BTW --- */
+.footer-ids{
+    display:flex; flex-wrap:wrap;
+    justify-content:center; align-items:center;
+    gap:6px 10px; margin:0;
+    width:100%;
+    font-size:.85rem; color:var(--secondary);
+    direction:ltr;
+    text-align:center;
+}
+.footer-ids-sep{ color:var(--border); }
+@media (max-width:560px){
+    .footer-legal{ justify-content:center; text-align:center; }
+}
+@media (max-width:420px){
+    .footer-ids{ flex-direction:column; align-items:center; gap:4px; }
+    .footer-ids-sep{ display:none; }
+}
+
+/* --- Badge prodotto (pagine app-ti) --- */
+.footer-badges{
+    display:flex; flex-wrap:wrap;
+    justify-content:center; align-items:center;
+    gap:14px; margin:18px 0 4px;
+    direction:ltr;
+}
+.footer-badges a{
+    display:inline-flex; line-height:0; opacity:.9;
+    transition:opacity .25s ease, transform .25s ease;
+}
+.footer-badges a:hover{ opacity:1; transform:translateY(-2px); }
+.footer-badges img{ height:54px; width:auto; display:block; }
+@media (max-width:480px){ .footer-badges img{ height:46px; } }
+
+@media (prefers-reduced-motion: reduce){
+    .footer-card, .footer-badges a{ transition:none; }
+    .footer-card:hover, .footer-badges a:hover{ transform:none; }
+}
+/* ===== fine footer v2 ===== */
+
+/* Il bordo superiore del footer è ridondante dove c'è la sitemap:
+   il blocco precedente chiude già con la sua linea. */
+footer:has(.footer-sitemap){ border-top:none; }
