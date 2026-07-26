@@ -235,7 +235,7 @@
 
 <script>
 const SIZE = 8;
-const placements = [{ word:"MAMMA", row:0, col:0, dr:0, dc:1, emoji:"👩", def:"La madre" }, { word:"PAPA", row:1, col:3, dr:0, dc:1, emoji:"👨", def:"Il padre" }, { word:"NONNO", row:2, col:0, dr:1, dc:0, emoji:"👴", def:"Il padre di tuo padre o tua madre" }, { word:"ZIA", row:5, col:4, dr:0, dc:1, emoji:"👩‍🦰", def:"La sorella di tuo padre o tua madre" }];
+const placements = [{ word:"MAMMA", row:0, col:0, dr:0, dc:1, emoji:"", def:"La madre" }, { word:"PAPA", row:1, col:3, dr:0, dc:1, emoji:"", def:"Il padre" }, { word:"NONNO", row:2, col:0, dr:1, dc:0, emoji:"", def:"Il padre di tuo padre o tua madre" }, { word:"ZIA", row:5, col:4, dr:0, dc:1, emoji:"‍", def:"La sorella di tuo padre o tua madre" }];
 let grid = [], cellEls = [], foundWords = new Set();
 function buildGrid() {
   grid = Array.from({length:SIZE}, () => Array(SIZE).fill(''));

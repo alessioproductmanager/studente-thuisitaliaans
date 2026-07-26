@@ -235,7 +235,7 @@
 
 <script>
 const SIZE = 8;
-const placements = [{ word:"DESTRA", row:0, col:0, dr:0, dc:1, emoji:"➡️", def:"Gira da questa parte (opposto di sinistra)" }, { word:"SINISTRA", row:1, col:0, dr:0, dc:1, emoji:"⬅️", def:"Gira dall'altra parte" }, { word:"DRITTO", row:2, col:1, dr:1, dc:0, emoji:"⬆️", def:"Continua senza girare" }, { word:"ANGOLO", row:2, col:5, dr:1, dc:0, emoji:"📍", def:"Punto dove si incrociano due strade" }];
+const placements = [{ word:"DESTRA", row:0, col:0, dr:0, dc:1, emoji:"", def:"Gira da questa parte (opposto di sinistra)" }, { word:"SINISTRA", row:1, col:0, dr:0, dc:1, emoji:"⬅️", def:"Gira dall'altra parte" }, { word:"DRITTO", row:2, col:1, dr:1, dc:0, emoji:"⬆️", def:"Continua senza girare" }, { word:"ANGOLO", row:2, col:5, dr:1, dc:0, emoji:"", def:"Punto dove si incrociano due strade" }];
 let grid = [], cellEls = [], foundWords = new Set();
 function buildGrid() {
   grid = Array.from({length:SIZE}, () => Array(SIZE).fill(''));

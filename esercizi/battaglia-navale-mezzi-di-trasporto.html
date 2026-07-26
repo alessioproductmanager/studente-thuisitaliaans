@@ -128,7 +128,7 @@
       </div>
       <div class="ex-badge-row">
         <span class="ex-badge ex-badge-level">A2</span>
-        <span class="ex-badge ex-badge-type">🚢 Battaglia navale</span>
+        <span class="ex-badge ex-badge-type"><svg class="ico" viewBox="0 0 24 24" role="img" aria-label="Battaglia navale"><path d="M3 17h18l-2 4H5z"/><path d="M5 17V9l7-4 7 4v8"/><path d="M12 5V2"/></svg> Battaglia navale</span>
         <span class="ex-badge ex-badge-type">Lessico</span>
       </div>
       <h1>Battaglia navale: mezzi di trasporto</h1>
@@ -285,7 +285,7 @@ function answerQuestion(isCorrect) {
     cell.classList.add('hit'); cell.textContent='💥'; hitCells.add(cell.dataset.key); sunkShips++;
     document.getElementById('bsStatus').textContent = sunkShips>=3 ? 'Complimenti, hai affondato tutte le navi!' : `Colpito! Navi da affondare: ${3-sunkShips}`;
   } else if (isCorrect && !isShip) { cell.classList.add('miss'); cell.textContent='〰️'; }
-  else { cell.classList.add('miss'); cell.textContent='✗'; }
+  else { cell.classList.add('miss'); cell.textContent=''; }
 }
 document.getElementById('retryBtn').addEventListener('click', init);
 init();

@@ -2,7 +2,7 @@
  * ============================================================
  *  Ti — Central App Store configuration
  * ============================================================
- *  ⚠️ WHEN THE APP GOES LIVE ON THE APP STORE:
+ * WHEN THE APP GOES LIVE ON THE APP STORE:
  *      Change ONLY the APP_STORE_URL below.
  *      All 30+ language pages will pick it up automatically.
  * ============================================================
@@ -10,7 +10,7 @@
 (function () {
   'use strict';
 
-  // 👉 CHANGE THIS ONE URL when the app is published
+  //CHANGE THIS ONE URL when the app is published
   const APP_STORE_URL = 'https://apps.apple.com/app/id6791650799';
 
   // Small "Download on the" line above "App Store" — localized

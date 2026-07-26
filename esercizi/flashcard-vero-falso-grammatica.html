@@ -209,7 +209,7 @@ cards.forEach(c => {
   const card = document.createElement('div');
   card.className = 'flashcard';
   const verdictColor = c.correct ? 'var(--good)' : 'var(--bad)';
-  const verdictText = c.correct ? '✔️ Corretta' : '✖️ Sbagliata';
+  const verdictText = c.correct ? 'Corretta' : 'Sbagliata';
   card.innerHTML = `
     <div class="flashcard-inner">
       <div class="flashcard-front" style="font-size:.95rem;">${c.sentence}</div>

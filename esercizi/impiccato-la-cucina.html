@@ -241,7 +241,7 @@ let currentWord, guessed, wrongCount;
 function pickWord() { return words[Math.floor(Math.random()*words.length)]; }
 function init() {
   currentWord = pickWord(); guessed = new Set(); wrongCount = 0;
-  document.getElementById('hangmanHint').textContent = `💡 ${currentWord.hint}`;
+  document.getElementById('hangmanHint').textContent = `${currentWord.hint}`;
   document.getElementById('hangmanDrawing').textContent = faces[0];
   document.getElementById('hangmanStatus').textContent = '';
   renderWord(); renderKeyboard();

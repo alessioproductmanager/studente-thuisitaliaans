@@ -309,12 +309,12 @@ function answer(isCorrect) {
   if (isCorrect) {
     claimed[index] = 'win';
     cell.classList.add('claimed');
-    cell.textContent = '✓';
+    cell.textContent = '';
     checkWin();
   } else {
     claimed[index] = 'blocked';
     cell.classList.add('blocked');
-    cell.textContent = '✗';
+    cell.textContent = '';
   }
 }
 

@@ -235,7 +235,7 @@
 
 <script>
 const SIZE = 10;
-const placements = [{ word:"BANCO", row:0, col:0, dr:0, dc:1, emoji:"🪑", def:"Ci si siede lo studente" }, { word:"LAVAGNA", row:1, col:2, dr:0, dc:1, emoji:"📋", def:"L'insegnante ci scrive le lezioni" }, { word:"ZAINO", row:3, col:0, dr:1, dc:0, emoji:"🎒", def:"Contiene i libri per andare a scuola" }, { word:"QUADERNO", row:2, col:4, dr:1, dc:0, emoji:"📓", def:"Ci si scrive a mano" }];
+const placements = [{ word:"BANCO", row:0, col:0, dr:0, dc:1, emoji:"", def:"Ci si siede lo studente" }, { word:"LAVAGNA", row:1, col:2, dr:0, dc:1, emoji:"", def:"L'insegnante ci scrive le lezioni" }, { word:"ZAINO", row:3, col:0, dr:1, dc:0, emoji:"", def:"Contiene i libri per andare a scuola" }, { word:"QUADERNO", row:2, col:4, dr:1, dc:0, emoji:"", def:"Ci si scrive a mano" }];
 let grid = [], cellEls = [], foundWords = new Set();
 function buildGrid() {
   grid = Array.from({length:SIZE}, () => Array(SIZE).fill(''));

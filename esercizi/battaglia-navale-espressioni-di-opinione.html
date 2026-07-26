@@ -285,7 +285,7 @@ function answerQuestion(isCorrect) {
     cell.classList.add('hit'); cell.textContent='💥'; hitCells.add(cell.dataset.key); sunkShips++;
     document.getElementById('bsStatus').textContent = sunkShips>=3 ? 'Complimenti, hai affondato tutte le navi!' : `Colpito! Navi da affondare: ${3-sunkShips}`;
   } else if (isCorrect && !isShip) { cell.classList.add('miss'); cell.textContent='〰️'; }
-  else { cell.classList.add('miss'); cell.textContent='✗'; }
+  else { cell.classList.add('miss'); cell.textContent=''; }
 }
 document.getElementById('retryBtn').addEventListener('click', init);
 init();

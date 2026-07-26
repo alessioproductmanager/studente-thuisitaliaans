@@ -569,7 +569,7 @@ window.ConsensoModulo = (function () {
  const isRTL = RTL_LANGS.includes(lang);
  const dir = isRTL ? 'rtl' : 'ltr';
  const mtBanner = t.mtNotice
- ? `<div class="mt-notice">⚠️ ${esc(t.mtNotice)}</div>` : '';
+ ? `<div class="mt-notice">${esc(t.mtNotice)}</div>` : '';
 
  const items = t.dataItems.map(x => `<li>${esc(x)}</li>`).join('');
 

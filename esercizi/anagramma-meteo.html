@@ -314,7 +314,7 @@ function renderAll() {
       item._feedback.classList.remove('good', 'bad');
       if (built === item._answer) {
         item._feedback.classList.add('good');
-        item._feedback.textContent = 'Esatto! ✓';
+        item._feedback.textContent = 'Esatto!';
       } else {
         item._feedback.classList.add('bad');
         item._feedback.textContent = `Non ancora. La parola è: ${item._answer}`;

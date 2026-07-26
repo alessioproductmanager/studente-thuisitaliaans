@@ -155,7 +155,7 @@
     <div class="ex-explainer">
       <h2><svg class="ico" viewBox="0 0 24 24" role="img" aria-label="Spiegazione"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> A cosa serve il dettato</h2>
       <p>Scrivere quello che senti allena insieme <strong>ascolto</strong> e <strong>ortografia</strong> — utile soprattutto per le doppie e gli accenti, spesso invisibili quando si legge soltanto.</p>
-      <p style="font-size:.85rem;color:var(--secondary);margin-top:10px;">🔊 Richiede una voce italiana disponibile nel tuo browser/dispositivo.</p>
+      <p style="font-size:.85rem;color:var(--secondary);margin-top:10px;"><svg class="ico" viewBox="0 0 24 24" role="img" aria-label="Ascolta"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M16 9a4 4 0 0 1 0 6"/><path d="M19 6a8 8 0 0 1 0 12"/></svg> Richiede una voce italiana disponibile nel tuo browser/dispositivo.</p>
       <p>Padroneggiare questo argomento ti aiuta a esprimerti con più autonomia in conversazioni di tutti i giorni. Questo esercizio allena la struttura della frase italiana, essenziale per costruire un discorso chiaro e corretto.</p>
       <p>Questo argomento fa parte del livello elementare del QCER, un gradino importante verso una vera autonomia linguistica in italiano.</p>
       <p>Ascolta la frase per intero almeno una volta prima di iniziare a scrivere: capirai meglio il ritmo naturale della frase e commetterai meno errori di segmentazione delle parole.</p>
@@ -255,7 +255,7 @@ sentences.forEach((sentence, i) => {
   const item = document.createElement('div');
   item.style.marginBottom = '32px';
   item.innerHTML = `
-    <button class="listen-btn" data-index="${i}">🔊 Ascolta la frase ${i + 1}</button>
+    <button class="listen-btn" data-index="${i}">Ascolta la frase ${i + 1}</button>
     <input type="text" class="dictate-input" placeholder="Scrivi quello che senti..." data-index="${i}" autocomplete="off">
   `;
   panel.appendChild(item);

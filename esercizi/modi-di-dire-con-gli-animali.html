@@ -266,7 +266,7 @@ function renderAll() {
     items.forEach(item => {
       const built = [...item._answerRow.querySelectorAll('.letter-tile')].map(t=>t.textContent).join('');
       item._feedback.classList.remove('good','bad');
-      if (built === item._answer) { item._feedback.classList.add('good'); item._feedback.textContent='Esatto! ✓'; }
+      if (built === item._answer) { item._feedback.classList.add('good'); item._feedback.textContent='Esatto!'; }
       else { item._feedback.classList.add('bad'); item._feedback.textContent=`Non ancora. La parola è: ${item._answer}`; }
     });
   });

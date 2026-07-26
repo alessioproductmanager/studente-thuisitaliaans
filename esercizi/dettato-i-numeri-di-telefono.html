@@ -233,7 +233,7 @@ if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschang
 const panel = document.getElementById('dictationPanel');
 sentences.forEach((sentence, i) => {
   const item = document.createElement('div'); item.style.marginBottom='32px';
-  item.innerHTML = `<button class="listen-btn" data-index="${i}">🔊 Ascolta la frase ${i+1}</button>
+  item.innerHTML = `<button class="listen-btn" data-index="${i}">Ascolta la frase ${i+1}</button>
     <input type="text" class="dictate-input" placeholder="Scrivi quello che senti..." data-index="${i}" autocomplete="off">`;
   panel.appendChild(item);
 });

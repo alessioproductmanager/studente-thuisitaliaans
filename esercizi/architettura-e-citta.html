@@ -235,7 +235,7 @@
 
 <script>
 const SIZE = 9;
-const placements = [{ word:"PIAZZA", row:0, col:0, dr:0, dc:1, emoji:"🏛️", def:"Spazio aperto centrale in una città" }, { word:"CUPOLA", row:1, col:0, dr:0, dc:1, emoji:"⛪", def:"Copertura a forma di semisfera" }, { word:"FACCIATA", row:0, col:8, dr:1, dc:0, emoji:"🏢", def:"La parte frontale di un edificio" }, { word:"PALAZZO", row:2, col:5, dr:1, dc:0, emoji:"🏰", def:"Grande edificio storico o signorile" }];
+const placements = [{ word:"PIAZZA", row:0, col:0, dr:0, dc:1, emoji:"", def:"Spazio aperto centrale in una città" }, { word:"CUPOLA", row:1, col:0, dr:0, dc:1, emoji:"⛪", def:"Copertura a forma di semisfera" }, { word:"FACCIATA", row:0, col:8, dr:1, dc:0, emoji:"", def:"La parte frontale di un edificio" }, { word:"PALAZZO", row:2, col:5, dr:1, dc:0, emoji:"", def:"Grande edificio storico o signorile" }];
 let grid = [], cellEls = [], foundWords = new Set();
 function buildGrid() {
   grid = Array.from({length:SIZE}, () => Array(SIZE).fill(''));

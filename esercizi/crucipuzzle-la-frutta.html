@@ -238,7 +238,7 @@
 
 <script>
 const SIZE = 10;
-const placements = [{ word:"MELA", row:0, col:0, dr:0, dc:1, emoji:"🍎", def:"Frutto rosso o verde, croccante" }, { word:"UVA", row:1, col:3, dr:0, dc:1, emoji:"🍇", def:"Frutto con cui si fa il vino" }, { word:"PERA", row:3, col:0, dr:1, dc:0, emoji:"🍐", def:"Frutto dolce a forma allungata" }, { word:"KIWI", row:2, col:5, dr:1, dc:0, emoji:"🥝", def:"Frutto verde con buccia pelosa" }, { word:"FICO", row:6, col:2, dr:0, dc:1, emoji:"🍈", def:"Frutto dolce con semi piccoli" }];
+const placements = [{ word:"MELA", row:0, col:0, dr:0, dc:1, emoji:"", def:"Frutto rosso o verde, croccante" }, { word:"UVA", row:1, col:3, dr:0, dc:1, emoji:"", def:"Frutto con cui si fa il vino" }, { word:"PERA", row:3, col:0, dr:1, dc:0, emoji:"", def:"Frutto dolce a forma allungata" }, { word:"KIWI", row:2, col:5, dr:1, dc:0, emoji:"", def:"Frutto verde con buccia pelosa" }, { word:"FICO", row:6, col:2, dr:0, dc:1, emoji:"", def:"Frutto dolce con semi piccoli" }];
 let grid = [], cellEls = [], foundWords = new Set();
 function buildGrid() {
   grid = Array.from({length:SIZE}, () => Array(SIZE).fill(''));

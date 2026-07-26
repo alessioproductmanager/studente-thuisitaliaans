@@ -278,8 +278,8 @@ function openQuestion(index, cell) {
 function answer(isCorrect) {
   questionBox.classList.remove('show');
   const { index, cell } = currentCell;
-  if (isCorrect) { claimed[index]='win'; cell.classList.add('claimed'); cell.textContent='✓'; checkWin(); }
-  else { claimed[index]='blocked'; cell.classList.add('blocked'); cell.textContent='✗'; }
+  if (isCorrect) { claimed[index]='win'; cell.classList.add('claimed'); cell.textContent=''; checkWin(); }
+  else { claimed[index]='blocked'; cell.classList.add('blocked'); cell.textContent=''; }
 }
 function checkWin() {
   for (const line of winLines) if (line.every(i => claimed[i]==='win')) { status.textContent='Tris completato! Hai vinto!'; return; }

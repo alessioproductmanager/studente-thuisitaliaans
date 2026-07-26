@@ -140,7 +140,7 @@
         </div>
         <button class="ex-btn ex-btn-primary" id="spinBtn">Gira la ruota</button>
         <div class="wheel-prompt" id="promptBox">Premi "Gira la ruota" per iniziare!</div>
-        <button class="ex-btn ex-btn-ghost" id="showAnswerBtn">💬 Possibile risposta</button>
+        <button class="ex-btn ex-btn-ghost" id="showAnswerBtn"><svg class="ico" viewBox="0 0 24 24" role="img" aria-label="Risposta"><path d="M21 12a8 8 0 0 1-8 8H7l-4 3v-5.5A8 8 0 1 1 21 12z"/></svg> Possibile risposta</button>
         <div class="wheel-prompt" id="answerBox"></div>
       </div>
     </div>
@@ -264,7 +264,7 @@ spinBtn.addEventListener('click', () => {
 });
 document.getElementById('showAnswerBtn').addEventListener('click', () => {
   if (!currentPrompt) return;
-  answerBox.textContent = `💬 Possibile risposta: "${currentPrompt.example}"`;
+  answerBox.textContent = `Possibile risposta: "${currentPrompt.example}"`;
   answerBox.classList.add('show');
 });
 </script>

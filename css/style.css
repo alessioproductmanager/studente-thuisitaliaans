@@ -1140,3 +1140,12 @@ fill:none;stroke:currentColor;stroke-width:1.8;
 stroke-linecap:round;stroke-linejoin:round;
 flex:0 0 auto;
 }
+
+/* ========= FOOTER: riga delle lingue ========= */
+.footer-lingue{padding:14px 0 4px;text-align:center;}
+.footer-lingue-tit{font-size:.78rem;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;opacity:.65;margin:0 0 8px;}
+.footer-lingue-lista{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 14px;
+list-style:none;padding:0;margin:0;}
+.footer-lingue-lista a{font-size:.82rem;white-space:nowrap;opacity:.85;}
+.footer-lingue-lista a:hover{opacity:1;}

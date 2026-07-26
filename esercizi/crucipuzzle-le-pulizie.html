@@ -235,7 +235,7 @@
 
 <script>
 const SIZE = 12;
-const placements = [{ word:"SCOPA", row:0, col:0, dr:0, dc:1, emoji:"🧹", def:"Serve per spazzare il pavimento" }, { word:"DETERSIVO", row:1, col:2, dr:0, dc:1, emoji:"🧴", def:"Prodotto per pulire" }, { word:"SPUGNA", row:3, col:0, dr:1, dc:0, emoji:"🧽", def:"Serve per lavare i piatti" }, { word:"SECCHIO", row:2, col:4, dr:1, dc:0, emoji:"🪣", def:"Contiene acqua per lavare i pavimenti" }];
+const placements = [{ word:"SCOPA", row:0, col:0, dr:0, dc:1, emoji:"", def:"Serve per spazzare il pavimento" }, { word:"DETERSIVO", row:1, col:2, dr:0, dc:1, emoji:"", def:"Prodotto per pulire" }, { word:"SPUGNA", row:3, col:0, dr:1, dc:0, emoji:"", def:"Serve per lavare i piatti" }, { word:"SECCHIO", row:2, col:4, dr:1, dc:0, emoji:"", def:"Contiene acqua per lavare i pavimenti" }];
 let grid = [], cellEls = [], foundWords = new Set();
 function buildGrid() {
   grid = Array.from({length:SIZE}, () => Array(SIZE).fill(''));
