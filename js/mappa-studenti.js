@@ -14,11 +14,6 @@
   var LARG = 1000, ALT = 383;          // proporzioni del disegno del mondo
   var k = 1, tx = 0, ty = 0, kMin = 1, attivo = null;
 
-  var img = document.createElementNS('http://www.w3.org/2000/svg', 'image');
-  img.setAttribute('href', tela.dataset.sfondo);
-  img.setAttribute('preserveAspectRatio', 'none');
-  vista.appendChild(img);
-
   function misura() { return { w: tela.clientWidth, h: tela.clientHeight }; }
 
   function limita() {
@@ -51,8 +46,8 @@
   function disegna() {
     var m = misura();
     svg.setAttribute('viewBox', '0 0 ' + m.w + ' ' + m.h);
-    img.setAttribute('x', tx); img.setAttribute('y', ty);
-    img.setAttribute('width', LARG * k); img.setAttribute('height', ALT * k);
+    vista.setAttribute('transform',
+      'translate(' + tx.toFixed(1) + ',' + ty.toFixed(1) + ') scale(' + k.toFixed(4) + ')');
 
     var presi = [];
     perni.forEach(function (p) {
