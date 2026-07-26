@@ -1152,10 +1152,10 @@ list-style:none;padding:0;margin:0;}
 
 
 /* ==========================================
-   MAPPA STUDENTI
-   Puntini = terre emerse, pin = paesi di provenienza.
-   Il path della mappa e' un solo elemento: ogni sotto-percorso
-   a lunghezza zero diventa un punto grazie a stroke-linecap:round.
+   MAPPA STUDENTI — zoomabile
+   Un perno per studente. Le coordinate sono normalizzate 0..1:
+   il JS le trasforma in pixel, cosi' la mappa funziona a
+   qualunque dimensione senza ricalcolare il viewBox.
 ========================================== */
 .mp-sezione{padding:80px 0;background:var(--surface);}
 .mp-card{
@@ -1164,138 +1164,126 @@ background:var(--background);
 border:1px solid var(--border);
 border-radius:var(--radius);
 box-shadow:var(--shadow);
-padding:26px 26px 22px;
+padding:22px;
 }
-.mp-mappa{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;
-scrollbar-width:none;}
-.mp-mappa::-webkit-scrollbar{display:none;}
-.mp-tela{position:relative;}
-.mp-sfondo{width:100%;height:auto;display:block;}
-.mp-strato{
-position:absolute;inset:0;
-width:100%;height:100%;
-overflow:visible;
+.mp-tela{
+position:relative;
+aspect-ratio:1000/383;
+overflow:hidden;
+border-radius:16px;
+background:#f2f4f9;
+cursor:grab;
+touch-action:none;
 }
-.mp-pin{cursor:pointer;outline:none;}
-.mp-alone{
+.mp-tela.is-trascina{cursor:grabbing;}
+.mp-svg{position:absolute;inset:0;width:100%;height:100%;display:block;}
+.mp-vista image{image-rendering:auto;}
+
+.mp-perno{cursor:pointer;outline:none;transition:opacity .18s ease;}
+.mp-goccia{
 fill:#31394d;
-opacity:.12;
-transform-box:fill-box;
-transform-origin:center;
-transition:opacity .25s ease,r .25s ease;
+stroke:#ffffff;stroke-width:1.6;
+filter:drop-shadow(0 2px 3px rgba(49,57,77,.35));
+transition:fill .2s ease;
 }
-.mp-punto{
-fill:#31394d;
-stroke:#ffffff;
-stroke-width:1.8;
-transition:r .25s ease;
+.mp-occhio{fill:#ffffff;}
+.mp-nome{
+font-family:'Inter',sans-serif;
+font-size:11.5px;font-weight:700;
+fill:#31394d;text-anchor:middle;
+paint-order:stroke;
+stroke:#ffffff;stroke-width:3.4;stroke-linejoin:round;
+pointer-events:none;
 }
-.mp-pin:hover .mp-alone,
-.mp-pin:focus-visible .mp-alone,
-.mp-pin.is-attivo .mp-alone{opacity:.22;}
-.mp-pin:hover .mp-punto,
-.mp-pin:focus-visible .mp-punto,
-.mp-pin.is-attivo .mp-punto{r:6;}
-.mp-pin:focus-visible .mp-alone{opacity:.3;}
+.mp-perno.is-muto .mp-nome{display:none;}
+.mp-perno:hover .mp-goccia,
+.mp-perno:focus-visible .mp-goccia,
+.mp-perno.is-attivo .mp-goccia{fill:#f5b400;}
+.mp-perno:focus-visible .mp-occhio{fill:#31394d;}
 
 /* fumetto */
 .mp-tip{
-position:absolute;
-z-index:4;
+position:absolute;z-index:4;
 transform:translate(-50%,-100%);
-background:rgba(255,255,255,.92);
+background:rgba(255,255,255,.94);
 backdrop-filter:saturate(180%) blur(14px);
 -webkit-backdrop-filter:saturate(180%) blur(14px);
 border:1px solid var(--border);
-border-radius:16px;
-box-shadow:0 14px 34px rgba(49,57,77,.16);
-padding:10px 14px;
-min-width:120px;max-width:230px;
+border-radius:14px;
+box-shadow:0 12px 30px rgba(49,57,77,.18);
+padding:8px 13px;
+white-space:nowrap;
 pointer-events:none;
 }
-.mp-tip b{display:block;font-size:.92rem;color:var(--primary);}
-.mp-tip span{font-size:.84rem;color:var(--secondary);line-height:1.5;}
+.mp-tip b{display:block;font-size:.9rem;color:var(--primary);line-height:1.3;}
+.mp-tip span{font-size:.8rem;color:var(--secondary);}
+
+/* comandi zoom */
+.mp-comandi{
+position:absolute;right:14px;bottom:14px;z-index:3;
+display:flex;gap:6px;
+background:rgba(255,255,255,.9);
+backdrop-filter:saturate(180%) blur(14px);
+-webkit-backdrop-filter:saturate(180%) blur(14px);
+border:1px solid var(--border);
+border-radius:999px;
+padding:4px;
+box-shadow:0 8px 22px rgba(49,57,77,.14);
+}
+.mp-btn{
+width:34px;height:34px;border-radius:50%;
+display:grid;place-items:center;
+font-size:1.15rem;font-weight:600;color:var(--primary);
+transition:background .2s ease;
+}
+.mp-btn:hover{background:var(--surface);}
+.mp-btn-reset{font-size:1rem;}
 
 /* il biglietto */
 .mp-biglietto{
-position:absolute;
-left:34px;bottom:26px;
-max-width:290px;
-background:rgba(255,255,255,.86);
+position:absolute;left:38px;bottom:44px;max-width:288px;z-index:3;
+background:rgba(255,255,255,.88);
 backdrop-filter:saturate(180%) blur(18px);
 -webkit-backdrop-filter:saturate(180%) blur(18px);
 border:1px solid var(--border);
 border-radius:20px;
-box-shadow:0 18px 40px rgba(49,57,77,.14);
+box-shadow:0 18px 40px rgba(49,57,77,.16);
 padding:18px 20px 16px;
 }
-.mp-biglietto p{
-font-size:.98rem;line-height:1.55;color:var(--primary);
-margin:0 0 14px;
-}
+.mp-biglietto p{font-size:.97rem;line-height:1.55;color:var(--primary);margin:0 0 13px;}
 .mp-cta{
 display:inline-flex;align-items:center;
-font-size:.9rem;font-weight:700;color:var(--primary);
-border-bottom:2px solid #f5b400;
-padding-bottom:2px;
+font-size:.89rem;font-weight:700;color:var(--primary);
+border-bottom:2px solid #f5b400;padding-bottom:2px;
 transition:opacity var(--transition);
 }
 .mp-cta:hover{opacity:.7;}
-.mp-eco{
-display:block;width:11px;height:11px;border-radius:50%;
-background:#f5b400;margin:0 0 12px;position:relative;
-}
-.mp-eco::after{
-content:"";position:absolute;inset:0;border-radius:50%;
-background:#f5b400;animation:mp-onda 2.4s ease-out infinite;
-}
-@keyframes mp-onda{
-0%{transform:scale(1);opacity:.55;}
-100%{transform:scale(3.4);opacity:0;}
-}
-@media (prefers-reduced-motion:reduce){
-.mp-eco::after{animation:none;}
-}
+.mp-eco{display:block;width:11px;height:11px;border-radius:50%;
+background:#f5b400;margin:0 0 12px;position:relative;}
+.mp-eco::after{content:"";position:absolute;inset:0;border-radius:50%;
+background:#f5b400;animation:mp-onda 2.4s ease-out infinite;}
+@keyframes mp-onda{0%{transform:scale(1);opacity:.55;}100%{transform:scale(3.4);opacity:0;}}
+@media (prefers-reduced-motion:reduce){.mp-eco::after{animation:none;}}
 
-.mp-suggerimento{
-text-align:center;font-size:.86rem;color:var(--secondary);
-margin:16px 0 0;
-}
-.mp-elenco-titolo{
-font-size:1rem;text-align:center;margin:34px 0 14px;color:var(--primary);
-}
-.mp-elenco{
-display:flex;flex-wrap:wrap;justify-content:center;gap:8px;
-}
+.mp-suggerimento{text-align:center;font-size:.86rem;color:var(--secondary);margin:16px 0 0;}
+.mp-elenco-titolo{font-size:1rem;text-align:center;margin:34px 0 14px;color:var(--primary);}
+.mp-elenco{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;}
 .mp-elenco li{
 display:inline-flex;align-items:center;gap:7px;
-background:var(--background);
-border:1px solid var(--border);
-border-radius:999px;
-padding:7px 14px;
+background:var(--background);border:1px solid var(--border);
+border-radius:999px;padding:7px 14px;
 font-size:.86rem;color:var(--secondary);
 }
 .mp-elenco b{color:var(--primary);font-size:.8rem;}
 
 @media (max-width:900px){
 .mp-sezione{padding:56px 0;}
-.mp-card{padding:16px 16px 18px;}
+.mp-card{padding:14px;}
+.mp-tela{aspect-ratio:5/4;}
 .mp-biglietto{
-position:static;max-width:none;margin:18px 0 0;
+position:static;max-width:none;margin:14px 0 0;
 backdrop-filter:none;-webkit-backdrop-filter:none;
 background:var(--surface);box-shadow:none;
 }
-}
-
-/* Sotto i 760px la mappa intera sarebbe alta 140px: i pin diventerebbero
-   bersagli da 5px, impossibili da toccare. Quindi la si fa scorrere
-   in orizzontale a larghezza piena, con i pin ingranditi. */
-@media (max-width:760px){
-.mp-tela{min-width:760px;}
-.mp-alone{r:15;}
-.mp-punto{r:6.4;}
-.mp-mappa{
--webkit-mask-image:linear-gradient(90deg,transparent 0,#000 18px,#000 calc(100% - 18px),transparent 100%);
-mask-image:linear-gradient(90deg,transparent 0,#000 18px,#000 calc(100% - 18px),transparent 100%);
-}
+.mp-nome{font-size:12.5px;}
 }
