@@ -527,6 +527,35 @@
         .mt-notice-wrap{
             padding:16px;
         }
+
+        /* ========= BADGE FOOTER (LaunchZone + Product Hunt) ========= */
+        .footer-badges{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            align-items:center;
+            gap:14px;
+            margin:18px 0 4px;
+            direction:ltr;
+        }
+        .footer-badges a{
+            display:inline-flex;
+            line-height:0;
+            opacity:.9;
+            transition:opacity .25s ease, transform .25s ease;
+        }
+        .footer-badges a:hover{
+            opacity:1;
+            transform:translateY(-2px);
+        }
+        .footer-badges img{
+            height:54px;
+            width:auto;
+            display:block;
+        }
+        @media (max-width:480px){
+            .footer-badges img{ height:46px; }
+        }
     </style>
 
 <script type="application/ld+json">
@@ -1108,6 +1137,17 @@
         <div class="container footer-legal">
 
             <p data-i18n-footer="kvk">KVK 42118745</p>
+
+            <!-- ti-badges -->
+            <div class="footer-badges">
+
+                <a href="https://www.producthunt.com/products/thuis-italiaans?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-thuis-italiaans" target="_blank" rel="noopener noreferrer"><img alt="Thuis Italiaans - learn Italian with a scientific method, easily every day | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1205572&amp;theme=neutral&amp;t=1785060473054" loading="lazy"></a>
+
+                <a href="https://launchzone.co/p/ti-app-learn-italian" target="_blank" rel="noopener">
+                  <img src="https://launchzone.co/badge.svg" alt="Find us on LaunchZone" width="154" height="54" loading="lazy" />
+                </a>
+
+            </div>
 
         </div>
 
