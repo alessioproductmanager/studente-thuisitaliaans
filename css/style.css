@@ -1149,3 +1149,153 @@ text-transform:uppercase;opacity:.65;margin:0 0 8px;}
 list-style:none;padding:0;margin:0;}
 .footer-lingue-lista a{font-size:.82rem;white-space:nowrap;opacity:.85;}
 .footer-lingue-lista a:hover{opacity:1;}
+
+
+/* ==========================================
+   MAPPA STUDENTI
+   Puntini = terre emerse, pin = paesi di provenienza.
+   Il path della mappa e' un solo elemento: ogni sotto-percorso
+   a lunghezza zero diventa un punto grazie a stroke-linecap:round.
+========================================== */
+.mp-sezione{padding:80px 0;background:var(--surface);}
+.mp-card{
+position:relative;
+background:var(--background);
+border:1px solid var(--border);
+border-radius:var(--radius);
+box-shadow:var(--shadow);
+padding:26px 26px 22px;
+}
+.mp-mappa{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;
+scrollbar-width:none;}
+.mp-mappa::-webkit-scrollbar{display:none;}
+.mp-tela{position:relative;}
+.mp-sfondo{width:100%;height:auto;display:block;}
+.mp-strato{
+position:absolute;inset:0;
+width:100%;height:100%;
+overflow:visible;
+}
+.mp-pin{cursor:pointer;outline:none;}
+.mp-alone{
+fill:#31394d;
+opacity:.12;
+transform-box:fill-box;
+transform-origin:center;
+transition:opacity .25s ease,r .25s ease;
+}
+.mp-punto{
+fill:#31394d;
+stroke:#ffffff;
+stroke-width:1.8;
+transition:r .25s ease;
+}
+.mp-pin:hover .mp-alone,
+.mp-pin:focus-visible .mp-alone,
+.mp-pin.is-attivo .mp-alone{opacity:.22;}
+.mp-pin:hover .mp-punto,
+.mp-pin:focus-visible .mp-punto,
+.mp-pin.is-attivo .mp-punto{r:6;}
+.mp-pin:focus-visible .mp-alone{opacity:.3;}
+
+/* fumetto */
+.mp-tip{
+position:absolute;
+z-index:4;
+transform:translate(-50%,-100%);
+background:rgba(255,255,255,.92);
+backdrop-filter:saturate(180%) blur(14px);
+-webkit-backdrop-filter:saturate(180%) blur(14px);
+border:1px solid var(--border);
+border-radius:16px;
+box-shadow:0 14px 34px rgba(49,57,77,.16);
+padding:10px 14px;
+min-width:120px;max-width:230px;
+pointer-events:none;
+}
+.mp-tip b{display:block;font-size:.92rem;color:var(--primary);}
+.mp-tip span{font-size:.84rem;color:var(--secondary);line-height:1.5;}
+
+/* il biglietto */
+.mp-biglietto{
+position:absolute;
+left:34px;bottom:26px;
+max-width:290px;
+background:rgba(255,255,255,.86);
+backdrop-filter:saturate(180%) blur(18px);
+-webkit-backdrop-filter:saturate(180%) blur(18px);
+border:1px solid var(--border);
+border-radius:20px;
+box-shadow:0 18px 40px rgba(49,57,77,.14);
+padding:18px 20px 16px;
+}
+.mp-biglietto p{
+font-size:.98rem;line-height:1.55;color:var(--primary);
+margin:0 0 14px;
+}
+.mp-cta{
+display:inline-flex;align-items:center;
+font-size:.9rem;font-weight:700;color:var(--primary);
+border-bottom:2px solid #f5b400;
+padding-bottom:2px;
+transition:opacity var(--transition);
+}
+.mp-cta:hover{opacity:.7;}
+.mp-eco{
+display:block;width:11px;height:11px;border-radius:50%;
+background:#f5b400;margin:0 0 12px;position:relative;
+}
+.mp-eco::after{
+content:"";position:absolute;inset:0;border-radius:50%;
+background:#f5b400;animation:mp-onda 2.4s ease-out infinite;
+}
+@keyframes mp-onda{
+0%{transform:scale(1);opacity:.55;}
+100%{transform:scale(3.4);opacity:0;}
+}
+@media (prefers-reduced-motion:reduce){
+.mp-eco::after{animation:none;}
+}
+
+.mp-suggerimento{
+text-align:center;font-size:.86rem;color:var(--secondary);
+margin:16px 0 0;
+}
+.mp-elenco-titolo{
+font-size:1rem;text-align:center;margin:34px 0 14px;color:var(--primary);
+}
+.mp-elenco{
+display:flex;flex-wrap:wrap;justify-content:center;gap:8px;
+}
+.mp-elenco li{
+display:inline-flex;align-items:center;gap:7px;
+background:var(--background);
+border:1px solid var(--border);
+border-radius:999px;
+padding:7px 14px;
+font-size:.86rem;color:var(--secondary);
+}
+.mp-elenco b{color:var(--primary);font-size:.8rem;}
+
+@media (max-width:900px){
+.mp-sezione{padding:56px 0;}
+.mp-card{padding:16px 16px 18px;}
+.mp-biglietto{
+position:static;max-width:none;margin:18px 0 0;
+backdrop-filter:none;-webkit-backdrop-filter:none;
+background:var(--surface);box-shadow:none;
+}
+}
+
+/* Sotto i 760px la mappa intera sarebbe alta 140px: i pin diventerebbero
+   bersagli da 5px, impossibili da toccare. Quindi la si fa scorrere
+   in orizzontale a larghezza piena, con i pin ingranditi. */
+@media (max-width:760px){
+.mp-tela{min-width:760px;}
+.mp-alone{r:15;}
+.mp-punto{r:6.4;}
+.mp-mappa{
+-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 18px,#000 calc(100% - 18px),transparent 100%);
+mask-image:linear-gradient(90deg,transparent 0,#000 18px,#000 calc(100% - 18px),transparent 100%);
+}
+}
