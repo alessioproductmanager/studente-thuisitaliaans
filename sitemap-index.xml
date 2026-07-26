@@ -24,4 +24,8 @@
     <loc>https://thuisitaliaans.com/sitemap-app.xml</loc>
     <lastmod>2026-07-26</lastmod>
   </sitemap>
+  <sitemap>
+    <loc>https://thuisitaliaans.com/sitemap-immagini.xml</loc>
+    <lastmod>2026-07-26</lastmod>
+  </sitemap>
 </sitemapindex>
