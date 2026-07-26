@@ -1119,3 +1119,7 @@ margin-bottom:14px;
     .footer-card:hover, .footer-badges a:hover{ transform:none; }
 }
 /* ===== fine footer v2 ===== */
+
+/* Il bordo superiore del footer è ridondante dove c'è la sitemap:
+   il blocco precedente chiude già con la sua linea. */
+footer:has(.footer-sitemap){ border-top:none; }
