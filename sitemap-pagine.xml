@@ -373,37 +373,19 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://thuisitaliaans.com/italiaanse-les-samen</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://thuisitaliaans.com/groepsles-italiaans</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://thuisitaliaans.com/italiaanse-les-samen</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://thuisitaliaans.com/italiaanse-les-op-kantoor</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://thuisitaliaans.com/italiaans-voor-vakantie</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://thuisitaliaans.com/italiaans-voor-50-plus</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://thuisitaliaans.com/spoedcursus-italiaans</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -427,12 +409,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thuisitaliaans.com/italiaanse-les-hoofddorp</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://thuisitaliaans.com/italiaanse-les-almere</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
@@ -440,12 +416,6 @@
   </url>
   <url>
     <loc>https://thuisitaliaans.com/italiaanse-les-zeist</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thuisitaliaans.com/italiaanse-les-nieuwegein</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -467,5 +437,83 @@
     <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/italiaans-voor-50-plus</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/italiaans-voor-horeca</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/italiaans-voor-studenten</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/italiaans-voor-vakantie</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/italiaanse-les-harderwijk</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/italiaanse-les-hoofddorp</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/italiaanse-les-nieuwegein</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/italiaanse-les-nijkerk</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/italiaanse-les-renkum</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/italiaanse-les-rhenen</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/italiaanse-les-tiel</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/italiaanse-les-zaanstreek</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/spoedcursus-italiaans</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 </urlset>
