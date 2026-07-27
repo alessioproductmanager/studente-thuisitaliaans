@@ -125,94 +125,157 @@ footer.sito a{color:var(--nebbia)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.scheda{transition:none}}
 @media(max-width:640px){footer.sito .wrap{justify-content:center;text-align:center;gap:6px}}
 
-/* ===== Prima pagina del libro ===== */
-.sfoglia{margin:38px 0 44px}
-.sfoglia-scena{display:flex;align-items:stretch;height:470px;
- perspective:2200px;perspective-origin:66% 46%}
-.sfoglia-cop{position:relative;flex:0 0 auto;width:294px;border-radius:5px 3px 3px 5px;
- overflow:hidden;transform-origin:right center;
- box-shadow:0 24px 46px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
- transform:rotateY(-38deg);animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both}
-.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
-.sfoglia-cop::after{content:"";position:absolute;inset:0;pointer-events:none;
- background:linear-gradient(90deg,rgba(0,0,0,.32),rgba(0,0,0,0) 26%,rgba(255,255,255,.12))}
-@keyframes sf-apri{from{transform:rotateY(-14deg)}to{transform:rotateY(-38deg)}}
+/* ============================================================
+   PRIMA PAGINA DEL LIBRO — v3
 
-.sfoglia-foglio{position:relative;flex:1 1 auto;min-width:0;display:flex;flex-direction:column;
- padding:22px 26px 16px 30px;border-radius:2px 7px 7px 2px;
- background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
- box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42),0 18px 38px -18px rgba(20,24,38,.32)}
-.sfoglia-foglio::after{content:"";position:absolute;top:10px;bottom:10px;right:-6px;width:6px;
- border-radius:0 3px 3px 0;background:repeating-linear-gradient(180deg,#f0e8d9 0 2px,#e2d7c3 2px 4px)}
+   Un solo numero comanda tutto: --pag-w (larghezza della pagina destra).
 
-.sf-capnum{margin:0;text-align:center;color:#8a7f6b;letter-spacing:.15em;font-size:.7rem;font-weight:600}
-.sf-vign{display:block;margin:4px auto 2px;width:40px;height:auto;opacity:.9}
-.sf-tit{margin:0;text-align:center;font-family:Fraunces,Georgia,serif;
- font-size:1rem;font-weight:600;color:#2a2a2f;line-height:1.25}
-.sf-titen{margin:1px 0 12px;text-align:center;font-style:italic;color:#8a7f6b;font-size:.8rem}
+     pagina    : larghezza W, altezza W × 1,6      (rapporto delle copertine)
+     copertina : larghezza W × 1,06, stesso rapporto
+                 ruotata di 16° su asse verticale, prospettiva 3400px
+                 → in proiezione torna larga quanto la pagina, e resta
+                   piu' alta del 6% : e' la sporgenza che ha ogni copertina
+                   vera rispetto al blocco delle pagine.
+     corpo     : W / 31,35  → 55 caratteri per riga, sempre
+     interlinea: 1,65em
 
-.sf-corpo{flex:1 1 auto;font-family:"Source Serif 4",Georgia,serif;font-size:.92rem;
- line-height:1.7;color:#2b2b30}
-.sf-corpo p{margin:0 0 .5em}
-.sf-corpo p:first-of-type::first-letter{float:left;font-family:Fraunces,Georgia,serif;
- font-size:2.6em;line-height:.9;padding:.04em .09em 0 0;color:#8a6a2f}
-.sf-kw{border-bottom:1.5px solid #4D596B;font-weight:600}
-.sf-corpo sup{font-size:.66em;color:#8a6a2f;font-weight:600;padding-left:1px}
+   Conseguenza: la pagina vale SEMPRE 28 righe di testo, a qualunque
+   dimensione di schermo. Il budget dei contenuti e' quindi fisso.
+   ============================================================ */
 
-.sf-gloss{margin:0;padding:7px 10px;border-radius:4px;background:rgba(77,89,107,.055);
- font-size:.79rem;font-style:italic;color:#4a5560;line-height:1.6}
-.sf-gloss .sf-kw{font-style:normal;border-bottom-width:1px}
-.sf-note{margin:10px 0 0;padding-top:8px;border-top:1px solid rgba(92,72,42,.2)}
-.sf-nota{margin:0;padding-left:1em;text-indent:-1em;font-size:.78rem;line-height:1.55;color:#4d4a44}
-.sf-nota sup{color:#8a6a2f;font-weight:600;padding-right:2px}
-.sf-piede{margin:10px 0 0;padding-top:8px;border-top:1px solid rgba(92,72,42,.14);
- font-size:.73rem;letter-spacing:.02em;color:#8a7f6b;
- display:flex;flex-wrap:wrap;gap:3px 12px;align-items:baseline;justify-content:space-between}
-.sf-piede a{color:#8a6a2f;font-weight:600;text-decoration:none}
+.sfoglia{
+  --pag-w:min(470px, 40vw);
+  --pag-h:calc(var(--pag-w) * 1.6);
+  --cop-w:calc(var(--pag-w) * 1.06);
+  margin:38px 0 46px;
+}
+
+.sfoglia-scena{
+  display:flex; align-items:center; justify-content:center;
+  min-height:calc(var(--cop-w) * 1.6);
+  perspective:3400px; perspective-origin:58% 50%;
+}
+
+.sfoglia-cop{
+  position:relative; flex:0 0 var(--cop-w);
+  width:var(--cop-w); height:calc(var(--cop-w) * 1.6);
+  margin-left:calc(var(--cop-w) * -.058);   /* la rotazione stacca il bordo sinistro: lo recupero */
+  border-radius:5px 3px 3px 5px; overflow:hidden;
+  transform-origin:right center; backface-visibility:hidden;
+  box-shadow:0 26px 50px -14px rgba(20,24,38,.5), 0 3px 8px rgba(20,24,38,.2);
+  transform:rotateY(-16deg);
+  animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both;
+}
+.sfoglia-cop img{display:block; width:100%; height:100%; object-fit:cover; object-position:center}
+.sfoglia-cop::after{content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(90deg, rgba(0,0,0,.30), rgba(0,0,0,0) 28%, rgba(255,255,255,.10))}
+@keyframes sf-apri{from{transform:rotateY(-4deg)} to{transform:rotateY(-16deg)}}
+
+.sfoglia-foglio{
+  position:relative; flex:0 0 var(--pag-w);
+  width:var(--pag-w); height:var(--pag-h);
+  font-size:calc(var(--pag-w) / 31.35);
+  display:flex; flex-direction:column; overflow:hidden;
+  padding:1.5em 1.75em 1.1em 2.1em;        /* colonna = 27,5em = 55 caratteri */
+  border-radius:2px 7px 7px 2px;
+  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
+  box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42), 0 18px 38px -18px rgba(20,24,38,.32);
+}
+.sfoglia-foglio::after{content:""; position:absolute; top:.7em; bottom:.7em; right:-.4em; width:.4em;
+  border-radius:0 3px 3px 0; background:repeating-linear-gradient(180deg,#f0e8d9 0 2px,#e2d7c3 2px 4px)}
+
+/* --- testata --- */
+.sf-capnum{margin:0 0 .15em; text-align:center; color:#8a7f6b;
+  letter-spacing:.15em; font-size:.70em; line-height:1.3; font-weight:600}
+.sf-vign{display:block; margin:.25em auto .15em; width:auto; height:2.6em; opacity:.9}
+.sf-tit{margin:0; text-align:center; font-family:Fraunces,Georgia,serif;
+  font-size:1.10em; font-weight:600; color:#2a2a2f; line-height:1.25}
+.sf-titen{margin:.15em 0 .9em; text-align:center; font-style:italic; color:#8a7f6b;
+  font-size:.85em; line-height:1.35}
+
+/* --- corpo --- */
+.sf-corpo{font-family:"Source Serif 4",Charter,Georgia,serif; font-size:1em;
+  line-height:1.65; color:#2b2b30; text-align:justify; hyphens:auto}
+.sf-corpo p{margin:0 0 .45em}
+.sf-corpo p:last-child{margin-bottom:0}
+.sf-corpo p:first-of-type::first-letter{float:left; font-family:Fraunces,Georgia,serif;
+  font-size:2.6em; line-height:.9; padding:.04em .09em 0 0; color:#8a6a2f}
+.sf-kw{border-bottom:1.5px solid #4D596B; font-weight:600}
+.sf-corpo .sf-sep{margin:.6em 0; text-align:center; color:#b09b7d;
+  font-size:.78em; letter-spacing:.35em; text-indent:.35em}
+.sf-corpo .sf-sep::first-letter{float:none; font-size:1em; color:inherit; padding:0}
+.sf-corpo sup{font-size:.66em; color:#8a6a2f; font-weight:600; padding-left:1px; text-decoration:none}
+
+/* --- glossario in linea --- */
+.sf-gloss{margin:.6em 0 .5em; padding:.5em .68em; border-radius:4px;
+  background:rgba(77,89,107,.055);
+  font-size:.80em; line-height:1.6; font-style:italic; color:#4a5560}
+.sf-gloss .sf-kw{font-style:normal; border-bottom-width:1px}
+
+/* margin-top:auto → nota e piede restano in fondo alla pagina, come in un libro vero */
+.sf-note{margin:auto 0 0; padding-top:.55em; border-top:1px solid rgba(92,72,42,.2)}
+.sf-nota{margin:0 0 .3em; padding-left:1em; text-indent:-1em;
+  font-size:.78em; line-height:1.55; color:#4d4a44}
+.sf-nota:last-child{margin-bottom:0}
+.sf-nota sup{color:#8a6a2f; font-weight:600; padding-right:2px}
+
+.sf-piede{margin:.7em 0 0; padding-top:.55em; border-top:1px solid rgba(92,72,42,.14);
+  font-size:.74em; line-height:1.35; letter-spacing:.02em; color:#8a7f6b;
+  display:flex; flex-wrap:wrap; gap:.2em .9em; align-items:baseline; justify-content:space-between}
+.sf-piede a{color:#8a6a2f; font-weight:600; text-decoration:none}
 .sf-piede a:hover{text-decoration:underline}
 
-.sf-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px 34px;align-items:start}
+.sf-2col{display:grid; grid-template-columns:1fr 1fr; gap:12px 34px; align-items:start}
 .sf-2col>div>h2{margin-top:0}
 
-@media (max-width:860px){
- .sfoglia-scena{flex-direction:column;height:auto;perspective:none}
- .sfoglia-cop{width:180px;margin:0 auto 18px;transform:none;animation:none;height:288px}
- .sfoglia-foglio{padding:20px 18px 14px;border-radius:8px}
- .sfoglia-foglio::after{display:none}
- .sf-2col{grid-template-columns:1fr;gap:0}
+/* ---- Doppia pagina: il glossario del libro (stessa geometria) ---- */
+.sf-gspread{
+  --pag-w:min(470px, 40vw);
+  --pag-h:calc(var(--pag-w) * 1.6);
+  display:flex; justify-content:center; height:var(--pag-h);
+  margin:20px auto 0; border-radius:3px; overflow:hidden;
+  box-shadow:0 20px 42px -18px rgba(20,24,38,.32);
+}
+.sf-gpag{
+  flex:0 0 var(--pag-w); width:var(--pag-w); height:var(--pag-h);
+  font-size:calc(var(--pag-w) / 31.35);
+  display:flex; flex-direction:column; overflow:hidden; padding:1.5em 1.75em 1.1em;
+  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
+}
+.sf-gpag:first-child{border-radius:2px 0 0 2px; box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gpag:last-child {border-radius:0 2px 2px 0; box-shadow:inset  14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gtit{margin:0 0 .9em; text-align:center; font-family:Fraunces,Georgia,serif;
+  font-size:1em; line-height:1.3; font-weight:600; color:#2a2a2f}
+.sf-gocc{margin:0 0 1.1em; text-align:center; font-style:italic; font-size:.78em;
+  line-height:1.45; color:#8a7f6b}
+.sf-gspread dl{margin:0}
+.sf-gspread dt{margin:0 0 .12em; font-family:"Source Serif 4",Charter,Georgia,serif;
+  font-size:.92em; line-height:1.35}
+.sf-gspread dd+dt{margin-top:1.05em}
+.sf-gspread dt b{color:#1F2529}
+.sf-gspread dt i{color:#326778; font-weight:600}
+.sf-gspread dt span{font-size:.86em; color:#8a7f6b; font-style:italic}
+.sf-gspread dd{margin:0; font-family:"Source Serif 4",Charter,Georgia,serif;
+  font-size:.84em; line-height:1.55; color:#2b2b30}
+.sf-gspread dd.en{color:#5f6b72}
+.sf-gpie{margin:auto 0 0; padding-top:.6em; border-top:1px solid rgba(92,72,42,.16);
+  text-align:center; font-size:.76em; line-height:1.35; color:#8a7f6b}
+
+/* ---- sotto i 900px: si impila, la geometria resta identica ---- */
+@media (max-width:900px){
+  .sfoglia, .sf-gspread{--pag-w:min(100%, 360px)}
+  .sfoglia-scena{flex-direction:column; align-items:center; min-height:0; perspective:none}
+  .sfoglia-cop{margin:0 auto 18px; transform:none; animation:none}
+  .sfoglia-foglio{border-radius:8px}
+  .sfoglia-foglio::after{display:none}
+  .sf-gspread{flex-direction:column; align-items:center; height:auto; gap:14px; box-shadow:none}
+  .sf-gpag{height:var(--pag-h); border-radius:6px !important;
+    box-shadow:0 14px 30px -18px rgba(20,24,38,.3) !important}
+  .sf-2col{grid-template-columns:1fr; gap:0}
 }
 @media (prefers-reduced-motion:reduce){
- .sfoglia-cop{animation:none;transform:rotateY(-38deg)}
+  .sfoglia-cop{animation:none; transform:rotateY(-16deg)}
 }
-
-/* ---- Doppia pagina: il glossario del libro ---- */
-.sf-gspread{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:20px 0 0;height:470px;
- border-radius:3px;overflow:hidden;box-shadow:0 18px 38px -18px rgba(20,24,38,.3)}
-.sf-gpag{display:flex;flex-direction:column;padding:24px 26px 20px;
- background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%)}
-.sf-gpag:first-child{border-radius:2px 0 0 2px;box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
-.sf-gpag:last-child{border-radius:0 2px 2px 0;box-shadow:inset 14px 0 22px -16px rgba(92,72,42,.4)}
-.sf-gtit{margin:0 0 16px;text-align:center;font-family:Fraunces,Georgia,serif;
- font-size:.98rem;font-weight:600;color:#2a2a2f;letter-spacing:.02em}
-.sf-gspread dl{margin:0;flex:1 1 auto}
-.sf-gspread dt{margin:0 0 3px;font-family:"Source Serif 4",Georgia,serif;font-size:.86rem;line-height:1.45}
-.sf-gspread dd+dt{margin-top:17px}
-.sf-gspread dt b{color:#1F2529}
-.sf-gspread dt i{color:#326778;font-weight:600}
-.sf-gspread dt span{font-size:.86em;color:#8a7f6b;font-style:italic}
-.sf-gspread dd{margin:0;font-family:"Source Serif 4",Georgia,serif;
- font-size:.83rem;line-height:1.55;color:#2b2b30}
-.sf-gspread dd.en{color:#5f6b72}
-.sf-gpie{margin:12px 0 0;padding-top:9px;border-top:1px solid rgba(92,72,42,.16);
- font-size:.73rem;letter-spacing:.02em;color:#8a7f6b;text-align:center}
-@media (max-width:860px){
- .sf-gspread{grid-template-columns:1fr;height:auto;box-shadow:0 12px 26px -16px rgba(20,24,38,.3)}
- .sf-gpag{padding:20px 18px}
- .sf-gpag:first-child,.sf-gpag:last-child{box-shadow:none;border-radius:0}
- .sf-gpag:first-child{border-radius:6px 6px 0 0;border-bottom:1px solid rgba(92,72,42,.14)}
- .sf-gpag:last-child{border-radius:0 0 6px 6px}
-}
-
 </style>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -367,11 +430,18 @@ footer.sito a{color:var(--nebbia)}
         <p class="sf-titen" lang="en">My Name Is Mattia Pascal</p>
         <div class="sf-corpo" lang="it">
           <p>Una delle poche cose che sapevo di me era questa: che mi chiamavo Mattia Pascal.</p>
-          <p>E mi bastava.</p>
+            <p>E mi bastava.</p>
+            <p>Quando un amico veniva da me a chiedere un consiglio, io alzavo le mani e rispondevo:</p>
+            <p>«Io mi chiamo Mattia Pascal.»</p>
+            <p>«Grazie. Questo lo so.»</p>
+            <p>«E ti sembra poco?»</p>
+            <p>Non sembrava molto, a dire il vero. Neanche a me.</p>
+            <p>Ma allora non sapevo ancora che cosa vuol dire non poter più rispondere così.<sup>1</sup></p>
+            <p>Non sapevo che un <span class="sf-kw">nome</span> è l&#x27;unica casa che un uomo ha …</p>
         </div>
-        <p class="sf-gloss"><span class="sf-kw">nome</span> = name &#183; <span class="sf-kw">esistenza</span> = existence &#183; <span class="sf-kw">identità</span> = identity &#183; <span class="sf-kw">ombra</span> = shadow</p>
+        <p class="sf-gloss"><span class="sf-kw">nome</span> = name &#183; <span class="sf-kw">esistenza</span> = existence &#183; <span class="sf-kw">identità</span> = identity &#183; <span class="sf-kw">ombra</span> = shadow &#183; <span class="sf-kw">biblioteca</span> = library &#183; <span class="sf-kw">caso</span> = chance</p>
         <div class="sf-note">
-          <p class="sf-nota"><sup>1</sup> Il libro comincia con un uomo che dice: «l’unica cosa che so di me è il mio nome». E finirà con un uomo che va al cimitero a leggere quel nome sulla propria lapide. Fra queste due frasi c’è tutto Pirandello — e lui te lo dice alla prima riga, senza nascondere niente.</p>
+          <p class="sf-nota"><sup>1</sup> Il libro comincia con un uomo che dice: «l&#x27;unica cosa che so di me è il mio nome». E finirà con un uomo che va al cimitero a leggere quel nome sulla propria lapide. Fra queste due frasi c&#x27;è tutto Pirandello — e lui te lo dice alla prima riga, senza nascondere niente.</p>
         </div>
         <p class="sf-piede"><span>Hoofdstuk 1 · ERK B1 · 18 woorden uit de echte tekst</span><a href="https://www.amazon.nl/dp/B0H9P9NVRF" target="_blank" rel="noopener">Verder lezen op Amazon →</a></p>
       </div>
@@ -397,28 +467,58 @@ footer.sito a{color:var(--nebbia)}
       <div class="sf-gpag">
         <p class="sf-gtit">Woordenlijst</p>
         <dl>
-          <dt><b lang="it">adulterio</b> &middot; <i lang="en">adultery</i> <span>(sin. infedeltà, tradimento coniugale)</span></dt>
+          <dt><b lang="it">adulterio</b> &middot; <i lang="en">adultery</i> <span>((sin. infedeltà, tradimento coniugale))</span></dt>
           <dd lang="it">Il tradimento fra marito e moglie.</dd>
           <dd class="en" lang="en">Betrayal between husband and wife.</dd>
-          <dt><b lang="it">biblioteca</b> &middot; <i lang="en">library</i> <span>(sin. libreria, raccolta di libri)</span></dt>
+          <dt><b lang="it">biblioteca</b> &middot; <i lang="en">library</i> <span>((sin. libreria, raccolta di libri))</span></dt>
           <dd lang="it">Il luogo pieno di libri dove si va a leggere.</dd>
           <dd class="en" lang="en">The place full of books, where one goes to read.</dd>
-          <dt><b lang="it">cadavere</b> &middot; <i lang="en">corpse</i> <span>(sin. corpo, salma)</span></dt>
+          <dt><b lang="it">cadavere</b> &middot; <i lang="en">corpse</i> <span>((sin. corpo, salma))</span></dt>
           <dd lang="it">Il corpo di una persona morta.</dd>
           <dd class="en" lang="en">The body of a dead person.</dd>
+          <dt><b lang="it">caso</b> &middot; <i lang="en">chance</i> <span>((sin. sorte, combinazione))</span></dt>
+          <dd lang="it">Quello che succede senza che nessuno l&#x27;abbia deciso.</dd>
+          <dd class="en" lang="en">What happens without anyone having decided it.</dd>
+          <dt><b lang="it">colpa</b> &middot; <i lang="en">guilt</i> <span>((sin. responsabilità, peccato))</span></dt>
+          <dd lang="it">La responsabilità di aver fatto qualcosa di grave.</dd>
+          <dd class="en" lang="en">The weight of having done something seriously wrong.</dd>
+          <dt><b lang="it">debito</b> &middot; <i lang="en">debt</i> <span>((sin. obbligo, passivo))</span></dt>
+          <dd lang="it">Il denaro che si deve a qualcuno.</dd>
+          <dd class="en" lang="en">Money that is owed to someone.</dd>
+          <dt><b lang="it">denaro</b> &middot; <i lang="en">money</i> <span>((sin. soldi, moneta))</span></dt>
+          <dd lang="it">I soldi.</dd>
+          <dd class="en" lang="en">Money.</dd>
+          <dt><b lang="it">denuncia</b> &middot; <i lang="en">report to the police</i> <span>((sin. accusa, querela))</span></dt>
+          <dd lang="it">L&#x27;atto di dire alla polizia che qualcuno ha commesso un reato.</dd>
+          <dd class="en" lang="en">Telling the police that someone has committed a crime.</dd>
         </dl>
       </div>
       <div class="sf-gpag">
         <dl>
-          <dt><b lang="it">caso</b> &middot; <i lang="en">chance</i> <span>(sin. sorte, combinazione)</span></dt>
-          <dd lang="it">Quello che succede senza che nessuno l’abbia deciso.</dd>
-          <dd class="en" lang="en">What happens without anyone having decided it.</dd>
-          <dt><b lang="it">colpa</b> &middot; <i lang="en">guilt</i> <span>(sin. responsabilità, peccato)</span></dt>
-          <dd lang="it">La responsabilità di aver fatto qualcosa di grave.</dd>
-          <dd class="en" lang="en">The weight of having done something seriously wrong.</dd>
-          <dt><b lang="it">debito</b> &middot; <i lang="en">debt</i> <span>(sin. obbligo, passivo)</span></dt>
-          <dd lang="it">Il denaro che si deve a qualcuno.</dd>
-          <dd class="en" lang="en">Money that is owed to someone.</dd>
+          <dt><b lang="it">desiderio</b> &middot; <i lang="en">desire</i> <span>((sin. voglia, brama))</span></dt>
+          <dd lang="it">Il volere fortemente una cosa che non si ha.</dd>
+          <dd class="en" lang="en">Wanting strongly something you do not have.</dd>
+          <dt><b lang="it">documento</b> &middot; <i lang="en">document, papers</i> <span>((sin. certificato, carta))</span></dt>
+          <dd lang="it">Un foglio ufficiale che dice chi sei: la carta d&#x27;identità, l&#x27;atto di nascita.</dd>
+          <dd class="en" lang="en">An official paper that says who you are: an ID card, a birth certificate.</dd>
+          <dt><b lang="it">eredità</b> &middot; <i lang="en">inheritance</i> <span>((sin. patrimonio, lascito))</span></dt>
+          <dd lang="it">I beni che restano a una persona quando muore un parente.</dd>
+          <dd class="en" lang="en">The money and things left to the children when a parent dies.</dd>
+          <dt><b lang="it">esistenza</b> &middot; <i lang="en">existence</i> <span>((sin. vita, essere))</span></dt>
+          <dd lang="it">Il fatto di esistere; la vita di una persona.</dd>
+          <dd class="en" lang="en">Being alive; a person&#x27;s life.</dd>
+          <dt><b lang="it">estraneo</b> &middot; <i lang="en">stranger, outsider</i> <span>((sin. forestiero, sconosciuto))</span></dt>
+          <dd lang="it">Chi non appartiene a un luogo o a un gruppo; una persona che non si conosce.</dd>
+          <dd class="en" lang="en">Someone who does not belong to a place; a person you do not know.</dd>
+          <dt><b lang="it">fantasma</b> &middot; <i lang="en">ghost</i> <span>((sin. spettro, ombra))</span></dt>
+          <dd lang="it">Lo spirito di un morto, che si crede torni fra i vivi.</dd>
+          <dd class="en" lang="en">The spirit of a dead person, believed to return among the living.</dd>
+          <dt><b lang="it">finzione</b> &middot; <i lang="en">pretence</i> <span>((sin. invenzione, menzogna))</span></dt>
+          <dd lang="it">Il fingere; una cosa inventata che si fa passare per vera.</dd>
+          <dd class="en" lang="en">Pretending; something made up and passed off as true.</dd>
+          <dt><b lang="it">fortuna</b> &middot; <i lang="en">luck; a fortune</i> <span>((sin. sorte, ricchezza))</span></dt>
+          <dd lang="it">La buona sorte — e anche: una grande quantità di denaro.</dd>
+          <dd class="en" lang="en">Good luck — and also: a great deal of money.</dd>
         </dl>
         <p class="sf-gpie">De woordenlijst bevat in totaal 43 woorden</p>
       </div>

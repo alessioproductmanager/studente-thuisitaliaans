@@ -125,94 +125,157 @@ footer.sito a{color:var(--nebbia)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.scheda{transition:none}}
 @media(max-width:640px){footer.sito .wrap{justify-content:center;text-align:center;gap:6px}}
 
-/* ===== Prima pagina del libro ===== */
-.sfoglia{margin:38px 0 44px}
-.sfoglia-scena{display:flex;align-items:stretch;height:470px;
- perspective:2200px;perspective-origin:66% 46%}
-.sfoglia-cop{position:relative;flex:0 0 auto;width:294px;border-radius:5px 3px 3px 5px;
- overflow:hidden;transform-origin:right center;
- box-shadow:0 24px 46px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
- transform:rotateY(-38deg);animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both}
-.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
-.sfoglia-cop::after{content:"";position:absolute;inset:0;pointer-events:none;
- background:linear-gradient(90deg,rgba(0,0,0,.32),rgba(0,0,0,0) 26%,rgba(255,255,255,.12))}
-@keyframes sf-apri{from{transform:rotateY(-14deg)}to{transform:rotateY(-38deg)}}
+/* ============================================================
+   PRIMA PAGINA DEL LIBRO — v3
 
-.sfoglia-foglio{position:relative;flex:1 1 auto;min-width:0;display:flex;flex-direction:column;
- padding:22px 26px 16px 30px;border-radius:2px 7px 7px 2px;
- background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
- box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42),0 18px 38px -18px rgba(20,24,38,.32)}
-.sfoglia-foglio::after{content:"";position:absolute;top:10px;bottom:10px;right:-6px;width:6px;
- border-radius:0 3px 3px 0;background:repeating-linear-gradient(180deg,#f0e8d9 0 2px,#e2d7c3 2px 4px)}
+   Un solo numero comanda tutto: --pag-w (larghezza della pagina destra).
 
-.sf-capnum{margin:0;text-align:center;color:#8a7f6b;letter-spacing:.15em;font-size:.7rem;font-weight:600}
-.sf-vign{display:block;margin:4px auto 2px;width:40px;height:auto;opacity:.9}
-.sf-tit{margin:0;text-align:center;font-family:Fraunces,Georgia,serif;
- font-size:1rem;font-weight:600;color:#2a2a2f;line-height:1.25}
-.sf-titen{margin:1px 0 12px;text-align:center;font-style:italic;color:#8a7f6b;font-size:.8rem}
+     pagina    : larghezza W, altezza W × 1,6      (rapporto delle copertine)
+     copertina : larghezza W × 1,06, stesso rapporto
+                 ruotata di 16° su asse verticale, prospettiva 3400px
+                 → in proiezione torna larga quanto la pagina, e resta
+                   piu' alta del 6% : e' la sporgenza che ha ogni copertina
+                   vera rispetto al blocco delle pagine.
+     corpo     : W / 31,35  → 55 caratteri per riga, sempre
+     interlinea: 1,65em
 
-.sf-corpo{flex:1 1 auto;font-family:"Source Serif 4",Georgia,serif;font-size:.92rem;
- line-height:1.7;color:#2b2b30}
-.sf-corpo p{margin:0 0 .5em}
-.sf-corpo p:first-of-type::first-letter{float:left;font-family:Fraunces,Georgia,serif;
- font-size:2.6em;line-height:.9;padding:.04em .09em 0 0;color:#8a6a2f}
-.sf-kw{border-bottom:1.5px solid #4D596B;font-weight:600}
-.sf-corpo sup{font-size:.66em;color:#8a6a2f;font-weight:600;padding-left:1px}
+   Conseguenza: la pagina vale SEMPRE 28 righe di testo, a qualunque
+   dimensione di schermo. Il budget dei contenuti e' quindi fisso.
+   ============================================================ */
 
-.sf-gloss{margin:0;padding:7px 10px;border-radius:4px;background:rgba(77,89,107,.055);
- font-size:.79rem;font-style:italic;color:#4a5560;line-height:1.6}
-.sf-gloss .sf-kw{font-style:normal;border-bottom-width:1px}
-.sf-note{margin:10px 0 0;padding-top:8px;border-top:1px solid rgba(92,72,42,.2)}
-.sf-nota{margin:0;padding-left:1em;text-indent:-1em;font-size:.78rem;line-height:1.55;color:#4d4a44}
-.sf-nota sup{color:#8a6a2f;font-weight:600;padding-right:2px}
-.sf-piede{margin:10px 0 0;padding-top:8px;border-top:1px solid rgba(92,72,42,.14);
- font-size:.73rem;letter-spacing:.02em;color:#8a7f6b;
- display:flex;flex-wrap:wrap;gap:3px 12px;align-items:baseline;justify-content:space-between}
-.sf-piede a{color:#8a6a2f;font-weight:600;text-decoration:none}
+.sfoglia{
+  --pag-w:min(470px, 40vw);
+  --pag-h:calc(var(--pag-w) * 1.6);
+  --cop-w:calc(var(--pag-w) * 1.06);
+  margin:38px 0 46px;
+}
+
+.sfoglia-scena{
+  display:flex; align-items:center; justify-content:center;
+  min-height:calc(var(--cop-w) * 1.6);
+  perspective:3400px; perspective-origin:58% 50%;
+}
+
+.sfoglia-cop{
+  position:relative; flex:0 0 var(--cop-w);
+  width:var(--cop-w); height:calc(var(--cop-w) * 1.6);
+  margin-left:calc(var(--cop-w) * -.058);   /* la rotazione stacca il bordo sinistro: lo recupero */
+  border-radius:5px 3px 3px 5px; overflow:hidden;
+  transform-origin:right center; backface-visibility:hidden;
+  box-shadow:0 26px 50px -14px rgba(20,24,38,.5), 0 3px 8px rgba(20,24,38,.2);
+  transform:rotateY(-16deg);
+  animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both;
+}
+.sfoglia-cop img{display:block; width:100%; height:100%; object-fit:cover; object-position:center}
+.sfoglia-cop::after{content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(90deg, rgba(0,0,0,.30), rgba(0,0,0,0) 28%, rgba(255,255,255,.10))}
+@keyframes sf-apri{from{transform:rotateY(-4deg)} to{transform:rotateY(-16deg)}}
+
+.sfoglia-foglio{
+  position:relative; flex:0 0 var(--pag-w);
+  width:var(--pag-w); height:var(--pag-h);
+  font-size:calc(var(--pag-w) / 31.35);
+  display:flex; flex-direction:column; overflow:hidden;
+  padding:1.5em 1.75em 1.1em 2.1em;        /* colonna = 27,5em = 55 caratteri */
+  border-radius:2px 7px 7px 2px;
+  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
+  box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42), 0 18px 38px -18px rgba(20,24,38,.32);
+}
+.sfoglia-foglio::after{content:""; position:absolute; top:.7em; bottom:.7em; right:-.4em; width:.4em;
+  border-radius:0 3px 3px 0; background:repeating-linear-gradient(180deg,#f0e8d9 0 2px,#e2d7c3 2px 4px)}
+
+/* --- testata --- */
+.sf-capnum{margin:0 0 .15em; text-align:center; color:#8a7f6b;
+  letter-spacing:.15em; font-size:.70em; line-height:1.3; font-weight:600}
+.sf-vign{display:block; margin:.25em auto .15em; width:auto; height:2.6em; opacity:.9}
+.sf-tit{margin:0; text-align:center; font-family:Fraunces,Georgia,serif;
+  font-size:1.10em; font-weight:600; color:#2a2a2f; line-height:1.25}
+.sf-titen{margin:.15em 0 .9em; text-align:center; font-style:italic; color:#8a7f6b;
+  font-size:.85em; line-height:1.35}
+
+/* --- corpo --- */
+.sf-corpo{font-family:"Source Serif 4",Charter,Georgia,serif; font-size:1em;
+  line-height:1.65; color:#2b2b30; text-align:justify; hyphens:auto}
+.sf-corpo p{margin:0 0 .45em}
+.sf-corpo p:last-child{margin-bottom:0}
+.sf-corpo p:first-of-type::first-letter{float:left; font-family:Fraunces,Georgia,serif;
+  font-size:2.6em; line-height:.9; padding:.04em .09em 0 0; color:#8a6a2f}
+.sf-kw{border-bottom:1.5px solid #4D596B; font-weight:600}
+.sf-corpo .sf-sep{margin:.6em 0; text-align:center; color:#b09b7d;
+  font-size:.78em; letter-spacing:.35em; text-indent:.35em}
+.sf-corpo .sf-sep::first-letter{float:none; font-size:1em; color:inherit; padding:0}
+.sf-corpo sup{font-size:.66em; color:#8a6a2f; font-weight:600; padding-left:1px; text-decoration:none}
+
+/* --- glossario in linea --- */
+.sf-gloss{margin:.6em 0 .5em; padding:.5em .68em; border-radius:4px;
+  background:rgba(77,89,107,.055);
+  font-size:.80em; line-height:1.6; font-style:italic; color:#4a5560}
+.sf-gloss .sf-kw{font-style:normal; border-bottom-width:1px}
+
+/* margin-top:auto → nota e piede restano in fondo alla pagina, come in un libro vero */
+.sf-note{margin:auto 0 0; padding-top:.55em; border-top:1px solid rgba(92,72,42,.2)}
+.sf-nota{margin:0 0 .3em; padding-left:1em; text-indent:-1em;
+  font-size:.78em; line-height:1.55; color:#4d4a44}
+.sf-nota:last-child{margin-bottom:0}
+.sf-nota sup{color:#8a6a2f; font-weight:600; padding-right:2px}
+
+.sf-piede{margin:.7em 0 0; padding-top:.55em; border-top:1px solid rgba(92,72,42,.14);
+  font-size:.74em; line-height:1.35; letter-spacing:.02em; color:#8a7f6b;
+  display:flex; flex-wrap:wrap; gap:.2em .9em; align-items:baseline; justify-content:space-between}
+.sf-piede a{color:#8a6a2f; font-weight:600; text-decoration:none}
 .sf-piede a:hover{text-decoration:underline}
 
-.sf-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px 34px;align-items:start}
+.sf-2col{display:grid; grid-template-columns:1fr 1fr; gap:12px 34px; align-items:start}
 .sf-2col>div>h2{margin-top:0}
 
-@media (max-width:860px){
- .sfoglia-scena{flex-direction:column;height:auto;perspective:none}
- .sfoglia-cop{width:180px;margin:0 auto 18px;transform:none;animation:none;height:288px}
- .sfoglia-foglio{padding:20px 18px 14px;border-radius:8px}
- .sfoglia-foglio::after{display:none}
- .sf-2col{grid-template-columns:1fr;gap:0}
+/* ---- Doppia pagina: il glossario del libro (stessa geometria) ---- */
+.sf-gspread{
+  --pag-w:min(470px, 40vw);
+  --pag-h:calc(var(--pag-w) * 1.6);
+  display:flex; justify-content:center; height:var(--pag-h);
+  margin:20px auto 0; border-radius:3px; overflow:hidden;
+  box-shadow:0 20px 42px -18px rgba(20,24,38,.32);
+}
+.sf-gpag{
+  flex:0 0 var(--pag-w); width:var(--pag-w); height:var(--pag-h);
+  font-size:calc(var(--pag-w) / 31.35);
+  display:flex; flex-direction:column; overflow:hidden; padding:1.5em 1.75em 1.1em;
+  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
+}
+.sf-gpag:first-child{border-radius:2px 0 0 2px; box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gpag:last-child {border-radius:0 2px 2px 0; box-shadow:inset  14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gtit{margin:0 0 .9em; text-align:center; font-family:Fraunces,Georgia,serif;
+  font-size:1em; line-height:1.3; font-weight:600; color:#2a2a2f}
+.sf-gocc{margin:0 0 1.1em; text-align:center; font-style:italic; font-size:.78em;
+  line-height:1.45; color:#8a7f6b}
+.sf-gspread dl{margin:0}
+.sf-gspread dt{margin:0 0 .12em; font-family:"Source Serif 4",Charter,Georgia,serif;
+  font-size:.92em; line-height:1.35}
+.sf-gspread dd+dt{margin-top:1.05em}
+.sf-gspread dt b{color:#1F2529}
+.sf-gspread dt i{color:#326778; font-weight:600}
+.sf-gspread dt span{font-size:.86em; color:#8a7f6b; font-style:italic}
+.sf-gspread dd{margin:0; font-family:"Source Serif 4",Charter,Georgia,serif;
+  font-size:.84em; line-height:1.55; color:#2b2b30}
+.sf-gspread dd.en{color:#5f6b72}
+.sf-gpie{margin:auto 0 0; padding-top:.6em; border-top:1px solid rgba(92,72,42,.16);
+  text-align:center; font-size:.76em; line-height:1.35; color:#8a7f6b}
+
+/* ---- sotto i 900px: si impila, la geometria resta identica ---- */
+@media (max-width:900px){
+  .sfoglia, .sf-gspread{--pag-w:min(100%, 360px)}
+  .sfoglia-scena{flex-direction:column; align-items:center; min-height:0; perspective:none}
+  .sfoglia-cop{margin:0 auto 18px; transform:none; animation:none}
+  .sfoglia-foglio{border-radius:8px}
+  .sfoglia-foglio::after{display:none}
+  .sf-gspread{flex-direction:column; align-items:center; height:auto; gap:14px; box-shadow:none}
+  .sf-gpag{height:var(--pag-h); border-radius:6px !important;
+    box-shadow:0 14px 30px -18px rgba(20,24,38,.3) !important}
+  .sf-2col{grid-template-columns:1fr; gap:0}
 }
 @media (prefers-reduced-motion:reduce){
- .sfoglia-cop{animation:none;transform:rotateY(-38deg)}
+  .sfoglia-cop{animation:none; transform:rotateY(-16deg)}
 }
-
-/* ---- Doppia pagina: il glossario del libro ---- */
-.sf-gspread{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:20px 0 0;height:470px;
- border-radius:3px;overflow:hidden;box-shadow:0 18px 38px -18px rgba(20,24,38,.3)}
-.sf-gpag{display:flex;flex-direction:column;padding:24px 26px 20px;
- background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%)}
-.sf-gpag:first-child{border-radius:2px 0 0 2px;box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
-.sf-gpag:last-child{border-radius:0 2px 2px 0;box-shadow:inset 14px 0 22px -16px rgba(92,72,42,.4)}
-.sf-gtit{margin:0 0 16px;text-align:center;font-family:Fraunces,Georgia,serif;
- font-size:.98rem;font-weight:600;color:#2a2a2f;letter-spacing:.02em}
-.sf-gspread dl{margin:0;flex:1 1 auto}
-.sf-gspread dt{margin:0 0 3px;font-family:"Source Serif 4",Georgia,serif;font-size:.86rem;line-height:1.45}
-.sf-gspread dd+dt{margin-top:17px}
-.sf-gspread dt b{color:#1F2529}
-.sf-gspread dt i{color:#326778;font-weight:600}
-.sf-gspread dt span{font-size:.86em;color:#8a7f6b;font-style:italic}
-.sf-gspread dd{margin:0;font-family:"Source Serif 4",Georgia,serif;
- font-size:.83rem;line-height:1.55;color:#2b2b30}
-.sf-gspread dd.en{color:#5f6b72}
-.sf-gpie{margin:12px 0 0;padding-top:9px;border-top:1px solid rgba(92,72,42,.16);
- font-size:.73rem;letter-spacing:.02em;color:#8a7f6b;text-align:center}
-@media (max-width:860px){
- .sf-gspread{grid-template-columns:1fr;height:auto;box-shadow:0 12px 26px -16px rgba(20,24,38,.3)}
- .sf-gpag{padding:20px 18px}
- .sf-gpag:first-child,.sf-gpag:last-child{box-shadow:none;border-radius:0}
- .sf-gpag:first-child{border-radius:6px 6px 0 0;border-bottom:1px solid rgba(92,72,42,.14)}
- .sf-gpag:last-child{border-radius:0 0 6px 6px}
-}
-
 </style>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -366,12 +429,18 @@ footer.sito a{color:var(--nebbia)}
         <h3 class="sf-tit" lang="it">Il pezzo di legno che parla</h3>
         <p class="sf-titen" lang="en">The Piece of Wood That Speaks</p>
         <div class="sf-corpo" lang="it">
-          <p>C’era una volta un pezzo di <b class="sf-kw">legno</b>.</p>
-          <p>Non era un legno per fare mobili. Era un pezzo per il fuoco dell’inverno.</p>
+          <p>C&#x27;era una volta un pezzo di <span class="sf-kw">legno</span>.</p>
+            <p>Non era un legno per fare mobili. Era un pezzo per il fuoco dell&#x27;inverno.</p>
+            <p>Un giorno il legno arriva da un vecchio <span class="sf-kw">falegname</span>. Il falegname si chiama mastr&#x27;Antonio. Ma tutti lo chiamano maestro Ciliegia.<sup>1</sup></p>
+            <p>Perché? Perché la punta del suo naso è rossa.</p>
+            <p class="sf-sep">&#9670;</p>
+            <p>Maestro Ciliegia guarda il <span class="sf-kw">legno</span>.</p>
+            <p>«Bene! Voglio fare una gamba di tavolino.»</p>
+            <p>Prende una scure. Alza il braccio. Ma prima di colpire, sente una piccola voce.</p>
         </div>
-        <p class="sf-gloss"><span class="sf-kw">legno</span> = wood &#183; <span class="sf-kw">falegname</span> = carpenter</p>
+        <p class="sf-gloss"><span class="sf-kw">legno</span> = wood &#183; <span class="sf-kw">falegname</span> = carpenter &#183; <span class="sf-kw">naso</span> = nose &#183; <span class="sf-kw">burattino</span> = puppet &#183; <span class="sf-kw">gamba</span> = leg</p>
         <div class="sf-note">
-          <p class="sf-nota"><sup>1</sup> In un paese italiano dell’Ottocento tutti avevano un soprannome. Maestro Ciliegia lo chiamano così per il naso rosso. Nella pagina di dopo scoprirai il soprannome di Geppetto — e nel libro, chiamare qualcuno col soprannome sbagliato è una cosa seria.</p>
+          <p class="sf-nota"><sup>1</sup> In un paese italiano dell&#x27;Ottocento tutti avevano un soprannome. Maestro Ciliegia lo chiamano così per il naso rosso. Nella pagina di dopo scoprirai il soprannome di Geppetto — e nel libro, chiamare qualcuno col soprannome sbagliato è una cosa seria.</p>
         </div>
         <p class="sf-piede"><span>Chapter 1 · CEFR A2 · 21 words of the real text</span><a href="https://www.amazon.com/dp/B0H9P9P6G3" target="_blank" rel="noopener">Keep reading on Amazon →</a></p>
       </div>
@@ -397,28 +466,58 @@ footer.sito a{color:var(--nebbia)}
       <div class="sf-gpag">
         <p class="sf-gtit">Glossary</p>
         <dl>
-          <dt><b lang="it">abbecedario</b> &middot; <i lang="en">ABC book, primer</i> <span>(sin. libretto, sillabario)</span></dt>
+          <dt><b lang="it">abbecedario</b> &middot; <i lang="en">ABC book, primer</i> <span>((sin. libretto, sillabario))</span></dt>
           <dd lang="it">Il primo libro dei bambini, con le lettere e le parole per imparare a leggere.</dd>
           <dd class="en" lang="en">A book with which children learn to read the first letters and words.</dd>
-          <dt><b lang="it">bosco</b> &middot; <i lang="en">woods, forest</i> <span>(sin. foresta, selva)</span></dt>
+          <dt><b lang="it">bosco</b> &middot; <i lang="en">woods, forest</i> <span>((sin. foresta, selva))</span></dt>
           <dd lang="it">Un posto con molti alberi vicini.</dd>
           <dd class="en" lang="en">A place with many trees, where plants grow and wild animals live.</dd>
-          <dt><b lang="it">bugia</b> &middot; <i lang="en">lie</i> <span>(sin. menzogna, falsità)</span></dt>
+          <dt><b lang="it">bugia</b> &middot; <i lang="en">lie</i> <span>((sin. menzogna, falsità))</span></dt>
           <dd lang="it">Una cosa non vera che si dice a qualcuno.</dd>
           <dd class="en" lang="en">Something untrue told to someone to hide the truth.</dd>
+          <dt><b lang="it">burattino</b> &middot; <i lang="en">puppet</i> <span>((sin. pupazzo, marionetta))</span></dt>
+          <dd lang="it">Un pupazzo di legno che si muove con i fili o con la mano.</dd>
+          <dd class="en" lang="en">A small figure made of wood or cloth that moves with hands or strings.</dd>
+          <dt><b lang="it">capriccio</b> &middot; <i lang="en">whim, tantrum</i> <span>((sin. voglia, sfizio))</span></dt>
+          <dd lang="it">Il volere una cosa solo perché la si vuole, senza motivo.</dd>
+          <dd class="en" lang="en">A sudden desire without reason, often of a child.</dd>
+          <dt><b lang="it">ciuchino</b> &middot; <i lang="en">little donkey</i> <span>((sin. asino, somaro))</span></dt>
+          <dd lang="it">Un piccolo asino, di solito grigio, con le orecchie lunghe.</dd>
+          <dd class="en" lang="en">A small grey animal with long ears, that carries loads and walks slowly.</dd>
+          <dt><b lang="it">coscienza</b> &middot; <i lang="en">conscience</i> <span>((sin. voce interiore, morale))</span></dt>
+          <dd lang="it">La voce dentro che dice cosa è giusto e cosa è sbagliato.</dd>
+          <dd class="en" lang="en">The voice inside a person that says what is right and what is wrong.</dd>
+          <dt><b lang="it">falegname</b> &middot; <i lang="en">carpenter</i> <span>((sin. carpentiere, artigiano))</span></dt>
+          <dd lang="it">La persona che lavora il legno e fa mobili o oggetti di legno.</dd>
+          <dd class="en" lang="en">A man who works wood to make furniture, doors or objects.</dd>
         </dl>
       </div>
       <div class="sf-gpag">
         <dl>
-          <dt><b lang="it">burattino</b> &middot; <i lang="en">puppet</i> <span>(sin. pupazzo, marionetta)</span></dt>
-          <dd lang="it">Un pupazzo di legno che si muove con i fili o con la mano.</dd>
-          <dd class="en" lang="en">A small figure made of wood or cloth that moves with hands or strings.</dd>
-          <dt><b lang="it">capriccio</b> &middot; <i lang="en">whim, tantrum</i> <span>(sin. voglia, sfizio)</span></dt>
-          <dd lang="it">Il volere una cosa solo perché la si vuole, senza motivo.</dd>
-          <dd class="en" lang="en">A sudden desire without reason, often of a child.</dd>
-          <dt><b lang="it">ciuchino</b> &middot; <i lang="en">little donkey</i> <span>(sin. asino, somaro)</span></dt>
-          <dd lang="it">Un piccolo asino, di solito grigio, con le orecchie lunghe.</dd>
-          <dd class="en" lang="en">A small grey animal with long ears, that carries loads and walks slowly.</dd>
+          <dt><b lang="it">fame</b> &middot; <i lang="en">hunger</i> <span>((sin. appetito, digiuno))</span></dt>
+          <dd lang="it">La voglia di mangiare, il bisogno del corpo di cibo.</dd>
+          <dd class="en" lang="en">A strong need to eat, felt in the body.</dd>
+          <dt><b lang="it">fata</b> &middot; <i lang="en">fairy</i> <span>((sin. maga, protettrice))</span></dt>
+          <dd lang="it">Una donna con poteri magici, di solito buona.</dd>
+          <dd class="en" lang="en">A woman in fairy tales who has magical powers and helps those who behave well.</dd>
+          <dt><b lang="it">gamba</b> &middot; <i lang="en">leg</i> <span>((sin. arto, zampa))</span></dt>
+          <dd lang="it">Una delle due parti del corpo con cui si cammina.</dd>
+          <dd class="en" lang="en">The part of the body used for walking and standing.</dd>
+          <dt><b lang="it">grillo</b> &middot; <i lang="en">cricket</i> <span>((sin. cicala, insetto))</span></dt>
+          <dd lang="it">Un piccolo insetto verde che canta di sera nei prati.</dd>
+          <dd class="en" lang="en">A small green animal that sings in the evening with a sharp sound.</dd>
+          <dt><b lang="it">ladro</b> &middot; <i lang="en">thief</i> <span>((sin. rapinatore, truffatore))</span></dt>
+          <dd lang="it">Chi ruba le cose degli altri.</dd>
+          <dd class="en" lang="en">A person who takes what does not belong to them without permission.</dd>
+          <dt><b lang="it">legno</b> &middot; <i lang="en">wood</i> <span>((sin. asse, tavola))</span></dt>
+          <dd lang="it">Il materiale duro che viene dagli alberi.</dd>
+          <dd class="en" lang="en">The material that comes from trees, used for furniture or burnt in fire.</dd>
+          <dt><b lang="it">magia</b> &middot; <i lang="en">magic</i> <span>((sin. incanto, prodigio))</span></dt>
+          <dd lang="it">Il potere di fare cose che nella vita normale non si possono fare.</dd>
+          <dd class="en" lang="en">A power outside nature that makes impossible things happen.</dd>
+          <dt><b lang="it">mare</b> &middot; <i lang="en">sea</i> <span>((sin. oceano, acque))</span></dt>
+          <dd lang="it">La grande acqua salata che circonda le terre.</dd>
+          <dd class="en" lang="en">A great expanse of salt water that covers most of the earth.</dd>
         </dl>
         <p class="sf-gpie">The glossary contains 26 entries in all</p>
       </div>

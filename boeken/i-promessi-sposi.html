@@ -125,94 +125,157 @@ footer.sito a{color:var(--nebbia)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.scheda{transition:none}}
 @media(max-width:640px){footer.sito .wrap{justify-content:center;text-align:center;gap:6px}}
 
-/* ===== Prima pagina del libro ===== */
-.sfoglia{margin:38px 0 44px}
-.sfoglia-scena{display:flex;align-items:stretch;height:470px;
- perspective:2200px;perspective-origin:66% 46%}
-.sfoglia-cop{position:relative;flex:0 0 auto;width:294px;border-radius:5px 3px 3px 5px;
- overflow:hidden;transform-origin:right center;
- box-shadow:0 24px 46px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
- transform:rotateY(-38deg);animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both}
-.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
-.sfoglia-cop::after{content:"";position:absolute;inset:0;pointer-events:none;
- background:linear-gradient(90deg,rgba(0,0,0,.32),rgba(0,0,0,0) 26%,rgba(255,255,255,.12))}
-@keyframes sf-apri{from{transform:rotateY(-14deg)}to{transform:rotateY(-38deg)}}
+/* ============================================================
+   PRIMA PAGINA DEL LIBRO — v3
 
-.sfoglia-foglio{position:relative;flex:1 1 auto;min-width:0;display:flex;flex-direction:column;
- padding:22px 26px 16px 30px;border-radius:2px 7px 7px 2px;
- background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
- box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42),0 18px 38px -18px rgba(20,24,38,.32)}
-.sfoglia-foglio::after{content:"";position:absolute;top:10px;bottom:10px;right:-6px;width:6px;
- border-radius:0 3px 3px 0;background:repeating-linear-gradient(180deg,#f0e8d9 0 2px,#e2d7c3 2px 4px)}
+   Un solo numero comanda tutto: --pag-w (larghezza della pagina destra).
 
-.sf-capnum{margin:0;text-align:center;color:#8a7f6b;letter-spacing:.15em;font-size:.7rem;font-weight:600}
-.sf-vign{display:block;margin:4px auto 2px;width:40px;height:auto;opacity:.9}
-.sf-tit{margin:0;text-align:center;font-family:Fraunces,Georgia,serif;
- font-size:1rem;font-weight:600;color:#2a2a2f;line-height:1.25}
-.sf-titen{margin:1px 0 12px;text-align:center;font-style:italic;color:#8a7f6b;font-size:.8rem}
+     pagina    : larghezza W, altezza W × 1,6      (rapporto delle copertine)
+     copertina : larghezza W × 1,06, stesso rapporto
+                 ruotata di 16° su asse verticale, prospettiva 3400px
+                 → in proiezione torna larga quanto la pagina, e resta
+                   piu' alta del 6% : e' la sporgenza che ha ogni copertina
+                   vera rispetto al blocco delle pagine.
+     corpo     : W / 31,35  → 55 caratteri per riga, sempre
+     interlinea: 1,65em
 
-.sf-corpo{flex:1 1 auto;font-family:"Source Serif 4",Georgia,serif;font-size:.92rem;
- line-height:1.7;color:#2b2b30}
-.sf-corpo p{margin:0 0 .5em}
-.sf-corpo p:first-of-type::first-letter{float:left;font-family:Fraunces,Georgia,serif;
- font-size:2.6em;line-height:.9;padding:.04em .09em 0 0;color:#8a6a2f}
-.sf-kw{border-bottom:1.5px solid #4D596B;font-weight:600}
-.sf-corpo sup{font-size:.66em;color:#8a6a2f;font-weight:600;padding-left:1px}
+   Conseguenza: la pagina vale SEMPRE 28 righe di testo, a qualunque
+   dimensione di schermo. Il budget dei contenuti e' quindi fisso.
+   ============================================================ */
 
-.sf-gloss{margin:0;padding:7px 10px;border-radius:4px;background:rgba(77,89,107,.055);
- font-size:.79rem;font-style:italic;color:#4a5560;line-height:1.6}
-.sf-gloss .sf-kw{font-style:normal;border-bottom-width:1px}
-.sf-note{margin:10px 0 0;padding-top:8px;border-top:1px solid rgba(92,72,42,.2)}
-.sf-nota{margin:0;padding-left:1em;text-indent:-1em;font-size:.78rem;line-height:1.55;color:#4d4a44}
-.sf-nota sup{color:#8a6a2f;font-weight:600;padding-right:2px}
-.sf-piede{margin:10px 0 0;padding-top:8px;border-top:1px solid rgba(92,72,42,.14);
- font-size:.73rem;letter-spacing:.02em;color:#8a7f6b;
- display:flex;flex-wrap:wrap;gap:3px 12px;align-items:baseline;justify-content:space-between}
-.sf-piede a{color:#8a6a2f;font-weight:600;text-decoration:none}
+.sfoglia{
+  --pag-w:min(470px, 40vw);
+  --pag-h:calc(var(--pag-w) * 1.6);
+  --cop-w:calc(var(--pag-w) * 1.06);
+  margin:38px 0 46px;
+}
+
+.sfoglia-scena{
+  display:flex; align-items:center; justify-content:center;
+  min-height:calc(var(--cop-w) * 1.6);
+  perspective:3400px; perspective-origin:58% 50%;
+}
+
+.sfoglia-cop{
+  position:relative; flex:0 0 var(--cop-w);
+  width:var(--cop-w); height:calc(var(--cop-w) * 1.6);
+  margin-left:calc(var(--cop-w) * -.058);   /* la rotazione stacca il bordo sinistro: lo recupero */
+  border-radius:5px 3px 3px 5px; overflow:hidden;
+  transform-origin:right center; backface-visibility:hidden;
+  box-shadow:0 26px 50px -14px rgba(20,24,38,.5), 0 3px 8px rgba(20,24,38,.2);
+  transform:rotateY(-16deg);
+  animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both;
+}
+.sfoglia-cop img{display:block; width:100%; height:100%; object-fit:cover; object-position:center}
+.sfoglia-cop::after{content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(90deg, rgba(0,0,0,.30), rgba(0,0,0,0) 28%, rgba(255,255,255,.10))}
+@keyframes sf-apri{from{transform:rotateY(-4deg)} to{transform:rotateY(-16deg)}}
+
+.sfoglia-foglio{
+  position:relative; flex:0 0 var(--pag-w);
+  width:var(--pag-w); height:var(--pag-h);
+  font-size:calc(var(--pag-w) / 31.35);
+  display:flex; flex-direction:column; overflow:hidden;
+  padding:1.5em 1.75em 1.1em 2.1em;        /* colonna = 27,5em = 55 caratteri */
+  border-radius:2px 7px 7px 2px;
+  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
+  box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42), 0 18px 38px -18px rgba(20,24,38,.32);
+}
+.sfoglia-foglio::after{content:""; position:absolute; top:.7em; bottom:.7em; right:-.4em; width:.4em;
+  border-radius:0 3px 3px 0; background:repeating-linear-gradient(180deg,#f0e8d9 0 2px,#e2d7c3 2px 4px)}
+
+/* --- testata --- */
+.sf-capnum{margin:0 0 .15em; text-align:center; color:#8a7f6b;
+  letter-spacing:.15em; font-size:.70em; line-height:1.3; font-weight:600}
+.sf-vign{display:block; margin:.25em auto .15em; width:auto; height:2.6em; opacity:.9}
+.sf-tit{margin:0; text-align:center; font-family:Fraunces,Georgia,serif;
+  font-size:1.10em; font-weight:600; color:#2a2a2f; line-height:1.25}
+.sf-titen{margin:.15em 0 .9em; text-align:center; font-style:italic; color:#8a7f6b;
+  font-size:.85em; line-height:1.35}
+
+/* --- corpo --- */
+.sf-corpo{font-family:"Source Serif 4",Charter,Georgia,serif; font-size:1em;
+  line-height:1.65; color:#2b2b30; text-align:justify; hyphens:auto}
+.sf-corpo p{margin:0 0 .45em}
+.sf-corpo p:last-child{margin-bottom:0}
+.sf-corpo p:first-of-type::first-letter{float:left; font-family:Fraunces,Georgia,serif;
+  font-size:2.6em; line-height:.9; padding:.04em .09em 0 0; color:#8a6a2f}
+.sf-kw{border-bottom:1.5px solid #4D596B; font-weight:600}
+.sf-corpo .sf-sep{margin:.6em 0; text-align:center; color:#b09b7d;
+  font-size:.78em; letter-spacing:.35em; text-indent:.35em}
+.sf-corpo .sf-sep::first-letter{float:none; font-size:1em; color:inherit; padding:0}
+.sf-corpo sup{font-size:.66em; color:#8a6a2f; font-weight:600; padding-left:1px; text-decoration:none}
+
+/* --- glossario in linea --- */
+.sf-gloss{margin:.6em 0 .5em; padding:.5em .68em; border-radius:4px;
+  background:rgba(77,89,107,.055);
+  font-size:.80em; line-height:1.6; font-style:italic; color:#4a5560}
+.sf-gloss .sf-kw{font-style:normal; border-bottom-width:1px}
+
+/* margin-top:auto → nota e piede restano in fondo alla pagina, come in un libro vero */
+.sf-note{margin:auto 0 0; padding-top:.55em; border-top:1px solid rgba(92,72,42,.2)}
+.sf-nota{margin:0 0 .3em; padding-left:1em; text-indent:-1em;
+  font-size:.78em; line-height:1.55; color:#4d4a44}
+.sf-nota:last-child{margin-bottom:0}
+.sf-nota sup{color:#8a6a2f; font-weight:600; padding-right:2px}
+
+.sf-piede{margin:.7em 0 0; padding-top:.55em; border-top:1px solid rgba(92,72,42,.14);
+  font-size:.74em; line-height:1.35; letter-spacing:.02em; color:#8a7f6b;
+  display:flex; flex-wrap:wrap; gap:.2em .9em; align-items:baseline; justify-content:space-between}
+.sf-piede a{color:#8a6a2f; font-weight:600; text-decoration:none}
 .sf-piede a:hover{text-decoration:underline}
 
-.sf-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px 34px;align-items:start}
+.sf-2col{display:grid; grid-template-columns:1fr 1fr; gap:12px 34px; align-items:start}
 .sf-2col>div>h2{margin-top:0}
 
-@media (max-width:860px){
- .sfoglia-scena{flex-direction:column;height:auto;perspective:none}
- .sfoglia-cop{width:180px;margin:0 auto 18px;transform:none;animation:none;height:288px}
- .sfoglia-foglio{padding:20px 18px 14px;border-radius:8px}
- .sfoglia-foglio::after{display:none}
- .sf-2col{grid-template-columns:1fr;gap:0}
+/* ---- Doppia pagina: il glossario del libro (stessa geometria) ---- */
+.sf-gspread{
+  --pag-w:min(470px, 40vw);
+  --pag-h:calc(var(--pag-w) * 1.6);
+  display:flex; justify-content:center; height:var(--pag-h);
+  margin:20px auto 0; border-radius:3px; overflow:hidden;
+  box-shadow:0 20px 42px -18px rgba(20,24,38,.32);
+}
+.sf-gpag{
+  flex:0 0 var(--pag-w); width:var(--pag-w); height:var(--pag-h);
+  font-size:calc(var(--pag-w) / 31.35);
+  display:flex; flex-direction:column; overflow:hidden; padding:1.5em 1.75em 1.1em;
+  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
+}
+.sf-gpag:first-child{border-radius:2px 0 0 2px; box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gpag:last-child {border-radius:0 2px 2px 0; box-shadow:inset  14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gtit{margin:0 0 .9em; text-align:center; font-family:Fraunces,Georgia,serif;
+  font-size:1em; line-height:1.3; font-weight:600; color:#2a2a2f}
+.sf-gocc{margin:0 0 1.1em; text-align:center; font-style:italic; font-size:.78em;
+  line-height:1.45; color:#8a7f6b}
+.sf-gspread dl{margin:0}
+.sf-gspread dt{margin:0 0 .12em; font-family:"Source Serif 4",Charter,Georgia,serif;
+  font-size:.92em; line-height:1.35}
+.sf-gspread dd+dt{margin-top:1.05em}
+.sf-gspread dt b{color:#1F2529}
+.sf-gspread dt i{color:#326778; font-weight:600}
+.sf-gspread dt span{font-size:.86em; color:#8a7f6b; font-style:italic}
+.sf-gspread dd{margin:0; font-family:"Source Serif 4",Charter,Georgia,serif;
+  font-size:.84em; line-height:1.55; color:#2b2b30}
+.sf-gspread dd.en{color:#5f6b72}
+.sf-gpie{margin:auto 0 0; padding-top:.6em; border-top:1px solid rgba(92,72,42,.16);
+  text-align:center; font-size:.76em; line-height:1.35; color:#8a7f6b}
+
+/* ---- sotto i 900px: si impila, la geometria resta identica ---- */
+@media (max-width:900px){
+  .sfoglia, .sf-gspread{--pag-w:min(100%, 360px)}
+  .sfoglia-scena{flex-direction:column; align-items:center; min-height:0; perspective:none}
+  .sfoglia-cop{margin:0 auto 18px; transform:none; animation:none}
+  .sfoglia-foglio{border-radius:8px}
+  .sfoglia-foglio::after{display:none}
+  .sf-gspread{flex-direction:column; align-items:center; height:auto; gap:14px; box-shadow:none}
+  .sf-gpag{height:var(--pag-h); border-radius:6px !important;
+    box-shadow:0 14px 30px -18px rgba(20,24,38,.3) !important}
+  .sf-2col{grid-template-columns:1fr; gap:0}
 }
 @media (prefers-reduced-motion:reduce){
- .sfoglia-cop{animation:none;transform:rotateY(-38deg)}
+  .sfoglia-cop{animation:none; transform:rotateY(-16deg)}
 }
-
-/* ---- Doppia pagina: il glossario del libro ---- */
-.sf-gspread{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:20px 0 0;height:470px;
- border-radius:3px;overflow:hidden;box-shadow:0 18px 38px -18px rgba(20,24,38,.3)}
-.sf-gpag{display:flex;flex-direction:column;padding:24px 26px 20px;
- background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%)}
-.sf-gpag:first-child{border-radius:2px 0 0 2px;box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
-.sf-gpag:last-child{border-radius:0 2px 2px 0;box-shadow:inset 14px 0 22px -16px rgba(92,72,42,.4)}
-.sf-gtit{margin:0 0 16px;text-align:center;font-family:Fraunces,Georgia,serif;
- font-size:.98rem;font-weight:600;color:#2a2a2f;letter-spacing:.02em}
-.sf-gspread dl{margin:0;flex:1 1 auto}
-.sf-gspread dt{margin:0 0 3px;font-family:"Source Serif 4",Georgia,serif;font-size:.86rem;line-height:1.45}
-.sf-gspread dd+dt{margin-top:17px}
-.sf-gspread dt b{color:#1F2529}
-.sf-gspread dt i{color:#326778;font-weight:600}
-.sf-gspread dt span{font-size:.86em;color:#8a7f6b;font-style:italic}
-.sf-gspread dd{margin:0;font-family:"Source Serif 4",Georgia,serif;
- font-size:.83rem;line-height:1.55;color:#2b2b30}
-.sf-gspread dd.en{color:#5f6b72}
-.sf-gpie{margin:12px 0 0;padding-top:9px;border-top:1px solid rgba(92,72,42,.16);
- font-size:.73rem;letter-spacing:.02em;color:#8a7f6b;text-align:center}
-@media (max-width:860px){
- .sf-gspread{grid-template-columns:1fr;height:auto;box-shadow:0 12px 26px -16px rgba(20,24,38,.3)}
- .sf-gpag{padding:20px 18px}
- .sf-gpag:first-child,.sf-gpag:last-child{box-shadow:none;border-radius:0}
- .sf-gpag:first-child{border-radius:6px 6px 0 0;border-bottom:1px solid rgba(92,72,42,.14)}
- .sf-gpag:last-child{border-radius:0 0 6px 6px}
-}
-
 </style>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -367,8 +430,11 @@ footer.sito a{color:var(--nebbia)}
         <p class="sf-titen" lang="en">Don Abbondio and the Bravi</p>
         <div class="sf-corpo" lang="it">
           <p>Il sole di novembre stava calando dietro le montagne, e don Abbondio scendeva verso il paese leggendo il suo breviario.</p>
+            <p>Il curato di Lecco camminava piano, come faceva ogni sera, borbottando le preghiere e pensando ai fatti suoi. La strada era stretta e deserta. In fondo, dove il sentiero piegava a destra, si vedevano due uomini fermi ai due lati della via.<sup>1</sup></p>
+            <p>Don Abbondio alzò gli occhi dal libro e li richiuse subito. Ma li aveva visti bene: due <span class="sf-kw">bravi</span>.</p>
+            <p>Erano vestiti con la casacca corta e i calzoni legati al ginocchio, e portavano ognuno un lungo archibugio in spalla. Chi non li avesse riconosciuti dall&#x27;aria, li avrebbe riconosciuti dal ciuffo di capelli lunghi che scendeva dietro l&#x27;orecchio.</p>
         </div>
-        <p class="sf-gloss"><span class="sf-kw">bravi</span> = bravi, hired thugs</p>
+        <p class="sf-gloss"><span class="sf-kw">bravi</span> = bravi, hired thugs &#183; <span class="sf-kw">prepotenza</span> = arrogance, high-handedness &#183; <span class="sf-kw">inganno</span> = deception, ruse &#183; <span class="sf-kw">minaccia</span> = threat</p>
         <div class="sf-note">
           <p class="sf-nota"><sup>1</sup> Sono le prime righe del romanzo, ed è la prima scena che ogni italiano ricorda a memoria. Manzoni non spiega chi siano i bravi: li descrive. E se lo studente non lo sa, la parola apre una scheda — che è meglio di una nota a piè di pagina lunga tre righe.</p>
         </div>
@@ -396,28 +462,46 @@ footer.sito a{color:var(--nebbia)}
       <div class="sf-gpag">
         <p class="sf-gtit">Woordenlijst</p>
         <dl>
-          <dt><b lang="it">bravi</b> &middot; <i lang="en">bravi, hired thugs</i> <span>(sin. scherani, sicari)</span></dt>
+          <dt><b lang="it">bravi</b> &middot; <i lang="en">bravi, hired thugs</i> <span>((sin. scherani, sicari))</span></dt>
           <dd lang="it">Nel Seicento, uomini armati al servizio di un signore, pagati per proteggerlo, minacciare o eliminare i suoi nemici.</dd>
           <dd class="en" lang="en">In 17th-century Italy, armed men in the pay of a lord, hired to intimidate or kill his enemies.</dd>
-          <dt><b lang="it">calunnia</b> &middot; <i lang="en">slander, calumny</i> <span>(sin. diffamazione, menzogna)</span></dt>
-          <dd lang="it">L’accusa falsa fatta a qualcuno per rovinargli la reputazione o cacciarlo nei guai.</dd>
-          <dd class="en" lang="en">A false accusation made to ruin someone’s reputation.</dd>
-          <dt><b lang="it">carestia</b> &middot; <i lang="en">famine</i> <span>(sin. fame, penuria)</span></dt>
+          <dt><b lang="it">calunnia</b> &middot; <i lang="en">slander, calumny</i> <span>((sin. diffamazione, menzogna))</span></dt>
+          <dd lang="it">L&#x27;accusa falsa fatta a qualcuno per rovinargli la reputazione o cacciarlo nei guai.</dd>
+          <dd class="en" lang="en">A false accusation made to ruin someone&#x27;s reputation.</dd>
+          <dt><b lang="it">carestia</b> &middot; <i lang="en">famine</i> <span>((sin. fame, penuria))</span></dt>
           <dd lang="it">Una grave mancanza di cibo che si prolunga per mesi, portando la popolazione alla fame.</dd>
           <dd class="en" lang="en">A grave shortage of food that lasts for months.</dd>
+          <dt><b lang="it">conversione</b> &middot; <i lang="en">conversion</i> <span>((sin. ravvedimento, trasformazione))</span></dt>
+          <dd lang="it">Il cambiamento radicale e definitivo di vita e di fede: da chi si era a chi si diventa dopo aver visto qualcosa che non si potrà più dimenticare.</dd>
+          <dd class="en" lang="en">A radical and final change of life and of faith.</dd>
+          <dt><b lang="it">coscienza</b> &middot; <i lang="en">conscience</i> <span>((sin. senso morale, interiorità))</span></dt>
+          <dd lang="it">La voce interiore che dice cosa è bene e cosa è male, e che tormenta chi non l&#x27;ha ascoltata.</dd>
+          <dd class="en" lang="en">The inner voice that tells us what is right and what is wrong.</dd>
+          <dt><b lang="it">dominazione</b> &middot; <i lang="en">domination, foreign rule</i> <span>((sin. occupazione, sovranità))</span></dt>
+          <dd lang="it">Il controllo politico e militare esercitato da uno Stato straniero su una terra che non è sua.</dd>
+          <dd class="en" lang="en">Political and military control of a foreign state over a land not its own.</dd>
         </dl>
       </div>
       <div class="sf-gpag">
         <dl>
-          <dt><b lang="it">conversione</b> &middot; <i lang="en">conversion</i> <span>(sin. ravvedimento, trasformazione)</span></dt>
-          <dd lang="it">Il cambiamento radicale e definitivo di vita e di fede: da chi si era a chi si diventa dopo aver visto qualcosa che non si potrà più dimenticare.</dd>
-          <dd class="en" lang="en">A radical and final change of life and of faith.</dd>
-          <dt><b lang="it">coscienza</b> &middot; <i lang="en">conscience</i> <span>(sin. senso morale, interiorità)</span></dt>
-          <dd lang="it">La voce interiore che dice cosa è bene e cosa è male, e che tormenta chi non l’ha ascoltata.</dd>
-          <dd class="en" lang="en">The inner voice that tells us what is right and what is wrong.</dd>
-          <dt><b lang="it">dominazione</b> &middot; <i lang="en">domination, foreign rule</i> <span>(sin. occupazione, sovranità)</span></dt>
-          <dd lang="it">Il controllo politico e militare esercitato da uno Stato straniero su una terra che non è sua.</dd>
-          <dd class="en" lang="en">Political and military control of a foreign state over a land not its own.</dd>
+          <dt><b lang="it">fedeltà</b> &middot; <i lang="en">faithfulness, loyalty</i> <span>((sin. lealtà, costanza))</span></dt>
+          <dd lang="it">Il mantenere la parola data e restare vicini a una persona anche nei momenti difficili.</dd>
+          <dd class="en" lang="en">Keeping one&#x27;s word and staying by someone even in hard times.</dd>
+          <dt><b lang="it">fuga</b> &middot; <i lang="en">escape, flight</i> <span>((sin. scappare, evasione))</span></dt>
+          <dd lang="it">L&#x27;atto di scappare da un luogo o da un pericolo, di solito di corsa e di nascosto.</dd>
+          <dd class="en" lang="en">The act of escaping from a place or a danger, often on the run and in secret.</dd>
+          <dt><b lang="it">giustizia</b> &middot; <i lang="en">justice</i> <span>((sin. diritto, equità))</span></dt>
+          <dd lang="it">Il rispetto dei diritti di ognuno, e la punizione di chi li viola. Ma anche il tribunale che dovrebbe farla, quando la fa.</dd>
+          <dd class="en" lang="en">The respect for everyone&#x27;s rights, and the court that ought to guarantee them.</dd>
+          <dt><b lang="it">inganno</b> &middot; <i lang="en">deception, ruse</i> <span>((sin. astuzia, raggiro))</span></dt>
+          <dd lang="it">L&#x27;atto di fingere una cosa per un&#x27;altra, per ottenere qualcosa che altrimenti non si otterrebbe.</dd>
+          <dd class="en" lang="en">Passing one thing off as another to obtain what could not be had otherwise.</dd>
+          <dt><b lang="it">innocenza</b> &middot; <i lang="en">innocence</i> <span>((sin. candore, purezza))</span></dt>
+          <dd lang="it">La condizione di chi non ha commesso alcuna colpa e non ha nulla da farsi perdonare.</dd>
+          <dd class="en" lang="en">The condition of one who has done no wrong and has nothing to be forgiven for.</dd>
+          <dt><b lang="it">lazzaretto</b> &middot; <i lang="en">lazaretto, plague hospital</i> <span>((sin. ospedale, quarantena))</span></dt>
+          <dd lang="it">Nel Seicento, il luogo alla periferia della città dove venivano portati a forza i malati di peste, spesso a morire.</dd>
+          <dd class="en" lang="en">In the 17th century, the place where plague victims were taken by force, often to die.</dd>
         </dl>
         <p class="sf-gpie">De woordenlijst bevat in totaal 31 woorden</p>
       </div>

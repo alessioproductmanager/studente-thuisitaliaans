@@ -125,94 +125,157 @@ footer.sito a{color:var(--nebbia)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.scheda{transition:none}}
 @media(max-width:640px){footer.sito .wrap{justify-content:center;text-align:center;gap:6px}}
 
-/* ===== Prima pagina del libro ===== */
-.sfoglia{margin:38px 0 44px}
-.sfoglia-scena{display:flex;align-items:stretch;height:470px;
- perspective:2200px;perspective-origin:66% 46%}
-.sfoglia-cop{position:relative;flex:0 0 auto;width:294px;border-radius:5px 3px 3px 5px;
- overflow:hidden;transform-origin:right center;
- box-shadow:0 24px 46px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
- transform:rotateY(-38deg);animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both}
-.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
-.sfoglia-cop::after{content:"";position:absolute;inset:0;pointer-events:none;
- background:linear-gradient(90deg,rgba(0,0,0,.32),rgba(0,0,0,0) 26%,rgba(255,255,255,.12))}
-@keyframes sf-apri{from{transform:rotateY(-14deg)}to{transform:rotateY(-38deg)}}
+/* ============================================================
+   PRIMA PAGINA DEL LIBRO — v3
 
-.sfoglia-foglio{position:relative;flex:1 1 auto;min-width:0;display:flex;flex-direction:column;
- padding:22px 26px 16px 30px;border-radius:2px 7px 7px 2px;
- background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
- box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42),0 18px 38px -18px rgba(20,24,38,.32)}
-.sfoglia-foglio::after{content:"";position:absolute;top:10px;bottom:10px;right:-6px;width:6px;
- border-radius:0 3px 3px 0;background:repeating-linear-gradient(180deg,#f0e8d9 0 2px,#e2d7c3 2px 4px)}
+   Un solo numero comanda tutto: --pag-w (larghezza della pagina destra).
 
-.sf-capnum{margin:0;text-align:center;color:#8a7f6b;letter-spacing:.15em;font-size:.7rem;font-weight:600}
-.sf-vign{display:block;margin:4px auto 2px;width:40px;height:auto;opacity:.9}
-.sf-tit{margin:0;text-align:center;font-family:Fraunces,Georgia,serif;
- font-size:1rem;font-weight:600;color:#2a2a2f;line-height:1.25}
-.sf-titen{margin:1px 0 12px;text-align:center;font-style:italic;color:#8a7f6b;font-size:.8rem}
+     pagina    : larghezza W, altezza W × 1,6      (rapporto delle copertine)
+     copertina : larghezza W × 1,06, stesso rapporto
+                 ruotata di 16° su asse verticale, prospettiva 3400px
+                 → in proiezione torna larga quanto la pagina, e resta
+                   piu' alta del 6% : e' la sporgenza che ha ogni copertina
+                   vera rispetto al blocco delle pagine.
+     corpo     : W / 31,35  → 55 caratteri per riga, sempre
+     interlinea: 1,65em
 
-.sf-corpo{flex:1 1 auto;font-family:"Source Serif 4",Georgia,serif;font-size:.92rem;
- line-height:1.7;color:#2b2b30}
-.sf-corpo p{margin:0 0 .5em}
-.sf-corpo p:first-of-type::first-letter{float:left;font-family:Fraunces,Georgia,serif;
- font-size:2.6em;line-height:.9;padding:.04em .09em 0 0;color:#8a6a2f}
-.sf-kw{border-bottom:1.5px solid #4D596B;font-weight:600}
-.sf-corpo sup{font-size:.66em;color:#8a6a2f;font-weight:600;padding-left:1px}
+   Conseguenza: la pagina vale SEMPRE 28 righe di testo, a qualunque
+   dimensione di schermo. Il budget dei contenuti e' quindi fisso.
+   ============================================================ */
 
-.sf-gloss{margin:0;padding:7px 10px;border-radius:4px;background:rgba(77,89,107,.055);
- font-size:.79rem;font-style:italic;color:#4a5560;line-height:1.6}
-.sf-gloss .sf-kw{font-style:normal;border-bottom-width:1px}
-.sf-note{margin:10px 0 0;padding-top:8px;border-top:1px solid rgba(92,72,42,.2)}
-.sf-nota{margin:0;padding-left:1em;text-indent:-1em;font-size:.78rem;line-height:1.55;color:#4d4a44}
-.sf-nota sup{color:#8a6a2f;font-weight:600;padding-right:2px}
-.sf-piede{margin:10px 0 0;padding-top:8px;border-top:1px solid rgba(92,72,42,.14);
- font-size:.73rem;letter-spacing:.02em;color:#8a7f6b;
- display:flex;flex-wrap:wrap;gap:3px 12px;align-items:baseline;justify-content:space-between}
-.sf-piede a{color:#8a6a2f;font-weight:600;text-decoration:none}
+.sfoglia{
+  --pag-w:min(470px, 40vw);
+  --pag-h:calc(var(--pag-w) * 1.6);
+  --cop-w:calc(var(--pag-w) * 1.06);
+  margin:38px 0 46px;
+}
+
+.sfoglia-scena{
+  display:flex; align-items:center; justify-content:center;
+  min-height:calc(var(--cop-w) * 1.6);
+  perspective:3400px; perspective-origin:58% 50%;
+}
+
+.sfoglia-cop{
+  position:relative; flex:0 0 var(--cop-w);
+  width:var(--cop-w); height:calc(var(--cop-w) * 1.6);
+  margin-left:calc(var(--cop-w) * -.058);   /* la rotazione stacca il bordo sinistro: lo recupero */
+  border-radius:5px 3px 3px 5px; overflow:hidden;
+  transform-origin:right center; backface-visibility:hidden;
+  box-shadow:0 26px 50px -14px rgba(20,24,38,.5), 0 3px 8px rgba(20,24,38,.2);
+  transform:rotateY(-16deg);
+  animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both;
+}
+.sfoglia-cop img{display:block; width:100%; height:100%; object-fit:cover; object-position:center}
+.sfoglia-cop::after{content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(90deg, rgba(0,0,0,.30), rgba(0,0,0,0) 28%, rgba(255,255,255,.10))}
+@keyframes sf-apri{from{transform:rotateY(-4deg)} to{transform:rotateY(-16deg)}}
+
+.sfoglia-foglio{
+  position:relative; flex:0 0 var(--pag-w);
+  width:var(--pag-w); height:var(--pag-h);
+  font-size:calc(var(--pag-w) / 31.35);
+  display:flex; flex-direction:column; overflow:hidden;
+  padding:1.5em 1.75em 1.1em 2.1em;        /* colonna = 27,5em = 55 caratteri */
+  border-radius:2px 7px 7px 2px;
+  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
+  box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42), 0 18px 38px -18px rgba(20,24,38,.32);
+}
+.sfoglia-foglio::after{content:""; position:absolute; top:.7em; bottom:.7em; right:-.4em; width:.4em;
+  border-radius:0 3px 3px 0; background:repeating-linear-gradient(180deg,#f0e8d9 0 2px,#e2d7c3 2px 4px)}
+
+/* --- testata --- */
+.sf-capnum{margin:0 0 .15em; text-align:center; color:#8a7f6b;
+  letter-spacing:.15em; font-size:.70em; line-height:1.3; font-weight:600}
+.sf-vign{display:block; margin:.25em auto .15em; width:auto; height:2.6em; opacity:.9}
+.sf-tit{margin:0; text-align:center; font-family:Fraunces,Georgia,serif;
+  font-size:1.10em; font-weight:600; color:#2a2a2f; line-height:1.25}
+.sf-titen{margin:.15em 0 .9em; text-align:center; font-style:italic; color:#8a7f6b;
+  font-size:.85em; line-height:1.35}
+
+/* --- corpo --- */
+.sf-corpo{font-family:"Source Serif 4",Charter,Georgia,serif; font-size:1em;
+  line-height:1.65; color:#2b2b30; text-align:justify; hyphens:auto}
+.sf-corpo p{margin:0 0 .45em}
+.sf-corpo p:last-child{margin-bottom:0}
+.sf-corpo p:first-of-type::first-letter{float:left; font-family:Fraunces,Georgia,serif;
+  font-size:2.6em; line-height:.9; padding:.04em .09em 0 0; color:#8a6a2f}
+.sf-kw{border-bottom:1.5px solid #4D596B; font-weight:600}
+.sf-corpo .sf-sep{margin:.6em 0; text-align:center; color:#b09b7d;
+  font-size:.78em; letter-spacing:.35em; text-indent:.35em}
+.sf-corpo .sf-sep::first-letter{float:none; font-size:1em; color:inherit; padding:0}
+.sf-corpo sup{font-size:.66em; color:#8a6a2f; font-weight:600; padding-left:1px; text-decoration:none}
+
+/* --- glossario in linea --- */
+.sf-gloss{margin:.6em 0 .5em; padding:.5em .68em; border-radius:4px;
+  background:rgba(77,89,107,.055);
+  font-size:.80em; line-height:1.6; font-style:italic; color:#4a5560}
+.sf-gloss .sf-kw{font-style:normal; border-bottom-width:1px}
+
+/* margin-top:auto → nota e piede restano in fondo alla pagina, come in un libro vero */
+.sf-note{margin:auto 0 0; padding-top:.55em; border-top:1px solid rgba(92,72,42,.2)}
+.sf-nota{margin:0 0 .3em; padding-left:1em; text-indent:-1em;
+  font-size:.78em; line-height:1.55; color:#4d4a44}
+.sf-nota:last-child{margin-bottom:0}
+.sf-nota sup{color:#8a6a2f; font-weight:600; padding-right:2px}
+
+.sf-piede{margin:.7em 0 0; padding-top:.55em; border-top:1px solid rgba(92,72,42,.14);
+  font-size:.74em; line-height:1.35; letter-spacing:.02em; color:#8a7f6b;
+  display:flex; flex-wrap:wrap; gap:.2em .9em; align-items:baseline; justify-content:space-between}
+.sf-piede a{color:#8a6a2f; font-weight:600; text-decoration:none}
 .sf-piede a:hover{text-decoration:underline}
 
-.sf-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px 34px;align-items:start}
+.sf-2col{display:grid; grid-template-columns:1fr 1fr; gap:12px 34px; align-items:start}
 .sf-2col>div>h2{margin-top:0}
 
-@media (max-width:860px){
- .sfoglia-scena{flex-direction:column;height:auto;perspective:none}
- .sfoglia-cop{width:180px;margin:0 auto 18px;transform:none;animation:none;height:288px}
- .sfoglia-foglio{padding:20px 18px 14px;border-radius:8px}
- .sfoglia-foglio::after{display:none}
- .sf-2col{grid-template-columns:1fr;gap:0}
+/* ---- Doppia pagina: il glossario del libro (stessa geometria) ---- */
+.sf-gspread{
+  --pag-w:min(470px, 40vw);
+  --pag-h:calc(var(--pag-w) * 1.6);
+  display:flex; justify-content:center; height:var(--pag-h);
+  margin:20px auto 0; border-radius:3px; overflow:hidden;
+  box-shadow:0 20px 42px -18px rgba(20,24,38,.32);
+}
+.sf-gpag{
+  flex:0 0 var(--pag-w); width:var(--pag-w); height:var(--pag-h);
+  font-size:calc(var(--pag-w) / 31.35);
+  display:flex; flex-direction:column; overflow:hidden; padding:1.5em 1.75em 1.1em;
+  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
+}
+.sf-gpag:first-child{border-radius:2px 0 0 2px; box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gpag:last-child {border-radius:0 2px 2px 0; box-shadow:inset  14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gtit{margin:0 0 .9em; text-align:center; font-family:Fraunces,Georgia,serif;
+  font-size:1em; line-height:1.3; font-weight:600; color:#2a2a2f}
+.sf-gocc{margin:0 0 1.1em; text-align:center; font-style:italic; font-size:.78em;
+  line-height:1.45; color:#8a7f6b}
+.sf-gspread dl{margin:0}
+.sf-gspread dt{margin:0 0 .12em; font-family:"Source Serif 4",Charter,Georgia,serif;
+  font-size:.92em; line-height:1.35}
+.sf-gspread dd+dt{margin-top:1.05em}
+.sf-gspread dt b{color:#1F2529}
+.sf-gspread dt i{color:#326778; font-weight:600}
+.sf-gspread dt span{font-size:.86em; color:#8a7f6b; font-style:italic}
+.sf-gspread dd{margin:0; font-family:"Source Serif 4",Charter,Georgia,serif;
+  font-size:.84em; line-height:1.55; color:#2b2b30}
+.sf-gspread dd.en{color:#5f6b72}
+.sf-gpie{margin:auto 0 0; padding-top:.6em; border-top:1px solid rgba(92,72,42,.16);
+  text-align:center; font-size:.76em; line-height:1.35; color:#8a7f6b}
+
+/* ---- sotto i 900px: si impila, la geometria resta identica ---- */
+@media (max-width:900px){
+  .sfoglia, .sf-gspread{--pag-w:min(100%, 360px)}
+  .sfoglia-scena{flex-direction:column; align-items:center; min-height:0; perspective:none}
+  .sfoglia-cop{margin:0 auto 18px; transform:none; animation:none}
+  .sfoglia-foglio{border-radius:8px}
+  .sfoglia-foglio::after{display:none}
+  .sf-gspread{flex-direction:column; align-items:center; height:auto; gap:14px; box-shadow:none}
+  .sf-gpag{height:var(--pag-h); border-radius:6px !important;
+    box-shadow:0 14px 30px -18px rgba(20,24,38,.3) !important}
+  .sf-2col{grid-template-columns:1fr; gap:0}
 }
 @media (prefers-reduced-motion:reduce){
- .sfoglia-cop{animation:none;transform:rotateY(-38deg)}
+  .sfoglia-cop{animation:none; transform:rotateY(-16deg)}
 }
-
-/* ---- Doppia pagina: il glossario del libro ---- */
-.sf-gspread{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:20px 0 0;height:470px;
- border-radius:3px;overflow:hidden;box-shadow:0 18px 38px -18px rgba(20,24,38,.3)}
-.sf-gpag{display:flex;flex-direction:column;padding:24px 26px 20px;
- background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%)}
-.sf-gpag:first-child{border-radius:2px 0 0 2px;box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
-.sf-gpag:last-child{border-radius:0 2px 2px 0;box-shadow:inset 14px 0 22px -16px rgba(92,72,42,.4)}
-.sf-gtit{margin:0 0 16px;text-align:center;font-family:Fraunces,Georgia,serif;
- font-size:.98rem;font-weight:600;color:#2a2a2f;letter-spacing:.02em}
-.sf-gspread dl{margin:0;flex:1 1 auto}
-.sf-gspread dt{margin:0 0 3px;font-family:"Source Serif 4",Georgia,serif;font-size:.86rem;line-height:1.45}
-.sf-gspread dd+dt{margin-top:17px}
-.sf-gspread dt b{color:#1F2529}
-.sf-gspread dt i{color:#326778;font-weight:600}
-.sf-gspread dt span{font-size:.86em;color:#8a7f6b;font-style:italic}
-.sf-gspread dd{margin:0;font-family:"Source Serif 4",Georgia,serif;
- font-size:.83rem;line-height:1.55;color:#2b2b30}
-.sf-gspread dd.en{color:#5f6b72}
-.sf-gpie{margin:12px 0 0;padding-top:9px;border-top:1px solid rgba(92,72,42,.16);
- font-size:.73rem;letter-spacing:.02em;color:#8a7f6b;text-align:center}
-@media (max-width:860px){
- .sf-gspread{grid-template-columns:1fr;height:auto;box-shadow:0 12px 26px -16px rgba(20,24,38,.3)}
- .sf-gpag{padding:20px 18px}
- .sf-gpag:first-child,.sf-gpag:last-child{box-shadow:none;border-radius:0}
- .sf-gpag:first-child{border-radius:6px 6px 0 0;border-bottom:1px solid rgba(92,72,42,.14)}
- .sf-gpag:last-child{border-radius:0 0 6px 6px}
-}
-
 </style>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -366,11 +429,16 @@ footer.sito a{color:var(--nebbia)}
         <h3 class="sf-tit" lang="it">L’argine del podere</h3>
         <p class="sf-titen" lang="en">The Embankment</p>
         <div class="sf-corpo" lang="it">
-          <p>Tutto il giorno Efix aveva lavorato. Costruiva un <b class="sf-kw">argine</b> di terra e pietre lungo il fiume, in fondo al <b class="sf-kw">podere</b> delle dame Pintor.</p>
+          <p>Tutto il giorno Efix aveva lavorato. Costruiva un <span class="sf-kw">argine</span> di terra e pietre lungo il fiume, in fondo al <span class="sf-kw">podere</span> delle dame Pintor.</p>
+            <p>Era un lavoro vecchio di anni. Ogni primavera il fiume cresceva e rompeva il muro.<sup>1</sup> Ogni primavera Efix lo rifaceva, da solo, con le mani.</p>
+            <p>Quando venne la sera, il vecchio <span class="sf-kw">servo</span> si sedette davanti alla capanna e guardò in basso. Il podere era tutto ai suoi piedi, silenzioso, con l&#x27;acqua che brillava nel buio.</p>
+            <p class="sf-sep">&#9670;</p>
+            <p>Efix lavorava in quella terra da trent&#x27;anni. Non riceveva uno stipendio: solo il pane e un posto dove dormire. Era la <span class="sf-kw">povertà</span>, ma lui non la chiamava così.</p>
+            <p>Pensava che il <span class="sf-kw">podere</span> fosse più suo che delle sue padrone.</p>
         </div>
-        <p class="sf-gloss"><span class="sf-kw">argine</span> = embankment &#183; <span class="sf-kw">podere</span> = smallholding &#183; <span class="sf-kw">servo</span> = servant</p>
+        <p class="sf-gloss"><span class="sf-kw">argine</span> = embankment &#183; <span class="sf-kw">podere</span> = smallholding &#183; <span class="sf-kw">servo</span> = servant &#183; <span class="sf-kw">povertà</span> = poverty &#183; <span class="sf-kw">solitudine</span> = solitude &#183; <span class="sf-kw">rovina</span> = ruin</p>
         <div class="sf-note">
-          <p class="sf-nota"><sup>1</sup> Il fiume che rompe sempre l’argine è il primo simbolo del libro: c’è una forza che l’uomo non può fermare, e che l’uomo continua a combattere lo stesso.</p>
+          <p class="sf-nota"><sup>1</sup> Il fiume che rompe sempre l&#x27;argine è il primo simbolo del libro: c&#x27;è una forza che l&#x27;uomo non può fermare, e che l&#x27;uomo continua a combattere lo stesso.</p>
         </div>
         <p class="sf-piede"><span>Capitolo 1 · livello B1 · 23 parole dal testo reale</span><a href="https://www.amazon.it/dp/B0H9P9L2JD" target="_blank" rel="noopener">Continua su Amazon →</a></p>
       </div>
@@ -396,28 +464,61 @@ footer.sito a{color:var(--nebbia)}
       <div class="sf-gpag">
         <p class="sf-gtit">Glossario</p>
         <dl>
-          <dt><b lang="it">agonia</b> &middot; <i lang="en">agony</i> <span>(sin. fine, trapasso)</span></dt>
+          <dt><b lang="it">agonia</b> &middot; <i lang="en">agony</i> <span>((sin. fine, trapasso))</span></dt>
           <dd lang="it">Le ultime ore di chi sta per morire.</dd>
           <dd class="en" lang="en">The last hours of a person who is dying.</dd>
-          <dt><b lang="it">alba</b> &middot; <i lang="en">dawn</i> <span>(sin. aurora, levata)</span></dt>
+          <dt><b lang="it">alba</b> &middot; <i lang="en">dawn</i> <span>((sin. aurora, levata))</span></dt>
           <dd lang="it">La prima luce del mattino.</dd>
           <dd class="en" lang="en">The first light of the morning.</dd>
-          <dt><b lang="it">argine</b> &middot; <i lang="en">embankment</i> <span>(sin. diga, sbarramento)</span></dt>
-          <dd lang="it">Un muro di terra costruito lungo un fiume per fermare l’acqua.</dd>
+          <dt><b lang="it">argine</b> &middot; <i lang="en">embankment</i> <span>((sin. diga, sbarramento))</span></dt>
+          <dd lang="it">Un muro di terra costruito lungo un fiume per fermare l&#x27;acqua.</dd>
           <dd class="en" lang="en">A wall of earth built along a river to hold back the water.</dd>
+          <dt><b lang="it">attesa</b> &middot; <i lang="en">waiting</i> <span>((sin. aspettativa, trepidazione))</span></dt>
+          <dd lang="it">Il tempo passato aspettando che succeda qualcosa.</dd>
+          <dd class="en" lang="en">The time spent waiting for something to happen.</dd>
+          <dt><b lang="it">autorità</b> &middot; <i lang="en">authority</i> <span>((sin. comando, dominio))</span></dt>
+          <dd lang="it">Il potere di comandare ed essere obbediti.</dd>
+          <dd class="en" lang="en">The power to command and be obeyed.</dd>
+          <dt><b lang="it">calcolo</b> &middot; <i lang="en">calculation</i> <span>((sin. convenienza, interesse))</span></dt>
+          <dd lang="it">Il pensare ai propri vantaggi prima di agire.</dd>
+          <dd class="en" lang="en">Weighing your own advantage before you act.</dd>
+          <dt><b lang="it">canna</b> &middot; <i lang="en">reed</i> <span>((sin. giunco, stelo))</span></dt>
+          <dd lang="it">Una pianta alta e sottile che cresce vicino all&#x27;acqua. Nel vento si piega fino a terra, ma non si rompe — e si rialza.</dd>
+          <dd class="en" lang="en">A tall thin plant that grows by water. The wind bends it to the ground, but it does not break.</dd>
+          <dt><b lang="it">colpa</b> &middot; <i lang="en">guilt</i> <span>((sin. responsabilità, peccato))</span></dt>
+          <dd lang="it">La responsabilità di aver fatto qualcosa di grave.</dd>
+          <dd class="en" lang="en">The weight of having done something seriously wrong.</dd>
         </dl>
       </div>
       <div class="sf-gpag">
         <dl>
-          <dt><b lang="it">attesa</b> &middot; <i lang="en">waiting</i> <span>(sin. aspettativa, trepidazione)</span></dt>
-          <dd lang="it">Il tempo passato aspettando che succeda qualcosa.</dd>
-          <dd class="en" lang="en">The time spent waiting for something to happen.</dd>
-          <dt><b lang="it">autorità</b> &middot; <i lang="en">authority</i> <span>(sin. comando, dominio)</span></dt>
-          <dd lang="it">Il potere di comandare ed essere obbediti.</dd>
-          <dd class="en" lang="en">The power to command and be obeyed.</dd>
-          <dt><b lang="it">calcolo</b> &middot; <i lang="en">calculation</i> <span>(sin. convenienza, interesse)</span></dt>
-          <dd lang="it">Il pensare ai propri vantaggi prima di agire.</dd>
-          <dd class="en" lang="en">Weighing your own advantage before you act.</dd>
+          <dt><b lang="it">condanna</b> &middot; <i lang="en">sentence</i> <span>((sin. punizione, sentenza))</span></dt>
+          <dd lang="it">La punizione decisa per una colpa.</dd>
+          <dd class="en" lang="en">A punishment for a crime — or a fate you cannot escape.</dd>
+          <dt><b lang="it">confessione</b> &middot; <i lang="en">confession</i> <span>((sin. ammissione, rivelazione))</span></dt>
+          <dd lang="it">Il dire finalmente la verità su una colpa.</dd>
+          <dd class="en" lang="en">Finally telling the truth about a wrong you have done.</dd>
+          <dt><b lang="it">debito</b> &middot; <i lang="en">debt</i> <span>((sin. obbligo, passivo))</span></dt>
+          <dd lang="it">Il denaro che si deve a qualcuno.</dd>
+          <dd class="en" lang="en">Money that is owed to someone.</dd>
+          <dt><b lang="it">debolezza</b> &middot; <i lang="en">weakness</i> <span>((sin. fragilità, cedimento))</span></dt>
+          <dd lang="it">La mancanza di forza morale: l&#x27;incapacità di resistere e di dire di no.</dd>
+          <dd class="en" lang="en">A lack of moral strength: being unable to resist, or to say no.</dd>
+          <dt><b lang="it">delitto</b> &middot; <i lang="en">crime</i> <span>((sin. crimine, reato))</span></dt>
+          <dd lang="it">Un&#x27;azione grave che la legge punisce.</dd>
+          <dd class="en" lang="en">A serious act that the law punishes.</dd>
+          <dt><b lang="it">destino</b> &middot; <i lang="en">fate</i> <span>((sin. sorte, fato))</span></dt>
+          <dd lang="it">La forza misteriosa che decide in anticipo la vita degli uomini.</dd>
+          <dd class="en" lang="en">The mysterious force that some believe decides a life in advance.</dd>
+          <dt><b lang="it">dignità</b> &middot; <i lang="en">dignity</i> <span>((sin. decoro, onorabilità))</span></dt>
+          <dd lang="it">Il valore che una persona sente di avere, e che non vuole perdere.</dd>
+          <dd class="en" lang="en">The worth a person feels they have, and will not give up.</dd>
+          <dt><b lang="it">dote</b> &middot; <i lang="en">dowry</i> <span>((sin. corredo, patrimonio))</span></dt>
+          <dd lang="it">I soldi o i beni che una famiglia dà a una figlia che si sposa.</dd>
+          <dd class="en" lang="en">The money or goods a family gives to a daughter who marries.</dd>
+          <dt><b lang="it">elemosina</b> &middot; <i lang="en">alms</i> <span>((sin. carità, obolo))</span></dt>
+          <dd lang="it">Il denaro o il cibo che si dà a un povero per pietà.</dd>
+          <dd class="en" lang="en">Money or food given to a poor person out of pity.</dd>
         </dl>
         <p class="sf-gpie">Il glossario contiene 78 voci in tutto</p>
       </div>

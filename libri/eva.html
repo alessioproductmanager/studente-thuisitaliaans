@@ -125,94 +125,157 @@ footer.sito a{color:var(--nebbia)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.scheda{transition:none}}
 @media(max-width:640px){footer.sito .wrap{justify-content:center;text-align:center;gap:6px}}
 
-/* ===== Prima pagina del libro ===== */
-.sfoglia{margin:38px 0 44px}
-.sfoglia-scena{display:flex;align-items:stretch;height:470px;
- perspective:2200px;perspective-origin:66% 46%}
-.sfoglia-cop{position:relative;flex:0 0 auto;width:294px;border-radius:5px 3px 3px 5px;
- overflow:hidden;transform-origin:right center;
- box-shadow:0 24px 46px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
- transform:rotateY(-38deg);animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both}
-.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
-.sfoglia-cop::after{content:"";position:absolute;inset:0;pointer-events:none;
- background:linear-gradient(90deg,rgba(0,0,0,.32),rgba(0,0,0,0) 26%,rgba(255,255,255,.12))}
-@keyframes sf-apri{from{transform:rotateY(-14deg)}to{transform:rotateY(-38deg)}}
+/* ============================================================
+   PRIMA PAGINA DEL LIBRO — v3
 
-.sfoglia-foglio{position:relative;flex:1 1 auto;min-width:0;display:flex;flex-direction:column;
- padding:22px 26px 16px 30px;border-radius:2px 7px 7px 2px;
- background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
- box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42),0 18px 38px -18px rgba(20,24,38,.32)}
-.sfoglia-foglio::after{content:"";position:absolute;top:10px;bottom:10px;right:-6px;width:6px;
- border-radius:0 3px 3px 0;background:repeating-linear-gradient(180deg,#f0e8d9 0 2px,#e2d7c3 2px 4px)}
+   Un solo numero comanda tutto: --pag-w (larghezza della pagina destra).
 
-.sf-capnum{margin:0;text-align:center;color:#8a7f6b;letter-spacing:.15em;font-size:.7rem;font-weight:600}
-.sf-vign{display:block;margin:4px auto 2px;width:40px;height:auto;opacity:.9}
-.sf-tit{margin:0;text-align:center;font-family:Fraunces,Georgia,serif;
- font-size:1rem;font-weight:600;color:#2a2a2f;line-height:1.25}
-.sf-titen{margin:1px 0 12px;text-align:center;font-style:italic;color:#8a7f6b;font-size:.8rem}
+     pagina    : larghezza W, altezza W × 1,6      (rapporto delle copertine)
+     copertina : larghezza W × 1,06, stesso rapporto
+                 ruotata di 16° su asse verticale, prospettiva 3400px
+                 → in proiezione torna larga quanto la pagina, e resta
+                   piu' alta del 6% : e' la sporgenza che ha ogni copertina
+                   vera rispetto al blocco delle pagine.
+     corpo     : W / 31,35  → 55 caratteri per riga, sempre
+     interlinea: 1,65em
 
-.sf-corpo{flex:1 1 auto;font-family:"Source Serif 4",Georgia,serif;font-size:.92rem;
- line-height:1.7;color:#2b2b30}
-.sf-corpo p{margin:0 0 .5em}
-.sf-corpo p:first-of-type::first-letter{float:left;font-family:Fraunces,Georgia,serif;
- font-size:2.6em;line-height:.9;padding:.04em .09em 0 0;color:#8a6a2f}
-.sf-kw{border-bottom:1.5px solid #4D596B;font-weight:600}
-.sf-corpo sup{font-size:.66em;color:#8a6a2f;font-weight:600;padding-left:1px}
+   Conseguenza: la pagina vale SEMPRE 28 righe di testo, a qualunque
+   dimensione di schermo. Il budget dei contenuti e' quindi fisso.
+   ============================================================ */
 
-.sf-gloss{margin:0;padding:7px 10px;border-radius:4px;background:rgba(77,89,107,.055);
- font-size:.79rem;font-style:italic;color:#4a5560;line-height:1.6}
-.sf-gloss .sf-kw{font-style:normal;border-bottom-width:1px}
-.sf-note{margin:10px 0 0;padding-top:8px;border-top:1px solid rgba(92,72,42,.2)}
-.sf-nota{margin:0;padding-left:1em;text-indent:-1em;font-size:.78rem;line-height:1.55;color:#4d4a44}
-.sf-nota sup{color:#8a6a2f;font-weight:600;padding-right:2px}
-.sf-piede{margin:10px 0 0;padding-top:8px;border-top:1px solid rgba(92,72,42,.14);
- font-size:.73rem;letter-spacing:.02em;color:#8a7f6b;
- display:flex;flex-wrap:wrap;gap:3px 12px;align-items:baseline;justify-content:space-between}
-.sf-piede a{color:#8a6a2f;font-weight:600;text-decoration:none}
+.sfoglia{
+  --pag-w:min(470px, 40vw);
+  --pag-h:calc(var(--pag-w) * 1.6);
+  --cop-w:calc(var(--pag-w) * 1.06);
+  margin:38px 0 46px;
+}
+
+.sfoglia-scena{
+  display:flex; align-items:center; justify-content:center;
+  min-height:calc(var(--cop-w) * 1.6);
+  perspective:3400px; perspective-origin:58% 50%;
+}
+
+.sfoglia-cop{
+  position:relative; flex:0 0 var(--cop-w);
+  width:var(--cop-w); height:calc(var(--cop-w) * 1.6);
+  margin-left:calc(var(--cop-w) * -.058);   /* la rotazione stacca il bordo sinistro: lo recupero */
+  border-radius:5px 3px 3px 5px; overflow:hidden;
+  transform-origin:right center; backface-visibility:hidden;
+  box-shadow:0 26px 50px -14px rgba(20,24,38,.5), 0 3px 8px rgba(20,24,38,.2);
+  transform:rotateY(-16deg);
+  animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both;
+}
+.sfoglia-cop img{display:block; width:100%; height:100%; object-fit:cover; object-position:center}
+.sfoglia-cop::after{content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(90deg, rgba(0,0,0,.30), rgba(0,0,0,0) 28%, rgba(255,255,255,.10))}
+@keyframes sf-apri{from{transform:rotateY(-4deg)} to{transform:rotateY(-16deg)}}
+
+.sfoglia-foglio{
+  position:relative; flex:0 0 var(--pag-w);
+  width:var(--pag-w); height:var(--pag-h);
+  font-size:calc(var(--pag-w) / 31.35);
+  display:flex; flex-direction:column; overflow:hidden;
+  padding:1.5em 1.75em 1.1em 2.1em;        /* colonna = 27,5em = 55 caratteri */
+  border-radius:2px 7px 7px 2px;
+  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
+  box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42), 0 18px 38px -18px rgba(20,24,38,.32);
+}
+.sfoglia-foglio::after{content:""; position:absolute; top:.7em; bottom:.7em; right:-.4em; width:.4em;
+  border-radius:0 3px 3px 0; background:repeating-linear-gradient(180deg,#f0e8d9 0 2px,#e2d7c3 2px 4px)}
+
+/* --- testata --- */
+.sf-capnum{margin:0 0 .15em; text-align:center; color:#8a7f6b;
+  letter-spacing:.15em; font-size:.70em; line-height:1.3; font-weight:600}
+.sf-vign{display:block; margin:.25em auto .15em; width:auto; height:2.6em; opacity:.9}
+.sf-tit{margin:0; text-align:center; font-family:Fraunces,Georgia,serif;
+  font-size:1.10em; font-weight:600; color:#2a2a2f; line-height:1.25}
+.sf-titen{margin:.15em 0 .9em; text-align:center; font-style:italic; color:#8a7f6b;
+  font-size:.85em; line-height:1.35}
+
+/* --- corpo --- */
+.sf-corpo{font-family:"Source Serif 4",Charter,Georgia,serif; font-size:1em;
+  line-height:1.65; color:#2b2b30; text-align:justify; hyphens:auto}
+.sf-corpo p{margin:0 0 .45em}
+.sf-corpo p:last-child{margin-bottom:0}
+.sf-corpo p:first-of-type::first-letter{float:left; font-family:Fraunces,Georgia,serif;
+  font-size:2.6em; line-height:.9; padding:.04em .09em 0 0; color:#8a6a2f}
+.sf-kw{border-bottom:1.5px solid #4D596B; font-weight:600}
+.sf-corpo .sf-sep{margin:.6em 0; text-align:center; color:#b09b7d;
+  font-size:.78em; letter-spacing:.35em; text-indent:.35em}
+.sf-corpo .sf-sep::first-letter{float:none; font-size:1em; color:inherit; padding:0}
+.sf-corpo sup{font-size:.66em; color:#8a6a2f; font-weight:600; padding-left:1px; text-decoration:none}
+
+/* --- glossario in linea --- */
+.sf-gloss{margin:.6em 0 .5em; padding:.5em .68em; border-radius:4px;
+  background:rgba(77,89,107,.055);
+  font-size:.80em; line-height:1.6; font-style:italic; color:#4a5560}
+.sf-gloss .sf-kw{font-style:normal; border-bottom-width:1px}
+
+/* margin-top:auto → nota e piede restano in fondo alla pagina, come in un libro vero */
+.sf-note{margin:auto 0 0; padding-top:.55em; border-top:1px solid rgba(92,72,42,.2)}
+.sf-nota{margin:0 0 .3em; padding-left:1em; text-indent:-1em;
+  font-size:.78em; line-height:1.55; color:#4d4a44}
+.sf-nota:last-child{margin-bottom:0}
+.sf-nota sup{color:#8a6a2f; font-weight:600; padding-right:2px}
+
+.sf-piede{margin:.7em 0 0; padding-top:.55em; border-top:1px solid rgba(92,72,42,.14);
+  font-size:.74em; line-height:1.35; letter-spacing:.02em; color:#8a7f6b;
+  display:flex; flex-wrap:wrap; gap:.2em .9em; align-items:baseline; justify-content:space-between}
+.sf-piede a{color:#8a6a2f; font-weight:600; text-decoration:none}
 .sf-piede a:hover{text-decoration:underline}
 
-.sf-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px 34px;align-items:start}
+.sf-2col{display:grid; grid-template-columns:1fr 1fr; gap:12px 34px; align-items:start}
 .sf-2col>div>h2{margin-top:0}
 
-@media (max-width:860px){
- .sfoglia-scena{flex-direction:column;height:auto;perspective:none}
- .sfoglia-cop{width:180px;margin:0 auto 18px;transform:none;animation:none;height:288px}
- .sfoglia-foglio{padding:20px 18px 14px;border-radius:8px}
- .sfoglia-foglio::after{display:none}
- .sf-2col{grid-template-columns:1fr;gap:0}
+/* ---- Doppia pagina: il glossario del libro (stessa geometria) ---- */
+.sf-gspread{
+  --pag-w:min(470px, 40vw);
+  --pag-h:calc(var(--pag-w) * 1.6);
+  display:flex; justify-content:center; height:var(--pag-h);
+  margin:20px auto 0; border-radius:3px; overflow:hidden;
+  box-shadow:0 20px 42px -18px rgba(20,24,38,.32);
+}
+.sf-gpag{
+  flex:0 0 var(--pag-w); width:var(--pag-w); height:var(--pag-h);
+  font-size:calc(var(--pag-w) / 31.35);
+  display:flex; flex-direction:column; overflow:hidden; padding:1.5em 1.75em 1.1em;
+  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
+}
+.sf-gpag:first-child{border-radius:2px 0 0 2px; box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gpag:last-child {border-radius:0 2px 2px 0; box-shadow:inset  14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gtit{margin:0 0 .9em; text-align:center; font-family:Fraunces,Georgia,serif;
+  font-size:1em; line-height:1.3; font-weight:600; color:#2a2a2f}
+.sf-gocc{margin:0 0 1.1em; text-align:center; font-style:italic; font-size:.78em;
+  line-height:1.45; color:#8a7f6b}
+.sf-gspread dl{margin:0}
+.sf-gspread dt{margin:0 0 .12em; font-family:"Source Serif 4",Charter,Georgia,serif;
+  font-size:.92em; line-height:1.35}
+.sf-gspread dd+dt{margin-top:1.05em}
+.sf-gspread dt b{color:#1F2529}
+.sf-gspread dt i{color:#326778; font-weight:600}
+.sf-gspread dt span{font-size:.86em; color:#8a7f6b; font-style:italic}
+.sf-gspread dd{margin:0; font-family:"Source Serif 4",Charter,Georgia,serif;
+  font-size:.84em; line-height:1.55; color:#2b2b30}
+.sf-gspread dd.en{color:#5f6b72}
+.sf-gpie{margin:auto 0 0; padding-top:.6em; border-top:1px solid rgba(92,72,42,.16);
+  text-align:center; font-size:.76em; line-height:1.35; color:#8a7f6b}
+
+/* ---- sotto i 900px: si impila, la geometria resta identica ---- */
+@media (max-width:900px){
+  .sfoglia, .sf-gspread{--pag-w:min(100%, 360px)}
+  .sfoglia-scena{flex-direction:column; align-items:center; min-height:0; perspective:none}
+  .sfoglia-cop{margin:0 auto 18px; transform:none; animation:none}
+  .sfoglia-foglio{border-radius:8px}
+  .sfoglia-foglio::after{display:none}
+  .sf-gspread{flex-direction:column; align-items:center; height:auto; gap:14px; box-shadow:none}
+  .sf-gpag{height:var(--pag-h); border-radius:6px !important;
+    box-shadow:0 14px 30px -18px rgba(20,24,38,.3) !important}
+  .sf-2col{grid-template-columns:1fr; gap:0}
 }
 @media (prefers-reduced-motion:reduce){
- .sfoglia-cop{animation:none;transform:rotateY(-38deg)}
+  .sfoglia-cop{animation:none; transform:rotateY(-16deg)}
 }
-
-/* ---- Doppia pagina: il glossario del libro ---- */
-.sf-gspread{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:20px 0 0;height:470px;
- border-radius:3px;overflow:hidden;box-shadow:0 18px 38px -18px rgba(20,24,38,.3)}
-.sf-gpag{display:flex;flex-direction:column;padding:24px 26px 20px;
- background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%)}
-.sf-gpag:first-child{border-radius:2px 0 0 2px;box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
-.sf-gpag:last-child{border-radius:0 2px 2px 0;box-shadow:inset 14px 0 22px -16px rgba(92,72,42,.4)}
-.sf-gtit{margin:0 0 16px;text-align:center;font-family:Fraunces,Georgia,serif;
- font-size:.98rem;font-weight:600;color:#2a2a2f;letter-spacing:.02em}
-.sf-gspread dl{margin:0;flex:1 1 auto}
-.sf-gspread dt{margin:0 0 3px;font-family:"Source Serif 4",Georgia,serif;font-size:.86rem;line-height:1.45}
-.sf-gspread dd+dt{margin-top:17px}
-.sf-gspread dt b{color:#1F2529}
-.sf-gspread dt i{color:#326778;font-weight:600}
-.sf-gspread dt span{font-size:.86em;color:#8a7f6b;font-style:italic}
-.sf-gspread dd{margin:0;font-family:"Source Serif 4",Georgia,serif;
- font-size:.83rem;line-height:1.55;color:#2b2b30}
-.sf-gspread dd.en{color:#5f6b72}
-.sf-gpie{margin:12px 0 0;padding-top:9px;border-top:1px solid rgba(92,72,42,.16);
- font-size:.73rem;letter-spacing:.02em;color:#8a7f6b;text-align:center}
-@media (max-width:860px){
- .sf-gspread{grid-template-columns:1fr;height:auto;box-shadow:0 12px 26px -16px rgba(20,24,38,.3)}
- .sf-gpag{padding:20px 18px}
- .sf-gpag:first-child,.sf-gpag:last-child{box-shadow:none;border-radius:0}
- .sf-gpag:first-child{border-radius:6px 6px 0 0;border-bottom:1px solid rgba(92,72,42,.14)}
- .sf-gpag:last-child{border-radius:0 0 6px 6px}
-}
-
 </style>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -366,13 +429,20 @@ footer.sito a{color:var(--nebbia)}
         <h3 class="sf-tit" lang="it">Il pittore povero</h3>
         <p class="sf-titen" lang="en">The Poor Painter</p>
         <div class="sf-corpo" lang="it">
-          <p>Enrico ha venticinque anni. Enrico è <b class="sf-kw">pittore</b>.</p>
-          <p>Enrico dipinge <b class="sf-kw">quadri</b> e sogna la <b class="sf-kw">gloria</b>.</p>
-          <p>Enrico viene dalla Sicilia. Adesso vive a Firenze.</p>
+          <p>Enrico ha venticinque anni. Enrico è <span class="sf-kw">pittore</span>.</p>
+            <p>Enrico dipinge <span class="sf-kw">quadri</span> e sogna la <span class="sf-kw">gloria</span>.</p>
+            <p>Enrico viene dalla Sicilia. Adesso vive a Firenze.</p>
+            <p>La sua camera è piccola. È all&#x27;ultimo piano di una casa vecchia.</p>
+            <p>D&#x27;inverno il vento muove i vetri della finestra.</p>
+            <p>Enrico è povero. Ma Enrico è felice.<sup>1</sup></p>
+            <p class="sf-sep">&#9670;</p>
+            <p>In Sicilia c&#x27;è la famiglia di Enrico.</p>
+            <p>La Sicilia è piena di sole, di mare e di <span class="sf-kw">gelsomini</span>.</p>
+            <p>Il padre e la madre non sono ricchi. Ma ogni mese mandano il denaro al figlio.</p>
         </div>
-        <p class="sf-gloss"><span class="sf-kw">pittore</span> = painter &#183; <span class="sf-kw">quadro</span> = painting &#183; <span class="sf-kw">gloria</span> = glory, fame</p>
+        <p class="sf-gloss"><span class="sf-kw">pittore</span> = painter &#183; <span class="sf-kw">quadro</span> = painting &#183; <span class="sf-kw">gloria</span> = glory, fame &#183; <span class="sf-kw">gelsomino</span> = jasmine &#183; <span class="sf-kw">sperare</span> = to hope &#183; <span class="sf-kw">teatro</span> = theatre</p>
         <div class="sf-note">
-          <p class="sf-nota"><sup>1</sup> Siamo a Firenze, verso il 1870. L’Italia è un paese nuovo — è unita da pochi anni — e Firenze è piena di giovani artisti poveri venuti da tutte le regioni. Enrico è uno di loro: Verga stesso, siciliano a Firenze, conosceva bene questa vita.</p>
+          <p class="sf-nota"><sup>1</sup> Siamo a Firenze, verso il 1870. L&#x27;Italia è un paese nuovo — è unita da pochi anni — e Firenze è piena di giovani artisti poveri venuti da tutte le regioni. Enrico è uno di loro: Verga stesso, siciliano a Firenze, conosceva bene questa vita.</p>
         </div>
         <p class="sf-piede"><span>Capitolo 1 · livello A1 · 22 parole dal testo reale</span><a href="https://www.amazon.it/dp/B0H9VN7SCB" target="_blank" rel="noopener">Continua su Amazon →</a></p>
       </div>
@@ -398,28 +468,58 @@ footer.sito a{color:var(--nebbia)}
       <div class="sf-gpag">
         <p class="sf-gtit">Glossario</p>
         <dl>
-          <dt><b lang="it">amante</b> &middot; <i lang="en">lover</i> <span>(sin. compagna, innamorata)</span></dt>
+          <dt><b lang="it">amante</b> &middot; <i lang="en">lover</i> <span>((sin. compagna, innamorata))</span></dt>
           <dd lang="it">La persona che si ama, fuori dal matrimonio.</dd>
           <dd class="en" lang="en">The person one loves, outside marriage.</dd>
-          <dt><b lang="it">applauso</b> &middot; <i lang="en">applause</i> <span>(sin. battimani, ovazione)</span></dt>
+          <dt><b lang="it">applauso</b> &middot; <i lang="en">applause</i> <span>((sin. battimani, ovazione))</span></dt>
           <dd lang="it">Il rumore delle mani del pubblico, quando lo spettacolo piace.</dd>
-          <dd class="en" lang="en">The sound of the audience’s hands when they like the show.</dd>
-          <dt><b lang="it">bacio</b> &middot; <i lang="en">kiss</i> <span>(sin. effusione, carezza con le labbra)</span></dt>
+          <dd class="en" lang="en">The sound of the audience&#x27;s hands when they like the show.</dd>
+          <dt><b lang="it">bacio</b> &middot; <i lang="en">kiss</i> <span>((sin. effusione, carezza con le labbra))</span></dt>
           <dd lang="it">Toccare con le labbra una persona, per amore.</dd>
           <dd class="en" lang="en">Touching a person with the lips, out of love.</dd>
+          <dt><b lang="it">ballerina</b> &middot; <i lang="en">ballerina</i> <span>((sin. danzatrice, artista di teatro))</span></dt>
+          <dd lang="it">La donna che balla sul palco del teatro, per il pubblico.</dd>
+          <dd class="en" lang="en">A woman who dances on stage, for the audience.</dd>
+          <dt><b lang="it">carrozza</b> &middot; <i lang="en">carriage</i> <span>((sin. vettura, cocchio))</span></dt>
+          <dd lang="it">La macchina dell&#x27;Ottocento: una cabina con le ruote, tirata dai cavalli.</dd>
+          <dd class="en" lang="en">A cabin on wheels, pulled by horses.</dd>
+          <dt><b lang="it">cavalletto</b> &middot; <i lang="en">easel</i> <span>((sin. sostegno, treppiede))</span></dt>
+          <dd lang="it">Il supporto di legno che tiene il quadro mentre il pittore dipinge.</dd>
+          <dd class="en" lang="en">The wooden stand that holds the canvas while the painter works.</dd>
+          <dt><b lang="it">dimenticare</b> &middot; <i lang="en">to forget</i> <span>((sin. scordare, cancellare dalla mente))</span></dt>
+          <dd lang="it">Non ricordare più una cosa o una persona.</dd>
+          <dd class="en" lang="en">To no longer remember a thing or a person.</dd>
+          <dt><b lang="it">duello</b> &middot; <i lang="en">duel</i> <span>((sin. sfida armata, scontro d&#x27;onore))</span></dt>
+          <dd lang="it">Il combattimento tra due uomini, con le spade, per l&#x27;onore.</dd>
+          <dd class="en" lang="en">A fight between two men, with swords, for honour.</dd>
         </dl>
       </div>
       <div class="sf-gpag">
         <dl>
-          <dt><b lang="it">ballerina</b> &middot; <i lang="en">ballerina</i> <span>(sin. danzatrice, artista di teatro)</span></dt>
-          <dd lang="it">La donna che balla sul palco del teatro, per il pubblico.</dd>
-          <dd class="en" lang="en">A woman who dances on stage, for the audience.</dd>
-          <dt><b lang="it">carrozza</b> &middot; <i lang="en">carriage</i> <span>(sin. vettura, cocchio)</span></dt>
-          <dd lang="it">La macchina dell’Ottocento: una cabina con le ruote, tirata dai cavalli.</dd>
-          <dd class="en" lang="en">A cabin on wheels, pulled by horses.</dd>
-          <dt><b lang="it">cavalletto</b> &middot; <i lang="en">easel</i> <span>(sin. sostegno, treppiede)</span></dt>
-          <dd lang="it">Il supporto di legno che tiene il quadro mentre il pittore dipinge.</dd>
-          <dd class="en" lang="en">The wooden stand that holds the canvas while the painter works.</dd>
+          <dt><b lang="it">fame</b> &middot; <i lang="en">hunger</i> <span>((sin. appetito, bisogno di cibo))</span></dt>
+          <dd lang="it">Il bisogno di mangiare, quando non c&#x27;è cibo.</dd>
+          <dd class="en" lang="en">The need to eat, when there is no food.</dd>
+          <dt><b lang="it">febbre</b> &middot; <i lang="en">fever</i> <span>((sin. temperatura alta, calore della malattia))</span></dt>
+          <dd lang="it">Quando il corpo è troppo caldo perché si è malati.</dd>
+          <dd class="en" lang="en">When the body is too hot because one is ill.</dd>
+          <dt><b lang="it">gelsomino</b> &middot; <i lang="en">jasmine</i> <span>((sin. fiore bianco, fiore profumato))</span></dt>
+          <dd lang="it">Un piccolo fiore bianco con un profumo dolce e forte.</dd>
+          <dd class="en" lang="en">A small white flower with a sweet, strong scent.</dd>
+          <dt><b lang="it">giovinezza</b> &middot; <i lang="en">youth</i> <span>((sin. gioventù, anni verdi))</span></dt>
+          <dd lang="it">Il tempo della vita in cui si è giovani.</dd>
+          <dd class="en" lang="en">The time of life when one is young.</dd>
+          <dt><b lang="it">gloria</b> &middot; <i lang="en">glory, fame</i> <span>((sin. fama, successo))</span></dt>
+          <dd lang="it">La grande fama: quando tutti conoscono il tuo nome e il tuo lavoro.</dd>
+          <dd class="en" lang="en">Great renown: when everyone knows your name and your work.</dd>
+          <dt><b lang="it">innamorarsi</b> &middot; <i lang="en">to fall in love</i> <span>((sin. perdere la testa, prendersi una cotta))</span></dt>
+          <dd lang="it">Cominciare ad amare una persona.</dd>
+          <dd class="en" lang="en">To begin to love someone.</dd>
+          <dt><b lang="it">lusso</b> &middot; <i lang="en">luxury</i> <span>((sin. ricchezza, sfarzo))</span></dt>
+          <dd lang="it">La vita delle cose belle e care: gioielli, seta, feste.</dd>
+          <dd class="en" lang="en">A life of fine, costly things: jewels, silk, parties.</dd>
+          <dt><b lang="it">pittore</b> &middot; <i lang="en">painter</i> <span>((sin. artista, chi dipinge))</span></dt>
+          <dd lang="it">L&#x27;artista che fa i quadri con i colori.</dd>
+          <dd class="en" lang="en">An artist who makes pictures with colours.</dd>
         </dl>
         <p class="sf-gpie">Il glossario contiene 21 voci in tutto</p>
       </div>
