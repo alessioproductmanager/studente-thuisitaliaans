@@ -125,49 +125,68 @@ footer.sito a{color:var(--nebbia)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.scheda{transition:none}}
 @media(max-width:640px){footer.sito .wrap{justify-content:center;text-align:center;gap:6px}}
 
-/* ---- Prima pagina: copertina che si apre + estratto ---- */
-.sfoglia{margin:38px 0 42px}
-.sfoglia-scena{
-  display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);
-  gap:0;align-items:stretch;perspective:1800px;perspective-origin:70% 50%}
-.sfoglia-lato{position:relative;transform-style:preserve-3d}
-.sfoglia-cop{
-  position:relative;width:100%;border-radius:6px 3px 3px 6px;overflow:hidden;
-  transform-origin:right center;backface-visibility:hidden;
-  box-shadow:0 18px 40px -12px rgba(20,24,38,.45),0 2px 6px rgba(20,24,38,.18);
-  transform:rotateY(-118deg);
-  animation:sfoglia-apri 1.5s cubic-bezier(.22,1.1,.36,1) .45s both}
+/* ===== Prima pagina del libro ===== */
+.sfoglia{margin:40px 0 46px}
+.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);
+ gap:0;align-items:start;perspective:2000px;perspective-origin:64% 42%}
+.sfoglia-cop{position:relative;border-radius:5px 3px 3px 5px;overflow:hidden;align-self:start;
+ transform-origin:right center;backface-visibility:hidden;
+ box-shadow:0 22px 44px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
+ transform:rotateY(-122deg);animation:sf-apri 1.7s cubic-bezier(.18,.9,.24,1) .5s both}
 .sfoglia-cop img{display:block;width:100%;height:auto}
-.sfoglia-cop::after{
-  content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(90deg,rgba(0,0,0,.30),rgba(0,0,0,0) 22%,rgba(255,255,255,.10))}
-@keyframes sfoglia-apri{from{transform:rotateY(0deg)}to{transform:rotateY(-118deg)}}
-.sfoglia-pagina{
-  position:relative;padding:30px 30px 22px 38px;border-radius:3px 8px 8px 3px;
-  background:linear-gradient(100deg,#f3ece0 0,#fbf7f0 14%,#fdfbf7 60%,#f7f1e7 100%);
-  box-shadow:inset 14px 0 22px -14px rgba(90,70,40,.38),0 16px 34px -16px rgba(20,24,38,.30)}
-.sfoglia-pagina::before{
-  content:"";position:absolute;top:8px;bottom:8px;right:-5px;width:5px;border-radius:0 3px 3px 0;
-  background:repeating-linear-gradient(180deg,#efe7d9 0 2px,#e3d9c7 2px 4px)}
-.sfoglia-testo{
-  margin:0;font-family:"Source Serif 4",Georgia,serif;font-size:1.06rem;line-height:1.78;
-  color:#2b2b30;hyphens:auto}
-.sfoglia-testo::first-letter{
-  float:left;font-family:Fraunces,Georgia,serif;font-size:3.1em;line-height:.86;
-  padding:.06em .10em 0 0;color:#8a6a2f}
-.sfoglia-meta{
-  margin:18px 0 0;padding-top:12px;border-top:1px solid rgba(90,70,40,.18);
-  font-size:.82rem;letter-spacing:.02em;color:#7a6b53;
-  display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline}
-.sfoglia-meta a{color:#8a6a2f;font-weight:600;text-decoration:none}
-.sfoglia-meta a:hover{text-decoration:underline}
-@media (max-width:760px){
-  .sfoglia-scena{grid-template-columns:1fr;gap:18px;perspective:none}
-  .sfoglia-cop{max-width:210px;margin:0 auto;transform:none;animation:none}
-  .sfoglia-pagina{padding:24px 20px;border-radius:8px;box-shadow:0 12px 26px -14px rgba(20,24,38,.3)}
+.sfoglia-cop::after{content:"";position:absolute;inset:0;pointer-events:none;
+ background:linear-gradient(90deg,rgba(0,0,0,.34),rgba(0,0,0,0) 26%,rgba(255,255,255,.12))}
+@keyframes sf-apri{from{transform:rotateY(0)}to{transform:rotateY(-122deg)}}
+
+.sfoglia-foglio{position:relative;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
+ background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
+ box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42),0 18px 38px -18px rgba(20,24,38,.32);
+ animation:sf-posa 1.7s cubic-bezier(.18,.9,.24,1) .5s both}
+@keyframes sf-posa{from{transform:translateX(-6px) scale(.985)}to{transform:none}}
+.sfoglia-foglio::after{content:"";position:absolute;top:10px;bottom:10px;right:-6px;width:6px;
+ border-radius:0 3px 3px 0;background:repeating-linear-gradient(180deg,#f0e8d9 0 2px,#e2d7c3 2px 4px)}
+.sfoglia-foglio::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+ background:linear-gradient(76deg,transparent 30%,rgba(255,255,255,.55) 46%,transparent 62%);
+ opacity:0;animation:sf-luce 1.5s ease-out 1.5s 1}
+@keyframes sf-luce{0%{opacity:0;transform:translateX(-40%)}45%{opacity:.9}100%{opacity:0;transform:translateX(45%)}}
+
+.sf-capnum{margin:0;text-align:center;color:#8a7f6b;letter-spacing:.16em;font-size:.74rem;font-weight:600}
+.sf-vign{display:block;margin:8px auto 4px;width:74px;height:auto;opacity:.9}
+.sf-tit{margin:2px 0 0;text-align:center;font-family:Fraunces,Georgia,serif;
+ font-size:1.22rem;font-weight:600;color:#2a2a2f;line-height:1.3}
+.sf-titen{margin:3px 0 22px;text-align:center;font-style:italic;color:#8a7f6b;font-size:.9rem}
+
+.sf-corpo{font-family:"Source Serif 4",Georgia,serif;font-size:1.04rem;line-height:1.8;color:#2b2b30}
+.sf-corpo p{margin:0 0 .62em}
+.sf-corpo p:first-of-type::first-letter{float:left;font-family:Fraunces,Georgia,serif;
+ font-size:2.9em;line-height:.88;padding:.05em .1em 0 0;color:#8a6a2f}
+.sf-kw{border-bottom:2px solid #4D596B;font-weight:600}
+.sf-corpo sup{font-size:.66em;color:#8a6a2f;font-weight:600;padding-left:1px}
+
+.sf-gloss{margin:22px 0 0;padding:9px 12px;border-radius:5px;background:rgba(77,89,107,.055);
+ font-size:.85rem;font-style:italic;color:#4a5560;line-height:1.7}
+.sf-gloss .sf-kw{font-style:normal;border-bottom-width:1px}
+.sf-note{margin:22px 0 0;padding-top:11px;border-top:1px solid rgba(92,72,42,.22)}
+.sf-nota{margin:0 0 .45em;padding-left:1.1em;text-indent:-1.1em;
+ font-size:.84rem;line-height:1.62;color:#4d4a44}
+.sf-nota sup{color:#8a6a2f;font-weight:600;padding-right:2px}
+.sf-piede{margin:18px 0 0;padding-top:10px;border-top:1px solid rgba(92,72,42,.14);
+ font-size:.79rem;letter-spacing:.02em;color:#8a7f6b;
+ display:flex;flex-wrap:wrap;gap:5px 14px;align-items:baseline;justify-content:space-between}
+.sf-piede a{color:#8a6a2f;font-weight:600;text-decoration:none}
+.sf-piede a:hover{text-decoration:underline}
+
+@media (max-width:820px){
+ .sfoglia-scena{grid-template-columns:1fr;gap:20px;perspective:none}
+ .sfoglia-cop{max-width:190px;margin:0 auto;transform:none;animation:none}
+ .sfoglia-foglio{padding:22px 20px 16px;border-radius:8px;animation:none;
+  box-shadow:0 14px 28px -16px rgba(20,24,38,.3)}
+ .sfoglia-foglio::after{display:none}
 }
 @media (prefers-reduced-motion:reduce){
-  .sfoglia-cop{animation:none;transform:rotateY(-118deg)}
+ .sfoglia-cop{animation:none;transform:rotateY(-122deg)}
+ .sfoglia-foglio{animation:none}
+ .sfoglia-foglio::before{animation:none;opacity:0}
 }
 
 </style>
@@ -309,19 +328,29 @@ footer.sito a{color:var(--nebbia)}
   </section>
 
     <section class="sezione sfoglia">
-    <h2>Read the first page</h2>
+    <h2>Look inside: the first page</h2>
     <div class="sfoglia-scena">
-      <div class="sfoglia-lato">
-        <div class="sfoglia-cop">
-          <picture>
-            <source srcset="/assets/books/CanneAlVento_Copertina_eBook.webp" type="image/webp">
-            <img src="/assets/books/CanneAlVento_Copertina_eBook.jpg" width="800" height="1280" alt="Cover of Canne al vento" loading="lazy" decoding="async">
-          </picture>
-        </div>
+      <div class="sfoglia-cop">
+        <picture>
+          <source srcset="/assets/books/CanneAlVento_Copertina_eBook.webp" type="image/webp">
+          <img src="/assets/books/CanneAlVento_Copertina_eBook.jpg" width="800" height="1280" alt="Cover of L&amp;#x27;argine del podere" loading="lazy" decoding="async">
+        </picture>
       </div>
-      <div class="sfoglia-pagina">
-        <p class="sfoglia-testo" lang="it">Tutto il giorno Efix aveva lavorato. Costruiva un argine di terra e pietre lungo il fiume, in fondo al podere delle dame Pintor. Era un lavoro vecchio di anni. Ogni primavera il fiume cresceva e rompeva il muro. Ogni primavera Efix lo rifaceva, da solo, con le mani. Quando venne la sera, il vecchio servo si sedette davanti alla capanna e guardò in basso. Il podere era tutto ai suoi piedi, silenzioso, con l&#x27;acqua che brillava nel buio. Il fiume che rompe sempre l&#x27;argine è il primo simbolo del libro: c&#x27;è una forza che l&#x27;uomo non può fermare, e che l&#x27;uomo continua a combattere lo stesso.</p>
-        <p class="sfoglia-meta"><span>Chapter 1 · CEFR B1 · first 106 words</span><a href="https://www.amazon.com/dp/B0H9P9L2JD" target="_blank" rel="noopener">Keep reading on Amazon →</a></p>
+      <div class="sfoglia-foglio">
+        <p class="sf-capnum">CAPITOLO 1</p>
+        <img class="sf-vign" src="/assets/books/vignette/canne-al-vento.png" alt="Chapter vignette" width="148" height="148" loading="lazy" decoding="async">
+        <h3 class="sf-tit" lang="it">L&amp;#x27;argine del podere</h3>
+        <p class="sf-titen" lang="en">The Embankment</p>
+        <div class="sf-corpo" lang="it">
+          <p>Tutto il giorno Efix aveva lavorato. Costruiva un <b class="sf-kw">argine</b> di terra e pietre lungo il fiume, in fondo al <b class="sf-kw">podere</b> delle dame Pintor.</p>
+          <p>Era un lavoro vecchio di anni. Ogni primavera il fiume cresceva e rompeva il muro.<sup>1</sup> Ogni primavera Efix lo rifaceva, da solo, con le mani.</p>
+          <p>Quando venne la sera, il vecchio <b class="sf-kw">servo</b> si sedette davanti alla capanna e guardò in basso. Il podere era tutto ai suoi piedi, silenzioso, con l&#x27;acqua che brillava nel buio.</p>
+        </div>
+        <p class="sf-gloss"><span class="sf-kw">argine</span> = embankment &#183; <span class="sf-kw">podere</span> = smallholding &#183; <span class="sf-kw">servo</span> = servant</p>
+        <div class="sf-note">
+          <p class="sf-nota"><sup>1</sup> Il fiume che rompe sempre l&#x27;argine è il primo simbolo del libro: c&#x27;è una forza che l&#x27;uomo non può fermare, e che l&#x27;uomo continua a combattere lo stesso.</p>
+        </div>
+        <p class="sf-piede"><span>Chapter 1 · CEFR B1 · 78 words of the real text</span><a href="https://www.amazon.com/dp/B0H9P9L2JD" target="_blank" rel="noopener">Keep reading on Amazon →</a></p>
       </div>
     </div>
   </section>
