@@ -1,90 +1,74 @@
-thuisitaliaans — correzioni SEO di scansione — 27 luglio 2026
-==============================================================
+thuisitaliaans — SITO COMPLETO — 27 luglio 2026
+================================================
 
-Questa è la TUA versione (quella che mi hai appena caricato), con
-applicate solo le 7 correzioni di scansione. Nient'altro è stato
-toccato: nessuna pagina aggiunta, nessun testo modificato.
+Questo è l'intero sito: la tua versione caricata oggi, con applicate
+tutte le correzioni. 1.542 file, esattamente gli stessi del tuo zip.
 
-Scompatta sopra la tua copia di lavoro.
-assets/, media/ e .git non ci sono perché non erano nel tuo zip.
+  file nel tuo zip  1.543  (di cui 1 era il mio LEGGIMI precedente)
+  file qui dentro   1.542
+  mancanti          nessuno
+  in più            nessuno
+
+Ci sono anche tutte le sottocartelle di servizio, quelle che si perdono
+sostituendo una cartella con una parziale:
+  blog/css · esercizi/css · esercizi/js · lingue/css · lingue/js
+  css/ (2 file) · js/ (11 file)
+
+⚠ ATTENZIONE — assets/ e media/
+Il tuo zip non li conteneva, quindi non ci sono nemmeno qui. Se hai
+sostituito la cartella blog/ o esercizi/ per intero con quella parziale
+di prima, potresti aver perso le immagini. Recuperale dal tuo backup o
+da Git: sono le uniche cose che io non ho.
+
+Comando utile per controllare cosa manca davvero:
+  git status
+  git checkout -- assets blog/media
 
 ════════════════════════════════════════════════
-STATO DI PARTENZA
+COSA CONTIENE, RISPETTO AL TUO ZIP
 
-Le pagine nuove le avevi già caricate: lessen 49, lingue 303, blog 268,
-libri 78, esercizi 707. Tutto a posto.
-Ma NESSUNA delle 7 correzioni di scansione era stata applicata.
-Le ho verificate una per una prima di partire.
-
-════════════════════════════════════════════════
-COSA HO CORRETTO
-
-1. 4.071 URL .html dentro i dati strutturati        1.312 file
-   Nei campi "item" dei breadcrumb e "url" dei nodi JSON-LD.
-   I tuoi href erano già puliti: zero. Il problema era solo lì,
-   ed è da lì che Googlebot pescava gli URL .html che ti compaiono
-   nel rapporto "Pagina con reindirizzamento".
-   Ogni .html risponde 301: Google spendeva budget di scansione in
-   redirect invece di leggere le pagine.
-   Ora: 0 residui.
-
+LOTTO 1 — scansione (7 correzioni)
+1. 4.071 URL .html nei dati strutturati → normalizzati (1.312 file).
+   Nei campi "item" dei breadcrumb e "url" dei nodi JSON-LD. Gli href
+   erano già puliti: il problema stava solo lì, ed è da lì che Googlebot
+   pescava gli .html del rapporto "Pagina con reindirizzamento".
 2. 41 breadcrumb /blog/index → /blog/
-   Anche quello un redirect confermato dal tuo rapporto.
-
-3. 56 URL di sitemap-app.xml in conflitto col canonical
-   La sitemap diceva  .../app/app-privacy-en
-   la pagina dichiara .../app-privacy-en
-   Google le avrebbe messe in "Pagina alternativa con tag canonical
-   appropriato" senza indicizzarle. Allineate al canonical.
-
+3. 56 URL di sitemap-app.xml allineati al canonical.
+   La sitemap diceva /app/app-privacy-en, la pagina dichiara
+   /app-privacy-en: Google li scartava come "alternativa al canonical".
+   Le pagine sono le stesse, è cambiato solo l'indirizzo dichiarato.
 4. robots.txt: da 2 dichiarazioni Sitemap a 1
-   Dichiaravi sia sitemap-index.xml (7 sotto-sitemap) sia sitemap.xml
-   (monolitica), con gli stessi identici URL. Ora resta solo l'index:
-   così in Search Console → Sitemap leggi quante pagine sono
-   indicizzate SEZIONE PER SEZIONE. È la schermata che ti serve.
-
-5. footer-sitemap tolto da 2 sitemap
-   È uno snippet HTML del footer, non una pagina.
-
-6. sitemap.xml rigenerata come unione esatta delle sotto-sitemap
-   1.417 URL, con il namespace image dichiarato. Non è più in robots
-   ma resta valida e coerente se Google la ricorda.
-
+5. /footer-sitemap tolto dalle sitemap. Non è una pagina: è il frammento
+   HTML del footer, senza <html> e senza titolo. Il file resta al suo
+   posto, è solo uscito dall'elenco.
+6. sitemap.xml rigenerata come unione esatta — 1.417 URL
 7. canonical di blog/index → /blog/
 
+Verificato: 2.865 JSON-LD validi, 0 errori · 1.692 URL in sitemap con
+0 disallineati dal canonical · 0 .html nei dati strutturati e negli href
+· 0 noindex dentro le sitemap · 9 sitemap wellformed.
+
+LOTTO 2 — i 26 libri
+INGLESE (books/): title, description e H1 riscritti uno per uno.
+  "Easy Italian Book" non lo cerca nessuno. Il mercato dice "Graded
+  Reader", "simplified", "CEFR", "for learners". Quel termine sul sito
+  stava solo in <meta name="keywords">, ignorato da Google dal 2009.
+  Schema: {Titolo} — Italian Graded Reader {livello} | {Autore}
+  Title tutti sotto 60 caratteri, description fra 129 e 147.
+  Aggiornati anche og:title, twitter:title e le description social.
+OLANDESE (boeken/) e ITALIANO (libri/): solo il title, per aggiungere
+  livello e autore. "Italiaans leesboek" e "libro in italiano facile"
+  erano già i termini giusti: non ho toccato description e H1.
+
 ════════════════════════════════════════════════
-VERIFICATO DOPO LE MODIFICHE
+DA FARE TU SU AMAZON
+Refuso nel titolo di Il fu Mattia Pascal: "The Complete Novel
+Semplified" → Simplified. Il Milione e I promessi sposi ce l'hanno
+giusto: controlla tutti e 26. Il sito è pulito.
 
-  2.865 blocchi JSON-LD validi        0 errori
-  1.692 URL in sitemap                0 senza canonical corrispondente
-  0 URL .html nei dati strutturati
-  0 /blog/index nei dati strutturati
-  0 href interni con .html
-  0 pagine noindex dentro le sitemap
-  9 sitemap XML wellformed
-  1 sola dichiarazione Sitemap in robots.txt
-
-════════════════════════════════════════════════
-DOPO IL DEPLOY, IN QUEST'ORDINE
-
+DOPO IL DEPLOY
 1. Purge cache Cloudflare.
 2. Search Console → Sitemap: reinvia sitemap-index.xml e RIMUOVI
    sitemap.xml dall'elenco delle sitemap inviate.
-3. Apri thuisitaliaans.com/italiaans-voor-kinderen.html
-   Se ti porta alla versione senza estensione, i tre 404 erano storici
-   → clicca "Convalida correzione" su quel rapporto.
-4. Ispezione URL su 15-20 pagine che contano, e Richiedi indicizzazione:
-   proefles-italiaans · cursus-italiaans-amsterdam · priveles-italiaans
-   groepsles-italiaans · italiaanse-taalcursus-vergelijken
-   italiaanse-les-amsterdam · italiaanse-les-ede-utrecht · tarieven
-   Su venti, non su millequattrocento.
-5. Poi Indicizzazione → Pagine: mandami i due numeri in cima.
-
-════════════════════════════════════════════════
-COSA QUESTO NON FA
-
-Toglie ostacoli alla scansione. Non crea autorità.
-Se Search Console dice che la maggior parte delle pagine è "Rilevata:
-attualmente non indicizzata", il problema non è più tecnico: è che il
-dominio non ha abbastanza segnali esterni perché Google spenda tempo
-su 1.400 pagine. Quello si risolve con link veri da siti veri.
+3. Apri thuisitaliaans.com/italiaans-voor-kinderen.html: se redirige,
+   i 3 errori 404 erano storici → "Convalida correzione".
