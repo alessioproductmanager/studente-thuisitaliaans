@@ -17,6 +17,11 @@
   var cursore = tela.querySelector('[data-cursore]');
   var perni   = [].slice.call(tela.querySelectorAll('.mp-perno'));
   var LARG = 1000, ALT = 383, MAX = 12;
+  /* Il fulcro dello zoom non e' il puntatore ma i Paesi Bassi: e' li' che sta
+     la maggior parte degli studenti, quindi avvicinandosi si finisce sempre
+     sull'Europa invece che dove capita il mouse. Se il punto e' uscito dallo
+     schermo lo si riporta al bordo piu' vicino, cosi' non si scappa via. */
+  var FUOCO_X = 0.50114, FUOCO_Y = 0.19254;
   var k = 1, tx = 0, ty = 0, kMin = 1, attivo = null;
   var W = 0, H = 0, inCoda = false, animazione = null;
 
@@ -29,6 +34,11 @@
     if (inCoda) return;
     inCoda = true;
     requestAnimationFrame(function () { inCoda = false; disegna(); });
+  }
+
+  function fulcro() {
+    var x = tx + FUOCO_X * LARG * k, y = ty + FUOCO_Y * ALT * k;
+    return [Math.max(0, Math.min(W, x)), Math.max(0, Math.min(H, y))];
   }
 
   function limita() {
@@ -112,7 +122,8 @@
   function mostra(p) {
     var r = p.getBoundingClientRect(), b = tela.getBoundingClientRect();
     var parti = p.getAttribute('aria-label').split(' — ');
-    tip.innerHTML = '<b>' + parti[0] + '</b><span>' + parti[1] + '</span>';
+    tip.innerHTML = '<b>' + parti[0] + '</b><span>' +
+                    (p.dataset.bandiera ? p.dataset.bandiera + ' ' : '') + parti[1] + '</span>';
     tip.hidden = false;
     tip.style.left = (r.left - b.left + r.width / 2) + 'px';
     tip.style.top = (r.top - b.top - 4) + 'px';
@@ -137,7 +148,8 @@
   if (cursore) {
     cursore.addEventListener('input', function () {
       cancelAnimationFrame(animazione);
-      porta(kMin * Math.pow(MAX, cursore.value / 100));
+      var f = fulcro();
+      porta(kMin * Math.pow(MAX, cursore.value / 100), f[0], f[1]);
       nascondi();
     });
   }
@@ -194,15 +206,15 @@
   tela.addEventListener('wheel', function (e) {
     e.preventDefault();
     cancelAnimationFrame(animazione);
-    var r = tela.getBoundingClientRect();
-    var f = Math.exp(-Math.max(-90, Math.min(90, e.deltaY)) * 0.0022);
-    porta(k * f, e.clientX - r.left, e.clientY - r.top);
+    var fatt = Math.exp(-Math.max(-90, Math.min(90, e.deltaY)) * 0.0022);
+    var f = fulcro();
+    porta(k * fatt, f[0], f[1]);
     nascondi();
   }, { passive: false });
 
-  tela.addEventListener('dblclick', function (e) {
-    var r = tela.getBoundingClientRect();
-    anima(k * 1.9, e.clientX - r.left, e.clientY - r.top);
+  tela.addEventListener('dblclick', function () {
+    var f = fulcro();
+    anima(k * 1.9, f[0], f[1]);
   });
 
   document.addEventListener('click', function (e) {
