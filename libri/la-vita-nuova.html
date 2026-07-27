@@ -126,104 +126,87 @@ footer.sito a{color:var(--nebbia)}
 @media(max-width:640px){footer.sito .wrap{justify-content:center;text-align:center;gap:6px}}
 
 /* ===== Prima pagina del libro ===== */
-.sfoglia{margin:40px 0 46px}
-.sfoglia-scena{display:grid;grid-template-columns:auto minmax(0,1fr);
- gap:0;align-items:stretch;perspective:2200px;perspective-origin:70% 46%}
-.sfoglia-cop{position:relative;border-radius:5px 3px 3px 5px;overflow:hidden;
- align-self:stretch;transform-origin:right center;
+.sfoglia{margin:38px 0 44px}
+.sfoglia-scena{display:flex;align-items:stretch;height:470px;
+ perspective:2200px;perspective-origin:66% 46%}
+.sfoglia-cop{position:relative;flex:0 0 auto;width:294px;border-radius:5px 3px 3px 5px;
+ overflow:hidden;transform-origin:right center;
  box-shadow:0 24px 46px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
- transform:rotateY(-42deg);animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both}
-.sfoglia-cop img{display:block;height:100%;width:auto;max-width:none}
+ transform:rotateY(-38deg);animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both}
+.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
 .sfoglia-cop::after{content:"";position:absolute;inset:0;pointer-events:none;
- background:linear-gradient(90deg,rgba(0,0,0,.34),rgba(0,0,0,0) 26%,rgba(255,255,255,.12))}
-@keyframes sf-apri{from{transform:rotateY(-16deg)}to{transform:rotateY(-42deg)}}
+ background:linear-gradient(90deg,rgba(0,0,0,.32),rgba(0,0,0,0) 26%,rgba(255,255,255,.12))}
+@keyframes sf-apri{from{transform:rotateY(-14deg)}to{transform:rotateY(-38deg)}}
 
-.sfoglia-foglio{position:relative;align-self:stretch;padding:22px 30px 16px 34px;border-radius:2px 7px 7px 2px;
+.sfoglia-foglio{position:relative;flex:1 1 auto;min-width:0;display:flex;flex-direction:column;
+ padding:22px 26px 16px 30px;border-radius:2px 7px 7px 2px;
  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
- box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42),0 18px 38px -18px rgba(20,24,38,.32);
- animation:sf-posa 1.7s cubic-bezier(.18,.9,.24,1) .5s both}
-@keyframes sf-posa{from{transform:translateX(-6px) scale(.985)}to{transform:none}}
+ box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42),0 18px 38px -18px rgba(20,24,38,.32)}
 .sfoglia-foglio::after{content:"";position:absolute;top:10px;bottom:10px;right:-6px;width:6px;
  border-radius:0 3px 3px 0;background:repeating-linear-gradient(180deg,#f0e8d9 0 2px,#e2d7c3 2px 4px)}
-.sfoglia-foglio::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
- background:linear-gradient(76deg,transparent 30%,rgba(255,255,255,.55) 46%,transparent 62%);
- opacity:0;animation:sf-luce 1.5s ease-out 1.5s 1}
-@keyframes sf-luce{0%{opacity:0;transform:translateX(-40%)}45%{opacity:.9}100%{opacity:0;transform:translateX(45%)}}
 
-.sf-capnum{margin:0;text-align:center;color:#8a7f6b;letter-spacing:.16em;font-size:.74rem;font-weight:600}
-.sf-vign{display:block;margin:5px auto 2px;width:46px;height:auto;opacity:.9}
-.sf-tit{margin:1px 0 0;text-align:center;font-family:Fraunces,Georgia,serif;
- font-size:1.08rem;font-weight:600;color:#2a2a2f;line-height:1.28}
-.sf-titen{margin:2px 0 14px;text-align:center;font-style:italic;color:#8a7f6b;font-size:.9rem}
+.sf-capnum{margin:0;text-align:center;color:#8a7f6b;letter-spacing:.15em;font-size:.7rem;font-weight:600}
+.sf-vign{display:block;margin:4px auto 2px;width:40px;height:auto;opacity:.9}
+.sf-tit{margin:0;text-align:center;font-family:Fraunces,Georgia,serif;
+ font-size:1rem;font-weight:600;color:#2a2a2f;line-height:1.25}
+.sf-titen{margin:1px 0 12px;text-align:center;font-style:italic;color:#8a7f6b;font-size:.8rem}
 
-.sf-corpo{font-family:"Source Serif 4",Georgia,serif;font-size:1.04rem;line-height:1.8;color:#2b2b30}
-.sf-corpo p{margin:0 0 .62em}
+.sf-corpo{flex:1 1 auto;font-family:"Source Serif 4",Georgia,serif;font-size:.92rem;
+ line-height:1.7;color:#2b2b30}
+.sf-corpo p{margin:0 0 .5em}
 .sf-corpo p:first-of-type::first-letter{float:left;font-family:Fraunces,Georgia,serif;
- font-size:2.9em;line-height:.88;padding:.05em .1em 0 0;color:#8a6a2f}
-.sf-kw{border-bottom:2px solid #4D596B;font-weight:600}
+ font-size:2.6em;line-height:.9;padding:.04em .09em 0 0;color:#8a6a2f}
+.sf-kw{border-bottom:1.5px solid #4D596B;font-weight:600}
 .sf-corpo sup{font-size:.66em;color:#8a6a2f;font-weight:600;padding-left:1px}
 
-.sf-gloss{margin:14px 0 0;padding:8px 11px;border-radius:5px;background:rgba(77,89,107,.055);
- font-size:.85rem;font-style:italic;color:#4a5560;line-height:1.7}
+.sf-gloss{margin:0;padding:7px 10px;border-radius:4px;background:rgba(77,89,107,.055);
+ font-size:.79rem;font-style:italic;color:#4a5560;line-height:1.6}
 .sf-gloss .sf-kw{font-style:normal;border-bottom-width:1px}
-.sf-note{margin:14px 0 0;padding-top:9px;border-top:1px solid rgba(92,72,42,.22)}
-.sf-nota{margin:0 0 .45em;padding-left:1.1em;text-indent:-1.1em;
- font-size:.84rem;line-height:1.62;color:#4d4a44}
+.sf-note{margin:10px 0 0;padding-top:8px;border-top:1px solid rgba(92,72,42,.2)}
+.sf-nota{margin:0;padding-left:1em;text-indent:-1em;font-size:.78rem;line-height:1.55;color:#4d4a44}
 .sf-nota sup{color:#8a6a2f;font-weight:600;padding-right:2px}
-.sf-piede{margin:13px 0 0;padding-top:8px;border-top:1px solid rgba(92,72,42,.14);
- font-size:.79rem;letter-spacing:.02em;color:#8a7f6b;
- display:flex;flex-wrap:wrap;gap:5px 14px;align-items:baseline;justify-content:space-between}
+.sf-piede{margin:10px 0 0;padding-top:8px;border-top:1px solid rgba(92,72,42,.14);
+ font-size:.73rem;letter-spacing:.02em;color:#8a7f6b;
+ display:flex;flex-wrap:wrap;gap:3px 12px;align-items:baseline;justify-content:space-between}
 .sf-piede a{color:#8a6a2f;font-weight:600;text-decoration:none}
 .sf-piede a:hover{text-decoration:underline}
 
 .sf-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px 34px;align-items:start}
 .sf-2col>div>h2{margin-top:0}
-@media (max-width:820px){
- .sf-2col{grid-template-columns:1fr;gap:0}
- .sfoglia-scena{grid-template-columns:1fr;gap:20px;perspective:none}
- .sfoglia-cop{max-width:190px;margin:0 auto;transform:none;animation:none;align-self:center}
- .sfoglia-cop img{width:100%;height:auto}
- .sfoglia-foglio{padding:22px 20px 16px;border-radius:8px;animation:none;
-  box-shadow:0 14px 28px -16px rgba(20,24,38,.3)}
+
+@media (max-width:860px){
+ .sfoglia-scena{flex-direction:column;height:auto;perspective:none}
+ .sfoglia-cop{width:180px;margin:0 auto 18px;transform:none;animation:none;height:288px}
+ .sfoglia-foglio{padding:20px 18px 14px;border-radius:8px}
  .sfoglia-foglio::after{display:none}
+ .sf-2col{grid-template-columns:1fr;gap:0}
 }
 @media (prefers-reduced-motion:reduce){
- .sfoglia-cop{animation:none;transform:rotateY(-42deg)}
- .sfoglia-foglio{animation:none}
- .sfoglia-foglio::before{animation:none;opacity:0}
+ .sfoglia-cop{animation:none;transform:rotateY(-38deg)}
 }
 
 /* ---- Doppia pagina: il glossario del libro ---- */
-.sf-gspread{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:22px 0 0;
- border-radius:3px;overflow:hidden;
- box-shadow:0 18px 38px -18px rgba(20,24,38,.3)}
-.sf-gpag{padding:26px 26px 22px;
+.sf-gspread{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:20px 0 0;height:470px;
+ border-radius:3px;overflow:hidden;box-shadow:0 18px 38px -18px rgba(20,24,38,.3)}
+.sf-gpag{display:flex;flex-direction:column;padding:24px 26px 20px;
  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%)}
-.sf-gpag:first-child{border-radius:2px 0 0 2px;
- box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
-.sf-gpag:last-child{border-radius:0 2px 2px 0;
- box-shadow:inset 14px 0 22px -16px rgba(92,72,42,.4)}
-.sf-gtit{margin:0;text-align:center;font-family:Fraunces,Georgia,serif;
- font-size:1.18rem;font-weight:600;color:#2a2a2f}
-.sf-gint{margin:8px 0 18px;font-size:.83rem;font-style:italic;line-height:1.6;
- color:#7a6b53;text-align:center}
-.sf-gspread dl{margin:0}
-.sf-gspread dt{margin:0 0 4px;font-family:"Source Serif 4",Georgia,serif;font-size:.99rem}
-.sf-gspread dt~dt{margin-top:20px}
-.sf-gspread dd+dt{margin-top:20px}
+.sf-gpag:first-child{border-radius:2px 0 0 2px;box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gpag:last-child{border-radius:0 2px 2px 0;box-shadow:inset 14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gtit{margin:0 0 16px;text-align:center;font-family:Fraunces,Georgia,serif;
+ font-size:.98rem;font-weight:600;color:#2a2a2f;letter-spacing:.02em}
+.sf-gspread dl{margin:0;flex:1 1 auto}
+.sf-gspread dt{margin:0 0 3px;font-family:"Source Serif 4",Georgia,serif;font-size:.86rem;line-height:1.45}
+.sf-gspread dd+dt{margin-top:17px}
 .sf-gspread dt b{color:#1F2529}
 .sf-gspread dt i{color:#326778;font-weight:600}
-.sf-gspread dt span{font-size:.84em;color:#8a7f6b;font-style:italic}
-.sf-gspread dd{margin:0 0 1px;font-family:"Source Serif 4",Georgia,serif;
- font-size:.92rem;line-height:1.58;color:#2b2b30}
+.sf-gspread dt span{font-size:.86em;color:#8a7f6b;font-style:italic}
+.sf-gspread dd{margin:0;font-family:"Source Serif 4",Georgia,serif;
+ font-size:.83rem;line-height:1.55;color:#2b2b30}
 .sf-gspread dd.en{color:#5f6b72}
-.sf-gspread dd.nota{margin:3px 0 16px;font-style:italic;font-size:.86rem;
- line-height:1.55;color:#55606a}
-.sf-gspread dd:last-child{margin-bottom:0}
-.sf-gpie{margin:16px 0 0;padding-top:11px;border-top:1px solid rgba(92,72,42,.16);
- font-size:.79rem;letter-spacing:.02em;color:#8a7f6b;text-align:center}
-@media (max-width:820px){
- .sf-gspread{grid-template-columns:1fr;box-shadow:0 12px 26px -16px rgba(20,24,38,.3)}
+.sf-gpie{margin:12px 0 0;padding-top:9px;border-top:1px solid rgba(92,72,42,.16);
+ font-size:.73rem;letter-spacing:.02em;color:#8a7f6b;text-align:center}
+@media (max-width:860px){
+ .sf-gspread{grid-template-columns:1fr;height:auto;box-shadow:0 12px 26px -16px rgba(20,24,38,.3)}
  .sf-gpag{padding:20px 18px}
  .sf-gpag:first-child,.sf-gpag:last-child{box-shadow:none;border-radius:0}
  .sf-gpag:first-child{border-radius:6px 6px 0 0;border-bottom:1px solid rgba(92,72,42,.14)}
@@ -314,7 +297,7 @@ footer.sito a{color:var(--nebbia)}
     </div>
   </section>
 
-            <section class="sezione sfoglia">
+              <section class="sezione sfoglia">
     <h2>Sfoglia dentro: la prima pagina</h2>
     <div class="sfoglia-scena">
       <div class="sfoglia-cop">
@@ -329,13 +312,13 @@ footer.sito a{color:var(--nebbia)}
         <h3 class="sf-tit" lang="it">Il libro della memoria</h3>
         <p class="sf-titen" lang="en">The Book of Memory</p>
         <div class="sf-corpo" lang="it">
-          <p>Nel libro della mia <b class="sf-kw">memoria</b>, nella parte prima della quale poco si potrebbe leggere, si trova una rubrica che dice: Incipit vita nova — comincia la vita nuova.<sup>1</sup> Sotto quella rubrica stanno scritte le parole che ora voglio copiare in questo <b class="sf-kw">quaderno</b>: se non tutte, almeno il loro significato.</p>
+          <p>Nel libro della mia <b class="sf-kw">memoria</b>, nella parte prima della quale poco si potrebbe leggere, si trova una rubrica che dice: Incipit vita nova — comincia la vita nuova.<sup>1</sup> Sotto quella rubrica stanno scritte le…</p>
         </div>
         <p class="sf-gloss"><span class="sf-kw">memoria</span> = memory &#183; <span class="sf-kw">quaderno</span> = notebook &#183; <span class="sf-kw">anima</span> = soul</p>
         <div class="sf-note">
           <p class="sf-nota"><sup>1</sup> Il latino Incipit vita nova («comincia la vita nuova») dà il titolo all’opera. Nei manoscritti medievali le «rubriche» erano i titoli scritti in rosso — ruber, in latino. Dante immagina la propria memoria come un codice miniato: la vita, per lui, è già un libro prima di essere scritta.</p>
         </div>
-        <p class="sf-piede"><span>Capitolo 1 · livello B2 · 49 parole dal testo reale</span></p>
+        <p class="sf-piede"><span>Capitolo 1 · livello B2 · 34 parole dal testo reale</span></p>
       </div>
     </div>
   </section>
@@ -355,10 +338,9 @@ footer.sito a{color:var(--nebbia)}
 
   <section class="sezione">
     <h2>Dentro il glossario</h2>
-            <div class="sf-gspread">
+                <div class="sf-gspread">
       <div class="sf-gpag">
         <p class="sf-gtit">Glossario</p>
-        <p class="sf-gint">Le parole in grassetto del romanzo, in ordine alfabetico. Prima la definizione italiana, poi quella inglese, poi che cosa significa dentro questa storia.</p>
         <dl>
           <dt><b lang="it">amore</b> &middot; <i lang="en">love</i> <span>(sin. passione, affetto)</span></dt>
           <dd lang="it">Il sentimento intenso che lega una persona a un’altra.</dd>
