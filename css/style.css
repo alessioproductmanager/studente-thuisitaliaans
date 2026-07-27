@@ -1203,6 +1203,38 @@ stroke:#ffffff;stroke-width:3.4;stroke-linejoin:round;
 pointer-events:none;
 }
 .mp-perno.is-muto .mp-nome{display:none;}
+
+/* Alessio a Ede: non e' uno studente, quindi non e' una goccia ma una
+   figurina, in oro invece che in blu, e il suo nome non sparisce mai. */
+.mp-io{cursor:pointer;outline:none;}
+.mp-io-alone,.mp-io-alone-testa{
+fill:none;stroke:#ffffff;stroke-width:5.4;
+stroke-linecap:round;stroke-linejoin:round;
+}
+.mp-io-corpo{
+fill:none;stroke:#f5b400;stroke-width:2.3;
+stroke-linecap:round;stroke-linejoin:round;
+}
+.mp-io-testa{fill:#f5b400;}
+/* il braccio ruota attorno alla spalla: con fill-box l'angolo in basso a
+   sinistra del riquadro del braccio E' la spalla, ed e' l'unico modo che si
+   comporta uguale su tutti i browser. */
+.mp-io-mano{
+transform-box:fill-box;
+transform-origin:0% 100%;
+animation:mp-saluto 1.9s ease-in-out infinite;
+}
+@keyframes mp-saluto{
+0%,62%,100%{transform:rotate(0deg);}
+72%{transform:rotate(-22deg);}
+84%{transform:rotate(12deg);}
+}
+.mp-io-nome{fill:#8a6300;stroke-width:3.6;}
+.mp-io:hover .mp-io-testa,.mp-io:focus-visible .mp-io-testa{fill:#31394d;}
+.mp-io:hover .mp-io-corpo,.mp-io:focus-visible .mp-io-corpo{stroke:#31394d;}
+@media (prefers-reduced-motion:reduce){
+.mp-io-mano{animation:none;}
+}
 .mp-perno:hover .mp-goccia,
 .mp-perno:focus-visible .mp-goccia,
 .mp-perno.is-attivo .mp-goccia{fill:#f5b400;}

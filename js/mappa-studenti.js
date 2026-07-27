@@ -16,6 +16,7 @@
   var tip     = tela.querySelector('.mp-tip');
   var cursore = tela.querySelector('[data-cursore]');
   var perni   = [].slice.call(tela.querySelectorAll('.mp-perno'));
+  var io      = tela.querySelector('.mp-io');
   var LARG = 1000, ALT = 383, MAX = 12;
   /* Il fulcro dello zoom non e' il puntatore ma i Paesi Bassi: e' li' che sta
      la maggior parte degli studenti, quindi avvicinandosi si finisce sempre
@@ -74,6 +75,18 @@
       'translate(' + tx.toFixed(1) + ',' + ty.toFixed(1) + ') scale(' + k.toFixed(4) + ')');
 
     var presi = [];
+
+    /* Alessio si posiziona per primo: il suo nome prenota il posto e sono
+       gli studenti intorno a cedere, non lui. */
+    if (io) {
+      var ix = tx + parseFloat(io.dataset.x) * LARG * k;
+      var iy = ty + parseFloat(io.dataset.y) * ALT * k;
+      io.setAttribute('transform', 'translate(' + ix.toFixed(1) + ',' + iy.toFixed(1) + ')');
+      var iFuori = ix < -20 || ix > W + 20 || iy < -30 || iy > H + 30;
+      io.style.display = iFuori ? 'none' : '';
+      if (!iFuori) presi.push({ x1: ix - 28, x2: ix + 28, y1: iy + 2, y2: iy + 17 });
+    }
+
     for (var i = 0; i < perni.length; i++) {
       var p = perni[i], v = ventaglio(p);
       var x = tx + parseFloat(p.dataset.x) * LARG * k + v[0];
@@ -135,7 +148,7 @@
     if (attivo) { attivo.classList.remove('is-attivo'); attivo = null; }
   }
 
-  perni.forEach(function (p) {
+  (io ? perni.concat([io]) : perni).forEach(function (p) {
     p.addEventListener('mouseenter', function () { mostra(p); });
     p.addEventListener('focus', function () { mostra(p); });
     p.addEventListener('blur', nascondi);
