@@ -124,6 +124,52 @@ footer.sito a{color:var(--nebbia)}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.scheda{transition:none}}
 @media(max-width:640px){footer.sito .wrap{justify-content:center;text-align:center;gap:6px}}
+
+/* ---- Prima pagina: copertina che si apre + estratto ---- */
+.sfoglia{margin:38px 0 42px}
+.sfoglia-scena{
+  display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);
+  gap:0;align-items:stretch;perspective:1800px;perspective-origin:70% 50%}
+.sfoglia-lato{position:relative;transform-style:preserve-3d}
+.sfoglia-cop{
+  position:relative;width:100%;border-radius:6px 3px 3px 6px;overflow:hidden;
+  transform-origin:right center;backface-visibility:hidden;
+  box-shadow:0 18px 40px -12px rgba(20,24,38,.45),0 2px 6px rgba(20,24,38,.18);
+  transform:rotateY(-118deg);
+  animation:sfoglia-apri 1.5s cubic-bezier(.22,1.1,.36,1) .45s both}
+.sfoglia-cop img{display:block;width:100%;height:auto}
+.sfoglia-cop::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(0,0,0,.30),rgba(0,0,0,0) 22%,rgba(255,255,255,.10))}
+@keyframes sfoglia-apri{from{transform:rotateY(0deg)}to{transform:rotateY(-118deg)}}
+.sfoglia-pagina{
+  position:relative;padding:30px 30px 22px 38px;border-radius:3px 8px 8px 3px;
+  background:linear-gradient(100deg,#f3ece0 0,#fbf7f0 14%,#fdfbf7 60%,#f7f1e7 100%);
+  box-shadow:inset 14px 0 22px -14px rgba(90,70,40,.38),0 16px 34px -16px rgba(20,24,38,.30)}
+.sfoglia-pagina::before{
+  content:"";position:absolute;top:8px;bottom:8px;right:-5px;width:5px;border-radius:0 3px 3px 0;
+  background:repeating-linear-gradient(180deg,#efe7d9 0 2px,#e3d9c7 2px 4px)}
+.sfoglia-testo{
+  margin:0;font-family:"Source Serif 4",Georgia,serif;font-size:1.06rem;line-height:1.78;
+  color:#2b2b30;hyphens:auto}
+.sfoglia-testo::first-letter{
+  float:left;font-family:Fraunces,Georgia,serif;font-size:3.1em;line-height:.86;
+  padding:.06em .10em 0 0;color:#8a6a2f}
+.sfoglia-meta{
+  margin:18px 0 0;padding-top:12px;border-top:1px solid rgba(90,70,40,.18);
+  font-size:.82rem;letter-spacing:.02em;color:#7a6b53;
+  display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline}
+.sfoglia-meta a{color:#8a6a2f;font-weight:600;text-decoration:none}
+.sfoglia-meta a:hover{text-decoration:underline}
+@media (max-width:760px){
+  .sfoglia-scena{grid-template-columns:1fr;gap:18px;perspective:none}
+  .sfoglia-cop{max-width:210px;margin:0 auto;transform:none;animation:none}
+  .sfoglia-pagina{padding:24px 20px;border-radius:8px;box-shadow:0 12px 26px -14px rgba(20,24,38,.3)}
+}
+@media (prefers-reduced-motion:reduce){
+  .sfoglia-cop{animation:none;transform:rotateY(-118deg)}
+}
+
 </style>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -259,6 +305,24 @@ footer.sito a{color:var(--nebbia)}
         <a class="btn vuoto" href="/books">Browse the series</a>
       </div>
       <p class="ku-nota">Ebook <strong>free with Kindle Unlimited</strong> · $4.99 · also in 6×9 paperback</p>
+    </div>
+  </section>
+
+    <section class="sezione sfoglia">
+    <h2>Read the first page</h2>
+    <div class="sfoglia-scena">
+      <div class="sfoglia-lato">
+        <div class="sfoglia-cop">
+          <picture>
+            <source srcset="/assets/books/CorsaroNero_cover.webp" type="image/webp">
+            <img src="/assets/books/CorsaroNero_cover.jpg" width="800" height="1280" alt="Cover of Il corsaro nero" loading="lazy" decoding="async">
+          </picture>
+        </div>
+      </div>
+      <div class="sfoglia-pagina">
+        <p class="sfoglia-testo" lang="it">Era notte. Il mare era nero come l&#x27;inchiostro. Una barca piccola andava avanti piano. Dentro c&#x27;erano due uomini. Remavano forte, e guardavano indietro con paura. «Uomini della barca! Fermi! O vi mando a fondo!» I due si sono fermati subito. Davanti a loro c&#x27;era una grande ombra: una nave. Un corsaro arriva così: senza rumore. Ha le vele nere e nessuna bandiera. E chi lo sente gridare ha già perso. Salgari comincia sempre così: buio, mare, e una voce che grida un ordine. Non ti dice dove sei né chi sono: te lo fa capire dopo. Prima devi avere paura, poi capirai. I due uomini si chiamavano Carmaux e Wan Stiller.</p>
+        <p class="sfoglia-meta"><span>Chapter 1 · CEFR A2 · first 111 words</span><a href="https://www.amazon.com/dp/B0H9TWQKX3" target="_blank" rel="noopener">Keep reading on Amazon →</a></p>
+      </div>
     </div>
   </section>
 

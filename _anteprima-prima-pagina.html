@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anteprima — blocco prima pagina</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body{font-family:Inter,system-ui,sans-serif;max-width:880px;margin:0 auto;padding:40px 24px;background:#faf8f5;color:#31394d}
+h1{font-family:Fraunces,Georgia,serif;font-size:1.5rem;margin-bottom:6px}
+.sezione h2{font-family:Fraunces,Georgia,serif;font-size:1.3rem;margin:0 0 18px}
+hr{border:0;border-top:1px solid #e2dcd2;margin:52px 0}
+.nota{font-size:.92rem;line-height:1.65;color:#5c5648;background:#fff;border-left:3px solid #c8a951;padding:14px 18px;border-radius:6px;margin-bottom:34px}
+
+/* ---- Prima pagina: copertina che si apre + estratto ---- */
+.sfoglia{margin:38px 0 42px}
+.sfoglia-scena{
+  display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);
+  gap:0;align-items:stretch;perspective:1800px;perspective-origin:70% 50%}
+.sfoglia-lato{position:relative;transform-style:preserve-3d}
+.sfoglia-cop{
+  position:relative;width:100%;border-radius:6px 3px 3px 6px;overflow:hidden;
+  transform-origin:right center;backface-visibility:hidden;
+  box-shadow:0 18px 40px -12px rgba(20,24,38,.45),0 2px 6px rgba(20,24,38,.18);
+  transform:rotateY(-118deg);
+  animation:sfoglia-apri 1.5s cubic-bezier(.22,1.1,.36,1) .45s both}
+.sfoglia-cop img{display:block;width:100%;height:auto}
+.sfoglia-cop::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(0,0,0,.30),rgba(0,0,0,0) 22%,rgba(255,255,255,.10))}
+@keyframes sfoglia-apri{from{transform:rotateY(0deg)}to{transform:rotateY(-118deg)}}
+.sfoglia-pagina{
+  position:relative;padding:30px 30px 22px 38px;border-radius:3px 8px 8px 3px;
+  background:linear-gradient(100deg,#f3ece0 0,#fbf7f0 14%,#fdfbf7 60%,#f7f1e7 100%);
+  box-shadow:inset 14px 0 22px -14px rgba(90,70,40,.38),0 16px 34px -16px rgba(20,24,38,.30)}
+.sfoglia-pagina::before{
+  content:"";position:absolute;top:8px;bottom:8px;right:-5px;width:5px;border-radius:0 3px 3px 0;
+  background:repeating-linear-gradient(180deg,#efe7d9 0 2px,#e3d9c7 2px 4px)}
+.sfoglia-testo{
+  margin:0;font-family:"Source Serif 4",Georgia,serif;font-size:1.06rem;line-height:1.78;
+  color:#2b2b30;hyphens:auto}
+.sfoglia-testo::first-letter{
+  float:left;font-family:Fraunces,Georgia,serif;font-size:3.1em;line-height:.86;
+  padding:.06em .10em 0 0;color:#8a6a2f}
+.sfoglia-meta{
+  margin:18px 0 0;padding-top:12px;border-top:1px solid rgba(90,70,40,.18);
+  font-size:.82rem;letter-spacing:.02em;color:#7a6b53;
+  display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline}
+.sfoglia-meta a{color:#8a6a2f;font-weight:600;text-decoration:none}
+.sfoglia-meta a:hover{text-decoration:underline}
+@media (max-width:760px){
+  .sfoglia-scena{grid-template-columns:1fr;gap:18px;perspective:none}
+  .sfoglia-cop{max-width:210px;margin:0 auto;transform:none;animation:none}
+  .sfoglia-pagina{padding:24px 20px;border-radius:8px;box-shadow:0 12px 26px -14px rgba(20,24,38,.3)}
+}
+@media (prefers-reduced-motion:reduce){
+  .sfoglia-cop{animation:none;transform:rotateY(-118deg)}
+}
+
+</style></head><body>
+<h1>Blocco "prima pagina" — anteprima</h1>
+<p class="nota">Ricarica per rivedere l'apertura della copertina. Quattro libri di livelli diversi, A1 → C1.<br>
+Prova: seleziona il testo, cercalo con Ctrl+F, disattiva JavaScript, riduci la finestra sotto i 760px.
+Il testo resta sempre lì — l'animazione riguarda solo la copertina.</p>
+<section class="sezione sfoglia">
+    <h2>Read the first page</h2>
+    <div class="sfoglia-scena">
+      <div class="sfoglia-lato">
+        <div class="sfoglia-cop">
+          <picture>
+            <source srcset="https://thuisitaliaans.com/assets/books/MattiaPascal_cover.webp" type="image/webp">
+            <img src="https://thuisitaliaans.com/assets/books/MattiaPascal_cover.jpg" width="800" height="1280" alt="Cover of Il fu Mattia Pascal" loading="lazy" decoding="async">
+          </picture>
+        </div>
+      </div>
+      <div class="sfoglia-pagina">
+        <p class="sfoglia-testo" lang="it">Una delle poche cose che sapevo di me era questa: che mi chiamavo Mattia Pascal. Quando un amico veniva da me a chiedere un consiglio, io alzavo le mani e rispondevo: «Io mi chiamo Mattia Pascal.» Non sembrava molto, a dire il vero. Neanche a me. Ma allora non sapevo ancora che cosa vuol dire non poter più rispondere così. Non sapevo che un nome è l&#x27;unica casa che un uomo ha davvero, e che una esistenza senza identità non è una vita: è un&#x27;ombra che cammina. nome = name · esistenza = existence · identità = identity · ombra = shadow Il libro comincia con un uomo che dice: «l&#x27;unica cosa che so di me è il mio nome».</p>
+        <p class="sfoglia-meta"><span>Chapter 1 · CEFR B1 · first 120 words</span><a href="https://www.amazon.com/dp/B0H9P9NVRF" target="_blank" rel="noopener">Keep reading on Amazon →</a></p>
+      </div>
+    </div>
+  </section>
+<hr>
+<section class="sezione sfoglia">
+    <h2>Read the first page</h2>
+    <div class="sfoglia-scena">
+      <div class="sfoglia-lato">
+        <div class="sfoglia-cop">
+          <picture>
+            <source srcset="https://thuisitaliaans.com/assets/books/Cuore_cover.webp" type="image/webp">
+            <img src="https://thuisitaliaans.com/assets/books/Cuore_cover.jpg" width="800" height="1280" alt="Cover of Cuore" loading="lazy" decoding="async">
+          </picture>
+        </div>
+      </div>
+      <div class="sfoglia-pagina">
+        <p class="sfoglia-testo" lang="it">Oggi è il primo giorno di scuola. Le vacanze sono finite. Io non sono contento. Mia madre mi porta a scuola. Io penso alla campagna. Io penso agli alberi e ai monti. Nella strada ci sono molti bambini. Ci sono molte madri e molti padri. Davanti alla porta c&#x27;è tanta gente. Noi entriamo con fatica. Io ho dieci anni. Adesso vado in terza, in una classe nuova. scuola = school · fatica = hard work, toil · classe = class, classroom Enrico ha dieci anni e scrive un diario. Tutto il libro è scritto da lui: quello che leggi è quello che vede un bambino. De Amicis finge di essere un ragazzino di terza — ed è per questo che le frasi sono corte.</p>
+        <p class="sfoglia-meta"><span>Chapter 1 · CEFR A1 · first 124 words</span><a href="https://www.amazon.com/dp/B0H9PF662C" target="_blank" rel="noopener">Keep reading on Amazon →</a></p>
+      </div>
+    </div>
+  </section>
+<hr>
+<section class="sezione sfoglia">
+    <h2>Read the first page</h2>
+    <div class="sfoglia-scena">
+      <div class="sfoglia-lato">
+        <div class="sfoglia-cop">
+          <picture>
+            <source srcset="https://thuisitaliaans.com/assets/books/CanneAlVento_Copertina_eBook.webp" type="image/webp">
+            <img src="https://thuisitaliaans.com/assets/books/CanneAlVento_Copertina_eBook.jpg" width="800" height="1280" alt="Cover of Canne al vento" loading="lazy" decoding="async">
+          </picture>
+        </div>
+      </div>
+      <div class="sfoglia-pagina">
+        <p class="sfoglia-testo" lang="it">Tutto il giorno Efix aveva lavorato. Costruiva un argine di terra e pietre lungo il fiume, in fondo al podere delle dame Pintor. Era un lavoro vecchio di anni. Ogni primavera il fiume cresceva e rompeva il muro. Ogni primavera Efix lo rifaceva, da solo, con le mani. Quando venne la sera, il vecchio servo si sedette davanti alla capanna e guardò in basso. Il podere era tutto ai suoi piedi, silenzioso, con l&#x27;acqua che brillava nel buio. Il fiume che rompe sempre l&#x27;argine è il primo simbolo del libro: c&#x27;è una forza che l&#x27;uomo non può fermare, e che l&#x27;uomo continua a combattere lo stesso.</p>
+        <p class="sfoglia-meta"><span>Chapter 1 · CEFR B1 · first 106 words</span><a href="https://www.amazon.com/dp/B0H9P9L2JD" target="_blank" rel="noopener">Keep reading on Amazon →</a></p>
+      </div>
+    </div>
+  </section>
+<hr>
+<section class="sezione sfoglia">
+    <h2>Read the first page</h2>
+    <div class="sfoglia-scena">
+      <div class="sfoglia-lato">
+        <div class="sfoglia-cop">
+          <picture>
+            <source srcset="https://thuisitaliaans.com/assets/books/IlPiacere_cover.webp" type="image/webp">
+            <img src="https://thuisitaliaans.com/assets/books/IlPiacere_cover.jpg" width="800" height="1280" alt="Cover of Il piacere" loading="lazy" decoding="async">
+          </picture>
+        </div>
+      </div>
+      <div class="sfoglia-pagina">
+        <p class="sfoglia-testo" lang="it">L&#x27;ultimo giorno dell&#x27;anno, nel palazzo Zuccari, Andrea Sperelli aspettava una donna. Aveva fatto preparare la stanza come si prepara un altare: le rose in ogni vaso, il fuoco di ginepro nel camino, i tè rari, le tazze antiche, i cuscini disposti con quella squisitezza che gli costava ore e che nessuno avrebbe dovuto notare. Ogni oggetto era stato scelto, provato, spostato: il lusso, in lui, non era ricchezza — era una lingua. Guardò l&#x27;orologio. Elena Muti sarebbe salita fra poco quelle scale, dopo due anni di silenzio. E lui, che aveva composto quella scena con la cura di un&#x27;opera d&#x27;arte, si accorse di avere le mani fredde.</p>
+        <p class="sfoglia-meta"><span>Chapter 1 · CEFR C1 · first 107 words</span><a href="https://www.amazon.com/dp/B0H9RZPN2G" target="_blank" rel="noopener">Keep reading on Amazon →</a></p>
+      </div>
+    </div>
+  </section>
+</body></html>
