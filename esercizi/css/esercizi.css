@@ -1118,3 +1118,13 @@ fill:none;stroke:currentColor;stroke-width:1.8;
 stroke-linecap:round;stroke-linejoin:round;
 flex:0 0 auto;
 }
+
+
+/* ========= Le card dei giochi si riconoscono a colpo d'occhio =========
+   Tris, battaglia navale, ruota e dadi avevano la stessa icona grigia
+   di tutti gli altri esercizi: in una griglia di settecento card
+   sparivano. Ora il tipo e' in oro e il bordo si accende al passaggio. */
+.ex-card[data-tipo="Giochi"] .ex-card-type,
+.ex-card[data-tipo="Ruota"] .ex-card-type{color:#f5b400;}
+.ex-card[data-tipo="Giochi"]:hover,
+.ex-card[data-tipo="Ruota"]:hover{border-color:#f5b400;}
