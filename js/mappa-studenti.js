@@ -1,32 +1,43 @@
 /* mappa-studenti.js
    Mappa zoomabile senza librerie.
-   I perni stanno FUORI dal gruppo che si ingrandisce: si spostano
-   con lo zoom ma non si deformano mai. Le etichette che si
-   sovrappongono spariscono, e ricompaiono man mano che si zooma. */
+   Tre accorgimenti per non andare a scatti:
+     1. le misure della tela si leggono una volta sola (leggerle a ogni
+        fotogramma obbliga il browser a ricalcolare il layout);
+     2. si disegna al massimo una volta per fotogramma, via requestAnimationFrame;
+     3. zoom e ritorno a casa sono interpolati, non saltano.
+   I perni stanno fuori dal gruppo che si ingrandisce: si spostano con lo
+   zoom ma non si deformano mai. */
 (function () {
   var tela = document.querySelector('[data-mappa]');
   if (!tela) return;
 
-  var svg    = tela.querySelector('.mp-svg');
-  var vista  = tela.querySelector('.mp-vista');
-  var tip    = tela.querySelector('.mp-tip');
-  var perni  = [].slice.call(tela.querySelectorAll('.mp-perno'));
-  var LARG = 1000, ALT = 383;          // proporzioni del disegno del mondo
+  var svg     = tela.querySelector('.mp-svg');
+  var vista   = tela.querySelector('.mp-vista');
+  var tip     = tela.querySelector('.mp-tip');
+  var cursore = tela.querySelector('[data-cursore]');
+  var perni   = [].slice.call(tela.querySelectorAll('.mp-perno'));
+  var LARG = 1000, ALT = 383, MAX = 12;
   var k = 1, tx = 0, ty = 0, kMin = 1, attivo = null;
+  var W = 0, H = 0, inCoda = false, animazione = null;
 
-  function misura() { return { w: tela.clientWidth, h: tela.clientHeight }; }
+  function rimisura() {
+    W = tela.clientWidth; H = tela.clientHeight;
+    kMin = W / LARG;
+  }
+
+  function programma() {
+    if (inCoda) return;
+    inCoda = true;
+    requestAnimationFrame(function () { inCoda = false; disegna(); });
+  }
 
   function limita() {
-    var m = misura(), lw = LARG * k, lh = ALT * k;
-    tx = lw <= m.w ? (m.w - lw) / 2 : Math.min(0, Math.max(m.w - lw, tx));
-    ty = lh <= m.h ? (m.h - lh) / 2 : Math.min(0, Math.max(m.h - lh, ty));
+    var lw = LARG * k, lh = ALT * k;
+    tx = lw <= W ? (W - lw) / 2 : Math.min(0, Math.max(W - lw, tx));
+    ty = lh <= H ? (H - lh) / 2 : Math.min(0, Math.max(H - lh, ty));
   }
 
-  function collide(a, b) {
-    return !(a.x2 < b.x1 || b.x2 < a.x1 || a.y2 < b.y1 || b.y2 < a.y1);
-  }
-
-  /* I compagni di paese si aprono a ventaglio. Il raggio e' in PIXEL e cresce
+  /* I compagni di paese si aprono a ventaglio. Il raggio e' in pixel e cresce
      con lo zoom fino a un massimo: a mappamondo restano un grappolo sul paese
      giusto, da vicino si separano abbastanza da leggere ogni nome. */
   function ventaglio(p) {
@@ -43,50 +54,68 @@
     return [R * Math.cos(a), R * Math.sin(a)];
   }
 
+  function collide(a, b) {
+    return !(a.x2 < b.x1 || b.x2 < a.x1 || a.y2 < b.y1 || b.y2 < a.y1);
+  }
+
   function disegna() {
-    var m = misura();
-    svg.setAttribute('viewBox', '0 0 ' + m.w + ' ' + m.h);
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
     vista.setAttribute('transform',
       'translate(' + tx.toFixed(1) + ',' + ty.toFixed(1) + ') scale(' + k.toFixed(4) + ')');
 
     var presi = [];
-    perni.forEach(function (p) {
-      var v = ventaglio(p);
+    for (var i = 0; i < perni.length; i++) {
+      var p = perni[i], v = ventaglio(p);
       var x = tx + parseFloat(p.dataset.x) * LARG * k + v[0];
       var y = ty + parseFloat(p.dataset.y) * ALT * k + v[1];
       p.setAttribute('transform', 'translate(' + x.toFixed(1) + ',' + y.toFixed(1) + ')');
 
-      var fuori = x < -20 || x > m.w + 20 || y < -10 || y > m.h + 30;
+      var fuori = x < -20 || x > W + 20 || y < -10 || y > H + 30;
       p.style.display = fuori ? 'none' : '';
-      if (fuori) return;
+      if (fuori) continue;
 
-      // l'etichetta si mostra solo se trova posto
-      var t = p.querySelector('.mp-nome');
-      var lar = t.textContent.length * 6.1 + 8;
+      var testo = p.querySelector('.mp-nome').textContent;
+      var lar = testo.length * 6.1 + 10;
       var box = { x1: x - lar / 2, x2: x + lar / 2, y1: y + 2, y2: y + 16 };
-      var libero = presi.every(function (b) { return !collide(box, b); });
+      var libero = true;
+      for (var j = 0; j < presi.length; j++) {
+        if (collide(box, presi[j])) { libero = false; break; }
+      }
       p.classList.toggle('is-muto', !libero);
       if (libero) presi.push(box);
-    });
+    }
+    if (cursore && document.activeElement !== cursore) {
+      cursore.value = Math.log(k / kMin) / Math.log(MAX) * 100;
+    }
   }
 
-  function zoomA(nuovo, cx, cy) {
-    var m = misura();
-    if (cx === undefined) { cx = m.w / 2; cy = m.h / 2; }
-    nuovo = Math.min(kMin * 12, Math.max(kMin, nuovo));
+  function porta(nuovo, cx, cy) {
+    if (cx === undefined) { cx = W / 2; cy = H / 2; }
+    nuovo = Math.min(kMin * MAX, Math.max(kMin, nuovo));
     tx = cx - (cx - tx) * (nuovo / k);
     ty = cy - (cy - ty) * (nuovo / k);
     k = nuovo;
-    limita(); disegna(); nascondi();
+    limita(); programma();
+  }
+
+  function anima(meta, cx, cy) {
+    cancelAnimationFrame(animazione);
+    var da = k, t0 = performance.now();
+    (function passo(ora) {
+      var q = Math.min(1, (ora - t0) / 280);
+      var e = 1 - Math.pow(1 - q, 3);
+      porta(da + (meta - da) * e, cx, cy);
+      if (q < 1) animazione = requestAnimationFrame(passo);
+    })(t0);
   }
 
   function mostra(p) {
     var r = p.getBoundingClientRect(), b = tela.getBoundingClientRect();
-    tip.innerHTML = '<b>' + p.getAttribute('aria-label').split(' — ')[0] + '</b>' +
-                    '<span>' + p.getAttribute('aria-label').split(' — ')[1] + '</span>';
+    var parti = p.getAttribute('aria-label').split(' — ');
+    tip.innerHTML = '<b>' + parti[0] + '</b><span>' + parti[1] + '</span>';
     tip.hidden = false;
     tip.style.left = (r.left - b.left + r.width / 2) + 'px';
-    tip.style.top  = (r.top - b.top - 4) + 'px';
+    tip.style.top = (r.top - b.top - 4) + 'px';
     if (attivo) attivo.classList.remove('is-attivo');
     attivo = p; p.classList.add('is-attivo');
   }
@@ -105,25 +134,36 @@
     });
   });
 
-  tela.querySelectorAll('[data-zoom]').forEach(function (b) {
-    b.addEventListener('click', function () {
-      zoomA(k * (b.dataset.zoom === '1' ? 1.6 : 1 / 1.6));
+  if (cursore) {
+    cursore.addEventListener('input', function () {
+      cancelAnimationFrame(animazione);
+      porta(kMin * Math.pow(MAX, cursore.value / 100));
+      nascondi();
     });
-  });
+  }
   tela.querySelector('[data-reset]').addEventListener('click', function () {
-    k = kMin; tx = 0; ty = 0; limita(); disegna(); nascondi();
+    nascondi();
+    var da = k, t0 = performance.now(), tx0 = tx, ty0 = ty;
+    cancelAnimationFrame(animazione);
+    (function passo(ora) {
+      var q = Math.min(1, (ora - t0) / 320), e = 1 - Math.pow(1 - q, 3);
+      k = da + (kMin - da) * e;
+      tx = tx0 * (1 - e); ty = ty0 * (1 - e);
+      limita(); programma();
+      if (q < 1) animazione = requestAnimationFrame(passo);
+    })(t0);
   });
 
-  // trascinamento (mouse e dito) + pizzico
-  var giu = false, px = 0, py = 0, mosso = false, dita = {};
+  /* trascinamento e pizzico */
+  var giu = false, px = 0, py = 0, dita = {}, distIniziale = 0, kIniziale = 1;
   tela.addEventListener('pointerdown', function (e) {
+    if (e.target.closest('.mp-comandi')) return;
     dita[e.pointerId] = { x: e.clientX, y: e.clientY };
     if (Object.keys(dita).length > 1) return;
-    giu = true; mosso = false; px = e.clientX; py = e.clientY;
+    giu = true; px = e.clientX; py = e.clientY;
     tela.setPointerCapture(e.pointerId);
     tela.classList.add('is-trascina');
   });
-  var distIniziale = 0, kIniziale = 1;
   tela.addEventListener('pointermove', function (e) {
     if (!dita[e.pointerId]) return;
     dita[e.pointerId] = { x: e.clientX, y: e.clientY };
@@ -133,14 +173,14 @@
       var d = Math.hypot(a.x - b.x, a.y - b.y);
       if (!distIniziale) { distIniziale = d; kIniziale = k; return; }
       var r = tela.getBoundingClientRect();
-      zoomA(kIniziale * d / distIniziale,
+      porta(kIniziale * d / distIniziale,
             (a.x + b.x) / 2 - r.left, (a.y + b.y) / 2 - r.top);
       return;
     }
     if (!giu) return;
     tx += e.clientX - px; ty += e.clientY - py;
-    px = e.clientX; py = e.clientY; mosso = true;
-    limita(); disegna(); nascondi();
+    px = e.clientX; py = e.clientY;
+    limita(); programma(); nascondi();
   });
   function su(e) {
     delete dita[e.pointerId];
@@ -150,15 +190,19 @@
   tela.addEventListener('pointerup', su);
   tela.addEventListener('pointercancel', su);
 
+  /* rotella: fattore continuo, cosi' non salta di gradino in gradino */
   tela.addEventListener('wheel', function (e) {
     e.preventDefault();
+    cancelAnimationFrame(animazione);
     var r = tela.getBoundingClientRect();
-    zoomA(k * (e.deltaY < 0 ? 1.14 : 1 / 1.14), e.clientX - r.left, e.clientY - r.top);
+    var f = Math.exp(-Math.max(-90, Math.min(90, e.deltaY)) * 0.0022);
+    porta(k * f, e.clientX - r.left, e.clientY - r.top);
+    nascondi();
   }, { passive: false });
 
   tela.addEventListener('dblclick', function (e) {
     var r = tela.getBoundingClientRect();
-    zoomA(k * 1.8, e.clientX - r.left, e.clientY - r.top);
+    anima(k * 1.9, e.clientX - r.left, e.clientY - r.top);
   });
 
   document.addEventListener('click', function (e) {
@@ -166,13 +210,11 @@
   });
 
   function avvia() {
-    var m = misura();
-    kMin = m.w / LARG;
-    if (k < kMin || Math.abs(k - kMin) < 0.001) k = kMin;
-    // su schermo stretto la mappa e' alta: si parte un po' piu' vicini
-    if (m.w / m.h < 1.6) k = Math.max(k, kMin * 1.5);
+    rimisura();
+    k = kMin;
+    if (W / H < 1.6) k = kMin * 1.5;   /* schermo stretto: si parte piu' vicini */
     limita(); disegna();
   }
-  window.addEventListener('resize', function () { kMin = misura().w / LARG; limita(); disegna(); });
+  window.addEventListener('resize', function () { rimisura(); limita(); programma(); });
   avvia();
 })();
