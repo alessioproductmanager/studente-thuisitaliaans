@@ -1344,3 +1344,13 @@ background:var(--surface);box-shadow:none;
 }
 .mp-nome{font-size:12.5px;}
 }
+
+/* Riga di collegamenti nel footer degli esercizi */
+.ex-footer-links{
+    margin:10px 0 6px;
+    font-size:.88rem;
+    line-height:1.9;
+    color:var(--secondary);
+}
+.ex-footer-links a{color:var(--secondary);text-decoration:none;}
+.ex-footer-links a:hover{color:var(--primary);text-decoration:underline;}
