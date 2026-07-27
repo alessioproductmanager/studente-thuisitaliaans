@@ -127,18 +127,18 @@ footer.sito a{color:var(--nebbia)}
 
 /* ===== Prima pagina del libro ===== */
 .sfoglia{margin:40px 0 46px}
-.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);
  gap:0;align-items:stretch;perspective:2200px;perspective-origin:70% 46%}
 .sfoglia-cop{position:relative;border-radius:5px 3px 3px 5px;overflow:hidden;
- transform-origin:right center;
+ align-self:start;aspect-ratio:800/1280;transform-origin:right center;
  box-shadow:0 24px 46px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
  transform:rotateY(-42deg);animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both}
-.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:cover;object-position:left center}
+.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:fill}
 .sfoglia-cop::after{content:"";position:absolute;inset:0;pointer-events:none;
  background:linear-gradient(90deg,rgba(0,0,0,.34),rgba(0,0,0,0) 26%,rgba(255,255,255,.12))}
 @keyframes sf-apri{from{transform:rotateY(-16deg)}to{transform:rotateY(-42deg)}}
 
-.sfoglia-foglio{position:relative;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
+.sfoglia-foglio{position:relative;align-self:stretch;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
  box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42),0 18px 38px -18px rgba(20,24,38,.32);
  animation:sf-posa 1.7s cubic-bezier(.18,.9,.24,1) .5s both}
@@ -176,9 +176,12 @@ footer.sito a{color:var(--nebbia)}
 .sf-piede a{color:#8a6a2f;font-weight:600;text-decoration:none}
 .sf-piede a:hover{text-decoration:underline}
 
+.sf-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px 34px;align-items:start}
+.sf-2col>div>h2{margin-top:0}
 @media (max-width:820px){
+ .sf-2col{grid-template-columns:1fr;gap:0}
  .sfoglia-scena{grid-template-columns:1fr;gap:20px;perspective:none}
- .sfoglia-cop{max-width:190px;margin:0 auto;transform:none;animation:none}
+ .sfoglia-cop{max-width:190px;margin:0 auto;transform:none;animation:none;aspect-ratio:auto}
  .sfoglia-foglio{padding:22px 20px 16px;border-radius:8px;animation:none;
   box-shadow:0 14px 28px -16px rgba(20,24,38,.3)}
  .sfoglia-foglio::after{display:none}
@@ -187,6 +190,41 @@ footer.sito a{color:var(--nebbia)}
  .sfoglia-cop{animation:none;transform:rotateY(-42deg)}
  .sfoglia-foglio{animation:none}
  .sfoglia-foglio::before{animation:none;opacity:0}
+}
+
+/* ---- Doppia pagina: il glossario del libro ---- */
+.sf-gspread{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:22px 0 0;
+ border-radius:3px;overflow:hidden;
+ box-shadow:0 18px 38px -18px rgba(20,24,38,.3)}
+.sf-gpag{padding:26px 26px 22px;
+ background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%)}
+.sf-gpag:first-child{border-radius:2px 0 0 2px;
+ box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gpag:last-child{border-radius:0 2px 2px 0;
+ box-shadow:inset 14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gtit{margin:0;text-align:center;font-family:Fraunces,Georgia,serif;
+ font-size:1.18rem;font-weight:600;color:#2a2a2f}
+.sf-gint{margin:8px 0 18px;font-size:.83rem;font-style:italic;line-height:1.6;
+ color:#7a6b53;text-align:center}
+.sf-gspread dl{margin:0}
+.sf-gspread dt{margin:0 0 3px;font-family:"Source Serif 4",Georgia,serif;font-size:.99rem}
+.sf-gspread dt b{color:#1F2529}
+.sf-gspread dt i{color:#326778;font-weight:600}
+.sf-gspread dt span{font-size:.84em;color:#8a7f6b;font-style:italic}
+.sf-gspread dd{margin:0;font-family:"Source Serif 4",Georgia,serif;
+ font-size:.92rem;line-height:1.58;color:#2b2b30}
+.sf-gspread dd.en{color:#5f6b72}
+.sf-gspread dd.nota{margin:3px 0 16px;font-style:italic;font-size:.86rem;
+ line-height:1.55;color:#55606a}
+.sf-gspread dd:last-child{margin-bottom:0}
+.sf-gpie{margin:16px 0 0;padding-top:11px;border-top:1px solid rgba(92,72,42,.16);
+ font-size:.79rem;letter-spacing:.02em;color:#8a7f6b;text-align:center}
+@media (max-width:820px){
+ .sf-gspread{grid-template-columns:1fr;box-shadow:0 12px 26px -16px rgba(20,24,38,.3)}
+ .sf-gpag{padding:20px 18px}
+ .sf-gpag:first-child,.sf-gpag:last-child{box-shadow:none;border-radius:0}
+ .sf-gpag:first-child{border-radius:6px 6px 0 0;border-bottom:1px solid rgba(92,72,42,.14)}
+ .sf-gpag:last-child{border-radius:0 0 6px 6px}
 }
 
 </style>
@@ -327,7 +365,7 @@ footer.sito a{color:var(--nebbia)}
     </div>
   </section>
 
-    <section class="sezione sfoglia">
+        <section class="sezione sfoglia">
     <h2>Kijk binnenin: de eerste bladzijde</h2>
     <div class="sfoglia-scena">
       <div class="sfoglia-cop">
@@ -348,33 +386,72 @@ footer.sito a{color:var(--nebbia)}
           <p>La sua camera è piccola. È all’ultimo piano di una casa vecchia.</p>
           <p>D’inverno il vento muove i vetri della finestra.</p>
           <p>Enrico è povero. Ma Enrico è felice.<sup>1</sup></p>
-          <p>In Sicilia c’è la famiglia di Enrico.</p>
-          <p>La Sicilia è piena di sole, di mare e di <b class="sf-kw">gelsomini</b>.</p>
-          <p>Il padre e la madre non sono ricchi. Ma ogni mese mandano il denaro al figlio.</p>
-          <p>C’è anche una sorellina piccola. Si chiama Agatina.</p>
-          <p>Enrico scrive poco alla famiglia. Enrico pensa solo ai suoi <b class="sf-kw">quadri</b>.</p>
-          <p>La madre aspetta le sue lettere. E aspetta, e aspetta.<sup>2</sup></p>
         </div>
         <p class="sf-gloss"><span class="sf-kw">pittore</span> = painter &#183; <span class="sf-kw">quadro</span> = painting &#183; <span class="sf-kw">gloria</span> = glory, fame</p>
-        <p class="sf-gloss"><span class="sf-kw">gelsomino</span> = jasmine</p>
         <div class="sf-note">
           <p class="sf-nota"><sup>1</sup> Siamo a Firenze, verso il 1870. L’Italia è un paese nuovo — è unita da pochi anni — e Firenze è piena di giovani artisti poveri venuti da tutte le regioni. Enrico è uno di loro: Verga stesso, siciliano a Firenze, conosceva bene questa vita.</p>
-          <p class="sf-nota"><sup>2</sup> Tieni a mente questa famiglia lontana che manda soldi e aspetta lettere. Verga la mette nella prima pagina e poi la fa sparire per quasi tutto il libro — esattamente come fa Enrico. Tornerà, ma solo alla fine.</p>
         </div>
-        <p class="sf-piede"><span>Hoofdstuk 1 · ERK A1 · 112 woorden uit de echte tekst</span><a href="https://www.amazon.nl/dp/B0H9VN7SCB" target="_blank" rel="noopener">Verder lezen op Amazon →</a></p>
+        <p class="sf-piede"><span>Hoofdstuk 1 · ERK A1 · 49 woorden uit de echte tekst</span><a href="https://www.amazon.nl/dp/B0H9VN7SCB" target="_blank" rel="noopener">Verder lezen op Amazon →</a></p>
+      </div>
+    </div>
+  </section>
+
+    <section class="sezione">
+    <div class="sf-2col">
+      <div>
+<h2>Waar gaat Eva over?</h2>
+    <p>Enrico Lanti, een jonge Siciliaanse schilder, komt vol dromen aan in Florence: hij wil van zijn kunst leven en beroemd worden. Op een avond in het theater ziet hij Eva, een beeldschone danseres, en wordt hopeloos verliefd. Voor haar geeft hij alles op: zijn werk, zijn vrienden, zijn ambities.</p><p>Maar liefde en kunst zijn niet genoeg in een samenleving die alles in geld afmeet. Tussen hartstocht en ontgoocheling leert Enrico de prijs van zijn dromen kennen, in een van Verga's intensste vroege romans.</p>
+      </div>
+      <div>
+<h2>Waarom Eva lezen om Italiaans te leren</h2>
+    <p>Een rechtlijnig verhaal met weinig personages: ideaal om op A1-niveau nooit de draad kwijt te raken. De dialogen tussen Enrico en Eva leren je de woordenschat van emoties en kunst, terwijl de tegenwoordige tijd en de passato prossimo elkaar afwisselen in korte, heldere zinnen.</p>
       </div>
     </div>
   </section>
 
   <section class="sezione">
-    <h2>Waar gaat Eva over?</h2>
-    <p>Enrico Lanti, een jonge Siciliaanse schilder, komt vol dromen aan in Florence: hij wil van zijn kunst leven en beroemd worden. Op een avond in het theater ziet hij Eva, een beeldschone danseres, en wordt hopeloos verliefd. Voor haar geeft hij alles op: zijn werk, zijn vrienden, zijn ambities.</p><p>Maar liefde en kunst zijn niet genoeg in een samenleving die alles in geld afmeet. Tussen hartstocht en ontgoocheling leert Enrico de prijs van zijn dromen kennen, in een van Verga's intensste vroege romans.</p>
+    <h2>In de woordenlijst</h2>
+        <div class="sf-gspread">
+      <div class="sf-gpag">
+        <p class="sf-gtit">Woordenlijst</p>
+        <p class="sf-gint">De kernwoorden van de roman, op alfabet. Eerst de Italiaanse definitie, dan de Engelse, dan wat het woord in dit verhaal betekent.</p>
+        <dl>
+          <dt><b lang="it">amante</b> &middot; <i lang="en">lover</i> <span>(sin. compagna, innamorata)</span></dt>
+          <dd lang="it">La persona che si ama, fuori dal matrimonio.</dd>
+          <dd class="en" lang="en">The person one loves, outside marriage.</dd>
+          <dd class="nota" lang="en">In the novel: A delicate word, and the book uses it without shame: Eva is Enrico’s lover, then the count’s. In the 1800s a woman like that is outside «respectable» society — and Verga writes the book precisely to ask: who is more honest, her or the society?</dd>
+          <dt><b lang="it">applauso</b> &middot; <i lang="en">applause</i> <span>(sin. battimani, ovazione)</span></dt>
+          <dd lang="it">Il rumore delle mani del pubblico, quando lo spettacolo piace.</dd>
+          <dd class="en" lang="en">The sound of the audience’s hands when they like the show.</dd>
+          <dd class="nota" lang="en">In the novel: Applause is Eva’s bread: «you feel that you’re beautiful», she says. But it’s also Enrico’s poison, because every clap is a thousand men wanting his woman. In this book applause is never innocent.</dd>
+          <dt><b lang="it">bacio</b> &middot; <i lang="en">kiss</i> <span>(sin. effusione, carezza con le labbra)</span></dt>
+          <dd lang="it">Toccare con le labbra una persona, per amore.</dd>
+          <dd class="en" lang="en">Touching a person with the lips, out of love.</dd>
+          <dd class="nota" lang="en">In the novel: The first kiss in the book Eva gives like this: she comes in, takes Enrico’s head in her hands, and says «Here’s your tea». The last kiss Enrico gives, in front of everyone, for a bet — and that one costs blood. Between the two kisses lies the whole story.</dd>
+        </dl>
+      </div>
+      <div class="sf-gpag">
+        <dl>
+          <dt><b lang="it">ballerina</b> &middot; <i lang="en">ballerina</i> <span>(sin. danzatrice, artista di teatro)</span></dt>
+          <dd lang="it">La donna che balla sul palco del teatro, per il pubblico.</dd>
+          <dd class="en" lang="en">A woman who dances on stage, for the audience.</dd>
+          <dd class="nota" lang="en">In the novel: Eva isn’t just a woman who dances: it’s a profession, a world, a condition. A ballerina in the 1800s lives on the public and on rich gentlemen — and society looks down on her. Eva knows it, says it, and isn’t ashamed. She’s the most honest person in the book.</dd>
+          <dt><b lang="it">carrozza</b> &middot; <i lang="en">carriage</i> <span>(sin. vettura, cocchio)</span></dt>
+          <dd lang="it">La macchina dell’Ottocento: una cabina con le ruote, tirata dai cavalli.</dd>
+          <dd class="en" lang="en">A cabin on wheels, pulled by horses.</dd>
+          <dd class="nota" lang="en">In the novel: The carriage is the book’s thermometer. Eva in a carriage is far away and untouchable; Eva stepping out of a carriage to walk in the snow is close and real. And the last carriage — the one at the duel — carries everything away.</dd>
+          <dt><b lang="it">cavalletto</b> &middot; <i lang="en">easel</i> <span>(sin. sostegno, treppiede)</span></dt>
+          <dd lang="it">Il supporto di legno che tiene il quadro mentre il pittore dipinge.</dd>
+          <dd class="en" lang="en">The wooden stand that holds the canvas while the painter works.</dd>
+          <dd class="nota" lang="en">In the novel: The easel is a painter’s most precious tool, the thing that lets him work. Enrico breaks it and burns it to keep Eva warm on the first night. It’s the most beautiful gesture in the book — and the first warning: for this woman, Enrico will burn everything.</dd>
+        </dl>
+        <p class="sf-gpie">De woordenlijst bevat in totaal 21 woorden</p>
+      </div>
+    </div>
   </section>
 
-  <section class="sezione">
-    <h2>Waarom Eva lezen om Italiaans te leren</h2>
-    <p>Een rechtlijnig verhaal met weinig personages: ideaal om op A1-niveau nooit de draad kwijt te raken. De dialogen tussen Enrico en Eva leren je de woordenschat van emoties en kunst, terwijl de tegenwoordige tijd en de passato prossimo elkaar afwisselen in korte, heldere zinnen.</p>
-  </section>
+
+  
 </div>
 
 <section class="dentro">
@@ -388,8 +465,8 @@ footer.sito a{color:var(--nebbia)}
   <section class="sezione">
     <h2>Taalfocus: wat je oefent</h2>
     <p>In deze editie op niveau A1 oefen je vooral de tegenwoordige tijd, de passato prossimo, basislidwoorden en -voorzetsels, korte nevengeschikte zinnen. De woordenschat draait om kunst, theater en gevoelens: de kernwoorden staan met vertaling in de woordenlijst hieronder en keren telkens terug in de tekst, zodat je ze in context leert.</p>
-    <h2 style="margin-top:26px">Basiswoordenlijst (Italiaans · Nederlands · Engels)</h2>
-    <div class="glossario-scorri"><table class="glossario"><thead><tr><th>Italiaans</th><th>Nederlands</th><th>Engels</th></tr></thead><tbody><tr><td>il pittore</td><td>de schilder</td><td>painter</td></tr><tr><td>la ballerina</td><td>de danseres</td><td>dancer</td></tr><tr><td>il quadro</td><td>het schilderij</td><td>painting</td></tr><tr><td>l'arte</td><td>de kunst</td><td>art</td></tr><tr><td>la gloria</td><td>de roem</td><td>glory</td></tr><tr><td>il teatro</td><td>het theater</td><td>theatre</td></tr><tr><td>il denaro</td><td>het geld</td><td>money</td></tr><tr><td>la malattia</td><td>de ziekte</td><td>illness</td></tr></tbody></table></div>
+    
+
   </section>
 
   <section class="sezione">
@@ -403,6 +480,9 @@ footer.sito a{color:var(--nebbia)}
   </section>
 
   <section class="faq">
+    <h2 style="margin-top:26px">Basiswoordenlijst (Italiaans · Nederlands · Engels)</h2>
+    <div class="glossario-scorri"><table class="glossario"><thead><tr><th>Italiaans</th><th>Nederlands</th><th>Engels</th></tr></thead><tbody><tr><td>il pittore</td><td>de schilder</td><td>painter</td></tr><tr><td>la ballerina</td><td>de danseres</td><td>dancer</td></tr><tr><td>il quadro</td><td>het schilderij</td><td>painting</td></tr><tr><td>l'arte</td><td>de kunst</td><td>art</td></tr><tr><td>la gloria</td><td>de roem</td><td>glory</td></tr><tr><td>il teatro</td><td>het theater</td><td>theatre</td></tr><tr><td>il denaro</td><td>het geld</td><td>money</td></tr><tr><td>la malattia</td><td>de ziekte</td><td>illness</td></tr></tbody></table></div>
+
     <h2>Veelgestelde vragen</h2>
   <details>
     <summary>Welk niveau Italiaans heb ik nodig voor Eva?</summary>

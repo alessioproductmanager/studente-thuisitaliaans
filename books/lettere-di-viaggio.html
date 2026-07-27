@@ -127,18 +127,18 @@ footer.sito a{color:var(--nebbia)}
 
 /* ===== Prima pagina del libro ===== */
 .sfoglia{margin:40px 0 46px}
-.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);
  gap:0;align-items:stretch;perspective:2200px;perspective-origin:70% 46%}
 .sfoglia-cop{position:relative;border-radius:5px 3px 3px 5px;overflow:hidden;
- transform-origin:right center;
+ align-self:start;aspect-ratio:800/1280;transform-origin:right center;
  box-shadow:0 24px 46px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
  transform:rotateY(-42deg);animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both}
-.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:cover;object-position:left center}
+.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:fill}
 .sfoglia-cop::after{content:"";position:absolute;inset:0;pointer-events:none;
  background:linear-gradient(90deg,rgba(0,0,0,.34),rgba(0,0,0,0) 26%,rgba(255,255,255,.12))}
 @keyframes sf-apri{from{transform:rotateY(-16deg)}to{transform:rotateY(-42deg)}}
 
-.sfoglia-foglio{position:relative;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
+.sfoglia-foglio{position:relative;align-self:stretch;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
  box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42),0 18px 38px -18px rgba(20,24,38,.32);
  animation:sf-posa 1.7s cubic-bezier(.18,.9,.24,1) .5s both}
@@ -176,9 +176,12 @@ footer.sito a{color:var(--nebbia)}
 .sf-piede a{color:#8a6a2f;font-weight:600;text-decoration:none}
 .sf-piede a:hover{text-decoration:underline}
 
+.sf-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px 34px;align-items:start}
+.sf-2col>div>h2{margin-top:0}
 @media (max-width:820px){
+ .sf-2col{grid-template-columns:1fr;gap:0}
  .sfoglia-scena{grid-template-columns:1fr;gap:20px;perspective:none}
- .sfoglia-cop{max-width:190px;margin:0 auto;transform:none;animation:none}
+ .sfoglia-cop{max-width:190px;margin:0 auto;transform:none;animation:none;aspect-ratio:auto}
  .sfoglia-foglio{padding:22px 20px 16px;border-radius:8px;animation:none;
   box-shadow:0 14px 28px -16px rgba(20,24,38,.3)}
  .sfoglia-foglio::after{display:none}
@@ -187,6 +190,41 @@ footer.sito a{color:var(--nebbia)}
  .sfoglia-cop{animation:none;transform:rotateY(-42deg)}
  .sfoglia-foglio{animation:none}
  .sfoglia-foglio::before{animation:none;opacity:0}
+}
+
+/* ---- Doppia pagina: il glossario del libro ---- */
+.sf-gspread{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:22px 0 0;
+ border-radius:3px;overflow:hidden;
+ box-shadow:0 18px 38px -18px rgba(20,24,38,.3)}
+.sf-gpag{padding:26px 26px 22px;
+ background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%)}
+.sf-gpag:first-child{border-radius:2px 0 0 2px;
+ box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gpag:last-child{border-radius:0 2px 2px 0;
+ box-shadow:inset 14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gtit{margin:0;text-align:center;font-family:Fraunces,Georgia,serif;
+ font-size:1.18rem;font-weight:600;color:#2a2a2f}
+.sf-gint{margin:8px 0 18px;font-size:.83rem;font-style:italic;line-height:1.6;
+ color:#7a6b53;text-align:center}
+.sf-gspread dl{margin:0}
+.sf-gspread dt{margin:0 0 3px;font-family:"Source Serif 4",Georgia,serif;font-size:.99rem}
+.sf-gspread dt b{color:#1F2529}
+.sf-gspread dt i{color:#326778;font-weight:600}
+.sf-gspread dt span{font-size:.84em;color:#8a7f6b;font-style:italic}
+.sf-gspread dd{margin:0;font-family:"Source Serif 4",Georgia,serif;
+ font-size:.92rem;line-height:1.58;color:#2b2b30}
+.sf-gspread dd.en{color:#5f6b72}
+.sf-gspread dd.nota{margin:3px 0 16px;font-style:italic;font-size:.86rem;
+ line-height:1.55;color:#55606a}
+.sf-gspread dd:last-child{margin-bottom:0}
+.sf-gpie{margin:16px 0 0;padding-top:11px;border-top:1px solid rgba(92,72,42,.16);
+ font-size:.79rem;letter-spacing:.02em;color:#8a7f6b;text-align:center}
+@media (max-width:820px){
+ .sf-gspread{grid-template-columns:1fr;box-shadow:0 12px 26px -16px rgba(20,24,38,.3)}
+ .sf-gpag{padding:20px 18px}
+ .sf-gpag:first-child,.sf-gpag:last-child{box-shadow:none;border-radius:0}
+ .sf-gpag:first-child{border-radius:6px 6px 0 0;border-bottom:1px solid rgba(92,72,42,.14)}
+ .sf-gpag:last-child{border-radius:0 0 6px 6px}
 }
 
 </style>
@@ -273,46 +311,92 @@ footer.sito a{color:var(--nebbia)}
     </div>
   </section>
 
-    <section class="sezione sfoglia">
+        <section class="sezione sfoglia">
     <h2>Look inside: the first page</h2>
     <div class="sfoglia-scena">
       <div class="sfoglia-cop">
         <picture>
           <source srcset="/assets/books/LettereDiViaggio_Copertina_eBook.webp" type="image/webp">
-          <img src="/assets/books/LettereDiViaggio_Copertina_eBook.jpg" width="800" height="1280" alt="Cover of Un’idea rotonda" loading="lazy" decoding="async">
+          <img src="/assets/books/LettereDiViaggio_Copertina_eBook.jpg" width="800" height="1280" alt="Cover of Un&amp;#x27;idea rotonda" loading="lazy" decoding="async">
         </picture>
       </div>
       <div class="sfoglia-foglio">
         <p class="sf-capnum">CAPITOLO 1</p>
         <img class="sf-vign" src="/assets/books/vignette/lettere-di-viaggio.png" alt="Chapter vignette" width="148" height="148" loading="lazy" decoding="async">
-        <h3 class="sf-tit" lang="it">Un’idea rotonda</h3>
+        <h3 class="sf-tit" lang="it">Un&amp;#x27;idea rotonda</h3>
         <p class="sf-titen" lang="en">A Round Idea</p>
         <div class="sf-corpo" lang="it">
           <p>Mi chiamo Cristoforo Colombo. Sono nato a Genova, in Italia, nel 1451.</p>
           <p>Mio padre lavorava la lana. Ma io, dalla finestra, guardavo solo il porto e le navi.<sup>1</sup></p>
           <p>A quattordici anni sono andato in mare per la prima volta.</p>
           <p>Ho fatto il marinaio per tutta la vita. Ho visto il nord freddo e le coste dell’Africa.</p>
-          <p>E ho imparato tre cose: a <b class="sf-kw">navigare</b>, a leggere le <b class="sf-kw">mappe</b>, e a non avere paura dell’<b class="sf-kw">oceano</b>.</p>
-          <p>Questa è la storia del mio <b class="sf-kw">diario</b>. Comincia con un’idea.</p>
+          <p>E ho imparato tre cose: a <b class="sf-kw">navigare</b>, a leggere le <b class="sf-kw">mappe</b>, e a non avere paura dell&#x27;<b class="sf-kw">oceano</b>.</p>
         </div>
         <p class="sf-gloss"><span class="sf-kw">navigare</span> = to sail, to navigate &#183; <span class="sf-kw">mappa</span> = map &#183; <span class="sf-kw">oceano</span> = ocean &#183; <span class="sf-kw">diario</span> = diary, logbook</p>
         <div class="sf-note">
           <p class="sf-nota"><sup>1</sup> Colombo è italiano, ma tutte le sue lettere sono in spagnolo: da adulto vive tra Portogallo e Spagna, e scrive nella lingua dei suoi re. Un genovese che scrive in spagnolo di isole americane — la sua vita è già una mappa.</p>
         </div>
-        <p class="sf-piede"><span>Chapter 1 · CEFR A2 · 83 words of the real text</span></p>
+        <p class="sf-piede"><span>Chapter 1 · CEFR A2 · 73 words of the real text</span></p>
+      </div>
+    </div>
+  </section>
+
+    <section class="sezione">
+    <div class="sf-2col">
+      <div>
+<h2>The plot of Lettere di viaggio</h2>
+    <p>Genoa, 1492. Christopher Columbus crosses an ocean everyone still calls «the Dark Sea», with three small ships and ninety frightened men. He is looking for Asia; he finds something else — and never fully understands what.</p><p>A few years later, a Florentine named Amerigo Vespucci repeats the crossing with different eyes: he measures, he compares, he doubts. And he writes the forbidden sentence: this is not Asia, it is a new world. The real voyages retold from their own letters — the wonder and the courage, and also the chains, and the Taino who had known those islands all along.</p>
+      </div>
+      <div>
+<h2>Why read Lettere di viaggio to learn Italian</h2>
+    <p>True story, real dates, names you already know: memory does half the comprehension work. The vocabulary of sea and travel is concrete and useful, and the short letter-shaped chapters are a natural model for writing your own first letters in Italian.</p>
       </div>
     </div>
   </section>
 
   <section class="sezione">
-    <h2>The plot of Lettere di viaggio</h2>
-    <p>Genoa, 1492. Christopher Columbus crosses an ocean everyone still calls «the Dark Sea», with three small ships and ninety frightened men. He is looking for Asia; he finds something else — and never fully understands what.</p><p>A few years later, a Florentine named Amerigo Vespucci repeats the crossing with different eyes: he measures, he compares, he doubts. And he writes the forbidden sentence: this is not Asia, it is a new world. The real voyages retold from their own letters — the wonder and the courage, and also the chains, and the Taino who had known those islands all along.</p>
+    <h2>Inside the glossary</h2>
+        <div class="sf-gspread">
+      <div class="sf-gpag">
+        <p class="sf-gtit">Glossary</p>
+        <p class="sf-gint">The key words of the novel, in alphabetical order. Italian definition first, then the English, then what the word means inside this story.</p>
+        <dl>
+          <dt><b lang="it">amaca</b> &middot; <i lang="en">hammock</i> <span>(sin. rete da riposo, letto sospeso)</span></dt>
+          <dd lang="it">Una rete appesa tra due sostegni, usata per dormire.</dd>
+          <dd class="en" lang="en">A hanging bed made of net or cloth, tied between two points; a Taino word.</dd>
+          <dd class="nota" lang="en">In the novel: A Taino word: «hamaca». Europeans had never seen a bed hanging in the air. The sailors copy it at once, and for four centuries every ship in the world will sleep the Taino way.</dd>
+          <dt><b lang="it">ammiraglio</b> &middot; <i lang="en">admiral</i> <span>(sin. comandante, capo della flotta)</span></dt>
+          <dd lang="it">Il capo militare di una flotta.</dd>
+          <dd class="en" lang="en">The highest commander of a fleet of ships.</dd>
+          <dd class="nota" lang="en">In the novel: It is the title Columbus demands from the monarchs before sailing, and defends all his life. When they arrest him, he still signs «the Admiral». For him it is not a rank: it is proof that his idea was right.</dd>
+          <dt><b lang="it">ammutinamento</b> &middot; <i lang="en">mutiny</i> <span>(sin. ribellione, rivolta)</span></dt>
+          <dd lang="it">La ribellione dei marinai contro il loro comandante.</dd>
+          <dd class="en" lang="en">A revolt of sailors against their captain.</dd>
+          <dd class="nota" lang="en">In the novel: The most feared word on board. In October, after a month without land, the crew stops obeying willingly: there is talk of turning back, perhaps even of throwing the admiral into the sea. Land arrives just in time.</dd>
+        </dl>
+      </div>
+      <div class="sf-gpag">
+        <dl>
+          <dt><b lang="it">baratto</b> &middot; <i lang="en">barter</i> <span>(sin. scambio, commercio senza denaro)</span></dt>
+          <dd lang="it">Lo scambio di una cosa con un’altra, senza denaro.</dd>
+          <dd class="en" lang="en">An exchange of things without using money.</dd>
+          <dd class="nota" lang="en">In the novel: Glass beads for parrots, little bells for cotton thread: the first contact between the two worlds is barter. It looks like a game between friends. But one side knows the value of the other’s things, and the other does not.</dd>
+          <dt><b lang="it">bussola</b> &middot; <i lang="en">compass</i> <span>(sin. ago magnetico, strumento di rotta)</span></dt>
+          <dd lang="it">Uno strumento con un ago che indica sempre il nord.</dd>
+          <dd class="en" lang="en">An instrument with a needle that always points north.</dd>
+          <dd class="nota" lang="en">In the novel: On the ocean, with no land in sight, the compass is the only certainty. That is why the night the needle «goes wrong» is the most dangerous of the voyage: if the compass lies, the road home no longer exists.</dd>
+          <dt><b lang="it">canoa</b> &middot; <i lang="en">canoe</i> <span>(sin. piroga, imbarcazione)</span></dt>
+          <dd lang="it">Una barca stretta e leggera, che si muove con la pagaia.</dd>
+          <dd class="en" lang="en">A light, narrow boat moved with a paddle; a Taino word.</dd>
+          <dd class="nota" lang="en">In the novel: A Taino word, brought into Italian through these letters. Taino canoes were carved from a single tree: some carried forty men. In 1503 a canoe will cross the open sea to save Columbus.</dd>
+        </dl>
+        <p class="sf-gpie">The glossary contains 32 entries in all</p>
+      </div>
+    </div>
   </section>
 
-  <section class="sezione">
-    <h2>Why read Lettere di viaggio to learn Italian</h2>
-    <p>True story, real dates, names you already know: memory does half the comprehension work. The vocabulary of sea and travel is concrete and useful, and the short letter-shaped chapters are a natural model for writing your own first letters in Italian.</p>
-  </section>
+
+  
 </div>
 
 <section class="dentro">
@@ -326,8 +410,8 @@ footer.sito a{color:var(--nebbia)}
   <section class="sezione">
     <h2>Language focus: what you practise</h2>
     <p>In this level-A2 edition you mainly practise imperfetto versus passato prossimo, the simple future, direct and indirect pronouns. The vocabulary revolves around the sea, travel and discovery: the key words, with translations, are in the glossary below and recur throughout the text, so you learn them in context.</p>
-    <h2 style="margin-top:26px">Essential glossary (Italian · English · Dutch)</h2>
-    <div class="glossario-scorri"><table class="glossario"><thead><tr><th>Italian</th><th>English</th><th>Dutch</th></tr></thead><tbody><tr><td>la nave</td><td>ship</td><td>het schip</td></tr><tr><td>l'oceano</td><td>ocean</td><td>de oceaan</td></tr><tr><td>la lettera</td><td>letter</td><td>de brief</td></tr><tr><td>la scoperta</td><td>discovery</td><td>de ontdekking</td></tr><tr><td>la tempesta</td><td>storm</td><td>de storm</td></tr><tr><td>l'isola</td><td>island</td><td>het eiland</td></tr><tr><td>la rotta</td><td>course</td><td>de koers</td></tr><tr><td>il mondo</td><td>world</td><td>de wereld</td></tr></tbody></table></div>
+    
+
   </section>
 
   <section class="sezione">
@@ -341,6 +425,9 @@ footer.sito a{color:var(--nebbia)}
   </section>
 
   <section class="faq">
+    <h2 style="margin-top:26px">Essential glossary (Italian · English · Dutch)</h2>
+    <div class="glossario-scorri"><table class="glossario"><thead><tr><th>Italian</th><th>English</th><th>Dutch</th></tr></thead><tbody><tr><td>la nave</td><td>ship</td><td>het schip</td></tr><tr><td>l'oceano</td><td>ocean</td><td>de oceaan</td></tr><tr><td>la lettera</td><td>letter</td><td>de brief</td></tr><tr><td>la scoperta</td><td>discovery</td><td>de ontdekking</td></tr><tr><td>la tempesta</td><td>storm</td><td>de storm</td></tr><tr><td>l'isola</td><td>island</td><td>het eiland</td></tr><tr><td>la rotta</td><td>course</td><td>de koers</td></tr><tr><td>il mondo</td><td>world</td><td>de wereld</td></tr></tbody></table></div>
+
     <h2>Frequently asked questions</h2>
   <details>
     <summary>What level of Italian do I need to read Lettere di viaggio?</summary>

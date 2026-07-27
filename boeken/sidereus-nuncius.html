@@ -127,18 +127,18 @@ footer.sito a{color:var(--nebbia)}
 
 /* ===== Prima pagina del libro ===== */
 .sfoglia{margin:40px 0 46px}
-.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);
  gap:0;align-items:stretch;perspective:2200px;perspective-origin:70% 46%}
 .sfoglia-cop{position:relative;border-radius:5px 3px 3px 5px;overflow:hidden;
- transform-origin:right center;
+ align-self:start;aspect-ratio:800/1280;transform-origin:right center;
  box-shadow:0 24px 46px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
  transform:rotateY(-42deg);animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both}
-.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:cover;object-position:left center}
+.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:fill}
 .sfoglia-cop::after{content:"";position:absolute;inset:0;pointer-events:none;
  background:linear-gradient(90deg,rgba(0,0,0,.34),rgba(0,0,0,0) 26%,rgba(255,255,255,.12))}
 @keyframes sf-apri{from{transform:rotateY(-16deg)}to{transform:rotateY(-42deg)}}
 
-.sfoglia-foglio{position:relative;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
+.sfoglia-foglio{position:relative;align-self:stretch;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
  box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42),0 18px 38px -18px rgba(20,24,38,.32);
  animation:sf-posa 1.7s cubic-bezier(.18,.9,.24,1) .5s both}
@@ -176,9 +176,12 @@ footer.sito a{color:var(--nebbia)}
 .sf-piede a{color:#8a6a2f;font-weight:600;text-decoration:none}
 .sf-piede a:hover{text-decoration:underline}
 
+.sf-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px 34px;align-items:start}
+.sf-2col>div>h2{margin-top:0}
 @media (max-width:820px){
+ .sf-2col{grid-template-columns:1fr;gap:0}
  .sfoglia-scena{grid-template-columns:1fr;gap:20px;perspective:none}
- .sfoglia-cop{max-width:190px;margin:0 auto;transform:none;animation:none}
+ .sfoglia-cop{max-width:190px;margin:0 auto;transform:none;animation:none;aspect-ratio:auto}
  .sfoglia-foglio{padding:22px 20px 16px;border-radius:8px;animation:none;
   box-shadow:0 14px 28px -16px rgba(20,24,38,.3)}
  .sfoglia-foglio::after{display:none}
@@ -187,6 +190,41 @@ footer.sito a{color:var(--nebbia)}
  .sfoglia-cop{animation:none;transform:rotateY(-42deg)}
  .sfoglia-foglio{animation:none}
  .sfoglia-foglio::before{animation:none;opacity:0}
+}
+
+/* ---- Doppia pagina: il glossario del libro ---- */
+.sf-gspread{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:22px 0 0;
+ border-radius:3px;overflow:hidden;
+ box-shadow:0 18px 38px -18px rgba(20,24,38,.3)}
+.sf-gpag{padding:26px 26px 22px;
+ background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%)}
+.sf-gpag:first-child{border-radius:2px 0 0 2px;
+ box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gpag:last-child{border-radius:0 2px 2px 0;
+ box-shadow:inset 14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gtit{margin:0;text-align:center;font-family:Fraunces,Georgia,serif;
+ font-size:1.18rem;font-weight:600;color:#2a2a2f}
+.sf-gint{margin:8px 0 18px;font-size:.83rem;font-style:italic;line-height:1.6;
+ color:#7a6b53;text-align:center}
+.sf-gspread dl{margin:0}
+.sf-gspread dt{margin:0 0 3px;font-family:"Source Serif 4",Georgia,serif;font-size:.99rem}
+.sf-gspread dt b{color:#1F2529}
+.sf-gspread dt i{color:#326778;font-weight:600}
+.sf-gspread dt span{font-size:.84em;color:#8a7f6b;font-style:italic}
+.sf-gspread dd{margin:0;font-family:"Source Serif 4",Georgia,serif;
+ font-size:.92rem;line-height:1.58;color:#2b2b30}
+.sf-gspread dd.en{color:#5f6b72}
+.sf-gspread dd.nota{margin:3px 0 16px;font-style:italic;font-size:.86rem;
+ line-height:1.55;color:#55606a}
+.sf-gspread dd:last-child{margin-bottom:0}
+.sf-gpie{margin:16px 0 0;padding-top:11px;border-top:1px solid rgba(92,72,42,.16);
+ font-size:.79rem;letter-spacing:.02em;color:#8a7f6b;text-align:center}
+@media (max-width:820px){
+ .sf-gspread{grid-template-columns:1fr;box-shadow:0 12px 26px -16px rgba(20,24,38,.3)}
+ .sf-gpag{padding:20px 18px}
+ .sf-gpag:first-child,.sf-gpag:last-child{box-shadow:none;border-radius:0}
+ .sf-gpag:first-child{border-radius:6px 6px 0 0;border-bottom:1px solid rgba(92,72,42,.14)}
+ .sf-gpag:last-child{border-radius:0 0 6px 6px}
 }
 
 </style>
@@ -273,41 +311,85 @@ footer.sito a{color:var(--nebbia)}
     </div>
   </section>
 
-    <section class="sezione sfoglia">
+        <section class="sezione sfoglia">
     <h2>Kijk binnenin: de eerste bladzijde</h2>
     <div class="sfoglia-scena">
       <div class="sfoglia-cop">
         <picture>
           <source srcset="/assets/books/SidereusNuncius_Copertina_eBook.webp" type="image/webp">
-          <img src="/assets/books/SidereusNuncius_Copertina_eBook.jpg" width="800" height="1280" alt="Omslag van L’annuncio" loading="lazy" decoding="async">
+          <img src="/assets/books/SidereusNuncius_Copertina_eBook.jpg" width="800" height="1280" alt="Omslag van L&amp;#x27;annuncio" loading="lazy" decoding="async">
         </picture>
       </div>
       <div class="sfoglia-foglio">
         <p class="sf-capnum">CAPITOLO 1</p>
         <img class="sf-vign" src="/assets/books/vignette/sidereus-nuncius.png" alt="Hoofdstukvignet" width="148" height="148" loading="lazy" decoding="async">
-        <h3 class="sf-tit" lang="it">L’annuncio</h3>
+        <h3 class="sf-tit" lang="it">L&amp;#x27;annuncio</h3>
         <p class="sf-titen" lang="en">The Announcement</p>
         <div class="sf-corpo" lang="it">
           <p>Mi chiamo Galileo Galilei e insegno matematica all’università di Padova. Nel marzo del 1610 ho pubblicato a Venezia un piccolo libro in latino, scritto in poche settimane.<sup>1</sup> L’ho chiamato Sidereus Nuncius: l’annuncio che viene dalle <b class="sf-kw">stelle</b>. Non è un libro di teorie. È il racconto di ciò che ho visto con i miei occhi, notte dopo notte, attraverso uno strumento nuovo: il <b class="sf-kw">cannocchiale</b>. E ciò che ho visto, lo dico subito, è più grande di qualunque teoria. Prometto al lettore cose che nessun essere umano ha mai osservato prima: le annuncio qui, e poi le racconto una per una, perché ogni <b class="sf-kw">scoperta</b> merita la sua storia.</p>
         </div>
         <p class="sf-gloss"><span class="sf-kw">stella</span> = star &#183; <span class="sf-kw">cannocchiale</span> = telescope, spyglass &#183; <span class="sf-kw">scoperta</span> = discovery</p>
-        <div class="sf-note">
-          <p class="sf-nota"><sup>1</sup> Il titolo latino è ambiguo, e forse di proposito: «nuncius» significa sia «messaggero» sia «messaggio». Galileo intendeva «l’annuncio delle stelle», ma mezza Europa lesse «il messaggero delle stelle» — e il soprannome, più bello del titolo, gli rimase addosso per sempre.</p>
-        </div>
         <p class="sf-piede"><span>Hoofdstuk 1 · ERK B2 · 106 woorden uit de echte tekst</span></p>
       </div>
     </div>
   </section>
 
-  <section class="sezione">
-    <h2>Waar gaat Il Sidereus Nuncius over?</h2>
+    <section class="sezione">
+    <div class="sf-2col">
+      <div>
+<h2>Waar gaat Il Sidereus Nuncius over?</h2>
     <p>Padua, zomer 1609. Een professor in de wiskunde hoort over een Hollandse buis met twee lenzen die verre dingen dichterbij brengt. Hij heeft er nooit een gezien: hij bouwt hem na door te redeneren, verbetert hem tot dertig keer vergroting — en doet dan wat niemand serieus eerder deed: hij richt hem op de hemel.</p><p>De maan, die elk boek glad en volmaakt noemde, vult zich met bergen en dalen. En in de nacht van 7 januari 1610 verschijnen drie kleine sterren op een rij naast Jupiter… en de nacht erna staan ze niet meer waar ze zouden moeten staan. Het boek dat de moderne sterrenkunde stichtte, verteld met Galilei's eigen stem, nacht na nacht, tot aan de race om het als eerste te drukken.</p>
+      </div>
+      <div>
+<h2>Waarom Il Sidereus Nuncius lezen om Italiaans te leren</h2>
+    <p>Dit is het Italiaans van de wetenschap in de eerste persoon: observeren, twijfelen, afleiden, bewijzen — de denkwerkwoorden die je op B2 nodig hebt om te argumenteren. En het verhaal heeft, nacht na nacht, de spanning van een detective: je weet dat hij de manen van Jupiter zal ontdekken, maar niet hoe.</p>
+      </div>
+    </div>
   </section>
 
   <section class="sezione">
-    <h2>Waarom Il Sidereus Nuncius lezen om Italiaans te leren</h2>
-    <p>Dit is het Italiaans van de wetenschap in de eerste persoon: observeren, twijfelen, afleiden, bewijzen — de denkwerkwoorden die je op B2 nodig hebt om te argumenteren. En het verhaal heeft, nacht na nacht, de spanning van een detective: je weet dat hij de manen van Jupiter zal ontdekken, maar niet hoe.</p>
+    <h2>In de woordenlijst</h2>
+        <div class="sf-gspread">
+      <div class="sf-gpag">
+        <p class="sf-gtit">Woordenlijst</p>
+        <p class="sf-gint">De kernwoorden van de roman, op alfabet. Eerst de Italiaanse definitie, dan de Engelse, dan wat het woord in dit verhaal betekent.</p>
+        <dl>
+          <dt><b lang="it">cannocchiale</b> &middot; <i lang="en">telescope, spyglass</i> <span>(sin. telescopio, occhiale)</span></dt>
+          <dd lang="it">Strumento ottico a tubo, con due o più lenti, che ingrandisce gli oggetti lontani.</dd>
+          <dd class="en" lang="en">An optical tube with lenses that makes distant objects appear closer.</dd>
+          <dd class="nota" lang="en">In the novel: Galileo did not invent it — a Dutch spectacle-maker did — but he was the first to turn it into a scientific instrument: he worked out the optics, pushed it from three magnifications to thirty, and pointed it upward. The book insists on this order of events: the tool was common merchandise; the idea of aiming it at the sky was the discovery before the discoveries.</dd>
+          <dt><b lang="it">eclissi</b> &middot; <i lang="en">eclipse</i> <span>(sin. oscuramento, occultamento)</span></dt>
+          <dd lang="it">L’oscuramento temporaneo di un corpo celeste, coperto da un altro o dalla sua ombra.</dd>
+          <dd class="en" lang="en">The darkening of a celestial body when another body or its shadow hides it.</dd>
+          <dd class="nota" lang="en">In the novel: The four satellites disappear on schedule: behind Jupiter, into its glare, or into its shadow — small eclipses, cousins of our lunar ones. Their punctuality is the point: what vanishes and returns on a timetable is not an illusion but a mechanism, and mechanisms can be understood.</dd>
+          <dt><b lang="it">lente</b> &middot; <i lang="en">lens</i> <span>(sin. vetro, cristallo)</span></dt>
+          <dd lang="it">Disco di vetro curvo che devia i raggi di luce e forma immagini ingrandite o rimpicciolite.</dd>
+          <dd class="en" lang="en">A curved piece of glass that bends light rays passing through it.</dd>
+          <dd class="nota" lang="en">In the novel: Two curved pieces of glass, one convex and one concave, in a lead tube: the whole revolution rests on them. The book is honest about their limits — poor glass, narrow field, trembling images — and about the craft: Galileo ground and polished lenses himself until his instruments were the best in Europe.</dd>
+        </dl>
+      </div>
+      <div class="sf-gpag">
+        <dl>
+          <dt><b lang="it">luce</b> &middot; <i lang="en">light</i> <span>(sin. chiarore, splendore)</span></dt>
+          <dd lang="it">La radiazione che rende visibili le cose; il chiarore che viene dal Sole o dagli astri.</dd>
+          <dd class="en" lang="en">The radiation that makes things visible to the eye.</dd>
+          <dd class="nota" lang="en">In the novel: Light is the book’s raw material, and Galileo treats it like a physicist: he traces where it comes from, where it bounces. His most beautiful piece of reasoning explains the ashen glow of the dark Moon as earthshine — our planet lighting its companion — making the Earth a luminous body among the others.</dd>
+          <dt><b lang="it">luna</b> &middot; <i lang="en">moon</i> <span>(sin. satellite, astro)</span></dt>
+          <dd lang="it">Il corpo celeste che gira attorno alla Terra e ne illumina le notti con luce riflessa.</dd>
+          <dd class="en" lang="en">The celestial body that orbits the Earth and shines at night with reflected light.</dd>
+          <dd class="nota" lang="en">In the novel: The Moon is the book’s first battlefield. Ancient philosophy required it to be a perfect, polished sphere; the telescope shows mountains, valleys and plains, «just like the face of the Earth». If the closest heavenly body is made of the same rough stuff as our world, the wall between Earth and sky has already cracked.</dd>
+          <dt><b lang="it">ombra</b> &middot; <i lang="en">shadow</i> <span>(sin. oscurità, buio)</span></dt>
+          <dd lang="it">La zona scura che un corpo produce quando blocca la luce.</dd>
+          <dd class="en" lang="en">The dark zone produced by a body that blocks the light.</dd>
+          <dd class="nota" lang="en">In the novel: Shadow is the book’s secret instrument. From the shadows inside lunar craters Galileo deduces mountains; from a bright peak in the dark zone he measures their height; in Jupiter’s shadow he watches moons blink out. Where others saw absence of light, he learned to read shape.</dd>
+        </dl>
+        <p class="sf-gpie">De woordenlijst bevat in totaal 15 woorden</p>
+      </div>
+    </div>
   </section>
+
+
+  
 </div>
 
 <section class="dentro">
@@ -321,8 +403,8 @@ footer.sito a{color:var(--nebbia)}
   <section class="sezione">
     <h2>Taalfocus: wat je oefent</h2>
     <p>In deze editie op niveau B2 oefen je vooral de congiuntivo imperfetto en trapassato, voorwaardelijke zinnen van mogelijkheid, de lijdende vorm en de indirecte rede. De woordenschat draait om de hemel, wetenschap en ontdekking: de kernwoorden staan met vertaling in de woordenlijst hieronder en keren telkens terug in de tekst, zodat je ze in context leert.</p>
-    <h2 style="margin-top:26px">Basiswoordenlijst (Italiaans · Nederlands · Engels)</h2>
-    <div class="glossario-scorri"><table class="glossario"><thead><tr><th>Italiaans</th><th>Nederlands</th><th>Engels</th></tr></thead><tbody><tr><td>il cannocchiale</td><td>de telescoop</td><td>telescope</td></tr><tr><td>la luna</td><td>de maan</td><td>moon</td></tr><tr><td>la stella</td><td>de ster</td><td>star</td></tr><tr><td>il cielo</td><td>de hemel</td><td>sky</td></tr><tr><td>la lente</td><td>de lens</td><td>lens</td></tr><tr><td>la montagna</td><td>de berg</td><td>mountain</td></tr><tr><td>il pianeta</td><td>de planeet</td><td>planet</td></tr><tr><td>la scoperta</td><td>de ontdekking</td><td>discovery</td></tr></tbody></table></div>
+    
+
   </section>
 
   <section class="sezione">
@@ -336,6 +418,9 @@ footer.sito a{color:var(--nebbia)}
   </section>
 
   <section class="faq">
+    <h2 style="margin-top:26px">Basiswoordenlijst (Italiaans · Nederlands · Engels)</h2>
+    <div class="glossario-scorri"><table class="glossario"><thead><tr><th>Italiaans</th><th>Nederlands</th><th>Engels</th></tr></thead><tbody><tr><td>il cannocchiale</td><td>de telescoop</td><td>telescope</td></tr><tr><td>la luna</td><td>de maan</td><td>moon</td></tr><tr><td>la stella</td><td>de ster</td><td>star</td></tr><tr><td>il cielo</td><td>de hemel</td><td>sky</td></tr><tr><td>la lente</td><td>de lens</td><td>lens</td></tr><tr><td>la montagna</td><td>de berg</td><td>mountain</td></tr><tr><td>il pianeta</td><td>de planeet</td><td>planet</td></tr><tr><td>la scoperta</td><td>de ontdekking</td><td>discovery</td></tr></tbody></table></div>
+
     <h2>Veelgestelde vragen</h2>
   <details>
     <summary>Welk niveau Italiaans heb ik nodig voor Il Sidereus Nuncius?</summary>

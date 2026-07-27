@@ -127,18 +127,18 @@ footer.sito a{color:var(--nebbia)}
 
 /* ===== Prima pagina del libro ===== */
 .sfoglia{margin:40px 0 46px}
-.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);
  gap:0;align-items:stretch;perspective:2200px;perspective-origin:70% 46%}
 .sfoglia-cop{position:relative;border-radius:5px 3px 3px 5px;overflow:hidden;
- transform-origin:right center;
+ align-self:start;aspect-ratio:800/1280;transform-origin:right center;
  box-shadow:0 24px 46px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
  transform:rotateY(-42deg);animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both}
-.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:cover;object-position:left center}
+.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:fill}
 .sfoglia-cop::after{content:"";position:absolute;inset:0;pointer-events:none;
  background:linear-gradient(90deg,rgba(0,0,0,.34),rgba(0,0,0,0) 26%,rgba(255,255,255,.12))}
 @keyframes sf-apri{from{transform:rotateY(-16deg)}to{transform:rotateY(-42deg)}}
 
-.sfoglia-foglio{position:relative;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
+.sfoglia-foglio{position:relative;align-self:stretch;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
  box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42),0 18px 38px -18px rgba(20,24,38,.32);
  animation:sf-posa 1.7s cubic-bezier(.18,.9,.24,1) .5s both}
@@ -176,9 +176,12 @@ footer.sito a{color:var(--nebbia)}
 .sf-piede a{color:#8a6a2f;font-weight:600;text-decoration:none}
 .sf-piede a:hover{text-decoration:underline}
 
+.sf-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px 34px;align-items:start}
+.sf-2col>div>h2{margin-top:0}
 @media (max-width:820px){
+ .sf-2col{grid-template-columns:1fr;gap:0}
  .sfoglia-scena{grid-template-columns:1fr;gap:20px;perspective:none}
- .sfoglia-cop{max-width:190px;margin:0 auto;transform:none;animation:none}
+ .sfoglia-cop{max-width:190px;margin:0 auto;transform:none;animation:none;aspect-ratio:auto}
  .sfoglia-foglio{padding:22px 20px 16px;border-radius:8px;animation:none;
   box-shadow:0 14px 28px -16px rgba(20,24,38,.3)}
  .sfoglia-foglio::after{display:none}
@@ -187,6 +190,41 @@ footer.sito a{color:var(--nebbia)}
  .sfoglia-cop{animation:none;transform:rotateY(-42deg)}
  .sfoglia-foglio{animation:none}
  .sfoglia-foglio::before{animation:none;opacity:0}
+}
+
+/* ---- Doppia pagina: il glossario del libro ---- */
+.sf-gspread{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:22px 0 0;
+ border-radius:3px;overflow:hidden;
+ box-shadow:0 18px 38px -18px rgba(20,24,38,.3)}
+.sf-gpag{padding:26px 26px 22px;
+ background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%)}
+.sf-gpag:first-child{border-radius:2px 0 0 2px;
+ box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gpag:last-child{border-radius:0 2px 2px 0;
+ box-shadow:inset 14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gtit{margin:0;text-align:center;font-family:Fraunces,Georgia,serif;
+ font-size:1.18rem;font-weight:600;color:#2a2a2f}
+.sf-gint{margin:8px 0 18px;font-size:.83rem;font-style:italic;line-height:1.6;
+ color:#7a6b53;text-align:center}
+.sf-gspread dl{margin:0}
+.sf-gspread dt{margin:0 0 3px;font-family:"Source Serif 4",Georgia,serif;font-size:.99rem}
+.sf-gspread dt b{color:#1F2529}
+.sf-gspread dt i{color:#326778;font-weight:600}
+.sf-gspread dt span{font-size:.84em;color:#8a7f6b;font-style:italic}
+.sf-gspread dd{margin:0;font-family:"Source Serif 4",Georgia,serif;
+ font-size:.92rem;line-height:1.58;color:#2b2b30}
+.sf-gspread dd.en{color:#5f6b72}
+.sf-gspread dd.nota{margin:3px 0 16px;font-style:italic;font-size:.86rem;
+ line-height:1.55;color:#55606a}
+.sf-gspread dd:last-child{margin-bottom:0}
+.sf-gpie{margin:16px 0 0;padding-top:11px;border-top:1px solid rgba(92,72,42,.16);
+ font-size:.79rem;letter-spacing:.02em;color:#8a7f6b;text-align:center}
+@media (max-width:820px){
+ .sf-gspread{grid-template-columns:1fr;box-shadow:0 12px 26px -16px rgba(20,24,38,.3)}
+ .sf-gpag{padding:20px 18px}
+ .sf-gpag:first-child,.sf-gpag:last-child{box-shadow:none;border-radius:0}
+ .sf-gpag:first-child{border-radius:6px 6px 0 0;border-bottom:1px solid rgba(92,72,42,.14)}
+ .sf-gpag:last-child{border-radius:0 0 6px 6px}
 }
 
 </style>
@@ -327,7 +365,7 @@ footer.sito a{color:var(--nebbia)}
     </div>
   </section>
 
-    <section class="sezione sfoglia">
+        <section class="sezione sfoglia">
     <h2>Kijk binnenin: de eerste bladzijde</h2>
     <div class="sfoglia-scena">
       <div class="sfoglia-cop">
@@ -346,26 +384,72 @@ footer.sito a{color:var(--nebbia)}
           <p>Aveva un cappello vecchio, una giacca larga, e le scarpe rotte. Non era di Venezia. Veniva da Bergamo.</p>
           <p>Si chiamava Truffaldino. Era un <b class="sf-kw">servitore</b> senza <b class="sf-kw">padrone</b>.<sup>1</sup></p>
           <p>La fame gli faceva rumore nello stomaco. Camminava da tre giorni, e in tre giorni aveva mangiato solo mezzo pane.</p>
-          <p>«Se non trovo lavoro oggi,» diceva fra sé, «stasera non mangio nemmeno l’aria.»</p>
         </div>
         <p class="sf-gloss"><span class="sf-kw">servitore</span> = servant &#183; <span class="sf-kw">padrone</span> = master</p>
         <div class="sf-note">
           <p class="sf-nota"><sup>1</sup> Nel Settecento «bergamasco» era quasi un mestiere: gli uomini di Bergamo andavano nelle grandi città a fare i servitori. Nelle commedie erano sempre affamati e sempre furbi. Truffaldino è la maschera bergamasca per eccellenza — Goldoni la eredita dalla commedia dell’arte e la trasforma in un personaggio vero.</p>
         </div>
-        <p class="sf-piede"><span>Hoofdstuk 1 · ERK B1 · 74 woorden uit de echte tekst</span><a href="https://www.amazon.nl/dp/B0H9V6J95N" target="_blank" rel="noopener">Verder lezen op Amazon →</a></p>
+        <p class="sf-piede"><span>Hoofdstuk 1 · ERK B1 · 61 woorden uit de echte tekst</span><a href="https://www.amazon.nl/dp/B0H9V6J95N" target="_blank" rel="noopener">Verder lezen op Amazon →</a></p>
+      </div>
+    </div>
+  </section>
+
+    <section class="sezione">
+    <div class="sf-2col">
+      <div>
+<h2>Waar gaat Il servitore di due padroni over?</h2>
+    <p>Venetië. De bediende Truffaldino, altijd hongerig en altijd op zoek naar een muntje, krijgt een geniaal idee: twee meesters tegelijk dienen, zonder dat een van beiden het weet. Jammer alleen dat die twee meesters Beatrice zijn, vermomd als man, en Florindo, de geliefde die zij zoekt.</p><p>Tussen verwisselde brieven, verhaspelde koffers en één diner dat aan twee tafels tegelijk wordt geserveerd, stapelen de misverstanden zich op tot de grote finale. Goldoni's beroemdste komedie, hier bewerkt in verhaalvorm voor wie Italiaans leert.</p>
+      </div>
+      <div>
+<h2>Waarom Il servitore di due padroni lezen om Italiaans te leren</h2>
+    <p>Komedie leeft van korte zinnen en snelle woordenwisselingen: perfect materiaal voor spreektaal en om je oor te trainen op het ritme van de dialoog. De misverstanden dwingen je precies te volgen wie wat tegen wie zegt — een begripsoefening vermomd als plezier.</p>
       </div>
     </div>
   </section>
 
   <section class="sezione">
-    <h2>Waar gaat Il servitore di due padroni over?</h2>
-    <p>Venetië. De bediende Truffaldino, altijd hongerig en altijd op zoek naar een muntje, krijgt een geniaal idee: twee meesters tegelijk dienen, zonder dat een van beiden het weet. Jammer alleen dat die twee meesters Beatrice zijn, vermomd als man, en Florindo, de geliefde die zij zoekt.</p><p>Tussen verwisselde brieven, verhaspelde koffers en één diner dat aan twee tafels tegelijk wordt geserveerd, stapelen de misverstanden zich op tot de grote finale. Goldoni's beroemdste komedie, hier bewerkt in verhaalvorm voor wie Italiaans leert.</p>
+    <h2>In de woordenlijst</h2>
+        <div class="sf-gspread">
+      <div class="sf-gpag">
+        <p class="sf-gtit">Woordenlijst</p>
+        <p class="sf-gint">De kernwoorden van de roman, op alfabet. Eerst de Italiaanse definitie, dan de Engelse, dan wat het woord in dit verhaal betekent.</p>
+        <dl>
+          <dt><b lang="it">affare</b> &middot; <i lang="en">business deal</i> <span>(sin. faccenda, contratto)</span></dt>
+          <dd lang="it">Una faccenda di soldi, un contratto fra due persone.</dd>
+          <dd class="en" lang="en">A matter of money or a contract between two people.</dd>
+          <dd class="nota" lang="en">In the novel: For Pantalone everything is business, even his daughter’s marriage: promising Clarice to Federigo Rasponi as a child had been “a good deal”, and it remains a good deal now. The book does not call him wicked for it — it only says that in his world, this is how people reason.</dd>
+          <dt><b lang="it">astuzia</b> &middot; <i lang="en">cunning</i> <span>(sin. furbizia, scaltrezza)</span></dt>
+          <dd lang="it">L’intelligenza pratica di chi trova subito una soluzione, anche disonesta.</dd>
+          <dd class="en" lang="en">The practical intelligence of someone who finds a quick solution, even a dishonest one.</dd>
+          <dd class="nota" lang="en">In the novel: Truffaldino is not an educated man, but he is cunning: he invents excuses, changes his story, saves the scene. His cunning is not the cunning of the powerful — it is that of a man who has nothing and must stay on his feet with his tongue.</dd>
+          <dt><b lang="it">bacio</b> &middot; <i lang="en">kiss</i> <span>(sin. abbraccio delle labbra, tenerezza)</span></dt>
+          <dd lang="it">Il contatto delle labbra con la pelle di un’altra persona.</dd>
+          <dd class="en" lang="en">The touch of the lips on another person’s skin.</dd>
+          <dd class="nota" lang="en">In the novel: In the book kisses are always denied, never given on stage: Beatrice cannot kiss Florindo because she is in disguise, Silvio does not kiss Clarice because they are quarrelling. Only in the finale — and not even in writing, but implied — do the kisses arrive. It is the theatrical delicacy of the eighteenth century: suggested, not shown.</dd>
+        </dl>
+      </div>
+      <div class="sf-gpag">
+        <dl>
+          <dt><b lang="it">baule</b> &middot; <i lang="en">trunk</i> <span>(sin. cassa, cofano)</span></dt>
+          <dd lang="it">Una grande cassa di legno con il coperchio, che si usa per portare i vestiti in viaggio.</dd>
+          <dd class="en" lang="en">A large wooden chest with a lid, used to carry clothes on a journey.</dd>
+          <dd class="nota" lang="en">In the novel: The two trunks — Beatrice’s and Florindo’s — are the comic device of the book. In Brighella’s inn they are identical outside and different inside. Truffaldino opens both, puts one thing into the other, and from there come the two final twists: the portrait and the prayer book.</dd>
+          <dt><b lang="it">bugia</b> &middot; <i lang="en">lie</i> <span>(sin. menzogna, frottola)</span></dt>
+          <dd lang="it">Una cosa detta che non è vera.</dd>
+          <dd class="en" lang="en">Something said that is not true.</dd>
+          <dd class="nota" lang="en">In the novel: Truffaldino lies constantly, but his lies are always small and invented on the spot. He is not a liar by character: he is a liar by necessity, with two masters on his shoulders. Every time he tells one, you can see him already preparing the next.</dd>
+          <dt><b lang="it">cameriera</b> &middot; <i lang="en">maid</i> <span>(sin. domestica, serva)</span></dt>
+          <dd lang="it">Una donna pagata per fare i lavori di casa e servire a tavola.</dd>
+          <dd class="en" lang="en">A woman paid to do housework and wait at table.</dd>
+          <dd class="nota" lang="en">In the novel: Smeraldina is Clarice’s maid and in the book she is much more: she is the voice of the serving women of an eighteenth-century middle-class household. Her lines about men who promise and never deliver are the most modern satire Goldoni ever wrote.</dd>
+        </dl>
+        <p class="sf-gpie">De woordenlijst bevat in totaal 60 woorden</p>
+      </div>
+    </div>
   </section>
 
-  <section class="sezione">
-    <h2>Waarom Il servitore di due padroni lezen om Italiaans te leren</h2>
-    <p>Komedie leeft van korte zinnen en snelle woordenwisselingen: perfect materiaal voor spreektaal en om je oor te trainen op het ritme van de dialoog. De misverstanden dwingen je precies te volgen wie wat tegen wie zegt — een begripsoefening vermomd als plezier.</p>
-  </section>
+
+  
 </div>
 
 <section class="dentro">
@@ -379,8 +463,8 @@ footer.sito a{color:var(--nebbia)}
   <section class="sezione">
     <h2>Taalfocus: wat je oefent</h2>
     <p>In deze editie op niveau B1 oefen je vooral de congiuntivo presente, de voorwaardelijke wijs, reële voorwaardelijke zinnen en verbindingswoorden. De woordenschat draait om eten, werk en komedie: de kernwoorden staan met vertaling in de woordenlijst hieronder en keren telkens terug in de tekst, zodat je ze in context leert.</p>
-    <h2 style="margin-top:26px">Basiswoordenlijst (Italiaans · Nederlands · Engels)</h2>
-    <div class="glossario-scorri"><table class="glossario"><thead><tr><th>Italiaans</th><th>Nederlands</th><th>Engels</th></tr></thead><tbody><tr><td>il servitore</td><td>de bediende</td><td>servant</td></tr><tr><td>il padrone</td><td>de meester</td><td>master</td></tr><tr><td>la fame</td><td>de honger</td><td>hunger</td></tr><tr><td>il travestimento</td><td>de vermomming</td><td>disguise</td></tr><tr><td>il baule</td><td>de koffer</td><td>trunk</td></tr><tr><td>la lettera</td><td>de brief</td><td>letter</td></tr><tr><td>l'equivoco</td><td>het misverstand</td><td>misunderstanding</td></tr><tr><td>il pranzo</td><td>de maaltijd</td><td>dinner</td></tr></tbody></table></div>
+    
+
   </section>
 
   <section class="sezione">
@@ -394,6 +478,9 @@ footer.sito a{color:var(--nebbia)}
   </section>
 
   <section class="faq">
+    <h2 style="margin-top:26px">Basiswoordenlijst (Italiaans · Nederlands · Engels)</h2>
+    <div class="glossario-scorri"><table class="glossario"><thead><tr><th>Italiaans</th><th>Nederlands</th><th>Engels</th></tr></thead><tbody><tr><td>il servitore</td><td>de bediende</td><td>servant</td></tr><tr><td>il padrone</td><td>de meester</td><td>master</td></tr><tr><td>la fame</td><td>de honger</td><td>hunger</td></tr><tr><td>il travestimento</td><td>de vermomming</td><td>disguise</td></tr><tr><td>il baule</td><td>de koffer</td><td>trunk</td></tr><tr><td>la lettera</td><td>de brief</td><td>letter</td></tr><tr><td>l'equivoco</td><td>het misverstand</td><td>misunderstanding</td></tr><tr><td>il pranzo</td><td>de maaltijd</td><td>dinner</td></tr></tbody></table></div>
+
     <h2>Veelgestelde vragen</h2>
   <details>
     <summary>Welk niveau Italiaans heb ik nodig voor Il servitore di due padroni?</summary>

@@ -127,18 +127,18 @@ footer.sito a{color:var(--nebbia)}
 
 /* ===== Prima pagina del libro ===== */
 .sfoglia{margin:40px 0 46px}
-.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);
  gap:0;align-items:stretch;perspective:2200px;perspective-origin:70% 46%}
 .sfoglia-cop{position:relative;border-radius:5px 3px 3px 5px;overflow:hidden;
- transform-origin:right center;
+ align-self:start;aspect-ratio:800/1280;transform-origin:right center;
  box-shadow:0 24px 46px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
  transform:rotateY(-42deg);animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both}
-.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:cover;object-position:left center}
+.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:fill}
 .sfoglia-cop::after{content:"";position:absolute;inset:0;pointer-events:none;
  background:linear-gradient(90deg,rgba(0,0,0,.34),rgba(0,0,0,0) 26%,rgba(255,255,255,.12))}
 @keyframes sf-apri{from{transform:rotateY(-16deg)}to{transform:rotateY(-42deg)}}
 
-.sfoglia-foglio{position:relative;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
+.sfoglia-foglio{position:relative;align-self:stretch;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
  box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42),0 18px 38px -18px rgba(20,24,38,.32);
  animation:sf-posa 1.7s cubic-bezier(.18,.9,.24,1) .5s both}
@@ -176,9 +176,12 @@ footer.sito a{color:var(--nebbia)}
 .sf-piede a{color:#8a6a2f;font-weight:600;text-decoration:none}
 .sf-piede a:hover{text-decoration:underline}
 
+.sf-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px 34px;align-items:start}
+.sf-2col>div>h2{margin-top:0}
 @media (max-width:820px){
+ .sf-2col{grid-template-columns:1fr;gap:0}
  .sfoglia-scena{grid-template-columns:1fr;gap:20px;perspective:none}
- .sfoglia-cop{max-width:190px;margin:0 auto;transform:none;animation:none}
+ .sfoglia-cop{max-width:190px;margin:0 auto;transform:none;animation:none;aspect-ratio:auto}
  .sfoglia-foglio{padding:22px 20px 16px;border-radius:8px;animation:none;
   box-shadow:0 14px 28px -16px rgba(20,24,38,.3)}
  .sfoglia-foglio::after{display:none}
@@ -187,6 +190,41 @@ footer.sito a{color:var(--nebbia)}
  .sfoglia-cop{animation:none;transform:rotateY(-42deg)}
  .sfoglia-foglio{animation:none}
  .sfoglia-foglio::before{animation:none;opacity:0}
+}
+
+/* ---- Doppia pagina: il glossario del libro ---- */
+.sf-gspread{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:22px 0 0;
+ border-radius:3px;overflow:hidden;
+ box-shadow:0 18px 38px -18px rgba(20,24,38,.3)}
+.sf-gpag{padding:26px 26px 22px;
+ background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%)}
+.sf-gpag:first-child{border-radius:2px 0 0 2px;
+ box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gpag:last-child{border-radius:0 2px 2px 0;
+ box-shadow:inset 14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gtit{margin:0;text-align:center;font-family:Fraunces,Georgia,serif;
+ font-size:1.18rem;font-weight:600;color:#2a2a2f}
+.sf-gint{margin:8px 0 18px;font-size:.83rem;font-style:italic;line-height:1.6;
+ color:#7a6b53;text-align:center}
+.sf-gspread dl{margin:0}
+.sf-gspread dt{margin:0 0 3px;font-family:"Source Serif 4",Georgia,serif;font-size:.99rem}
+.sf-gspread dt b{color:#1F2529}
+.sf-gspread dt i{color:#326778;font-weight:600}
+.sf-gspread dt span{font-size:.84em;color:#8a7f6b;font-style:italic}
+.sf-gspread dd{margin:0;font-family:"Source Serif 4",Georgia,serif;
+ font-size:.92rem;line-height:1.58;color:#2b2b30}
+.sf-gspread dd.en{color:#5f6b72}
+.sf-gspread dd.nota{margin:3px 0 16px;font-style:italic;font-size:.86rem;
+ line-height:1.55;color:#55606a}
+.sf-gspread dd:last-child{margin-bottom:0}
+.sf-gpie{margin:16px 0 0;padding-top:11px;border-top:1px solid rgba(92,72,42,.16);
+ font-size:.79rem;letter-spacing:.02em;color:#8a7f6b;text-align:center}
+@media (max-width:820px){
+ .sf-gspread{grid-template-columns:1fr;box-shadow:0 12px 26px -16px rgba(20,24,38,.3)}
+ .sf-gpag{padding:20px 18px}
+ .sf-gpag:first-child,.sf-gpag:last-child{box-shadow:none;border-radius:0}
+ .sf-gpag:first-child{border-radius:6px 6px 0 0;border-bottom:1px solid rgba(92,72,42,.14)}
+ .sf-gpag:last-child{border-radius:0 0 6px 6px}
 }
 
 </style>
@@ -327,7 +365,7 @@ footer.sito a{color:var(--nebbia)}
     </div>
   </section>
 
-    <section class="sezione sfoglia">
+        <section class="sezione sfoglia">
     <h2>Look inside: the first page</h2>
     <div class="sfoglia-scena">
       <div class="sfoglia-cop">
@@ -344,27 +382,72 @@ footer.sito a{color:var(--nebbia)}
         <div class="sf-corpo" lang="it">
           <p>Il sole di novembre stava calando dietro le montagne, e don Abbondio scendeva verso il paese leggendo il suo breviario.</p>
           <p>Il curato di Lecco camminava piano, come faceva ogni sera, borbottando le preghiere e pensando ai fatti suoi. La strada era stretta e deserta. In fondo, dove il sentiero piegava a destra, si vedevano due uomini fermi ai due lati della via.<sup>1</sup></p>
-          <p>Don Abbondio alzò gli occhi dal libro e li richiuse subito. Ma li aveva visti bene: due <b class="sf-kw">bravi</b>.</p>
-          <p>Erano vestiti con la casacca corta e i calzoni legati al ginocchio, e portavano ognuno un lungo archibugio in spalla. Chi non li avesse riconosciuti dall’aria, li avrebbe riconosciuti dal ciuffo di capelli lunghi che scendeva dietro l’orecchio.</p>
         </div>
         <p class="sf-gloss"><span class="sf-kw">bravi</span> = bravi, hired thugs</p>
         <div class="sf-note">
           <p class="sf-nota"><sup>1</sup> Sono le prime righe del romanzo, ed è la prima scena che ogni italiano ricorda a memoria. Manzoni non spiega chi siano i bravi: li descrive. E se lo studente non lo sa, la parola apre una scheda — che è meglio di una nota a piè di pagina lunga tre righe.</p>
         </div>
-        <p class="sf-piede"><span>Chapter 1 · CEFR B2 · 118 words of the real text</span><a href="https://www.amazon.com/dp/B0H9P9QVSK" target="_blank" rel="noopener">Keep reading on Amazon →</a></p>
+        <p class="sf-piede"><span>Chapter 1 · CEFR B2 · 62 words of the real text</span><a href="https://www.amazon.com/dp/B0H9P9QVSK" target="_blank" rel="noopener">Keep reading on Amazon →</a></p>
+      </div>
+    </div>
+  </section>
+
+    <section class="sezione">
+    <div class="sf-2col">
+      <div>
+<h2>The plot of I promessi sposi</h2>
+    <p>Lombardy, 1628. Renzo and Lucia are about to marry, but the bullying don Rodrigo prevents it on a whim, and the timid don Abbondio refuses to celebrate the wedding. So begins a long separation that will carry the betrothed couple through riots, convents and flights.</p><p>In the background, Milan in famine and plague, the Unnamed and his conversion, Father Cristoforo and the justice of the powerful. The founding novel of modern Italian literature, here in an accessible version that keeps its greatness intact.</p>
+      </div>
+      <div>
+<h2>Why read I promessi sposi to learn Italian</h2>
+    <p>This is the novel every Italian read at school: knowing it means sharing a piece of common culture and understanding countless everyday quotations. Indirect speech and complex sentences come in controlled doses, true B2 material.</p>
       </div>
     </div>
   </section>
 
   <section class="sezione">
-    <h2>The plot of I promessi sposi</h2>
-    <p>Lombardy, 1628. Renzo and Lucia are about to marry, but the bullying don Rodrigo prevents it on a whim, and the timid don Abbondio refuses to celebrate the wedding. So begins a long separation that will carry the betrothed couple through riots, convents and flights.</p><p>In the background, Milan in famine and plague, the Unnamed and his conversion, Father Cristoforo and the justice of the powerful. The founding novel of modern Italian literature, here in an accessible version that keeps its greatness intact.</p>
+    <h2>Inside the glossary</h2>
+        <div class="sf-gspread">
+      <div class="sf-gpag">
+        <p class="sf-gtit">Glossary</p>
+        <p class="sf-gint">The key words of the novel, in alphabetical order. Italian definition first, then the English, then what the word means inside this story.</p>
+        <dl>
+          <dt><b lang="it">bravi</b> &middot; <i lang="en">bravi, hired thugs</i> <span>(sin. scherani, sicari)</span></dt>
+          <dd lang="it">Nel Seicento, uomini armati al servizio di un signore, pagati per proteggerlo, minacciare o eliminare i suoi nemici.</dd>
+          <dd class="en" lang="en">In 17th-century Italy, armed men in the pay of a lord, hired to intimidate or kill his enemies.</dd>
+          <dd class="nota" lang="en">In the novel: They are not soldiers, and they are not bandits: they are the private guard of the small provincial lords, who act with complete impunity. The opening scene of the novel — two bravi waiting for Don Abbondio on the road — sets up the whole system in a single image: quiet, technically illegal, in practice untouchable.</dd>
+          <dt><b lang="it">calunnia</b> &middot; <i lang="en">slander, calumny</i> <span>(sin. diffamazione, menzogna)</span></dt>
+          <dd lang="it">L’accusa falsa fatta a qualcuno per rovinargli la reputazione o cacciarlo nei guai.</dd>
+          <dd class="en" lang="en">A false accusation made to ruin someone’s reputation.</dd>
+          <dd class="nota" lang="en">In the novel: Renzo suffers it in Milan: from one moment to the next he becomes a dangerous leader of the mob, with a warrant out for his arrest. Manzoni devotes many pages to the mechanism — how a slander is built, how it runs faster than truth, how nearly impossible it is to clean it off. Read today, the pages sound familiar.</dd>
+          <dt><b lang="it">carestia</b> &middot; <i lang="en">famine</i> <span>(sin. fame, penuria)</span></dt>
+          <dd lang="it">Una grave mancanza di cibo che si prolunga per mesi, portando la popolazione alla fame.</dd>
+          <dd class="en" lang="en">A grave shortage of food that lasts for months.</dd>
+          <dd class="nota" lang="en">In the novel: Milan was hit hard by it in 1628, and Renzo runs into it in the middle of his flight. Famine in Manzoni is not a background: it is a character — the one that drives the crowd to break open the bakeries, and the one that will get Renzo mistaken for a revolutionary.</dd>
+        </dl>
+      </div>
+      <div class="sf-gpag">
+        <dl>
+          <dt><b lang="it">conversione</b> &middot; <i lang="en">conversion</i> <span>(sin. ravvedimento, trasformazione)</span></dt>
+          <dd lang="it">Il cambiamento radicale e definitivo di vita e di fede: da chi si era a chi si diventa dopo aver visto qualcosa che non si potrà più dimenticare.</dd>
+          <dd class="en" lang="en">A radical and final change of life and of faith.</dd>
+          <dd class="nota" lang="en">In the novel: It is the secret heart of the novel. Fra Cristoforo was converted in his youth, after a duel. The Innominato will be converted in a single night, and that night is perhaps the most famous chapter in all of Italian narrative. Manzoni tells it without rhetoric: how the whole scaffolding a man has built around himself collapses, from the inside.</dd>
+          <dt><b lang="it">coscienza</b> &middot; <i lang="en">conscience</i> <span>(sin. senso morale, interiorità)</span></dt>
+          <dd lang="it">La voce interiore che dice cosa è bene e cosa è male, e che tormenta chi non l’ha ascoltata.</dd>
+          <dd class="en" lang="en">The inner voice that tells us what is right and what is wrong.</dd>
+          <dd class="nota" lang="en">In the novel: It is the great hidden character of the novel. Don Abbondio silences it, Don Rodrigo ignores it, the Innominato meets it one night and does not recognize it, Federigo has it speak to everyone. For Manzoni conscience was the part of God inside man — and in this book he says so, without ever pronouncing the name.</dd>
+          <dt><b lang="it">dominazione</b> &middot; <i lang="en">domination, foreign rule</i> <span>(sin. occupazione, sovranità)</span></dt>
+          <dd lang="it">Il controllo politico e militare esercitato da uno Stato straniero su una terra che non è sua.</dd>
+          <dd class="en" lang="en">Political and military control of a foreign state over a land not its own.</dd>
+          <dd class="nota" lang="en">In the novel: In 1628 Lombardy had been under Spanish rule for a century. Manzoni describes it without ideology: a distant, indifferent power that issues edicts against the bravi and never enforces them. His critique is not patriotic — it is civic: a State that does not deliver justice is not a State.</dd>
+        </dl>
+        <p class="sf-gpie">The glossary contains 31 entries in all</p>
+      </div>
+    </div>
   </section>
 
-  <section class="sezione">
-    <h2>Why read I promessi sposi to learn Italian</h2>
-    <p>This is the novel every Italian read at school: knowing it means sharing a piece of common culture and understanding countless everyday quotations. Indirect speech and complex sentences come in controlled doses, true B2 material.</p>
-  </section>
+
+  
 </div>
 
 <section class="dentro">
@@ -378,8 +461,8 @@ footer.sito a{color:var(--nebbia)}
   <section class="sezione">
     <h2>Language focus: what you practise</h2>
     <p>In this level-B2 edition you mainly practise the imperfect and past subjunctive, hypothetical clauses of possibility, the passive and indirect speech. The vocabulary revolves around history, religion and society: the key words, with translations, are in the glossary below and recur throughout the text, so you learn them in context.</p>
-    <h2 style="margin-top:26px">Essential glossary (Italian · English · Dutch)</h2>
-    <div class="glossario-scorri"><table class="glossario"><thead><tr><th>Italian</th><th>English</th><th>Dutch</th></tr></thead><tbody><tr><td>il matrimonio</td><td>wedding</td><td>het huwelijk</td></tr><tr><td>la peste</td><td>plague</td><td>de pest</td></tr><tr><td>il curato</td><td>parish priest</td><td>de pastoor</td></tr><tr><td>il convento</td><td>convent</td><td>het klooster</td></tr><tr><td>la carestia</td><td>famine</td><td>de hongersnood</td></tr><tr><td>il prepotente</td><td>bully</td><td>de tiran</td></tr><tr><td>la conversione</td><td>conversion</td><td>de bekering</td></tr><tr><td>la provvidenza</td><td>providence</td><td>de voorzienigheid</td></tr></tbody></table></div>
+    
+
   </section>
 
   <section class="sezione">
@@ -393,6 +476,9 @@ footer.sito a{color:var(--nebbia)}
   </section>
 
   <section class="faq">
+    <h2 style="margin-top:26px">Essential glossary (Italian · English · Dutch)</h2>
+    <div class="glossario-scorri"><table class="glossario"><thead><tr><th>Italian</th><th>English</th><th>Dutch</th></tr></thead><tbody><tr><td>il matrimonio</td><td>wedding</td><td>het huwelijk</td></tr><tr><td>la peste</td><td>plague</td><td>de pest</td></tr><tr><td>il curato</td><td>parish priest</td><td>de pastoor</td></tr><tr><td>il convento</td><td>convent</td><td>het klooster</td></tr><tr><td>la carestia</td><td>famine</td><td>de hongersnood</td></tr><tr><td>il prepotente</td><td>bully</td><td>de tiran</td></tr><tr><td>la conversione</td><td>conversion</td><td>de bekering</td></tr><tr><td>la provvidenza</td><td>providence</td><td>de voorzienigheid</td></tr></tbody></table></div>
+
     <h2>Frequently asked questions</h2>
   <details>
     <summary>What level of Italian do I need to read I promessi sposi?</summary>

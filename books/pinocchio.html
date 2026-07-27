@@ -127,18 +127,18 @@ footer.sito a{color:var(--nebbia)}
 
 /* ===== Prima pagina del libro ===== */
 .sfoglia{margin:40px 0 46px}
-.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);
  gap:0;align-items:stretch;perspective:2200px;perspective-origin:70% 46%}
 .sfoglia-cop{position:relative;border-radius:5px 3px 3px 5px;overflow:hidden;
- transform-origin:right center;
+ align-self:start;aspect-ratio:800/1280;transform-origin:right center;
  box-shadow:0 24px 46px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
  transform:rotateY(-42deg);animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both}
-.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:cover;object-position:left center}
+.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:fill}
 .sfoglia-cop::after{content:"";position:absolute;inset:0;pointer-events:none;
  background:linear-gradient(90deg,rgba(0,0,0,.34),rgba(0,0,0,0) 26%,rgba(255,255,255,.12))}
 @keyframes sf-apri{from{transform:rotateY(-16deg)}to{transform:rotateY(-42deg)}}
 
-.sfoglia-foglio{position:relative;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
+.sfoglia-foglio{position:relative;align-self:stretch;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
  box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42),0 18px 38px -18px rgba(20,24,38,.32);
  animation:sf-posa 1.7s cubic-bezier(.18,.9,.24,1) .5s both}
@@ -176,9 +176,12 @@ footer.sito a{color:var(--nebbia)}
 .sf-piede a{color:#8a6a2f;font-weight:600;text-decoration:none}
 .sf-piede a:hover{text-decoration:underline}
 
+.sf-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px 34px;align-items:start}
+.sf-2col>div>h2{margin-top:0}
 @media (max-width:820px){
+ .sf-2col{grid-template-columns:1fr;gap:0}
  .sfoglia-scena{grid-template-columns:1fr;gap:20px;perspective:none}
- .sfoglia-cop{max-width:190px;margin:0 auto;transform:none;animation:none}
+ .sfoglia-cop{max-width:190px;margin:0 auto;transform:none;animation:none;aspect-ratio:auto}
  .sfoglia-foglio{padding:22px 20px 16px;border-radius:8px;animation:none;
   box-shadow:0 14px 28px -16px rgba(20,24,38,.3)}
  .sfoglia-foglio::after{display:none}
@@ -187,6 +190,41 @@ footer.sito a{color:var(--nebbia)}
  .sfoglia-cop{animation:none;transform:rotateY(-42deg)}
  .sfoglia-foglio{animation:none}
  .sfoglia-foglio::before{animation:none;opacity:0}
+}
+
+/* ---- Doppia pagina: il glossario del libro ---- */
+.sf-gspread{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:22px 0 0;
+ border-radius:3px;overflow:hidden;
+ box-shadow:0 18px 38px -18px rgba(20,24,38,.3)}
+.sf-gpag{padding:26px 26px 22px;
+ background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%)}
+.sf-gpag:first-child{border-radius:2px 0 0 2px;
+ box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gpag:last-child{border-radius:0 2px 2px 0;
+ box-shadow:inset 14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gtit{margin:0;text-align:center;font-family:Fraunces,Georgia,serif;
+ font-size:1.18rem;font-weight:600;color:#2a2a2f}
+.sf-gint{margin:8px 0 18px;font-size:.83rem;font-style:italic;line-height:1.6;
+ color:#7a6b53;text-align:center}
+.sf-gspread dl{margin:0}
+.sf-gspread dt{margin:0 0 3px;font-family:"Source Serif 4",Georgia,serif;font-size:.99rem}
+.sf-gspread dt b{color:#1F2529}
+.sf-gspread dt i{color:#326778;font-weight:600}
+.sf-gspread dt span{font-size:.84em;color:#8a7f6b;font-style:italic}
+.sf-gspread dd{margin:0;font-family:"Source Serif 4",Georgia,serif;
+ font-size:.92rem;line-height:1.58;color:#2b2b30}
+.sf-gspread dd.en{color:#5f6b72}
+.sf-gspread dd.nota{margin:3px 0 16px;font-style:italic;font-size:.86rem;
+ line-height:1.55;color:#55606a}
+.sf-gspread dd:last-child{margin-bottom:0}
+.sf-gpie{margin:16px 0 0;padding-top:11px;border-top:1px solid rgba(92,72,42,.16);
+ font-size:.79rem;letter-spacing:.02em;color:#8a7f6b;text-align:center}
+@media (max-width:820px){
+ .sf-gspread{grid-template-columns:1fr;box-shadow:0 12px 26px -16px rgba(20,24,38,.3)}
+ .sf-gpag{padding:20px 18px}
+ .sf-gpag:first-child,.sf-gpag:last-child{box-shadow:none;border-radius:0}
+ .sf-gpag:first-child{border-radius:6px 6px 0 0;border-bottom:1px solid rgba(92,72,42,.14)}
+ .sf-gpag:last-child{border-radius:0 0 6px 6px}
 }
 
 </style>
@@ -327,7 +365,7 @@ footer.sito a{color:var(--nebbia)}
     </div>
   </section>
 
-    <section class="sezione sfoglia">
+        <section class="sezione sfoglia">
     <h2>Look inside: the first page</h2>
     <div class="sfoglia-scena">
       <div class="sfoglia-cop">
@@ -346,33 +384,72 @@ footer.sito a{color:var(--nebbia)}
           <p>Non era un legno per fare mobili. Era un pezzo per il fuoco dell’inverno.</p>
           <p>Un giorno il legno arriva da un vecchio <b class="sf-kw">falegname</b>. Il falegname si chiama mastr’Antonio. Ma tutti lo chiamano maestro Ciliegia.<sup>1</sup></p>
           <p>Perché? Perché la punta del suo naso è rossa.</p>
-          <p>Maestro Ciliegia guarda il <b class="sf-kw">legno</b>.</p>
-          <p>«Bene! Voglio fare una gamba di tavolino.»</p>
-          <p>Prende una scure. Alza il braccio. Ma prima di colpire, sente una piccola voce.</p>
-          <p>«Non picchiare forte!»</p>
-          <p>Il <b class="sf-kw">falegname</b> si guarda intorno. Non c’è nessuno.<sup>2</sup></p>
-          <p>«Ho capito,» pensa. «Ho un sogno.»</p>
-          <p>Prende in mano il pezzo di legno. È tanto strano. Il legno è caldo, come una mano.</p>
         </div>
         <p class="sf-gloss"><span class="sf-kw">legno</span> = wood &#183; <span class="sf-kw">falegname</span> = carpenter</p>
         <div class="sf-note">
           <p class="sf-nota"><sup>1</sup> In un paese italiano dell’Ottocento tutti avevano un soprannome. Maestro Ciliegia lo chiamano così per il naso rosso. Nella pagina di dopo scoprirai il soprannome di Geppetto — e nel libro, chiamare qualcuno col soprannome sbagliato è una cosa seria.</p>
-          <p class="sf-nota"><sup>2</sup> Il libro comincia con una cosa impossibile — un pezzo di legno che parla — e la racconta come normale. È la regola delle favole italiane: la magia si mette nella prima pagina, così tutto quello che viene dopo diventa possibile.</p>
         </div>
-        <p class="sf-piede"><span>Chapter 1 · CEFR A2 · 110 words of the real text</span><a href="https://www.amazon.com/dp/B0H9P9P6G3" target="_blank" rel="noopener">Keep reading on Amazon →</a></p>
+        <p class="sf-piede"><span>Chapter 1 · CEFR A2 · 50 words of the real text</span><a href="https://www.amazon.com/dp/B0H9P9P6G3" target="_blank" rel="noopener">Keep reading on Amazon →</a></p>
+      </div>
+    </div>
+  </section>
+
+    <section class="sezione">
+    <div class="sf-2col">
+      <div>
+<h2>The plot of Le avventure di Pinocchio</h2>
+    <p>The carpenter Geppetto carves a wooden puppet that talks, laughs and runs away: his name is Pinocchio, and he wants to become a real boy. But the road is full of temptations: the Cat and the Fox, the Land of Toys, Mangiafoco's puppet theatre.</p><p>Between lies that make his nose grow, encounters with the Fairy with turquoise hair and the belly of a giant dogfish, Pinocchio learns the hard way what courage, work and love for those who care about us really mean.</p>
+      </div>
+      <div>
+<h2>Why read Le avventure di Pinocchio to learn Italian</h2>
+    <p>You already know the story, and that's a huge advantage: comprehension is supported by memory. Lively dialogues and repeating structures («Pinocchio, don't tell lies!») act as natural drills, with concrete vocabulary of objects and animals.</p>
       </div>
     </div>
   </section>
 
   <section class="sezione">
-    <h2>The plot of Le avventure di Pinocchio</h2>
-    <p>The carpenter Geppetto carves a wooden puppet that talks, laughs and runs away: his name is Pinocchio, and he wants to become a real boy. But the road is full of temptations: the Cat and the Fox, the Land of Toys, Mangiafoco's puppet theatre.</p><p>Between lies that make his nose grow, encounters with the Fairy with turquoise hair and the belly of a giant dogfish, Pinocchio learns the hard way what courage, work and love for those who care about us really mean.</p>
+    <h2>Inside the glossary</h2>
+        <div class="sf-gspread">
+      <div class="sf-gpag">
+        <p class="sf-gtit">Glossary</p>
+        <p class="sf-gint">The key words of the novel, in alphabetical order. Italian definition first, then the English, then what the word means inside this story.</p>
+        <dl>
+          <dt><b lang="it">abbecedario</b> &middot; <i lang="en">ABC book, primer</i> <span>(sin. libretto, sillabario)</span></dt>
+          <dd lang="it">Il primo libro dei bambini, con le lettere e le parole per imparare a leggere.</dd>
+          <dd class="en" lang="en">A book with which children learn to read the first letters and words.</dd>
+          <dd class="nota" lang="en">In the novel: Geppetto sells his coat — in the depth of winter — to buy Pinocchio the primer, and Pinocchio sells it in turn to go to the puppet theatre. It is the act that ruins everything, and it is told in two lines. In 1883 the primer was the first book a poor child ever held, and an old man’s coat in winter was life itself. Collodi doesn’t explain: he expects the reader to understand.</dd>
+          <dt><b lang="it">bosco</b> &middot; <i lang="en">woods, forest</i> <span>(sin. foresta, selva)</span></dt>
+          <dd lang="it">Un posto con molti alberi vicini.</dd>
+          <dd class="en" lang="en">A place with many trees, where plants grow and wild animals live.</dd>
+          <dd class="nota" lang="en">In the novel: In Pinocchio the wood is where the bad things happen: the assassins, the rope on the Great Oak, the closed white house. In Italian fairy tale the wood is always where the child gets lost and comes out someone else. Little Red Riding Hood, Hansel and Gretel, Pinocchio — they go in as children, they come out changed. It is the world outside the front door.</dd>
+          <dt><b lang="it">bugia</b> &middot; <i lang="en">lie</i> <span>(sin. menzogna, falsità)</span></dt>
+          <dd lang="it">Una cosa non vera che si dice a qualcuno.</dd>
+          <dd class="en" lang="en">Something untrue told to someone to hide the truth.</dd>
+          <dd class="nota" lang="en">In the novel: In this book lies aren’t a detail — they are the way Pinocchio gets himself into trouble, every time. And the book does an odd thing with them: it makes them VISIBLE. The nose grows, everyone sees, nothing can be hidden. It is a fairy-tale punishment, comic and cruel at once: in the real world lies don’t show on your face, and perhaps that is why we tell so many.</dd>
+        </dl>
+      </div>
+      <div class="sf-gpag">
+        <dl>
+          <dt><b lang="it">burattino</b> &middot; <i lang="en">puppet</i> <span>(sin. pupazzo, marionetta)</span></dt>
+          <dd lang="it">Un pupazzo di legno che si muove con i fili o con la mano.</dd>
+          <dd class="en" lang="en">A small figure made of wood or cloth that moves with hands or strings.</dd>
+          <dd class="nota" lang="en">In the novel: The word of the title, and the word of the book. Pinocchio isn’t a boy who behaves like a puppet — he IS a puppet, of wood, who wants to become a boy. The whole book lives in that difference. A wooden figure that wants to be alive, and to be alive it must learn the things the living have to learn: obeying, working, telling the truth.</dd>
+          <dt><b lang="it">capriccio</b> &middot; <i lang="en">whim, tantrum</i> <span>(sin. voglia, sfizio)</span></dt>
+          <dd lang="it">Il volere una cosa solo perché la si vuole, senza motivo.</dd>
+          <dd class="en" lang="en">A sudden desire without reason, often of a child.</dd>
+          <dd class="nota" lang="en">In the novel: Pinocchio is full of whims — he wants pears without the skin, wants the theatre instead of school, wants the Land of Toys. And Geppetto almost always gives in. The book doesn’t blame the child: it blames the whim itself — which is never satisfied, and always asks for more. A boy who has been given everything still wants the Land of Toys.</dd>
+          <dt><b lang="it">ciuchino</b> &middot; <i lang="en">little donkey</i> <span>(sin. asino, somaro)</span></dt>
+          <dd lang="it">Un piccolo asino, di solito grigio, con le orecchie lunghe.</dd>
+          <dd class="en" lang="en">A small grey animal with long ears, that carries loads and walks slowly.</dd>
+          <dd class="nota" lang="en">In the novel: In the Land of Toys, lazy children turn into little donkeys — and Collodi doesn’t say this as a joke. A donkey, in Tuscany in 1883, was the animal that worked all day for its master, that was beaten, and that in the end was sold to have its skin made into a drum. Becoming a donkey means becoming a tool in someone else’s hands. It is the worst punishment in the book.</dd>
+        </dl>
+        <p class="sf-gpie">The glossary contains 26 entries in all</p>
+      </div>
+    </div>
   </section>
 
-  <section class="sezione">
-    <h2>Why read Le avventure di Pinocchio to learn Italian</h2>
-    <p>You already know the story, and that's a huge advantage: comprehension is supported by memory. Lively dialogues and repeating structures («Pinocchio, don't tell lies!») act as natural drills, with concrete vocabulary of objects and animals.</p>
-  </section>
+
+  
 </div>
 
 <section class="dentro">
@@ -386,8 +463,8 @@ footer.sito a{color:var(--nebbia)}
   <section class="sezione">
     <h2>Language focus: what you practise</h2>
     <p>In this level-A2 edition you mainly practise imperfetto versus passato prossimo, the simple future, direct and indirect pronouns. The vocabulary revolves around objects, animals and imagination: the key words, with translations, are in the glossary below and recur throughout the text, so you learn them in context.</p>
-    <h2 style="margin-top:26px">Essential glossary (Italian · English · Dutch)</h2>
-    <div class="glossario-scorri"><table class="glossario"><thead><tr><th>Italian</th><th>English</th><th>Dutch</th></tr></thead><tbody><tr><td>il burattino</td><td>puppet</td><td>de marionet</td></tr><tr><td>il falegname</td><td>carpenter</td><td>de timmerman</td></tr><tr><td>la bugia</td><td>lie</td><td>de leugen</td></tr><tr><td>il naso</td><td>nose</td><td>de neus</td></tr><tr><td>la fata</td><td>fairy</td><td>de fee</td></tr><tr><td>il grillo</td><td>cricket</td><td>de krekel</td></tr><tr><td>il pescecane</td><td>dogfish</td><td>de haai</td></tr><tr><td>il legno</td><td>wood</td><td>het hout</td></tr></tbody></table></div>
+    
+
   </section>
 
   <section class="sezione">
@@ -401,6 +478,9 @@ footer.sito a{color:var(--nebbia)}
   </section>
 
   <section class="faq">
+    <h2 style="margin-top:26px">Essential glossary (Italian · English · Dutch)</h2>
+    <div class="glossario-scorri"><table class="glossario"><thead><tr><th>Italian</th><th>English</th><th>Dutch</th></tr></thead><tbody><tr><td>il burattino</td><td>puppet</td><td>de marionet</td></tr><tr><td>il falegname</td><td>carpenter</td><td>de timmerman</td></tr><tr><td>la bugia</td><td>lie</td><td>de leugen</td></tr><tr><td>il naso</td><td>nose</td><td>de neus</td></tr><tr><td>la fata</td><td>fairy</td><td>de fee</td></tr><tr><td>il grillo</td><td>cricket</td><td>de krekel</td></tr><tr><td>il pescecane</td><td>dogfish</td><td>de haai</td></tr><tr><td>il legno</td><td>wood</td><td>het hout</td></tr></tbody></table></div>
+
     <h2>Frequently asked questions</h2>
   <details>
     <summary>What level of Italian do I need to read Le avventure di Pinocchio?</summary>

@@ -127,18 +127,18 @@ footer.sito a{color:var(--nebbia)}
 
 /* ===== Prima pagina del libro ===== */
 .sfoglia{margin:40px 0 46px}
-.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);
  gap:0;align-items:stretch;perspective:2200px;perspective-origin:70% 46%}
 .sfoglia-cop{position:relative;border-radius:5px 3px 3px 5px;overflow:hidden;
- transform-origin:right center;
+ align-self:start;aspect-ratio:800/1280;transform-origin:right center;
  box-shadow:0 24px 46px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
  transform:rotateY(-42deg);animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both}
-.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:cover;object-position:left center}
+.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:fill}
 .sfoglia-cop::after{content:"";position:absolute;inset:0;pointer-events:none;
  background:linear-gradient(90deg,rgba(0,0,0,.34),rgba(0,0,0,0) 26%,rgba(255,255,255,.12))}
 @keyframes sf-apri{from{transform:rotateY(-16deg)}to{transform:rotateY(-42deg)}}
 
-.sfoglia-foglio{position:relative;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
+.sfoglia-foglio{position:relative;align-self:stretch;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
  box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42),0 18px 38px -18px rgba(20,24,38,.32);
  animation:sf-posa 1.7s cubic-bezier(.18,.9,.24,1) .5s both}
@@ -176,9 +176,12 @@ footer.sito a{color:var(--nebbia)}
 .sf-piede a{color:#8a6a2f;font-weight:600;text-decoration:none}
 .sf-piede a:hover{text-decoration:underline}
 
+.sf-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px 34px;align-items:start}
+.sf-2col>div>h2{margin-top:0}
 @media (max-width:820px){
+ .sf-2col{grid-template-columns:1fr;gap:0}
  .sfoglia-scena{grid-template-columns:1fr;gap:20px;perspective:none}
- .sfoglia-cop{max-width:190px;margin:0 auto;transform:none;animation:none}
+ .sfoglia-cop{max-width:190px;margin:0 auto;transform:none;animation:none;aspect-ratio:auto}
  .sfoglia-foglio{padding:22px 20px 16px;border-radius:8px;animation:none;
   box-shadow:0 14px 28px -16px rgba(20,24,38,.3)}
  .sfoglia-foglio::after{display:none}
@@ -187,6 +190,41 @@ footer.sito a{color:var(--nebbia)}
  .sfoglia-cop{animation:none;transform:rotateY(-42deg)}
  .sfoglia-foglio{animation:none}
  .sfoglia-foglio::before{animation:none;opacity:0}
+}
+
+/* ---- Doppia pagina: il glossario del libro ---- */
+.sf-gspread{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:22px 0 0;
+ border-radius:3px;overflow:hidden;
+ box-shadow:0 18px 38px -18px rgba(20,24,38,.3)}
+.sf-gpag{padding:26px 26px 22px;
+ background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%)}
+.sf-gpag:first-child{border-radius:2px 0 0 2px;
+ box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gpag:last-child{border-radius:0 2px 2px 0;
+ box-shadow:inset 14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gtit{margin:0;text-align:center;font-family:Fraunces,Georgia,serif;
+ font-size:1.18rem;font-weight:600;color:#2a2a2f}
+.sf-gint{margin:8px 0 18px;font-size:.83rem;font-style:italic;line-height:1.6;
+ color:#7a6b53;text-align:center}
+.sf-gspread dl{margin:0}
+.sf-gspread dt{margin:0 0 3px;font-family:"Source Serif 4",Georgia,serif;font-size:.99rem}
+.sf-gspread dt b{color:#1F2529}
+.sf-gspread dt i{color:#326778;font-weight:600}
+.sf-gspread dt span{font-size:.84em;color:#8a7f6b;font-style:italic}
+.sf-gspread dd{margin:0;font-family:"Source Serif 4",Georgia,serif;
+ font-size:.92rem;line-height:1.58;color:#2b2b30}
+.sf-gspread dd.en{color:#5f6b72}
+.sf-gspread dd.nota{margin:3px 0 16px;font-style:italic;font-size:.86rem;
+ line-height:1.55;color:#55606a}
+.sf-gspread dd:last-child{margin-bottom:0}
+.sf-gpie{margin:16px 0 0;padding-top:11px;border-top:1px solid rgba(92,72,42,.16);
+ font-size:.79rem;letter-spacing:.02em;color:#8a7f6b;text-align:center}
+@media (max-width:820px){
+ .sf-gspread{grid-template-columns:1fr;box-shadow:0 12px 26px -16px rgba(20,24,38,.3)}
+ .sf-gpag{padding:20px 18px}
+ .sf-gpag:first-child,.sf-gpag:last-child{box-shadow:none;border-radius:0}
+ .sf-gpag:first-child{border-radius:6px 6px 0 0;border-bottom:1px solid rgba(92,72,42,.14)}
+ .sf-gpag:last-child{border-radius:0 0 6px 6px}
 }
 
 </style>
@@ -307,41 +345,85 @@ footer.sito a{color:var(--nebbia)}
     </div>
   </section>
 
-    <section class="sezione sfoglia">
+        <section class="sezione sfoglia">
     <h2>Kijk binnenin: de eerste bladzijde</h2>
     <div class="sfoglia-scena">
       <div class="sfoglia-cop">
         <picture>
           <source srcset="/assets/books/IlPiacere_cover.webp" type="image/webp">
-          <img src="/assets/books/IlPiacere_cover.jpg" width="800" height="1280" alt="Omslag van L’attesa" loading="lazy" decoding="async">
+          <img src="/assets/books/IlPiacere_cover.jpg" width="800" height="1280" alt="Omslag van L&amp;#x27;attesa" loading="lazy" decoding="async">
         </picture>
       </div>
       <div class="sfoglia-foglio">
         <p class="sf-capnum">CAPITOLO 1</p>
         <img class="sf-vign" src="/assets/books/vignette/il-piacere.png" alt="Hoofdstukvignet" width="148" height="148" loading="lazy" decoding="async">
-        <h3 class="sf-tit" lang="it">L’attesa</h3>
+        <h3 class="sf-tit" lang="it">L&amp;#x27;attesa</h3>
         <p class="sf-titen" lang="en">The Waiting</p>
         <div class="sf-corpo" lang="it">
-          <p>L’ultimo giorno dell’anno, nel palazzo Zuccari, Andrea Sperelli aspettava una donna. Aveva fatto preparare la stanza come si prepara un altare: le rose in ogni vaso, il fuoco di ginepro nel camino, i tè rari, le tazze antiche, i cuscini disposti con quella <b class="sf-kw">squisitezza</b> che gli costava ore e che nessuno avrebbe dovuto notare.<sup>1</sup> Ogni oggetto era stato scelto, provato, spostato: il <b class="sf-kw">lusso</b>, in lui, non era ricchezza — era una lingua. Guardò l’orologio. Elena Muti sarebbe salita fra poco quelle scale, dopo due anni di silenzio. E lui, che aveva composto quella scena con la cura di un’opera d’<b class="sf-kw">arte</b>, si accorse di avere le mani fredde.</p>
+          <p>L’ultimo giorno dell’anno, nel palazzo Zuccari, Andrea Sperelli aspettava una donna. Aveva fatto preparare la stanza come si prepara un altare: le rose in ogni vaso, il fuoco di ginepro nel camino, i tè rari, le tazze antiche, i cuscini disposti con quella <b class="sf-kw">squisitezza</b> che gli costava ore e che nessuno avrebbe dovuto notare.<sup>1</sup> Ogni oggetto era stato scelto, provato, spostato: il <b class="sf-kw">lusso</b>, in lui, non era ricchezza — era una lingua. Guardò l’orologio. Elena Muti sarebbe salita fra poco quelle scale, dopo due anni di silenzio. E lui, che aveva composto quella scena con la cura di un’opera d&#x27;<b class="sf-kw">arte</b>, si accorse di avere le mani fredde.</p>
         </div>
         <p class="sf-gloss"><span class="sf-kw">squisitezza</span> = exquisiteness &#183; <span class="sf-kw">lusso</span> = luxury &#183; <span class="sf-kw">arte</span> = art</p>
-        <div class="sf-note">
-          <p class="sf-nota"><sup>1</sup> Il romanzo comincia con un uomo che allestisce una scena. È la chiave di tutto il libro: Andrea non vive i propri sentimenti, li mette in scena — e la cura che dedica agli oggetti è la stessa che dedicherà alle persone.</p>
-        </div>
         <p class="sf-piede"><span>Hoofdstuk 1 · ERK C1 · 107 woorden uit de echte tekst</span><a href="https://www.amazon.nl/dp/B0H9RZPN2G" target="_blank" rel="noopener">Verder lezen op Amazon →</a></p>
       </div>
     </div>
   </section>
 
-  <section class="sezione">
-    <h2>Waar gaat Il piacere over?</h2>
+    <section class="sezione">
+    <div class="sf-2col">
+      <div>
+<h2>Waar gaat Il piacere over?</h2>
     <p>Rome, schitterend en decadent. Graaf Andrea Sperelli, verfijnd estheet, dichter en verleider, heeft van zijn eigen leven een kunstwerk gemaakt. Maar hij wordt verscheurd tussen twee vrouwen: Elena Muti, de zinnelijke passie die hem verliet, en Maria Ferres, de spirituele liefde die hem zou kunnen redden.</p><p>In de salons, antiekveilingen en barokke kerken van de hoofdstad jaagt Andrea het genot na tot hij zichzelf verliest. De manifestroman van het Italiaanse decadentisme, geschreven in proza van verblindende schoonheid.</p>
+      </div>
+      <div>
+<h2>Waarom Il piacere lezen om Italiaans te leren</h2>
+    <p>Het elegantste proza van de Italiaanse negentiende eeuw, beklimbaar gemaakt door voetnoten en woordenlijst: de ideale training vóór je D'Annunzio's originelen aanpakt. De woordenschat van kunst en schoonheid is een schat voor wie graag over cultuur praat in het Italiaans.</p>
+      </div>
+    </div>
   </section>
 
   <section class="sezione">
-    <h2>Waarom Il piacere lezen om Italiaans te leren</h2>
-    <p>Het elegantste proza van de Italiaanse negentiende eeuw, beklimbaar gemaakt door voetnoten en woordenlijst: de ideale training vóór je D'Annunzio's originelen aanpakt. De woordenschat van kunst en schoonheid is een schat voor wie graag over cultuur praat in het Italiaans.</p>
+    <h2>In de woordenlijst</h2>
+        <div class="sf-gspread">
+      <div class="sf-gpag">
+        <p class="sf-gtit">Woordenlijst</p>
+        <p class="sf-gint">De kernwoorden van de roman, op alfabet. Eerst de Italiaanse definitie, dan de Engelse, dan wat het woord in dit verhaal betekent.</p>
+        <dl>
+          <dt><b lang="it">anima</b> &middot; <i lang="en">the soul</i> <span>(sin. spirito, interiorità)</span></dt>
+          <dd lang="it">La parte spirituale e interiore dell’uomo.</dd>
+          <dd class="en" lang="en">The spiritual, inner part of a person.</dd>
+          <dd class="nota" lang="en">In the novel: Andrea invokes the soul when it suits him, to ennoble desire. It is perhaps his most refined lie: calling spirit what is only appetite.</dd>
+          <dt><b lang="it">aristocrazia</b> &middot; <i lang="en">aristocracy</i> <span>(sin. nobiltà, élite)</span></dt>
+          <dd lang="it">La classe dei nobili; per estensione, chi si ritiene superiore per nascita o per gusto.</dd>
+          <dd class="en" lang="en">The class of the nobility; those who deem themselves superior by birth or taste.</dd>
+          <dd class="nota" lang="en">In the novel: Roman aristocracy in 1885 governs nothing anymore: it has only taste left, the last privilege. D’Annunzio paints it beautiful and finished — and knows he belongs to it.</dd>
+          <dt><b lang="it">arte</b> &middot; <i lang="en">art</i> <span>(sin. opera, creazione)</span></dt>
+          <dd lang="it">L’attività umana che produce opere di valore estetico.</dd>
+          <dd class="en" lang="en">Human activity that produces works of aesthetic value.</dd>
+          <dd class="nota" lang="en">In the novel: Andrea writes verses, engraves, collects. But art, in him, isn’t a vocation: it’s furniture. D’Annunzio shows a gifted dilettante who mistakes taste for genius, and his own life for a masterpiece.</dd>
+        </dl>
+      </div>
+      <div class="sf-gpag">
+        <dl>
+          <dt><b lang="it">artificio</b> &middot; <i lang="en">artifice</i> <span>(sin. espediente, affettazione)</span></dt>
+          <dd lang="it">Espediente studiato, che imita il naturale senza esserlo.</dd>
+          <dd class="en" lang="en">A studied device that imitates the natural without being it.</dd>
+          <dd class="nota" lang="en">In the novel: It’s Andrea’s signature: nothing in him is spontaneous, everything is composed. And artifice repeated for years is no longer a mask you can take off — it has become the face.</dd>
+          <dt><b lang="it">asta</b> &middot; <i lang="en">auction</i> <span>(sin. incanto, vendita)</span></dt>
+          <dd lang="it">Vendita pubblica in cui un oggetto va a chi offre di più.</dd>
+          <dd class="en" lang="en">A public sale in which an object goes to the highest bidder.</dd>
+          <dd class="nota" lang="en">In the novel: The auctions come back twice and close the circle: at the start Andrea outbids to conquer a woman; at the end another woman’s house goes under the hammer. Between them, the whole novel.</dd>
+          <dt><b lang="it">azzardo</b> &middot; <i lang="en">gambling</i> <span>(sin. gioco d’azzardo, scommessa)</span></dt>
+          <dd lang="it">Il gioco in cui si punta denaro sull’esito del caso.</dd>
+          <dd class="en" lang="en">Play in which money is staked on the outcome of chance.</dd>
+          <dd class="nota" lang="en">In the novel: Gambling is the most honest form of vice in this book: at least here one really loses, and the accounts add up. Manuel Ferres will ruin his wife and daughter over it.</dd>
+        </dl>
+        <p class="sf-gpie">De woordenlijst bevat in totaal 53 woorden</p>
+      </div>
+    </div>
   </section>
+
+
+  
 </div>
 
 <section class="dentro">
@@ -355,8 +437,8 @@ footer.sito a{color:var(--nebbia)}
   <section class="sezione">
     <h2>Taalfocus: wat je oefent</h2>
     <p>In deze editie op niveau C1 oefen je vooral de passato remoto, gerundium en deelwoorden, literaire woordenschat, registernuances en stijlfiguren. De woordenschat draait om kunst, schoonheid en het mondaine leven: de kernwoorden staan met vertaling in de woordenlijst hieronder en keren telkens terug in de tekst, zodat je ze in context leert.</p>
-    <h2 style="margin-top:26px">Basiswoordenlijst (Italiaans · Nederlands · Engels)</h2>
-    <div class="glossario-scorri"><table class="glossario"><thead><tr><th>Italiaans</th><th>Nederlands</th><th>Engels</th></tr></thead><tbody><tr><td>il piacere</td><td>het genot</td><td>pleasure</td></tr><tr><td>l'esteta</td><td>de estheet</td><td>aesthete</td></tr><tr><td>il salotto</td><td>de salon</td><td>drawing room</td></tr><tr><td>l'asta</td><td>de veiling</td><td>auction</td></tr><tr><td>la bellezza</td><td>de schoonheid</td><td>beauty</td></tr><tr><td>il duello</td><td>het duel</td><td>duel</td></tr><tr><td>la rosa</td><td>de roos</td><td>rose</td></tr><tr><td>l'anima</td><td>de ziel</td><td>soul</td></tr></tbody></table></div>
+    
+
   </section>
 
   <section class="sezione">
@@ -370,6 +452,9 @@ footer.sito a{color:var(--nebbia)}
   </section>
 
   <section class="faq">
+    <h2 style="margin-top:26px">Basiswoordenlijst (Italiaans · Nederlands · Engels)</h2>
+    <div class="glossario-scorri"><table class="glossario"><thead><tr><th>Italiaans</th><th>Nederlands</th><th>Engels</th></tr></thead><tbody><tr><td>il piacere</td><td>het genot</td><td>pleasure</td></tr><tr><td>l'esteta</td><td>de estheet</td><td>aesthete</td></tr><tr><td>il salotto</td><td>de salon</td><td>drawing room</td></tr><tr><td>l'asta</td><td>de veiling</td><td>auction</td></tr><tr><td>la bellezza</td><td>de schoonheid</td><td>beauty</td></tr><tr><td>il duello</td><td>het duel</td><td>duel</td></tr><tr><td>la rosa</td><td>de roos</td><td>rose</td></tr><tr><td>l'anima</td><td>de ziel</td><td>soul</td></tr></tbody></table></div>
+
     <h2>Veelgestelde vragen</h2>
   <details>
     <summary>Welk niveau Italiaans heb ik nodig voor Il piacere?</summary>

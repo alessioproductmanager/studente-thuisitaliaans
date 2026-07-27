@@ -127,18 +127,18 @@ footer.sito a{color:var(--nebbia)}
 
 /* ===== Prima pagina del libro ===== */
 .sfoglia{margin:40px 0 46px}
-.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);
  gap:0;align-items:stretch;perspective:2200px;perspective-origin:70% 46%}
 .sfoglia-cop{position:relative;border-radius:5px 3px 3px 5px;overflow:hidden;
- transform-origin:right center;
+ align-self:start;aspect-ratio:800/1280;transform-origin:right center;
  box-shadow:0 24px 46px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
  transform:rotateY(-42deg);animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both}
-.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:cover;object-position:left center}
+.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:fill}
 .sfoglia-cop::after{content:"";position:absolute;inset:0;pointer-events:none;
  background:linear-gradient(90deg,rgba(0,0,0,.34),rgba(0,0,0,0) 26%,rgba(255,255,255,.12))}
 @keyframes sf-apri{from{transform:rotateY(-16deg)}to{transform:rotateY(-42deg)}}
 
-.sfoglia-foglio{position:relative;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
+.sfoglia-foglio{position:relative;align-self:stretch;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
  box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42),0 18px 38px -18px rgba(20,24,38,.32);
  animation:sf-posa 1.7s cubic-bezier(.18,.9,.24,1) .5s both}
@@ -176,9 +176,12 @@ footer.sito a{color:var(--nebbia)}
 .sf-piede a{color:#8a6a2f;font-weight:600;text-decoration:none}
 .sf-piede a:hover{text-decoration:underline}
 
+.sf-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px 34px;align-items:start}
+.sf-2col>div>h2{margin-top:0}
 @media (max-width:820px){
+ .sf-2col{grid-template-columns:1fr;gap:0}
  .sfoglia-scena{grid-template-columns:1fr;gap:20px;perspective:none}
- .sfoglia-cop{max-width:190px;margin:0 auto;transform:none;animation:none}
+ .sfoglia-cop{max-width:190px;margin:0 auto;transform:none;animation:none;aspect-ratio:auto}
  .sfoglia-foglio{padding:22px 20px 16px;border-radius:8px;animation:none;
   box-shadow:0 14px 28px -16px rgba(20,24,38,.3)}
  .sfoglia-foglio::after{display:none}
@@ -187,6 +190,41 @@ footer.sito a{color:var(--nebbia)}
  .sfoglia-cop{animation:none;transform:rotateY(-42deg)}
  .sfoglia-foglio{animation:none}
  .sfoglia-foglio::before{animation:none;opacity:0}
+}
+
+/* ---- Doppia pagina: il glossario del libro ---- */
+.sf-gspread{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:22px 0 0;
+ border-radius:3px;overflow:hidden;
+ box-shadow:0 18px 38px -18px rgba(20,24,38,.3)}
+.sf-gpag{padding:26px 26px 22px;
+ background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%)}
+.sf-gpag:first-child{border-radius:2px 0 0 2px;
+ box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gpag:last-child{border-radius:0 2px 2px 0;
+ box-shadow:inset 14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gtit{margin:0;text-align:center;font-family:Fraunces,Georgia,serif;
+ font-size:1.18rem;font-weight:600;color:#2a2a2f}
+.sf-gint{margin:8px 0 18px;font-size:.83rem;font-style:italic;line-height:1.6;
+ color:#7a6b53;text-align:center}
+.sf-gspread dl{margin:0}
+.sf-gspread dt{margin:0 0 3px;font-family:"Source Serif 4",Georgia,serif;font-size:.99rem}
+.sf-gspread dt b{color:#1F2529}
+.sf-gspread dt i{color:#326778;font-weight:600}
+.sf-gspread dt span{font-size:.84em;color:#8a7f6b;font-style:italic}
+.sf-gspread dd{margin:0;font-family:"Source Serif 4",Georgia,serif;
+ font-size:.92rem;line-height:1.58;color:#2b2b30}
+.sf-gspread dd.en{color:#5f6b72}
+.sf-gspread dd.nota{margin:3px 0 16px;font-style:italic;font-size:.86rem;
+ line-height:1.55;color:#55606a}
+.sf-gspread dd:last-child{margin-bottom:0}
+.sf-gpie{margin:16px 0 0;padding-top:11px;border-top:1px solid rgba(92,72,42,.16);
+ font-size:.79rem;letter-spacing:.02em;color:#8a7f6b;text-align:center}
+@media (max-width:820px){
+ .sf-gspread{grid-template-columns:1fr;box-shadow:0 12px 26px -16px rgba(20,24,38,.3)}
+ .sf-gpag{padding:20px 18px}
+ .sf-gpag:first-child,.sf-gpag:last-child{box-shadow:none;border-radius:0}
+ .sf-gpag:first-child{border-radius:6px 6px 0 0;border-bottom:1px solid rgba(92,72,42,.14)}
+ .sf-gpag:last-child{border-radius:0 0 6px 6px}
 }
 
 </style>
@@ -273,7 +311,7 @@ footer.sito a{color:var(--nebbia)}
     </div>
   </section>
 
-    <section class="sezione sfoglia">
+        <section class="sezione sfoglia">
     <h2>Kijk binnenin: de eerste bladzijde</h2>
     <div class="sfoglia-scena">
       <div class="sfoglia-cop">
@@ -286,32 +324,78 @@ footer.sito a{color:var(--nebbia)}
         <p class="sf-capnum">CAPITOLO 1</p>
         <img class="sf-vign" src="/assets/books/vignette/orlando-furioso.png" alt="Hoofdstukvignet" width="148" height="148" loading="lazy" decoding="async">
         <h3 class="sf-tit" lang="it">La fuga di Angelica</h3>
-        <p class="sf-titen" lang="en">Angelica’s Flight</p>
+        <p class="sf-titen" lang="en">Angelica&amp;#x27;s Flight</p>
         <div class="sf-corpo" lang="it">
           <p>In Francia, al tempo di re Carlo Magno, c’era una grande guerra.</p>
           <p>Un esercito enorme era arrivato dall’Africa. Lo comandava il re Agramante, giovane e ambizioso. Voleva conquistare la Francia e vendicare suo padre.</p>
           <p>Contro di lui stava Carlo Magno, l’imperatore dei cristiani, con i suoi dodici <b class="sf-kw">paladini</b>.<sup>1</sup></p>
           <p>Il primo dei paladini si chiamava Orlando. Nessuna <b class="sf-kw">lancia</b> poteva ferirlo, nessun <b class="sf-kw">guerriero</b> poteva batterlo.</p>
-          <p>Ma in quei giorni Orlando non pensava alla guerra. Pensava a una donna.</p>
         </div>
         <p class="sf-gloss"><span class="sf-kw">paladino</span> = paladin &#183; <span class="sf-kw">lancia</span> = lance &#183; <span class="sf-kw">guerriero</span> = warrior</p>
         <div class="sf-note">
           <p class="sf-nota"><sup>1</sup> Carlo Magno è un re vero: incoronato imperatore nell’anno 800, è il fondatore dell’Europa medievale. Ma il Carlo del poema è un re di leggenda, circondato da dodici campioni — i paladini — come Artù dai cavalieri della Tavola Rotonda. Ariosto eredita questo mondo da secoli di racconti francesi e italiani, e ci costruisce sopra la sua storia.</p>
         </div>
-        <p class="sf-piede"><span>Hoofdstuk 1 · ERK B1 · 76 woorden uit de echte tekst</span></p>
+        <p class="sf-piede"><span>Hoofdstuk 1 · ERK B1 · 63 woorden uit de echte tekst</span></p>
+      </div>
+    </div>
+  </section>
+
+    <section class="sezione">
+    <div class="sf-2col">
+      <div>
+<h2>Waar gaat Orlando furioso over?</h2>
+    <p>Het leger van Karel de Grote belegert Parijs, en de mooiste prinses ter wereld is uit zijn kamp ontsnapt. De helft van de ridders van beide legers rijdt haar achterna — onder wie Orlando, de grootste kampioen van de keizer, die de oorlog verlaat om haar te zoeken. Wat hij op een middag in een bos vindt, zal hem zijn verstand kosten: twee namen, gekerfd in een boom.</p><p>Om hem zijn verstand terug te geven, zal een vriend op de hippogrief naar de maan moeten vliegen: daar wordt, in flesjes, alles bewaard wat op aarde verloren gaat. Ariosto's meesterwerk — het gedicht dat het vliegende paard, de ring van onzichtbaarheid en de reis naar de maan uitvond — integraal naverteld in eenvoudig proza. Het is het vervolg op Boiardo's <em>Orlando innamorato</em>: daar wordt Orlando verliefd, hier wordt hij waanzinnig.</p>
+      </div>
+      <div>
+<h2>Waarom Orlando furioso lezen om Italiaans te leren</h2>
+    <p>De verhalen vlechten zich ineen als in een moderne serie — Ariosto laat de ene draad hangen en pakt de andere op — en dat traint je om meerdere verhaallijnen tegelijk vast te houden in het Italiaans, dé B1-vaardigheid. En heb je de Orlando innamorato (A2) gelezen, dan vind je hier dezelfde personages één trede hoger: een natuurlijke niveauladder.</p>
       </div>
     </div>
   </section>
 
   <section class="sezione">
-    <h2>Waar gaat Orlando furioso over?</h2>
-    <p>Het leger van Karel de Grote belegert Parijs, en de mooiste prinses ter wereld is uit zijn kamp ontsnapt. De helft van de ridders van beide legers rijdt haar achterna — onder wie Orlando, de grootste kampioen van de keizer, die de oorlog verlaat om haar te zoeken. Wat hij op een middag in een bos vindt, zal hem zijn verstand kosten: twee namen, gekerfd in een boom.</p><p>Om hem zijn verstand terug te geven, zal een vriend op de hippogrief naar de maan moeten vliegen: daar wordt, in flesjes, alles bewaard wat op aarde verloren gaat. Ariosto's meesterwerk — het gedicht dat het vliegende paard, de ring van onzichtbaarheid en de reis naar de maan uitvond — integraal naverteld in eenvoudig proza. Het is het vervolg op Boiardo's <em>Orlando innamorato</em>: daar wordt Orlando verliefd, hier wordt hij waanzinnig.</p>
+    <h2>In de woordenlijst</h2>
+        <div class="sf-gspread">
+      <div class="sf-gpag">
+        <p class="sf-gtit">Woordenlijst</p>
+        <p class="sf-gint">De kernwoorden van de roman, op alfabet. Eerst de Italiaanse definitie, dan de Engelse, dan wat het woord in dit verhaal betekent.</p>
+        <dl>
+          <dt><b lang="it">ampolla</b> &middot; <i lang="en">vial</i> <span>(sin. fiala, boccetta)</span></dt>
+          <dd lang="it">Un piccolo vaso di vetro dal collo stretto, per conservare liquidi.</dd>
+          <dd class="en" lang="en">A small narrow-necked glass vessel for keeping liquids.</dd>
+          <dd class="nota" lang="en">In the novel: On the Moon, in a valley, stand thousands of vials: inside each is the sense that someone lost on Earth. Orlando’s is the largest of all. The image is comic and terrible at once — human reason reduced to a liquid in a bottle — and it is one of the most quoted inventions in the literature of any age.</dd>
+          <dt><b lang="it">anello</b> &middot; <i lang="en">ring</i> <span>(sin. cerchietto, vera)</span></dt>
+          <dd lang="it">Un piccolo cerchio di metallo che si porta al dito.</dd>
+          <dd class="en" lang="en">A small circle of metal worn on the finger.</dd>
+          <dd class="nota" lang="en">In the novel: Angelica’s ring is the most powerful magic object in the book: on the finger it cancels every spell, in the mouth it makes you invisible. It passes from hand to hand — Brunello steals it, Bradamante wins it, Melissa carries it, Angelica takes it back — and at every passage it changes the story. It is the great-grandfather of every magic ring in modern literature.</dd>
+          <dt><b lang="it">armatura</b> &middot; <i lang="en">armour</i> <span>(sin. corazza, difesa)</span></dt>
+          <dd lang="it">L’insieme di piastre di metallo che protegge il corpo di un cavaliere.</dd>
+          <dd class="en" lang="en">The set of metal plates protecting a knight’s body.</dd>
+          <dd class="nota" lang="en">In the novel: Armour in the poem is a second skin: it says who you are, protects you, represents you. That is why the scene where Orlando tears his armour off is so powerful: he is not removing clothing — he is removing his own name. A knight without armour, in the world of the Furioso, is no longer a knight: only a man.</dd>
+        </dl>
+      </div>
+      <div class="sf-gpag">
+        <dl>
+          <dt><b lang="it">assedio</b> &middot; <i lang="en">siege</i> <span>(sin. accerchiamento, blocco)</span></dt>
+          <dd lang="it">L’accerchiamento di una città per costringerla ad arrendersi.</dd>
+          <dd class="en" lang="en">The encirclement of a city to force it to surrender.</dd>
+          <dd class="nota" lang="en">In the novel: The siege of Paris is the backdrop of the whole poem: while the knights chase loves and enchantments, a real war is fought beneath the walls. Ariosto alternates the two planes constantly — fable and history — and the siege is there to remind us that his heroes' choices have a price: every paladin who rides away is one sword fewer on the walls.</dd>
+          <dt><b lang="it">avventura</b> &middot; <i lang="en">adventure</i> <span>(sin. impresa, peripezia)</span></dt>
+          <dd lang="it">Un’esperienza fuori dall’ordinario, piena di rischi e di sorprese.</dd>
+          <dd class="en" lang="en">An out-of-the-ordinary experience, full of risks and surprises.</dd>
+          <dd class="nota" lang="en">In the novel: The Furioso is the adventure machine: every crossroads hides one, every character chases another. Ariosto weaves them like threads of a carpet — he leaves one hero on the edge of a cliff and moves to the next. Today’s readers call it suspense; he called it the art of 'leaving Orlando' at the right moment.</dd>
+          <dt><b lang="it">battesimo</b> &middot; <i lang="en">baptism</i> <span>(sin. rito d’ingresso, sacramento)</span></dt>
+          <dd lang="it">Il rito con cui una persona entra nella religione cristiana.</dd>
+          <dd class="en" lang="en">The rite by which a person enters the Christian religion.</dd>
+          <dd class="nota" lang="en">In the novel: Ruggiero’s baptism is the promise running through the whole poem: the prophecy announces it, Bradamante waits for it, Atlante fears it. When it finally comes, on the hermit’s island, it is no solemn scene: it is a man saved from the sea keeping his word. In the Furioso even destiny’s turning points have simple manners.</dd>
+        </dl>
+        <p class="sf-gpie">De woordenlijst bevat in totaal 49 woorden</p>
+      </div>
+    </div>
   </section>
 
-  <section class="sezione">
-    <h2>Waarom Orlando furioso lezen om Italiaans te leren</h2>
-    <p>De verhalen vlechten zich ineen als in een moderne serie — Ariosto laat de ene draad hangen en pakt de andere op — en dat traint je om meerdere verhaallijnen tegelijk vast te houden in het Italiaans, dé B1-vaardigheid. En heb je de Orlando innamorato (A2) gelezen, dan vind je hier dezelfde personages één trede hoger: een natuurlijke niveauladder.</p>
-  </section>
+
+  
 </div>
 
 <section class="dentro">
@@ -325,8 +409,8 @@ footer.sito a{color:var(--nebbia)}
   <section class="sezione">
     <h2>Taalfocus: wat je oefent</h2>
     <p>In deze editie op niveau B1 oefen je vooral de congiuntivo presente, de voorwaardelijke wijs, reële voorwaardelijke zinnen en verbindingswoorden. De woordenschat draait om ridders, waanzin en magie: de kernwoorden staan met vertaling in de woordenlijst hieronder en keren telkens terug in de tekst, zodat je ze in context leert.</p>
-    <h2 style="margin-top:26px">Basiswoordenlijst (Italiaans · Nederlands · Engels)</h2>
-    <div class="glossario-scorri"><table class="glossario"><thead><tr><th>Italiaans</th><th>Nederlands</th><th>Engels</th></tr></thead><tbody><tr><td>l'ippogrifo</td><td>de hippogrief</td><td>hippogriff</td></tr><tr><td>il senno</td><td>het verstand</td><td>wits</td></tr><tr><td>la follia</td><td>de waanzin</td><td>madness</td></tr><tr><td>la luna</td><td>de maan</td><td>moon</td></tr><tr><td>il cavaliere</td><td>de ridder</td><td>knight</td></tr><tr><td>l'assedio</td><td>het beleg</td><td>siege</td></tr><tr><td>l'anello</td><td>de ring</td><td>ring</td></tr><tr><td>la spada</td><td>het zwaard</td><td>sword</td></tr></tbody></table></div>
+    
+
   </section>
 
   <section class="sezione">
@@ -340,6 +424,9 @@ footer.sito a{color:var(--nebbia)}
   </section>
 
   <section class="faq">
+    <h2 style="margin-top:26px">Basiswoordenlijst (Italiaans · Nederlands · Engels)</h2>
+    <div class="glossario-scorri"><table class="glossario"><thead><tr><th>Italiaans</th><th>Nederlands</th><th>Engels</th></tr></thead><tbody><tr><td>l'ippogrifo</td><td>de hippogrief</td><td>hippogriff</td></tr><tr><td>il senno</td><td>het verstand</td><td>wits</td></tr><tr><td>la follia</td><td>de waanzin</td><td>madness</td></tr><tr><td>la luna</td><td>de maan</td><td>moon</td></tr><tr><td>il cavaliere</td><td>de ridder</td><td>knight</td></tr><tr><td>l'assedio</td><td>het beleg</td><td>siege</td></tr><tr><td>l'anello</td><td>de ring</td><td>ring</td></tr><tr><td>la spada</td><td>het zwaard</td><td>sword</td></tr></tbody></table></div>
+
     <h2>Veelgestelde vragen</h2>
   <details>
     <summary>Welk niveau Italiaans heb ik nodig voor Orlando furioso?</summary>

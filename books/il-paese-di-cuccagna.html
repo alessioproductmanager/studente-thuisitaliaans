@@ -127,18 +127,18 @@ footer.sito a{color:var(--nebbia)}
 
 /* ===== Prima pagina del libro ===== */
 .sfoglia{margin:40px 0 46px}
-.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);
  gap:0;align-items:stretch;perspective:2200px;perspective-origin:70% 46%}
 .sfoglia-cop{position:relative;border-radius:5px 3px 3px 5px;overflow:hidden;
- transform-origin:right center;
+ align-self:start;aspect-ratio:800/1280;transform-origin:right center;
  box-shadow:0 24px 46px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
  transform:rotateY(-42deg);animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both}
-.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:cover;object-position:left center}
+.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:fill}
 .sfoglia-cop::after{content:"";position:absolute;inset:0;pointer-events:none;
  background:linear-gradient(90deg,rgba(0,0,0,.34),rgba(0,0,0,0) 26%,rgba(255,255,255,.12))}
 @keyframes sf-apri{from{transform:rotateY(-16deg)}to{transform:rotateY(-42deg)}}
 
-.sfoglia-foglio{position:relative;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
+.sfoglia-foglio{position:relative;align-self:stretch;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
  box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42),0 18px 38px -18px rgba(20,24,38,.32);
  animation:sf-posa 1.7s cubic-bezier(.18,.9,.24,1) .5s both}
@@ -176,9 +176,12 @@ footer.sito a{color:var(--nebbia)}
 .sf-piede a{color:#8a6a2f;font-weight:600;text-decoration:none}
 .sf-piede a:hover{text-decoration:underline}
 
+.sf-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px 34px;align-items:start}
+.sf-2col>div>h2{margin-top:0}
 @media (max-width:820px){
+ .sf-2col{grid-template-columns:1fr;gap:0}
  .sfoglia-scena{grid-template-columns:1fr;gap:20px;perspective:none}
- .sfoglia-cop{max-width:190px;margin:0 auto;transform:none;animation:none}
+ .sfoglia-cop{max-width:190px;margin:0 auto;transform:none;animation:none;aspect-ratio:auto}
  .sfoglia-foglio{padding:22px 20px 16px;border-radius:8px;animation:none;
   box-shadow:0 14px 28px -16px rgba(20,24,38,.3)}
  .sfoglia-foglio::after{display:none}
@@ -187,6 +190,41 @@ footer.sito a{color:var(--nebbia)}
  .sfoglia-cop{animation:none;transform:rotateY(-42deg)}
  .sfoglia-foglio{animation:none}
  .sfoglia-foglio::before{animation:none;opacity:0}
+}
+
+/* ---- Doppia pagina: il glossario del libro ---- */
+.sf-gspread{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:22px 0 0;
+ border-radius:3px;overflow:hidden;
+ box-shadow:0 18px 38px -18px rgba(20,24,38,.3)}
+.sf-gpag{padding:26px 26px 22px;
+ background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%)}
+.sf-gpag:first-child{border-radius:2px 0 0 2px;
+ box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gpag:last-child{border-radius:0 2px 2px 0;
+ box-shadow:inset 14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gtit{margin:0;text-align:center;font-family:Fraunces,Georgia,serif;
+ font-size:1.18rem;font-weight:600;color:#2a2a2f}
+.sf-gint{margin:8px 0 18px;font-size:.83rem;font-style:italic;line-height:1.6;
+ color:#7a6b53;text-align:center}
+.sf-gspread dl{margin:0}
+.sf-gspread dt{margin:0 0 3px;font-family:"Source Serif 4",Georgia,serif;font-size:.99rem}
+.sf-gspread dt b{color:#1F2529}
+.sf-gspread dt i{color:#326778;font-weight:600}
+.sf-gspread dt span{font-size:.84em;color:#8a7f6b;font-style:italic}
+.sf-gspread dd{margin:0;font-family:"Source Serif 4",Georgia,serif;
+ font-size:.92rem;line-height:1.58;color:#2b2b30}
+.sf-gspread dd.en{color:#5f6b72}
+.sf-gspread dd.nota{margin:3px 0 16px;font-style:italic;font-size:.86rem;
+ line-height:1.55;color:#55606a}
+.sf-gspread dd:last-child{margin-bottom:0}
+.sf-gpie{margin:16px 0 0;padding-top:11px;border-top:1px solid rgba(92,72,42,.16);
+ font-size:.79rem;letter-spacing:.02em;color:#8a7f6b;text-align:center}
+@media (max-width:820px){
+ .sf-gspread{grid-template-columns:1fr;box-shadow:0 12px 26px -16px rgba(20,24,38,.3)}
+ .sf-gpag{padding:20px 18px}
+ .sf-gpag:first-child,.sf-gpag:last-child{box-shadow:none;border-radius:0}
+ .sf-gpag:first-child{border-radius:6px 6px 0 0;border-bottom:1px solid rgba(92,72,42,.14)}
+ .sf-gpag:last-child{border-radius:0 0 6px 6px}
 }
 
 </style>
@@ -327,44 +365,89 @@ footer.sito a{color:var(--nebbia)}
     </div>
   </section>
 
-    <section class="sezione sfoglia">
+        <section class="sezione sfoglia">
     <h2>Look inside: the first page</h2>
     <div class="sfoglia-scena">
       <div class="sfoglia-cop">
         <picture>
           <source srcset="/assets/books/PaeseDiCuccagna_cover.webp" type="image/webp">
-          <img src="/assets/books/PaeseDiCuccagna_cover.jpg" width="800" height="1280" alt="Cover of L’estrazione del lotto" loading="lazy" decoding="async">
+          <img src="/assets/books/PaeseDiCuccagna_cover.jpg" width="800" height="1280" alt="Cover of L&amp;#x27;estrazione del lotto" loading="lazy" decoding="async">
         </picture>
       </div>
       <div class="sfoglia-foglio">
         <p class="sf-capnum">CAPITOLO 1</p>
         <img class="sf-vign" src="/assets/books/vignette/il-paese-di-cuccagna.png" alt="Chapter vignette" width="148" height="148" loading="lazy" decoding="async">
-        <h3 class="sf-tit" lang="it">L’estrazione del lotto</h3>
+        <h3 class="sf-tit" lang="it">L&amp;#x27;estrazione del lotto</h3>
         <p class="sf-titen" lang="en">The Lottery Draw</p>
         <div class="sf-corpo" lang="it">
-          <p>Era sabato, e a Napoli il sabato non era un giorno come gli altri. A mezzogiorno, in via Toledo, nei vicoli di Porto, nei bassi di Mercato, tutti aspettavano la stessa cosa: l’<b class="sf-kw">estrazione</b> del <b class="sf-kw">lotto</b>.<sup>1</sup></p>
+          <p>Era sabato, e a Napoli il sabato non era un giorno come gli altri. A mezzogiorno, in via Toledo, nei vicoli di Porto, nei bassi di Mercato, tutti aspettavano la stessa cosa: l&#x27;<b class="sf-kw">estrazione</b> del <b class="sf-kw">lotto</b>.<sup>1</sup></p>
           <p>Le botteghe erano quasi vuote. I facchini avevano finito di scaricare, le sartine avevano chiuso i cassetti. Il sole bruciava le pietre.</p>
-          <p>Alle tre in punto, davanti al Banco Lotto di via Chiaia, cominciò a formarsi una lunga fila. Uomini in giacca, donne con lo scialle, ragazzi mandati a controllare per la famiglia. Nessuno parlava. Tutti guardavano nella stessa direzione.</p>
-          <p>Ogni sabato, per Napoli, era il giorno della <b class="sf-kw">sorte</b>. Ci si giocava una lira, una moneta, l’ultima. E ci si giocava la settimana che sarebbe venuta.</p>
         </div>
         <p class="sf-gloss"><span class="sf-kw">estrazione</span> = draw &#183; <span class="sf-kw">lotto</span> = lottery &#183; <span class="sf-kw">sorte</span> = fortune / fate</p>
         <div class="sf-note">
           <p class="sf-nota"><sup>1</sup> Nell’Italia del 1890 il lotto era gestito dallo Stato ed era davvero settimanale. Ma a Napoli il sabato aveva un peso speciale: la città smetteva di lavorare presto e aspettava la notizia dei cinque numeri.</p>
         </div>
-        <p class="sf-piede"><span>Chapter 1 · CEFR B1 · 121 words of the real text</span><a href="https://www.amazon.com/dp/B0H9RYH4MV" target="_blank" rel="noopener">Keep reading on Amazon →</a></p>
+        <p class="sf-piede"><span>Chapter 1 · CEFR B1 · 57 words of the real text</span><a href="https://www.amazon.com/dp/B0H9RYH4MV" target="_blank" rel="noopener">Keep reading on Amazon →</a></p>
+      </div>
+    </div>
+  </section>
+
+    <section class="sezione">
+    <div class="sf-2col">
+      <div>
+<h2>The plot of Il paese di Cuccagna</h2>
+    <p>In Naples, Saturday is lottery day, and the whole city — ruined noblemen, clerks, working women, moneylenders — lives in wait for the numbers. The Marquis of Formosa has sacrificed his fortune and his daughter Bianca Maria's health to the dream of the impossible win.</p><p>Serao follows dozens of intertwined destinies caught up in gambling fever, in a great choral fresco of Naples: the «land of plenty» promised by the lottery is a mirage that consumes all who believe in it.</p>
+      </div>
+      <div>
+<h2>Why read Il paese di Cuccagna to learn Italian</h2>
+    <p>A choral novel means many dialogues and many voices: perfect for getting used to the different registers of spoken Italian. Numbers, money and bets provide practical vocabulary, and the narrative connectors are exactly those required at B1.</p>
       </div>
     </div>
   </section>
 
   <section class="sezione">
-    <h2>The plot of Il paese di Cuccagna</h2>
-    <p>In Naples, Saturday is lottery day, and the whole city — ruined noblemen, clerks, working women, moneylenders — lives in wait for the numbers. The Marquis of Formosa has sacrificed his fortune and his daughter Bianca Maria's health to the dream of the impossible win.</p><p>Serao follows dozens of intertwined destinies caught up in gambling fever, in a great choral fresco of Naples: the «land of plenty» promised by the lottery is a mirage that consumes all who believe in it.</p>
+    <h2>Inside the glossary</h2>
+        <div class="sf-gspread">
+      <div class="sf-gpag">
+        <p class="sf-gtit">Glossary</p>
+        <p class="sf-gint">The key words of the novel, in alphabetical order. Italian definition first, then the English, then what the word means inside this story.</p>
+        <dl>
+          <dt><b lang="it">abbondanza</b> &middot; <i lang="en">abundance</i> <span>(sin. ricchezza, profusione)</span></dt>
+          <dd lang="it">Una quantità grandissima di qualcosa — cibo, denaro, cose belle. Molto più del necessario.</dd>
+          <dd class="en" lang="en">Having plenty of everything. The opposite of miseria.</dd>
+          <dd class="nota" lang="en">In the novel: The one thing no character reaches. In the book the land of plenty is always somewhere else: in the next terno, in the following Saturday, never today.</dd>
+          <dt><b lang="it">accanimento</b> &middot; <i lang="en">relentlessness</i> <span>(sin. ostinazione, furia)</span></dt>
+          <dd lang="it">L’insistenza cieca in una cosa, anche quando è chiaro che porta al disastro.</dd>
+          <dd class="en" lang="en">Refusing to give up on something, even when the effort has become harmful.</dd>
+          <dd class="nota" lang="en">In the novel: The relentlessness of the marquis over his daughter’s visions is one of the novel’s most difficult motifs. Serao portrays it without softening — because to soften it would be to falsify the plague.</dd>
+          <dt><b lang="it">ambo</b> &middot; <i lang="en">ambo / two-number bet</i> <span>(sin. coppia, doppia)</span></dt>
+          <dd lang="it">Nel lotto, la vincita di due numeri giocati insieme. Vale meno del terno, ma è più facile da prendere.</dd>
+          <dd class="en" lang="en">Two numbers played together. A smaller prize than the terno, but easier to win.</dd>
+          <dd class="nota" lang="en">In the novel: The ambo is the little prize of little players: those who have staked little settle for guessing right. Serao uses it often — it is the half-victory that keeps faith alive when the terno does not come.</dd>
+        </dl>
+      </div>
+      <div class="sf-gpag">
+        <dl>
+          <dt><b lang="it">arricchirsi</b> &middot; <i lang="en">to grow rich</i> <span>(sin. prosperare, far fortuna)</span></dt>
+          <dd lang="it">Diventare ricchi. Nel libro succede quasi sempre agli altri, e sempre in modo che sembra facile.</dd>
+          <dd class="en" lang="en">To pass from being poor to being wealthy.</dd>
+          <dd class="nota" lang="en">In the novel: The verb of the marquis and of Cesare: they no longer want money — they want to «grow rich», that is, to change class. The lottery promises exactly that. It is the promise’s specific cruelty.</dd>
+          <dt><b lang="it">assistito</b> &middot; <i lang="en">the assisted one / seer</i> <span>(sin. veggente, medium)</span></dt>
+          <dd lang="it">A Napoli, un uomo (spesso povero o mezzo matto) che si crede in contatto con i santi o con i morti, e che «riceve» in sogno i numeri del lotto.</dd>
+          <dd class="en" lang="en">In old Naples, someone believed to receive lottery numbers from spirits.</dd>
+          <dd class="nota" lang="en">In the novel: Pasqualino De Feo, «the assisted one»: a poor youth whom the neighbourhood believes to receive numbers from the dead. Serao does not make him a charlatan — she makes him a victim of the collective faith he is asked to feed.</dd>
+          <dt><b lang="it">asta</b> &middot; <i lang="en">auction</i> <span>(sin. incanto, vendita giudiziaria)</span></dt>
+          <dd lang="it">La vendita pubblica in cui un oggetto va a chi offre di più. Nel libro, il modo in cui si vendono i mobili di chi ha perso tutto.</dd>
+          <dd class="en" lang="en">A public sale where objects are sold to whoever offers the most.</dd>
+          <dd class="nota" lang="en">In the novel: The Fragalà pastry-shop is put up for auction: it is Luisella who goes, not Cesare — and she comes back with the pastry-tools she bought with the last twenty lires, for their affective value, not their use.</dd>
+        </dl>
+        <p class="sf-gpie">The glossary contains 61 entries in all</p>
+      </div>
+    </div>
   </section>
 
-  <section class="sezione">
-    <h2>Why read Il paese di Cuccagna to learn Italian</h2>
-    <p>A choral novel means many dialogues and many voices: perfect for getting used to the different registers of spoken Italian. Numbers, money and bets provide practical vocabulary, and the narrative connectors are exactly those required at B1.</p>
-  </section>
+
+  
 </div>
 
 <section class="dentro">
@@ -378,8 +461,8 @@ footer.sito a{color:var(--nebbia)}
   <section class="sezione">
     <h2>Language focus: what you practise</h2>
     <p>In this level-B1 edition you mainly practise the present subjunctive, the conditional, real hypothetical clauses and discourse connectors. The vocabulary revolves around money, gambling and the city: the key words, with translations, are in the glossary below and recur throughout the text, so you learn them in context.</p>
-    <h2 style="margin-top:26px">Essential glossary (Italian · English · Dutch)</h2>
-    <div class="glossario-scorri"><table class="glossario"><thead><tr><th>Italian</th><th>English</th><th>Dutch</th></tr></thead><tbody><tr><td>il lotto</td><td>lottery</td><td>de loterij</td></tr><tr><td>il numero</td><td>number</td><td>het getal</td></tr><tr><td>la vincita</td><td>winnings</td><td>de winst</td></tr><tr><td>il giocatore</td><td>gambler</td><td>de gokker</td></tr><tr><td>l'usuraio</td><td>moneylender</td><td>de woekeraar</td></tr><tr><td>la rovina</td><td>ruin</td><td>de ondergang</td></tr><tr><td>il sogno</td><td>dream</td><td>de droom</td></tr><tr><td>la febbre</td><td>fever</td><td>de koorts</td></tr></tbody></table></div>
+    
+
   </section>
 
   <section class="sezione">
@@ -393,6 +476,9 @@ footer.sito a{color:var(--nebbia)}
   </section>
 
   <section class="faq">
+    <h2 style="margin-top:26px">Essential glossary (Italian · English · Dutch)</h2>
+    <div class="glossario-scorri"><table class="glossario"><thead><tr><th>Italian</th><th>English</th><th>Dutch</th></tr></thead><tbody><tr><td>il lotto</td><td>lottery</td><td>de loterij</td></tr><tr><td>il numero</td><td>number</td><td>het getal</td></tr><tr><td>la vincita</td><td>winnings</td><td>de winst</td></tr><tr><td>il giocatore</td><td>gambler</td><td>de gokker</td></tr><tr><td>l'usuraio</td><td>moneylender</td><td>de woekeraar</td></tr><tr><td>la rovina</td><td>ruin</td><td>de ondergang</td></tr><tr><td>il sogno</td><td>dream</td><td>de droom</td></tr><tr><td>la febbre</td><td>fever</td><td>de koorts</td></tr></tbody></table></div>
+
     <h2>Frequently asked questions</h2>
   <details>
     <summary>What level of Italian do I need to read Il paese di Cuccagna?</summary>

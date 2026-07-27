@@ -127,18 +127,18 @@ footer.sito a{color:var(--nebbia)}
 
 /* ===== Prima pagina del libro ===== */
 .sfoglia{margin:40px 0 46px}
-.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);
  gap:0;align-items:stretch;perspective:2200px;perspective-origin:70% 46%}
 .sfoglia-cop{position:relative;border-radius:5px 3px 3px 5px;overflow:hidden;
- transform-origin:right center;
+ align-self:start;aspect-ratio:800/1280;transform-origin:right center;
  box-shadow:0 24px 46px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
  transform:rotateY(-42deg);animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both}
-.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:cover;object-position:left center}
+.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:fill}
 .sfoglia-cop::after{content:"";position:absolute;inset:0;pointer-events:none;
  background:linear-gradient(90deg,rgba(0,0,0,.34),rgba(0,0,0,0) 26%,rgba(255,255,255,.12))}
 @keyframes sf-apri{from{transform:rotateY(-16deg)}to{transform:rotateY(-42deg)}}
 
-.sfoglia-foglio{position:relative;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
+.sfoglia-foglio{position:relative;align-self:stretch;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
  box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42),0 18px 38px -18px rgba(20,24,38,.32);
  animation:sf-posa 1.7s cubic-bezier(.18,.9,.24,1) .5s both}
@@ -176,9 +176,12 @@ footer.sito a{color:var(--nebbia)}
 .sf-piede a{color:#8a6a2f;font-weight:600;text-decoration:none}
 .sf-piede a:hover{text-decoration:underline}
 
+.sf-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px 34px;align-items:start}
+.sf-2col>div>h2{margin-top:0}
 @media (max-width:820px){
+ .sf-2col{grid-template-columns:1fr;gap:0}
  .sfoglia-scena{grid-template-columns:1fr;gap:20px;perspective:none}
- .sfoglia-cop{max-width:190px;margin:0 auto;transform:none;animation:none}
+ .sfoglia-cop{max-width:190px;margin:0 auto;transform:none;animation:none;aspect-ratio:auto}
  .sfoglia-foglio{padding:22px 20px 16px;border-radius:8px;animation:none;
   box-shadow:0 14px 28px -16px rgba(20,24,38,.3)}
  .sfoglia-foglio::after{display:none}
@@ -187,6 +190,41 @@ footer.sito a{color:var(--nebbia)}
  .sfoglia-cop{animation:none;transform:rotateY(-42deg)}
  .sfoglia-foglio{animation:none}
  .sfoglia-foglio::before{animation:none;opacity:0}
+}
+
+/* ---- Doppia pagina: il glossario del libro ---- */
+.sf-gspread{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:22px 0 0;
+ border-radius:3px;overflow:hidden;
+ box-shadow:0 18px 38px -18px rgba(20,24,38,.3)}
+.sf-gpag{padding:26px 26px 22px;
+ background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%)}
+.sf-gpag:first-child{border-radius:2px 0 0 2px;
+ box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gpag:last-child{border-radius:0 2px 2px 0;
+ box-shadow:inset 14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gtit{margin:0;text-align:center;font-family:Fraunces,Georgia,serif;
+ font-size:1.18rem;font-weight:600;color:#2a2a2f}
+.sf-gint{margin:8px 0 18px;font-size:.83rem;font-style:italic;line-height:1.6;
+ color:#7a6b53;text-align:center}
+.sf-gspread dl{margin:0}
+.sf-gspread dt{margin:0 0 3px;font-family:"Source Serif 4",Georgia,serif;font-size:.99rem}
+.sf-gspread dt b{color:#1F2529}
+.sf-gspread dt i{color:#326778;font-weight:600}
+.sf-gspread dt span{font-size:.84em;color:#8a7f6b;font-style:italic}
+.sf-gspread dd{margin:0;font-family:"Source Serif 4",Georgia,serif;
+ font-size:.92rem;line-height:1.58;color:#2b2b30}
+.sf-gspread dd.en{color:#5f6b72}
+.sf-gspread dd.nota{margin:3px 0 16px;font-style:italic;font-size:.86rem;
+ line-height:1.55;color:#55606a}
+.sf-gspread dd:last-child{margin-bottom:0}
+.sf-gpie{margin:16px 0 0;padding-top:11px;border-top:1px solid rgba(92,72,42,.16);
+ font-size:.79rem;letter-spacing:.02em;color:#8a7f6b;text-align:center}
+@media (max-width:820px){
+ .sf-gspread{grid-template-columns:1fr;box-shadow:0 12px 26px -16px rgba(20,24,38,.3)}
+ .sf-gpag{padding:20px 18px}
+ .sf-gpag:first-child,.sf-gpag:last-child{box-shadow:none;border-radius:0}
+ .sf-gpag:first-child{border-radius:6px 6px 0 0;border-bottom:1px solid rgba(92,72,42,.14)}
+ .sf-gpag:last-child{border-radius:0 0 6px 6px}
 }
 
 </style>
@@ -327,7 +365,7 @@ footer.sito a{color:var(--nebbia)}
     </div>
   </section>
 
-    <section class="sezione sfoglia">
+        <section class="sezione sfoglia">
     <h2>Look inside: the first page</h2>
     <div class="sfoglia-scena">
       <div class="sfoglia-cop">
@@ -350,26 +388,72 @@ footer.sito a{color:var(--nebbia)}
           <p>«E ti sembra poco?»</p>
           <p>Non sembrava molto, a dire il vero. Neanche a me.</p>
           <p>Ma allora non sapevo ancora che cosa vuol dire non poter più rispondere così.<sup>1</sup></p>
-          <p>Non sapevo che un <b class="sf-kw">nome</b> è l’unica casa che un uomo ha davvero, e che una <b class="sf-kw">esistenza</b> senza <b class="sf-kw">identità</b> non è una vita: è un’<b class="sf-kw">ombra</b> che cammina.</p>
         </div>
         <p class="sf-gloss"><span class="sf-kw">nome</span> = name &#183; <span class="sf-kw">esistenza</span> = existence &#183; <span class="sf-kw">identità</span> = identity &#183; <span class="sf-kw">ombra</span> = shadow</p>
         <div class="sf-note">
           <p class="sf-nota"><sup>1</sup> Il libro comincia con un uomo che dice: «l’unica cosa che so di me è il mio nome». E finirà con un uomo che va al cimitero a leggere quel nome sulla propria lapide. Fra queste due frasi c’è tutto Pirandello — e lui te lo dice alla prima riga, senza nascondere niente.</p>
         </div>
-        <p class="sf-piede"><span>Chapter 1 · CEFR B1 · 98 words of the real text</span><a href="https://www.amazon.com/dp/B0H9P9NVRF" target="_blank" rel="noopener">Keep reading on Amazon →</a></p>
+        <p class="sf-piede"><span>Chapter 1 · CEFR B1 · 71 words of the real text</span><a href="https://www.amazon.com/dp/B0H9P9NVRF" target="_blank" rel="noopener">Keep reading on Amazon →</a></p>
+      </div>
+    </div>
+  </section>
+
+    <section class="sezione">
+    <div class="sf-2col">
+      <div>
+<h2>The plot of Il fu Mattia Pascal</h2>
+    <p>Crushed by an unhappy marriage and an unbearable mother-in-law, Mattia Pascal runs away from home. In Monte Carlo he wins a fortune at roulette and, on the train home, reads in the paper that he is «dead»: a body has been identified as his.</p><p>Free of everything, Mattia becomes Adriano Meis and starts over in Rome. But a man without a past can have neither love nor rights: absolute freedom turns out to be a prison. The novel that made Pirandello famous throughout the world.</p>
+      </div>
+      <div>
+<h2>Why read Il fu Mattia Pascal to learn Italian</h2>
+    <p>The puzzle plot — a man believed dead who invents a new life — is a magnet: you want to know how it ends, and meanwhile you read. Mattia's short reflections introduce the present subjunctive in crystal-clear contexts.</p>
       </div>
     </div>
   </section>
 
   <section class="sezione">
-    <h2>The plot of Il fu Mattia Pascal</h2>
-    <p>Crushed by an unhappy marriage and an unbearable mother-in-law, Mattia Pascal runs away from home. In Monte Carlo he wins a fortune at roulette and, on the train home, reads in the paper that he is «dead»: a body has been identified as his.</p><p>Free of everything, Mattia becomes Adriano Meis and starts over in Rome. But a man without a past can have neither love nor rights: absolute freedom turns out to be a prison. The novel that made Pirandello famous throughout the world.</p>
+    <h2>Inside the glossary</h2>
+        <div class="sf-gspread">
+      <div class="sf-gpag">
+        <p class="sf-gtit">Glossary</p>
+        <p class="sf-gint">The key words of the novel, in alphabetical order. Italian definition first, then the English, then what the word means inside this story.</p>
+        <dl>
+          <dt><b lang="it">adulterio</b> &middot; <i lang="en">adultery</i> <span>(sin. infedeltà, tradimento coniugale)</span></dt>
+          <dd lang="it">Il tradimento fra marito e moglie.</dd>
+          <dd class="en" lang="en">Betrayal between husband and wife.</dd>
+          <dd class="nota" lang="en">In the novel: When Mattia comes back, Romilda has another husband. If he is alive, she is an adulteress; if he is dead, she is respectable. The law has no box to tick for a man who is both at once.</dd>
+          <dt><b lang="it">biblioteca</b> &middot; <i lang="en">library</i> <span>(sin. libreria, raccolta di libri)</span></dt>
+          <dd lang="it">Il luogo pieno di libri dove si va a leggere.</dd>
+          <dd class="en" lang="en">The place full of books, where one goes to read.</dd>
+          <dd class="nota" lang="en">In the novel: The Boccamazza library is an empty church with two thousand books and no readers. Mattia spends his days watching the rats eat them, and does nothing to stop it: a portrait of a wasted life.</dd>
+          <dt><b lang="it">cadavere</b> &middot; <i lang="en">corpse</i> <span>(sin. corpo, salma)</span></dt>
+          <dd lang="it">Il corpo di una persona morta.</dd>
+          <dd class="en" lang="en">The body of a dead person.</dd>
+          <dd class="nota" lang="en">In the novel: The body in the mill-race is a stranger, and it becomes Mattia Pascal because a woman points at it. This is where the novel states its thesis outright: you are whoever other people say you are.</dd>
+        </dl>
+      </div>
+      <div class="sf-gpag">
+        <dl>
+          <dt><b lang="it">caso</b> &middot; <i lang="en">chance</i> <span>(sin. sorte, combinazione)</span></dt>
+          <dd lang="it">Quello che succede senza che nessuno l’abbia deciso.</dd>
+          <dd class="en" lang="en">What happens without anyone having decided it.</dd>
+          <dd class="nota" lang="en">In the novel: Pirandello doesn’t believe in destiny; he believes in chance, which is far worse. Destiny has a design — chance has none. This entire novel starts because a man gets off a train because he is hungry.</dd>
+          <dt><b lang="it">colpa</b> &middot; <i lang="en">guilt</i> <span>(sin. responsabilità, peccato)</span></dt>
+          <dd lang="it">La responsabilità di aver fatto qualcosa di grave.</dd>
+          <dd class="en" lang="en">The weight of having done something seriously wrong.</dd>
+          <dd class="nota" lang="en">In the novel: Mattia’s guilt isn’t that he ran away: it is that he never did anything. «And I did nothing» repeats through the book like a sentence handed down — and the man handing it down is always himself.</dd>
+          <dt><b lang="it">debito</b> &middot; <i lang="en">debt</i> <span>(sin. obbligo, passivo)</span></dt>
+          <dd lang="it">Il denaro che si deve a qualcuno.</dd>
+          <dd class="en" lang="en">Money that is owed to someone.</dd>
+          <dd class="nota" lang="en">In the novel: Debt is the chain of Mattia’s first life. When he learns he is dead, his very first thought is that the debts now belong to somebody else — to a man who does not exist.</dd>
+        </dl>
+        <p class="sf-gpie">The glossary contains 43 entries in all</p>
+      </div>
+    </div>
   </section>
 
-  <section class="sezione">
-    <h2>Why read Il fu Mattia Pascal to learn Italian</h2>
-    <p>The puzzle plot — a man believed dead who invents a new life — is a magnet: you want to know how it ends, and meanwhile you read. Mattia's short reflections introduce the present subjunctive in crystal-clear contexts.</p>
-  </section>
+
+  
 </div>
 
 <section class="dentro">
@@ -383,8 +467,8 @@ footer.sito a{color:var(--nebbia)}
   <section class="sezione">
     <h2>Language focus: what you practise</h2>
     <p>In this level-B1 edition you mainly practise the present subjunctive, the conditional, real hypothetical clauses and discourse connectors. The vocabulary revolves around identity and everyday life: the key words, with translations, are in the glossary below and recur throughout the text, so you learn them in context.</p>
-    <h2 style="margin-top:26px">Essential glossary (Italian · English · Dutch)</h2>
-    <div class="glossario-scorri"><table class="glossario"><thead><tr><th>Italian</th><th>English</th><th>Dutch</th></tr></thead><tbody><tr><td>l'identità</td><td>identity</td><td>de identiteit</td></tr><tr><td>la libertà</td><td>freedom</td><td>de vrijheid</td></tr><tr><td>il morto</td><td>dead man</td><td>de dode</td></tr><tr><td>la roulette</td><td>roulette</td><td>de roulette</td></tr><tr><td>la biblioteca</td><td>library</td><td>de bibliotheek</td></tr><tr><td>il nome</td><td>name</td><td>de naam</td></tr><tr><td>l'ombra</td><td>shadow</td><td>de schaduw</td></tr><tr><td>la suocera</td><td>mother-in-law</td><td>de schoonmoeder</td></tr></tbody></table></div>
+    
+
   </section>
 
   <section class="sezione">
@@ -398,6 +482,9 @@ footer.sito a{color:var(--nebbia)}
   </section>
 
   <section class="faq">
+    <h2 style="margin-top:26px">Essential glossary (Italian · English · Dutch)</h2>
+    <div class="glossario-scorri"><table class="glossario"><thead><tr><th>Italian</th><th>English</th><th>Dutch</th></tr></thead><tbody><tr><td>l'identità</td><td>identity</td><td>de identiteit</td></tr><tr><td>la libertà</td><td>freedom</td><td>de vrijheid</td></tr><tr><td>il morto</td><td>dead man</td><td>de dode</td></tr><tr><td>la roulette</td><td>roulette</td><td>de roulette</td></tr><tr><td>la biblioteca</td><td>library</td><td>de bibliotheek</td></tr><tr><td>il nome</td><td>name</td><td>de naam</td></tr><tr><td>l'ombra</td><td>shadow</td><td>de schaduw</td></tr><tr><td>la suocera</td><td>mother-in-law</td><td>de schoonmoeder</td></tr></tbody></table></div>
+
     <h2>Frequently asked questions</h2>
   <details>
     <summary>What level of Italian do I need to read Il fu Mattia Pascal?</summary>

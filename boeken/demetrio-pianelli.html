@@ -127,18 +127,18 @@ footer.sito a{color:var(--nebbia)}
 
 /* ===== Prima pagina del libro ===== */
 .sfoglia{margin:40px 0 46px}
-.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);
  gap:0;align-items:stretch;perspective:2200px;perspective-origin:70% 46%}
 .sfoglia-cop{position:relative;border-radius:5px 3px 3px 5px;overflow:hidden;
- transform-origin:right center;
+ align-self:start;aspect-ratio:800/1280;transform-origin:right center;
  box-shadow:0 24px 46px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
  transform:rotateY(-42deg);animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both}
-.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:cover;object-position:left center}
+.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:fill}
 .sfoglia-cop::after{content:"";position:absolute;inset:0;pointer-events:none;
  background:linear-gradient(90deg,rgba(0,0,0,.34),rgba(0,0,0,0) 26%,rgba(255,255,255,.12))}
 @keyframes sf-apri{from{transform:rotateY(-16deg)}to{transform:rotateY(-42deg)}}
 
-.sfoglia-foglio{position:relative;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
+.sfoglia-foglio{position:relative;align-self:stretch;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
  box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42),0 18px 38px -18px rgba(20,24,38,.32);
  animation:sf-posa 1.7s cubic-bezier(.18,.9,.24,1) .5s both}
@@ -176,9 +176,12 @@ footer.sito a{color:var(--nebbia)}
 .sf-piede a{color:#8a6a2f;font-weight:600;text-decoration:none}
 .sf-piede a:hover{text-decoration:underline}
 
+.sf-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px 34px;align-items:start}
+.sf-2col>div>h2{margin-top:0}
 @media (max-width:820px){
+ .sf-2col{grid-template-columns:1fr;gap:0}
  .sfoglia-scena{grid-template-columns:1fr;gap:20px;perspective:none}
- .sfoglia-cop{max-width:190px;margin:0 auto;transform:none;animation:none}
+ .sfoglia-cop{max-width:190px;margin:0 auto;transform:none;animation:none;aspect-ratio:auto}
  .sfoglia-foglio{padding:22px 20px 16px;border-radius:8px;animation:none;
   box-shadow:0 14px 28px -16px rgba(20,24,38,.3)}
  .sfoglia-foglio::after{display:none}
@@ -187,6 +190,41 @@ footer.sito a{color:var(--nebbia)}
  .sfoglia-cop{animation:none;transform:rotateY(-42deg)}
  .sfoglia-foglio{animation:none}
  .sfoglia-foglio::before{animation:none;opacity:0}
+}
+
+/* ---- Doppia pagina: il glossario del libro ---- */
+.sf-gspread{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:22px 0 0;
+ border-radius:3px;overflow:hidden;
+ box-shadow:0 18px 38px -18px rgba(20,24,38,.3)}
+.sf-gpag{padding:26px 26px 22px;
+ background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%)}
+.sf-gpag:first-child{border-radius:2px 0 0 2px;
+ box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gpag:last-child{border-radius:0 2px 2px 0;
+ box-shadow:inset 14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gtit{margin:0;text-align:center;font-family:Fraunces,Georgia,serif;
+ font-size:1.18rem;font-weight:600;color:#2a2a2f}
+.sf-gint{margin:8px 0 18px;font-size:.83rem;font-style:italic;line-height:1.6;
+ color:#7a6b53;text-align:center}
+.sf-gspread dl{margin:0}
+.sf-gspread dt{margin:0 0 3px;font-family:"Source Serif 4",Georgia,serif;font-size:.99rem}
+.sf-gspread dt b{color:#1F2529}
+.sf-gspread dt i{color:#326778;font-weight:600}
+.sf-gspread dt span{font-size:.84em;color:#8a7f6b;font-style:italic}
+.sf-gspread dd{margin:0;font-family:"Source Serif 4",Georgia,serif;
+ font-size:.92rem;line-height:1.58;color:#2b2b30}
+.sf-gspread dd.en{color:#5f6b72}
+.sf-gspread dd.nota{margin:3px 0 16px;font-style:italic;font-size:.86rem;
+ line-height:1.55;color:#55606a}
+.sf-gspread dd:last-child{margin-bottom:0}
+.sf-gpie{margin:16px 0 0;padding-top:11px;border-top:1px solid rgba(92,72,42,.16);
+ font-size:.79rem;letter-spacing:.02em;color:#8a7f6b;text-align:center}
+@media (max-width:820px){
+ .sf-gspread{grid-template-columns:1fr;box-shadow:0 12px 26px -16px rgba(20,24,38,.3)}
+ .sf-gpag{padding:20px 18px}
+ .sf-gpag:first-child,.sf-gpag:last-child{box-shadow:none;border-radius:0}
+ .sf-gpag:first-child{border-radius:6px 6px 0 0;border-bottom:1px solid rgba(92,72,42,.14)}
+ .sf-gpag:last-child{border-radius:0 0 6px 6px}
 }
 
 </style>
@@ -327,19 +365,19 @@ footer.sito a{color:var(--nebbia)}
     </div>
   </section>
 
-    <section class="sezione sfoglia">
+        <section class="sezione sfoglia">
     <h2>Kijk binnenin: de eerste bladzijde</h2>
     <div class="sfoglia-scena">
       <div class="sfoglia-cop">
         <picture>
           <source srcset="/assets/books/DemetrioPianelli_cover.webp" type="image/webp">
-          <img src="/assets/books/DemetrioPianelli_cover.jpg" width="800" height="1280" alt="Omslag van L’ufficio delle poste" loading="lazy" decoding="async">
+          <img src="/assets/books/DemetrioPianelli_cover.jpg" width="800" height="1280" alt="Omslag van L&amp;#x27;ufficio delle poste" loading="lazy" decoding="async">
         </picture>
       </div>
       <div class="sfoglia-foglio">
         <p class="sf-capnum">CAPITOLO 1</p>
         <img class="sf-vign" src="/assets/books/vignette/demetrio-pianelli.png" alt="Hoofdstukvignet" width="148" height="148" loading="lazy" decoding="async">
-        <h3 class="sf-tit" lang="it">L’ufficio delle poste</h3>
+        <h3 class="sf-tit" lang="it">L&amp;#x27;ufficio delle poste</h3>
         <p class="sf-titen" lang="en">The Post Office</p>
         <div class="sf-corpo" lang="it">
           <p>Verso mezzogiorno Cesarino Pianelli, il <b class="sf-kw">cassiere</b> aggiunto, vide entrare in ufficio il vecchio Martini. Il collega aveva la faccia bianca e un telegramma nella mano.</p>
@@ -356,15 +394,62 @@ footer.sito a{color:var(--nebbia)}
     </div>
   </section>
 
-  <section class="sezione">
-    <h2>Waar gaat Demetrio Pianelli over?</h2>
+    <section class="sezione">
+    <div class="sf-2col">
+      <div>
+<h2>Waar gaat Demetrio Pianelli over?</h2>
     <p>Milaan, eind negentiende eeuw. Wanneer zijn halfbroer Cesarino zich van het leven berooft na geld van kantoor te hebben gestolen, neemt de bescheiden klerk Demetrio Pianelli alles op zich: de schulden, het schandaal, en de weduwe Beatrice met haar drie kinderen.</p><p>Dag na dag, tussen stille offers door, ontdekt Demetrio dat hij voor Beatrice iets voelt wat hij niet kan bekennen. Een fijnzinnige, diepe roman over de Milanese kleine burgerij en de verborgen grootsheid van gewone levens.</p>
+      </div>
+      <div>
+<h2>Waarom Demetrio Pianelli lezen om Italiaans te leren</h2>
+    <p>Dit is het alledaagse Italiaans van thuis en kantoor, precies wat je echt nodig hebt: salarissen, schulden, familiediners. De beschrijvende imperfetto stroomt er vanzelf in, en de eenvoudige, ontroerende toon houdt je vast tot de laatste pagina.</p>
+      </div>
+    </div>
   </section>
 
   <section class="sezione">
-    <h2>Waarom Demetrio Pianelli lezen om Italiaans te leren</h2>
-    <p>Dit is het alledaagse Italiaans van thuis en kantoor, precies wat je echt nodig hebt: salarissen, schulden, familiediners. De beschrijvende imperfetto stroomt er vanzelf in, en de eenvoudige, ontroerende toon houdt je vast tot de laatste pagina.</p>
+    <h2>In de woordenlijst</h2>
+        <div class="sf-gspread">
+      <div class="sf-gpag">
+        <p class="sf-gtit">Woordenlijst</p>
+        <p class="sf-gint">De kernwoorden van de roman, op alfabet. Eerst de Italiaanse definitie, dan de Engelse, dan wat het woord in dit verhaal betekent.</p>
+        <dl>
+          <dt><b lang="it">affetto</b> &middot; <i lang="en">affection</i> <span>(sin. tenerezza, attaccamento)</span></dt>
+          <dd lang="it">Un sentimento di amore calmo e sicuro, non passionale.</dd>
+          <dd class="en" lang="en">A calm, steady love, not passionate.</dd>
+          <dd class="nota" lang="en">In the novel: Demetrio’s affection for Arabella is the purest thing in the novel. It asks for nothing, demands nothing, pretends nothing. It is the way of loving of a man who cannot say «I love you».</dd>
+          <dt><b lang="it">cambiale</b> &middot; <i lang="en">promissory note</i> <span>(sin. pagherò, titolo di credito)</span></dt>
+          <dd lang="it">Un pezzo di carta con cui si promette di pagare una somma a una data futura.</dd>
+          <dd class="en" lang="en">A paper promising to pay a sum at a future date.</dd>
+          <dd class="nota" lang="en">In the novel: Cesarino signed promissory notes everywhere to pay for his suits and his parties. After his death, every note that comes back is a fresh wound for Demetrio.</dd>
+          <dt><b lang="it">cassiere</b> &middot; <i lang="en">cashier</i> <span>(sin. contabile, tesoriere)</span></dt>
+          <dd lang="it">L’impiegato che tiene i conti e i soldi di un ufficio.</dd>
+          <dd class="en" lang="en">The clerk who keeps the accounts and cash of an office.</dd>
+          <dd class="nota" lang="en">In the novel: Cesarino is the assistant cashier at the post office. His hands are on the cash every day — and this closeness to other people’s money, for a weak man like him, is dangerous.</dd>
+        </dl>
+      </div>
+      <div class="sf-gpag">
+        <dl>
+          <dt><b lang="it">cognata</b> &middot; <i lang="en">sister-in-law</i> <span>(sin. parente acquisita, sposa del fratello)</span></dt>
+          <dd lang="it">La moglie del proprio fratello, o la sorella del proprio marito.</dd>
+          <dd class="en" lang="en">The wife of one’s brother, or the sister of one’s spouse.</dd>
+          <dd class="nota" lang="en">In the novel: Beatrice is Demetrio’s sister-in-law: his brother’s wife. In the civil code there is no blood relation. But Demetrio considers her a sister — and perhaps, without saying so, something more.</dd>
+          <dt><b lang="it">coscienza</b> &middot; <i lang="en">conscience</i> <span>(sin. morale, senso del bene e del male)</span></dt>
+          <dd lang="it">La voce dentro di noi che ci dice se abbiamo fatto bene o male.</dd>
+          <dd class="en" lang="en">The inner voice that tells us if we have done right or wrong.</dd>
+          <dd class="nota" lang="en">In the novel: Demetrio’s conscience does not leave him alone for a single day. It is she who makes him pay his brother’s debts, who makes him give up love, who makes him say yes to the transfer. She is his only mistress.</dd>
+          <dt><b lang="it">creditore</b> &middot; <i lang="en">creditor</i> <span>(sin. prestatore, richiedente)</span></dt>
+          <dd lang="it">Chi ha prestato dei soldi e aspetta di riaverli indietro.</dd>
+          <dd class="en" lang="en">Someone who has lent money and waits to get it back.</dd>
+          <dd class="nota" lang="en">In the novel: After Cesarino’s death the creditors come to Beatrice’s door one after another. By law she owes them nothing. But Demetrio has decided otherwise, for the honour of the name Pianelli.</dd>
+        </dl>
+        <p class="sf-gpie">De woordenlijst bevat in totaal 41 woorden</p>
+      </div>
+    </div>
   </section>
+
+
+  
 </div>
 
 <section class="dentro">
@@ -378,8 +463,8 @@ footer.sito a{color:var(--nebbia)}
   <section class="sezione">
     <h2>Taalfocus: wat je oefent</h2>
     <p>In deze editie op niveau A2 oefen je vooral de imperfetto tegenover de passato prossimo, de eenvoudige toekomende tijd, directe en indirecte voornaamwoorden. De woordenschat draait om thuis, kantoor en geld: de kernwoorden staan met vertaling in de woordenlijst hieronder en keren telkens terug in de tekst, zodat je ze in context leert.</p>
-    <h2 style="margin-top:26px">Basiswoordenlijst (Italiaans · Nederlands · Engels)</h2>
-    <div class="glossario-scorri"><table class="glossario"><thead><tr><th>Italiaans</th><th>Nederlands</th><th>Engels</th></tr></thead><tbody><tr><td>l'impiegato</td><td>de kantoorbediende</td><td>clerk</td></tr><tr><td>la vedova</td><td>de weduwe</td><td>widow</td></tr><tr><td>il debito</td><td>de schuld</td><td>debt</td></tr><tr><td>il sacrificio</td><td>de opoffering</td><td>sacrifice</td></tr><tr><td>lo stipendio</td><td>het salaris</td><td>salary</td></tr><tr><td>il fratellastro</td><td>de halfbroer</td><td>half-brother</td></tr><tr><td>l'ufficio</td><td>het kantoor</td><td>office</td></tr><tr><td>la dignità</td><td>de waardigheid</td><td>dignity</td></tr></tbody></table></div>
+    
+
   </section>
 
   <section class="sezione">
@@ -393,6 +478,9 @@ footer.sito a{color:var(--nebbia)}
   </section>
 
   <section class="faq">
+    <h2 style="margin-top:26px">Basiswoordenlijst (Italiaans · Nederlands · Engels)</h2>
+    <div class="glossario-scorri"><table class="glossario"><thead><tr><th>Italiaans</th><th>Nederlands</th><th>Engels</th></tr></thead><tbody><tr><td>l'impiegato</td><td>de kantoorbediende</td><td>clerk</td></tr><tr><td>la vedova</td><td>de weduwe</td><td>widow</td></tr><tr><td>il debito</td><td>de schuld</td><td>debt</td></tr><tr><td>il sacrificio</td><td>de opoffering</td><td>sacrifice</td></tr><tr><td>lo stipendio</td><td>het salaris</td><td>salary</td></tr><tr><td>il fratellastro</td><td>de halfbroer</td><td>half-brother</td></tr><tr><td>l'ufficio</td><td>het kantoor</td><td>office</td></tr><tr><td>la dignità</td><td>de waardigheid</td><td>dignity</td></tr></tbody></table></div>
+
     <h2>Veelgestelde vragen</h2>
   <details>
     <summary>Welk niveau Italiaans heb ik nodig voor Demetrio Pianelli?</summary>

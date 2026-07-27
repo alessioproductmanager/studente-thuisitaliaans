@@ -127,18 +127,18 @@ footer.sito a{color:var(--nebbia)}
 
 /* ===== Prima pagina del libro ===== */
 .sfoglia{margin:40px 0 46px}
-.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);
  gap:0;align-items:stretch;perspective:2200px;perspective-origin:70% 46%}
 .sfoglia-cop{position:relative;border-radius:5px 3px 3px 5px;overflow:hidden;
- transform-origin:right center;
+ align-self:start;aspect-ratio:800/1280;transform-origin:right center;
  box-shadow:0 24px 46px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
  transform:rotateY(-42deg);animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both}
-.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:cover;object-position:left center}
+.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:fill}
 .sfoglia-cop::after{content:"";position:absolute;inset:0;pointer-events:none;
  background:linear-gradient(90deg,rgba(0,0,0,.34),rgba(0,0,0,0) 26%,rgba(255,255,255,.12))}
 @keyframes sf-apri{from{transform:rotateY(-16deg)}to{transform:rotateY(-42deg)}}
 
-.sfoglia-foglio{position:relative;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
+.sfoglia-foglio{position:relative;align-self:stretch;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
  box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42),0 18px 38px -18px rgba(20,24,38,.32);
  animation:sf-posa 1.7s cubic-bezier(.18,.9,.24,1) .5s both}
@@ -176,9 +176,12 @@ footer.sito a{color:var(--nebbia)}
 .sf-piede a{color:#8a6a2f;font-weight:600;text-decoration:none}
 .sf-piede a:hover{text-decoration:underline}
 
+.sf-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px 34px;align-items:start}
+.sf-2col>div>h2{margin-top:0}
 @media (max-width:820px){
+ .sf-2col{grid-template-columns:1fr;gap:0}
  .sfoglia-scena{grid-template-columns:1fr;gap:20px;perspective:none}
- .sfoglia-cop{max-width:190px;margin:0 auto;transform:none;animation:none}
+ .sfoglia-cop{max-width:190px;margin:0 auto;transform:none;animation:none;aspect-ratio:auto}
  .sfoglia-foglio{padding:22px 20px 16px;border-radius:8px;animation:none;
   box-shadow:0 14px 28px -16px rgba(20,24,38,.3)}
  .sfoglia-foglio::after{display:none}
@@ -187,6 +190,41 @@ footer.sito a{color:var(--nebbia)}
  .sfoglia-cop{animation:none;transform:rotateY(-42deg)}
  .sfoglia-foglio{animation:none}
  .sfoglia-foglio::before{animation:none;opacity:0}
+}
+
+/* ---- Doppia pagina: il glossario del libro ---- */
+.sf-gspread{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:22px 0 0;
+ border-radius:3px;overflow:hidden;
+ box-shadow:0 18px 38px -18px rgba(20,24,38,.3)}
+.sf-gpag{padding:26px 26px 22px;
+ background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%)}
+.sf-gpag:first-child{border-radius:2px 0 0 2px;
+ box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gpag:last-child{border-radius:0 2px 2px 0;
+ box-shadow:inset 14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gtit{margin:0;text-align:center;font-family:Fraunces,Georgia,serif;
+ font-size:1.18rem;font-weight:600;color:#2a2a2f}
+.sf-gint{margin:8px 0 18px;font-size:.83rem;font-style:italic;line-height:1.6;
+ color:#7a6b53;text-align:center}
+.sf-gspread dl{margin:0}
+.sf-gspread dt{margin:0 0 3px;font-family:"Source Serif 4",Georgia,serif;font-size:.99rem}
+.sf-gspread dt b{color:#1F2529}
+.sf-gspread dt i{color:#326778;font-weight:600}
+.sf-gspread dt span{font-size:.84em;color:#8a7f6b;font-style:italic}
+.sf-gspread dd{margin:0;font-family:"Source Serif 4",Georgia,serif;
+ font-size:.92rem;line-height:1.58;color:#2b2b30}
+.sf-gspread dd.en{color:#5f6b72}
+.sf-gspread dd.nota{margin:3px 0 16px;font-style:italic;font-size:.86rem;
+ line-height:1.55;color:#55606a}
+.sf-gspread dd:last-child{margin-bottom:0}
+.sf-gpie{margin:16px 0 0;padding-top:11px;border-top:1px solid rgba(92,72,42,.16);
+ font-size:.79rem;letter-spacing:.02em;color:#8a7f6b;text-align:center}
+@media (max-width:820px){
+ .sf-gspread{grid-template-columns:1fr;box-shadow:0 12px 26px -16px rgba(20,24,38,.3)}
+ .sf-gpag{padding:20px 18px}
+ .sf-gpag:first-child,.sf-gpag:last-child{box-shadow:none;border-radius:0}
+ .sf-gpag:first-child{border-radius:6px 6px 0 0;border-bottom:1px solid rgba(92,72,42,.14)}
+ .sf-gpag:last-child{border-radius:0 0 6px 6px}
 }
 
 </style>
@@ -273,7 +311,7 @@ footer.sito a{color:var(--nebbia)}
     </div>
   </section>
 
-    <section class="sezione sfoglia">
+        <section class="sezione sfoglia">
     <h2>Sfoglia dentro: la prima pagina</h2>
     <div class="sfoglia-scena">
       <div class="sfoglia-cop">
@@ -289,26 +327,72 @@ footer.sito a{color:var(--nebbia)}
         <p class="sf-titen" lang="en">The Book of Memory</p>
         <div class="sf-corpo" lang="it">
           <p>Nel libro della mia <b class="sf-kw">memoria</b>, nella parte prima della quale poco si potrebbe leggere, si trova una rubrica che dice: Incipit vita nova — comincia la vita nuova.<sup>1</sup> Sotto quella rubrica stanno scritte le parole che ora voglio copiare in questo <b class="sf-kw">quaderno</b>: se non tutte, almeno il loro significato.</p>
-          <p>Non è un racconto come gli altri. È la copia di ciò che la vita ha scritto dentro di me, e io ho scelto le pagine che valeva la pena di trascrivere. Chi legge deve sapere questo: tutto quello che segue è successo davvero — nel mondo, o nell’<b class="sf-kw">anima</b>, che per me è lo stesso.</p>
         </div>
         <p class="sf-gloss"><span class="sf-kw">memoria</span> = memory &#183; <span class="sf-kw">quaderno</span> = notebook &#183; <span class="sf-kw">anima</span> = soul</p>
         <div class="sf-note">
           <p class="sf-nota"><sup>1</sup> Il latino Incipit vita nova («comincia la vita nuova») dà il titolo all’opera. Nei manoscritti medievali le «rubriche» erano i titoli scritti in rosso — ruber, in latino. Dante immagina la propria memoria come un codice miniato: la vita, per lui, è già un libro prima di essere scritta.</p>
         </div>
-        <p class="sf-piede"><span>Capitolo 1 · livello B2 · 104 parole dal testo reale</span></p>
+        <p class="sf-piede"><span>Capitolo 1 · livello B2 · 49 parole dal testo reale</span></p>
+      </div>
+    </div>
+  </section>
+
+    <section class="sezione">
+    <div class="sf-2col">
+      <div>
+<h2>Trama di La Vita Nuova</h2>
+    <p>Firenze. Dante ha nove anni quando vede per la prima volta Beatrice, e da quel giorno — scrive — «Amore signoreggia la mia anima». Un saluto negato, un sogno terribile, i sonetti mandati agli amici poeti: la <em>Vita Nuova</em> intreccia prosa e versi per raccontare, capitolo per capitolo, come nasce e si trasforma un amore.</p><p>Quando Beatrice muore, il dolore diventa la prova più dura e la poesia cambia natura. Il libro si chiude con una promessa che vale tutta la letteratura italiana: dire di lei «quello che mai non fue detto d'alcuna» — la promessa che diventerà la <em>Divina Commedia</em>.</p>
+      </div>
+      <div>
+<h2>Perché leggere La Vita Nuova per imparare l&#x27;italiano</h2>
+    <p>Prosa e poesia si spiegano a vicenda: Dante racconta l'occasione, poi mostra il sonetto che ne è nato — il modo più naturale di avvicinarsi alla poesia italiana senza paura. E incontri il padre della lingua nel suo libro più intimo e leggibile.</p>
       </div>
     </div>
   </section>
 
   <section class="sezione">
-    <h2>Trama di La Vita Nuova</h2>
-    <p>Firenze. Dante ha nove anni quando vede per la prima volta Beatrice, e da quel giorno — scrive — «Amore signoreggia la mia anima». Un saluto negato, un sogno terribile, i sonetti mandati agli amici poeti: la <em>Vita Nuova</em> intreccia prosa e versi per raccontare, capitolo per capitolo, come nasce e si trasforma un amore.</p><p>Quando Beatrice muore, il dolore diventa la prova più dura e la poesia cambia natura. Il libro si chiude con una promessa che vale tutta la letteratura italiana: dire di lei «quello che mai non fue detto d'alcuna» — la promessa che diventerà la <em>Divina Commedia</em>.</p>
+    <h2>Dentro il glossario</h2>
+    <div class="sf-gspread">
+      <div class="sf-gpag">
+        <p class="sf-gtit">Glossario</p>
+        <p class="sf-gint">Le parole in grassetto del romanzo, in ordine alfabetico. Prima la definizione italiana, poi quella inglese, poi che cosa significa dentro questa storia.</p>
+        <dl>
+          <dt><b lang="it">amore</b> &middot; <i lang="en">love</i> <span>(sin. passione, affetto)</span></dt>
+          <dd lang="it">Il sentimento intenso che lega una persona a un’altra.</dd>
+          <dd class="en" lang="en">The deep feeling that binds one person to another.</dd>
+          <dd class="nota" lang="en">In the novel: In this book Love has a capital letter and walks: a lord who appears in dreams, speaks Latin and gives orders. The book tells how that external master slowly becomes one and the same with the heart that hosts him.</dd>
+          <dt><b lang="it">anima</b> &middot; <i lang="en">soul</i> <span>(sin. spirito, interiorità)</span></dt>
+          <dd lang="it">La parte spirituale e immortale dell’essere umano, sede dei sentimenti.</dd>
+          <dd class="en" lang="en">The spiritual, immortal part of a human being.</dd>
+          <dd class="nota" lang="en">In the novel: At nine, seeing Beatrice, the spirit of Dante’s life trembles and says: here is a god stronger than I. From that moment the book’s soul has a mistress — and when the mistress dies, the book tells what is left to a soul on its own.</dd>
+          <dt><b lang="it">beatitudine</b> &middot; <i lang="en">beatitude, bliss</i> <span>(sin. felicità perfetta, estasi)</span></dt>
+          <dd lang="it">La felicità piena e perfetta, senza mancanza e senza paura.</dd>
+          <dd class="en" lang="en">A complete and perfect happiness, like that of the blessed in heaven.</dd>
+          <dd class="nota" lang="en">In the novel: Dante uses this word for one thing only: Beatrice’s greeting. Not a pleasure, not a joy — beatitude, the word reserved for saints. It measures how much he has invested in a gesture that isn’t his to command, and how much he stands to lose.</dd>
+        </dl>
+      </div>
+      <div class="sf-gpag">
+        <dl>
+          <dt><b lang="it">canzone</b> &middot; <i lang="en">canzone, song</i> <span>(sin. componimento lirico, poema breve)</span></dt>
+          <dd lang="it">Componimento poetico lungo, in più stanze, di argomento elevato.</dd>
+          <dd class="en" lang="en">A long lyric poem in stanzas, the noblest form of medieval poetry.</dd>
+          <dd class="nota" lang="en">In the novel: If the sonnet is a letter, the canzone is a solemn address. «Ladies who have intellect of love» inaugurates the new style of praise: to speak of Beatrice the short measure is no longer enough — the long breath of the canzone is needed.</dd>
+          <dt><b lang="it">consolazione</b> &middot; <i lang="en">consolation</i> <span>(sin. conforto, sollievo)</span></dt>
+          <dd lang="it">Il sollievo che si dà o si riceve in un dolore.</dd>
+          <dd class="en" lang="en">The relief given to someone who suffers.</dd>
+          <dd class="nota" lang="en">In the novel: The book is a small treatise on consolation: the true kind (the women weeping together, Beatrice’s brother, the verses) and the false kind, which consoles too well and makes one forget. Telling them apart is the task of the final part.</dd>
+          <dt><b lang="it">cortesia</b> &middot; <i lang="en">courtesy</i> <span>(sin. gentilezza, garbo)</span></dt>
+          <dd lang="it">L’insieme dei modi nobili e gentili verso gli altri; nel mondo antico, la virtù delle corti.</dd>
+          <dd class="en" lang="en">The noble code of kind and honourable behaviour.</dd>
+          <dd class="nota" lang="en">In the novel: Not good manners: a code of honour. Beatrice greets out of «ineffable courtesy», and the gossip runs «beyond the bounds of courtesy» — the word measures everything that in this book is given or violated.</dd>
+        </dl>
+        <p class="sf-gpie">Il glossario contiene 40 voci in tutto</p>
+      </div>
+    </div>
   </section>
 
-  <section class="sezione">
-    <h2>Perché leggere La Vita Nuova per imparare l&#x27;italiano</h2>
-    <p>Prosa e poesia si spiegano a vicenda: Dante racconta l'occasione, poi mostra il sonetto che ne è nato — il modo più naturale di avvicinarsi alla poesia italiana senza paura. E incontri il padre della lingua nel suo libro più intimo e leggibile.</p>
-  </section>
+
+  
 </div>
 
 <section class="dentro">
@@ -322,8 +406,8 @@ footer.sito a{color:var(--nebbia)}
   <section class="sezione">
     <h2>Focus linguistico: che cosa eserciti</h2>
     <p>In questa edizione di livello B2 eserciti soprattutto congiuntivo imperfetto e trapassato, periodo ipotetico della possibilità, passivo e discorso indiretto. Il lessico ruota attorno a l'amore, la poesia e il sogno: le parole chiave, con traduzione, sono nel glossario qui sotto e tornano più volte nel testo, così le impari in contesto.</p>
-    <h2 style="margin-top:26px">Glossario essenziale (italiano · inglese · olandese)</h2>
-    <div class="glossario-scorri"><table class="glossario"><thead><tr><th>Italiano</th><th>Inglese</th><th>Olandese</th></tr></thead><tbody><tr><td>il saluto</td><td>greeting</td><td>de groet</td></tr><tr><td>il sonetto</td><td>sonnet</td><td>het sonnet</td></tr><tr><td>il cuore</td><td>heart</td><td>het hart</td></tr><tr><td>il sogno</td><td>dream</td><td>de droom</td></tr><tr><td>la lode</td><td>praise</td><td>de lof</td></tr><tr><td>la morte</td><td>death</td><td>de dood</td></tr><tr><td>la visione</td><td>vision</td><td>het visioen</td></tr><tr><td>l'amore</td><td>love</td><td>de liefde</td></tr></tbody></table></div>
+    
+
   </section>
 
   <section class="sezione">
@@ -337,6 +421,9 @@ footer.sito a{color:var(--nebbia)}
   </section>
 
   <section class="faq">
+    <h2 style="margin-top:26px">Glossario essenziale (italiano · inglese · olandese)</h2>
+    <div class="glossario-scorri"><table class="glossario"><thead><tr><th>Italiano</th><th>Inglese</th><th>Olandese</th></tr></thead><tbody><tr><td>il saluto</td><td>greeting</td><td>de groet</td></tr><tr><td>il sonetto</td><td>sonnet</td><td>het sonnet</td></tr><tr><td>il cuore</td><td>heart</td><td>het hart</td></tr><tr><td>il sogno</td><td>dream</td><td>de droom</td></tr><tr><td>la lode</td><td>praise</td><td>de lof</td></tr><tr><td>la morte</td><td>death</td><td>de dood</td></tr><tr><td>la visione</td><td>vision</td><td>het visioen</td></tr><tr><td>l'amore</td><td>love</td><td>de liefde</td></tr></tbody></table></div>
+
     <h2>Domande frequenti</h2>
   <details>
     <summary>Che livello di italiano serve per leggere La Vita Nuova?</summary>

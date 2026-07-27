@@ -127,18 +127,18 @@ footer.sito a{color:var(--nebbia)}
 
 /* ===== Prima pagina del libro ===== */
 .sfoglia{margin:40px 0 46px}
-.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);
  gap:0;align-items:stretch;perspective:2200px;perspective-origin:70% 46%}
 .sfoglia-cop{position:relative;border-radius:5px 3px 3px 5px;overflow:hidden;
- transform-origin:right center;
+ align-self:start;aspect-ratio:800/1280;transform-origin:right center;
  box-shadow:0 24px 46px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
  transform:rotateY(-42deg);animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both}
-.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:cover;object-position:left center}
+.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:fill}
 .sfoglia-cop::after{content:"";position:absolute;inset:0;pointer-events:none;
  background:linear-gradient(90deg,rgba(0,0,0,.34),rgba(0,0,0,0) 26%,rgba(255,255,255,.12))}
 @keyframes sf-apri{from{transform:rotateY(-16deg)}to{transform:rotateY(-42deg)}}
 
-.sfoglia-foglio{position:relative;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
+.sfoglia-foglio{position:relative;align-self:stretch;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
  box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42),0 18px 38px -18px rgba(20,24,38,.32);
  animation:sf-posa 1.7s cubic-bezier(.18,.9,.24,1) .5s both}
@@ -176,9 +176,12 @@ footer.sito a{color:var(--nebbia)}
 .sf-piede a{color:#8a6a2f;font-weight:600;text-decoration:none}
 .sf-piede a:hover{text-decoration:underline}
 
+.sf-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px 34px;align-items:start}
+.sf-2col>div>h2{margin-top:0}
 @media (max-width:820px){
+ .sf-2col{grid-template-columns:1fr;gap:0}
  .sfoglia-scena{grid-template-columns:1fr;gap:20px;perspective:none}
- .sfoglia-cop{max-width:190px;margin:0 auto;transform:none;animation:none}
+ .sfoglia-cop{max-width:190px;margin:0 auto;transform:none;animation:none;aspect-ratio:auto}
  .sfoglia-foglio{padding:22px 20px 16px;border-radius:8px;animation:none;
   box-shadow:0 14px 28px -16px rgba(20,24,38,.3)}
  .sfoglia-foglio::after{display:none}
@@ -187,6 +190,41 @@ footer.sito a{color:var(--nebbia)}
  .sfoglia-cop{animation:none;transform:rotateY(-42deg)}
  .sfoglia-foglio{animation:none}
  .sfoglia-foglio::before{animation:none;opacity:0}
+}
+
+/* ---- Doppia pagina: il glossario del libro ---- */
+.sf-gspread{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:22px 0 0;
+ border-radius:3px;overflow:hidden;
+ box-shadow:0 18px 38px -18px rgba(20,24,38,.3)}
+.sf-gpag{padding:26px 26px 22px;
+ background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%)}
+.sf-gpag:first-child{border-radius:2px 0 0 2px;
+ box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gpag:last-child{border-radius:0 2px 2px 0;
+ box-shadow:inset 14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gtit{margin:0;text-align:center;font-family:Fraunces,Georgia,serif;
+ font-size:1.18rem;font-weight:600;color:#2a2a2f}
+.sf-gint{margin:8px 0 18px;font-size:.83rem;font-style:italic;line-height:1.6;
+ color:#7a6b53;text-align:center}
+.sf-gspread dl{margin:0}
+.sf-gspread dt{margin:0 0 3px;font-family:"Source Serif 4",Georgia,serif;font-size:.99rem}
+.sf-gspread dt b{color:#1F2529}
+.sf-gspread dt i{color:#326778;font-weight:600}
+.sf-gspread dt span{font-size:.84em;color:#8a7f6b;font-style:italic}
+.sf-gspread dd{margin:0;font-family:"Source Serif 4",Georgia,serif;
+ font-size:.92rem;line-height:1.58;color:#2b2b30}
+.sf-gspread dd.en{color:#5f6b72}
+.sf-gspread dd.nota{margin:3px 0 16px;font-style:italic;font-size:.86rem;
+ line-height:1.55;color:#55606a}
+.sf-gspread dd:last-child{margin-bottom:0}
+.sf-gpie{margin:16px 0 0;padding-top:11px;border-top:1px solid rgba(92,72,42,.16);
+ font-size:.79rem;letter-spacing:.02em;color:#8a7f6b;text-align:center}
+@media (max-width:820px){
+ .sf-gspread{grid-template-columns:1fr;box-shadow:0 12px 26px -16px rgba(20,24,38,.3)}
+ .sf-gpag{padding:20px 18px}
+ .sf-gpag:first-child,.sf-gpag:last-child{box-shadow:none;border-radius:0}
+ .sf-gpag:first-child{border-radius:6px 6px 0 0;border-bottom:1px solid rgba(92,72,42,.14)}
+ .sf-gpag:last-child{border-radius:0 0 6px 6px}
 }
 
 </style>
@@ -327,7 +365,7 @@ footer.sito a{color:var(--nebbia)}
     </div>
   </section>
 
-    <section class="sezione sfoglia">
+        <section class="sezione sfoglia">
     <h2>Kijk binnenin: de eerste bladzijde</h2>
     <div class="sfoglia-scena">
       <div class="sfoglia-cop">
@@ -358,15 +396,62 @@ footer.sito a{color:var(--nebbia)}
     </div>
   </section>
 
-  <section class="sezione">
-    <h2>Waar gaat Cuore over?</h2>
+    <section class="sezione">
+    <div class="sf-2col">
+      <div>
+<h2>Waar gaat Cuore over?</h2>
     <p>Turijn, eind negentiende eeuw. Enrico Bottini, een leerling uit de derde klas, vult zijn dagboek met een heel schooljaar: zijn klasgenoten, meester Perboni, de kleine conflicten en grote vriendschappen die tussen de schoolbanken ontstaan. Om hem heen ligt het pas verenigde Italië, met zijn sociale verschillen en idealen.</p><p>Door het dagboek heen lopen de beroemde maandverhalen, zoals dat van de kleine Florentijnse schrijver of de reis van Marco van de Apennijnen naar de Andes: verhalen over moed en edelmoedigheid die generaties Italiaanse lezers hebben ontroerd.</p>
+      </div>
+      <div>
+<h2>Waarom Cuore lezen om Italiaans te leren</h2>
+    <p>De dagboekvorm verdeelt de roman in korte episodes: leesmomenten van vijf minuten, perfect voor dagelijkse oefening op A1-niveau. De woordenschat van school, familie en emoties is precies wat je in je eerste gesprekken gebruikt, en de maandverhalen zijn complete kleine verhalen binnen het verhaal.</p>
+      </div>
+    </div>
   </section>
 
   <section class="sezione">
-    <h2>Waarom Cuore lezen om Italiaans te leren</h2>
-    <p>De dagboekvorm verdeelt de roman in korte episodes: leesmomenten van vijf minuten, perfect voor dagelijkse oefening op A1-niveau. De woordenschat van school, familie en emoties is precies wat je in je eerste gesprekken gebruikt, en de maandverhalen zijn complete kleine verhalen binnen het verhaal.</p>
+    <h2>In de woordenlijst</h2>
+        <div class="sf-gspread">
+      <div class="sf-gpag">
+        <p class="sf-gtit">Woordenlijst</p>
+        <p class="sf-gint">De kernwoorden van de roman, op alfabet. Eerst de Italiaanse definitie, dan de Engelse, dan wat het woord in dit verhaal betekent.</p>
+        <dl>
+          <dt><b lang="it">addio</b> &middot; <i lang="en">farewell</i> <span>(sin. saluto, commiato)</span></dt>
+          <dd lang="it">La parola che si dice quando si va via per sempre.</dd>
+          <dd class="en" lang="en">The word you say when you leave for ever.</dd>
+          <dd class="nota" lang="en">In the novel: Cuore ends with a goodbye, not a celebration. School closes, the boys scatter, the master is left alone. De Amicis refuses to hand you a happy ending: he says that good things end, and that it hurts. Nobody had ever dared say that to children before.</dd>
+          <dt><b lang="it">aiutare</b> &middot; <i lang="en">to help</i> <span>(sin. soccorrere, dare una mano)</span></dt>
+          <dd lang="it">Fare qualcosa per una persona che ha bisogno.</dd>
+          <dd class="en" lang="en">To do something for a person who needs it.</dd>
+          <dd class="nota" lang="en">In the novel: This is the verb of the book. Not «love», not «understand»: HELP. Nobody in Cuore makes speeches about feelings — they hand over their bread, lend their notebook, drag a child out from under a cart. Goodness here is something you do with your hands.</dd>
+          <dt><b lang="it">bugiardo</b> &middot; <i lang="en">liar</i> <span>(sin. falso, menzognero)</span></dt>
+          <dd lang="it">Chi dice le bugie.</dd>
+          <dd class="en" lang="en">Someone who tells lies.</dd>
+          <dd class="nota" lang="en">In the novel: The children in this book lie often — and almost always to protect somebody. Giulio lies to his father for a whole year, and does it out of love. De Amicis doesn’t condemn that lie: he tells it, and makes us weep.</dd>
+        </dl>
+      </div>
+      <div class="sf-gpag">
+        <dl>
+          <dt><b lang="it">castigo</b> &middot; <i lang="en">punishment</i> <span>(sin. punizione, pena)</span></dt>
+          <dd lang="it">La punizione che si dà a chi ha fatto una cosa sbagliata.</dd>
+          <dd class="en" lang="en">What is given to someone who has done wrong.</dd>
+          <dd class="nota" lang="en">In the novel: Punishment almost never arrives. The schoolmaster could punish and doesn’t; the injured old man could have Garoffi arrested and forgives him instead. Chapter after chapter, De Amicis says the same thing: trust achieves more than punishment ever will.</dd>
+          <dt><b lang="it">cattivo</b> &middot; <i lang="en">bad, wicked</i> <span>(sin. malvagio, crudele)</span></dt>
+          <dd lang="it">Chi fa del male agli altri, e lo fa apposta.</dd>
+          <dd class="en" lang="en">Someone who hurts others, and does it on purpose.</dd>
+          <dd class="nota" lang="en">In the novel: There is exactly one villain in this book: Franti. And De Amicis does something almost nobody does — he doesn’t forgive him, doesn’t explain him, doesn’t redeem him at the end. Franti is bad on the last page too, and his story ends badly.</dd>
+          <dt><b lang="it">classe</b> &middot; <i lang="en">class, classroom</i> <span>(sin. aula, scolaresca)</span></dt>
+          <dd lang="it">La stanza dove i bambini studiano, e i bambini che stanno dentro.</dd>
+          <dd class="en" lang="en">The room where children study, and the children in it.</dd>
+          <dd class="nota" lang="en">In the novel: In this book the class isn’t a room, it’s a small city. There are rich boys and poor boys, strong and weak, the good ones and Franti. The whole of Italy fits inside four walls — and De Amicis did that on purpose.</dd>
+        </dl>
+        <p class="sf-gpie">De woordenlijst bevat in totaal 22 woorden</p>
+      </div>
+    </div>
   </section>
+
+
+  
 </div>
 
 <section class="dentro">
@@ -380,8 +465,8 @@ footer.sito a{color:var(--nebbia)}
   <section class="sezione">
     <h2>Taalfocus: wat je oefent</h2>
     <p>In deze editie op niveau A1 oefen je vooral de tegenwoordige tijd, de passato prossimo, basislidwoorden en -voorzetsels, korte nevengeschikte zinnen. De woordenschat draait om school, familie en emoties: de kernwoorden staan met vertaling in de woordenlijst hieronder en keren telkens terug in de tekst, zodat je ze in context leert.</p>
-    <h2 style="margin-top:26px">Basiswoordenlijst (Italiaans · Nederlands · Engels)</h2>
-    <div class="glossario-scorri"><table class="glossario"><thead><tr><th>Italiaans</th><th>Nederlands</th><th>Engels</th></tr></thead><tbody><tr><td>la scuola</td><td>de school</td><td>school</td></tr><tr><td>il maestro</td><td>de leraar</td><td>teacher</td></tr><tr><td>il compagno</td><td>de klasgenoot</td><td>classmate</td></tr><tr><td>il diario</td><td>het dagboek</td><td>diary</td></tr><tr><td>il coraggio</td><td>de moed</td><td>courage</td></tr><tr><td>la patria</td><td>het vaderland</td><td>homeland</td></tr><tr><td>l'operaio</td><td>de arbeider</td><td>worker</td></tr><tr><td>il premio</td><td>de prijs</td><td>prize</td></tr></tbody></table></div>
+    
+
   </section>
 
   <section class="sezione">
@@ -395,6 +480,9 @@ footer.sito a{color:var(--nebbia)}
   </section>
 
   <section class="faq">
+    <h2 style="margin-top:26px">Basiswoordenlijst (Italiaans · Nederlands · Engels)</h2>
+    <div class="glossario-scorri"><table class="glossario"><thead><tr><th>Italiaans</th><th>Nederlands</th><th>Engels</th></tr></thead><tbody><tr><td>la scuola</td><td>de school</td><td>school</td></tr><tr><td>il maestro</td><td>de leraar</td><td>teacher</td></tr><tr><td>il compagno</td><td>de klasgenoot</td><td>classmate</td></tr><tr><td>il diario</td><td>het dagboek</td><td>diary</td></tr><tr><td>il coraggio</td><td>de moed</td><td>courage</td></tr><tr><td>la patria</td><td>het vaderland</td><td>homeland</td></tr><tr><td>l'operaio</td><td>de arbeider</td><td>worker</td></tr><tr><td>il premio</td><td>de prijs</td><td>prize</td></tr></tbody></table></div>
+
     <h2>Veelgestelde vragen</h2>
   <details>
     <summary>Welk niveau Italiaans heb ik nodig voor Cuore?</summary>
