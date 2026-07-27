@@ -127,16 +127,16 @@ footer.sito a{color:var(--nebbia)}
 
 /* ===== Prima pagina del libro ===== */
 .sfoglia{margin:40px 0 46px}
-.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);
- gap:0;align-items:start;perspective:2000px;perspective-origin:64% 42%}
-.sfoglia-cop{position:relative;border-radius:5px 3px 3px 5px;overflow:hidden;align-self:start;
- transform-origin:right center;backface-visibility:hidden;
- box-shadow:0 22px 44px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
- transform:rotateY(-122deg);animation:sf-apri 1.7s cubic-bezier(.18,.9,.24,1) .5s both}
-.sfoglia-cop img{display:block;width:100%;height:auto}
+.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+ gap:0;align-items:stretch;perspective:2200px;perspective-origin:70% 46%}
+.sfoglia-cop{position:relative;border-radius:5px 3px 3px 5px;overflow:hidden;
+ transform-origin:right center;
+ box-shadow:0 24px 46px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
+ transform:rotateY(-42deg);animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both}
+.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:cover;object-position:left center}
 .sfoglia-cop::after{content:"";position:absolute;inset:0;pointer-events:none;
  background:linear-gradient(90deg,rgba(0,0,0,.34),rgba(0,0,0,0) 26%,rgba(255,255,255,.12))}
-@keyframes sf-apri{from{transform:rotateY(0)}to{transform:rotateY(-122deg)}}
+@keyframes sf-apri{from{transform:rotateY(-16deg)}to{transform:rotateY(-42deg)}}
 
 .sfoglia-foglio{position:relative;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
@@ -184,7 +184,7 @@ footer.sito a{color:var(--nebbia)}
  .sfoglia-foglio::after{display:none}
 }
 @media (prefers-reduced-motion:reduce){
- .sfoglia-cop{animation:none;transform:rotateY(-122deg)}
+ .sfoglia-cop{animation:none;transform:rotateY(-42deg)}
  .sfoglia-foglio{animation:none}
  .sfoglia-foglio::before{animation:none;opacity:0}
 }
@@ -279,21 +279,21 @@ footer.sito a{color:var(--nebbia)}
       <div class="sfoglia-cop">
         <picture>
           <source srcset="/assets/books/LettereDiViaggio_Copertina_eBook.webp" type="image/webp">
-          <img src="/assets/books/LettereDiViaggio_Copertina_eBook.jpg" width="800" height="1280" alt="Copertina di Un&amp;#x27;idea rotonda" loading="lazy" decoding="async">
+          <img src="/assets/books/LettereDiViaggio_Copertina_eBook.jpg" width="800" height="1280" alt="Copertina di Un’idea rotonda" loading="lazy" decoding="async">
         </picture>
       </div>
       <div class="sfoglia-foglio">
         <p class="sf-capnum">CAPITOLO 1</p>
         <img class="sf-vign" src="/assets/books/vignette/lettere-di-viaggio.png" alt="Vignetta del capitolo" width="148" height="148" loading="lazy" decoding="async">
-        <h3 class="sf-tit" lang="it">Un&amp;#x27;idea rotonda</h3>
+        <h3 class="sf-tit" lang="it">Un’idea rotonda</h3>
         <p class="sf-titen" lang="en">A Round Idea</p>
         <div class="sf-corpo" lang="it">
           <p>Mi chiamo Cristoforo Colombo. Sono nato a Genova, in Italia, nel 1451.</p>
           <p>Mio padre lavorava la lana. Ma io, dalla finestra, guardavo solo il porto e le navi.<sup>1</sup></p>
           <p>A quattordici anni sono andato in mare per la prima volta.</p>
-          <p>Ho fatto il marinaio per tutta la vita. Ho visto il nord freddo e le coste dell&#x27;Africa.</p>
-          <p>E ho imparato tre cose: a <b class="sf-kw">navigare</b>, a leggere le <b class="sf-kw">mappe</b>, e a non avere paura dell&#x27;<b class="sf-kw">oceano</b>.</p>
-          <p>Questa è la storia del mio <b class="sf-kw">diario</b>. Comincia con un&#x27;idea.</p>
+          <p>Ho fatto il marinaio per tutta la vita. Ho visto il nord freddo e le coste dell’Africa.</p>
+          <p>E ho imparato tre cose: a <b class="sf-kw">navigare</b>, a leggere le <b class="sf-kw">mappe</b>, e a non avere paura dell’<b class="sf-kw">oceano</b>.</p>
+          <p>Questa è la storia del mio <b class="sf-kw">diario</b>. Comincia con un’idea.</p>
         </div>
         <p class="sf-gloss"><span class="sf-kw">navigare</span> = to sail, to navigate &#183; <span class="sf-kw">mappa</span> = map &#183; <span class="sf-kw">oceano</span> = ocean &#183; <span class="sf-kw">diario</span> = diary, logbook</p>
         <div class="sf-note">

@@ -127,16 +127,16 @@ footer.sito a{color:var(--nebbia)}
 
 /* ===== Prima pagina del libro ===== */
 .sfoglia{margin:40px 0 46px}
-.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);
- gap:0;align-items:start;perspective:2000px;perspective-origin:64% 42%}
-.sfoglia-cop{position:relative;border-radius:5px 3px 3px 5px;overflow:hidden;align-self:start;
- transform-origin:right center;backface-visibility:hidden;
- box-shadow:0 22px 44px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
- transform:rotateY(-122deg);animation:sf-apri 1.7s cubic-bezier(.18,.9,.24,1) .5s both}
-.sfoglia-cop img{display:block;width:100%;height:auto}
+.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+ gap:0;align-items:stretch;perspective:2200px;perspective-origin:70% 46%}
+.sfoglia-cop{position:relative;border-radius:5px 3px 3px 5px;overflow:hidden;
+ transform-origin:right center;
+ box-shadow:0 24px 46px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
+ transform:rotateY(-42deg);animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both}
+.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:cover;object-position:left center}
 .sfoglia-cop::after{content:"";position:absolute;inset:0;pointer-events:none;
  background:linear-gradient(90deg,rgba(0,0,0,.34),rgba(0,0,0,0) 26%,rgba(255,255,255,.12))}
-@keyframes sf-apri{from{transform:rotateY(0)}to{transform:rotateY(-122deg)}}
+@keyframes sf-apri{from{transform:rotateY(-16deg)}to{transform:rotateY(-42deg)}}
 
 .sfoglia-foglio{position:relative;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
@@ -184,7 +184,7 @@ footer.sito a{color:var(--nebbia)}
  .sfoglia-foglio::after{display:none}
 }
 @media (prefers-reduced-motion:reduce){
- .sfoglia-cop{animation:none;transform:rotateY(-122deg)}
+ .sfoglia-cop{animation:none;transform:rotateY(-42deg)}
  .sfoglia-foglio{animation:none}
  .sfoglia-foglio::before{animation:none;opacity:0}
 }
@@ -342,21 +342,21 @@ footer.sito a{color:var(--nebbia)}
         <h3 class="sf-tit" lang="it">Il pezzo di legno che parla</h3>
         <p class="sf-titen" lang="en">The Piece of Wood That Speaks</p>
         <div class="sf-corpo" lang="it">
-          <p>C&#x27;era una volta un pezzo di <b class="sf-kw">legno</b>.</p>
-          <p>Non era un legno per fare mobili. Era un pezzo per il fuoco dell&#x27;inverno.</p>
-          <p>Un giorno il legno arriva da un vecchio <b class="sf-kw">falegname</b>. Il falegname si chiama mastr&#x27;Antonio. Ma tutti lo chiamano maestro Ciliegia.<sup>1</sup></p>
+          <p>C’era una volta un pezzo di <b class="sf-kw">legno</b>.</p>
+          <p>Non era un legno per fare mobili. Era un pezzo per il fuoco dell’inverno.</p>
+          <p>Un giorno il legno arriva da un vecchio <b class="sf-kw">falegname</b>. Il falegname si chiama mastr’Antonio. Ma tutti lo chiamano maestro Ciliegia.<sup>1</sup></p>
           <p>Perché? Perché la punta del suo naso è rossa.</p>
           <p>Maestro Ciliegia guarda il <b class="sf-kw">legno</b>.</p>
           <p>«Bene! Voglio fare una gamba di tavolino.»</p>
           <p>Prende una scure. Alza il braccio. Ma prima di colpire, sente una piccola voce.</p>
           <p>«Non picchiare forte!»</p>
-          <p>Il <b class="sf-kw">falegname</b> si guarda intorno. Non c&#x27;è nessuno.<sup>2</sup></p>
+          <p>Il <b class="sf-kw">falegname</b> si guarda intorno. Non c’è nessuno.<sup>2</sup></p>
           <p>«Ho capito,» pensa. «Ho un sogno.»</p>
           <p>Prende in mano il pezzo di legno. È tanto strano. Il legno è caldo, come una mano.</p>
         </div>
         <p class="sf-gloss"><span class="sf-kw">legno</span> = wood &#183; <span class="sf-kw">falegname</span> = carpenter</p>
         <div class="sf-note">
-          <p class="sf-nota"><sup>1</sup> In un paese italiano dell&#x27;Ottocento tutti avevano un soprannome. Maestro Ciliegia lo chiamano così per il naso rosso. Nella pagina di dopo scoprirai il soprannome di Geppetto — e nel libro, chiamare qualcuno col soprannome sbagliato è una cosa seria.</p>
+          <p class="sf-nota"><sup>1</sup> In un paese italiano dell’Ottocento tutti avevano un soprannome. Maestro Ciliegia lo chiamano così per il naso rosso. Nella pagina di dopo scoprirai il soprannome di Geppetto — e nel libro, chiamare qualcuno col soprannome sbagliato è una cosa seria.</p>
           <p class="sf-nota"><sup>2</sup> Il libro comincia con una cosa impossibile — un pezzo di legno che parla — e la racconta come normale. È la regola delle favole italiane: la magia si mette nella prima pagina, così tutto quello che viene dopo diventa possibile.</p>
         </div>
         <p class="sf-piede"><span>Capitolo 1 · livello A2 · 110 parole dal testo reale</span><a href="https://www.amazon.it/dp/B0H9P9P6G3" target="_blank" rel="noopener">Continua su Amazon →</a></p>

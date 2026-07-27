@@ -127,16 +127,16 @@ footer.sito a{color:var(--nebbia)}
 
 /* ===== Prima pagina del libro ===== */
 .sfoglia{margin:40px 0 46px}
-.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);
- gap:0;align-items:start;perspective:2000px;perspective-origin:64% 42%}
-.sfoglia-cop{position:relative;border-radius:5px 3px 3px 5px;overflow:hidden;align-self:start;
- transform-origin:right center;backface-visibility:hidden;
- box-shadow:0 22px 44px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
- transform:rotateY(-122deg);animation:sf-apri 1.7s cubic-bezier(.18,.9,.24,1) .5s both}
-.sfoglia-cop img{display:block;width:100%;height:auto}
+.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+ gap:0;align-items:stretch;perspective:2200px;perspective-origin:70% 46%}
+.sfoglia-cop{position:relative;border-radius:5px 3px 3px 5px;overflow:hidden;
+ transform-origin:right center;
+ box-shadow:0 24px 46px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
+ transform:rotateY(-42deg);animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both}
+.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:cover;object-position:left center}
 .sfoglia-cop::after{content:"";position:absolute;inset:0;pointer-events:none;
  background:linear-gradient(90deg,rgba(0,0,0,.34),rgba(0,0,0,0) 26%,rgba(255,255,255,.12))}
-@keyframes sf-apri{from{transform:rotateY(0)}to{transform:rotateY(-122deg)}}
+@keyframes sf-apri{from{transform:rotateY(-16deg)}to{transform:rotateY(-42deg)}}
 
 .sfoglia-foglio{position:relative;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
@@ -184,7 +184,7 @@ footer.sito a{color:var(--nebbia)}
  .sfoglia-foglio::after{display:none}
 }
 @media (prefers-reduced-motion:reduce){
- .sfoglia-cop{animation:none;transform:rotateY(-122deg)}
+ .sfoglia-cop{animation:none;transform:rotateY(-42deg)}
  .sfoglia-foglio{animation:none}
  .sfoglia-foglio::before{animation:none;opacity:0}
 }
@@ -333,23 +333,23 @@ footer.sito a{color:var(--nebbia)}
       <div class="sfoglia-cop">
         <picture>
           <source srcset="/assets/books/PaeseDiCuccagna_cover.webp" type="image/webp">
-          <img src="/assets/books/PaeseDiCuccagna_cover.jpg" width="800" height="1280" alt="Cover of L&amp;#x27;estrazione del lotto" loading="lazy" decoding="async">
+          <img src="/assets/books/PaeseDiCuccagna_cover.jpg" width="800" height="1280" alt="Cover of L’estrazione del lotto" loading="lazy" decoding="async">
         </picture>
       </div>
       <div class="sfoglia-foglio">
         <p class="sf-capnum">CAPITOLO 1</p>
         <img class="sf-vign" src="/assets/books/vignette/il-paese-di-cuccagna.png" alt="Chapter vignette" width="148" height="148" loading="lazy" decoding="async">
-        <h3 class="sf-tit" lang="it">L&amp;#x27;estrazione del lotto</h3>
+        <h3 class="sf-tit" lang="it">L’estrazione del lotto</h3>
         <p class="sf-titen" lang="en">The Lottery Draw</p>
         <div class="sf-corpo" lang="it">
-          <p>Era sabato, e a Napoli il sabato non era un giorno come gli altri. A mezzogiorno, in via Toledo, nei vicoli di Porto, nei bassi di Mercato, tutti aspettavano la stessa cosa: l&#x27;<b class="sf-kw">estrazione</b> del <b class="sf-kw">lotto</b>.<sup>1</sup></p>
+          <p>Era sabato, e a Napoli il sabato non era un giorno come gli altri. A mezzogiorno, in via Toledo, nei vicoli di Porto, nei bassi di Mercato, tutti aspettavano la stessa cosa: l’<b class="sf-kw">estrazione</b> del <b class="sf-kw">lotto</b>.<sup>1</sup></p>
           <p>Le botteghe erano quasi vuote. I facchini avevano finito di scaricare, le sartine avevano chiuso i cassetti. Il sole bruciava le pietre.</p>
           <p>Alle tre in punto, davanti al Banco Lotto di via Chiaia, cominciò a formarsi una lunga fila. Uomini in giacca, donne con lo scialle, ragazzi mandati a controllare per la famiglia. Nessuno parlava. Tutti guardavano nella stessa direzione.</p>
-          <p>Ogni sabato, per Napoli, era il giorno della <b class="sf-kw">sorte</b>. Ci si giocava una lira, una moneta, l&#x27;ultima. E ci si giocava la settimana che sarebbe venuta.</p>
+          <p>Ogni sabato, per Napoli, era il giorno della <b class="sf-kw">sorte</b>. Ci si giocava una lira, una moneta, l’ultima. E ci si giocava la settimana che sarebbe venuta.</p>
         </div>
         <p class="sf-gloss"><span class="sf-kw">estrazione</span> = draw &#183; <span class="sf-kw">lotto</span> = lottery &#183; <span class="sf-kw">sorte</span> = fortune / fate</p>
         <div class="sf-note">
-          <p class="sf-nota"><sup>1</sup> Nell&#x27;Italia del 1890 il lotto era gestito dallo Stato ed era davvero settimanale. Ma a Napoli il sabato aveva un peso speciale: la città smetteva di lavorare presto e aspettava la notizia dei cinque numeri.</p>
+          <p class="sf-nota"><sup>1</sup> Nell’Italia del 1890 il lotto era gestito dallo Stato ed era davvero settimanale. Ma a Napoli il sabato aveva un peso speciale: la città smetteva di lavorare presto e aspettava la notizia dei cinque numeri.</p>
         </div>
         <p class="sf-piede"><span>Chapter 1 · CEFR B1 · 121 words of the real text</span><a href="https://www.amazon.com/dp/B0H9RYH4MV" target="_blank" rel="noopener">Keep reading on Amazon →</a></p>
       </div>

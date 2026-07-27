@@ -127,16 +127,16 @@ footer.sito a{color:var(--nebbia)}
 
 /* ===== Prima pagina del libro ===== */
 .sfoglia{margin:40px 0 46px}
-.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);
- gap:0;align-items:start;perspective:2000px;perspective-origin:64% 42%}
-.sfoglia-cop{position:relative;border-radius:5px 3px 3px 5px;overflow:hidden;align-self:start;
- transform-origin:right center;backface-visibility:hidden;
- box-shadow:0 22px 44px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
- transform:rotateY(-122deg);animation:sf-apri 1.7s cubic-bezier(.18,.9,.24,1) .5s both}
-.sfoglia-cop img{display:block;width:100%;height:auto}
+.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+ gap:0;align-items:stretch;perspective:2200px;perspective-origin:70% 46%}
+.sfoglia-cop{position:relative;border-radius:5px 3px 3px 5px;overflow:hidden;
+ transform-origin:right center;
+ box-shadow:0 24px 46px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
+ transform:rotateY(-42deg);animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both}
+.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:cover;object-position:left center}
 .sfoglia-cop::after{content:"";position:absolute;inset:0;pointer-events:none;
  background:linear-gradient(90deg,rgba(0,0,0,.34),rgba(0,0,0,0) 26%,rgba(255,255,255,.12))}
-@keyframes sf-apri{from{transform:rotateY(0)}to{transform:rotateY(-122deg)}}
+@keyframes sf-apri{from{transform:rotateY(-16deg)}to{transform:rotateY(-42deg)}}
 
 .sfoglia-foglio{position:relative;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
@@ -184,7 +184,7 @@ footer.sito a{color:var(--nebbia)}
  .sfoglia-foglio::after{display:none}
 }
 @media (prefers-reduced-motion:reduce){
- .sfoglia-cop{animation:none;transform:rotateY(-122deg)}
+ .sfoglia-cop{animation:none;transform:rotateY(-42deg)}
  .sfoglia-foglio{animation:none}
  .sfoglia-foglio::before{animation:none;opacity:0}
 }
@@ -286,17 +286,17 @@ footer.sito a{color:var(--nebbia)}
         <p class="sf-capnum">CAPITOLO 1</p>
         <img class="sf-vign" src="/assets/books/vignette/orlando-furioso.png" alt="Chapter vignette" width="148" height="148" loading="lazy" decoding="async">
         <h3 class="sf-tit" lang="it">La fuga di Angelica</h3>
-        <p class="sf-titen" lang="en">Angelica&amp;#x27;s Flight</p>
+        <p class="sf-titen" lang="en">Angelica’s Flight</p>
         <div class="sf-corpo" lang="it">
-          <p>In Francia, al tempo di re Carlo Magno, c&#x27;era una grande guerra.</p>
-          <p>Un esercito enorme era arrivato dall&#x27;Africa. Lo comandava il re Agramante, giovane e ambizioso. Voleva conquistare la Francia e vendicare suo padre.</p>
-          <p>Contro di lui stava Carlo Magno, l&#x27;imperatore dei cristiani, con i suoi dodici <b class="sf-kw">paladini</b>.<sup>1</sup></p>
+          <p>In Francia, al tempo di re Carlo Magno, c’era una grande guerra.</p>
+          <p>Un esercito enorme era arrivato dall’Africa. Lo comandava il re Agramante, giovane e ambizioso. Voleva conquistare la Francia e vendicare suo padre.</p>
+          <p>Contro di lui stava Carlo Magno, l’imperatore dei cristiani, con i suoi dodici <b class="sf-kw">paladini</b>.<sup>1</sup></p>
           <p>Il primo dei paladini si chiamava Orlando. Nessuna <b class="sf-kw">lancia</b> poteva ferirlo, nessun <b class="sf-kw">guerriero</b> poteva batterlo.</p>
           <p>Ma in quei giorni Orlando non pensava alla guerra. Pensava a una donna.</p>
         </div>
         <p class="sf-gloss"><span class="sf-kw">paladino</span> = paladin &#183; <span class="sf-kw">lancia</span> = lance &#183; <span class="sf-kw">guerriero</span> = warrior</p>
         <div class="sf-note">
-          <p class="sf-nota"><sup>1</sup> Carlo Magno è un re vero: incoronato imperatore nell&#x27;anno 800, è il fondatore dell&#x27;Europa medievale. Ma il Carlo del poema è un re di leggenda, circondato da dodici campioni — i paladini — come Artù dai cavalieri della Tavola Rotonda. Ariosto eredita questo mondo da secoli di racconti francesi e italiani, e ci costruisce sopra la sua storia.</p>
+          <p class="sf-nota"><sup>1</sup> Carlo Magno è un re vero: incoronato imperatore nell’anno 800, è il fondatore dell’Europa medievale. Ma il Carlo del poema è un re di leggenda, circondato da dodici campioni — i paladini — come Artù dai cavalieri della Tavola Rotonda. Ariosto eredita questo mondo da secoli di racconti francesi e italiani, e ci costruisce sopra la sua storia.</p>
         </div>
         <p class="sf-piede"><span>Chapter 1 · CEFR B1 · 76 words of the real text</span></p>
       </div>

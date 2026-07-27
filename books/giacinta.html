@@ -127,16 +127,16 @@ footer.sito a{color:var(--nebbia)}
 
 /* ===== Prima pagina del libro ===== */
 .sfoglia{margin:40px 0 46px}
-.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);
- gap:0;align-items:start;perspective:2000px;perspective-origin:64% 42%}
-.sfoglia-cop{position:relative;border-radius:5px 3px 3px 5px;overflow:hidden;align-self:start;
- transform-origin:right center;backface-visibility:hidden;
- box-shadow:0 22px 44px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
- transform:rotateY(-122deg);animation:sf-apri 1.7s cubic-bezier(.18,.9,.24,1) .5s both}
-.sfoglia-cop img{display:block;width:100%;height:auto}
+.sfoglia-scena{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+ gap:0;align-items:stretch;perspective:2200px;perspective-origin:70% 46%}
+.sfoglia-cop{position:relative;border-radius:5px 3px 3px 5px;overflow:hidden;
+ transform-origin:right center;
+ box-shadow:0 24px 46px -14px rgba(20,24,38,.5),0 3px 8px rgba(20,24,38,.2);
+ transform:rotateY(-42deg);animation:sf-apri 1.5s cubic-bezier(.2,.85,.3,1) .35s both}
+.sfoglia-cop img{display:block;width:100%;height:100%;object-fit:cover;object-position:left center}
 .sfoglia-cop::after{content:"";position:absolute;inset:0;pointer-events:none;
  background:linear-gradient(90deg,rgba(0,0,0,.34),rgba(0,0,0,0) 26%,rgba(255,255,255,.12))}
-@keyframes sf-apri{from{transform:rotateY(0)}to{transform:rotateY(-122deg)}}
+@keyframes sf-apri{from{transform:rotateY(-16deg)}to{transform:rotateY(-42deg)}}
 
 .sfoglia-foglio{position:relative;padding:26px 34px 20px 40px;border-radius:2px 7px 7px 2px;
  background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
@@ -184,7 +184,7 @@ footer.sito a{color:var(--nebbia)}
  .sfoglia-foglio::after{display:none}
 }
 @media (prefers-reduced-motion:reduce){
- .sfoglia-cop{animation:none;transform:rotateY(-122deg)}
+ .sfoglia-cop{animation:none;transform:rotateY(-42deg)}
  .sfoglia-foglio{animation:none}
  .sfoglia-foglio::before{animation:none;opacity:0}
 }
@@ -351,9 +351,9 @@ footer.sito a{color:var(--nebbia)}
           <p>A cinque anni Giacinta torna in città.</p>
           <p>La madre si chiama Teresa. È bella ed elegante.</p>
           <p>La madre pensa al denaro, alle feste, agli uomini.</p>
-          <p>Nel <b class="sf-kw">salotto</b> c&#x27;è sempre gente. Ma per la figlia non c&#x27;è tempo.</p>
+          <p>Nel <b class="sf-kw">salotto</b> c’è sempre gente. Ma per la figlia non c’è tempo.</p>
           <p>La bambina corre e fa rumore. La madre perde la pazienza.</p>
-          <p>La madre la chiude in una stanza: «Sta&#x27; zitta!»</p>
+          <p>La madre la chiude in una stanza: «Sta’ zitta!»</p>
           <p>Nessuno picchia Giacinta. Nessuno la caccia via.</p>
           <p>La madre vuole <b class="sf-kw">abbandonare</b> la figlia, piano, ogni giorno.</p>
           <p>E la sua <b class="sf-kw">infanzia</b> passa così: in una stanza chiusa.<sup>2</sup></p>
@@ -361,8 +361,8 @@ footer.sito a{color:var(--nebbia)}
         <p class="sf-gloss"><span class="sf-kw">balia</span> = wet nurse &#183; <span class="sf-kw">infanzia</span> = childhood</p>
         <p class="sf-gloss"><span class="sf-kw">salotto</span> = drawing room, parlour &#183; <span class="sf-kw">abbandonare</span> = to abandon</p>
         <div class="sf-note">
-          <p class="sf-nota"><sup>1</sup> Nell&#x27;Ottocento le signore di città mandavano i figli a balia in campagna, anche per anni: era normale, e nessuno lo trovava crudele. Capuana comincia il libro da qui, e non è un dettaglio: tutta la storia di Giacinta nasce da questa prima porta chiusa.</p>
-          <p class="sf-nota"><sup>2</sup> Nessuno picchia Giacinta. Nessuno la caccia. La lasciano sola, e basta — ed è questa la crudeltà che Capuana vuole farti vedere. L&#x27;abbandono non è un gesto: è un vuoto, e non fa rumore.</p>
+          <p class="sf-nota"><sup>1</sup> Nell’Ottocento le signore di città mandavano i figli a balia in campagna, anche per anni: era normale, e nessuno lo trovava crudele. Capuana comincia il libro da qui, e non è un dettaglio: tutta la storia di Giacinta nasce da questa prima porta chiusa.</p>
+          <p class="sf-nota"><sup>2</sup> Nessuno picchia Giacinta. Nessuno la caccia. La lasciano sola, e basta — ed è questa la crudeltà che Capuana vuole farti vedere. L’abbandono non è un gesto: è un vuoto, e non fa rumore.</p>
         </div>
         <p class="sf-piede"><span>Chapter 1 · CEFR A1 · 142 words of the real text</span><a href="https://www.amazon.com/dp/B0H9V5FDS8" target="_blank" rel="noopener">Keep reading on Amazon →</a></p>
       </div>
