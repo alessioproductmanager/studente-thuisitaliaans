@@ -146,9 +146,10 @@ footer.sito a{color:var(--nebbia)}
    ============================================================ */
 
 .sfoglia{
+  container-type:inline-size;
   --pag-w:min(420px, 36vw);
   --pag-h:calc(var(--pag-w) * 1.6);
-  --scorcio:.196;                    /* 1 - larghezza proiettata a 32°: vedi margin-left */
+  --scorcio:.108;                    /* 1 - larghezza proiettata a 32°: vedi margin-left */
   margin:34px 0 42px;
 }
 
@@ -164,27 +165,21 @@ footer.sito a{color:var(--nebbia)}
   border-radius:4px 2px 2px 4px; overflow:hidden;
   transform-origin:right center; backface-visibility:hidden;
   box-shadow:0 22px 44px -16px rgba(20,24,38,.46), 0 2px 6px rgba(20,24,38,.18);
-  transform:rotateY(-32deg);
+  transform:rotateY(-20deg);
 }
 .sfoglia-cop img{display:block; width:100%; height:100%; object-fit:cover; object-position:center}
 .sfoglia-cop::after{content:""; position:absolute; inset:0; pointer-events:none;
-  background:linear-gradient(90deg, rgba(0,0,0,.34), rgba(0,0,0,0) 30%, rgba(255,255,255,.10))}
+  background:linear-gradient(90deg, rgba(0,0,0,.20), rgba(0,0,0,0) 26%, rgba(255,255,255,.08))}
 
-@keyframes sf-apri{from{transform:rotateY(-88deg)} to{transform:rotateY(-32deg)}}
 @media (min-width:901px) and (prefers-reduced-motion:no-preference){
-  /* ovunque: apertura lenta al caricamento */
-  .sfoglia-cop{animation:sf-apri 2.6s cubic-bezier(.16,.8,.24,1) .3s both}
-  /* dove c'e': l'apertura segue lo scroll, cosi' la vedi quando ci arrivi */
-  @supports (animation-timeline: view()){
-    .sfoglia-cop{animation:sf-apri linear both; animation-timeline:view();
-      animation-range:entry 0% cover 40%}
-  }
+  .sfoglia-cop{transition:transform 2.2s cubic-bezier(.16,.8,.24,1)}
+  .sfoglia.sf-chiusa .sfoglia-cop{transform:rotateY(-86deg)}
 }
 
 .sfoglia-foglio{
   position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
   min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 32);
+  font-size:calc(var(--pag-w) / 34);
   display:flex; flex-direction:column;
   padding:1.5em 1.75em 1.1em 2.1em;
   border-radius:2px 5px 5px 2px;
@@ -241,6 +236,7 @@ footer.sito a{color:var(--nebbia)}
 /* ---- Doppia pagina: il glossario del libro ----
    width:fit-content, cosi' il riquadro finisce dove finiscono le due pagine
    e non restano le due strisce di fondo ai lati. */
+.sf-gspread-box{container-type:inline-size}
 .sf-gspread{
   --pag-w:min(420px, 36vw);
   --pag-h:calc(var(--pag-w) * 1.6);
@@ -252,7 +248,7 @@ footer.sito a{color:var(--nebbia)}
 .sf-gpag{
 
   flex:0 0 var(--pag-w); width:var(--pag-w); min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 32);
+  font-size:calc(var(--pag-w) / 34);
   display:flex; flex-direction:column; padding:1.5em 1.75em 1.1em;
   background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
 }
@@ -279,10 +275,14 @@ footer.sito a{color:var(--nebbia)}
 
 /* ---- sotto i 900px: si impila, niente prospettiva ---- */
 @media (max-width:900px){
-  .sfoglia, .sf-gspread{--pag-w:min(86vw, 340px)}
+  .sfoglia, .sf-gspread{--pag-w:320px}
+  @supports (width: 1cqw){
+    .sfoglia, .sf-gspread{--pag-w:min(100cqw, 340px)}
+  }
   .sfoglia-scena{flex-direction:column; align-items:center; perspective:none}
+  .sfoglia-cop, .sfoglia-foglio, .sf-gpag{flex-basis:auto; width:var(--pag-w); max-width:100%}
   .sfoglia-cop{margin:0 auto 16px; align-self:auto; height:var(--pag-h);
-    transform:none; animation:none}
+    transform:none !important; animation:none; transition:none}
   .sfoglia-foglio{border-radius:6px}
   .sfoglia-foglio::after{display:none}
   .sf-gspread{flex-direction:column; align-items:center; gap:12px;
@@ -291,7 +291,7 @@ footer.sito a{color:var(--nebbia)}
   .sf-2col{grid-template-columns:1fr; gap:0}
 }
 @media (prefers-reduced-motion:reduce){
-  .sfoglia-cop{animation:none; transform:rotateY(-32deg)}
+  .sfoglia-cop{animation:none; transform:rotateY(-20deg)}
 }
 </style>
 <script type="application/ld+json">{
@@ -480,7 +480,7 @@ footer.sito a{color:var(--nebbia)}
 
   <section class="sezione">
     <h2>Dentro il glossario</h2>
-                <div class="sf-gspread">
+                <div class="sf-gspread-box"><div class="sf-gspread">
       <div class="sf-gpag">
         <p class="sf-gtit">Glossario</p>
         <dl>
@@ -492,22 +492,30 @@ footer.sito a{color:var(--nebbia)}
           <dd lang="it">Un posto con molti alberi vicini.</dd>
           <dd class="en" lang="en">A place with many trees, where plants grow and wild animals live.</dd>
           <dd class="sf-gnota" lang="en">In the novel: In Pinocchio the wood is where the bad things happen: the assassins, the rope on the Great Oak, the closed white house. In Italian fairy tale the wood is always where the child gets lost and comes out someone else. Little Red Riding Hood, Hansel and Gretel, Pinocchio — they go in as children, they come out changed. It is the world outside the front door.</dd>
-        </dl>
-      </div>
-      <div class="sf-gpag">
-        <dl>
           <dt><b lang="it">bugia</b> &middot; <i lang="en">lie</i> <span>((sin. menzogna, falsità))</span></dt>
           <dd lang="it">Una cosa non vera che si dice a qualcuno.</dd>
           <dd class="en" lang="en">Something untrue told to someone to hide the truth.</dd>
           <dd class="sf-gnota" lang="en">In the novel: In this book lies aren&#x27;t a detail — they are the way Pinocchio gets himself into trouble, every time. And the book does an odd thing with them: it makes them VISIBLE. The nose grows, everyone sees, nothing can be hidden. It is a fairy-tale punishment, comic and cruel at once: in the real world lies don&#x27;t show on your face, and perhaps that is why we tell so many.</dd>
+        </dl>
+      </div>
+      <div class="sf-gpag">
+        <dl>
           <dt><b lang="it">burattino</b> &middot; <i lang="en">puppet</i> <span>((sin. pupazzo, marionetta))</span></dt>
           <dd lang="it">Un pupazzo di legno che si muove con i fili o con la mano.</dd>
           <dd class="en" lang="en">A small figure made of wood or cloth that moves with hands or strings.</dd>
           <dd class="sf-gnota" lang="en">In the novel: The word of the title, and the word of the book. Pinocchio isn&#x27;t a boy who behaves like a puppet — he IS a puppet, of wood, who wants to become a boy. The whole book lives in that difference. A wooden figure that wants to be alive, and to be alive it must learn the things the living have to learn: obeying, working, telling the truth.</dd>
+          <dt><b lang="it">capriccio</b> &middot; <i lang="en">whim, tantrum</i> <span>((sin. voglia, sfizio))</span></dt>
+          <dd lang="it">Il volere una cosa solo perché la si vuole, senza motivo.</dd>
+          <dd class="en" lang="en">A sudden desire without reason, often of a child.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: Pinocchio is full of whims — he wants pears without the skin, wants the theatre instead of school, wants the Land of Toys. And Geppetto almost always gives in. The book doesn&#x27;t blame the child: it blames the whim itself — which is never satisfied, and always asks for more. A boy who has been given everything still wants the Land of Toys.</dd>
+          <dt><b lang="it">ciuchino</b> &middot; <i lang="en">little donkey</i> <span>((sin. asino, somaro))</span></dt>
+          <dd lang="it">Un piccolo asino, di solito grigio, con le orecchie lunghe.</dd>
+          <dd class="en" lang="en">A small grey animal with long ears, that carries loads and walks slowly.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: In the Land of Toys, lazy children turn into little donkeys — and Collodi doesn&#x27;t say this as a joke. A donkey, in Tuscany in 1883, was the animal that worked all day for its master, that was beaten, and that in the end was sold to have its skin made into a drum. Becoming a donkey means becoming a tool in someone else&#x27;s hands. It is the worst punishment in the book.</dd>
         </dl>
         <p class="sf-gpie">Il glossario contiene 26 voci in tutto</p>
       </div>
-    </div>
+    </div></div>
   </section>
 
 
@@ -632,5 +640,25 @@ footer.sito a{color:var(--nebbia)}
 </footer>
 <script>document.getElementById('anno').textContent=new Date().getFullYear();</script>
 <script src="/js/whatsapp.js" defer></script>
+<script>
+/* sfoglia — apertura della copertina quando la scheda entra nello schermo.
+   Solo animazione: ogni parola e' gia' nell'HTML, senza JS la copertina
+   resta semplicemente aperta. */
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(innerWidth <= 900 || !window.IntersectionObserver) return;
+  document.querySelectorAll('.sfoglia').forEach(function(s){
+    s.classList.add('sf-chiusa');
+    new IntersectionObserver(function(v,o){
+      v.forEach(function(e){
+        if(!e.isIntersecting) return;
+        requestAnimationFrame(function(){ s.classList.remove('sf-chiusa'); });
+        o.unobserve(e.target);
+      });
+    },{threshold:0.35}).observe(s);
+  });
+})();
+</script>
+
 </body>
 </html>

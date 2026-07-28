@@ -146,9 +146,10 @@ footer.sito a{color:var(--nebbia)}
    ============================================================ */
 
 .sfoglia{
+  container-type:inline-size;
   --pag-w:min(420px, 36vw);
   --pag-h:calc(var(--pag-w) * 1.6);
-  --scorcio:.196;                    /* 1 - larghezza proiettata a 32°: vedi margin-left */
+  --scorcio:.108;                    /* 1 - larghezza proiettata a 32°: vedi margin-left */
   margin:34px 0 42px;
 }
 
@@ -164,27 +165,21 @@ footer.sito a{color:var(--nebbia)}
   border-radius:4px 2px 2px 4px; overflow:hidden;
   transform-origin:right center; backface-visibility:hidden;
   box-shadow:0 22px 44px -16px rgba(20,24,38,.46), 0 2px 6px rgba(20,24,38,.18);
-  transform:rotateY(-32deg);
+  transform:rotateY(-20deg);
 }
 .sfoglia-cop img{display:block; width:100%; height:100%; object-fit:cover; object-position:center}
 .sfoglia-cop::after{content:""; position:absolute; inset:0; pointer-events:none;
-  background:linear-gradient(90deg, rgba(0,0,0,.34), rgba(0,0,0,0) 30%, rgba(255,255,255,.10))}
+  background:linear-gradient(90deg, rgba(0,0,0,.20), rgba(0,0,0,0) 26%, rgba(255,255,255,.08))}
 
-@keyframes sf-apri{from{transform:rotateY(-88deg)} to{transform:rotateY(-32deg)}}
 @media (min-width:901px) and (prefers-reduced-motion:no-preference){
-  /* ovunque: apertura lenta al caricamento */
-  .sfoglia-cop{animation:sf-apri 2.6s cubic-bezier(.16,.8,.24,1) .3s both}
-  /* dove c'e': l'apertura segue lo scroll, cosi' la vedi quando ci arrivi */
-  @supports (animation-timeline: view()){
-    .sfoglia-cop{animation:sf-apri linear both; animation-timeline:view();
-      animation-range:entry 0% cover 40%}
-  }
+  .sfoglia-cop{transition:transform 2.2s cubic-bezier(.16,.8,.24,1)}
+  .sfoglia.sf-chiusa .sfoglia-cop{transform:rotateY(-86deg)}
 }
 
 .sfoglia-foglio{
   position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
   min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 32);
+  font-size:calc(var(--pag-w) / 34);
   display:flex; flex-direction:column;
   padding:1.5em 1.75em 1.1em 2.1em;
   border-radius:2px 5px 5px 2px;
@@ -241,6 +236,7 @@ footer.sito a{color:var(--nebbia)}
 /* ---- Doppia pagina: il glossario del libro ----
    width:fit-content, cosi' il riquadro finisce dove finiscono le due pagine
    e non restano le due strisce di fondo ai lati. */
+.sf-gspread-box{container-type:inline-size}
 .sf-gspread{
   --pag-w:min(420px, 36vw);
   --pag-h:calc(var(--pag-w) * 1.6);
@@ -252,7 +248,7 @@ footer.sito a{color:var(--nebbia)}
 .sf-gpag{
 
   flex:0 0 var(--pag-w); width:var(--pag-w); min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 32);
+  font-size:calc(var(--pag-w) / 34);
   display:flex; flex-direction:column; padding:1.5em 1.75em 1.1em;
   background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
 }
@@ -279,10 +275,14 @@ footer.sito a{color:var(--nebbia)}
 
 /* ---- sotto i 900px: si impila, niente prospettiva ---- */
 @media (max-width:900px){
-  .sfoglia, .sf-gspread{--pag-w:min(86vw, 340px)}
+  .sfoglia, .sf-gspread{--pag-w:320px}
+  @supports (width: 1cqw){
+    .sfoglia, .sf-gspread{--pag-w:min(100cqw, 340px)}
+  }
   .sfoglia-scena{flex-direction:column; align-items:center; perspective:none}
+  .sfoglia-cop, .sfoglia-foglio, .sf-gpag{flex-basis:auto; width:var(--pag-w); max-width:100%}
   .sfoglia-cop{margin:0 auto 16px; align-self:auto; height:var(--pag-h);
-    transform:none; animation:none}
+    transform:none !important; animation:none; transition:none}
   .sfoglia-foglio{border-radius:6px}
   .sfoglia-foglio::after{display:none}
   .sf-gspread{flex-direction:column; align-items:center; gap:12px;
@@ -291,7 +291,7 @@ footer.sito a{color:var(--nebbia)}
   .sf-2col{grid-template-columns:1fr; gap:0}
 }
 @media (prefers-reduced-motion:reduce){
-  .sfoglia-cop{animation:none; transform:rotateY(-32deg)}
+  .sfoglia-cop{animation:none; transform:rotateY(-20deg)}
 }
 </style>
 <script type="application/ld+json">{
@@ -423,7 +423,7 @@ footer.sito a{color:var(--nebbia)}
 
   <section class="sezione">
     <h2>Dentro il glossario</h2>
-                <div class="sf-gspread">
+                <div class="sf-gspread-box"><div class="sf-gspread">
       <div class="sf-gpag">
         <p class="sf-gtit">Glossario</p>
         <dl>
@@ -439,14 +439,14 @@ footer.sito a{color:var(--nebbia)}
           <dd lang="it">La ribellione dei marinai contro il loro comandante.</dd>
           <dd class="en" lang="en">A revolt of sailors against their captain.</dd>
           <dd class="sf-gnota" lang="en">In the novel: The most feared word on board. In October, after a month without land, the crew stops obeying willingly: there is talk of turning back, perhaps even of throwing the admiral into the sea. Land arrives just in time.</dd>
-        </dl>
-      </div>
-      <div class="sf-gpag">
-        <dl>
           <dt><b lang="it">baratto</b> &middot; <i lang="en">barter</i> <span>((sin. scambio, commercio senza denaro))</span></dt>
           <dd lang="it">Lo scambio di una cosa con un&#x27;altra, senza denaro.</dd>
           <dd class="en" lang="en">An exchange of things without using money.</dd>
           <dd class="sf-gnota" lang="en">In the novel: Glass beads for parrots, little bells for cotton thread: the first contact between the two worlds is barter. It looks like a game between friends. But one side knows the value of the other&#x27;s things, and the other does not.</dd>
+        </dl>
+      </div>
+      <div class="sf-gpag">
+        <dl>
           <dt><b lang="it">bussola</b> &middot; <i lang="en">compass</i> <span>((sin. ago magnetico, strumento di rotta))</span></dt>
           <dd lang="it">Uno strumento con un ago che indica sempre il nord.</dd>
           <dd class="en" lang="en">An instrument with a needle that always points north.</dd>
@@ -455,10 +455,14 @@ footer.sito a{color:var(--nebbia)}
           <dd lang="it">Una barca stretta e leggera, che si muove con la pagaia.</dd>
           <dd class="en" lang="en">A light, narrow boat moved with a paddle; a Taino word.</dd>
           <dd class="sf-gnota" lang="en">In the novel: A Taino word, brought into Italian through these letters. Taino canoes were carved from a single tree: some carried forty men. In 1503 a canoe will cross the open sea to save Columbus.</dd>
+          <dt><b lang="it">caravella</b> &middot; <i lang="en">caravel</i> <span>((sin. veliero, nave leggera))</span></dt>
+          <dd lang="it">Una piccola nave a vela veloce, usata nel Quattrocento per esplorare.</dd>
+          <dd class="en" lang="en">A small, fast sailing ship used by explorers in the 15th century.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: The Niña and the Pinta were caravels: small, light, able to sail almost against the wind. Not the biggest ships of the age — the best suited. The ocean is not defeated by force: it is defeated by the right design.</dd>
         </dl>
         <p class="sf-gpie">Il glossario contiene 32 voci in tutto</p>
       </div>
-    </div>
+    </div></div>
   </section>
 
 
@@ -583,5 +587,25 @@ footer.sito a{color:var(--nebbia)}
 </footer>
 <script>document.getElementById('anno').textContent=new Date().getFullYear();</script>
 <script src="/js/whatsapp.js" defer></script>
+<script>
+/* sfoglia — apertura della copertina quando la scheda entra nello schermo.
+   Solo animazione: ogni parola e' gia' nell'HTML, senza JS la copertina
+   resta semplicemente aperta. */
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(innerWidth <= 900 || !window.IntersectionObserver) return;
+  document.querySelectorAll('.sfoglia').forEach(function(s){
+    s.classList.add('sf-chiusa');
+    new IntersectionObserver(function(v,o){
+      v.forEach(function(e){
+        if(!e.isIntersecting) return;
+        requestAnimationFrame(function(){ s.classList.remove('sf-chiusa'); });
+        o.unobserve(e.target);
+      });
+    },{threshold:0.35}).observe(s);
+  });
+})();
+</script>
+
 </body>
 </html>

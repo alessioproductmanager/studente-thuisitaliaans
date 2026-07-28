@@ -146,9 +146,10 @@ footer.sito a{color:var(--nebbia)}
    ============================================================ */
 
 .sfoglia{
+  container-type:inline-size;
   --pag-w:min(420px, 36vw);
   --pag-h:calc(var(--pag-w) * 1.6);
-  --scorcio:.196;                    /* 1 - larghezza proiettata a 32°: vedi margin-left */
+  --scorcio:.108;                    /* 1 - larghezza proiettata a 32°: vedi margin-left */
   margin:34px 0 42px;
 }
 
@@ -164,27 +165,21 @@ footer.sito a{color:var(--nebbia)}
   border-radius:4px 2px 2px 4px; overflow:hidden;
   transform-origin:right center; backface-visibility:hidden;
   box-shadow:0 22px 44px -16px rgba(20,24,38,.46), 0 2px 6px rgba(20,24,38,.18);
-  transform:rotateY(-32deg);
+  transform:rotateY(-20deg);
 }
 .sfoglia-cop img{display:block; width:100%; height:100%; object-fit:cover; object-position:center}
 .sfoglia-cop::after{content:""; position:absolute; inset:0; pointer-events:none;
-  background:linear-gradient(90deg, rgba(0,0,0,.34), rgba(0,0,0,0) 30%, rgba(255,255,255,.10))}
+  background:linear-gradient(90deg, rgba(0,0,0,.20), rgba(0,0,0,0) 26%, rgba(255,255,255,.08))}
 
-@keyframes sf-apri{from{transform:rotateY(-88deg)} to{transform:rotateY(-32deg)}}
 @media (min-width:901px) and (prefers-reduced-motion:no-preference){
-  /* ovunque: apertura lenta al caricamento */
-  .sfoglia-cop{animation:sf-apri 2.6s cubic-bezier(.16,.8,.24,1) .3s both}
-  /* dove c'e': l'apertura segue lo scroll, cosi' la vedi quando ci arrivi */
-  @supports (animation-timeline: view()){
-    .sfoglia-cop{animation:sf-apri linear both; animation-timeline:view();
-      animation-range:entry 0% cover 40%}
-  }
+  .sfoglia-cop{transition:transform 2.2s cubic-bezier(.16,.8,.24,1)}
+  .sfoglia.sf-chiusa .sfoglia-cop{transform:rotateY(-86deg)}
 }
 
 .sfoglia-foglio{
   position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
   min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 32);
+  font-size:calc(var(--pag-w) / 34);
   display:flex; flex-direction:column;
   padding:1.5em 1.75em 1.1em 2.1em;
   border-radius:2px 5px 5px 2px;
@@ -241,6 +236,7 @@ footer.sito a{color:var(--nebbia)}
 /* ---- Doppia pagina: il glossario del libro ----
    width:fit-content, cosi' il riquadro finisce dove finiscono le due pagine
    e non restano le due strisce di fondo ai lati. */
+.sf-gspread-box{container-type:inline-size}
 .sf-gspread{
   --pag-w:min(420px, 36vw);
   --pag-h:calc(var(--pag-w) * 1.6);
@@ -252,7 +248,7 @@ footer.sito a{color:var(--nebbia)}
 .sf-gpag{
 
   flex:0 0 var(--pag-w); width:var(--pag-w); min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 32);
+  font-size:calc(var(--pag-w) / 34);
   display:flex; flex-direction:column; padding:1.5em 1.75em 1.1em;
   background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
 }
@@ -279,10 +275,14 @@ footer.sito a{color:var(--nebbia)}
 
 /* ---- sotto i 900px: si impila, niente prospettiva ---- */
 @media (max-width:900px){
-  .sfoglia, .sf-gspread{--pag-w:min(86vw, 340px)}
+  .sfoglia, .sf-gspread{--pag-w:320px}
+  @supports (width: 1cqw){
+    .sfoglia, .sf-gspread{--pag-w:min(100cqw, 340px)}
+  }
   .sfoglia-scena{flex-direction:column; align-items:center; perspective:none}
+  .sfoglia-cop, .sfoglia-foglio, .sf-gpag{flex-basis:auto; width:var(--pag-w); max-width:100%}
   .sfoglia-cop{margin:0 auto 16px; align-self:auto; height:var(--pag-h);
-    transform:none; animation:none}
+    transform:none !important; animation:none; transition:none}
   .sfoglia-foglio{border-radius:6px}
   .sfoglia-foglio::after{display:none}
   .sf-gspread{flex-direction:column; align-items:center; gap:12px;
@@ -291,7 +291,7 @@ footer.sito a{color:var(--nebbia)}
   .sf-2col{grid-template-columns:1fr; gap:0}
 }
 @media (prefers-reduced-motion:reduce){
-  .sfoglia-cop{animation:none; transform:rotateY(-32deg)}
+  .sfoglia-cop{animation:none; transform:rotateY(-20deg)}
 }
 </style>
 <script type="application/ld+json">{
@@ -397,6 +397,8 @@ footer.sito a{color:var(--nebbia)}
             <p>Contro di lui stava Carlo Magno, l&#x27;imperatore dei cristiani, con i suoi dodici <span class="sf-kw">paladini</span>.<sup>1</sup></p>
             <p>Il primo dei paladini si chiamava Orlando. Nessuna <span class="sf-kw">lancia</span> poteva ferirlo, nessun <span class="sf-kw">guerriero</span> poteva batterlo.</p>
             <p>Ma in quei giorni Orlando non pensava alla guerra. Pensava a una donna.</p>
+            <p class="sf-sep">&#9670;</p>
+            <p>La donna si chiamava Angelica ed era la figlia del re del Catai, un regno lontano d&#x27;Oriente.</p>
         </div>
         <p class="sf-gloss"><span class="sf-kw">paladino</span> = paladin &#183; <span class="sf-kw">lancia</span> = lance &#183; <span class="sf-kw">guerriero</span> = warrior</p>
         <div class="sf-note">
@@ -422,7 +424,7 @@ footer.sito a{color:var(--nebbia)}
 
   <section class="sezione">
     <h2>In de woordenlijst</h2>
-                    <div class="sf-gspread">
+                    <div class="sf-gspread-box"><div class="sf-gspread">
       <div class="sf-gpag">
         <p class="sf-gtit">Woordenlijst</p>
         <dl>
@@ -434,22 +436,30 @@ footer.sito a{color:var(--nebbia)}
           <dd lang="it">Un piccolo cerchio di metallo che si porta al dito.</dd>
           <dd class="en" lang="en">A small circle of metal worn on the finger.</dd>
           <dd class="sf-gnota" lang="en">In the novel: Angelica&#x27;s ring is the most powerful magic object in the book: on the finger it cancels every spell, in the mouth it makes you invisible. It passes from hand to hand — Brunello steals it, Bradamante wins it, Melissa carries it, Angelica takes it back — and at every passage it changes the story. It is the great-grandfather of every magic ring in modern literature.</dd>
-        </dl>
-      </div>
-      <div class="sf-gpag">
-        <dl>
           <dt><b lang="it">armatura</b> &middot; <i lang="en">armour</i> <span>((sin. corazza, difesa))</span></dt>
           <dd lang="it">L&#x27;insieme di piastre di metallo che protegge il corpo di un cavaliere.</dd>
           <dd class="en" lang="en">The set of metal plates protecting a knight&#x27;s body.</dd>
           <dd class="sf-gnota" lang="en">In the novel: Armour in the poem is a second skin: it says who you are, protects you, represents you. That is why the scene where Orlando tears his armour off is so powerful: he is not removing clothing — he is removing his own name. A knight without armour, in the world of the Furioso, is no longer a knight: only a man.</dd>
+        </dl>
+      </div>
+      <div class="sf-gpag">
+        <dl>
           <dt><b lang="it">assedio</b> &middot; <i lang="en">siege</i> <span>((sin. accerchiamento, blocco))</span></dt>
           <dd lang="it">L&#x27;accerchiamento di una città per costringerla ad arrendersi.</dd>
           <dd class="en" lang="en">The encirclement of a city to force it to surrender.</dd>
           <dd class="sf-gnota" lang="en">In the novel: The siege of Paris is the backdrop of the whole poem: while the knights chase loves and enchantments, a real war is fought beneath the walls. Ariosto alternates the two planes constantly — fable and history — and the siege is there to remind us that his heroes&#x27; choices have a price: every paladin who rides away is one sword fewer on the walls.</dd>
+          <dt><b lang="it">avventura</b> &middot; <i lang="en">adventure</i> <span>((sin. impresa, peripezia))</span></dt>
+          <dd lang="it">Un&#x27;esperienza fuori dall&#x27;ordinario, piena di rischi e di sorprese.</dd>
+          <dd class="en" lang="en">An out-of-the-ordinary experience, full of risks and surprises.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: The Furioso is the adventure machine: every crossroads hides one, every character chases another. Ariosto weaves them like threads of a carpet — he leaves one hero on the edge of a cliff and moves to the next. Today&#x27;s readers call it suspense; he called it the art of &#x27;leaving Orlando&#x27; at the right moment.</dd>
+          <dt><b lang="it">battesimo</b> &middot; <i lang="en">baptism</i> <span>((sin. rito d&#x27;ingresso, sacramento))</span></dt>
+          <dd lang="it">Il rito con cui una persona entra nella religione cristiana.</dd>
+          <dd class="en" lang="en">The rite by which a person enters the Christian religion.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: Ruggiero&#x27;s baptism is the promise running through the whole poem: the prophecy announces it, Bradamante waits for it, Atlante fears it. When it finally comes, on the hermit&#x27;s island, it is no solemn scene: it is a man saved from the sea keeping his word. In the Furioso even destiny&#x27;s turning points have simple manners.</dd>
         </dl>
         <p class="sf-gpie">De woordenlijst bevat in totaal 49 woorden</p>
       </div>
-    </div>
+    </div></div>
   </section>
 
 
@@ -574,5 +584,25 @@ footer.sito a{color:var(--nebbia)}
 </footer>
 <script>document.getElementById('anno').textContent=new Date().getFullYear();</script>
 <script src="/js/whatsapp.js" defer></script>
+<script>
+/* sfoglia — apertura della copertina quando la scheda entra nello schermo.
+   Solo animazione: ogni parola e' gia' nell'HTML, senza JS la copertina
+   resta semplicemente aperta. */
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(innerWidth <= 900 || !window.IntersectionObserver) return;
+  document.querySelectorAll('.sfoglia').forEach(function(s){
+    s.classList.add('sf-chiusa');
+    new IntersectionObserver(function(v,o){
+      v.forEach(function(e){
+        if(!e.isIntersecting) return;
+        requestAnimationFrame(function(){ s.classList.remove('sf-chiusa'); });
+        o.unobserve(e.target);
+      });
+    },{threshold:0.35}).observe(s);
+  });
+})();
+</script>
+
 </body>
 </html>

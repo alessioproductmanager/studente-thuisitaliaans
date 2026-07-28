@@ -146,9 +146,10 @@ footer.sito a{color:var(--nebbia)}
    ============================================================ */
 
 .sfoglia{
+  container-type:inline-size;
   --pag-w:min(420px, 36vw);
   --pag-h:calc(var(--pag-w) * 1.6);
-  --scorcio:.196;                    /* 1 - larghezza proiettata a 32°: vedi margin-left */
+  --scorcio:.108;                    /* 1 - larghezza proiettata a 32°: vedi margin-left */
   margin:34px 0 42px;
 }
 
@@ -164,27 +165,21 @@ footer.sito a{color:var(--nebbia)}
   border-radius:4px 2px 2px 4px; overflow:hidden;
   transform-origin:right center; backface-visibility:hidden;
   box-shadow:0 22px 44px -16px rgba(20,24,38,.46), 0 2px 6px rgba(20,24,38,.18);
-  transform:rotateY(-32deg);
+  transform:rotateY(-20deg);
 }
 .sfoglia-cop img{display:block; width:100%; height:100%; object-fit:cover; object-position:center}
 .sfoglia-cop::after{content:""; position:absolute; inset:0; pointer-events:none;
-  background:linear-gradient(90deg, rgba(0,0,0,.34), rgba(0,0,0,0) 30%, rgba(255,255,255,.10))}
+  background:linear-gradient(90deg, rgba(0,0,0,.20), rgba(0,0,0,0) 26%, rgba(255,255,255,.08))}
 
-@keyframes sf-apri{from{transform:rotateY(-88deg)} to{transform:rotateY(-32deg)}}
 @media (min-width:901px) and (prefers-reduced-motion:no-preference){
-  /* ovunque: apertura lenta al caricamento */
-  .sfoglia-cop{animation:sf-apri 2.6s cubic-bezier(.16,.8,.24,1) .3s both}
-  /* dove c'e': l'apertura segue lo scroll, cosi' la vedi quando ci arrivi */
-  @supports (animation-timeline: view()){
-    .sfoglia-cop{animation:sf-apri linear both; animation-timeline:view();
-      animation-range:entry 0% cover 40%}
-  }
+  .sfoglia-cop{transition:transform 2.2s cubic-bezier(.16,.8,.24,1)}
+  .sfoglia.sf-chiusa .sfoglia-cop{transform:rotateY(-86deg)}
 }
 
 .sfoglia-foglio{
   position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
   min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 32);
+  font-size:calc(var(--pag-w) / 34);
   display:flex; flex-direction:column;
   padding:1.5em 1.75em 1.1em 2.1em;
   border-radius:2px 5px 5px 2px;
@@ -241,6 +236,7 @@ footer.sito a{color:var(--nebbia)}
 /* ---- Doppia pagina: il glossario del libro ----
    width:fit-content, cosi' il riquadro finisce dove finiscono le due pagine
    e non restano le due strisce di fondo ai lati. */
+.sf-gspread-box{container-type:inline-size}
 .sf-gspread{
   --pag-w:min(420px, 36vw);
   --pag-h:calc(var(--pag-w) * 1.6);
@@ -252,7 +248,7 @@ footer.sito a{color:var(--nebbia)}
 .sf-gpag{
 
   flex:0 0 var(--pag-w); width:var(--pag-w); min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 32);
+  font-size:calc(var(--pag-w) / 34);
   display:flex; flex-direction:column; padding:1.5em 1.75em 1.1em;
   background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
 }
@@ -279,10 +275,14 @@ footer.sito a{color:var(--nebbia)}
 
 /* ---- sotto i 900px: si impila, niente prospettiva ---- */
 @media (max-width:900px){
-  .sfoglia, .sf-gspread{--pag-w:min(86vw, 340px)}
+  .sfoglia, .sf-gspread{--pag-w:320px}
+  @supports (width: 1cqw){
+    .sfoglia, .sf-gspread{--pag-w:min(100cqw, 340px)}
+  }
   .sfoglia-scena{flex-direction:column; align-items:center; perspective:none}
+  .sfoglia-cop, .sfoglia-foglio, .sf-gpag{flex-basis:auto; width:var(--pag-w); max-width:100%}
   .sfoglia-cop{margin:0 auto 16px; align-self:auto; height:var(--pag-h);
-    transform:none; animation:none}
+    transform:none !important; animation:none; transition:none}
   .sfoglia-foglio{border-radius:6px}
   .sfoglia-foglio::after{display:none}
   .sf-gspread{flex-direction:column; align-items:center; gap:12px;
@@ -291,7 +291,7 @@ footer.sito a{color:var(--nebbia)}
   .sf-2col{grid-template-columns:1fr; gap:0}
 }
 @media (prefers-reduced-motion:reduce){
-  .sfoglia-cop{animation:none; transform:rotateY(-32deg)}
+  .sfoglia-cop{animation:none; transform:rotateY(-20deg)}
 }
 </style>
 <script type="application/ld+json">{
@@ -420,7 +420,7 @@ footer.sito a{color:var(--nebbia)}
 
   <section class="sezione">
     <h2>In de woordenlijst</h2>
-                    <div class="sf-gspread">
+                    <div class="sf-gspread-box"><div class="sf-gspread">
       <div class="sf-gpag">
         <p class="sf-gtit">Woordenlijst</p>
         <dl>
@@ -436,14 +436,14 @@ footer.sito a{color:var(--nebbia)}
           <dd lang="it">La superbia fredda di chi si considera superiore per nascita.</dd>
           <dd class="en" lang="en">The cold pride of those who think themselves superior by birth.</dd>
           <dd class="sf-gnota" lang="en">In the novel: It isn&#x27;t vanity: it is certainty. An Uzeda has nothing to prove to anyone — the world divides into the family and the rest, and the rest hardly counts.</dd>
-        </dl>
-      </div>
-      <div class="sf-gpag">
-        <dl>
           <dt><b lang="it">ambizione</b> &middot; <i lang="en">ambition</i> <span>((sin. brama, aspirazione))</span></dt>
           <dd lang="it">Il desiderio ardente di potere, successo e gloria.</dd>
           <dd class="en" lang="en">A burning desire for power, success and glory.</dd>
           <dd class="sf-gnota" lang="en">In the novel: Consalvo doesn&#x27;t love money like his father or the blazon like his aunt: he loves command itself. His ambition is the most modern and the purest in the novel — it needs no excuses, no ideals, no affections.</dd>
+        </dl>
+      </div>
+      <div class="sf-gpag">
+        <dl>
           <dt><b lang="it">annullamento</b> &middot; <i lang="en">annulment</i> <span>((sin. scioglimento, invalidazione))</span></dt>
           <dd lang="it">La dichiarazione che un matrimonio non è mai stato valido.</dd>
           <dd class="en" lang="en">A declaration that a marriage was never valid.</dd>
@@ -452,10 +452,14 @@ footer.sito a{color:var(--nebbia)}
           <dd lang="it">L&#x27;attaccamento eccessivo al denaro, che impedisce di spenderlo e di darlo.</dd>
           <dd class="en" lang="en">Attachment to money so strong it prevents spending or giving.</dd>
           <dd class="sf-gnota" lang="en">In the novel: Donna Ferdinanda hoards and never spends; Giacomo counts and counts again. Avarice here isn&#x27;t a flaw: it is a whole passion, the only form of love certain Uzeda are capable of.</dd>
+          <dt><b lang="it">beata</b> &middot; <i lang="en">blessed woman</i> <span>((sin. venerabile, santa))</span></dt>
+          <dd lang="it">Una persona morta in fama di santità, venerata dalla Chiesa.</dd>
+          <dd class="en" lang="en">A woman who died in the odour of sanctity and is venerated by the Church.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: The family has a blessed of its own, the venerable Ximena, and her portrait watches over them all. Every generation of Uzeda produces saints and bullies with equal ease — and sometimes, says De Roberto, in the same person.</dd>
         </dl>
         <p class="sf-gpie">De woordenlijst bevat in totaal 52 woorden</p>
       </div>
-    </div>
+    </div></div>
   </section>
 
 
@@ -580,5 +584,25 @@ footer.sito a{color:var(--nebbia)}
 </footer>
 <script>document.getElementById('anno').textContent=new Date().getFullYear();</script>
 <script src="/js/whatsapp.js" defer></script>
+<script>
+/* sfoglia — apertura della copertina quando la scheda entra nello schermo.
+   Solo animazione: ogni parola e' gia' nell'HTML, senza JS la copertina
+   resta semplicemente aperta. */
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(innerWidth <= 900 || !window.IntersectionObserver) return;
+  document.querySelectorAll('.sfoglia').forEach(function(s){
+    s.classList.add('sf-chiusa');
+    new IntersectionObserver(function(v,o){
+      v.forEach(function(e){
+        if(!e.isIntersecting) return;
+        requestAnimationFrame(function(){ s.classList.remove('sf-chiusa'); });
+        o.unobserve(e.target);
+      });
+    },{threshold:0.35}).observe(s);
+  });
+})();
+</script>
+
 </body>
 </html>

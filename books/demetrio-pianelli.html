@@ -146,9 +146,10 @@ footer.sito a{color:var(--nebbia)}
    ============================================================ */
 
 .sfoglia{
+  container-type:inline-size;
   --pag-w:min(420px, 36vw);
   --pag-h:calc(var(--pag-w) * 1.6);
-  --scorcio:.196;                    /* 1 - larghezza proiettata a 32°: vedi margin-left */
+  --scorcio:.108;                    /* 1 - larghezza proiettata a 32°: vedi margin-left */
   margin:34px 0 42px;
 }
 
@@ -164,27 +165,21 @@ footer.sito a{color:var(--nebbia)}
   border-radius:4px 2px 2px 4px; overflow:hidden;
   transform-origin:right center; backface-visibility:hidden;
   box-shadow:0 22px 44px -16px rgba(20,24,38,.46), 0 2px 6px rgba(20,24,38,.18);
-  transform:rotateY(-32deg);
+  transform:rotateY(-20deg);
 }
 .sfoglia-cop img{display:block; width:100%; height:100%; object-fit:cover; object-position:center}
 .sfoglia-cop::after{content:""; position:absolute; inset:0; pointer-events:none;
-  background:linear-gradient(90deg, rgba(0,0,0,.34), rgba(0,0,0,0) 30%, rgba(255,255,255,.10))}
+  background:linear-gradient(90deg, rgba(0,0,0,.20), rgba(0,0,0,0) 26%, rgba(255,255,255,.08))}
 
-@keyframes sf-apri{from{transform:rotateY(-88deg)} to{transform:rotateY(-32deg)}}
 @media (min-width:901px) and (prefers-reduced-motion:no-preference){
-  /* ovunque: apertura lenta al caricamento */
-  .sfoglia-cop{animation:sf-apri 2.6s cubic-bezier(.16,.8,.24,1) .3s both}
-  /* dove c'e': l'apertura segue lo scroll, cosi' la vedi quando ci arrivi */
-  @supports (animation-timeline: view()){
-    .sfoglia-cop{animation:sf-apri linear both; animation-timeline:view();
-      animation-range:entry 0% cover 40%}
-  }
+  .sfoglia-cop{transition:transform 2.2s cubic-bezier(.16,.8,.24,1)}
+  .sfoglia.sf-chiusa .sfoglia-cop{transform:rotateY(-86deg)}
 }
 
 .sfoglia-foglio{
   position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
   min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 32);
+  font-size:calc(var(--pag-w) / 34);
   display:flex; flex-direction:column;
   padding:1.5em 1.75em 1.1em 2.1em;
   border-radius:2px 5px 5px 2px;
@@ -241,6 +236,7 @@ footer.sito a{color:var(--nebbia)}
 /* ---- Doppia pagina: il glossario del libro ----
    width:fit-content, cosi' il riquadro finisce dove finiscono le due pagine
    e non restano le due strisce di fondo ai lati. */
+.sf-gspread-box{container-type:inline-size}
 .sf-gspread{
   --pag-w:min(420px, 36vw);
   --pag-h:calc(var(--pag-w) * 1.6);
@@ -252,7 +248,7 @@ footer.sito a{color:var(--nebbia)}
 .sf-gpag{
 
   flex:0 0 var(--pag-w); width:var(--pag-w); min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 32);
+  font-size:calc(var(--pag-w) / 34);
   display:flex; flex-direction:column; padding:1.5em 1.75em 1.1em;
   background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
 }
@@ -279,10 +275,14 @@ footer.sito a{color:var(--nebbia)}
 
 /* ---- sotto i 900px: si impila, niente prospettiva ---- */
 @media (max-width:900px){
-  .sfoglia, .sf-gspread{--pag-w:min(86vw, 340px)}
+  .sfoglia, .sf-gspread{--pag-w:320px}
+  @supports (width: 1cqw){
+    .sfoglia, .sf-gspread{--pag-w:min(100cqw, 340px)}
+  }
   .sfoglia-scena{flex-direction:column; align-items:center; perspective:none}
+  .sfoglia-cop, .sfoglia-foglio, .sf-gpag{flex-basis:auto; width:var(--pag-w); max-width:100%}
   .sfoglia-cop{margin:0 auto 16px; align-self:auto; height:var(--pag-h);
-    transform:none; animation:none}
+    transform:none !important; animation:none; transition:none}
   .sfoglia-foglio{border-radius:6px}
   .sfoglia-foglio::after{display:none}
   .sf-gspread{flex-direction:column; align-items:center; gap:12px;
@@ -291,7 +291,7 @@ footer.sito a{color:var(--nebbia)}
   .sf-2col{grid-template-columns:1fr; gap:0}
 }
 @media (prefers-reduced-motion:reduce){
-  .sfoglia-cop{animation:none; transform:rotateY(-32deg)}
+  .sfoglia-cop{animation:none; transform:rotateY(-20deg)}
 }
 </style>
 <script type="application/ld+json">{
@@ -477,7 +477,7 @@ footer.sito a{color:var(--nebbia)}
 
   <section class="sezione">
     <h2>Inside the glossary</h2>
-                    <div class="sf-gspread">
+                    <div class="sf-gspread-box"><div class="sf-gspread">
       <div class="sf-gpag">
         <p class="sf-gtit">Glossary</p>
         <dl>
@@ -493,14 +493,14 @@ footer.sito a{color:var(--nebbia)}
           <dd lang="it">L&#x27;impiegato che tiene i conti e i soldi di un ufficio.</dd>
           <dd class="en" lang="en">The clerk who keeps the accounts and cash of an office.</dd>
           <dd class="sf-gnota" lang="en">In the novel: Cesarino is the assistant cashier at the post office. His hands are on the cash every day — and this closeness to other people&#x27;s money, for a weak man like him, is dangerous.</dd>
-        </dl>
-      </div>
-      <div class="sf-gpag">
-        <dl>
           <dt><b lang="it">cognata</b> &middot; <i lang="en">sister-in-law</i> <span>((sin. parente acquisita, sposa del fratello))</span></dt>
           <dd lang="it">La moglie del proprio fratello, o la sorella del proprio marito.</dd>
           <dd class="en" lang="en">The wife of one&#x27;s brother, or the sister of one&#x27;s spouse.</dd>
           <dd class="sf-gnota" lang="en">In the novel: Beatrice is Demetrio&#x27;s sister-in-law: his brother&#x27;s wife. In the civil code there is no blood relation. But Demetrio considers her a sister — and perhaps, without saying so, something more.</dd>
+        </dl>
+      </div>
+      <div class="sf-gpag">
+        <dl>
           <dt><b lang="it">coscienza</b> &middot; <i lang="en">conscience</i> <span>((sin. morale, senso del bene e del male))</span></dt>
           <dd lang="it">La voce dentro di noi che ci dice se abbiamo fatto bene o male.</dd>
           <dd class="en" lang="en">The inner voice that tells us if we have done right or wrong.</dd>
@@ -509,10 +509,18 @@ footer.sito a{color:var(--nebbia)}
           <dd lang="it">Chi ha prestato dei soldi e aspetta di riaverli indietro.</dd>
           <dd class="en" lang="en">Someone who has lent money and waits to get it back.</dd>
           <dd class="sf-gnota" lang="en">In the novel: After Cesarino&#x27;s death the creditors come to Beatrice&#x27;s door one after another. By law she owes them nothing. But Demetrio has decided otherwise, for the honour of the name Pianelli.</dd>
+          <dt><b lang="it">debito</b> &middot; <i lang="en">debt</i> <span>((sin. passivo, obbligo))</span></dt>
+          <dd lang="it">Il denaro che si deve restituire a qualcuno.</dd>
+          <dd class="en" lang="en">Money one owes to someone else.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: Cesarino dies leaving debts everywhere: with the tailor, at the café, with Pardi, among friends. Demetrio will decide to pay them all, one by one — not by law, but for the family&#x27;s honour.</dd>
+          <dt><b lang="it">dignità</b> &middot; <i lang="en">dignity</i> <span>((sin. decoro, onore))</span></dt>
+          <dd lang="it">Il valore che una persona sente di avere, e che non vuole perdere.</dd>
+          <dd class="en" lang="en">The worth a person feels they have and refuses to lose.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: Demetrio&#x27;s dignity lies entirely in the way he keeps quiet. He asks no favours, tells no one about his sacrifices, holds nothing over anyone. It is the silent dignity of small honest clerks.</dd>
         </dl>
         <p class="sf-gpie">The glossary contains 41 entries in all</p>
       </div>
-    </div>
+    </div></div>
   </section>
 
 
@@ -637,5 +645,25 @@ footer.sito a{color:var(--nebbia)}
 </footer>
 <script>document.getElementById('anno').textContent=new Date().getFullYear();</script>
 <script src="/js/whatsapp.js" defer></script>
+<script>
+/* sfoglia — apertura della copertina quando la scheda entra nello schermo.
+   Solo animazione: ogni parola e' gia' nell'HTML, senza JS la copertina
+   resta semplicemente aperta. */
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(innerWidth <= 900 || !window.IntersectionObserver) return;
+  document.querySelectorAll('.sfoglia').forEach(function(s){
+    s.classList.add('sf-chiusa');
+    new IntersectionObserver(function(v,o){
+      v.forEach(function(e){
+        if(!e.isIntersecting) return;
+        requestAnimationFrame(function(){ s.classList.remove('sf-chiusa'); });
+        o.unobserve(e.target);
+      });
+    },{threshold:0.35}).observe(s);
+  });
+})();
+</script>
+
 </body>
 </html>
