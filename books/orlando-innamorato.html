@@ -126,103 +126,109 @@ footer.sito a{color:var(--nebbia)}
 @media(max-width:640px){footer.sito .wrap{justify-content:center;text-align:center;gap:6px}}
 
 /* ============================================================
-   PRIMA PAGINA DEL LIBRO — v4
+   PRIMA PAGINA DEL LIBRO — v5
 
-   Differenza sostanziale rispetto alla v3: la pagina non ha piu' un'altezza
-   fissa che taglia il contenuto. Ha una min-height, e cresce se serve.
-   La copertina si allunga insieme a lei, quindi le due meta' combaciano
-   sempre, qualunque font venga caricato.
+   Un libro vero aperto: due meta' identiche, unite sul dorso.
+   La copertina ha ESATTAMENTE la larghezza e l'altezza della pagina.
+   Ruota su transform-origin:right center, quindi il bordo sul dorso resta
+   a z=0: combacia con il lato sinistro della pagina al pixel, angoli
+   compresi. Il bordo esterno va indietro e si rimpicciolisce, che e' come
+   si vede un libro aperto davvero.
 
-     pagina      W  ×  min W × 1,6      cresce se il testo non ci sta
-     copertina   W × 1,06, stirata all'altezza della riga, sporgente del 3%
-     corpo       W / 32
+     pagina      W  ×  min W × 1,6
+     copertina   W  ×  stessa altezza della riga (align-self:stretch)
+     corpo       W / 32          → miniatura leggibile, ~46 caratteri/riga
      interlinea  1,65em
 
-   Uno script di 15 righe in fondo alla pagina rimpicciolisce il corpo di
-   qualche decimo finche' il contenuto rientra nella min-height: cosi' tutte
-   le schede tornano alte uguale anche se il font e' piu' largo del previsto.
-   Senza JavaScript la pagina si allunga invece di tagliare: nessun testo
-   sparisce mai.
+   Zero JavaScript. L'apertura della copertina e' guidata dallo scroll con
+   animation-timeline:view(). Dove non e' supportata, la copertina resta
+   nella posizione a riposo e non succede nulla di strano.
    ============================================================ */
 
 .sfoglia{
-  --pag-w:min(480px, 40vw);
+  --pag-w:min(420px, 36vw);
   --pag-h:calc(var(--pag-w) * 1.6);
-  --cop-w:calc(var(--pag-w) * 1.06);
-  --sporg:calc(var(--pag-w) * .048);        /* sporgenza copertina, 3% dell'altezza */
-  margin:38px 0 46px;
+  --scorcio:.196;                    /* 1 - larghezza proiettata a 32°: vedi margin-left */
+  margin:34px 0 42px;
 }
 
 .sfoglia-scena{
   display:flex; align-items:stretch; justify-content:center;
-  perspective:3400px; perspective-origin:58% 50%;
-  padding:var(--sporg) 0;                   /* spazio per la sporgenza */
+  perspective:2600px; perspective-origin:56% 50%;
 }
 
 .sfoglia-cop{
-  position:relative; flex:0 0 var(--cop-w); width:var(--cop-w);
-  align-self:stretch;
-  margin:calc(var(--sporg) * -1) 0 calc(var(--sporg) * -1) calc(var(--cop-w) * -.058);
-  border-radius:5px 3px 3px 5px; overflow:hidden;
+  position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
+  align-self:stretch;                                   /* stessa altezza della pagina, sempre */
+  margin-left:calc(var(--pag-w) * var(--scorcio) * -1);  /* recupera lo spazio che la rotazione libera */
+  border-radius:4px 2px 2px 4px; overflow:hidden;
   transform-origin:right center; backface-visibility:hidden;
-  box-shadow:0 26px 50px -14px rgba(20,24,38,.5), 0 3px 8px rgba(20,24,38,.2);
-  transform:rotateY(-16deg);                /* stato a riposo: vale anche senza JS */
-  transition:transform 1.6s cubic-bezier(.19,.86,.28,1);
+  box-shadow:0 22px 44px -16px rgba(20,24,38,.46), 0 2px 6px rgba(20,24,38,.18);
+  transform:rotateY(-32deg);
 }
 .sfoglia-cop img{display:block; width:100%; height:100%; object-fit:cover; object-position:center}
 .sfoglia-cop::after{content:""; position:absolute; inset:0; pointer-events:none;
-  background:linear-gradient(90deg, rgba(0,0,0,.30), rgba(0,0,0,0) 28%, rgba(255,255,255,.10))}
+  background:linear-gradient(90deg, rgba(0,0,0,.34), rgba(0,0,0,0) 30%, rgba(255,255,255,.10))}
+
+@keyframes sf-apri{from{transform:rotateY(-88deg)} to{transform:rotateY(-32deg)}}
+@media (min-width:901px) and (prefers-reduced-motion:no-preference){
+  /* ovunque: apertura lenta al caricamento */
+  .sfoglia-cop{animation:sf-apri 2.6s cubic-bezier(.16,.8,.24,1) .3s both}
+  /* dove c'e': l'apertura segue lo scroll, cosi' la vedi quando ci arrivi */
+  @supports (animation-timeline: view()){
+    .sfoglia-cop{animation:sf-apri linear both; animation-timeline:view();
+      animation-range:entry 0% cover 40%}
+  }
+}
 
 .sfoglia-foglio{
   position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
-  min-height:var(--pag-h); height:auto;
+  min-height:var(--pag-h);
   font-size:calc(var(--pag-w) / 32);
   display:flex; flex-direction:column;
   padding:1.5em 1.75em 1.1em 2.1em;
-  border-radius:2px 7px 7px 2px;
+  border-radius:2px 5px 5px 2px;
   background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
-  box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42), 0 18px 38px -18px rgba(20,24,38,.32);
+  box-shadow:inset 14px 0 24px -16px rgba(92,72,42,.42), 0 16px 34px -18px rgba(20,24,38,.3);
 }
-.sfoglia-foglio::after{content:""; position:absolute; top:.7em; bottom:.7em; right:-.4em; width:.4em;
+.sfoglia-foglio::after{content:""; position:absolute; top:.7em; bottom:.7em; right:-.35em; width:.35em;
   border-radius:0 3px 3px 0; background:repeating-linear-gradient(180deg,#f0e8d9 0 2px,#e2d7c3 2px 4px)}
 
 /* --- testata --- */
 .sf-capnum{margin:0 0 .15em; text-align:center; color:#8a7f6b;
   letter-spacing:.15em; font-size:.70em; line-height:1.3; font-weight:600}
-.sf-vign{display:block; margin:.25em auto .15em; width:auto; height:2.6em; opacity:.9}
+.sf-vign{display:block; margin:.25em auto .15em; width:auto; height:2.4em; opacity:.9}
 .sf-tit{margin:0; text-align:center; font-family:Fraunces,Georgia,serif;
   font-size:1.10em; font-weight:600; color:#2a2a2f; line-height:1.25}
-.sf-titen{margin:.15em 0 .9em; text-align:center; font-style:italic; color:#8a7f6b;
+.sf-titen{margin:.15em 0 .85em; text-align:center; font-style:italic; color:#8a7f6b;
   font-size:.85em; line-height:1.35}
 
 /* --- corpo --- */
 .sf-corpo{font-family:"Source Serif 4",Charter,Georgia,serif; font-size:1em;
-  line-height:1.65; color:#2b2b30; text-align:justify; hyphens:auto}
-.sf-corpo p{margin:0 0 .45em}
+  line-height:1.62; color:#2b2b30}
+.sf-corpo p{margin:0 0 .78em}
 .sf-corpo p:last-child{margin-bottom:0}
-.sf-corpo p:first-of-type::first-letter{float:left; font-family:Fraunces,Georgia,serif;
-  font-size:2.6em; line-height:.9; padding:.04em .09em 0 0; color:#8a6a2f}
-.sf-kw{border-bottom:1.5px solid #4D596B; font-weight:600}
-.sf-corpo .sf-sep{margin:.6em 0; text-align:center; color:#b09b7d;
+.sf-kw{border-bottom:1px solid #6b6355; font-weight:600; color:#1f2529}
+.sf-corpo .sf-sep{margin:.55em 0; text-align:center; color:#b09b7d;
   font-size:.78em; letter-spacing:.35em; text-indent:.35em}
 .sf-corpo .sf-sep::first-letter{float:none; font-size:1em; color:inherit; padding:0}
 .sf-corpo sup{font-size:.66em; color:#8a6a2f; font-weight:600; padding-left:1px; text-decoration:none}
 
-/* --- glossario in linea --- */
-.sf-gloss{margin:.6em 0 .5em; padding:.5em .68em; border-radius:4px;
-  background:rgba(77,89,107,.055);
-  font-size:.80em; line-height:1.6; font-style:italic; color:#4a5560}
-.sf-gloss .sf-kw{font-style:normal; border-bottom-width:1px}
+/* --- glossario in linea: SOLO le parole sottolineate qui sopra --- */
+.sf-gloss{margin:1.1em 0 0; font-size:.80em; line-height:1.65;
+  font-style:italic; color:#5c6670}
+.sf-gloss .sf-kw{font-style:normal; color:#2b2b30}
+.sf-gloss:empty{display:none}
 
 /* nota e piede in fondo alla pagina, come in un libro vero */
-.sf-note{margin:auto 0 0; padding-top:.55em; border-top:1px solid rgba(92,72,42,.2)}
-.sf-nota{margin:0 0 .3em; padding-left:1em; text-indent:-1em;
-  font-size:.78em; line-height:1.55; color:#4d4a44}
+.sf-note{margin:auto 0 0; padding-top:.6em}
+.sf-nota{margin:0 0 .35em; padding-left:1.6em; text-indent:-1em;
+  font-size:.78em; line-height:1.6; color:#4d4a44}
 .sf-nota:last-child{margin-bottom:0}
 .sf-nota sup{color:#8a6a2f; font-weight:600; padding-right:2px}
 
 .sf-piede{margin:.7em 0 0; padding-top:.55em; border-top:1px solid rgba(92,72,42,.14);
-  font-size:.74em; line-height:1.35; letter-spacing:.02em; color:#8a7f6b;
+  font-size:.72em; line-height:1.35; letter-spacing:.02em; color:#8a7f6b;
   display:flex; flex-wrap:wrap; gap:.2em .9em; align-items:baseline; justify-content:space-between}
 .sf-piede a{color:#8a6a2f; font-weight:600; text-decoration:none}
 .sf-piede a:hover{text-decoration:underline}
@@ -230,52 +236,62 @@ footer.sito a{color:var(--nebbia)}
 .sf-2col{display:grid; grid-template-columns:1fr 1fr; gap:12px 34px; align-items:start}
 .sf-2col>div>h2{margin-top:0}
 
-/* ---- Doppia pagina: il glossario del libro ---- */
+.sf-gnota{margin:.15em 0 0; font-size:.80em; line-height:1.5; font-style:italic; color:#8a7f6b}
+
+/* ---- Doppia pagina: il glossario del libro ----
+   width:fit-content, cosi' il riquadro finisce dove finiscono le due pagine
+   e non restano le due strisce di fondo ai lati. */
 .sf-gspread{
-  --pag-w:min(480px, 40vw);
+  --pag-w:min(420px, 36vw);
   --pag-h:calc(var(--pag-w) * 1.6);
-  display:flex; align-items:stretch; justify-content:center;
-  margin:20px auto 0; border-radius:3px; overflow:hidden;
-  box-shadow:0 20px 42px -18px rgba(20,24,38,.32);
+  display:flex; align-items:stretch;
+  width:fit-content; max-width:100%; margin:18px auto 0;
+  border-radius:3px; overflow:hidden;
+  box-shadow:0 18px 38px -18px rgba(20,24,38,.3);
 }
 .sf-gpag{
-  flex:0 0 var(--pag-w); width:var(--pag-w);
-  min-height:var(--pag-h); height:auto;
+
+  flex:0 0 var(--pag-w); width:var(--pag-w); min-height:var(--pag-h);
   font-size:calc(var(--pag-w) / 32);
   display:flex; flex-direction:column; padding:1.5em 1.75em 1.1em;
   background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
 }
-.sf-gpag:first-child{box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
-.sf-gpag:last-child {box-shadow:inset  14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gpag:first-child{box-shadow:inset -12px 0 20px -16px rgba(92,72,42,.4)}
+.sf-gpag:last-child {box-shadow:inset  12px 0 20px -16px rgba(92,72,42,.4)}
 .sf-gtit{margin:0 0 .9em; text-align:center; font-family:Fraunces,Georgia,serif;
   font-size:1em; line-height:1.3; font-weight:600; color:#2a2a2f}
 .sf-gspread dl{margin:0}
+.sf-gspread dt,.sf-gspread dd{overflow-wrap:break-word; word-break:normal; hyphens:auto}
 .sf-gspread dt{margin:0 0 .12em; font-family:"Source Serif 4",Charter,Georgia,serif;
   font-size:.92em; line-height:1.35}
-.sf-gspread dd+dt{margin-top:1.05em}
+.sf-gspread dd+dt{margin-top:1em}
 .sf-gspread dt b{color:#1F2529}
 .sf-gspread dt i{color:#326778; font-weight:600}
 .sf-gspread dt span{font-size:.86em; color:#8a7f6b; font-style:italic}
 .sf-gspread dd{margin:0; font-family:"Source Serif 4",Charter,Georgia,serif;
   font-size:.84em; line-height:1.55; color:#2b2b30}
 .sf-gspread dd.en{color:#5f6b72}
+.sf-gspread dd.sf-gnota{margin-top:.2em; font-style:italic; font-size:.80em;
+  line-height:1.5; color:#8a7f6b}
+.sf-gocc{margin:0 0 1.1em; font-style:italic; font-size:.80em; line-height:1.5; color:#7d766a}
 .sf-gpie{margin:auto 0 0; padding-top:.6em; border-top:1px solid rgba(92,72,42,.16);
-  text-align:center; font-size:.76em; line-height:1.35; color:#8a7f6b}
+  text-align:center; font-size:.74em; line-height:1.35; color:#8a7f6b}
 
-/* ---- sotto i 900px: si impila ---- */
+/* ---- sotto i 900px: si impila, niente prospettiva ---- */
 @media (max-width:900px){
-  .sfoglia, .sf-gspread{--pag-w:min(88vw, 360px)}
-  .sfoglia-scena{flex-direction:column; align-items:center; perspective:none; padding:0}
-  .sfoglia-cop{margin:0 auto 18px; align-self:auto; height:var(--pag-h);
-    transform:none !important; transition:none}
-  .sfoglia-foglio{border-radius:8px}
+  .sfoglia, .sf-gspread{--pag-w:min(86vw, 340px)}
+  .sfoglia-scena{flex-direction:column; align-items:center; perspective:none}
+  .sfoglia-cop{margin:0 auto 16px; align-self:auto; height:var(--pag-h);
+    transform:none; animation:none}
+  .sfoglia-foglio{border-radius:6px}
   .sfoglia-foglio::after{display:none}
-  .sf-gspread{flex-direction:column; align-items:center; gap:14px; box-shadow:none}
-  .sf-gpag{border-radius:6px; box-shadow:0 14px 30px -18px rgba(20,24,38,.3) !important}
+  .sf-gspread{flex-direction:column; align-items:center; gap:12px;
+    box-shadow:none; border-radius:0; overflow:visible}
+  .sf-gpag{border-radius:6px; box-shadow:0 12px 26px -18px rgba(20,24,38,.3)}
   .sf-2col{grid-template-columns:1fr; gap:0}
 }
 @media (prefers-reduced-motion:reduce){
-  .sfoglia-cop{transition:none !important; transform:rotateY(-16deg) !important}
+  .sfoglia-cop{animation:none; transform:rotateY(-32deg)}
 }
 </style>
 <script type="application/ld+json">{
@@ -383,7 +399,7 @@ footer.sito a{color:var(--nebbia)}
             <p>Il re ha annunciato un grande <span class="sf-kw">torneo</span>: i migliori uomini del mondo, uno contro l&#x27;altro, per gioco.<sup>1</sup></p>
             <p class="sf-sep">&#9670;</p>
             <p>Alla tavola del re sedevano i <span class="sf-kw">paladini</span>: i dodici migliori cavalieri di Francia.</p>
-            <p>Il primo era Orlando, nipote del re. Nessuna <span class="sf-kw">spada</span> poteva ferirlo. La sua si chiamava Durindana, ed …</p>
+            <p>Il primo era Orlando, nipote del re. Nessuna <span class="sf-kw">spada</span> poteva ferirlo. La sua si chiamava Durindana, ed era famosa in tutto il mondo.</p>
         </div>
         <p class="sf-gloss"><span class="sf-kw">cavaliere</span> = knight &#183; <span class="sf-kw">saraceno</span> = Saracen &#183; <span class="sf-kw">guerra</span> = war &#183; <span class="sf-kw">torneo</span> = tournament &#183; <span class="sf-kw">paladino</span> = paladin &#183; <span class="sf-kw">spada</span> = sword</p>
         <div class="sf-note">
@@ -416,55 +432,31 @@ footer.sito a{color:var(--nebbia)}
           <dt><b lang="it">amore</b> &middot; <i lang="en">love</i> <span>((sin. passione, affetto))</span></dt>
           <dd lang="it">Il sentimento fortissimo che lega una persona a un&#x27;altra.</dd>
           <dd class="en" lang="en">The very strong feeling that binds one person to another.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: The force that moves the whole book — Boiardo put it in the title. But here love is never chosen: it arrives like a spell, in a single moment, and turns the strongest warrior in the world into a man who cannot sleep. Nobody is safe from it — not kings, not sages.</dd>
           <dt><b lang="it">anello</b> &middot; <i lang="en">ring</i> <span>((sin. cerchietto, vera))</span></dt>
           <dd lang="it">Piccolo cerchio di metallo che si porta al dito.</dd>
           <dd class="en" lang="en">A small metal circle worn on the finger.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: Angelica&#x27;s magic ring: worn, it breaks every enchantment; held in the mouth, it makes her invisible. It is the single most powerful object in the poem — and it belongs to the person everyone is chasing. Ariosto inherited it, ring and all, for the Furioso.</dd>
           <dt><b lang="it">armatura</b> &middot; <i lang="en">armour</i> <span>((sin. corazza, difesa))</span></dt>
           <dd lang="it">Il vestito di ferro che protegge tutto il corpo del guerriero.</dd>
           <dd class="en" lang="en">The iron clothing that protects the warrior&#x27;s whole body.</dd>
-          <dt><b lang="it">assedio</b> &middot; <i lang="en">siege</i> <span>((sin. accerchiamento, blocco))</span></dt>
-          <dd lang="it">L&#x27;accerchiamento di una città per costringerla ad arrendersi.</dd>
-          <dd class="en" lang="en">Surrounding a city to force it to surrender.</dd>
-          <dt><b lang="it">battaglia</b> &middot; <i lang="en">battle</i> <span>((sin. combattimento, scontro))</span></dt>
-          <dd lang="it">Scontro armato tra due eserciti.</dd>
-          <dd class="en" lang="en">An armed clash between two armies.</dd>
-          <dt><b lang="it">battesimo</b> &middot; <i lang="en">baptism</i> <span>((sin. sacramento, rito))</span></dt>
-          <dd lang="it">Il rito con l&#x27;acqua che fa entrare una persona nella fede cristiana.</dd>
-          <dd class="en" lang="en">The rite with water that brings a person into the Christian faith.</dd>
-          <dt><b lang="it">bellezza</b> &middot; <i lang="en">beauty</i> <span>((sin. fascino, splendore))</span></dt>
-          <dd lang="it">La qualità di chi è molto bello da vedere.</dd>
-          <dd class="en" lang="en">The quality of being very beautiful to look at.</dd>
-          <dt><b lang="it">cavaliere</b> &middot; <i lang="en">knight</i> <span>((sin. guerriero, paladino))</span></dt>
-          <dd lang="it">Guerriero a cavallo, con armatura, spada e lancia.</dd>
-          <dd class="en" lang="en">A warrior on horseback, with armour, sword and lance.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: The iron suit that makes a knight a fortress — and, once, a monster: Rodamonte scales the walls of Paris in armour made of dragon scales, drinking arrows like rain. Armour in this poem tells you who a man is before he says a word.</dd>
         </dl>
       </div>
       <div class="sf-gpag">
         <dl>
-          <dt><b lang="it">cavalleria</b> &middot; <i lang="en">chivalry</i> <span>((sin. nobiltà, cortesia))</span></dt>
-          <dd lang="it">Le regole d&#x27;onore dei cavalieri: lealtà, coraggio, rispetto del nemico.</dd>
-          <dd class="en" lang="en">The knights&#x27; code of honour: loyalty, courage, respect for the enemy.</dd>
-          <dt><b lang="it">corona</b> &middot; <i lang="en">crown</i> <span>((sin. diadema, serto))</span></dt>
-          <dd lang="it">Il cerchio d&#x27;oro che il re porta sulla testa, segno del suo potere.</dd>
-          <dd class="en" lang="en">The golden circle a king wears on his head, sign of his power.</dd>
-          <dt><b lang="it">destriero</b> &middot; <i lang="en">steed</i> <span>((sin. cavallo, corsiero))</span></dt>
-          <dd lang="it">Cavallo da battaglia, forte e addestrato alla guerra.</dd>
-          <dd class="en" lang="en">A war horse, strong and trained for battle.</dd>
-          <dt><b lang="it">drago</b> &middot; <i lang="en">dragon</i> <span>((sin. dragone, serpente))</span></dt>
-          <dd lang="it">Mostro enorme dei racconti, simile a un serpente con le ali.</dd>
-          <dd class="en" lang="en">An enormous monster of tales, like a serpent with wings.</dd>
-          <dt><b lang="it">duello</b> &middot; <i lang="en">duel</i> <span>((sin. scontro, tenzone))</span></dt>
-          <dd lang="it">Combattimento tra due persone, con regole precise.</dd>
-          <dd class="en" lang="en">A fight between two people, with precise rules.</dd>
-          <dt><b lang="it">elmo</b> &middot; <i lang="en">helmet</i> <span>((sin. casco, celata))</span></dt>
-          <dd lang="it">Protezione di ferro che copre la testa del guerriero.</dd>
-          <dd class="en" lang="en">Iron protection covering the warrior&#x27;s head.</dd>
-          <dt><b lang="it">esercito</b> &middot; <i lang="en">army</i> <span>((sin. armata, truppe))</span></dt>
-          <dd lang="it">Tutti i soldati di un re o di un paese.</dd>
-          <dd class="en" lang="en">All the soldiers of a king or a country.</dd>
-          <dt><b lang="it">fata</b> &middot; <i lang="en">fairy</i> <span>((sin. maga, incantatrice))</span></dt>
-          <dd lang="it">Donna magica dei racconti, che vive in luoghi incantati.</dd>
-          <dd class="en" lang="en">A magical woman of tales, who lives in enchanted places.</dd>
+          <dt><b lang="it">assedio</b> &middot; <i lang="en">siege</i> <span>((sin. accerchiamento, blocco))</span></dt>
+          <dd lang="it">L&#x27;accerchiamento di una città per costringerla ad arrendersi.</dd>
+          <dd class="en" lang="en">Surrounding a city to force it to surrender.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: The siege is the poem&#x27;s favourite shape: tents covering the earth to the horizon, a fortress breathing inside. Albracca first, then Paris — same image, sides reversed. Whoever besieges will be besieged: Boiardo builds his symmetries like an architect.</dd>
+          <dt><b lang="it">battaglia</b> &middot; <i lang="en">battle</i> <span>((sin. combattimento, scontro))</span></dt>
+          <dd lang="it">Scontro armato tra due eserciti.</dd>
+          <dd class="en" lang="en">An armed clash between two armies.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: The great battle under the walls of Paris gathers every living character onto a single plain — and never ends. Every sword stops in mid-air, forever, because history interrupted the poet. No battle in literature has a stranger fate: it is still being fought.</dd>
+          <dt><b lang="it">battesimo</b> &middot; <i lang="en">baptism</i> <span>((sin. sacramento, rito))</span></dt>
+          <dd lang="it">Il rito con l&#x27;acqua che fa entrare una persona nella fede cristiana.</dd>
+          <dd class="en" lang="en">The rite with water that brings a person into the Christian faith.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: Agricane, dying, asks his enemy for baptism with the water of the fountain beside them. It is the most solemn page of the poem: two enemies, one dawn, one gesture that turns a duel into something older and larger. Boiardo, who jokes about everything, does not joke here.</dd>
         </dl>
         <p class="sf-gpie">The glossary contains 40 entries in all</p>
       </div>
@@ -593,58 +585,5 @@ footer.sito a{color:var(--nebbia)}
 </footer>
 <script>document.getElementById('anno').textContent=new Date().getFullYear();</script>
 <script src="/js/whatsapp.js" defer></script>
-<script>
-/* sfoglia v4 — due compiti, nessuna dipendenza esterna.
-   1. la copertina si apre quando la scheda entra nello schermo
-   2. se il font caricato e' piu' largo del previsto e il testo sfonda,
-      il corpo si rimpicciolisce di qualche decimo finche' rientra.
-   Senza JavaScript la pagina si allunga invece di tagliare. */
-(function () {
-  var schede = document.querySelectorAll('.sfoglia');
-  var moto = !window.matchMedia || !matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* --- 1. apertura della copertina --- */
-  if (moto && window.IntersectionObserver && innerWidth > 900) {
-    schede.forEach(function (s) {
-      var cop = s.querySelector('.sfoglia-cop');
-      if (!cop) return;
-      cop.style.transition = 'none';
-      cop.style.transform = 'rotateY(-54deg)';
-      new IntersectionObserver(function (voci, oss) {
-        voci.forEach(function (v) {
-          if (!v.isIntersecting) return;
-          requestAnimationFrame(function () {
-            cop.style.transition = '';
-            cop.style.transform = '';
-          });
-          oss.unobserve(v.target);
-        });
-      }, { threshold: 0.25 }).observe(s);
-    });
-  }
-
-  /* --- 2. rientro nell'altezza di progetto --- */
-  function adatta(el) {
-    el.style.fontSize = '';
-    var meta = parseFloat(getComputedStyle(el).minHeight);
-    if (!meta || el.offsetHeight <= meta + 0.5) return;
-    var f = parseFloat(getComputedStyle(el).fontSize), n = 0;
-    while (el.offsetHeight > meta + 0.5 && f > 9 && n++ < 40) {
-      f -= 0.25;
-      el.style.fontSize = f + 'px';
-    }
-  }
-
-  function passa() {
-    document.querySelectorAll('.sfoglia-foglio, .sf-gpag').forEach(adatta);
-  }
-
-  passa();
-  addEventListener('load', passa);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(passa);
-  var t;
-  addEventListener('resize', function () { clearTimeout(t); t = setTimeout(passa, 160); });
-})();
-</script>
 </body>
 </html>

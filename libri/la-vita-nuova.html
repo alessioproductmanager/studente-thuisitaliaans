@@ -126,103 +126,109 @@ footer.sito a{color:var(--nebbia)}
 @media(max-width:640px){footer.sito .wrap{justify-content:center;text-align:center;gap:6px}}
 
 /* ============================================================
-   PRIMA PAGINA DEL LIBRO — v4
+   PRIMA PAGINA DEL LIBRO — v5
 
-   Differenza sostanziale rispetto alla v3: la pagina non ha piu' un'altezza
-   fissa che taglia il contenuto. Ha una min-height, e cresce se serve.
-   La copertina si allunga insieme a lei, quindi le due meta' combaciano
-   sempre, qualunque font venga caricato.
+   Un libro vero aperto: due meta' identiche, unite sul dorso.
+   La copertina ha ESATTAMENTE la larghezza e l'altezza della pagina.
+   Ruota su transform-origin:right center, quindi il bordo sul dorso resta
+   a z=0: combacia con il lato sinistro della pagina al pixel, angoli
+   compresi. Il bordo esterno va indietro e si rimpicciolisce, che e' come
+   si vede un libro aperto davvero.
 
-     pagina      W  ×  min W × 1,6      cresce se il testo non ci sta
-     copertina   W × 1,06, stirata all'altezza della riga, sporgente del 3%
-     corpo       W / 32
+     pagina      W  ×  min W × 1,6
+     copertina   W  ×  stessa altezza della riga (align-self:stretch)
+     corpo       W / 32          → miniatura leggibile, ~46 caratteri/riga
      interlinea  1,65em
 
-   Uno script di 15 righe in fondo alla pagina rimpicciolisce il corpo di
-   qualche decimo finche' il contenuto rientra nella min-height: cosi' tutte
-   le schede tornano alte uguale anche se il font e' piu' largo del previsto.
-   Senza JavaScript la pagina si allunga invece di tagliare: nessun testo
-   sparisce mai.
+   Zero JavaScript. L'apertura della copertina e' guidata dallo scroll con
+   animation-timeline:view(). Dove non e' supportata, la copertina resta
+   nella posizione a riposo e non succede nulla di strano.
    ============================================================ */
 
 .sfoglia{
-  --pag-w:min(480px, 40vw);
+  --pag-w:min(420px, 36vw);
   --pag-h:calc(var(--pag-w) * 1.6);
-  --cop-w:calc(var(--pag-w) * 1.06);
-  --sporg:calc(var(--pag-w) * .048);        /* sporgenza copertina, 3% dell'altezza */
-  margin:38px 0 46px;
+  --scorcio:.196;                    /* 1 - larghezza proiettata a 32°: vedi margin-left */
+  margin:34px 0 42px;
 }
 
 .sfoglia-scena{
   display:flex; align-items:stretch; justify-content:center;
-  perspective:3400px; perspective-origin:58% 50%;
-  padding:var(--sporg) 0;                   /* spazio per la sporgenza */
+  perspective:2600px; perspective-origin:56% 50%;
 }
 
 .sfoglia-cop{
-  position:relative; flex:0 0 var(--cop-w); width:var(--cop-w);
-  align-self:stretch;
-  margin:calc(var(--sporg) * -1) 0 calc(var(--sporg) * -1) calc(var(--cop-w) * -.058);
-  border-radius:5px 3px 3px 5px; overflow:hidden;
+  position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
+  align-self:stretch;                                   /* stessa altezza della pagina, sempre */
+  margin-left:calc(var(--pag-w) * var(--scorcio) * -1);  /* recupera lo spazio che la rotazione libera */
+  border-radius:4px 2px 2px 4px; overflow:hidden;
   transform-origin:right center; backface-visibility:hidden;
-  box-shadow:0 26px 50px -14px rgba(20,24,38,.5), 0 3px 8px rgba(20,24,38,.2);
-  transform:rotateY(-16deg);                /* stato a riposo: vale anche senza JS */
-  transition:transform 1.6s cubic-bezier(.19,.86,.28,1);
+  box-shadow:0 22px 44px -16px rgba(20,24,38,.46), 0 2px 6px rgba(20,24,38,.18);
+  transform:rotateY(-32deg);
 }
 .sfoglia-cop img{display:block; width:100%; height:100%; object-fit:cover; object-position:center}
 .sfoglia-cop::after{content:""; position:absolute; inset:0; pointer-events:none;
-  background:linear-gradient(90deg, rgba(0,0,0,.30), rgba(0,0,0,0) 28%, rgba(255,255,255,.10))}
+  background:linear-gradient(90deg, rgba(0,0,0,.34), rgba(0,0,0,0) 30%, rgba(255,255,255,.10))}
+
+@keyframes sf-apri{from{transform:rotateY(-88deg)} to{transform:rotateY(-32deg)}}
+@media (min-width:901px) and (prefers-reduced-motion:no-preference){
+  /* ovunque: apertura lenta al caricamento */
+  .sfoglia-cop{animation:sf-apri 2.6s cubic-bezier(.16,.8,.24,1) .3s both}
+  /* dove c'e': l'apertura segue lo scroll, cosi' la vedi quando ci arrivi */
+  @supports (animation-timeline: view()){
+    .sfoglia-cop{animation:sf-apri linear both; animation-timeline:view();
+      animation-range:entry 0% cover 40%}
+  }
+}
 
 .sfoglia-foglio{
   position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
-  min-height:var(--pag-h); height:auto;
+  min-height:var(--pag-h);
   font-size:calc(var(--pag-w) / 32);
   display:flex; flex-direction:column;
   padding:1.5em 1.75em 1.1em 2.1em;
-  border-radius:2px 7px 7px 2px;
+  border-radius:2px 5px 5px 2px;
   background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
-  box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42), 0 18px 38px -18px rgba(20,24,38,.32);
+  box-shadow:inset 14px 0 24px -16px rgba(92,72,42,.42), 0 16px 34px -18px rgba(20,24,38,.3);
 }
-.sfoglia-foglio::after{content:""; position:absolute; top:.7em; bottom:.7em; right:-.4em; width:.4em;
+.sfoglia-foglio::after{content:""; position:absolute; top:.7em; bottom:.7em; right:-.35em; width:.35em;
   border-radius:0 3px 3px 0; background:repeating-linear-gradient(180deg,#f0e8d9 0 2px,#e2d7c3 2px 4px)}
 
 /* --- testata --- */
 .sf-capnum{margin:0 0 .15em; text-align:center; color:#8a7f6b;
   letter-spacing:.15em; font-size:.70em; line-height:1.3; font-weight:600}
-.sf-vign{display:block; margin:.25em auto .15em; width:auto; height:2.6em; opacity:.9}
+.sf-vign{display:block; margin:.25em auto .15em; width:auto; height:2.4em; opacity:.9}
 .sf-tit{margin:0; text-align:center; font-family:Fraunces,Georgia,serif;
   font-size:1.10em; font-weight:600; color:#2a2a2f; line-height:1.25}
-.sf-titen{margin:.15em 0 .9em; text-align:center; font-style:italic; color:#8a7f6b;
+.sf-titen{margin:.15em 0 .85em; text-align:center; font-style:italic; color:#8a7f6b;
   font-size:.85em; line-height:1.35}
 
 /* --- corpo --- */
 .sf-corpo{font-family:"Source Serif 4",Charter,Georgia,serif; font-size:1em;
-  line-height:1.65; color:#2b2b30; text-align:justify; hyphens:auto}
-.sf-corpo p{margin:0 0 .45em}
+  line-height:1.62; color:#2b2b30}
+.sf-corpo p{margin:0 0 .78em}
 .sf-corpo p:last-child{margin-bottom:0}
-.sf-corpo p:first-of-type::first-letter{float:left; font-family:Fraunces,Georgia,serif;
-  font-size:2.6em; line-height:.9; padding:.04em .09em 0 0; color:#8a6a2f}
-.sf-kw{border-bottom:1.5px solid #4D596B; font-weight:600}
-.sf-corpo .sf-sep{margin:.6em 0; text-align:center; color:#b09b7d;
+.sf-kw{border-bottom:1px solid #6b6355; font-weight:600; color:#1f2529}
+.sf-corpo .sf-sep{margin:.55em 0; text-align:center; color:#b09b7d;
   font-size:.78em; letter-spacing:.35em; text-indent:.35em}
 .sf-corpo .sf-sep::first-letter{float:none; font-size:1em; color:inherit; padding:0}
 .sf-corpo sup{font-size:.66em; color:#8a6a2f; font-weight:600; padding-left:1px; text-decoration:none}
 
-/* --- glossario in linea --- */
-.sf-gloss{margin:.6em 0 .5em; padding:.5em .68em; border-radius:4px;
-  background:rgba(77,89,107,.055);
-  font-size:.80em; line-height:1.6; font-style:italic; color:#4a5560}
-.sf-gloss .sf-kw{font-style:normal; border-bottom-width:1px}
+/* --- glossario in linea: SOLO le parole sottolineate qui sopra --- */
+.sf-gloss{margin:1.1em 0 0; font-size:.80em; line-height:1.65;
+  font-style:italic; color:#5c6670}
+.sf-gloss .sf-kw{font-style:normal; color:#2b2b30}
+.sf-gloss:empty{display:none}
 
 /* nota e piede in fondo alla pagina, come in un libro vero */
-.sf-note{margin:auto 0 0; padding-top:.55em; border-top:1px solid rgba(92,72,42,.2)}
-.sf-nota{margin:0 0 .3em; padding-left:1em; text-indent:-1em;
-  font-size:.78em; line-height:1.55; color:#4d4a44}
+.sf-note{margin:auto 0 0; padding-top:.6em}
+.sf-nota{margin:0 0 .35em; padding-left:1.6em; text-indent:-1em;
+  font-size:.78em; line-height:1.6; color:#4d4a44}
 .sf-nota:last-child{margin-bottom:0}
 .sf-nota sup{color:#8a6a2f; font-weight:600; padding-right:2px}
 
 .sf-piede{margin:.7em 0 0; padding-top:.55em; border-top:1px solid rgba(92,72,42,.14);
-  font-size:.74em; line-height:1.35; letter-spacing:.02em; color:#8a7f6b;
+  font-size:.72em; line-height:1.35; letter-spacing:.02em; color:#8a7f6b;
   display:flex; flex-wrap:wrap; gap:.2em .9em; align-items:baseline; justify-content:space-between}
 .sf-piede a{color:#8a6a2f; font-weight:600; text-decoration:none}
 .sf-piede a:hover{text-decoration:underline}
@@ -230,52 +236,62 @@ footer.sito a{color:var(--nebbia)}
 .sf-2col{display:grid; grid-template-columns:1fr 1fr; gap:12px 34px; align-items:start}
 .sf-2col>div>h2{margin-top:0}
 
-/* ---- Doppia pagina: il glossario del libro ---- */
+.sf-gnota{margin:.15em 0 0; font-size:.80em; line-height:1.5; font-style:italic; color:#8a7f6b}
+
+/* ---- Doppia pagina: il glossario del libro ----
+   width:fit-content, cosi' il riquadro finisce dove finiscono le due pagine
+   e non restano le due strisce di fondo ai lati. */
 .sf-gspread{
-  --pag-w:min(480px, 40vw);
+  --pag-w:min(420px, 36vw);
   --pag-h:calc(var(--pag-w) * 1.6);
-  display:flex; align-items:stretch; justify-content:center;
-  margin:20px auto 0; border-radius:3px; overflow:hidden;
-  box-shadow:0 20px 42px -18px rgba(20,24,38,.32);
+  display:flex; align-items:stretch;
+  width:fit-content; max-width:100%; margin:18px auto 0;
+  border-radius:3px; overflow:hidden;
+  box-shadow:0 18px 38px -18px rgba(20,24,38,.3);
 }
 .sf-gpag{
-  flex:0 0 var(--pag-w); width:var(--pag-w);
-  min-height:var(--pag-h); height:auto;
+
+  flex:0 0 var(--pag-w); width:var(--pag-w); min-height:var(--pag-h);
   font-size:calc(var(--pag-w) / 32);
   display:flex; flex-direction:column; padding:1.5em 1.75em 1.1em;
   background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
 }
-.sf-gpag:first-child{box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
-.sf-gpag:last-child {box-shadow:inset  14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gpag:first-child{box-shadow:inset -12px 0 20px -16px rgba(92,72,42,.4)}
+.sf-gpag:last-child {box-shadow:inset  12px 0 20px -16px rgba(92,72,42,.4)}
 .sf-gtit{margin:0 0 .9em; text-align:center; font-family:Fraunces,Georgia,serif;
   font-size:1em; line-height:1.3; font-weight:600; color:#2a2a2f}
 .sf-gspread dl{margin:0}
+.sf-gspread dt,.sf-gspread dd{overflow-wrap:break-word; word-break:normal; hyphens:auto}
 .sf-gspread dt{margin:0 0 .12em; font-family:"Source Serif 4",Charter,Georgia,serif;
   font-size:.92em; line-height:1.35}
-.sf-gspread dd+dt{margin-top:1.05em}
+.sf-gspread dd+dt{margin-top:1em}
 .sf-gspread dt b{color:#1F2529}
 .sf-gspread dt i{color:#326778; font-weight:600}
 .sf-gspread dt span{font-size:.86em; color:#8a7f6b; font-style:italic}
 .sf-gspread dd{margin:0; font-family:"Source Serif 4",Charter,Georgia,serif;
   font-size:.84em; line-height:1.55; color:#2b2b30}
 .sf-gspread dd.en{color:#5f6b72}
+.sf-gspread dd.sf-gnota{margin-top:.2em; font-style:italic; font-size:.80em;
+  line-height:1.5; color:#8a7f6b}
+.sf-gocc{margin:0 0 1.1em; font-style:italic; font-size:.80em; line-height:1.5; color:#7d766a}
 .sf-gpie{margin:auto 0 0; padding-top:.6em; border-top:1px solid rgba(92,72,42,.16);
-  text-align:center; font-size:.76em; line-height:1.35; color:#8a7f6b}
+  text-align:center; font-size:.74em; line-height:1.35; color:#8a7f6b}
 
-/* ---- sotto i 900px: si impila ---- */
+/* ---- sotto i 900px: si impila, niente prospettiva ---- */
 @media (max-width:900px){
-  .sfoglia, .sf-gspread{--pag-w:min(88vw, 360px)}
-  .sfoglia-scena{flex-direction:column; align-items:center; perspective:none; padding:0}
-  .sfoglia-cop{margin:0 auto 18px; align-self:auto; height:var(--pag-h);
-    transform:none !important; transition:none}
-  .sfoglia-foglio{border-radius:8px}
+  .sfoglia, .sf-gspread{--pag-w:min(86vw, 340px)}
+  .sfoglia-scena{flex-direction:column; align-items:center; perspective:none}
+  .sfoglia-cop{margin:0 auto 16px; align-self:auto; height:var(--pag-h);
+    transform:none; animation:none}
+  .sfoglia-foglio{border-radius:6px}
   .sfoglia-foglio::after{display:none}
-  .sf-gspread{flex-direction:column; align-items:center; gap:14px; box-shadow:none}
-  .sf-gpag{border-radius:6px; box-shadow:0 14px 30px -18px rgba(20,24,38,.3) !important}
+  .sf-gspread{flex-direction:column; align-items:center; gap:12px;
+    box-shadow:none; border-radius:0; overflow:visible}
+  .sf-gpag{border-radius:6px; box-shadow:0 12px 26px -18px rgba(20,24,38,.3)}
   .sf-2col{grid-template-columns:1fr; gap:0}
 }
 @media (prefers-reduced-motion:reduce){
-  .sfoglia-cop{transition:none !important; transform:rotateY(-16deg) !important}
+  .sfoglia-cop{animation:none; transform:rotateY(-32deg)}
 }
 </style>
 <script type="application/ld+json">{
@@ -378,10 +394,8 @@ footer.sito a{color:var(--nebbia)}
         <div class="sf-corpo" lang="it">
           <p>Nel libro della mia <span class="sf-kw">memoria</span>, nella parte prima della quale poco si potrebbe leggere, si trova una rubrica che dice: Incipit vita nova — comincia la vita nuova.<sup>1</sup> Sotto quella rubrica stanno scritte le parole che ora voglio copiare in questo <span class="sf-kw">quaderno</span>: se non tutte, almeno il loro significato.</p>
             <p>Non è un racconto come gli altri. È la copia di ciò che la vita ha scritto dentro di me, e io ho scelto le pagine che valeva la pena di trascrivere. Chi legge deve sapere questo: tutto quello che segue è successo davvero — nel mondo, o nell&#x27;<span class="sf-kw">anima</span>, che per me è lo stesso.</p>
-            <p class="sf-sep">&#9670;</p>
-            <p>Avevo quasi finito il mio nono anno quando …</p>
         </div>
-        <p class="sf-gloss"><span class="sf-kw">memoria</span> = memory &#183; <span class="sf-kw">quaderno</span> = notebook &#183; <span class="sf-kw">anima</span> = soul &#183; <span class="sf-kw">sanguigno</span> = blood-red &#183; <span class="sf-kw">cuore</span> = heart &#183; <span class="sf-kw">spirito</span> = spirit</p>
+        <p class="sf-gloss"><span class="sf-kw">memoria</span> = memory &#183; <span class="sf-kw">quaderno</span> = notebook &#183; <span class="sf-kw">anima</span> = soul</p>
         <div class="sf-note">
           <p class="sf-nota"><sup>1</sup> Il latino Incipit vita nova («comincia la vita nuova») dà il titolo all&#x27;opera. Nei manoscritti medievali le «rubriche» erano i titoli scritti in rosso — ruber, in latino. Dante immagina la propria memoria come un codice miniato: la vita, per lui, è già un libro prima di essere scritta.</p>
         </div>
@@ -412,52 +426,31 @@ footer.sito a{color:var(--nebbia)}
           <dt><b lang="it">amore</b> &middot; <i lang="en">love</i> <span>((sin. passione, affetto))</span></dt>
           <dd lang="it">Il sentimento intenso che lega una persona a un&#x27;altra.</dd>
           <dd class="en" lang="en">The deep feeling that binds one person to another.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: In this book Love has a capital letter and walks: a lord who appears in dreams, speaks Latin and gives orders. The book tells how that external master slowly becomes one and the same with the heart that hosts him.</dd>
           <dt><b lang="it">anima</b> &middot; <i lang="en">soul</i> <span>((sin. spirito, interiorità))</span></dt>
           <dd lang="it">La parte spirituale e immortale dell&#x27;essere umano, sede dei sentimenti.</dd>
           <dd class="en" lang="en">The spiritual, immortal part of a human being.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: At nine, seeing Beatrice, the spirit of Dante&#x27;s life trembles and says: here is a god stronger than I. From that moment the book&#x27;s soul has a mistress — and when the mistress dies, the book tells what is left to a soul on its own.</dd>
           <dt><b lang="it">beatitudine</b> &middot; <i lang="en">beatitude, bliss</i> <span>((sin. felicità perfetta, estasi))</span></dt>
           <dd lang="it">La felicità piena e perfetta, senza mancanza e senza paura.</dd>
           <dd class="en" lang="en">A complete and perfect happiness, like that of the blessed in heaven.</dd>
-          <dt><b lang="it">canzone</b> &middot; <i lang="en">canzone, song</i> <span>((sin. componimento lirico, poema breve))</span></dt>
-          <dd lang="it">Componimento poetico lungo, in più stanze, di argomento elevato.</dd>
-          <dd class="en" lang="en">A long lyric poem in stanzas, the noblest form of medieval poetry.</dd>
-          <dt><b lang="it">consolazione</b> &middot; <i lang="en">consolation</i> <span>((sin. conforto, sollievo))</span></dt>
-          <dd lang="it">Il sollievo che si dà o si riceve in un dolore.</dd>
-          <dd class="en" lang="en">The relief given to someone who suffers.</dd>
-          <dt><b lang="it">cortesia</b> &middot; <i lang="en">courtesy</i> <span>((sin. gentilezza, garbo))</span></dt>
-          <dd lang="it">L&#x27;insieme dei modi nobili e gentili verso gli altri; nel mondo antico, la virtù delle corti.</dd>
-          <dd class="en" lang="en">The noble code of kind and honourable behaviour.</dd>
-          <dt><b lang="it">cuore</b> &middot; <i lang="en">heart</i> <span>((sin. petto, animo))</span></dt>
-          <dd lang="it">L&#x27;organo che batte nel petto; per estensione, il centro dei sentimenti.</dd>
-          <dd class="en" lang="en">The organ of the chest; in figurative use, the seat of feelings.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: Dante uses this word for one thing only: Beatrice&#x27;s greeting. Not a pleasure, not a joy — beatitude, the word reserved for saints. It measures how much he has invested in a gesture that isn&#x27;t his to command, and how much he stands to lose.</dd>
         </dl>
       </div>
       <div class="sf-gpag">
         <dl>
-          <dt><b lang="it">devozione</b> &middot; <i lang="en">devotion</i> <span>((sin. venerazione, culto))</span></dt>
-          <dd lang="it">L&#x27;attaccamento profondo e rispettoso a una persona o a un ideale.</dd>
-          <dd class="en" lang="en">Total, faithful dedication to a person or an ideal.</dd>
-          <dt><b lang="it">dolore</b> &middot; <i lang="en">pain, sorrow</i> <span>((sin. sofferenza, pena))</span></dt>
-          <dd lang="it">La sofferenza del corpo o dell&#x27;animo.</dd>
-          <dd class="en" lang="en">Suffering of the body or of the soul.</dd>
-          <dt><b lang="it">fedele</b> &middot; <i lang="en">faithful (one)</i> <span>((sin. devoto, leale))</span></dt>
-          <dd lang="it">Chi mantiene la propria devozione a una persona o a una causa.</dd>
-          <dd class="en" lang="en">One who keeps faith; a devoted follower.</dd>
-          <dt><b lang="it">gabbo</b> &middot; <i lang="en">mockery</i> <span>((sin. beffa, derisione))</span></dt>
-          <dd lang="it">La presa in giro; il ridere di qualcuno davanti agli altri.</dd>
-          <dd class="en" lang="en">A public jest at someone&#x27;s expense.</dd>
-          <dt><b lang="it">gentile</b> &middot; <i lang="en">gentle, noble</i> <span>((sin. nobile, elevato))</span></dt>
-          <dd lang="it">Nobile d&#x27;animo; nei poeti antichi, capace di sentimenti alti.</dd>
-          <dd class="en" lang="en">Of a noble soul; in medieval usage, spiritually noble rather than by birth.</dd>
-          <dt><b lang="it">gentilezza</b> &middot; <i lang="en">nobility of soul, kindness</i> <span>((sin. nobiltà d&#x27;animo, grazia))</span></dt>
-          <dd lang="it">La nobiltà d&#x27;animo; l&#x27;insieme delle qualità del cuore nobile.</dd>
-          <dd class="en" lang="en">The quality of a noble and kind soul.</dd>
-          <dt><b lang="it">intelletto</b> &middot; <i lang="en">intellect</i> <span>((sin. intelligenza, comprensione))</span></dt>
-          <dd lang="it">La capacità di capire; la parte della mente che conosce.</dd>
-          <dd class="en" lang="en">The faculty of understanding and reasoning.</dd>
-          <dt><b lang="it">lodare</b> &middot; <i lang="en">to praise</i> <span>((sin. elogiare, celebrare))</span></dt>
-          <dd lang="it">Dire il bene e il valore di qualcuno con le parole.</dd>
-          <dd class="en" lang="en">To celebrate with words the worth of a person.</dd>
+          <dt><b lang="it">canzone</b> &middot; <i lang="en">canzone, song</i> <span>((sin. componimento lirico, poema breve))</span></dt>
+          <dd lang="it">Componimento poetico lungo, in più stanze, di argomento elevato.</dd>
+          <dd class="en" lang="en">A long lyric poem in stanzas, the noblest form of medieval poetry.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: If the sonnet is a letter, the canzone is a solemn address. «Ladies who have intellect of love» inaugurates the new style of praise: to speak of Beatrice the short measure is no longer enough — the long breath of the canzone is needed.</dd>
+          <dt><b lang="it">consolazione</b> &middot; <i lang="en">consolation</i> <span>((sin. conforto, sollievo))</span></dt>
+          <dd lang="it">Il sollievo che si dà o si riceve in un dolore.</dd>
+          <dd class="en" lang="en">The relief given to someone who suffers.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: The book is a small treatise on consolation: the true kind (the women weeping together, Beatrice&#x27;s brother, the verses) and the false kind, which consoles too well and makes one forget. Telling them apart is the task of the final part.</dd>
+          <dt><b lang="it">cortesia</b> &middot; <i lang="en">courtesy</i> <span>((sin. gentilezza, garbo))</span></dt>
+          <dd lang="it">L&#x27;insieme dei modi nobili e gentili verso gli altri; nel mondo antico, la virtù delle corti.</dd>
+          <dd class="en" lang="en">The noble code of kind and honourable behaviour.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: Not good manners: a code of honour. Beatrice greets out of «ineffable courtesy», and the gossip runs «beyond the bounds of courtesy» — the word measures everything that in this book is given or violated.</dd>
         </dl>
         <p class="sf-gpie">Il glossario contiene 40 voci in tutto</p>
       </div>
@@ -586,58 +579,5 @@ footer.sito a{color:var(--nebbia)}
 </footer>
 <script>document.getElementById('anno').textContent=new Date().getFullYear();</script>
 <script src="/js/whatsapp.js" defer></script>
-<script>
-/* sfoglia v4 — due compiti, nessuna dipendenza esterna.
-   1. la copertina si apre quando la scheda entra nello schermo
-   2. se il font caricato e' piu' largo del previsto e il testo sfonda,
-      il corpo si rimpicciolisce di qualche decimo finche' rientra.
-   Senza JavaScript la pagina si allunga invece di tagliare. */
-(function () {
-  var schede = document.querySelectorAll('.sfoglia');
-  var moto = !window.matchMedia || !matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* --- 1. apertura della copertina --- */
-  if (moto && window.IntersectionObserver && innerWidth > 900) {
-    schede.forEach(function (s) {
-      var cop = s.querySelector('.sfoglia-cop');
-      if (!cop) return;
-      cop.style.transition = 'none';
-      cop.style.transform = 'rotateY(-54deg)';
-      new IntersectionObserver(function (voci, oss) {
-        voci.forEach(function (v) {
-          if (!v.isIntersecting) return;
-          requestAnimationFrame(function () {
-            cop.style.transition = '';
-            cop.style.transform = '';
-          });
-          oss.unobserve(v.target);
-        });
-      }, { threshold: 0.25 }).observe(s);
-    });
-  }
-
-  /* --- 2. rientro nell'altezza di progetto --- */
-  function adatta(el) {
-    el.style.fontSize = '';
-    var meta = parseFloat(getComputedStyle(el).minHeight);
-    if (!meta || el.offsetHeight <= meta + 0.5) return;
-    var f = parseFloat(getComputedStyle(el).fontSize), n = 0;
-    while (el.offsetHeight > meta + 0.5 && f > 9 && n++ < 40) {
-      f -= 0.25;
-      el.style.fontSize = f + 'px';
-    }
-  }
-
-  function passa() {
-    document.querySelectorAll('.sfoglia-foglio, .sf-gpag').forEach(adatta);
-  }
-
-  passa();
-  addEventListener('load', passa);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(passa);
-  var t;
-  addEventListener('resize', function () { clearTimeout(t); t = setTimeout(passa, 160); });
-})();
-</script>
 </body>
 </html>

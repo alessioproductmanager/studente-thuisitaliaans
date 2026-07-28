@@ -126,103 +126,109 @@ footer.sito a{color:var(--nebbia)}
 @media(max-width:640px){footer.sito .wrap{justify-content:center;text-align:center;gap:6px}}
 
 /* ============================================================
-   PRIMA PAGINA DEL LIBRO — v4
+   PRIMA PAGINA DEL LIBRO — v5
 
-   Differenza sostanziale rispetto alla v3: la pagina non ha piu' un'altezza
-   fissa che taglia il contenuto. Ha una min-height, e cresce se serve.
-   La copertina si allunga insieme a lei, quindi le due meta' combaciano
-   sempre, qualunque font venga caricato.
+   Un libro vero aperto: due meta' identiche, unite sul dorso.
+   La copertina ha ESATTAMENTE la larghezza e l'altezza della pagina.
+   Ruota su transform-origin:right center, quindi il bordo sul dorso resta
+   a z=0: combacia con il lato sinistro della pagina al pixel, angoli
+   compresi. Il bordo esterno va indietro e si rimpicciolisce, che e' come
+   si vede un libro aperto davvero.
 
-     pagina      W  ×  min W × 1,6      cresce se il testo non ci sta
-     copertina   W × 1,06, stirata all'altezza della riga, sporgente del 3%
-     corpo       W / 32
+     pagina      W  ×  min W × 1,6
+     copertina   W  ×  stessa altezza della riga (align-self:stretch)
+     corpo       W / 32          → miniatura leggibile, ~46 caratteri/riga
      interlinea  1,65em
 
-   Uno script di 15 righe in fondo alla pagina rimpicciolisce il corpo di
-   qualche decimo finche' il contenuto rientra nella min-height: cosi' tutte
-   le schede tornano alte uguale anche se il font e' piu' largo del previsto.
-   Senza JavaScript la pagina si allunga invece di tagliare: nessun testo
-   sparisce mai.
+   Zero JavaScript. L'apertura della copertina e' guidata dallo scroll con
+   animation-timeline:view(). Dove non e' supportata, la copertina resta
+   nella posizione a riposo e non succede nulla di strano.
    ============================================================ */
 
 .sfoglia{
-  --pag-w:min(480px, 40vw);
+  --pag-w:min(420px, 36vw);
   --pag-h:calc(var(--pag-w) * 1.6);
-  --cop-w:calc(var(--pag-w) * 1.06);
-  --sporg:calc(var(--pag-w) * .048);        /* sporgenza copertina, 3% dell'altezza */
-  margin:38px 0 46px;
+  --scorcio:.196;                    /* 1 - larghezza proiettata a 32°: vedi margin-left */
+  margin:34px 0 42px;
 }
 
 .sfoglia-scena{
   display:flex; align-items:stretch; justify-content:center;
-  perspective:3400px; perspective-origin:58% 50%;
-  padding:var(--sporg) 0;                   /* spazio per la sporgenza */
+  perspective:2600px; perspective-origin:56% 50%;
 }
 
 .sfoglia-cop{
-  position:relative; flex:0 0 var(--cop-w); width:var(--cop-w);
-  align-self:stretch;
-  margin:calc(var(--sporg) * -1) 0 calc(var(--sporg) * -1) calc(var(--cop-w) * -.058);
-  border-radius:5px 3px 3px 5px; overflow:hidden;
+  position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
+  align-self:stretch;                                   /* stessa altezza della pagina, sempre */
+  margin-left:calc(var(--pag-w) * var(--scorcio) * -1);  /* recupera lo spazio che la rotazione libera */
+  border-radius:4px 2px 2px 4px; overflow:hidden;
   transform-origin:right center; backface-visibility:hidden;
-  box-shadow:0 26px 50px -14px rgba(20,24,38,.5), 0 3px 8px rgba(20,24,38,.2);
-  transform:rotateY(-16deg);                /* stato a riposo: vale anche senza JS */
-  transition:transform 1.6s cubic-bezier(.19,.86,.28,1);
+  box-shadow:0 22px 44px -16px rgba(20,24,38,.46), 0 2px 6px rgba(20,24,38,.18);
+  transform:rotateY(-32deg);
 }
 .sfoglia-cop img{display:block; width:100%; height:100%; object-fit:cover; object-position:center}
 .sfoglia-cop::after{content:""; position:absolute; inset:0; pointer-events:none;
-  background:linear-gradient(90deg, rgba(0,0,0,.30), rgba(0,0,0,0) 28%, rgba(255,255,255,.10))}
+  background:linear-gradient(90deg, rgba(0,0,0,.34), rgba(0,0,0,0) 30%, rgba(255,255,255,.10))}
+
+@keyframes sf-apri{from{transform:rotateY(-88deg)} to{transform:rotateY(-32deg)}}
+@media (min-width:901px) and (prefers-reduced-motion:no-preference){
+  /* ovunque: apertura lenta al caricamento */
+  .sfoglia-cop{animation:sf-apri 2.6s cubic-bezier(.16,.8,.24,1) .3s both}
+  /* dove c'e': l'apertura segue lo scroll, cosi' la vedi quando ci arrivi */
+  @supports (animation-timeline: view()){
+    .sfoglia-cop{animation:sf-apri linear both; animation-timeline:view();
+      animation-range:entry 0% cover 40%}
+  }
+}
 
 .sfoglia-foglio{
   position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
-  min-height:var(--pag-h); height:auto;
+  min-height:var(--pag-h);
   font-size:calc(var(--pag-w) / 32);
   display:flex; flex-direction:column;
   padding:1.5em 1.75em 1.1em 2.1em;
-  border-radius:2px 7px 7px 2px;
+  border-radius:2px 5px 5px 2px;
   background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
-  box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42), 0 18px 38px -18px rgba(20,24,38,.32);
+  box-shadow:inset 14px 0 24px -16px rgba(92,72,42,.42), 0 16px 34px -18px rgba(20,24,38,.3);
 }
-.sfoglia-foglio::after{content:""; position:absolute; top:.7em; bottom:.7em; right:-.4em; width:.4em;
+.sfoglia-foglio::after{content:""; position:absolute; top:.7em; bottom:.7em; right:-.35em; width:.35em;
   border-radius:0 3px 3px 0; background:repeating-linear-gradient(180deg,#f0e8d9 0 2px,#e2d7c3 2px 4px)}
 
 /* --- testata --- */
 .sf-capnum{margin:0 0 .15em; text-align:center; color:#8a7f6b;
   letter-spacing:.15em; font-size:.70em; line-height:1.3; font-weight:600}
-.sf-vign{display:block; margin:.25em auto .15em; width:auto; height:2.6em; opacity:.9}
+.sf-vign{display:block; margin:.25em auto .15em; width:auto; height:2.4em; opacity:.9}
 .sf-tit{margin:0; text-align:center; font-family:Fraunces,Georgia,serif;
   font-size:1.10em; font-weight:600; color:#2a2a2f; line-height:1.25}
-.sf-titen{margin:.15em 0 .9em; text-align:center; font-style:italic; color:#8a7f6b;
+.sf-titen{margin:.15em 0 .85em; text-align:center; font-style:italic; color:#8a7f6b;
   font-size:.85em; line-height:1.35}
 
 /* --- corpo --- */
 .sf-corpo{font-family:"Source Serif 4",Charter,Georgia,serif; font-size:1em;
-  line-height:1.65; color:#2b2b30; text-align:justify; hyphens:auto}
-.sf-corpo p{margin:0 0 .45em}
+  line-height:1.62; color:#2b2b30}
+.sf-corpo p{margin:0 0 .78em}
 .sf-corpo p:last-child{margin-bottom:0}
-.sf-corpo p:first-of-type::first-letter{float:left; font-family:Fraunces,Georgia,serif;
-  font-size:2.6em; line-height:.9; padding:.04em .09em 0 0; color:#8a6a2f}
-.sf-kw{border-bottom:1.5px solid #4D596B; font-weight:600}
-.sf-corpo .sf-sep{margin:.6em 0; text-align:center; color:#b09b7d;
+.sf-kw{border-bottom:1px solid #6b6355; font-weight:600; color:#1f2529}
+.sf-corpo .sf-sep{margin:.55em 0; text-align:center; color:#b09b7d;
   font-size:.78em; letter-spacing:.35em; text-indent:.35em}
 .sf-corpo .sf-sep::first-letter{float:none; font-size:1em; color:inherit; padding:0}
 .sf-corpo sup{font-size:.66em; color:#8a6a2f; font-weight:600; padding-left:1px; text-decoration:none}
 
-/* --- glossario in linea --- */
-.sf-gloss{margin:.6em 0 .5em; padding:.5em .68em; border-radius:4px;
-  background:rgba(77,89,107,.055);
-  font-size:.80em; line-height:1.6; font-style:italic; color:#4a5560}
-.sf-gloss .sf-kw{font-style:normal; border-bottom-width:1px}
+/* --- glossario in linea: SOLO le parole sottolineate qui sopra --- */
+.sf-gloss{margin:1.1em 0 0; font-size:.80em; line-height:1.65;
+  font-style:italic; color:#5c6670}
+.sf-gloss .sf-kw{font-style:normal; color:#2b2b30}
+.sf-gloss:empty{display:none}
 
 /* nota e piede in fondo alla pagina, come in un libro vero */
-.sf-note{margin:auto 0 0; padding-top:.55em; border-top:1px solid rgba(92,72,42,.2)}
-.sf-nota{margin:0 0 .3em; padding-left:1em; text-indent:-1em;
-  font-size:.78em; line-height:1.55; color:#4d4a44}
+.sf-note{margin:auto 0 0; padding-top:.6em}
+.sf-nota{margin:0 0 .35em; padding-left:1.6em; text-indent:-1em;
+  font-size:.78em; line-height:1.6; color:#4d4a44}
 .sf-nota:last-child{margin-bottom:0}
 .sf-nota sup{color:#8a6a2f; font-weight:600; padding-right:2px}
 
 .sf-piede{margin:.7em 0 0; padding-top:.55em; border-top:1px solid rgba(92,72,42,.14);
-  font-size:.74em; line-height:1.35; letter-spacing:.02em; color:#8a7f6b;
+  font-size:.72em; line-height:1.35; letter-spacing:.02em; color:#8a7f6b;
   display:flex; flex-wrap:wrap; gap:.2em .9em; align-items:baseline; justify-content:space-between}
 .sf-piede a{color:#8a6a2f; font-weight:600; text-decoration:none}
 .sf-piede a:hover{text-decoration:underline}
@@ -230,52 +236,62 @@ footer.sito a{color:var(--nebbia)}
 .sf-2col{display:grid; grid-template-columns:1fr 1fr; gap:12px 34px; align-items:start}
 .sf-2col>div>h2{margin-top:0}
 
-/* ---- Doppia pagina: il glossario del libro ---- */
+.sf-gnota{margin:.15em 0 0; font-size:.80em; line-height:1.5; font-style:italic; color:#8a7f6b}
+
+/* ---- Doppia pagina: il glossario del libro ----
+   width:fit-content, cosi' il riquadro finisce dove finiscono le due pagine
+   e non restano le due strisce di fondo ai lati. */
 .sf-gspread{
-  --pag-w:min(480px, 40vw);
+  --pag-w:min(420px, 36vw);
   --pag-h:calc(var(--pag-w) * 1.6);
-  display:flex; align-items:stretch; justify-content:center;
-  margin:20px auto 0; border-radius:3px; overflow:hidden;
-  box-shadow:0 20px 42px -18px rgba(20,24,38,.32);
+  display:flex; align-items:stretch;
+  width:fit-content; max-width:100%; margin:18px auto 0;
+  border-radius:3px; overflow:hidden;
+  box-shadow:0 18px 38px -18px rgba(20,24,38,.3);
 }
 .sf-gpag{
-  flex:0 0 var(--pag-w); width:var(--pag-w);
-  min-height:var(--pag-h); height:auto;
+
+  flex:0 0 var(--pag-w); width:var(--pag-w); min-height:var(--pag-h);
   font-size:calc(var(--pag-w) / 32);
   display:flex; flex-direction:column; padding:1.5em 1.75em 1.1em;
   background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
 }
-.sf-gpag:first-child{box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
-.sf-gpag:last-child {box-shadow:inset  14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gpag:first-child{box-shadow:inset -12px 0 20px -16px rgba(92,72,42,.4)}
+.sf-gpag:last-child {box-shadow:inset  12px 0 20px -16px rgba(92,72,42,.4)}
 .sf-gtit{margin:0 0 .9em; text-align:center; font-family:Fraunces,Georgia,serif;
   font-size:1em; line-height:1.3; font-weight:600; color:#2a2a2f}
 .sf-gspread dl{margin:0}
+.sf-gspread dt,.sf-gspread dd{overflow-wrap:break-word; word-break:normal; hyphens:auto}
 .sf-gspread dt{margin:0 0 .12em; font-family:"Source Serif 4",Charter,Georgia,serif;
   font-size:.92em; line-height:1.35}
-.sf-gspread dd+dt{margin-top:1.05em}
+.sf-gspread dd+dt{margin-top:1em}
 .sf-gspread dt b{color:#1F2529}
 .sf-gspread dt i{color:#326778; font-weight:600}
 .sf-gspread dt span{font-size:.86em; color:#8a7f6b; font-style:italic}
 .sf-gspread dd{margin:0; font-family:"Source Serif 4",Charter,Georgia,serif;
   font-size:.84em; line-height:1.55; color:#2b2b30}
 .sf-gspread dd.en{color:#5f6b72}
+.sf-gspread dd.sf-gnota{margin-top:.2em; font-style:italic; font-size:.80em;
+  line-height:1.5; color:#8a7f6b}
+.sf-gocc{margin:0 0 1.1em; font-style:italic; font-size:.80em; line-height:1.5; color:#7d766a}
 .sf-gpie{margin:auto 0 0; padding-top:.6em; border-top:1px solid rgba(92,72,42,.16);
-  text-align:center; font-size:.76em; line-height:1.35; color:#8a7f6b}
+  text-align:center; font-size:.74em; line-height:1.35; color:#8a7f6b}
 
-/* ---- sotto i 900px: si impila ---- */
+/* ---- sotto i 900px: si impila, niente prospettiva ---- */
 @media (max-width:900px){
-  .sfoglia, .sf-gspread{--pag-w:min(88vw, 360px)}
-  .sfoglia-scena{flex-direction:column; align-items:center; perspective:none; padding:0}
-  .sfoglia-cop{margin:0 auto 18px; align-self:auto; height:var(--pag-h);
-    transform:none !important; transition:none}
-  .sfoglia-foglio{border-radius:8px}
+  .sfoglia, .sf-gspread{--pag-w:min(86vw, 340px)}
+  .sfoglia-scena{flex-direction:column; align-items:center; perspective:none}
+  .sfoglia-cop{margin:0 auto 16px; align-self:auto; height:var(--pag-h);
+    transform:none; animation:none}
+  .sfoglia-foglio{border-radius:6px}
   .sfoglia-foglio::after{display:none}
-  .sf-gspread{flex-direction:column; align-items:center; gap:14px; box-shadow:none}
-  .sf-gpag{border-radius:6px; box-shadow:0 14px 30px -18px rgba(20,24,38,.3) !important}
+  .sf-gspread{flex-direction:column; align-items:center; gap:12px;
+    box-shadow:none; border-radius:0; overflow:visible}
+  .sf-gpag{border-radius:6px; box-shadow:0 12px 26px -18px rgba(20,24,38,.3)}
   .sf-2col{grid-template-columns:1fr; gap:0}
 }
 @media (prefers-reduced-motion:reduce){
-  .sfoglia-cop{transition:none !important; transform:rotateY(-16deg) !important}
+  .sfoglia-cop{animation:none; transform:rotateY(-32deg)}
 }
 </style>
 <script type="application/ld+json">{
@@ -432,9 +448,8 @@ footer.sito a{color:var(--nebbia)}
         <div class="sf-corpo" lang="it">
           <p>L&#x27;anno era il 1298, e la guerra tra Venezia e Genova durava da un pezzo. In una battaglia navale al largo di Curzola i genovesi presero una galea veneziana, e in quella galea c&#x27;era un uomo di nome Marco Polo, <span class="sf-kw">mercatante</span> di quarantaquattro anni, tornato appena tre anni prima da un viaggio di ventiquattro anni in Oriente.<sup>1</sup></p>
             <p>Fu portato a Genova incatenato con gli altri. La sua <span class="sf-kw">prigionia</span> cominciò così: senza pompa, come per ogni prigioniero d&#x27;importanza media in una guerra fra due repubbliche marinare.</p>
-            <p>Ma la sua fama, in città, era già arrivata. La gente aveva sentito dire che il veneziano preso a …</p>
         </div>
-        <p class="sf-gloss"><span class="sf-kw">mercatante</span> = merchant, trader &#183; <span class="sf-kw">prigionia</span> = captivity, imprisonment &#183; <span class="sf-kw">cortesia</span> = courtesy, hospitality &#183; <span class="sf-kw">barone</span> = baron, great lord &#183; <span class="sf-kw">ambasceria</span> = embassy, mission &#183; <span class="sf-kw">saviezza</span> = wisdom, sagacity</p>
+        <p class="sf-gloss"><span class="sf-kw">mercatante</span> = merchant, trader &#183; <span class="sf-kw">prigionia</span> = captivity, imprisonment</p>
         <div class="sf-note">
           <p class="sf-nota"><sup>1</sup> Marco è tornato a Venezia nel 1295 dopo ventiquattro anni assenti; nel 1298 combatte contro Genova come sopracomito di una galea. Tre anni: giusto il tempo per riabituarsi. E poi la battaglia lo separa di nuovo dalla città che aveva riconquistato.</p>
         </div>
@@ -465,40 +480,23 @@ footer.sito a{color:var(--nebbia)}
           <dt><b lang="it">Cambaluc</b> &middot; <i lang="en">Cambaluc, Khanbaliq, Beijing</i> <span>((sin. Khanbaliq, Pechino))</span></dt>
           <dd lang="it">Nome medievale di Khanbaliq — «la città del Kane» —, la capitale imperiale che sorgeva dove oggi è Pechino.</dd>
           <dd class="en" lang="en">Medieval name of Khanbaliq, the imperial capital that stood where Beijing is today.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: Kublai had it built in stone as a sign of his power. Marco describes it square, with twelve gates, huge markets, a palace at the centre. It is not a steppe city: it is a sedentary capital that a nomad wanted, to leave a trace. Kublai&#x27;s paradox in a single name.</dd>
           <dt><b lang="it">Catai</b> &middot; <i lang="en">Cathay, northern China</i> <span>((sin. Cina del nord, Catay))</span></dt>
           <dd lang="it">Nome medievale della Cina del nord, sotto il dominio mongolo. Deriva dai Khitani, popolo di steppa che governò la regione prima dei mongoli.</dd>
           <dd class="en" lang="en">Medieval name of northern China under Mongol rule; became for Europe a synonym for China.</dd>
-          <dt><b lang="it">Chandu</b> &middot; <i lang="en">Xanadu, Shangdu</i> <span>((sin. Xanadu, Shangdu))</span></dt>
-          <dd lang="it">Xanadu, la residenza estiva di Coblai. Un palazzo di canne dorate, smontabile, dentro un parco murato di quindici miglia.</dd>
-          <dd class="en" lang="en">Kublai&#x27;s summer residence, a palace of gilded canes within a walled park of fifteen miles.</dd>
-          <dt><b lang="it">Cinghis Kane</b> &middot; <i lang="en">Genghis Khan</i> <span>((sin. Gengis Khan, condottiero))</span></dt>
-          <dd lang="it">Il primo grande Kane dei mongoli, fondatore dell&#x27;impero (1162 ca.–1227). Nel testo italiano medievale il nome ha molte grafie: Cinghis, Cinghiscan, Chinghis.</dd>
-          <dd class="en" lang="en">The first great Khan of the Mongols, founder of the empire (c. 1162–1227).</dd>
-          <dt><b lang="it">Cipangu</b> &middot; <i lang="en">Cipangu, Japan</i> <span>((sin. Giappone, Zipangu))</span></dt>
-          <dd lang="it">Nome con cui Marco chiama il Giappone, terra insulare a oriente della Cina che lui non visita ma di cui gli parlano.</dd>
-          <dd class="en" lang="en">The name Marco gives to Japan, an eastern island of which he heard but never visited.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: Cathay for Marco is the country of Kublai, his seat of power. For Europe it becomes synonymous with China. For centuries cartographers will draw «Cathay» to the north and «Mangi» — southern China — as two different countries. They were one and the same: only, Marco had known them separated.</dd>
         </dl>
       </div>
       <div class="sf-gpag">
         <dl>
-          <dt><b lang="it">Cocacin</b> &middot; <i lang="en">Kokachin, the Mongol princess</i> <span>((sin. principessa, sposa))</span></dt>
-          <dd lang="it">Principessa mongola, ultima protagonista del viaggio.</dd>
-          <dd class="en" lang="en">A Mongol princess, the last protagonist of the journey: Marco escorts her by sea from Kublai to the lord of Persia.</dd>
-          <dt><b lang="it">Duecento</b> &middot; <i lang="en">the thirteenth century</i> <span>((sin. Trecento, Medioevo))</span></dt>
-          <dd lang="it">Il tredicesimo secolo (dal 1200 al 1299).</dd>
-          <dd class="en" lang="en">The thirteenth century (from 1200 to 1299), the age in which the book was written.</dd>
-          <dt><b lang="it">Kane</b> &middot; <i lang="en">Khan, Great Khan</i> <span>((sin. Khan, sovrano))</span></dt>
-          <dd lang="it">Titolo dei sovrani mongoli — «signore», «gran signore».</dd>
-          <dd class="en" lang="en">The title of the Mongol rulers — “lord”, “great lord”; in the book it almost always means Kublai.</dd>
-          <dt><b lang="it">Milione</b> &middot; <i lang="en">Il Milione, Marco Polo’s nickname</i> <span>((sin. Emilione, soprannome))</span></dt>
-          <dd lang="it">Il nome con cui a Venezia si chiamava Marco Polo — e per estensione, il libro.</dd>
-          <dd class="en" lang="en">The nickname the Venetians gave Marco Polo — and, by extension, the title of his book.</dd>
-          <dt><b lang="it">Prete Gianni</b> &middot; <i lang="en">Prester John</i> <span>((sin. Prester John, re-prete))</span></dt>
-          <dd lang="it">Sovrano cristiano d&#x27;Oriente, leggendario nel Duecento europeo.</dd>
-          <dd class="en" lang="en">A legendary Christian king of the East, widely believed in thirteenth-century Europe to be real.</dd>
-          <dt><b lang="it">Quinsai</b> &middot; <i lang="en">Quinsai, Hangzhou</i> <span>((sin. Kinsai, Hangzhou))</span></dt>
-          <dd lang="it">Nome medievale di Hangzhou, capitale del Catai meridionale. Marco la descrive come la più grande città del mondo.</dd>
-          <dd class="en" lang="en">Medieval name of Hangzhou, capital of southern Cathay; Marco described it as the greatest city in the world.</dd>
+          <dt><b lang="it">Chandu</b> &middot; <i lang="en">Xanadu, Shangdu</i> <span>((sin. Xanadu, Shangdu))</span></dt>
+          <dd lang="it">Xanadu, la residenza estiva di Coblai. Un palazzo di canne dorate, smontabile, dentro un parco murato di quindici miglia.</dd>
+          <dd class="en" lang="en">Kublai&#x27;s summer residence, a palace of gilded canes within a walled park of fifteen miles.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: In the West the name has become legend: Coleridge in 1797, in a dream, turned it into poetry. Marco had seen it for real — white horses, hunting with the leopard, the ceremony of milk poured to the wind for the spirits. The first Xanadu in European history is his.</dd>
+          <dt><b lang="it">Cinghis Kane</b> &middot; <i lang="en">Genghis Khan</i> <span>((sin. Gengis Khan, condottiero))</span></dt>
+          <dd lang="it">Il primo grande Kane dei mongoli, fondatore dell&#x27;impero (1162 ca.–1227). Nel testo italiano medievale il nome ha molte grafie: Cinghis, Cinghiscan, Chinghis.</dd>
+          <dd class="en" lang="en">The first great Khan of the Mongols, founder of the empire (c. 1162–1227).</dd>
+          <dd class="sf-gnota" lang="en">In the novel: Marco cites Genghis as the ancestor of Kublai: from him comes the empire the book describes. By the thirteenth century his figure was already legend, and Marco receives him as a told story — he never saw him. The many spellings in the medieval text (Cinghis, Cinghiscan, Chinghis) show a name travelling by ear, from mouth to mouth, before it ever reached paper.</dd>
         </dl>
         <p class="sf-gpie">Il glossario contiene 60 voci in tutto</p>
       </div>
@@ -627,58 +625,5 @@ footer.sito a{color:var(--nebbia)}
 </footer>
 <script>document.getElementById('anno').textContent=new Date().getFullYear();</script>
 <script src="/js/whatsapp.js" defer></script>
-<script>
-/* sfoglia v4 — due compiti, nessuna dipendenza esterna.
-   1. la copertina si apre quando la scheda entra nello schermo
-   2. se il font caricato e' piu' largo del previsto e il testo sfonda,
-      il corpo si rimpicciolisce di qualche decimo finche' rientra.
-   Senza JavaScript la pagina si allunga invece di tagliare. */
-(function () {
-  var schede = document.querySelectorAll('.sfoglia');
-  var moto = !window.matchMedia || !matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* --- 1. apertura della copertina --- */
-  if (moto && window.IntersectionObserver && innerWidth > 900) {
-    schede.forEach(function (s) {
-      var cop = s.querySelector('.sfoglia-cop');
-      if (!cop) return;
-      cop.style.transition = 'none';
-      cop.style.transform = 'rotateY(-54deg)';
-      new IntersectionObserver(function (voci, oss) {
-        voci.forEach(function (v) {
-          if (!v.isIntersecting) return;
-          requestAnimationFrame(function () {
-            cop.style.transition = '';
-            cop.style.transform = '';
-          });
-          oss.unobserve(v.target);
-        });
-      }, { threshold: 0.25 }).observe(s);
-    });
-  }
-
-  /* --- 2. rientro nell'altezza di progetto --- */
-  function adatta(el) {
-    el.style.fontSize = '';
-    var meta = parseFloat(getComputedStyle(el).minHeight);
-    if (!meta || el.offsetHeight <= meta + 0.5) return;
-    var f = parseFloat(getComputedStyle(el).fontSize), n = 0;
-    while (el.offsetHeight > meta + 0.5 && f > 9 && n++ < 40) {
-      f -= 0.25;
-      el.style.fontSize = f + 'px';
-    }
-  }
-
-  function passa() {
-    document.querySelectorAll('.sfoglia-foglio, .sf-gpag').forEach(adatta);
-  }
-
-  passa();
-  addEventListener('load', passa);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(passa);
-  var t;
-  addEventListener('resize', function () { clearTimeout(t); t = setTimeout(passa, 160); });
-})();
-</script>
 </body>
 </html>

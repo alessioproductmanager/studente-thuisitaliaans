@@ -126,103 +126,109 @@ footer.sito a{color:var(--nebbia)}
 @media(max-width:640px){footer.sito .wrap{justify-content:center;text-align:center;gap:6px}}
 
 /* ============================================================
-   PRIMA PAGINA DEL LIBRO — v4
+   PRIMA PAGINA DEL LIBRO — v5
 
-   Differenza sostanziale rispetto alla v3: la pagina non ha piu' un'altezza
-   fissa che taglia il contenuto. Ha una min-height, e cresce se serve.
-   La copertina si allunga insieme a lei, quindi le due meta' combaciano
-   sempre, qualunque font venga caricato.
+   Un libro vero aperto: due meta' identiche, unite sul dorso.
+   La copertina ha ESATTAMENTE la larghezza e l'altezza della pagina.
+   Ruota su transform-origin:right center, quindi il bordo sul dorso resta
+   a z=0: combacia con il lato sinistro della pagina al pixel, angoli
+   compresi. Il bordo esterno va indietro e si rimpicciolisce, che e' come
+   si vede un libro aperto davvero.
 
-     pagina      W  ×  min W × 1,6      cresce se il testo non ci sta
-     copertina   W × 1,06, stirata all'altezza della riga, sporgente del 3%
-     corpo       W / 32
+     pagina      W  ×  min W × 1,6
+     copertina   W  ×  stessa altezza della riga (align-self:stretch)
+     corpo       W / 32          → miniatura leggibile, ~46 caratteri/riga
      interlinea  1,65em
 
-   Uno script di 15 righe in fondo alla pagina rimpicciolisce il corpo di
-   qualche decimo finche' il contenuto rientra nella min-height: cosi' tutte
-   le schede tornano alte uguale anche se il font e' piu' largo del previsto.
-   Senza JavaScript la pagina si allunga invece di tagliare: nessun testo
-   sparisce mai.
+   Zero JavaScript. L'apertura della copertina e' guidata dallo scroll con
+   animation-timeline:view(). Dove non e' supportata, la copertina resta
+   nella posizione a riposo e non succede nulla di strano.
    ============================================================ */
 
 .sfoglia{
-  --pag-w:min(480px, 40vw);
+  --pag-w:min(420px, 36vw);
   --pag-h:calc(var(--pag-w) * 1.6);
-  --cop-w:calc(var(--pag-w) * 1.06);
-  --sporg:calc(var(--pag-w) * .048);        /* sporgenza copertina, 3% dell'altezza */
-  margin:38px 0 46px;
+  --scorcio:.196;                    /* 1 - larghezza proiettata a 32°: vedi margin-left */
+  margin:34px 0 42px;
 }
 
 .sfoglia-scena{
   display:flex; align-items:stretch; justify-content:center;
-  perspective:3400px; perspective-origin:58% 50%;
-  padding:var(--sporg) 0;                   /* spazio per la sporgenza */
+  perspective:2600px; perspective-origin:56% 50%;
 }
 
 .sfoglia-cop{
-  position:relative; flex:0 0 var(--cop-w); width:var(--cop-w);
-  align-self:stretch;
-  margin:calc(var(--sporg) * -1) 0 calc(var(--sporg) * -1) calc(var(--cop-w) * -.058);
-  border-radius:5px 3px 3px 5px; overflow:hidden;
+  position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
+  align-self:stretch;                                   /* stessa altezza della pagina, sempre */
+  margin-left:calc(var(--pag-w) * var(--scorcio) * -1);  /* recupera lo spazio che la rotazione libera */
+  border-radius:4px 2px 2px 4px; overflow:hidden;
   transform-origin:right center; backface-visibility:hidden;
-  box-shadow:0 26px 50px -14px rgba(20,24,38,.5), 0 3px 8px rgba(20,24,38,.2);
-  transform:rotateY(-16deg);                /* stato a riposo: vale anche senza JS */
-  transition:transform 1.6s cubic-bezier(.19,.86,.28,1);
+  box-shadow:0 22px 44px -16px rgba(20,24,38,.46), 0 2px 6px rgba(20,24,38,.18);
+  transform:rotateY(-32deg);
 }
 .sfoglia-cop img{display:block; width:100%; height:100%; object-fit:cover; object-position:center}
 .sfoglia-cop::after{content:""; position:absolute; inset:0; pointer-events:none;
-  background:linear-gradient(90deg, rgba(0,0,0,.30), rgba(0,0,0,0) 28%, rgba(255,255,255,.10))}
+  background:linear-gradient(90deg, rgba(0,0,0,.34), rgba(0,0,0,0) 30%, rgba(255,255,255,.10))}
+
+@keyframes sf-apri{from{transform:rotateY(-88deg)} to{transform:rotateY(-32deg)}}
+@media (min-width:901px) and (prefers-reduced-motion:no-preference){
+  /* ovunque: apertura lenta al caricamento */
+  .sfoglia-cop{animation:sf-apri 2.6s cubic-bezier(.16,.8,.24,1) .3s both}
+  /* dove c'e': l'apertura segue lo scroll, cosi' la vedi quando ci arrivi */
+  @supports (animation-timeline: view()){
+    .sfoglia-cop{animation:sf-apri linear both; animation-timeline:view();
+      animation-range:entry 0% cover 40%}
+  }
+}
 
 .sfoglia-foglio{
   position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
-  min-height:var(--pag-h); height:auto;
+  min-height:var(--pag-h);
   font-size:calc(var(--pag-w) / 32);
   display:flex; flex-direction:column;
   padding:1.5em 1.75em 1.1em 2.1em;
-  border-radius:2px 7px 7px 2px;
+  border-radius:2px 5px 5px 2px;
   background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
-  box-shadow:inset 16px 0 26px -16px rgba(92,72,42,.42), 0 18px 38px -18px rgba(20,24,38,.32);
+  box-shadow:inset 14px 0 24px -16px rgba(92,72,42,.42), 0 16px 34px -18px rgba(20,24,38,.3);
 }
-.sfoglia-foglio::after{content:""; position:absolute; top:.7em; bottom:.7em; right:-.4em; width:.4em;
+.sfoglia-foglio::after{content:""; position:absolute; top:.7em; bottom:.7em; right:-.35em; width:.35em;
   border-radius:0 3px 3px 0; background:repeating-linear-gradient(180deg,#f0e8d9 0 2px,#e2d7c3 2px 4px)}
 
 /* --- testata --- */
 .sf-capnum{margin:0 0 .15em; text-align:center; color:#8a7f6b;
   letter-spacing:.15em; font-size:.70em; line-height:1.3; font-weight:600}
-.sf-vign{display:block; margin:.25em auto .15em; width:auto; height:2.6em; opacity:.9}
+.sf-vign{display:block; margin:.25em auto .15em; width:auto; height:2.4em; opacity:.9}
 .sf-tit{margin:0; text-align:center; font-family:Fraunces,Georgia,serif;
   font-size:1.10em; font-weight:600; color:#2a2a2f; line-height:1.25}
-.sf-titen{margin:.15em 0 .9em; text-align:center; font-style:italic; color:#8a7f6b;
+.sf-titen{margin:.15em 0 .85em; text-align:center; font-style:italic; color:#8a7f6b;
   font-size:.85em; line-height:1.35}
 
 /* --- corpo --- */
 .sf-corpo{font-family:"Source Serif 4",Charter,Georgia,serif; font-size:1em;
-  line-height:1.65; color:#2b2b30; text-align:justify; hyphens:auto}
-.sf-corpo p{margin:0 0 .45em}
+  line-height:1.62; color:#2b2b30}
+.sf-corpo p{margin:0 0 .78em}
 .sf-corpo p:last-child{margin-bottom:0}
-.sf-corpo p:first-of-type::first-letter{float:left; font-family:Fraunces,Georgia,serif;
-  font-size:2.6em; line-height:.9; padding:.04em .09em 0 0; color:#8a6a2f}
-.sf-kw{border-bottom:1.5px solid #4D596B; font-weight:600}
-.sf-corpo .sf-sep{margin:.6em 0; text-align:center; color:#b09b7d;
+.sf-kw{border-bottom:1px solid #6b6355; font-weight:600; color:#1f2529}
+.sf-corpo .sf-sep{margin:.55em 0; text-align:center; color:#b09b7d;
   font-size:.78em; letter-spacing:.35em; text-indent:.35em}
 .sf-corpo .sf-sep::first-letter{float:none; font-size:1em; color:inherit; padding:0}
 .sf-corpo sup{font-size:.66em; color:#8a6a2f; font-weight:600; padding-left:1px; text-decoration:none}
 
-/* --- glossario in linea --- */
-.sf-gloss{margin:.6em 0 .5em; padding:.5em .68em; border-radius:4px;
-  background:rgba(77,89,107,.055);
-  font-size:.80em; line-height:1.6; font-style:italic; color:#4a5560}
-.sf-gloss .sf-kw{font-style:normal; border-bottom-width:1px}
+/* --- glossario in linea: SOLO le parole sottolineate qui sopra --- */
+.sf-gloss{margin:1.1em 0 0; font-size:.80em; line-height:1.65;
+  font-style:italic; color:#5c6670}
+.sf-gloss .sf-kw{font-style:normal; color:#2b2b30}
+.sf-gloss:empty{display:none}
 
 /* nota e piede in fondo alla pagina, come in un libro vero */
-.sf-note{margin:auto 0 0; padding-top:.55em; border-top:1px solid rgba(92,72,42,.2)}
-.sf-nota{margin:0 0 .3em; padding-left:1em; text-indent:-1em;
-  font-size:.78em; line-height:1.55; color:#4d4a44}
+.sf-note{margin:auto 0 0; padding-top:.6em}
+.sf-nota{margin:0 0 .35em; padding-left:1.6em; text-indent:-1em;
+  font-size:.78em; line-height:1.6; color:#4d4a44}
 .sf-nota:last-child{margin-bottom:0}
 .sf-nota sup{color:#8a6a2f; font-weight:600; padding-right:2px}
 
 .sf-piede{margin:.7em 0 0; padding-top:.55em; border-top:1px solid rgba(92,72,42,.14);
-  font-size:.74em; line-height:1.35; letter-spacing:.02em; color:#8a7f6b;
+  font-size:.72em; line-height:1.35; letter-spacing:.02em; color:#8a7f6b;
   display:flex; flex-wrap:wrap; gap:.2em .9em; align-items:baseline; justify-content:space-between}
 .sf-piede a{color:#8a6a2f; font-weight:600; text-decoration:none}
 .sf-piede a:hover{text-decoration:underline}
@@ -230,52 +236,62 @@ footer.sito a{color:var(--nebbia)}
 .sf-2col{display:grid; grid-template-columns:1fr 1fr; gap:12px 34px; align-items:start}
 .sf-2col>div>h2{margin-top:0}
 
-/* ---- Doppia pagina: il glossario del libro ---- */
+.sf-gnota{margin:.15em 0 0; font-size:.80em; line-height:1.5; font-style:italic; color:#8a7f6b}
+
+/* ---- Doppia pagina: il glossario del libro ----
+   width:fit-content, cosi' il riquadro finisce dove finiscono le due pagine
+   e non restano le due strisce di fondo ai lati. */
 .sf-gspread{
-  --pag-w:min(480px, 40vw);
+  --pag-w:min(420px, 36vw);
   --pag-h:calc(var(--pag-w) * 1.6);
-  display:flex; align-items:stretch; justify-content:center;
-  margin:20px auto 0; border-radius:3px; overflow:hidden;
-  box-shadow:0 20px 42px -18px rgba(20,24,38,.32);
+  display:flex; align-items:stretch;
+  width:fit-content; max-width:100%; margin:18px auto 0;
+  border-radius:3px; overflow:hidden;
+  box-shadow:0 18px 38px -18px rgba(20,24,38,.3);
 }
 .sf-gpag{
-  flex:0 0 var(--pag-w); width:var(--pag-w);
-  min-height:var(--pag-h); height:auto;
+
+  flex:0 0 var(--pag-w); width:var(--pag-w); min-height:var(--pag-h);
   font-size:calc(var(--pag-w) / 32);
   display:flex; flex-direction:column; padding:1.5em 1.75em 1.1em;
   background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
 }
-.sf-gpag:first-child{box-shadow:inset -14px 0 22px -16px rgba(92,72,42,.4)}
-.sf-gpag:last-child {box-shadow:inset  14px 0 22px -16px rgba(92,72,42,.4)}
+.sf-gpag:first-child{box-shadow:inset -12px 0 20px -16px rgba(92,72,42,.4)}
+.sf-gpag:last-child {box-shadow:inset  12px 0 20px -16px rgba(92,72,42,.4)}
 .sf-gtit{margin:0 0 .9em; text-align:center; font-family:Fraunces,Georgia,serif;
   font-size:1em; line-height:1.3; font-weight:600; color:#2a2a2f}
 .sf-gspread dl{margin:0}
+.sf-gspread dt,.sf-gspread dd{overflow-wrap:break-word; word-break:normal; hyphens:auto}
 .sf-gspread dt{margin:0 0 .12em; font-family:"Source Serif 4",Charter,Georgia,serif;
   font-size:.92em; line-height:1.35}
-.sf-gspread dd+dt{margin-top:1.05em}
+.sf-gspread dd+dt{margin-top:1em}
 .sf-gspread dt b{color:#1F2529}
 .sf-gspread dt i{color:#326778; font-weight:600}
 .sf-gspread dt span{font-size:.86em; color:#8a7f6b; font-style:italic}
 .sf-gspread dd{margin:0; font-family:"Source Serif 4",Charter,Georgia,serif;
   font-size:.84em; line-height:1.55; color:#2b2b30}
 .sf-gspread dd.en{color:#5f6b72}
+.sf-gspread dd.sf-gnota{margin-top:.2em; font-style:italic; font-size:.80em;
+  line-height:1.5; color:#8a7f6b}
+.sf-gocc{margin:0 0 1.1em; font-style:italic; font-size:.80em; line-height:1.5; color:#7d766a}
 .sf-gpie{margin:auto 0 0; padding-top:.6em; border-top:1px solid rgba(92,72,42,.16);
-  text-align:center; font-size:.76em; line-height:1.35; color:#8a7f6b}
+  text-align:center; font-size:.74em; line-height:1.35; color:#8a7f6b}
 
-/* ---- sotto i 900px: si impila ---- */
+/* ---- sotto i 900px: si impila, niente prospettiva ---- */
 @media (max-width:900px){
-  .sfoglia, .sf-gspread{--pag-w:min(88vw, 360px)}
-  .sfoglia-scena{flex-direction:column; align-items:center; perspective:none; padding:0}
-  .sfoglia-cop{margin:0 auto 18px; align-self:auto; height:var(--pag-h);
-    transform:none !important; transition:none}
-  .sfoglia-foglio{border-radius:8px}
+  .sfoglia, .sf-gspread{--pag-w:min(86vw, 340px)}
+  .sfoglia-scena{flex-direction:column; align-items:center; perspective:none}
+  .sfoglia-cop{margin:0 auto 16px; align-self:auto; height:var(--pag-h);
+    transform:none; animation:none}
+  .sfoglia-foglio{border-radius:6px}
   .sfoglia-foglio::after{display:none}
-  .sf-gspread{flex-direction:column; align-items:center; gap:14px; box-shadow:none}
-  .sf-gpag{border-radius:6px; box-shadow:0 14px 30px -18px rgba(20,24,38,.3) !important}
+  .sf-gspread{flex-direction:column; align-items:center; gap:12px;
+    box-shadow:none; border-radius:0; overflow:visible}
+  .sf-gpag{border-radius:6px; box-shadow:0 12px 26px -18px rgba(20,24,38,.3)}
   .sf-2col{grid-template-columns:1fr; gap:0}
 }
 @media (prefers-reduced-motion:reduce){
-  .sfoglia-cop{transition:none !important; transform:rotateY(-16deg) !important}
+  .sfoglia-cop{animation:none; transform:rotateY(-32deg)}
 }
 </style>
 <script type="application/ld+json">{
@@ -377,9 +393,10 @@ footer.sito a{color:var(--nebbia)}
         <p class="sf-titen" lang="en">The News</p>
         <div class="sf-corpo" lang="it">
           <p>Giuseppe, il portinaio, trastullava il suo bambino davanti al portone, mostrandogli lo scudo di marmo infisso in cima all&#x27;arco — il <span class="sf-kw">blasone</span> dei Francalanza, con le sue insegne consumate dal tempo — e la rastrelliera inchiodata al muro del vestibolo dove, ai tempi antichi, i soldati del principe appendevano le armi.<sup>1</sup></p>
-            <p>Fu allora che si udì, e crebbe rapidamente, il rumore di una carrozza lanciata a tutta velocità. Prima ancora che l&#x27;uomo avesse il tempo di voltarsi, un legnetto sul quale pareva fosse nevicato, tanta era la polvere, entrò nel cortile con un fracasso assordante. Il cavallo era coperto di sudore; dall&#x27;arco del secondo cortile si affacciarono servi …</p>
+            <p>Fu allora che si udì, e crebbe rapidamente, il rumore di una carrozza lanciata a tutta velocità. Prima ancora che l&#x27;uomo avesse il tempo di voltarsi, un legnetto sul quale pareva fosse nevicato, tanta era la polvere, entrò nel cortile con un fracasso assordante. Il cavallo era coperto di sudore; dall&#x27;arco del secondo cortile si affacciarono servi e famigli, mentre Salvatore Cerra si precipitava giù dalla carrozzella con una lettera in mano.</p>
+            <p>«Don Salvatore?... Che c&#x27;è?... Che novità?»</p>
         </div>
-        <p class="sf-gloss"><span class="sf-kw">blasone</span> = coat of arms &#183; <span class="sf-kw">viceré</span> = viceroy &#183; <span class="sf-kw">stirpe</span> = lineage, stock &#183; <span class="sf-kw">casata</span> = noble house &#183; <span class="sf-kw">erede</span> = heir &#183; <span class="sf-kw">roba</span> = property, goods</p>
+        <p class="sf-gloss"><span class="sf-kw">blasone</span> = coat of arms</p>
         <div class="sf-note">
           <p class="sf-nota"><sup>1</sup> Il romanzo non comincia da una persona: comincia dallo stemma. Prima ancora dei nomi, De Roberto mostra il simbolo — perché il vero protagonista del libro non è nessuno dei personaggi, ma la casata che li possiede tutti.</p>
         </div>
@@ -410,49 +427,31 @@ footer.sito a{color:var(--nebbia)}
           <dt><b lang="it">adulazione</b> &middot; <i lang="en">flattery</i> <span>((sin. lusinga, piaggeria))</span></dt>
           <dd lang="it">Le lodi esagerate e interessate rivolte a chi ha potere.</dd>
           <dd class="en" lang="en">Excessive, self-interested praise offered to the powerful.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: Around the Uzeda buzzes a little world of poor relations, priests and fixers who live on flattery. The prince despises them and uses them: he knows that a flatterer is the cheapest servant there is.</dd>
           <dt><b lang="it">adulterio</b> &middot; <i lang="en">adultery</i> <span>((sin. infedeltà, tradimento))</span></dt>
           <dd lang="it">La relazione amorosa di una persona sposata fuori dal matrimonio.</dd>
           <dd class="en" lang="en">Betrayal between husband and wife.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: Raimondo&#x27;s adultery is public and unpunished; Isabella&#x27;s ruins her. The novel&#x27;s scales weigh twice: once for princes, once for everyone else — and a third time, heaviest of all, for women.</dd>
           <dt><b lang="it">alterigia</b> &middot; <i lang="en">haughtiness</i> <span>((sin. superbia, boria))</span></dt>
           <dd lang="it">La superbia fredda di chi si considera superiore per nascita.</dd>
           <dd class="en" lang="en">The cold pride of those who think themselves superior by birth.</dd>
-          <dt><b lang="it">ambizione</b> &middot; <i lang="en">ambition</i> <span>((sin. brama, aspirazione))</span></dt>
-          <dd lang="it">Il desiderio ardente di potere, successo e gloria.</dd>
-          <dd class="en" lang="en">A burning desire for power, success and glory.</dd>
-          <dt><b lang="it">annullamento</b> &middot; <i lang="en">annulment</i> <span>((sin. scioglimento, invalidazione))</span></dt>
-          <dd lang="it">La dichiarazione che un matrimonio non è mai stato valido.</dd>
-          <dd class="en" lang="en">A declaration that a marriage was never valid.</dd>
-          <dt><b lang="it">avarizia</b> &middot; <i lang="en">avarice</i> <span>((sin. taccagneria, spilorceria))</span></dt>
-          <dd lang="it">L&#x27;attaccamento eccessivo al denaro, che impedisce di spenderlo e di darlo.</dd>
-          <dd class="en" lang="en">Attachment to money so strong it prevents spending or giving.</dd>
-          <dt><b lang="it">beata</b> &middot; <i lang="en">blessed woman</i> <span>((sin. venerabile, santa))</span></dt>
-          <dd lang="it">Una persona morta in fama di santità, venerata dalla Chiesa.</dd>
-          <dd class="en" lang="en">A woman who died in the odour of sanctity and is venerated by the Church.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: It isn&#x27;t vanity: it is certainty. An Uzeda has nothing to prove to anyone — the world divides into the family and the rest, and the rest hardly counts.</dd>
         </dl>
       </div>
       <div class="sf-gpag">
         <dl>
-          <dt><b lang="it">blasone</b> &middot; <i lang="en">coat of arms</i> <span>((sin. stemma, insegna))</span></dt>
-          <dd lang="it">Lo stemma di una famiglia nobile; per estensione, la nobiltà stessa.</dd>
-          <dd class="en" lang="en">A noble family&#x27;s emblem; by extension, nobility itself.</dd>
-          <dt><b lang="it">cadetto</b> &middot; <i lang="en">younger son</i> <span>((sin. secondogenito, minore))</span></dt>
-          <dd lang="it">Il figlio non primogenito, escluso dall&#x27;eredità principale.</dd>
-          <dd class="en" lang="en">A son who is not the firstborn, and so is cut out of the main inheritance.</dd>
-          <dt><b lang="it">capriccio</b> &middot; <i lang="en">whim, caprice</i> <span>((sin. ghiribizzo, voglia))</span></dt>
-          <dd lang="it">Un desiderio improvviso e irragionevole, che passa appena è soddisfatto.</dd>
-          <dd class="en" lang="en">A sudden wish that doesn&#x27;t last.</dd>
-          <dt><b lang="it">casata</b> &middot; <i lang="en">noble house</i> <span>((sin. famiglia, dinastia))</span></dt>
-          <dd lang="it">Una famiglia nobile, con il suo nome, la sua storia e i suoi beni.</dd>
-          <dd class="en" lang="en">A noble family with its name, its history and its property.</dd>
-          <dt><b lang="it">convento</b> &middot; <i lang="en">convent</i> <span>((sin. monastero, abbazia))</span></dt>
-          <dd lang="it">L&#x27;edificio dove vive una comunità di religiosi.</dd>
-          <dd class="en" lang="en">The house where nuns or friars live, away from the world.</dd>
-          <dt><b lang="it">debolezza</b> &middot; <i lang="en">weakness</i> <span>((sin. fragilità, arrendevolezza))</span></dt>
-          <dd lang="it">La mancanza di forza di volontà; l&#x27;incapacità di resistere e di decidere.</dd>
-          <dd class="en" lang="en">A lack of moral strength: being unable to resist, or to say no.</dd>
-          <dt><b lang="it">decoro</b> &middot; <i lang="en">outward dignity</i> <span>((sin. dignità, rispettabilità))</span></dt>
-          <dd lang="it">La dignità esteriore da mantenere davanti agli altri.</dd>
-          <dd class="en" lang="en">The dignity one must keep up in front of others.</dd>
+          <dt><b lang="it">ambizione</b> &middot; <i lang="en">ambition</i> <span>((sin. brama, aspirazione))</span></dt>
+          <dd lang="it">Il desiderio ardente di potere, successo e gloria.</dd>
+          <dd class="en" lang="en">A burning desire for power, success and glory.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: Consalvo doesn&#x27;t love money like his father or the blazon like his aunt: he loves command itself. His ambition is the most modern and the purest in the novel — it needs no excuses, no ideals, no affections.</dd>
+          <dt><b lang="it">annullamento</b> &middot; <i lang="en">annulment</i> <span>((sin. scioglimento, invalidazione))</span></dt>
+          <dd lang="it">La dichiarazione che un matrimonio non è mai stato valido.</dd>
+          <dd class="en" lang="en">A declaration that a marriage was never valid.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: To unite Raimondo and Isabella, two annulments are needed, and the family obtains them by buying witnesses, judges and consciences. It is the book&#x27;s most ferocious chapter: God&#x27;s law bent like a promissory note.</dd>
+          <dt><b lang="it">avarizia</b> &middot; <i lang="en">avarice</i> <span>((sin. taccagneria, spilorceria))</span></dt>
+          <dd lang="it">L&#x27;attaccamento eccessivo al denaro, che impedisce di spenderlo e di darlo.</dd>
+          <dd class="en" lang="en">Attachment to money so strong it prevents spending or giving.</dd>
+          <dd class="sf-gnota" lang="en">In the novel: Donna Ferdinanda hoards and never spends; Giacomo counts and counts again. Avarice here isn&#x27;t a flaw: it is a whole passion, the only form of love certain Uzeda are capable of.</dd>
         </dl>
         <p class="sf-gpie">Il glossario contiene 52 voci in tutto</p>
       </div>
@@ -581,58 +580,5 @@ footer.sito a{color:var(--nebbia)}
 </footer>
 <script>document.getElementById('anno').textContent=new Date().getFullYear();</script>
 <script src="/js/whatsapp.js" defer></script>
-<script>
-/* sfoglia v4 — due compiti, nessuna dipendenza esterna.
-   1. la copertina si apre quando la scheda entra nello schermo
-   2. se il font caricato e' piu' largo del previsto e il testo sfonda,
-      il corpo si rimpicciolisce di qualche decimo finche' rientra.
-   Senza JavaScript la pagina si allunga invece di tagliare. */
-(function () {
-  var schede = document.querySelectorAll('.sfoglia');
-  var moto = !window.matchMedia || !matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* --- 1. apertura della copertina --- */
-  if (moto && window.IntersectionObserver && innerWidth > 900) {
-    schede.forEach(function (s) {
-      var cop = s.querySelector('.sfoglia-cop');
-      if (!cop) return;
-      cop.style.transition = 'none';
-      cop.style.transform = 'rotateY(-54deg)';
-      new IntersectionObserver(function (voci, oss) {
-        voci.forEach(function (v) {
-          if (!v.isIntersecting) return;
-          requestAnimationFrame(function () {
-            cop.style.transition = '';
-            cop.style.transform = '';
-          });
-          oss.unobserve(v.target);
-        });
-      }, { threshold: 0.25 }).observe(s);
-    });
-  }
-
-  /* --- 2. rientro nell'altezza di progetto --- */
-  function adatta(el) {
-    el.style.fontSize = '';
-    var meta = parseFloat(getComputedStyle(el).minHeight);
-    if (!meta || el.offsetHeight <= meta + 0.5) return;
-    var f = parseFloat(getComputedStyle(el).fontSize), n = 0;
-    while (el.offsetHeight > meta + 0.5 && f > 9 && n++ < 40) {
-      f -= 0.25;
-      el.style.fontSize = f + 'px';
-    }
-  }
-
-  function passa() {
-    document.querySelectorAll('.sfoglia-foglio, .sf-gpag').forEach(adatta);
-  }
-
-  passa();
-  addEventListener('load', passa);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(passa);
-  var t;
-  addEventListener('resize', function () { clearTimeout(t); t = setTimeout(passa, 160); });
-})();
-</script>
 </body>
 </html>
