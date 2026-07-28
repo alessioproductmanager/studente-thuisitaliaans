@@ -147,39 +147,41 @@ footer.sito a{color:var(--nebbia)}
 
 .sfoglia{
   container-type:inline-size;
-  --pag-w:min(420px, 36vw);
-  --pag-h:calc(var(--pag-w) * 1.6);
+  --pag-w:min(380px, 30vw);
+  --pag-h:calc(var(--pag-w) * 1.5);
   --scorcio:.108;                    /* 1 - larghezza proiettata a 32°: vedi margin-left */
   margin:34px 0 42px;
 }
 
 .sfoglia-scena{
-  display:flex; align-items:stretch; justify-content:center;
-  perspective:2600px; perspective-origin:56% 50%;
+  position:relative; display:flex; width:fit-content; max-width:100%;
+  margin-inline:auto;
+  perspective:2400px; perspective-origin:50% 46%;
 }
 
 .sfoglia-cop{
-  position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
-  align-self:stretch;                                   /* stessa altezza della pagina, sempre */
-  margin-left:calc(var(--pag-w) * var(--scorcio) * -1);  /* recupera lo spazio che la rotazione libera */
-  border-radius:4px 2px 2px 4px; overflow:hidden;
-  transform-origin:right center; backface-visibility:hidden;
-  box-shadow:0 22px 44px -16px rgba(20,24,38,.46), 0 2px 6px rgba(20,24,38,.18);
-  transform:rotateY(-20deg);
+  position:absolute; top:0; bottom:0; right:0; width:var(--pag-w);
+  z-index:2; transform-style:preserve-3d;
+  transform-origin:left center;
+  transform:rotateY(calc(var(--sf-apri, 1) * -178deg));
+  will-change:transform;
 }
-.sfoglia-cop img{display:block; width:100%; height:100%; object-fit:cover; object-position:center}
-.sfoglia-cop::after{content:""; position:absolute; inset:0; pointer-events:none;
-  background:linear-gradient(90deg, rgba(0,0,0,.20), rgba(0,0,0,0) 26%, rgba(255,255,255,.08))}
+.sf-fronte, .sf-retro{position:absolute; inset:0; backface-visibility:hidden;
+  border-radius:2px 5px 5px 2px; overflow:hidden}
+.sf-fronte{box-shadow:0 18px 40px -16px rgba(20,24,38,.45), 0 2px 6px rgba(20,24,38,.16)}
+.sf-fronte img, .sf-fronte picture{display:block; width:100%; height:100%}
+.sf-fronte img{object-fit:cover; object-position:center}
+.sf-retro{transform:rotateY(180deg);
+  background:linear-gradient(258deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
+  box-shadow:inset -14px 0 24px -16px rgba(92,72,42,.42), 0 18px 38px -18px rgba(20,24,38,.28)}
 
-@media (min-width:901px) and (prefers-reduced-motion:no-preference){
-  .sfoglia-cop{transition:transform 2.2s cubic-bezier(.16,.8,.24,1)}
-  .sfoglia.sf-chiusa .sfoglia-cop{transform:rotateY(-86deg)}
-}
+
 
 .sfoglia-foglio{
   position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
+  margin-left:var(--pag-w);
   min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 34);
+  font-size:calc(var(--pag-w) / 35.5);
   display:flex; flex-direction:column;
   padding:1.5em 1.75em 1.1em 2.1em;
   border-radius:2px 5px 5px 2px;
@@ -238,8 +240,8 @@ footer.sito a{color:var(--nebbia)}
    e non restano le due strisce di fondo ai lati. */
 .sf-gspread-box{container-type:inline-size}
 .sf-gspread{
-  --pag-w:min(420px, 36vw);
-  --pag-h:calc(var(--pag-w) * 1.6);
+  --pag-w:min(380px, 30vw);
+  --pag-h:calc(var(--pag-w) * 1.5);
   display:flex; align-items:stretch;
   width:fit-content; max-width:100%; margin:18px auto 0;
   border-radius:3px; overflow:hidden;
@@ -248,7 +250,7 @@ footer.sito a{color:var(--nebbia)}
 .sf-gpag{
 
   flex:0 0 var(--pag-w); width:var(--pag-w); min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 34);
+  font-size:calc(var(--pag-w) / 35.5);
   display:flex; flex-direction:column; padding:1.5em 1.75em 1.1em;
   background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
 }
@@ -275,14 +277,17 @@ footer.sito a{color:var(--nebbia)}
 
 /* ---- sotto i 900px: si impila, niente prospettiva ---- */
 @media (max-width:900px){
-  .sfoglia, .sf-gspread{--pag-w:320px}
+  .sfoglia, .sf-gspread{--pag-w:320px; --pag-h:calc(var(--pag-w) * 1.6)}
   @supports (width: 1cqw){
     .sfoglia, .sf-gspread{--pag-w:min(100cqw, 340px)}
   }
   .sfoglia-scena{flex-direction:column; align-items:center; perspective:none}
   .sfoglia-cop, .sfoglia-foglio, .sf-gpag{flex-basis:auto; width:var(--pag-w); max-width:100%}
-  .sfoglia-cop{margin:0 auto 16px; align-self:auto; height:var(--pag-h);
-    transform:none !important; animation:none; transition:none}
+  .sfoglia-foglio{margin-left:0}
+  .sfoglia-cop{position:static; margin:0 auto 16px; height:var(--pag-h);
+    transform:none !important; z-index:auto}
+  .sf-fronte{position:relative; inset:auto; height:100%}
+  .sf-retro{display:none}
   .sfoglia-foglio{border-radius:6px}
   .sfoglia-foglio::after{display:none}
   .sf-gspread{flex-direction:column; align-items:center; gap:12px;
@@ -291,7 +296,7 @@ footer.sito a{color:var(--nebbia)}
   .sf-2col{grid-template-columns:1fr; gap:0}
 }
 @media (prefers-reduced-motion:reduce){
-  .sfoglia-cop{animation:none; transform:rotateY(-20deg)}
+  .sfoglia-cop{transform:rotateY(-178deg) !important}
 }
 </style>
 <script type="application/ld+json">{
@@ -434,12 +439,10 @@ footer.sito a{color:var(--nebbia)}
               <section class="sezione sfoglia">
     <h2>Look inside: the first page</h2>
     <div class="sfoglia-scena">
-      <div class="sfoglia-cop">
-        <picture>
+      <div class="sfoglia-cop"><div class="sf-fronte"><picture>
           <source srcset="/assets/books/PiccoloMondoAntico_cover.webp" type="image/webp">
           <img src="/assets/books/PiccoloMondoAntico_cover.jpg" width="800" height="1280" alt="Cover of La villa di Cressogno" loading="lazy" decoding="async">
-        </picture>
-      </div>
+        </picture></div><div class="sf-retro"></div></div>
       <div class="sfoglia-foglio">
         <p class="sf-capnum">CAPITOLO 1</p>
         <img class="sf-vign" src="/assets/books/vignette/piccolo-mondo-antico.png" alt="Chapter vignette" width="148" height="148" loading="lazy" decoding="async">
@@ -484,15 +487,15 @@ footer.sito a{color:var(--nebbia)}
           <dt><b lang="it">Ceresio</b> &middot; <i lang="en">Ceresio</i> <span>((sin. Lago di Lugano, specchio d&#x27;acqua))</span></dt>
           <dd lang="it">Il nome antico del Lago di Lugano.</dd>
           <dd class="en" lang="en">The ancient name of Lake Lugano.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: In the book the Ceresio is always called simply «the lake»: in the valley the word needs no further specification. Like the word «home» — it is that one, no other.</dd>
+          <dd class="sf-gnota" lang="en">In the book the Ceresio is always called simply «the lake»: in the valley the word needs no further specification. Like the word «home» — it is that one, no other.</dd>
           <dt><b lang="it">Risorgimento</b> &middot; <i lang="en">Risorgimento</i> <span>((sin. rinascita, unificazione))</span></dt>
           <dd lang="it">Il movimento politico e culturale che, fra il 1815 e il 1861, portò all&#x27;unità e all&#x27;indipendenza dell&#x27;Italia.</dd>
           <dd class="en" lang="en">The political and cultural movement (1815–1861) that led to Italian unification.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The novel is set in the years immediately before the Second War of Independence (1859). Franco is a patriot, the marchesa is pro-Austrian — and the political quarrel is layered on top of the family one.</dd>
+          <dd class="sf-gnota" lang="en">The novel is set in the years immediately before the Second War of Independence (1859). Franco is a patriot, the marchesa is pro-Austrian — and the political quarrel is layered on top of the family one.</dd>
           <dt><b lang="it">Valsolda</b> &middot; <i lang="en">Valsolda</i> <span>((sin. valle, distretto))</span></dt>
           <dd lang="it">Piccola valle in provincia di Como, sulla riva orientale del Lago di Lugano, ai confini con la Svizzera. È la terra d&#x27;origine di Fogazzaro.</dd>
           <dd class="en" lang="en">Small valley in Como province, on the eastern shore of Lake Lugano, along the Swiss border. Fogazzaro&#x27;s own country.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The Valsolda in this novel is not a backdrop, it is a character. The villages (Oria, Albogasio, Cressogno, Casarico) have an exact geography, and Fogazzaro counts the distances between them in minutes of rowing. It is a small world, and an old one.</dd>
+          <dd class="sf-gnota" lang="en">The Valsolda in this novel is not a backdrop, it is a character. The villages (Oria, Albogasio, Cressogno, Casarico) have an exact geography, and Fogazzaro counts the distances between them in minutes of rowing. It is a small world, and an old one.</dd>
         </dl>
       </div>
       <div class="sf-gpag">
@@ -500,15 +503,15 @@ footer.sito a{color:var(--nebbia)}
           <dt><b lang="it">angoscia</b> &middot; <i lang="en">anguish</i> <span>((sin. inquietudine, affanno))</span></dt>
           <dd lang="it">Un&#x27;inquietudine profonda, con un fondo di paura, per qualcosa che si sente ma non si sa nominare.</dd>
           <dd class="en" lang="en">A deep unease, tinged with fear, of something one senses but cannot name.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: For pages and pages before the tragedy, Franco feels an anguish he cannot explain. Fogazzaro will not let him say why — because the reader is not to know yet, either.</dd>
+          <dd class="sf-gnota" lang="en">For pages and pages before the tragedy, Franco feels an anguish he cannot explain. Fogazzaro will not let him say why — because the reader is not to know yet, either.</dd>
           <dt><b lang="it">austriaco</b> &middot; <i lang="en">Austrian</i> <span>((sin. imperiale, asburgico))</span></dt>
           <dd lang="it">Del regno austriaco che, all&#x27;epoca del romanzo, occupava il Lombardo-Veneto.</dd>
           <dd class="en" lang="en">Of the Habsburg empire, which at the time of the novel occupied Lombardy-Venetia.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The Valsolda is divided: part borders on free Switzerland, part is Austrian. The Austrian police are there, the censorship too. Fogazzaro rarely shows them — but the air of the book is always heavy with them.</dd>
+          <dd class="sf-gnota" lang="en">The Valsolda is divided: part borders on free Switzerland, part is Austrian. The Austrian police are there, the censorship too. Fogazzaro rarely shows them — but the air of the book is always heavy with them.</dd>
           <dt><b lang="it">bigotteria</b> &middot; <i lang="en">religious hypocrisy</i> <span>((sin. falsa devozione, ipocrisia religiosa))</span></dt>
           <dd lang="it">La religiosità ridotta a forma esteriore, fatta di gesti, di scandalo per le piccole cose e di indifferenza per la carità vera.</dd>
           <dd class="en" lang="en">Religion reduced to outward gestures, alert to small scandals, blind to real charity.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The marchesa and her friends are the very portrait of bigotry: they count the signs of the cross, and never see the hunger of their own kin. Fogazzaro, a Catholic himself, draws them severely.</dd>
+          <dd class="sf-gnota" lang="en">The marchesa and her friends are the very portrait of bigotry: they count the signs of the cross, and never see the hunger of their own kin. Fogazzaro, a Catholic himself, draws them severely.</dd>
         </dl>
         <p class="sf-gpie">The glossary contains 59 entries in all</p>
       </div>
@@ -637,22 +640,33 @@ footer.sito a{color:var(--nebbia)}
 <script>document.getElementById('anno').textContent=new Date().getFullYear();</script>
 <script src="/js/whatsapp.js" defer></script>
 <script>
-/* sfoglia — apertura della copertina quando la scheda entra nello schermo.
-   Solo animazione: ogni parola e' gia' nell'HTML, senza JS la copertina
-   resta semplicemente aperta. */
+/* sfoglia — la copertina si apre man mano che si scende e si richiude
+   risalendo. Solo animazione: ogni parola e' gia' nell'HTML; senza
+   JavaScript la copertina resta aperta e il libro si legge comunque. */
 (function(){
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if(innerWidth <= 900 || !window.IntersectionObserver) return;
-  document.querySelectorAll('.sfoglia').forEach(function(s){
-    s.classList.add('sf-chiusa');
-    new IntersectionObserver(function(v,o){
-      v.forEach(function(e){
-        if(!e.isIntersecting) return;
-        requestAnimationFrame(function(){ s.classList.remove('sf-chiusa'); });
-        o.unobserve(e.target);
-      });
-    },{threshold:0.35}).observe(s);
-  });
+  if(innerWidth <= 900) return;
+  var scene=[].slice.call(document.querySelectorAll('.sfoglia-scena'));
+  if(!scene.length) return;
+  function aggiorna(){
+    var vh=innerHeight;
+    scene.forEach(function(s){
+      var r=s.getBoundingClientRect();
+      /* 0 = scena appena entrata dal basso (libro chiuso)
+         1 = scena a meta' schermo (libro tutto aperto) */
+      var p=(vh - r.top) / (vh*.5 + r.height*.5);
+      p=Math.max(0, Math.min(1, p));
+      p=p*p*(3-2*p);                       /* partenza e arrivo morbidi */
+      s.style.setProperty('--sf-apri', p.toFixed(4));
+    });
+  }
+  var occupato=false;
+  addEventListener('scroll', function(){
+    if(occupato) return; occupato=true;
+    requestAnimationFrame(function(){ occupato=false; aggiorna(); });
+  }, {passive:true});
+  addEventListener('resize', aggiorna, {passive:true});
+  aggiorna();
 })();
 </script>
 

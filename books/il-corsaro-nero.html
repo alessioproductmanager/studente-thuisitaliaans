@@ -147,39 +147,41 @@ footer.sito a{color:var(--nebbia)}
 
 .sfoglia{
   container-type:inline-size;
-  --pag-w:min(420px, 36vw);
-  --pag-h:calc(var(--pag-w) * 1.6);
+  --pag-w:min(380px, 30vw);
+  --pag-h:calc(var(--pag-w) * 1.5);
   --scorcio:.108;                    /* 1 - larghezza proiettata a 32°: vedi margin-left */
   margin:34px 0 42px;
 }
 
 .sfoglia-scena{
-  display:flex; align-items:stretch; justify-content:center;
-  perspective:2600px; perspective-origin:56% 50%;
+  position:relative; display:flex; width:fit-content; max-width:100%;
+  margin-inline:auto;
+  perspective:2400px; perspective-origin:50% 46%;
 }
 
 .sfoglia-cop{
-  position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
-  align-self:stretch;                                   /* stessa altezza della pagina, sempre */
-  margin-left:calc(var(--pag-w) * var(--scorcio) * -1);  /* recupera lo spazio che la rotazione libera */
-  border-radius:4px 2px 2px 4px; overflow:hidden;
-  transform-origin:right center; backface-visibility:hidden;
-  box-shadow:0 22px 44px -16px rgba(20,24,38,.46), 0 2px 6px rgba(20,24,38,.18);
-  transform:rotateY(-20deg);
+  position:absolute; top:0; bottom:0; right:0; width:var(--pag-w);
+  z-index:2; transform-style:preserve-3d;
+  transform-origin:left center;
+  transform:rotateY(calc(var(--sf-apri, 1) * -178deg));
+  will-change:transform;
 }
-.sfoglia-cop img{display:block; width:100%; height:100%; object-fit:cover; object-position:center}
-.sfoglia-cop::after{content:""; position:absolute; inset:0; pointer-events:none;
-  background:linear-gradient(90deg, rgba(0,0,0,.20), rgba(0,0,0,0) 26%, rgba(255,255,255,.08))}
+.sf-fronte, .sf-retro{position:absolute; inset:0; backface-visibility:hidden;
+  border-radius:2px 5px 5px 2px; overflow:hidden}
+.sf-fronte{box-shadow:0 18px 40px -16px rgba(20,24,38,.45), 0 2px 6px rgba(20,24,38,.16)}
+.sf-fronte img, .sf-fronte picture{display:block; width:100%; height:100%}
+.sf-fronte img{object-fit:cover; object-position:center}
+.sf-retro{transform:rotateY(180deg);
+  background:linear-gradient(258deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
+  box-shadow:inset -14px 0 24px -16px rgba(92,72,42,.42), 0 18px 38px -18px rgba(20,24,38,.28)}
 
-@media (min-width:901px) and (prefers-reduced-motion:no-preference){
-  .sfoglia-cop{transition:transform 2.2s cubic-bezier(.16,.8,.24,1)}
-  .sfoglia.sf-chiusa .sfoglia-cop{transform:rotateY(-86deg)}
-}
+
 
 .sfoglia-foglio{
   position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
+  margin-left:var(--pag-w);
   min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 34);
+  font-size:calc(var(--pag-w) / 35.5);
   display:flex; flex-direction:column;
   padding:1.5em 1.75em 1.1em 2.1em;
   border-radius:2px 5px 5px 2px;
@@ -238,8 +240,8 @@ footer.sito a{color:var(--nebbia)}
    e non restano le due strisce di fondo ai lati. */
 .sf-gspread-box{container-type:inline-size}
 .sf-gspread{
-  --pag-w:min(420px, 36vw);
-  --pag-h:calc(var(--pag-w) * 1.6);
+  --pag-w:min(380px, 30vw);
+  --pag-h:calc(var(--pag-w) * 1.5);
   display:flex; align-items:stretch;
   width:fit-content; max-width:100%; margin:18px auto 0;
   border-radius:3px; overflow:hidden;
@@ -248,7 +250,7 @@ footer.sito a{color:var(--nebbia)}
 .sf-gpag{
 
   flex:0 0 var(--pag-w); width:var(--pag-w); min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 34);
+  font-size:calc(var(--pag-w) / 35.5);
   display:flex; flex-direction:column; padding:1.5em 1.75em 1.1em;
   background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
 }
@@ -275,14 +277,17 @@ footer.sito a{color:var(--nebbia)}
 
 /* ---- sotto i 900px: si impila, niente prospettiva ---- */
 @media (max-width:900px){
-  .sfoglia, .sf-gspread{--pag-w:320px}
+  .sfoglia, .sf-gspread{--pag-w:320px; --pag-h:calc(var(--pag-w) * 1.6)}
   @supports (width: 1cqw){
     .sfoglia, .sf-gspread{--pag-w:min(100cqw, 340px)}
   }
   .sfoglia-scena{flex-direction:column; align-items:center; perspective:none}
   .sfoglia-cop, .sfoglia-foglio, .sf-gpag{flex-basis:auto; width:var(--pag-w); max-width:100%}
-  .sfoglia-cop{margin:0 auto 16px; align-self:auto; height:var(--pag-h);
-    transform:none !important; animation:none; transition:none}
+  .sfoglia-foglio{margin-left:0}
+  .sfoglia-cop{position:static; margin:0 auto 16px; height:var(--pag-h);
+    transform:none !important; z-index:auto}
+  .sf-fronte{position:relative; inset:auto; height:100%}
+  .sf-retro{display:none}
   .sfoglia-foglio{border-radius:6px}
   .sfoglia-foglio::after{display:none}
   .sf-gspread{flex-direction:column; align-items:center; gap:12px;
@@ -291,7 +296,7 @@ footer.sito a{color:var(--nebbia)}
   .sf-2col{grid-template-columns:1fr; gap:0}
 }
 @media (prefers-reduced-motion:reduce){
-  .sfoglia-cop{animation:none; transform:rotateY(-20deg)}
+  .sfoglia-cop{transform:rotateY(-178deg) !important}
 }
 </style>
 <script type="application/ld+json">{
@@ -434,12 +439,10 @@ footer.sito a{color:var(--nebbia)}
               <section class="sezione sfoglia">
     <h2>Look inside: the first page</h2>
     <div class="sfoglia-scena">
-      <div class="sfoglia-cop">
-        <picture>
+      <div class="sfoglia-cop"><div class="sf-fronte"><picture>
           <source srcset="/assets/books/CorsaroNero_cover.webp" type="image/webp">
           <img src="/assets/books/CorsaroNero_cover.jpg" width="800" height="1280" alt="Cover of Il canotto nella notte" loading="lazy" decoding="async">
-        </picture>
-      </div>
+        </picture></div><div class="sf-retro"></div></div>
       <div class="sfoglia-foglio">
         <p class="sf-capnum">CAPITOLO 1</p>
         <img class="sf-vign" src="/assets/books/vignette/il-corsaro-nero.png" alt="Chapter vignette" width="148" height="148" loading="lazy" decoding="async">
@@ -456,6 +459,7 @@ footer.sito a{color:var(--nebbia)}
             <p class="sf-sep">&#9670;</p>
             <p>I due uomini si chiamavano Carmaux e Wan Stiller.</p>
             <p>Carmaux era francese. Era basso, forte, e aveva la barba nera.</p>
+            <p>Wan Stiller era tedesco, e parlava poco.</p>
         </div>
         <p class="sf-gloss"><span class="sf-kw">corsaro</span> = corsair &#183; <span class="sf-kw">bandiera</span> = flag</p>
         <div class="sf-note">
@@ -488,19 +492,19 @@ footer.sito a{color:var(--nebbia)}
           <dt><b lang="it">abbordare</b> &middot; <i lang="en">to board</i> <span>((sin. assalire, arrembare))</span></dt>
           <dd lang="it">Attaccare un&#x27;altra nave in mare, saltandoci sopra.</dd>
           <dd class="en" lang="en">To attack another ship at sea by jumping onto it.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: This is Salgari at his most Salgarian: the hulls touch, men leap across with cutlasses in their teeth, and the fight is won on the deck. The Corsair boards a Spanish ship — and finds Honorata aboard.</dd>
+          <dd class="sf-gnota" lang="en">This is Salgari at his most Salgarian: the hulls touch, men leap across with cutlasses in their teeth, and the fight is won on the deck. The Corsair boards a Spanish ship — and finds Honorata aboard.</dd>
           <dt><b lang="it">bandiera</b> &middot; <i lang="en">flag</i> <span>((sin. insegna, vessillo))</span></dt>
           <dd lang="it">Il telo colorato che dice a quale paese appartiene una nave.</dd>
           <dd class="en" lang="en">The coloured cloth that shows which country a ship belongs to.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The Folgore flies a black flag. To the Spanish it means: now be afraid. But black, for the Corsair, is not a trick of war — it is mourning, for three brothers.</dd>
+          <dd class="sf-gnota" lang="en">The Folgore flies a black flag. To the Spanish it means: now be afraid. But black, for the Corsair, is not a trick of war — it is mourning, for three brothers.</dd>
           <dt><b lang="it">cadavere</b> &middot; <i lang="en">corpse</i> <span>((sin. salma, corpo))</span></dt>
           <dd lang="it">Il corpo di una persona morta.</dd>
           <dd class="en" lang="en">The body of a dead person.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: At night the Corsair steals his brother&#x27;s body from the square and carries it out to sea for burial. Over that body he swears his oath. The entire novel is born from a dead man carried away in the dark.</dd>
+          <dd class="sf-gnota" lang="en">At night the Corsair steals his brother&#x27;s body from the square and carries it out to sea for burial. Over that body he swears his oath. The entire novel is born from a dead man carried away in the dark.</dd>
           <dt><b lang="it">cannone</b> &middot; <i lang="en">cannon</i> <span>((sin. bocca da fuoco, artiglieria))</span></dt>
           <dd lang="it">Grande arma di ferro che spara palle pesantissime.</dd>
           <dd class="en" lang="en">A large iron weapon that fires heavy balls.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Cannon open and close every battle in the book. Salgari always counts them for you — forty, sixty — because the reader has to know who is stronger, and hope anyway.</dd>
+          <dd class="sf-gnota" lang="en">Cannon open and close every battle in the book. Salgari always counts them for you — forty, sixty — because the reader has to know who is stronger, and hope anyway.</dd>
         </dl>
       </div>
       <div class="sf-gpag">
@@ -508,19 +512,19 @@ footer.sito a{color:var(--nebbia)}
           <dt><b lang="it">corsaro</b> &middot; <i lang="en">corsair</i> <span>((sin. filibustiere, pirata))</span></dt>
           <dd lang="it">Marinaio che attacca le navi dei paesi nemici, con il permesso del suo re.</dd>
           <dd class="en" lang="en">A sailor who attacks enemy ships, with his king&#x27;s permission.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The Black Corsair is no common sea-thief: he is a nobleman who took to the sea in order to have his revenge. A corsair obeys a law; a pirate does not. That distinction matters enormously to him.</dd>
+          <dd class="sf-gnota" lang="en">The Black Corsair is no common sea-thief: he is a nobleman who took to the sea in order to have his revenge. A corsair obeys a law; a pirate does not. That distinction matters enormously to him.</dd>
           <dt><b lang="it">crudele</b> &middot; <i lang="en">cruel</i> <span>((sin. spietato, feroce))</span></dt>
           <dd lang="it">Chi fa soffrire gli altri e non prova pietà.</dd>
           <dd class="en" lang="en">Someone who makes others suffer and feels no pity.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The Olonnais is cruel and nothing else. Wan Guld is cruel by calculation. The Corsair, on the last page, does the cruellest thing of all — and does it weeping. Salgari shows us three quite different ways of being cruel.</dd>
+          <dd class="sf-gnota" lang="en">The Olonnais is cruel and nothing else. Wan Guld is cruel by calculation. The Corsair, on the last page, does the cruellest thing of all — and does it weeping. Salgari shows us three quite different ways of being cruel.</dd>
           <dt><b lang="it">destino</b> &middot; <i lang="en">fate</i> <span>((sin. sorte, fato))</span></dt>
           <dd lang="it">Quello che deve succedere, e che nessuno può cambiare.</dd>
           <dd class="en" lang="en">The mysterious force that some believe decides a life in advance.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: A gypsy woman told the Corsair he would die at sea, at the hands of the woman he loved. He doesn&#x27;t believe her, and does everything in his power to avoid it. And in doing everything to avoid it, he brings it about.</dd>
+          <dd class="sf-gnota" lang="en">A gypsy woman told the Corsair he would die at sea, at the hands of the woman he loved. He doesn&#x27;t believe her, and does everything in his power to avoid it. And in doing everything to avoid it, he brings it about.</dd>
           <dt><b lang="it">equipaggio</b> &middot; <i lang="en">crew</i> <span>((sin. ciurma, marinai))</span></dt>
           <dd lang="it">Tutti gli uomini che lavorano su una nave.</dd>
           <dd class="en" lang="en">All the men who work on a ship.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The hundred and twenty men of the Folgore fear their captain, and they love him. On the last page they disobey him with their eyes — and obey him with their hands. That is their damnation.</dd>
+          <dd class="sf-gnota" lang="en">The hundred and twenty men of the Folgore fear their captain, and they love him. On the last page they disobey him with their eyes — and obey him with their hands. That is their damnation.</dd>
         </dl>
         <p class="sf-gpie">The glossary contains 39 entries in all</p>
       </div>
@@ -650,22 +654,33 @@ footer.sito a{color:var(--nebbia)}
 <script>document.getElementById('anno').textContent=new Date().getFullYear();</script>
 <script src="/js/whatsapp.js" defer></script>
 <script>
-/* sfoglia — apertura della copertina quando la scheda entra nello schermo.
-   Solo animazione: ogni parola e' gia' nell'HTML, senza JS la copertina
-   resta semplicemente aperta. */
+/* sfoglia — la copertina si apre man mano che si scende e si richiude
+   risalendo. Solo animazione: ogni parola e' gia' nell'HTML; senza
+   JavaScript la copertina resta aperta e il libro si legge comunque. */
 (function(){
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if(innerWidth <= 900 || !window.IntersectionObserver) return;
-  document.querySelectorAll('.sfoglia').forEach(function(s){
-    s.classList.add('sf-chiusa');
-    new IntersectionObserver(function(v,o){
-      v.forEach(function(e){
-        if(!e.isIntersecting) return;
-        requestAnimationFrame(function(){ s.classList.remove('sf-chiusa'); });
-        o.unobserve(e.target);
-      });
-    },{threshold:0.35}).observe(s);
-  });
+  if(innerWidth <= 900) return;
+  var scene=[].slice.call(document.querySelectorAll('.sfoglia-scena'));
+  if(!scene.length) return;
+  function aggiorna(){
+    var vh=innerHeight;
+    scene.forEach(function(s){
+      var r=s.getBoundingClientRect();
+      /* 0 = scena appena entrata dal basso (libro chiuso)
+         1 = scena a meta' schermo (libro tutto aperto) */
+      var p=(vh - r.top) / (vh*.5 + r.height*.5);
+      p=Math.max(0, Math.min(1, p));
+      p=p*p*(3-2*p);                       /* partenza e arrivo morbidi */
+      s.style.setProperty('--sf-apri', p.toFixed(4));
+    });
+  }
+  var occupato=false;
+  addEventListener('scroll', function(){
+    if(occupato) return; occupato=true;
+    requestAnimationFrame(function(){ occupato=false; aggiorna(); });
+  }, {passive:true});
+  addEventListener('resize', aggiorna, {passive:true});
+  aggiorna();
 })();
 </script>
 

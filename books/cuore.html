@@ -147,39 +147,41 @@ footer.sito a{color:var(--nebbia)}
 
 .sfoglia{
   container-type:inline-size;
-  --pag-w:min(420px, 36vw);
-  --pag-h:calc(var(--pag-w) * 1.6);
+  --pag-w:min(380px, 30vw);
+  --pag-h:calc(var(--pag-w) * 1.5);
   --scorcio:.108;                    /* 1 - larghezza proiettata a 32°: vedi margin-left */
   margin:34px 0 42px;
 }
 
 .sfoglia-scena{
-  display:flex; align-items:stretch; justify-content:center;
-  perspective:2600px; perspective-origin:56% 50%;
+  position:relative; display:flex; width:fit-content; max-width:100%;
+  margin-inline:auto;
+  perspective:2400px; perspective-origin:50% 46%;
 }
 
 .sfoglia-cop{
-  position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
-  align-self:stretch;                                   /* stessa altezza della pagina, sempre */
-  margin-left:calc(var(--pag-w) * var(--scorcio) * -1);  /* recupera lo spazio che la rotazione libera */
-  border-radius:4px 2px 2px 4px; overflow:hidden;
-  transform-origin:right center; backface-visibility:hidden;
-  box-shadow:0 22px 44px -16px rgba(20,24,38,.46), 0 2px 6px rgba(20,24,38,.18);
-  transform:rotateY(-20deg);
+  position:absolute; top:0; bottom:0; right:0; width:var(--pag-w);
+  z-index:2; transform-style:preserve-3d;
+  transform-origin:left center;
+  transform:rotateY(calc(var(--sf-apri, 1) * -178deg));
+  will-change:transform;
 }
-.sfoglia-cop img{display:block; width:100%; height:100%; object-fit:cover; object-position:center}
-.sfoglia-cop::after{content:""; position:absolute; inset:0; pointer-events:none;
-  background:linear-gradient(90deg, rgba(0,0,0,.20), rgba(0,0,0,0) 26%, rgba(255,255,255,.08))}
+.sf-fronte, .sf-retro{position:absolute; inset:0; backface-visibility:hidden;
+  border-radius:2px 5px 5px 2px; overflow:hidden}
+.sf-fronte{box-shadow:0 18px 40px -16px rgba(20,24,38,.45), 0 2px 6px rgba(20,24,38,.16)}
+.sf-fronte img, .sf-fronte picture{display:block; width:100%; height:100%}
+.sf-fronte img{object-fit:cover; object-position:center}
+.sf-retro{transform:rotateY(180deg);
+  background:linear-gradient(258deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
+  box-shadow:inset -14px 0 24px -16px rgba(92,72,42,.42), 0 18px 38px -18px rgba(20,24,38,.28)}
 
-@media (min-width:901px) and (prefers-reduced-motion:no-preference){
-  .sfoglia-cop{transition:transform 2.2s cubic-bezier(.16,.8,.24,1)}
-  .sfoglia.sf-chiusa .sfoglia-cop{transform:rotateY(-86deg)}
-}
+
 
 .sfoglia-foglio{
   position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
+  margin-left:var(--pag-w);
   min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 34);
+  font-size:calc(var(--pag-w) / 35.5);
   display:flex; flex-direction:column;
   padding:1.5em 1.75em 1.1em 2.1em;
   border-radius:2px 5px 5px 2px;
@@ -238,8 +240,8 @@ footer.sito a{color:var(--nebbia)}
    e non restano le due strisce di fondo ai lati. */
 .sf-gspread-box{container-type:inline-size}
 .sf-gspread{
-  --pag-w:min(420px, 36vw);
-  --pag-h:calc(var(--pag-w) * 1.6);
+  --pag-w:min(380px, 30vw);
+  --pag-h:calc(var(--pag-w) * 1.5);
   display:flex; align-items:stretch;
   width:fit-content; max-width:100%; margin:18px auto 0;
   border-radius:3px; overflow:hidden;
@@ -248,7 +250,7 @@ footer.sito a{color:var(--nebbia)}
 .sf-gpag{
 
   flex:0 0 var(--pag-w); width:var(--pag-w); min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 34);
+  font-size:calc(var(--pag-w) / 35.5);
   display:flex; flex-direction:column; padding:1.5em 1.75em 1.1em;
   background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
 }
@@ -275,14 +277,17 @@ footer.sito a{color:var(--nebbia)}
 
 /* ---- sotto i 900px: si impila, niente prospettiva ---- */
 @media (max-width:900px){
-  .sfoglia, .sf-gspread{--pag-w:320px}
+  .sfoglia, .sf-gspread{--pag-w:320px; --pag-h:calc(var(--pag-w) * 1.6)}
   @supports (width: 1cqw){
     .sfoglia, .sf-gspread{--pag-w:min(100cqw, 340px)}
   }
   .sfoglia-scena{flex-direction:column; align-items:center; perspective:none}
   .sfoglia-cop, .sfoglia-foglio, .sf-gpag{flex-basis:auto; width:var(--pag-w); max-width:100%}
-  .sfoglia-cop{margin:0 auto 16px; align-self:auto; height:var(--pag-h);
-    transform:none !important; animation:none; transition:none}
+  .sfoglia-foglio{margin-left:0}
+  .sfoglia-cop{position:static; margin:0 auto 16px; height:var(--pag-h);
+    transform:none !important; z-index:auto}
+  .sf-fronte{position:relative; inset:auto; height:100%}
+  .sf-retro{display:none}
   .sfoglia-foglio{border-radius:6px}
   .sfoglia-foglio::after{display:none}
   .sf-gspread{flex-direction:column; align-items:center; gap:12px;
@@ -291,7 +296,7 @@ footer.sito a{color:var(--nebbia)}
   .sf-2col{grid-template-columns:1fr; gap:0}
 }
 @media (prefers-reduced-motion:reduce){
-  .sfoglia-cop{animation:none; transform:rotateY(-20deg)}
+  .sfoglia-cop{transform:rotateY(-178deg) !important}
 }
 </style>
 <script type="application/ld+json">{
@@ -434,12 +439,10 @@ footer.sito a{color:var(--nebbia)}
               <section class="sezione sfoglia">
     <h2>Look inside: the first page</h2>
     <div class="sfoglia-scena">
-      <div class="sfoglia-cop">
-        <picture>
+      <div class="sfoglia-cop"><div class="sf-fronte"><picture>
           <source srcset="/assets/books/Cuore_cover.webp" type="image/webp">
           <img src="/assets/books/Cuore_cover.jpg" width="800" height="1280" alt="Cover of Il primo giorno di scuola" loading="lazy" decoding="async">
-        </picture>
-      </div>
+        </picture></div><div class="sf-retro"></div></div>
       <div class="sfoglia-foglio">
         <p class="sf-capnum">CAPITOLO 1</p>
         <img class="sf-vign" src="/assets/books/vignette/cuore.png" alt="Chapter vignette" width="148" height="148" loading="lazy" decoding="async">
@@ -488,35 +491,39 @@ footer.sito a{color:var(--nebbia)}
           <dt><b lang="it">addio</b> &middot; <i lang="en">farewell</i> <span>((sin. saluto, commiato))</span></dt>
           <dd lang="it">La parola che si dice quando si va via per sempre.</dd>
           <dd class="en" lang="en">The word you say when you leave for ever.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Cuore ends with a goodbye, not a celebration. School closes, the boys scatter, the master is left alone. De Amicis refuses to hand you a happy ending: he says that good things end, and that it hurts. Nobody had ever dared say that to children before.</dd>
+          <dd class="sf-gnota" lang="en">Cuore ends with a goodbye, not a celebration. School closes, the boys scatter, the master is left alone. De Amicis refuses to hand you a happy ending: he says that good things end, and that it hurts. Nobody had ever dared say that to children before.</dd>
           <dt><b lang="it">aiutare</b> &middot; <i lang="en">to help</i> <span>((sin. soccorrere, dare una mano))</span></dt>
           <dd lang="it">Fare qualcosa per una persona che ha bisogno.</dd>
           <dd class="en" lang="en">To do something for a person who needs it.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: This is the verb of the book. Not «love», not «understand»: HELP. Nobody in Cuore makes speeches about feelings — they hand over their bread, lend their notebook, drag a child out from under a cart. Goodness here is something you do with your hands.</dd>
+          <dd class="sf-gnota" lang="en">This is the verb of the book. Not «love», not «understand»: HELP. Nobody in Cuore makes speeches about feelings — they hand over their bread, lend their notebook, drag a child out from under a cart. Goodness here is something you do with your hands.</dd>
           <dt><b lang="it">bugiardo</b> &middot; <i lang="en">liar</i> <span>((sin. falso, menzognero))</span></dt>
           <dd lang="it">Chi dice le bugie.</dd>
           <dd class="en" lang="en">Someone who tells lies.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The children in this book lie often — and almost always to protect somebody. Giulio lies to his father for a whole year, and does it out of love. De Amicis doesn&#x27;t condemn that lie: he tells it, and makes us weep.</dd>
+          <dd class="sf-gnota" lang="en">The children in this book lie often — and almost always to protect somebody. Giulio lies to his father for a whole year, and does it out of love. De Amicis doesn&#x27;t condemn that lie: he tells it, and makes us weep.</dd>
+          <dt><b lang="it">castigo</b> &middot; <i lang="en">punishment</i> <span>((sin. punizione, pena))</span></dt>
+          <dd lang="it">La punizione che si dà a chi ha fatto una cosa sbagliata.</dd>
+          <dd class="en" lang="en">What is given to someone who has done wrong.</dd>
+          <dd class="sf-gnota" lang="en">Punishment almost never arrives. The schoolmaster could punish and doesn&#x27;t; the injured old man could have Garoffi arrested and forgives him instead. Chapter after chapter, De Amicis says the same thing: trust achieves more than punishment ever will.</dd>
         </dl>
       </div>
       <div class="sf-gpag">
         <dl>
-          <dt><b lang="it">castigo</b> &middot; <i lang="en">punishment</i> <span>((sin. punizione, pena))</span></dt>
-          <dd lang="it">La punizione che si dà a chi ha fatto una cosa sbagliata.</dd>
-          <dd class="en" lang="en">What is given to someone who has done wrong.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Punishment almost never arrives. The schoolmaster could punish and doesn&#x27;t; the injured old man could have Garoffi arrested and forgives him instead. Chapter after chapter, De Amicis says the same thing: trust achieves more than punishment ever will.</dd>
           <dt><b lang="it">cattivo</b> &middot; <i lang="en">bad, wicked</i> <span>((sin. malvagio, crudele))</span></dt>
           <dd lang="it">Chi fa del male agli altri, e lo fa apposta.</dd>
           <dd class="en" lang="en">Someone who hurts others, and does it on purpose.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: There is exactly one villain in this book: Franti. And De Amicis does something almost nobody does — he doesn&#x27;t forgive him, doesn&#x27;t explain him, doesn&#x27;t redeem him at the end. Franti is bad on the last page too, and his story ends badly.</dd>
+          <dd class="sf-gnota" lang="en">There is exactly one villain in this book: Franti. And De Amicis does something almost nobody does — he doesn&#x27;t forgive him, doesn&#x27;t explain him, doesn&#x27;t redeem him at the end. Franti is bad on the last page too, and his story ends badly.</dd>
           <dt><b lang="it">classe</b> &middot; <i lang="en">class, classroom</i> <span>((sin. aula, scolaresca))</span></dt>
           <dd lang="it">La stanza dove i bambini studiano, e i bambini che stanno dentro.</dd>
           <dd class="en" lang="en">The room where children study, and the children in it.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: In this book the class isn&#x27;t a room, it&#x27;s a small city. There are rich boys and poor boys, strong and weak, the good ones and Franti. The whole of Italy fits inside four walls — and De Amicis did that on purpose.</dd>
+          <dd class="sf-gnota" lang="en">In this book the class isn&#x27;t a room, it&#x27;s a small city. There are rich boys and poor boys, strong and weak, the good ones and Franti. The whole of Italy fits inside four walls — and De Amicis did that on purpose.</dd>
           <dt><b lang="it">compagno</b> &middot; <i lang="en">classmate, companion</i> <span>((sin. amico, collega))</span></dt>
           <dd lang="it">Il bambino che sta in classe con te.</dd>
           <dd class="en" lang="en">The child who is in your class.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The most important word in the book. In Italian it means two things at once: the person beside you, and the person on your side. Enrico&#x27;s classmates aren&#x27;t friends — they simply landed in the same room. The novel is about how you become friends anyway.</dd>
+          <dd class="sf-gnota" lang="en">The most important word in the book. In Italian it means two things at once: the person beside you, and the person on your side. Enrico&#x27;s classmates aren&#x27;t friends — they simply landed in the same room. The novel is about how you become friends anyway.</dd>
+          <dt><b lang="it">coraggio</b> &middot; <i lang="en">courage</i> <span>((sin. forza d&#x27;animo, ardire))</span></dt>
+          <dd lang="it">Il non avere paura di fare una cosa difficile o pericolosa.</dd>
+          <dd class="en" lang="en">Not being afraid to do something hard or dangerous.</dd>
+          <dd class="sf-gnota" lang="en">Courage in this book doesn&#x27;t belong to soldiers, it belongs to children. A boy climbs a tree while men shoot at him. Another crosses the ocean alone. De Amicis says something uncomfortable — that real courage costs, and that sometimes the brave don&#x27;t come home.</dd>
         </dl>
         <p class="sf-gpie">The glossary contains 22 entries in all</p>
       </div>
@@ -646,22 +653,33 @@ footer.sito a{color:var(--nebbia)}
 <script>document.getElementById('anno').textContent=new Date().getFullYear();</script>
 <script src="/js/whatsapp.js" defer></script>
 <script>
-/* sfoglia — apertura della copertina quando la scheda entra nello schermo.
-   Solo animazione: ogni parola e' gia' nell'HTML, senza JS la copertina
-   resta semplicemente aperta. */
+/* sfoglia — la copertina si apre man mano che si scende e si richiude
+   risalendo. Solo animazione: ogni parola e' gia' nell'HTML; senza
+   JavaScript la copertina resta aperta e il libro si legge comunque. */
 (function(){
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if(innerWidth <= 900 || !window.IntersectionObserver) return;
-  document.querySelectorAll('.sfoglia').forEach(function(s){
-    s.classList.add('sf-chiusa');
-    new IntersectionObserver(function(v,o){
-      v.forEach(function(e){
-        if(!e.isIntersecting) return;
-        requestAnimationFrame(function(){ s.classList.remove('sf-chiusa'); });
-        o.unobserve(e.target);
-      });
-    },{threshold:0.35}).observe(s);
-  });
+  if(innerWidth <= 900) return;
+  var scene=[].slice.call(document.querySelectorAll('.sfoglia-scena'));
+  if(!scene.length) return;
+  function aggiorna(){
+    var vh=innerHeight;
+    scene.forEach(function(s){
+      var r=s.getBoundingClientRect();
+      /* 0 = scena appena entrata dal basso (libro chiuso)
+         1 = scena a meta' schermo (libro tutto aperto) */
+      var p=(vh - r.top) / (vh*.5 + r.height*.5);
+      p=Math.max(0, Math.min(1, p));
+      p=p*p*(3-2*p);                       /* partenza e arrivo morbidi */
+      s.style.setProperty('--sf-apri', p.toFixed(4));
+    });
+  }
+  var occupato=false;
+  addEventListener('scroll', function(){
+    if(occupato) return; occupato=true;
+    requestAnimationFrame(function(){ occupato=false; aggiorna(); });
+  }, {passive:true});
+  addEventListener('resize', aggiorna, {passive:true});
+  aggiorna();
 })();
 </script>
 

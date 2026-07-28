@@ -147,39 +147,41 @@ footer.sito a{color:var(--nebbia)}
 
 .sfoglia{
   container-type:inline-size;
-  --pag-w:min(420px, 36vw);
-  --pag-h:calc(var(--pag-w) * 1.6);
+  --pag-w:min(380px, 30vw);
+  --pag-h:calc(var(--pag-w) * 1.5);
   --scorcio:.108;                    /* 1 - larghezza proiettata a 32°: vedi margin-left */
   margin:34px 0 42px;
 }
 
 .sfoglia-scena{
-  display:flex; align-items:stretch; justify-content:center;
-  perspective:2600px; perspective-origin:56% 50%;
+  position:relative; display:flex; width:fit-content; max-width:100%;
+  margin-inline:auto;
+  perspective:2400px; perspective-origin:50% 46%;
 }
 
 .sfoglia-cop{
-  position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
-  align-self:stretch;                                   /* stessa altezza della pagina, sempre */
-  margin-left:calc(var(--pag-w) * var(--scorcio) * -1);  /* recupera lo spazio che la rotazione libera */
-  border-radius:4px 2px 2px 4px; overflow:hidden;
-  transform-origin:right center; backface-visibility:hidden;
-  box-shadow:0 22px 44px -16px rgba(20,24,38,.46), 0 2px 6px rgba(20,24,38,.18);
-  transform:rotateY(-20deg);
+  position:absolute; top:0; bottom:0; right:0; width:var(--pag-w);
+  z-index:2; transform-style:preserve-3d;
+  transform-origin:left center;
+  transform:rotateY(calc(var(--sf-apri, 1) * -178deg));
+  will-change:transform;
 }
-.sfoglia-cop img{display:block; width:100%; height:100%; object-fit:cover; object-position:center}
-.sfoglia-cop::after{content:""; position:absolute; inset:0; pointer-events:none;
-  background:linear-gradient(90deg, rgba(0,0,0,.20), rgba(0,0,0,0) 26%, rgba(255,255,255,.08))}
+.sf-fronte, .sf-retro{position:absolute; inset:0; backface-visibility:hidden;
+  border-radius:2px 5px 5px 2px; overflow:hidden}
+.sf-fronte{box-shadow:0 18px 40px -16px rgba(20,24,38,.45), 0 2px 6px rgba(20,24,38,.16)}
+.sf-fronte img, .sf-fronte picture{display:block; width:100%; height:100%}
+.sf-fronte img{object-fit:cover; object-position:center}
+.sf-retro{transform:rotateY(180deg);
+  background:linear-gradient(258deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
+  box-shadow:inset -14px 0 24px -16px rgba(92,72,42,.42), 0 18px 38px -18px rgba(20,24,38,.28)}
 
-@media (min-width:901px) and (prefers-reduced-motion:no-preference){
-  .sfoglia-cop{transition:transform 2.2s cubic-bezier(.16,.8,.24,1)}
-  .sfoglia.sf-chiusa .sfoglia-cop{transform:rotateY(-86deg)}
-}
+
 
 .sfoglia-foglio{
   position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
+  margin-left:var(--pag-w);
   min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 34);
+  font-size:calc(var(--pag-w) / 35.5);
   display:flex; flex-direction:column;
   padding:1.5em 1.75em 1.1em 2.1em;
   border-radius:2px 5px 5px 2px;
@@ -238,8 +240,8 @@ footer.sito a{color:var(--nebbia)}
    e non restano le due strisce di fondo ai lati. */
 .sf-gspread-box{container-type:inline-size}
 .sf-gspread{
-  --pag-w:min(420px, 36vw);
-  --pag-h:calc(var(--pag-w) * 1.6);
+  --pag-w:min(380px, 30vw);
+  --pag-h:calc(var(--pag-w) * 1.5);
   display:flex; align-items:stretch;
   width:fit-content; max-width:100%; margin:18px auto 0;
   border-radius:3px; overflow:hidden;
@@ -248,7 +250,7 @@ footer.sito a{color:var(--nebbia)}
 .sf-gpag{
 
   flex:0 0 var(--pag-w); width:var(--pag-w); min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 34);
+  font-size:calc(var(--pag-w) / 35.5);
   display:flex; flex-direction:column; padding:1.5em 1.75em 1.1em;
   background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
 }
@@ -275,14 +277,17 @@ footer.sito a{color:var(--nebbia)}
 
 /* ---- sotto i 900px: si impila, niente prospettiva ---- */
 @media (max-width:900px){
-  .sfoglia, .sf-gspread{--pag-w:320px}
+  .sfoglia, .sf-gspread{--pag-w:320px; --pag-h:calc(var(--pag-w) * 1.6)}
   @supports (width: 1cqw){
     .sfoglia, .sf-gspread{--pag-w:min(100cqw, 340px)}
   }
   .sfoglia-scena{flex-direction:column; align-items:center; perspective:none}
   .sfoglia-cop, .sfoglia-foglio, .sf-gpag{flex-basis:auto; width:var(--pag-w); max-width:100%}
-  .sfoglia-cop{margin:0 auto 16px; align-self:auto; height:var(--pag-h);
-    transform:none !important; animation:none; transition:none}
+  .sfoglia-foglio{margin-left:0}
+  .sfoglia-cop{position:static; margin:0 auto 16px; height:var(--pag-h);
+    transform:none !important; z-index:auto}
+  .sf-fronte{position:relative; inset:auto; height:100%}
+  .sf-retro{display:none}
   .sfoglia-foglio{border-radius:6px}
   .sfoglia-foglio::after{display:none}
   .sf-gspread{flex-direction:column; align-items:center; gap:12px;
@@ -291,7 +296,7 @@ footer.sito a{color:var(--nebbia)}
   .sf-2col{grid-template-columns:1fr; gap:0}
 }
 @media (prefers-reduced-motion:reduce){
-  .sfoglia-cop{animation:none; transform:rotateY(-20deg)}
+  .sfoglia-cop{transform:rotateY(-178deg) !important}
 }
 </style>
 <script type="application/ld+json">{
@@ -434,12 +439,10 @@ footer.sito a{color:var(--nebbia)}
               <section class="sezione sfoglia">
     <h2>Sfoglia dentro: la prima pagina</h2>
     <div class="sfoglia-scena">
-      <div class="sfoglia-cop">
-        <picture>
+      <div class="sfoglia-cop"><div class="sf-fronte"><picture>
           <source srcset="/assets/books/DemetrioPianelli_cover.webp" type="image/webp">
           <img src="/assets/books/DemetrioPianelli_cover.jpg" width="800" height="1280" alt="Copertina di L’ufficio delle poste" loading="lazy" decoding="async">
-        </picture>
-      </div>
+        </picture></div><div class="sf-retro"></div></div>
       <div class="sfoglia-foglio">
         <p class="sf-capnum">CAPITOLO 1</p>
         <img class="sf-vign" src="/assets/books/vignette/demetrio-pianelli.png" alt="Vignetta del capitolo" width="148" height="148" loading="lazy" decoding="async">
@@ -484,19 +487,19 @@ footer.sito a{color:var(--nebbia)}
           <dt><b lang="it">affetto</b> &middot; <i lang="en">affection</i> <span>((sin. tenerezza, attaccamento))</span></dt>
           <dd lang="it">Un sentimento di amore calmo e sicuro, non passionale.</dd>
           <dd class="en" lang="en">A calm, steady love, not passionate.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Demetrio&#x27;s affection for Arabella is the purest thing in the novel. It asks for nothing, demands nothing, pretends nothing. It is the way of loving of a man who cannot say «I love you».</dd>
+          <dd class="sf-gnota" lang="en">Demetrio&#x27;s affection for Arabella is the purest thing in the novel. It asks for nothing, demands nothing, pretends nothing. It is the way of loving of a man who cannot say «I love you».</dd>
           <dt><b lang="it">cambiale</b> &middot; <i lang="en">promissory note</i> <span>((sin. pagherò, titolo di credito))</span></dt>
           <dd lang="it">Un pezzo di carta con cui si promette di pagare una somma a una data futura.</dd>
           <dd class="en" lang="en">A paper promising to pay a sum at a future date.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Cesarino signed promissory notes everywhere to pay for his suits and his parties. After his death, every note that comes back is a fresh wound for Demetrio.</dd>
+          <dd class="sf-gnota" lang="en">Cesarino signed promissory notes everywhere to pay for his suits and his parties. After his death, every note that comes back is a fresh wound for Demetrio.</dd>
           <dt><b lang="it">cassiere</b> &middot; <i lang="en">cashier</i> <span>((sin. contabile, tesoriere))</span></dt>
           <dd lang="it">L&#x27;impiegato che tiene i conti e i soldi di un ufficio.</dd>
           <dd class="en" lang="en">The clerk who keeps the accounts and cash of an office.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Cesarino is the assistant cashier at the post office. His hands are on the cash every day — and this closeness to other people&#x27;s money, for a weak man like him, is dangerous.</dd>
+          <dd class="sf-gnota" lang="en">Cesarino is the assistant cashier at the post office. His hands are on the cash every day — and this closeness to other people&#x27;s money, for a weak man like him, is dangerous.</dd>
           <dt><b lang="it">cognata</b> &middot; <i lang="en">sister-in-law</i> <span>((sin. parente acquisita, sposa del fratello))</span></dt>
           <dd lang="it">La moglie del proprio fratello, o la sorella del proprio marito.</dd>
           <dd class="en" lang="en">The wife of one&#x27;s brother, or the sister of one&#x27;s spouse.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Beatrice is Demetrio&#x27;s sister-in-law: his brother&#x27;s wife. In the civil code there is no blood relation. But Demetrio considers her a sister — and perhaps, without saying so, something more.</dd>
+          <dd class="sf-gnota" lang="en">Beatrice is Demetrio&#x27;s sister-in-law: his brother&#x27;s wife. In the civil code there is no blood relation. But Demetrio considers her a sister — and perhaps, without saying so, something more.</dd>
         </dl>
       </div>
       <div class="sf-gpag">
@@ -504,19 +507,19 @@ footer.sito a{color:var(--nebbia)}
           <dt><b lang="it">coscienza</b> &middot; <i lang="en">conscience</i> <span>((sin. morale, senso del bene e del male))</span></dt>
           <dd lang="it">La voce dentro di noi che ci dice se abbiamo fatto bene o male.</dd>
           <dd class="en" lang="en">The inner voice that tells us if we have done right or wrong.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Demetrio&#x27;s conscience does not leave him alone for a single day. It is she who makes him pay his brother&#x27;s debts, who makes him give up love, who makes him say yes to the transfer. She is his only mistress.</dd>
+          <dd class="sf-gnota" lang="en">Demetrio&#x27;s conscience does not leave him alone for a single day. It is she who makes him pay his brother&#x27;s debts, who makes him give up love, who makes him say yes to the transfer. She is his only mistress.</dd>
           <dt><b lang="it">creditore</b> &middot; <i lang="en">creditor</i> <span>((sin. prestatore, richiedente))</span></dt>
           <dd lang="it">Chi ha prestato dei soldi e aspetta di riaverli indietro.</dd>
           <dd class="en" lang="en">Someone who has lent money and waits to get it back.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: After Cesarino&#x27;s death the creditors come to Beatrice&#x27;s door one after another. By law she owes them nothing. But Demetrio has decided otherwise, for the honour of the name Pianelli.</dd>
+          <dd class="sf-gnota" lang="en">After Cesarino&#x27;s death the creditors come to Beatrice&#x27;s door one after another. By law she owes them nothing. But Demetrio has decided otherwise, for the honour of the name Pianelli.</dd>
           <dt><b lang="it">debito</b> &middot; <i lang="en">debt</i> <span>((sin. passivo, obbligo))</span></dt>
           <dd lang="it">Il denaro che si deve restituire a qualcuno.</dd>
           <dd class="en" lang="en">Money one owes to someone else.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Cesarino dies leaving debts everywhere: with the tailor, at the café, with Pardi, among friends. Demetrio will decide to pay them all, one by one — not by law, but for the family&#x27;s honour.</dd>
+          <dd class="sf-gnota" lang="en">Cesarino dies leaving debts everywhere: with the tailor, at the café, with Pardi, among friends. Demetrio will decide to pay them all, one by one — not by law, but for the family&#x27;s honour.</dd>
           <dt><b lang="it">dignità</b> &middot; <i lang="en">dignity</i> <span>((sin. decoro, onore))</span></dt>
           <dd lang="it">Il valore che una persona sente di avere, e che non vuole perdere.</dd>
           <dd class="en" lang="en">The worth a person feels they have and refuses to lose.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Demetrio&#x27;s dignity lies entirely in the way he keeps quiet. He asks no favours, tells no one about his sacrifices, holds nothing over anyone. It is the silent dignity of small honest clerks.</dd>
+          <dd class="sf-gnota" lang="en">Demetrio&#x27;s dignity lies entirely in the way he keeps quiet. He asks no favours, tells no one about his sacrifices, holds nothing over anyone. It is the silent dignity of small honest clerks.</dd>
         </dl>
         <p class="sf-gpie">Il glossario contiene 41 voci in tutto</p>
       </div>
@@ -646,22 +649,33 @@ footer.sito a{color:var(--nebbia)}
 <script>document.getElementById('anno').textContent=new Date().getFullYear();</script>
 <script src="/js/whatsapp.js" defer></script>
 <script>
-/* sfoglia — apertura della copertina quando la scheda entra nello schermo.
-   Solo animazione: ogni parola e' gia' nell'HTML, senza JS la copertina
-   resta semplicemente aperta. */
+/* sfoglia — la copertina si apre man mano che si scende e si richiude
+   risalendo. Solo animazione: ogni parola e' gia' nell'HTML; senza
+   JavaScript la copertina resta aperta e il libro si legge comunque. */
 (function(){
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if(innerWidth <= 900 || !window.IntersectionObserver) return;
-  document.querySelectorAll('.sfoglia').forEach(function(s){
-    s.classList.add('sf-chiusa');
-    new IntersectionObserver(function(v,o){
-      v.forEach(function(e){
-        if(!e.isIntersecting) return;
-        requestAnimationFrame(function(){ s.classList.remove('sf-chiusa'); });
-        o.unobserve(e.target);
-      });
-    },{threshold:0.35}).observe(s);
-  });
+  if(innerWidth <= 900) return;
+  var scene=[].slice.call(document.querySelectorAll('.sfoglia-scena'));
+  if(!scene.length) return;
+  function aggiorna(){
+    var vh=innerHeight;
+    scene.forEach(function(s){
+      var r=s.getBoundingClientRect();
+      /* 0 = scena appena entrata dal basso (libro chiuso)
+         1 = scena a meta' schermo (libro tutto aperto) */
+      var p=(vh - r.top) / (vh*.5 + r.height*.5);
+      p=Math.max(0, Math.min(1, p));
+      p=p*p*(3-2*p);                       /* partenza e arrivo morbidi */
+      s.style.setProperty('--sf-apri', p.toFixed(4));
+    });
+  }
+  var occupato=false;
+  addEventListener('scroll', function(){
+    if(occupato) return; occupato=true;
+    requestAnimationFrame(function(){ occupato=false; aggiorna(); });
+  }, {passive:true});
+  addEventListener('resize', aggiorna, {passive:true});
+  aggiorna();
 })();
 </script>
 

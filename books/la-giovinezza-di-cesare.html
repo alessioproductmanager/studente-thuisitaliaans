@@ -147,39 +147,41 @@ footer.sito a{color:var(--nebbia)}
 
 .sfoglia{
   container-type:inline-size;
-  --pag-w:min(420px, 36vw);
-  --pag-h:calc(var(--pag-w) * 1.6);
+  --pag-w:min(380px, 30vw);
+  --pag-h:calc(var(--pag-w) * 1.5);
   --scorcio:.108;                    /* 1 - larghezza proiettata a 32°: vedi margin-left */
   margin:34px 0 42px;
 }
 
 .sfoglia-scena{
-  display:flex; align-items:stretch; justify-content:center;
-  perspective:2600px; perspective-origin:56% 50%;
+  position:relative; display:flex; width:fit-content; max-width:100%;
+  margin-inline:auto;
+  perspective:2400px; perspective-origin:50% 46%;
 }
 
 .sfoglia-cop{
-  position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
-  align-self:stretch;                                   /* stessa altezza della pagina, sempre */
-  margin-left:calc(var(--pag-w) * var(--scorcio) * -1);  /* recupera lo spazio che la rotazione libera */
-  border-radius:4px 2px 2px 4px; overflow:hidden;
-  transform-origin:right center; backface-visibility:hidden;
-  box-shadow:0 22px 44px -16px rgba(20,24,38,.46), 0 2px 6px rgba(20,24,38,.18);
-  transform:rotateY(-20deg);
+  position:absolute; top:0; bottom:0; right:0; width:var(--pag-w);
+  z-index:2; transform-style:preserve-3d;
+  transform-origin:left center;
+  transform:rotateY(calc(var(--sf-apri, 1) * -178deg));
+  will-change:transform;
 }
-.sfoglia-cop img{display:block; width:100%; height:100%; object-fit:cover; object-position:center}
-.sfoglia-cop::after{content:""; position:absolute; inset:0; pointer-events:none;
-  background:linear-gradient(90deg, rgba(0,0,0,.20), rgba(0,0,0,0) 26%, rgba(255,255,255,.08))}
+.sf-fronte, .sf-retro{position:absolute; inset:0; backface-visibility:hidden;
+  border-radius:2px 5px 5px 2px; overflow:hidden}
+.sf-fronte{box-shadow:0 18px 40px -16px rgba(20,24,38,.45), 0 2px 6px rgba(20,24,38,.16)}
+.sf-fronte img, .sf-fronte picture{display:block; width:100%; height:100%}
+.sf-fronte img{object-fit:cover; object-position:center}
+.sf-retro{transform:rotateY(180deg);
+  background:linear-gradient(258deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
+  box-shadow:inset -14px 0 24px -16px rgba(92,72,42,.42), 0 18px 38px -18px rgba(20,24,38,.28)}
 
-@media (min-width:901px) and (prefers-reduced-motion:no-preference){
-  .sfoglia-cop{transition:transform 2.2s cubic-bezier(.16,.8,.24,1)}
-  .sfoglia.sf-chiusa .sfoglia-cop{transform:rotateY(-86deg)}
-}
+
 
 .sfoglia-foglio{
   position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
+  margin-left:var(--pag-w);
   min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 34);
+  font-size:calc(var(--pag-w) / 35.5);
   display:flex; flex-direction:column;
   padding:1.5em 1.75em 1.1em 2.1em;
   border-radius:2px 5px 5px 2px;
@@ -238,8 +240,8 @@ footer.sito a{color:var(--nebbia)}
    e non restano le due strisce di fondo ai lati. */
 .sf-gspread-box{container-type:inline-size}
 .sf-gspread{
-  --pag-w:min(420px, 36vw);
-  --pag-h:calc(var(--pag-w) * 1.6);
+  --pag-w:min(380px, 30vw);
+  --pag-h:calc(var(--pag-w) * 1.5);
   display:flex; align-items:stretch;
   width:fit-content; max-width:100%; margin:18px auto 0;
   border-radius:3px; overflow:hidden;
@@ -248,7 +250,7 @@ footer.sito a{color:var(--nebbia)}
 .sf-gpag{
 
   flex:0 0 var(--pag-w); width:var(--pag-w); min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 34);
+  font-size:calc(var(--pag-w) / 35.5);
   display:flex; flex-direction:column; padding:1.5em 1.75em 1.1em;
   background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
 }
@@ -275,14 +277,17 @@ footer.sito a{color:var(--nebbia)}
 
 /* ---- sotto i 900px: si impila, niente prospettiva ---- */
 @media (max-width:900px){
-  .sfoglia, .sf-gspread{--pag-w:320px}
+  .sfoglia, .sf-gspread{--pag-w:320px; --pag-h:calc(var(--pag-w) * 1.6)}
   @supports (width: 1cqw){
     .sfoglia, .sf-gspread{--pag-w:min(100cqw, 340px)}
   }
   .sfoglia-scena{flex-direction:column; align-items:center; perspective:none}
   .sfoglia-cop, .sfoglia-foglio, .sf-gpag{flex-basis:auto; width:var(--pag-w); max-width:100%}
-  .sfoglia-cop{margin:0 auto 16px; align-self:auto; height:var(--pag-h);
-    transform:none !important; animation:none; transition:none}
+  .sfoglia-foglio{margin-left:0}
+  .sfoglia-cop{position:static; margin:0 auto 16px; height:var(--pag-h);
+    transform:none !important; z-index:auto}
+  .sf-fronte{position:relative; inset:auto; height:100%}
+  .sf-retro{display:none}
   .sfoglia-foglio{border-radius:6px}
   .sfoglia-foglio::after{display:none}
   .sf-gspread{flex-direction:column; align-items:center; gap:12px;
@@ -291,7 +296,7 @@ footer.sito a{color:var(--nebbia)}
   .sf-2col{grid-template-columns:1fr; gap:0}
 }
 @media (prefers-reduced-motion:reduce){
-  .sfoglia-cop{animation:none; transform:rotateY(-20deg)}
+  .sfoglia-cop{transform:rotateY(-178deg) !important}
 }
 </style>
 <script type="application/ld+json">{
@@ -414,12 +419,10 @@ footer.sito a{color:var(--nebbia)}
               <section class="sezione sfoglia">
     <h2>Look inside: the first page</h2>
     <div class="sfoglia-scena">
-      <div class="sfoglia-cop">
-        <picture>
+      <div class="sfoglia-cop"><div class="sf-fronte"><picture>
           <source srcset="/assets/books/GiovinezzaCesare_cover.webp" type="image/webp">
           <img src="/assets/books/GiovinezzaCesare_cover.jpg" width="800" height="1280" alt="Cover of Il trionfo di Pompeo e il ragazzo in lutto" loading="lazy" decoding="async">
-        </picture>
-      </div>
+        </picture></div><div class="sf-retro"></div></div>
       <div class="sfoglia-foglio">
         <p class="sf-capnum">CAPITOLO 1</p>
         <img class="sf-vign" src="/assets/books/vignette/la-giovinezza-di-cesare.png" alt="Chapter vignette" width="148" height="148" loading="lazy" decoding="async">
@@ -461,15 +464,15 @@ footer.sito a{color:var(--nebbia)}
           <dt><b lang="it">Campo Marzio</b> &middot; <i lang="en">the Campus Martius</i> <span>((sin. piazza, campo))</span></dt>
           <dd lang="it">L&#x27;ampia zona pianeggiante di Roma, tra il Campidoglio e il Tevere, dove si tenevano le assemblee popolari e le esercitazioni militari.</dd>
           <dd class="en" lang="en">The wide plain of Rome, between the Capitol and the Tiber, where popular assemblies and military exercises were held.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: In the novel it is the space of the vote and the crowd: here Caesar presents his candidates, here the assemblies gather. It is the place where consensus is measured physically.</dd>
+          <dd class="sf-gnota" lang="en">In the novel it is the space of the vote and the crowd: here Caesar presents his candidates, here the assemblies gather. It is the place where consensus is measured physically.</dd>
           <dt><b lang="it">Catilina</b> &middot; <i lang="en">Catiline</i> <span>((sin. congiurato, senatore))</span></dt>
           <dd lang="it">Lucio Sergio Catilina (108–62 a.C.), senatore romano di antica famiglia patrizia.</dd>
           <dd class="en" lang="en">Lucius Sergius Catilina (108–62 BC), a Roman senator of ancient patrician family.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The conspirator par excellence. The novel follows his arc from financial ruin to attempted coup: the mirror image of Caesar, who obtains through politics what Catiline attempts by force.</dd>
+          <dd class="sf-gnota" lang="en">The conspirator par excellence. The novel follows his arc from financial ruin to attempted coup: the mirror image of Caesar, who obtains through politics what Catiline attempts by force.</dd>
           <dt><b lang="it">Clodio</b> &middot; <i lang="en">Clodius</i> <span>((sin. tribuno, demagogo))</span></dt>
           <dd lang="it">Publio Clodio Pulcro (93–52 a.C.), tribuno della plebe, politico spregiudicato.</dd>
           <dd class="en" lang="en">Publius Clodius Pulcher (93–52 BC), tribune of the plebs, an unscrupulous politician.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The man Caesar uses and lets be used. Clodius is the instrument of his popular politics: he passes laws, incites the crowd, and ends up killed in a street brawl. In the novel he is the most cynical face of Caesarism.</dd>
+          <dd class="sf-gnota" lang="en">The man Caesar uses and lets be used. Clodius is the instrument of his popular politics: he passes laws, incites the crowd, and ends up killed in a street brawl. In the novel he is the most cynical face of Caesarism.</dd>
         </dl>
       </div>
       <div class="sf-gpag">
@@ -477,15 +480,19 @@ footer.sito a{color:var(--nebbia)}
           <dt><b lang="it">Dea Bona</b> &middot; <i lang="en">Bona Dea</i> <span>((sin. dea delle donne, culto femminile))</span></dt>
           <dd lang="it">Nell&#x27;antica Roma, dea femminile della fecondità, il cui culto era riservato esclusivamente alle donne.</dd>
           <dd class="en" lang="en">In ancient Rome, a goddess of fertility whose cult was strictly reserved to women.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The festival of Bona Dea is the great scandal of the novel. Clodius, disguised as a woman, enters Caesar&#x27;s house during the rite: Caesar repudiates his wife, and does so with a proverbial phrase.</dd>
+          <dd class="sf-gnota" lang="en">The festival of Bona Dea is the great scandal of the novel. Clodius, disguised as a woman, enters Caesar&#x27;s house during the rite: Caesar repudiates his wife, and does so with a proverbial phrase.</dd>
           <dt><b lang="it">Fulvia</b> &middot; <i lang="en">Fulvia</i> <span>((sin. matrona, moglie))</span></dt>
           <dd lang="it">Nobildonna romana (83–40 a.C. ca.), moglie di Clodio (poi di Curione e infine di Antonio).</dd>
           <dd class="en" lang="en">A Roman noblewoman (c. 83–40 BC), wife of Clodius (later of Curio and finally of Antony).</dd>
-          <dd class="sf-gnota" lang="en">In the novel: One of the first Roman women to carry political weight of her own. In the book she embodies a city where even wives choose a party and lead a faction: an anti-traditional figure, feared and admired.</dd>
+          <dd class="sf-gnota" lang="en">One of the first Roman women to carry political weight of her own. In the book she embodies a city where even wives choose a party and lead a faction: an anti-traditional figure, feared and admired.</dd>
           <dt><b lang="it">Giulia</b> &middot; <i lang="en">Julia, Caesar’s daughter</i> <span>((sin. figlia, sposa))</span></dt>
           <dd lang="it">Giulia Cesaris (76 ca.–54 a.C.), figlia di Cesare e di Cornelia.</dd>
           <dd class="en" lang="en">Julia Caesaris (c. 76–54 BC), daughter of Caesar and Cornelia.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Her life is very short and politically decisive: Caesar gives her in marriage to Pompey to seal the alliance. With her death, the bond between the two dissolves — and the road to civil war opens.</dd>
+          <dd class="sf-gnota" lang="en">Her life is very short and politically decisive: Caesar gives her in marriage to Pompey to seal the alliance. With her death, the bond between the two dissolves — and the road to civil war opens.</dd>
+          <dt><b lang="it">Lusitania</b> &middot; <i lang="en">Lusitania</i> <span>((sin. provincia, Iberia))</span></dt>
+          <dd lang="it">L&#x27;antica provincia romana corrispondente all&#x27;incirca al Portogallo di oggi, più parti della Spagna occidentale.</dd>
+          <dd class="en" lang="en">The ancient Roman province corresponding roughly to modern Portugal, plus parts of western Spain.</dd>
+          <dd class="sf-gnota" lang="en">It is the province where Caesar, back from his praetorship, goes to wage war and to restore his finances. In the novel the Lusitanian campaign is his training ground: he learns to command armies, and clears his debts.</dd>
         </dl>
         <p class="sf-gpie">The glossary contains 41 entries in all</p>
       </div>
@@ -615,22 +622,33 @@ footer.sito a{color:var(--nebbia)}
 <script>document.getElementById('anno').textContent=new Date().getFullYear();</script>
 <script src="/js/whatsapp.js" defer></script>
 <script>
-/* sfoglia — apertura della copertina quando la scheda entra nello schermo.
-   Solo animazione: ogni parola e' gia' nell'HTML, senza JS la copertina
-   resta semplicemente aperta. */
+/* sfoglia — la copertina si apre man mano che si scende e si richiude
+   risalendo. Solo animazione: ogni parola e' gia' nell'HTML; senza
+   JavaScript la copertina resta aperta e il libro si legge comunque. */
 (function(){
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if(innerWidth <= 900 || !window.IntersectionObserver) return;
-  document.querySelectorAll('.sfoglia').forEach(function(s){
-    s.classList.add('sf-chiusa');
-    new IntersectionObserver(function(v,o){
-      v.forEach(function(e){
-        if(!e.isIntersecting) return;
-        requestAnimationFrame(function(){ s.classList.remove('sf-chiusa'); });
-        o.unobserve(e.target);
-      });
-    },{threshold:0.35}).observe(s);
-  });
+  if(innerWidth <= 900) return;
+  var scene=[].slice.call(document.querySelectorAll('.sfoglia-scena'));
+  if(!scene.length) return;
+  function aggiorna(){
+    var vh=innerHeight;
+    scene.forEach(function(s){
+      var r=s.getBoundingClientRect();
+      /* 0 = scena appena entrata dal basso (libro chiuso)
+         1 = scena a meta' schermo (libro tutto aperto) */
+      var p=(vh - r.top) / (vh*.5 + r.height*.5);
+      p=Math.max(0, Math.min(1, p));
+      p=p*p*(3-2*p);                       /* partenza e arrivo morbidi */
+      s.style.setProperty('--sf-apri', p.toFixed(4));
+    });
+  }
+  var occupato=false;
+  addEventListener('scroll', function(){
+    if(occupato) return; occupato=true;
+    requestAnimationFrame(function(){ occupato=false; aggiorna(); });
+  }, {passive:true});
+  addEventListener('resize', aggiorna, {passive:true});
+  aggiorna();
 })();
 </script>
 

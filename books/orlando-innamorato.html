@@ -147,39 +147,41 @@ footer.sito a{color:var(--nebbia)}
 
 .sfoglia{
   container-type:inline-size;
-  --pag-w:min(420px, 36vw);
-  --pag-h:calc(var(--pag-w) * 1.6);
+  --pag-w:min(380px, 30vw);
+  --pag-h:calc(var(--pag-w) * 1.5);
   --scorcio:.108;                    /* 1 - larghezza proiettata a 32°: vedi margin-left */
   margin:34px 0 42px;
 }
 
 .sfoglia-scena{
-  display:flex; align-items:stretch; justify-content:center;
-  perspective:2600px; perspective-origin:56% 50%;
+  position:relative; display:flex; width:fit-content; max-width:100%;
+  margin-inline:auto;
+  perspective:2400px; perspective-origin:50% 46%;
 }
 
 .sfoglia-cop{
-  position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
-  align-self:stretch;                                   /* stessa altezza della pagina, sempre */
-  margin-left:calc(var(--pag-w) * var(--scorcio) * -1);  /* recupera lo spazio che la rotazione libera */
-  border-radius:4px 2px 2px 4px; overflow:hidden;
-  transform-origin:right center; backface-visibility:hidden;
-  box-shadow:0 22px 44px -16px rgba(20,24,38,.46), 0 2px 6px rgba(20,24,38,.18);
-  transform:rotateY(-20deg);
+  position:absolute; top:0; bottom:0; right:0; width:var(--pag-w);
+  z-index:2; transform-style:preserve-3d;
+  transform-origin:left center;
+  transform:rotateY(calc(var(--sf-apri, 1) * -178deg));
+  will-change:transform;
 }
-.sfoglia-cop img{display:block; width:100%; height:100%; object-fit:cover; object-position:center}
-.sfoglia-cop::after{content:""; position:absolute; inset:0; pointer-events:none;
-  background:linear-gradient(90deg, rgba(0,0,0,.20), rgba(0,0,0,0) 26%, rgba(255,255,255,.08))}
+.sf-fronte, .sf-retro{position:absolute; inset:0; backface-visibility:hidden;
+  border-radius:2px 5px 5px 2px; overflow:hidden}
+.sf-fronte{box-shadow:0 18px 40px -16px rgba(20,24,38,.45), 0 2px 6px rgba(20,24,38,.16)}
+.sf-fronte img, .sf-fronte picture{display:block; width:100%; height:100%}
+.sf-fronte img{object-fit:cover; object-position:center}
+.sf-retro{transform:rotateY(180deg);
+  background:linear-gradient(258deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
+  box-shadow:inset -14px 0 24px -16px rgba(92,72,42,.42), 0 18px 38px -18px rgba(20,24,38,.28)}
 
-@media (min-width:901px) and (prefers-reduced-motion:no-preference){
-  .sfoglia-cop{transition:transform 2.2s cubic-bezier(.16,.8,.24,1)}
-  .sfoglia.sf-chiusa .sfoglia-cop{transform:rotateY(-86deg)}
-}
+
 
 .sfoglia-foglio{
   position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
+  margin-left:var(--pag-w);
   min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 34);
+  font-size:calc(var(--pag-w) / 35.5);
   display:flex; flex-direction:column;
   padding:1.5em 1.75em 1.1em 2.1em;
   border-radius:2px 5px 5px 2px;
@@ -238,8 +240,8 @@ footer.sito a{color:var(--nebbia)}
    e non restano le due strisce di fondo ai lati. */
 .sf-gspread-box{container-type:inline-size}
 .sf-gspread{
-  --pag-w:min(420px, 36vw);
-  --pag-h:calc(var(--pag-w) * 1.6);
+  --pag-w:min(380px, 30vw);
+  --pag-h:calc(var(--pag-w) * 1.5);
   display:flex; align-items:stretch;
   width:fit-content; max-width:100%; margin:18px auto 0;
   border-radius:3px; overflow:hidden;
@@ -248,7 +250,7 @@ footer.sito a{color:var(--nebbia)}
 .sf-gpag{
 
   flex:0 0 var(--pag-w); width:var(--pag-w); min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 34);
+  font-size:calc(var(--pag-w) / 35.5);
   display:flex; flex-direction:column; padding:1.5em 1.75em 1.1em;
   background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
 }
@@ -275,14 +277,17 @@ footer.sito a{color:var(--nebbia)}
 
 /* ---- sotto i 900px: si impila, niente prospettiva ---- */
 @media (max-width:900px){
-  .sfoglia, .sf-gspread{--pag-w:320px}
+  .sfoglia, .sf-gspread{--pag-w:320px; --pag-h:calc(var(--pag-w) * 1.6)}
   @supports (width: 1cqw){
     .sfoglia, .sf-gspread{--pag-w:min(100cqw, 340px)}
   }
   .sfoglia-scena{flex-direction:column; align-items:center; perspective:none}
   .sfoglia-cop, .sfoglia-foglio, .sf-gpag{flex-basis:auto; width:var(--pag-w); max-width:100%}
-  .sfoglia-cop{margin:0 auto 16px; align-self:auto; height:var(--pag-h);
-    transform:none !important; animation:none; transition:none}
+  .sfoglia-foglio{margin-left:0}
+  .sfoglia-cop{position:static; margin:0 auto 16px; height:var(--pag-h);
+    transform:none !important; z-index:auto}
+  .sf-fronte{position:relative; inset:auto; height:100%}
+  .sf-retro{display:none}
   .sfoglia-foglio{border-radius:6px}
   .sfoglia-foglio::after{display:none}
   .sf-gspread{flex-direction:column; align-items:center; gap:12px;
@@ -291,7 +296,7 @@ footer.sito a{color:var(--nebbia)}
   .sf-2col{grid-template-columns:1fr; gap:0}
 }
 @media (prefers-reduced-motion:reduce){
-  .sfoglia-cop{animation:none; transform:rotateY(-20deg)}
+  .sfoglia-cop{transform:rotateY(-178deg) !important}
 }
 </style>
 <script type="application/ld+json">{
@@ -380,12 +385,10 @@ footer.sito a{color:var(--nebbia)}
               <section class="sezione sfoglia">
     <h2>Look inside: the first page</h2>
     <div class="sfoglia-scena">
-      <div class="sfoglia-cop">
-        <picture>
+      <div class="sfoglia-cop"><div class="sf-fronte"><picture>
           <source srcset="/assets/books/OrlandoInnamorato_Copertina_eBook.webp" type="image/webp">
           <img src="/assets/books/OrlandoInnamorato_Copertina_eBook.jpg" width="800" height="1280" alt="Cover of La festa di Pentecoste" loading="lazy" decoding="async">
-        </picture>
-      </div>
+        </picture></div><div class="sf-retro"></div></div>
       <div class="sfoglia-foglio">
         <p class="sf-capnum">CAPITOLO 1</p>
         <img class="sf-vign" src="/assets/books/vignette/orlando-innamorato.png" alt="Chapter vignette" width="148" height="148" loading="lazy" decoding="async">
@@ -432,31 +435,39 @@ footer.sito a{color:var(--nebbia)}
           <dt><b lang="it">amore</b> &middot; <i lang="en">love</i> <span>((sin. passione, affetto))</span></dt>
           <dd lang="it">Il sentimento fortissimo che lega una persona a un&#x27;altra.</dd>
           <dd class="en" lang="en">The very strong feeling that binds one person to another.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The force that moves the whole book — Boiardo put it in the title. But here love is never chosen: it arrives like a spell, in a single moment, and turns the strongest warrior in the world into a man who cannot sleep. Nobody is safe from it — not kings, not sages.</dd>
+          <dd class="sf-gnota" lang="en">The force that moves the whole book — Boiardo put it in the title. But here love is never chosen: it arrives like a spell, in a single moment, and turns the strongest warrior in the world into a man who cannot sleep. Nobody is safe from it — not kings, not sages.</dd>
           <dt><b lang="it">anello</b> &middot; <i lang="en">ring</i> <span>((sin. cerchietto, vera))</span></dt>
           <dd lang="it">Piccolo cerchio di metallo che si porta al dito.</dd>
           <dd class="en" lang="en">A small metal circle worn on the finger.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Angelica&#x27;s magic ring: worn, it breaks every enchantment; held in the mouth, it makes her invisible. It is the single most powerful object in the poem — and it belongs to the person everyone is chasing. Ariosto inherited it, ring and all, for the Furioso.</dd>
+          <dd class="sf-gnota" lang="en">Angelica&#x27;s magic ring: worn, it breaks every enchantment; held in the mouth, it makes her invisible. It is the single most powerful object in the poem — and it belongs to the person everyone is chasing. Ariosto inherited it, ring and all, for the Furioso.</dd>
           <dt><b lang="it">armatura</b> &middot; <i lang="en">armour</i> <span>((sin. corazza, difesa))</span></dt>
           <dd lang="it">Il vestito di ferro che protegge tutto il corpo del guerriero.</dd>
           <dd class="en" lang="en">The iron clothing that protects the warrior&#x27;s whole body.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The iron suit that makes a knight a fortress — and, once, a monster: Rodamonte scales the walls of Paris in armour made of dragon scales, drinking arrows like rain. Armour in this poem tells you who a man is before he says a word.</dd>
+          <dd class="sf-gnota" lang="en">The iron suit that makes a knight a fortress — and, once, a monster: Rodamonte scales the walls of Paris in armour made of dragon scales, drinking arrows like rain. Armour in this poem tells you who a man is before he says a word.</dd>
+          <dt><b lang="it">assedio</b> &middot; <i lang="en">siege</i> <span>((sin. accerchiamento, blocco))</span></dt>
+          <dd lang="it">L&#x27;accerchiamento di una città per costringerla ad arrendersi.</dd>
+          <dd class="en" lang="en">Surrounding a city to force it to surrender.</dd>
+          <dd class="sf-gnota" lang="en">The siege is the poem&#x27;s favourite shape: tents covering the earth to the horizon, a fortress breathing inside. Albracca first, then Paris — same image, sides reversed. Whoever besieges will be besieged: Boiardo builds his symmetries like an architect.</dd>
         </dl>
       </div>
       <div class="sf-gpag">
         <dl>
-          <dt><b lang="it">assedio</b> &middot; <i lang="en">siege</i> <span>((sin. accerchiamento, blocco))</span></dt>
-          <dd lang="it">L&#x27;accerchiamento di una città per costringerla ad arrendersi.</dd>
-          <dd class="en" lang="en">Surrounding a city to force it to surrender.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The siege is the poem&#x27;s favourite shape: tents covering the earth to the horizon, a fortress breathing inside. Albracca first, then Paris — same image, sides reversed. Whoever besieges will be besieged: Boiardo builds his symmetries like an architect.</dd>
           <dt><b lang="it">battaglia</b> &middot; <i lang="en">battle</i> <span>((sin. combattimento, scontro))</span></dt>
           <dd lang="it">Scontro armato tra due eserciti.</dd>
           <dd class="en" lang="en">An armed clash between two armies.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The great battle under the walls of Paris gathers every living character onto a single plain — and never ends. Every sword stops in mid-air, forever, because history interrupted the poet. No battle in literature has a stranger fate: it is still being fought.</dd>
+          <dd class="sf-gnota" lang="en">The great battle under the walls of Paris gathers every living character onto a single plain — and never ends. Every sword stops in mid-air, forever, because history interrupted the poet. No battle in literature has a stranger fate: it is still being fought.</dd>
           <dt><b lang="it">battesimo</b> &middot; <i lang="en">baptism</i> <span>((sin. sacramento, rito))</span></dt>
           <dd lang="it">Il rito con l&#x27;acqua che fa entrare una persona nella fede cristiana.</dd>
           <dd class="en" lang="en">The rite with water that brings a person into the Christian faith.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Agricane, dying, asks his enemy for baptism with the water of the fountain beside them. It is the most solemn page of the poem: two enemies, one dawn, one gesture that turns a duel into something older and larger. Boiardo, who jokes about everything, does not joke here.</dd>
+          <dd class="sf-gnota" lang="en">Agricane, dying, asks his enemy for baptism with the water of the fountain beside them. It is the most solemn page of the poem: two enemies, one dawn, one gesture that turns a duel into something older and larger. Boiardo, who jokes about everything, does not joke here.</dd>
+          <dt><b lang="it">bellezza</b> &middot; <i lang="en">beauty</i> <span>((sin. fascino, splendore))</span></dt>
+          <dd lang="it">La qualità di chi è molto bello da vedere.</dd>
+          <dd class="en" lang="en">The quality of being very beautiful to look at.</dd>
+          <dd class="sf-gnota" lang="en">Angelica&#x27;s beauty is a weapon of war, and her father uses it exactly like one: to capture the paladins of France. The whole plot begins with a beautiful face walking into a room — and Boiardo makes sure we understand that beauty, in this book, is never innocent.</dd>
+          <dt><b lang="it">cavaliere</b> &middot; <i lang="en">knight</i> <span>((sin. guerriero, paladino))</span></dt>
+          <dd lang="it">Guerriero a cavallo, con armatura, spada e lancia.</dd>
+          <dd class="en" lang="en">A warrior on horseback, with armour, sword and lance.</dd>
+          <dd class="sf-gnota" lang="en">The knight is the unit of measure of this world: everything — honour, love, kingdoms — is decided by armed men on horseback. Boiardo counts them by the hundred thousand, cheerfully exaggerating; what matters is that even among millions, one knight can change a battle.</dd>
         </dl>
         <p class="sf-gpie">The glossary contains 40 entries in all</p>
       </div>
@@ -586,22 +597,33 @@ footer.sito a{color:var(--nebbia)}
 <script>document.getElementById('anno').textContent=new Date().getFullYear();</script>
 <script src="/js/whatsapp.js" defer></script>
 <script>
-/* sfoglia — apertura della copertina quando la scheda entra nello schermo.
-   Solo animazione: ogni parola e' gia' nell'HTML, senza JS la copertina
-   resta semplicemente aperta. */
+/* sfoglia — la copertina si apre man mano che si scende e si richiude
+   risalendo. Solo animazione: ogni parola e' gia' nell'HTML; senza
+   JavaScript la copertina resta aperta e il libro si legge comunque. */
 (function(){
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if(innerWidth <= 900 || !window.IntersectionObserver) return;
-  document.querySelectorAll('.sfoglia').forEach(function(s){
-    s.classList.add('sf-chiusa');
-    new IntersectionObserver(function(v,o){
-      v.forEach(function(e){
-        if(!e.isIntersecting) return;
-        requestAnimationFrame(function(){ s.classList.remove('sf-chiusa'); });
-        o.unobserve(e.target);
-      });
-    },{threshold:0.35}).observe(s);
-  });
+  if(innerWidth <= 900) return;
+  var scene=[].slice.call(document.querySelectorAll('.sfoglia-scena'));
+  if(!scene.length) return;
+  function aggiorna(){
+    var vh=innerHeight;
+    scene.forEach(function(s){
+      var r=s.getBoundingClientRect();
+      /* 0 = scena appena entrata dal basso (libro chiuso)
+         1 = scena a meta' schermo (libro tutto aperto) */
+      var p=(vh - r.top) / (vh*.5 + r.height*.5);
+      p=Math.max(0, Math.min(1, p));
+      p=p*p*(3-2*p);                       /* partenza e arrivo morbidi */
+      s.style.setProperty('--sf-apri', p.toFixed(4));
+    });
+  }
+  var occupato=false;
+  addEventListener('scroll', function(){
+    if(occupato) return; occupato=true;
+    requestAnimationFrame(function(){ occupato=false; aggiorna(); });
+  }, {passive:true});
+  addEventListener('resize', aggiorna, {passive:true});
+  aggiorna();
 })();
 </script>
 

@@ -147,39 +147,41 @@ footer.sito a{color:var(--nebbia)}
 
 .sfoglia{
   container-type:inline-size;
-  --pag-w:min(420px, 36vw);
-  --pag-h:calc(var(--pag-w) * 1.6);
+  --pag-w:min(380px, 30vw);
+  --pag-h:calc(var(--pag-w) * 1.5);
   --scorcio:.108;                    /* 1 - larghezza proiettata a 32°: vedi margin-left */
   margin:34px 0 42px;
 }
 
 .sfoglia-scena{
-  display:flex; align-items:stretch; justify-content:center;
-  perspective:2600px; perspective-origin:56% 50%;
+  position:relative; display:flex; width:fit-content; max-width:100%;
+  margin-inline:auto;
+  perspective:2400px; perspective-origin:50% 46%;
 }
 
 .sfoglia-cop{
-  position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
-  align-self:stretch;                                   /* stessa altezza della pagina, sempre */
-  margin-left:calc(var(--pag-w) * var(--scorcio) * -1);  /* recupera lo spazio che la rotazione libera */
-  border-radius:4px 2px 2px 4px; overflow:hidden;
-  transform-origin:right center; backface-visibility:hidden;
-  box-shadow:0 22px 44px -16px rgba(20,24,38,.46), 0 2px 6px rgba(20,24,38,.18);
-  transform:rotateY(-20deg);
+  position:absolute; top:0; bottom:0; right:0; width:var(--pag-w);
+  z-index:2; transform-style:preserve-3d;
+  transform-origin:left center;
+  transform:rotateY(calc(var(--sf-apri, 1) * -178deg));
+  will-change:transform;
 }
-.sfoglia-cop img{display:block; width:100%; height:100%; object-fit:cover; object-position:center}
-.sfoglia-cop::after{content:""; position:absolute; inset:0; pointer-events:none;
-  background:linear-gradient(90deg, rgba(0,0,0,.20), rgba(0,0,0,0) 26%, rgba(255,255,255,.08))}
+.sf-fronte, .sf-retro{position:absolute; inset:0; backface-visibility:hidden;
+  border-radius:2px 5px 5px 2px; overflow:hidden}
+.sf-fronte{box-shadow:0 18px 40px -16px rgba(20,24,38,.45), 0 2px 6px rgba(20,24,38,.16)}
+.sf-fronte img, .sf-fronte picture{display:block; width:100%; height:100%}
+.sf-fronte img{object-fit:cover; object-position:center}
+.sf-retro{transform:rotateY(180deg);
+  background:linear-gradient(258deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
+  box-shadow:inset -14px 0 24px -16px rgba(92,72,42,.42), 0 18px 38px -18px rgba(20,24,38,.28)}
 
-@media (min-width:901px) and (prefers-reduced-motion:no-preference){
-  .sfoglia-cop{transition:transform 2.2s cubic-bezier(.16,.8,.24,1)}
-  .sfoglia.sf-chiusa .sfoglia-cop{transform:rotateY(-86deg)}
-}
+
 
 .sfoglia-foglio{
   position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
+  margin-left:var(--pag-w);
   min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 34);
+  font-size:calc(var(--pag-w) / 35.5);
   display:flex; flex-direction:column;
   padding:1.5em 1.75em 1.1em 2.1em;
   border-radius:2px 5px 5px 2px;
@@ -238,8 +240,8 @@ footer.sito a{color:var(--nebbia)}
    e non restano le due strisce di fondo ai lati. */
 .sf-gspread-box{container-type:inline-size}
 .sf-gspread{
-  --pag-w:min(420px, 36vw);
-  --pag-h:calc(var(--pag-w) * 1.6);
+  --pag-w:min(380px, 30vw);
+  --pag-h:calc(var(--pag-w) * 1.5);
   display:flex; align-items:stretch;
   width:fit-content; max-width:100%; margin:18px auto 0;
   border-radius:3px; overflow:hidden;
@@ -248,7 +250,7 @@ footer.sito a{color:var(--nebbia)}
 .sf-gpag{
 
   flex:0 0 var(--pag-w); width:var(--pag-w); min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 34);
+  font-size:calc(var(--pag-w) / 35.5);
   display:flex; flex-direction:column; padding:1.5em 1.75em 1.1em;
   background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
 }
@@ -275,14 +277,17 @@ footer.sito a{color:var(--nebbia)}
 
 /* ---- sotto i 900px: si impila, niente prospettiva ---- */
 @media (max-width:900px){
-  .sfoglia, .sf-gspread{--pag-w:320px}
+  .sfoglia, .sf-gspread{--pag-w:320px; --pag-h:calc(var(--pag-w) * 1.6)}
   @supports (width: 1cqw){
     .sfoglia, .sf-gspread{--pag-w:min(100cqw, 340px)}
   }
   .sfoglia-scena{flex-direction:column; align-items:center; perspective:none}
   .sfoglia-cop, .sfoglia-foglio, .sf-gpag{flex-basis:auto; width:var(--pag-w); max-width:100%}
-  .sfoglia-cop{margin:0 auto 16px; align-self:auto; height:var(--pag-h);
-    transform:none !important; animation:none; transition:none}
+  .sfoglia-foglio{margin-left:0}
+  .sfoglia-cop{position:static; margin:0 auto 16px; height:var(--pag-h);
+    transform:none !important; z-index:auto}
+  .sf-fronte{position:relative; inset:auto; height:100%}
+  .sf-retro{display:none}
   .sfoglia-foglio{border-radius:6px}
   .sfoglia-foglio::after{display:none}
   .sf-gspread{flex-direction:column; align-items:center; gap:12px;
@@ -291,7 +296,7 @@ footer.sito a{color:var(--nebbia)}
   .sf-2col{grid-template-columns:1fr; gap:0}
 }
 @media (prefers-reduced-motion:reduce){
-  .sfoglia-cop{animation:none; transform:rotateY(-20deg)}
+  .sfoglia-cop{transform:rotateY(-178deg) !important}
 }
 </style>
 <script type="application/ld+json">{
@@ -434,12 +439,10 @@ footer.sito a{color:var(--nebbia)}
               <section class="sezione sfoglia">
     <h2>Sfoglia dentro: la prima pagina</h2>
     <div class="sfoglia-scena">
-      <div class="sfoglia-cop">
-        <picture>
+      <div class="sfoglia-cop"><div class="sf-fronte"><picture>
           <source srcset="/assets/books/MattiaPascal_cover.webp" type="image/webp">
           <img src="/assets/books/MattiaPascal_cover.jpg" width="800" height="1280" alt="Copertina di Io mi chiamo Mattia Pascal" loading="lazy" decoding="async">
-        </picture>
-      </div>
+        </picture></div><div class="sf-retro"></div></div>
       <div class="sfoglia-foglio">
         <p class="sf-capnum">CAPITOLO 1</p>
         <img class="sf-vign" src="/assets/books/vignette/il-fu-mattia-pascal.png" alt="Vignetta del capitolo" width="148" height="148" loading="lazy" decoding="async">
@@ -454,9 +457,7 @@ footer.sito a{color:var(--nebbia)}
             <p>«E ti sembra poco?»</p>
             <p>Non sembrava molto, a dire il vero. Neanche a me.</p>
             <p>Ma allora non sapevo ancora che cosa vuol dire non poter più rispondere così.<sup>1</sup></p>
-            <p>Non sapevo che un <span class="sf-kw">nome</span> è l&#x27;unica casa che un uomo ha davvero, e che una <span class="sf-kw">esistenza</span> senza <span class="sf-kw">identità</span> non è una vita: è un&#x27;<span class="sf-kw">ombra</span> che cammina.</p>
         </div>
-        <p class="sf-gloss"><span class="sf-kw">nome</span> = name &#183; <span class="sf-kw">esistenza</span> = existence &#183; <span class="sf-kw">identità</span> = identity &#183; <span class="sf-kw">ombra</span> = shadow</p>
         <div class="sf-note">
           <p class="sf-nota"><sup>1</sup> Il libro comincia con un uomo che dice: «l&#x27;unica cosa che so di me è il mio nome». E finirà con un uomo che va al cimitero a leggere quel nome sulla propria lapide. Fra queste due frasi c&#x27;è tutto Pirandello — e lui te lo dice alla prima riga, senza nascondere niente.</p>
         </div>
@@ -487,19 +488,19 @@ footer.sito a{color:var(--nebbia)}
           <dt><b lang="it">adulterio</b> &middot; <i lang="en">adultery</i> <span>((sin. infedeltà, tradimento coniugale))</span></dt>
           <dd lang="it">Il tradimento fra marito e moglie.</dd>
           <dd class="en" lang="en">Betrayal between husband and wife.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: When Mattia comes back, Romilda has another husband. If he is alive, she is an adulteress; if he is dead, she is respectable. The law has no box to tick for a man who is both at once.</dd>
+          <dd class="sf-gnota" lang="en">When Mattia comes back, Romilda has another husband. If he is alive, she is an adulteress; if he is dead, she is respectable. The law has no box to tick for a man who is both at once.</dd>
           <dt><b lang="it">biblioteca</b> &middot; <i lang="en">library</i> <span>((sin. libreria, raccolta di libri))</span></dt>
           <dd lang="it">Il luogo pieno di libri dove si va a leggere.</dd>
           <dd class="en" lang="en">The place full of books, where one goes to read.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The Boccamazza library is an empty church with two thousand books and no readers. Mattia spends his days watching the rats eat them, and does nothing to stop it: a portrait of a wasted life.</dd>
+          <dd class="sf-gnota" lang="en">The Boccamazza library is an empty church with two thousand books and no readers. Mattia spends his days watching the rats eat them, and does nothing to stop it: a portrait of a wasted life.</dd>
           <dt><b lang="it">cadavere</b> &middot; <i lang="en">corpse</i> <span>((sin. corpo, salma))</span></dt>
           <dd lang="it">Il corpo di una persona morta.</dd>
           <dd class="en" lang="en">The body of a dead person.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The body in the mill-race is a stranger, and it becomes Mattia Pascal because a woman points at it. This is where the novel states its thesis outright: you are whoever other people say you are.</dd>
+          <dd class="sf-gnota" lang="en">The body in the mill-race is a stranger, and it becomes Mattia Pascal because a woman points at it. This is where the novel states its thesis outright: you are whoever other people say you are.</dd>
           <dt><b lang="it">caso</b> &middot; <i lang="en">chance</i> <span>((sin. sorte, combinazione))</span></dt>
           <dd lang="it">Quello che succede senza che nessuno l&#x27;abbia deciso.</dd>
           <dd class="en" lang="en">What happens without anyone having decided it.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Pirandello doesn&#x27;t believe in destiny; he believes in chance, which is far worse. Destiny has a design — chance has none. This entire novel starts because a man gets off a train because he is hungry.</dd>
+          <dd class="sf-gnota" lang="en">Pirandello doesn&#x27;t believe in destiny; he believes in chance, which is far worse. Destiny has a design — chance has none. This entire novel starts because a man gets off a train because he is hungry.</dd>
         </dl>
       </div>
       <div class="sf-gpag">
@@ -507,19 +508,23 @@ footer.sito a{color:var(--nebbia)}
           <dt><b lang="it">colpa</b> &middot; <i lang="en">guilt</i> <span>((sin. responsabilità, peccato))</span></dt>
           <dd lang="it">La responsabilità di aver fatto qualcosa di grave.</dd>
           <dd class="en" lang="en">The weight of having done something seriously wrong.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Mattia&#x27;s guilt isn&#x27;t that he ran away: it is that he never did anything. «And I did nothing» repeats through the book like a sentence handed down — and the man handing it down is always himself.</dd>
+          <dd class="sf-gnota" lang="en">Mattia&#x27;s guilt isn&#x27;t that he ran away: it is that he never did anything. «And I did nothing» repeats through the book like a sentence handed down — and the man handing it down is always himself.</dd>
           <dt><b lang="it">debito</b> &middot; <i lang="en">debt</i> <span>((sin. obbligo, passivo))</span></dt>
           <dd lang="it">Il denaro che si deve a qualcuno.</dd>
           <dd class="en" lang="en">Money that is owed to someone.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Debt is the chain of Mattia&#x27;s first life. When he learns he is dead, his very first thought is that the debts now belong to somebody else — to a man who does not exist.</dd>
+          <dd class="sf-gnota" lang="en">Debt is the chain of Mattia&#x27;s first life. When he learns he is dead, his very first thought is that the debts now belong to somebody else — to a man who does not exist.</dd>
           <dt><b lang="it">denaro</b> &middot; <i lang="en">money</i> <span>((sin. soldi, moneta))</span></dt>
           <dd lang="it">I soldi.</dd>
           <dd class="en" lang="en">Money.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: For Mattia money is never wealth: it is distance. He wins eighty-two thousand lire, and his first thought is not «I&#x27;m rich» but «now I can buy my way out».</dd>
+          <dd class="sf-gnota" lang="en">For Mattia money is never wealth: it is distance. He wins eighty-two thousand lire, and his first thought is not «I&#x27;m rich» but «now I can buy my way out».</dd>
           <dt><b lang="it">denuncia</b> &middot; <i lang="en">report to the police</i> <span>((sin. accusa, querela))</span></dt>
           <dd lang="it">L&#x27;atto di dire alla polizia che qualcuno ha commesso un reato.</dd>
           <dd class="en" lang="en">Telling the police that someone has committed a crime.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The report Adriano cannot make is the exact centre of the novel. The thief is standing in front of him, he knows his name, he knows what was taken — and he cannot open his mouth. That is what total freedom costs.</dd>
+          <dd class="sf-gnota" lang="en">The report Adriano cannot make is the exact centre of the novel. The thief is standing in front of him, he knows his name, he knows what was taken — and he cannot open his mouth. That is what total freedom costs.</dd>
+          <dt><b lang="it">desiderio</b> &middot; <i lang="en">desire</i> <span>((sin. voglia, brama))</span></dt>
+          <dd lang="it">Il volere fortemente una cosa che non si ha.</dd>
+          <dd class="en" lang="en">Wanting strongly something you do not have.</dd>
+          <dd class="sf-gnota" lang="en">Desire is dangerous for a man who doesn&#x27;t exist. To want something is to want a place in the world — and Adriano Meis&#x27;s freedom consisted precisely in having no place at all.</dd>
         </dl>
         <p class="sf-gpie">Il glossario contiene 43 voci in tutto</p>
       </div>
@@ -649,22 +654,33 @@ footer.sito a{color:var(--nebbia)}
 <script>document.getElementById('anno').textContent=new Date().getFullYear();</script>
 <script src="/js/whatsapp.js" defer></script>
 <script>
-/* sfoglia — apertura della copertina quando la scheda entra nello schermo.
-   Solo animazione: ogni parola e' gia' nell'HTML, senza JS la copertina
-   resta semplicemente aperta. */
+/* sfoglia — la copertina si apre man mano che si scende e si richiude
+   risalendo. Solo animazione: ogni parola e' gia' nell'HTML; senza
+   JavaScript la copertina resta aperta e il libro si legge comunque. */
 (function(){
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if(innerWidth <= 900 || !window.IntersectionObserver) return;
-  document.querySelectorAll('.sfoglia').forEach(function(s){
-    s.classList.add('sf-chiusa');
-    new IntersectionObserver(function(v,o){
-      v.forEach(function(e){
-        if(!e.isIntersecting) return;
-        requestAnimationFrame(function(){ s.classList.remove('sf-chiusa'); });
-        o.unobserve(e.target);
-      });
-    },{threshold:0.35}).observe(s);
-  });
+  if(innerWidth <= 900) return;
+  var scene=[].slice.call(document.querySelectorAll('.sfoglia-scena'));
+  if(!scene.length) return;
+  function aggiorna(){
+    var vh=innerHeight;
+    scene.forEach(function(s){
+      var r=s.getBoundingClientRect();
+      /* 0 = scena appena entrata dal basso (libro chiuso)
+         1 = scena a meta' schermo (libro tutto aperto) */
+      var p=(vh - r.top) / (vh*.5 + r.height*.5);
+      p=Math.max(0, Math.min(1, p));
+      p=p*p*(3-2*p);                       /* partenza e arrivo morbidi */
+      s.style.setProperty('--sf-apri', p.toFixed(4));
+    });
+  }
+  var occupato=false;
+  addEventListener('scroll', function(){
+    if(occupato) return; occupato=true;
+    requestAnimationFrame(function(){ occupato=false; aggiorna(); });
+  }, {passive:true});
+  addEventListener('resize', aggiorna, {passive:true});
+  aggiorna();
 })();
 </script>
 

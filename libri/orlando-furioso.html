@@ -147,39 +147,41 @@ footer.sito a{color:var(--nebbia)}
 
 .sfoglia{
   container-type:inline-size;
-  --pag-w:min(420px, 36vw);
-  --pag-h:calc(var(--pag-w) * 1.6);
+  --pag-w:min(380px, 30vw);
+  --pag-h:calc(var(--pag-w) * 1.5);
   --scorcio:.108;                    /* 1 - larghezza proiettata a 32°: vedi margin-left */
   margin:34px 0 42px;
 }
 
 .sfoglia-scena{
-  display:flex; align-items:stretch; justify-content:center;
-  perspective:2600px; perspective-origin:56% 50%;
+  position:relative; display:flex; width:fit-content; max-width:100%;
+  margin-inline:auto;
+  perspective:2400px; perspective-origin:50% 46%;
 }
 
 .sfoglia-cop{
-  position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
-  align-self:stretch;                                   /* stessa altezza della pagina, sempre */
-  margin-left:calc(var(--pag-w) * var(--scorcio) * -1);  /* recupera lo spazio che la rotazione libera */
-  border-radius:4px 2px 2px 4px; overflow:hidden;
-  transform-origin:right center; backface-visibility:hidden;
-  box-shadow:0 22px 44px -16px rgba(20,24,38,.46), 0 2px 6px rgba(20,24,38,.18);
-  transform:rotateY(-20deg);
+  position:absolute; top:0; bottom:0; right:0; width:var(--pag-w);
+  z-index:2; transform-style:preserve-3d;
+  transform-origin:left center;
+  transform:rotateY(calc(var(--sf-apri, 1) * -178deg));
+  will-change:transform;
 }
-.sfoglia-cop img{display:block; width:100%; height:100%; object-fit:cover; object-position:center}
-.sfoglia-cop::after{content:""; position:absolute; inset:0; pointer-events:none;
-  background:linear-gradient(90deg, rgba(0,0,0,.20), rgba(0,0,0,0) 26%, rgba(255,255,255,.08))}
+.sf-fronte, .sf-retro{position:absolute; inset:0; backface-visibility:hidden;
+  border-radius:2px 5px 5px 2px; overflow:hidden}
+.sf-fronte{box-shadow:0 18px 40px -16px rgba(20,24,38,.45), 0 2px 6px rgba(20,24,38,.16)}
+.sf-fronte img, .sf-fronte picture{display:block; width:100%; height:100%}
+.sf-fronte img{object-fit:cover; object-position:center}
+.sf-retro{transform:rotateY(180deg);
+  background:linear-gradient(258deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
+  box-shadow:inset -14px 0 24px -16px rgba(92,72,42,.42), 0 18px 38px -18px rgba(20,24,38,.28)}
 
-@media (min-width:901px) and (prefers-reduced-motion:no-preference){
-  .sfoglia-cop{transition:transform 2.2s cubic-bezier(.16,.8,.24,1)}
-  .sfoglia.sf-chiusa .sfoglia-cop{transform:rotateY(-86deg)}
-}
+
 
 .sfoglia-foglio{
   position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
+  margin-left:var(--pag-w);
   min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 34);
+  font-size:calc(var(--pag-w) / 35.5);
   display:flex; flex-direction:column;
   padding:1.5em 1.75em 1.1em 2.1em;
   border-radius:2px 5px 5px 2px;
@@ -238,8 +240,8 @@ footer.sito a{color:var(--nebbia)}
    e non restano le due strisce di fondo ai lati. */
 .sf-gspread-box{container-type:inline-size}
 .sf-gspread{
-  --pag-w:min(420px, 36vw);
-  --pag-h:calc(var(--pag-w) * 1.6);
+  --pag-w:min(380px, 30vw);
+  --pag-h:calc(var(--pag-w) * 1.5);
   display:flex; align-items:stretch;
   width:fit-content; max-width:100%; margin:18px auto 0;
   border-radius:3px; overflow:hidden;
@@ -248,7 +250,7 @@ footer.sito a{color:var(--nebbia)}
 .sf-gpag{
 
   flex:0 0 var(--pag-w); width:var(--pag-w); min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 34);
+  font-size:calc(var(--pag-w) / 35.5);
   display:flex; flex-direction:column; padding:1.5em 1.75em 1.1em;
   background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
 }
@@ -275,14 +277,17 @@ footer.sito a{color:var(--nebbia)}
 
 /* ---- sotto i 900px: si impila, niente prospettiva ---- */
 @media (max-width:900px){
-  .sfoglia, .sf-gspread{--pag-w:320px}
+  .sfoglia, .sf-gspread{--pag-w:320px; --pag-h:calc(var(--pag-w) * 1.6)}
   @supports (width: 1cqw){
     .sfoglia, .sf-gspread{--pag-w:min(100cqw, 340px)}
   }
   .sfoglia-scena{flex-direction:column; align-items:center; perspective:none}
   .sfoglia-cop, .sfoglia-foglio, .sf-gpag{flex-basis:auto; width:var(--pag-w); max-width:100%}
-  .sfoglia-cop{margin:0 auto 16px; align-self:auto; height:var(--pag-h);
-    transform:none !important; animation:none; transition:none}
+  .sfoglia-foglio{margin-left:0}
+  .sfoglia-cop{position:static; margin:0 auto 16px; height:var(--pag-h);
+    transform:none !important; z-index:auto}
+  .sf-fronte{position:relative; inset:auto; height:100%}
+  .sf-retro{display:none}
   .sfoglia-foglio{border-radius:6px}
   .sfoglia-foglio::after{display:none}
   .sf-gspread{flex-direction:column; align-items:center; gap:12px;
@@ -291,7 +296,7 @@ footer.sito a{color:var(--nebbia)}
   .sf-2col{grid-template-columns:1fr; gap:0}
 }
 @media (prefers-reduced-motion:reduce){
-  .sfoglia-cop{animation:none; transform:rotateY(-20deg)}
+  .sfoglia-cop{transform:rotateY(-178deg) !important}
 }
 </style>
 <script type="application/ld+json">{
@@ -380,12 +385,10 @@ footer.sito a{color:var(--nebbia)}
               <section class="sezione sfoglia">
     <h2>Sfoglia dentro: la prima pagina</h2>
     <div class="sfoglia-scena">
-      <div class="sfoglia-cop">
-        <picture>
+      <div class="sfoglia-cop"><div class="sf-fronte"><picture>
           <source srcset="/assets/books/OrlandoFurioso_Cover.webp" type="image/webp">
           <img src="/assets/books/OrlandoFurioso_Cover.jpg" width="800" height="1280" alt="Copertina di La fuga di Angelica" loading="lazy" decoding="async">
-        </picture>
-      </div>
+        </picture></div><div class="sf-retro"></div></div>
       <div class="sfoglia-foglio">
         <p class="sf-capnum">CAPITOLO 1</p>
         <img class="sf-vign" src="/assets/books/vignette/orlando-furioso.png" alt="Vignetta del capitolo" width="148" height="148" loading="lazy" decoding="async">
@@ -431,15 +434,15 @@ footer.sito a{color:var(--nebbia)}
           <dt><b lang="it">ampolla</b> &middot; <i lang="en">vial</i> <span>((sin. fiala, boccetta))</span></dt>
           <dd lang="it">Un piccolo vaso di vetro dal collo stretto, per conservare liquidi.</dd>
           <dd class="en" lang="en">A small narrow-necked glass vessel for keeping liquids.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: On the Moon, in a valley, stand thousands of vials: inside each is the sense that someone lost on Earth. Orlando&#x27;s is the largest of all. The image is comic and terrible at once — human reason reduced to a liquid in a bottle — and it is one of the most quoted inventions in the literature of any age.</dd>
+          <dd class="sf-gnota" lang="en">On the Moon, in a valley, stand thousands of vials: inside each is the sense that someone lost on Earth. Orlando&#x27;s is the largest of all. The image is comic and terrible at once — human reason reduced to a liquid in a bottle — and it is one of the most quoted inventions in the literature of any age.</dd>
           <dt><b lang="it">anello</b> &middot; <i lang="en">ring</i> <span>((sin. cerchietto, vera))</span></dt>
           <dd lang="it">Un piccolo cerchio di metallo che si porta al dito.</dd>
           <dd class="en" lang="en">A small circle of metal worn on the finger.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Angelica&#x27;s ring is the most powerful magic object in the book: on the finger it cancels every spell, in the mouth it makes you invisible. It passes from hand to hand — Brunello steals it, Bradamante wins it, Melissa carries it, Angelica takes it back — and at every passage it changes the story. It is the great-grandfather of every magic ring in modern literature.</dd>
+          <dd class="sf-gnota" lang="en">Angelica&#x27;s ring is the most powerful magic object in the book: on the finger it cancels every spell, in the mouth it makes you invisible. It passes from hand to hand — Brunello steals it, Bradamante wins it, Melissa carries it, Angelica takes it back — and at every passage it changes the story. It is the great-grandfather of every magic ring in modern literature.</dd>
           <dt><b lang="it">armatura</b> &middot; <i lang="en">armour</i> <span>((sin. corazza, difesa))</span></dt>
           <dd lang="it">L&#x27;insieme di piastre di metallo che protegge il corpo di un cavaliere.</dd>
           <dd class="en" lang="en">The set of metal plates protecting a knight&#x27;s body.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Armour in the poem is a second skin: it says who you are, protects you, represents you. That is why the scene where Orlando tears his armour off is so powerful: he is not removing clothing — he is removing his own name. A knight without armour, in the world of the Furioso, is no longer a knight: only a man.</dd>
+          <dd class="sf-gnota" lang="en">Armour in the poem is a second skin: it says who you are, protects you, represents you. That is why the scene where Orlando tears his armour off is so powerful: he is not removing clothing — he is removing his own name. A knight without armour, in the world of the Furioso, is no longer a knight: only a man.</dd>
         </dl>
       </div>
       <div class="sf-gpag">
@@ -447,15 +450,15 @@ footer.sito a{color:var(--nebbia)}
           <dt><b lang="it">assedio</b> &middot; <i lang="en">siege</i> <span>((sin. accerchiamento, blocco))</span></dt>
           <dd lang="it">L&#x27;accerchiamento di una città per costringerla ad arrendersi.</dd>
           <dd class="en" lang="en">The encirclement of a city to force it to surrender.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The siege of Paris is the backdrop of the whole poem: while the knights chase loves and enchantments, a real war is fought beneath the walls. Ariosto alternates the two planes constantly — fable and history — and the siege is there to remind us that his heroes&#x27; choices have a price: every paladin who rides away is one sword fewer on the walls.</dd>
+          <dd class="sf-gnota" lang="en">The siege of Paris is the backdrop of the whole poem: while the knights chase loves and enchantments, a real war is fought beneath the walls. Ariosto alternates the two planes constantly — fable and history — and the siege is there to remind us that his heroes&#x27; choices have a price: every paladin who rides away is one sword fewer on the walls.</dd>
           <dt><b lang="it">avventura</b> &middot; <i lang="en">adventure</i> <span>((sin. impresa, peripezia))</span></dt>
           <dd lang="it">Un&#x27;esperienza fuori dall&#x27;ordinario, piena di rischi e di sorprese.</dd>
           <dd class="en" lang="en">An out-of-the-ordinary experience, full of risks and surprises.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The Furioso is the adventure machine: every crossroads hides one, every character chases another. Ariosto weaves them like threads of a carpet — he leaves one hero on the edge of a cliff and moves to the next. Today&#x27;s readers call it suspense; he called it the art of &#x27;leaving Orlando&#x27; at the right moment.</dd>
+          <dd class="sf-gnota" lang="en">The Furioso is the adventure machine: every crossroads hides one, every character chases another. Ariosto weaves them like threads of a carpet — he leaves one hero on the edge of a cliff and moves to the next. Today&#x27;s readers call it suspense; he called it the art of &#x27;leaving Orlando&#x27; at the right moment.</dd>
           <dt><b lang="it">battesimo</b> &middot; <i lang="en">baptism</i> <span>((sin. rito d&#x27;ingresso, sacramento))</span></dt>
           <dd lang="it">Il rito con cui una persona entra nella religione cristiana.</dd>
           <dd class="en" lang="en">The rite by which a person enters the Christian religion.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Ruggiero&#x27;s baptism is the promise running through the whole poem: the prophecy announces it, Bradamante waits for it, Atlante fears it. When it finally comes, on the hermit&#x27;s island, it is no solemn scene: it is a man saved from the sea keeping his word. In the Furioso even destiny&#x27;s turning points have simple manners.</dd>
+          <dd class="sf-gnota" lang="en">Ruggiero&#x27;s baptism is the promise running through the whole poem: the prophecy announces it, Bradamante waits for it, Atlante fears it. When it finally comes, on the hermit&#x27;s island, it is no solemn scene: it is a man saved from the sea keeping his word. In the Furioso even destiny&#x27;s turning points have simple manners.</dd>
         </dl>
         <p class="sf-gpie">Il glossario contiene 49 voci in tutto</p>
       </div>
@@ -585,22 +588,33 @@ footer.sito a{color:var(--nebbia)}
 <script>document.getElementById('anno').textContent=new Date().getFullYear();</script>
 <script src="/js/whatsapp.js" defer></script>
 <script>
-/* sfoglia — apertura della copertina quando la scheda entra nello schermo.
-   Solo animazione: ogni parola e' gia' nell'HTML, senza JS la copertina
-   resta semplicemente aperta. */
+/* sfoglia — la copertina si apre man mano che si scende e si richiude
+   risalendo. Solo animazione: ogni parola e' gia' nell'HTML; senza
+   JavaScript la copertina resta aperta e il libro si legge comunque. */
 (function(){
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if(innerWidth <= 900 || !window.IntersectionObserver) return;
-  document.querySelectorAll('.sfoglia').forEach(function(s){
-    s.classList.add('sf-chiusa');
-    new IntersectionObserver(function(v,o){
-      v.forEach(function(e){
-        if(!e.isIntersecting) return;
-        requestAnimationFrame(function(){ s.classList.remove('sf-chiusa'); });
-        o.unobserve(e.target);
-      });
-    },{threshold:0.35}).observe(s);
-  });
+  if(innerWidth <= 900) return;
+  var scene=[].slice.call(document.querySelectorAll('.sfoglia-scena'));
+  if(!scene.length) return;
+  function aggiorna(){
+    var vh=innerHeight;
+    scene.forEach(function(s){
+      var r=s.getBoundingClientRect();
+      /* 0 = scena appena entrata dal basso (libro chiuso)
+         1 = scena a meta' schermo (libro tutto aperto) */
+      var p=(vh - r.top) / (vh*.5 + r.height*.5);
+      p=Math.max(0, Math.min(1, p));
+      p=p*p*(3-2*p);                       /* partenza e arrivo morbidi */
+      s.style.setProperty('--sf-apri', p.toFixed(4));
+    });
+  }
+  var occupato=false;
+  addEventListener('scroll', function(){
+    if(occupato) return; occupato=true;
+    requestAnimationFrame(function(){ occupato=false; aggiorna(); });
+  }, {passive:true});
+  addEventListener('resize', aggiorna, {passive:true});
+  aggiorna();
 })();
 </script>
 

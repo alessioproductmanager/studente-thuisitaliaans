@@ -147,39 +147,41 @@ footer.sito a{color:var(--nebbia)}
 
 .sfoglia{
   container-type:inline-size;
-  --pag-w:min(420px, 36vw);
-  --pag-h:calc(var(--pag-w) * 1.6);
+  --pag-w:min(380px, 30vw);
+  --pag-h:calc(var(--pag-w) * 1.5);
   --scorcio:.108;                    /* 1 - larghezza proiettata a 32°: vedi margin-left */
   margin:34px 0 42px;
 }
 
 .sfoglia-scena{
-  display:flex; align-items:stretch; justify-content:center;
-  perspective:2600px; perspective-origin:56% 50%;
+  position:relative; display:flex; width:fit-content; max-width:100%;
+  margin-inline:auto;
+  perspective:2400px; perspective-origin:50% 46%;
 }
 
 .sfoglia-cop{
-  position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
-  align-self:stretch;                                   /* stessa altezza della pagina, sempre */
-  margin-left:calc(var(--pag-w) * var(--scorcio) * -1);  /* recupera lo spazio che la rotazione libera */
-  border-radius:4px 2px 2px 4px; overflow:hidden;
-  transform-origin:right center; backface-visibility:hidden;
-  box-shadow:0 22px 44px -16px rgba(20,24,38,.46), 0 2px 6px rgba(20,24,38,.18);
-  transform:rotateY(-20deg);
+  position:absolute; top:0; bottom:0; right:0; width:var(--pag-w);
+  z-index:2; transform-style:preserve-3d;
+  transform-origin:left center;
+  transform:rotateY(calc(var(--sf-apri, 1) * -178deg));
+  will-change:transform;
 }
-.sfoglia-cop img{display:block; width:100%; height:100%; object-fit:cover; object-position:center}
-.sfoglia-cop::after{content:""; position:absolute; inset:0; pointer-events:none;
-  background:linear-gradient(90deg, rgba(0,0,0,.20), rgba(0,0,0,0) 26%, rgba(255,255,255,.08))}
+.sf-fronte, .sf-retro{position:absolute; inset:0; backface-visibility:hidden;
+  border-radius:2px 5px 5px 2px; overflow:hidden}
+.sf-fronte{box-shadow:0 18px 40px -16px rgba(20,24,38,.45), 0 2px 6px rgba(20,24,38,.16)}
+.sf-fronte img, .sf-fronte picture{display:block; width:100%; height:100%}
+.sf-fronte img{object-fit:cover; object-position:center}
+.sf-retro{transform:rotateY(180deg);
+  background:linear-gradient(258deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
+  box-shadow:inset -14px 0 24px -16px rgba(92,72,42,.42), 0 18px 38px -18px rgba(20,24,38,.28)}
 
-@media (min-width:901px) and (prefers-reduced-motion:no-preference){
-  .sfoglia-cop{transition:transform 2.2s cubic-bezier(.16,.8,.24,1)}
-  .sfoglia.sf-chiusa .sfoglia-cop{transform:rotateY(-86deg)}
-}
+
 
 .sfoglia-foglio{
   position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
+  margin-left:var(--pag-w);
   min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 34);
+  font-size:calc(var(--pag-w) / 35.5);
   display:flex; flex-direction:column;
   padding:1.5em 1.75em 1.1em 2.1em;
   border-radius:2px 5px 5px 2px;
@@ -238,8 +240,8 @@ footer.sito a{color:var(--nebbia)}
    e non restano le due strisce di fondo ai lati. */
 .sf-gspread-box{container-type:inline-size}
 .sf-gspread{
-  --pag-w:min(420px, 36vw);
-  --pag-h:calc(var(--pag-w) * 1.6);
+  --pag-w:min(380px, 30vw);
+  --pag-h:calc(var(--pag-w) * 1.5);
   display:flex; align-items:stretch;
   width:fit-content; max-width:100%; margin:18px auto 0;
   border-radius:3px; overflow:hidden;
@@ -248,7 +250,7 @@ footer.sito a{color:var(--nebbia)}
 .sf-gpag{
 
   flex:0 0 var(--pag-w); width:var(--pag-w); min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 34);
+  font-size:calc(var(--pag-w) / 35.5);
   display:flex; flex-direction:column; padding:1.5em 1.75em 1.1em;
   background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
 }
@@ -275,14 +277,17 @@ footer.sito a{color:var(--nebbia)}
 
 /* ---- sotto i 900px: si impila, niente prospettiva ---- */
 @media (max-width:900px){
-  .sfoglia, .sf-gspread{--pag-w:320px}
+  .sfoglia, .sf-gspread{--pag-w:320px; --pag-h:calc(var(--pag-w) * 1.6)}
   @supports (width: 1cqw){
     .sfoglia, .sf-gspread{--pag-w:min(100cqw, 340px)}
   }
   .sfoglia-scena{flex-direction:column; align-items:center; perspective:none}
   .sfoglia-cop, .sfoglia-foglio, .sf-gpag{flex-basis:auto; width:var(--pag-w); max-width:100%}
-  .sfoglia-cop{margin:0 auto 16px; align-self:auto; height:var(--pag-h);
-    transform:none !important; animation:none; transition:none}
+  .sfoglia-foglio{margin-left:0}
+  .sfoglia-cop{position:static; margin:0 auto 16px; height:var(--pag-h);
+    transform:none !important; z-index:auto}
+  .sf-fronte{position:relative; inset:auto; height:100%}
+  .sf-retro{display:none}
   .sfoglia-foglio{border-radius:6px}
   .sfoglia-foglio::after{display:none}
   .sf-gspread{flex-direction:column; align-items:center; gap:12px;
@@ -291,7 +296,7 @@ footer.sito a{color:var(--nebbia)}
   .sf-2col{grid-template-columns:1fr; gap:0}
 }
 @media (prefers-reduced-motion:reduce){
-  .sfoglia-cop{animation:none; transform:rotateY(-20deg)}
+  .sfoglia-cop{transform:rotateY(-178deg) !important}
 }
 </style>
 <script type="application/ld+json">{
@@ -380,12 +385,10 @@ footer.sito a{color:var(--nebbia)}
               <section class="sezione sfoglia">
     <h2>Look inside: the first page</h2>
     <div class="sfoglia-scena">
-      <div class="sfoglia-cop">
-        <picture>
+      <div class="sfoglia-cop"><div class="sf-fronte"><picture>
           <source srcset="/assets/books/LettereDiViaggio_Copertina_eBook.webp" type="image/webp">
           <img src="/assets/books/LettereDiViaggio_Copertina_eBook.jpg" width="800" height="1280" alt="Cover of Un’idea rotonda" loading="lazy" decoding="async">
-        </picture>
-      </div>
+        </picture></div><div class="sf-retro"></div></div>
       <div class="sfoglia-foglio">
         <p class="sf-capnum">CAPITOLO 1</p>
         <img class="sf-vign" src="/assets/books/vignette/lettere-di-viaggio.png" alt="Chapter vignette" width="148" height="148" loading="lazy" decoding="async">
@@ -430,19 +433,19 @@ footer.sito a{color:var(--nebbia)}
           <dt><b lang="it">amaca</b> &middot; <i lang="en">hammock</i> <span>((sin. rete da riposo, letto sospeso))</span></dt>
           <dd lang="it">Una rete appesa tra due sostegni, usata per dormire.</dd>
           <dd class="en" lang="en">A hanging bed made of net or cloth, tied between two points; a Taino word.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: A Taino word: «hamaca». Europeans had never seen a bed hanging in the air. The sailors copy it at once, and for four centuries every ship in the world will sleep the Taino way.</dd>
+          <dd class="sf-gnota" lang="en">A Taino word: «hamaca». Europeans had never seen a bed hanging in the air. The sailors copy it at once, and for four centuries every ship in the world will sleep the Taino way.</dd>
           <dt><b lang="it">ammiraglio</b> &middot; <i lang="en">admiral</i> <span>((sin. comandante, capo della flotta))</span></dt>
           <dd lang="it">Il capo militare di una flotta.</dd>
           <dd class="en" lang="en">The highest commander of a fleet of ships.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: It is the title Columbus demands from the monarchs before sailing, and defends all his life. When they arrest him, he still signs «the Admiral». For him it is not a rank: it is proof that his idea was right.</dd>
+          <dd class="sf-gnota" lang="en">It is the title Columbus demands from the monarchs before sailing, and defends all his life. When they arrest him, he still signs «the Admiral». For him it is not a rank: it is proof that his idea was right.</dd>
           <dt><b lang="it">ammutinamento</b> &middot; <i lang="en">mutiny</i> <span>((sin. ribellione, rivolta))</span></dt>
           <dd lang="it">La ribellione dei marinai contro il loro comandante.</dd>
           <dd class="en" lang="en">A revolt of sailors against their captain.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The most feared word on board. In October, after a month without land, the crew stops obeying willingly: there is talk of turning back, perhaps even of throwing the admiral into the sea. Land arrives just in time.</dd>
+          <dd class="sf-gnota" lang="en">The most feared word on board. In October, after a month without land, the crew stops obeying willingly: there is talk of turning back, perhaps even of throwing the admiral into the sea. Land arrives just in time.</dd>
           <dt><b lang="it">baratto</b> &middot; <i lang="en">barter</i> <span>((sin. scambio, commercio senza denaro))</span></dt>
           <dd lang="it">Lo scambio di una cosa con un&#x27;altra, senza denaro.</dd>
           <dd class="en" lang="en">An exchange of things without using money.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Glass beads for parrots, little bells for cotton thread: the first contact between the two worlds is barter. It looks like a game between friends. But one side knows the value of the other&#x27;s things, and the other does not.</dd>
+          <dd class="sf-gnota" lang="en">Glass beads for parrots, little bells for cotton thread: the first contact between the two worlds is barter. It looks like a game between friends. But one side knows the value of the other&#x27;s things, and the other does not.</dd>
         </dl>
       </div>
       <div class="sf-gpag">
@@ -450,15 +453,19 @@ footer.sito a{color:var(--nebbia)}
           <dt><b lang="it">bussola</b> &middot; <i lang="en">compass</i> <span>((sin. ago magnetico, strumento di rotta))</span></dt>
           <dd lang="it">Uno strumento con un ago che indica sempre il nord.</dd>
           <dd class="en" lang="en">An instrument with a needle that always points north.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: On the ocean, with no land in sight, the compass is the only certainty. That is why the night the needle «goes wrong» is the most dangerous of the voyage: if the compass lies, the road home no longer exists.</dd>
+          <dd class="sf-gnota" lang="en">On the ocean, with no land in sight, the compass is the only certainty. That is why the night the needle «goes wrong» is the most dangerous of the voyage: if the compass lies, the road home no longer exists.</dd>
           <dt><b lang="it">canoa</b> &middot; <i lang="en">canoe</i> <span>((sin. piroga, imbarcazione))</span></dt>
           <dd lang="it">Una barca stretta e leggera, che si muove con la pagaia.</dd>
           <dd class="en" lang="en">A light, narrow boat moved with a paddle; a Taino word.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: A Taino word, brought into Italian through these letters. Taino canoes were carved from a single tree: some carried forty men. In 1503 a canoe will cross the open sea to save Columbus.</dd>
+          <dd class="sf-gnota" lang="en">A Taino word, brought into Italian through these letters. Taino canoes were carved from a single tree: some carried forty men. In 1503 a canoe will cross the open sea to save Columbus.</dd>
           <dt><b lang="it">caravella</b> &middot; <i lang="en">caravel</i> <span>((sin. veliero, nave leggera))</span></dt>
           <dd lang="it">Una piccola nave a vela veloce, usata nel Quattrocento per esplorare.</dd>
           <dd class="en" lang="en">A small, fast sailing ship used by explorers in the 15th century.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The Niña and the Pinta were caravels: small, light, able to sail almost against the wind. Not the biggest ships of the age — the best suited. The ocean is not defeated by force: it is defeated by the right design.</dd>
+          <dd class="sf-gnota" lang="en">The Niña and the Pinta were caravels: small, light, able to sail almost against the wind. Not the biggest ships of the age — the best suited. The ocean is not defeated by force: it is defeated by the right design.</dd>
+          <dt><b lang="it">cartografo</b> &middot; <i lang="en">cartographer</i> <span>((sin. disegnatore di mappe, geografo))</span></dt>
+          <dd lang="it">Una persona che disegna le mappe.</dd>
+          <dd class="en" lang="en">A person who draws maps.</dd>
+          <dd class="sf-gnota" lang="en">The true judges of this story. They never crossed the ocean, but they gather the logs and the routes and decide what shape to give the world. In 1507, in a small French town, a cartographer writes a new word on a new land.</dd>
         </dl>
         <p class="sf-gpie">The glossary contains 32 entries in all</p>
       </div>
@@ -588,22 +595,33 @@ footer.sito a{color:var(--nebbia)}
 <script>document.getElementById('anno').textContent=new Date().getFullYear();</script>
 <script src="/js/whatsapp.js" defer></script>
 <script>
-/* sfoglia — apertura della copertina quando la scheda entra nello schermo.
-   Solo animazione: ogni parola e' gia' nell'HTML, senza JS la copertina
-   resta semplicemente aperta. */
+/* sfoglia — la copertina si apre man mano che si scende e si richiude
+   risalendo. Solo animazione: ogni parola e' gia' nell'HTML; senza
+   JavaScript la copertina resta aperta e il libro si legge comunque. */
 (function(){
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if(innerWidth <= 900 || !window.IntersectionObserver) return;
-  document.querySelectorAll('.sfoglia').forEach(function(s){
-    s.classList.add('sf-chiusa');
-    new IntersectionObserver(function(v,o){
-      v.forEach(function(e){
-        if(!e.isIntersecting) return;
-        requestAnimationFrame(function(){ s.classList.remove('sf-chiusa'); });
-        o.unobserve(e.target);
-      });
-    },{threshold:0.35}).observe(s);
-  });
+  if(innerWidth <= 900) return;
+  var scene=[].slice.call(document.querySelectorAll('.sfoglia-scena'));
+  if(!scene.length) return;
+  function aggiorna(){
+    var vh=innerHeight;
+    scene.forEach(function(s){
+      var r=s.getBoundingClientRect();
+      /* 0 = scena appena entrata dal basso (libro chiuso)
+         1 = scena a meta' schermo (libro tutto aperto) */
+      var p=(vh - r.top) / (vh*.5 + r.height*.5);
+      p=Math.max(0, Math.min(1, p));
+      p=p*p*(3-2*p);                       /* partenza e arrivo morbidi */
+      s.style.setProperty('--sf-apri', p.toFixed(4));
+    });
+  }
+  var occupato=false;
+  addEventListener('scroll', function(){
+    if(occupato) return; occupato=true;
+    requestAnimationFrame(function(){ occupato=false; aggiorna(); });
+  }, {passive:true});
+  addEventListener('resize', aggiorna, {passive:true});
+  aggiorna();
 })();
 </script>
 

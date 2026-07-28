@@ -147,39 +147,41 @@ footer.sito a{color:var(--nebbia)}
 
 .sfoglia{
   container-type:inline-size;
-  --pag-w:min(420px, 36vw);
-  --pag-h:calc(var(--pag-w) * 1.6);
+  --pag-w:min(380px, 30vw);
+  --pag-h:calc(var(--pag-w) * 1.5);
   --scorcio:.108;                    /* 1 - larghezza proiettata a 32°: vedi margin-left */
   margin:34px 0 42px;
 }
 
 .sfoglia-scena{
-  display:flex; align-items:stretch; justify-content:center;
-  perspective:2600px; perspective-origin:56% 50%;
+  position:relative; display:flex; width:fit-content; max-width:100%;
+  margin-inline:auto;
+  perspective:2400px; perspective-origin:50% 46%;
 }
 
 .sfoglia-cop{
-  position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
-  align-self:stretch;                                   /* stessa altezza della pagina, sempre */
-  margin-left:calc(var(--pag-w) * var(--scorcio) * -1);  /* recupera lo spazio che la rotazione libera */
-  border-radius:4px 2px 2px 4px; overflow:hidden;
-  transform-origin:right center; backface-visibility:hidden;
-  box-shadow:0 22px 44px -16px rgba(20,24,38,.46), 0 2px 6px rgba(20,24,38,.18);
-  transform:rotateY(-20deg);
+  position:absolute; top:0; bottom:0; right:0; width:var(--pag-w);
+  z-index:2; transform-style:preserve-3d;
+  transform-origin:left center;
+  transform:rotateY(calc(var(--sf-apri, 1) * -178deg));
+  will-change:transform;
 }
-.sfoglia-cop img{display:block; width:100%; height:100%; object-fit:cover; object-position:center}
-.sfoglia-cop::after{content:""; position:absolute; inset:0; pointer-events:none;
-  background:linear-gradient(90deg, rgba(0,0,0,.20), rgba(0,0,0,0) 26%, rgba(255,255,255,.08))}
+.sf-fronte, .sf-retro{position:absolute; inset:0; backface-visibility:hidden;
+  border-radius:2px 5px 5px 2px; overflow:hidden}
+.sf-fronte{box-shadow:0 18px 40px -16px rgba(20,24,38,.45), 0 2px 6px rgba(20,24,38,.16)}
+.sf-fronte img, .sf-fronte picture{display:block; width:100%; height:100%}
+.sf-fronte img{object-fit:cover; object-position:center}
+.sf-retro{transform:rotateY(180deg);
+  background:linear-gradient(258deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
+  box-shadow:inset -14px 0 24px -16px rgba(92,72,42,.42), 0 18px 38px -18px rgba(20,24,38,.28)}
 
-@media (min-width:901px) and (prefers-reduced-motion:no-preference){
-  .sfoglia-cop{transition:transform 2.2s cubic-bezier(.16,.8,.24,1)}
-  .sfoglia.sf-chiusa .sfoglia-cop{transform:rotateY(-86deg)}
-}
+
 
 .sfoglia-foglio{
   position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
+  margin-left:var(--pag-w);
   min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 34);
+  font-size:calc(var(--pag-w) / 35.5);
   display:flex; flex-direction:column;
   padding:1.5em 1.75em 1.1em 2.1em;
   border-radius:2px 5px 5px 2px;
@@ -238,8 +240,8 @@ footer.sito a{color:var(--nebbia)}
    e non restano le due strisce di fondo ai lati. */
 .sf-gspread-box{container-type:inline-size}
 .sf-gspread{
-  --pag-w:min(420px, 36vw);
-  --pag-h:calc(var(--pag-w) * 1.6);
+  --pag-w:min(380px, 30vw);
+  --pag-h:calc(var(--pag-w) * 1.5);
   display:flex; align-items:stretch;
   width:fit-content; max-width:100%; margin:18px auto 0;
   border-radius:3px; overflow:hidden;
@@ -248,7 +250,7 @@ footer.sito a{color:var(--nebbia)}
 .sf-gpag{
 
   flex:0 0 var(--pag-w); width:var(--pag-w); min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 34);
+  font-size:calc(var(--pag-w) / 35.5);
   display:flex; flex-direction:column; padding:1.5em 1.75em 1.1em;
   background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
 }
@@ -275,14 +277,17 @@ footer.sito a{color:var(--nebbia)}
 
 /* ---- sotto i 900px: si impila, niente prospettiva ---- */
 @media (max-width:900px){
-  .sfoglia, .sf-gspread{--pag-w:320px}
+  .sfoglia, .sf-gspread{--pag-w:320px; --pag-h:calc(var(--pag-w) * 1.6)}
   @supports (width: 1cqw){
     .sfoglia, .sf-gspread{--pag-w:min(100cqw, 340px)}
   }
   .sfoglia-scena{flex-direction:column; align-items:center; perspective:none}
   .sfoglia-cop, .sfoglia-foglio, .sf-gpag{flex-basis:auto; width:var(--pag-w); max-width:100%}
-  .sfoglia-cop{margin:0 auto 16px; align-self:auto; height:var(--pag-h);
-    transform:none !important; animation:none; transition:none}
+  .sfoglia-foglio{margin-left:0}
+  .sfoglia-cop{position:static; margin:0 auto 16px; height:var(--pag-h);
+    transform:none !important; z-index:auto}
+  .sf-fronte{position:relative; inset:auto; height:100%}
+  .sf-retro{display:none}
   .sfoglia-foglio{border-radius:6px}
   .sfoglia-foglio::after{display:none}
   .sf-gspread{flex-direction:column; align-items:center; gap:12px;
@@ -291,7 +296,7 @@ footer.sito a{color:var(--nebbia)}
   .sf-2col{grid-template-columns:1fr; gap:0}
 }
 @media (prefers-reduced-motion:reduce){
-  .sfoglia-cop{animation:none; transform:rotateY(-20deg)}
+  .sfoglia-cop{transform:rotateY(-178deg) !important}
 }
 </style>
 <script type="application/ld+json">{
@@ -414,12 +419,10 @@ footer.sito a{color:var(--nebbia)}
               <section class="sezione sfoglia">
     <h2>Look inside: the first page</h2>
     <div class="sfoglia-scena">
-      <div class="sfoglia-cop">
-        <picture>
+      <div class="sfoglia-cop"><div class="sf-fronte"><picture>
           <source srcset="/assets/books/IlPiacere_cover.webp" type="image/webp">
           <img src="/assets/books/IlPiacere_cover.jpg" width="800" height="1280" alt="Cover of L’attesa" loading="lazy" decoding="async">
-        </picture>
-      </div>
+        </picture></div><div class="sf-retro"></div></div>
       <div class="sfoglia-foglio">
         <p class="sf-capnum">CAPITOLO 1</p>
         <img class="sf-vign" src="/assets/books/vignette/il-piacere.png" alt="Chapter vignette" width="148" height="148" loading="lazy" decoding="async">
@@ -459,19 +462,19 @@ footer.sito a{color:var(--nebbia)}
           <dt><b lang="it">anima</b> &middot; <i lang="en">the soul</i> <span>((sin. spirito, interiorità))</span></dt>
           <dd lang="it">La parte spirituale e interiore dell&#x27;uomo.</dd>
           <dd class="en" lang="en">The spiritual, inner part of a person.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Andrea invokes the soul when it suits him, to ennoble desire. It is perhaps his most refined lie: calling spirit what is only appetite.</dd>
+          <dd class="sf-gnota" lang="en">Andrea invokes the soul when it suits him, to ennoble desire. It is perhaps his most refined lie: calling spirit what is only appetite.</dd>
           <dt><b lang="it">aristocrazia</b> &middot; <i lang="en">aristocracy</i> <span>((sin. nobiltà, élite))</span></dt>
           <dd lang="it">La classe dei nobili; per estensione, chi si ritiene superiore per nascita o per gusto.</dd>
           <dd class="en" lang="en">The class of the nobility; those who deem themselves superior by birth or taste.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Roman aristocracy in 1885 governs nothing anymore: it has only taste left, the last privilege. D&#x27;Annunzio paints it beautiful and finished — and knows he belongs to it.</dd>
+          <dd class="sf-gnota" lang="en">Roman aristocracy in 1885 governs nothing anymore: it has only taste left, the last privilege. D&#x27;Annunzio paints it beautiful and finished — and knows he belongs to it.</dd>
           <dt><b lang="it">arte</b> &middot; <i lang="en">art</i> <span>((sin. opera, creazione))</span></dt>
           <dd lang="it">L&#x27;attività umana che produce opere di valore estetico.</dd>
           <dd class="en" lang="en">Human activity that produces works of aesthetic value.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Andrea writes verses, engraves, collects. But art, in him, isn&#x27;t a vocation: it&#x27;s furniture. D&#x27;Annunzio shows a gifted dilettante who mistakes taste for genius, and his own life for a masterpiece.</dd>
+          <dd class="sf-gnota" lang="en">Andrea writes verses, engraves, collects. But art, in him, isn&#x27;t a vocation: it&#x27;s furniture. D&#x27;Annunzio shows a gifted dilettante who mistakes taste for genius, and his own life for a masterpiece.</dd>
           <dt><b lang="it">artificio</b> &middot; <i lang="en">artifice</i> <span>((sin. espediente, affettazione))</span></dt>
           <dd lang="it">Espediente studiato, che imita il naturale senza esserlo.</dd>
           <dd class="en" lang="en">A studied device that imitates the natural without being it.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: It&#x27;s Andrea&#x27;s signature: nothing in him is spontaneous, everything is composed. And artifice repeated for years is no longer a mask you can take off — it has become the face.</dd>
+          <dd class="sf-gnota" lang="en">It&#x27;s Andrea&#x27;s signature: nothing in him is spontaneous, everything is composed. And artifice repeated for years is no longer a mask you can take off — it has become the face.</dd>
         </dl>
       </div>
       <div class="sf-gpag">
@@ -479,19 +482,23 @@ footer.sito a{color:var(--nebbia)}
           <dt><b lang="it">asta</b> &middot; <i lang="en">auction</i> <span>((sin. incanto, vendita))</span></dt>
           <dd lang="it">Vendita pubblica in cui un oggetto va a chi offre di più.</dd>
           <dd class="en" lang="en">A public sale in which an object goes to the highest bidder.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The auctions come back twice and close the circle: at the start Andrea outbids to conquer a woman; at the end another woman&#x27;s house goes under the hammer. Between them, the whole novel.</dd>
+          <dd class="sf-gnota" lang="en">The auctions come back twice and close the circle: at the start Andrea outbids to conquer a woman; at the end another woman&#x27;s house goes under the hammer. Between them, the whole novel.</dd>
           <dt><b lang="it">azzardo</b> &middot; <i lang="en">gambling</i> <span>((sin. gioco d&#x27;azzardo, scommessa))</span></dt>
           <dd lang="it">Il gioco in cui si punta denaro sull&#x27;esito del caso.</dd>
           <dd class="en" lang="en">Play in which money is staked on the outcome of chance.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Gambling is the most honest form of vice in this book: at least here one really loses, and the accounts add up. Manuel Ferres will ruin his wife and daughter over it.</dd>
+          <dd class="sf-gnota" lang="en">Gambling is the most honest form of vice in this book: at least here one really loses, and the accounts add up. Manuel Ferres will ruin his wife and daughter over it.</dd>
           <dt><b lang="it">bellezza</b> &middot; <i lang="en">beauty</i> <span>((sin. avvenenza, splendore))</span></dt>
           <dd lang="it">La qualità di ciò che dà piacere allo sguardo o allo spirito.</dd>
           <dd class="en" lang="en">The quality of what gives pleasure to the eye or the spirit.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: In this novel beauty saves no one — it corrupts. It&#x27;s the only thing Andrea believes in, and it&#x27;s what lets him justify absolutely anything.</dd>
+          <dd class="sf-gnota" lang="en">In this novel beauty saves no one — it corrupts. It&#x27;s the only thing Andrea believes in, and it&#x27;s what lets him justify absolutely anything.</dd>
           <dt><b lang="it">carne</b> &middot; <i lang="en">the flesh</i> <span>((sin. corpo, senso))</span></dt>
           <dd lang="it">Il corpo, considerato nella sua materialità e nei suoi appetiti.</dd>
           <dd class="en" lang="en">The body, seen in its materiality and its appetites.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Flesh and soul divide the novel like two political parties. Andrea would like to keep them together without choosing — and the book shows that whoever refuses to choose loses both.</dd>
+          <dd class="sf-gnota" lang="en">Flesh and soul divide the novel like two political parties. Andrea would like to keep them together without choosing — and the book shows that whoever refuses to choose loses both.</dd>
+          <dt><b lang="it">castità</b> &middot; <i lang="en">chastity</i> <span>((sin. continenza, verginità))</span></dt>
+          <dd lang="it">La rinuncia al piacere dei sensi, per scelta morale o religiosa.</dd>
+          <dd class="en" lang="en">The renunciation of sensual pleasure, by moral or religious choice.</dd>
+          <dd class="sf-gnota" lang="en">For Maria it is a faith; for Andrea, an interesting difficulty. From that gap — between one who believes and one who plays — comes the whole second half of the novel.</dd>
         </dl>
         <p class="sf-gpie">The glossary contains 53 entries in all</p>
       </div>
@@ -621,22 +628,33 @@ footer.sito a{color:var(--nebbia)}
 <script>document.getElementById('anno').textContent=new Date().getFullYear();</script>
 <script src="/js/whatsapp.js" defer></script>
 <script>
-/* sfoglia — apertura della copertina quando la scheda entra nello schermo.
-   Solo animazione: ogni parola e' gia' nell'HTML, senza JS la copertina
-   resta semplicemente aperta. */
+/* sfoglia — la copertina si apre man mano che si scende e si richiude
+   risalendo. Solo animazione: ogni parola e' gia' nell'HTML; senza
+   JavaScript la copertina resta aperta e il libro si legge comunque. */
 (function(){
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if(innerWidth <= 900 || !window.IntersectionObserver) return;
-  document.querySelectorAll('.sfoglia').forEach(function(s){
-    s.classList.add('sf-chiusa');
-    new IntersectionObserver(function(v,o){
-      v.forEach(function(e){
-        if(!e.isIntersecting) return;
-        requestAnimationFrame(function(){ s.classList.remove('sf-chiusa'); });
-        o.unobserve(e.target);
-      });
-    },{threshold:0.35}).observe(s);
-  });
+  if(innerWidth <= 900) return;
+  var scene=[].slice.call(document.querySelectorAll('.sfoglia-scena'));
+  if(!scene.length) return;
+  function aggiorna(){
+    var vh=innerHeight;
+    scene.forEach(function(s){
+      var r=s.getBoundingClientRect();
+      /* 0 = scena appena entrata dal basso (libro chiuso)
+         1 = scena a meta' schermo (libro tutto aperto) */
+      var p=(vh - r.top) / (vh*.5 + r.height*.5);
+      p=Math.max(0, Math.min(1, p));
+      p=p*p*(3-2*p);                       /* partenza e arrivo morbidi */
+      s.style.setProperty('--sf-apri', p.toFixed(4));
+    });
+  }
+  var occupato=false;
+  addEventListener('scroll', function(){
+    if(occupato) return; occupato=true;
+    requestAnimationFrame(function(){ occupato=false; aggiorna(); });
+  }, {passive:true});
+  addEventListener('resize', aggiorna, {passive:true});
+  aggiorna();
 })();
 </script>
 

@@ -147,39 +147,41 @@ footer.sito a{color:var(--nebbia)}
 
 .sfoglia{
   container-type:inline-size;
-  --pag-w:min(420px, 36vw);
-  --pag-h:calc(var(--pag-w) * 1.6);
+  --pag-w:min(380px, 30vw);
+  --pag-h:calc(var(--pag-w) * 1.5);
   --scorcio:.108;                    /* 1 - larghezza proiettata a 32°: vedi margin-left */
   margin:34px 0 42px;
 }
 
 .sfoglia-scena{
-  display:flex; align-items:stretch; justify-content:center;
-  perspective:2600px; perspective-origin:56% 50%;
+  position:relative; display:flex; width:fit-content; max-width:100%;
+  margin-inline:auto;
+  perspective:2400px; perspective-origin:50% 46%;
 }
 
 .sfoglia-cop{
-  position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
-  align-self:stretch;                                   /* stessa altezza della pagina, sempre */
-  margin-left:calc(var(--pag-w) * var(--scorcio) * -1);  /* recupera lo spazio che la rotazione libera */
-  border-radius:4px 2px 2px 4px; overflow:hidden;
-  transform-origin:right center; backface-visibility:hidden;
-  box-shadow:0 22px 44px -16px rgba(20,24,38,.46), 0 2px 6px rgba(20,24,38,.18);
-  transform:rotateY(-20deg);
+  position:absolute; top:0; bottom:0; right:0; width:var(--pag-w);
+  z-index:2; transform-style:preserve-3d;
+  transform-origin:left center;
+  transform:rotateY(calc(var(--sf-apri, 1) * -178deg));
+  will-change:transform;
 }
-.sfoglia-cop img{display:block; width:100%; height:100%; object-fit:cover; object-position:center}
-.sfoglia-cop::after{content:""; position:absolute; inset:0; pointer-events:none;
-  background:linear-gradient(90deg, rgba(0,0,0,.20), rgba(0,0,0,0) 26%, rgba(255,255,255,.08))}
+.sf-fronte, .sf-retro{position:absolute; inset:0; backface-visibility:hidden;
+  border-radius:2px 5px 5px 2px; overflow:hidden}
+.sf-fronte{box-shadow:0 18px 40px -16px rgba(20,24,38,.45), 0 2px 6px rgba(20,24,38,.16)}
+.sf-fronte img, .sf-fronte picture{display:block; width:100%; height:100%}
+.sf-fronte img{object-fit:cover; object-position:center}
+.sf-retro{transform:rotateY(180deg);
+  background:linear-gradient(258deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
+  box-shadow:inset -14px 0 24px -16px rgba(92,72,42,.42), 0 18px 38px -18px rgba(20,24,38,.28)}
 
-@media (min-width:901px) and (prefers-reduced-motion:no-preference){
-  .sfoglia-cop{transition:transform 2.2s cubic-bezier(.16,.8,.24,1)}
-  .sfoglia.sf-chiusa .sfoglia-cop{transform:rotateY(-86deg)}
-}
+
 
 .sfoglia-foglio{
   position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
+  margin-left:var(--pag-w);
   min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 34);
+  font-size:calc(var(--pag-w) / 35.5);
   display:flex; flex-direction:column;
   padding:1.5em 1.75em 1.1em 2.1em;
   border-radius:2px 5px 5px 2px;
@@ -238,8 +240,8 @@ footer.sito a{color:var(--nebbia)}
    e non restano le due strisce di fondo ai lati. */
 .sf-gspread-box{container-type:inline-size}
 .sf-gspread{
-  --pag-w:min(420px, 36vw);
-  --pag-h:calc(var(--pag-w) * 1.6);
+  --pag-w:min(380px, 30vw);
+  --pag-h:calc(var(--pag-w) * 1.5);
   display:flex; align-items:stretch;
   width:fit-content; max-width:100%; margin:18px auto 0;
   border-radius:3px; overflow:hidden;
@@ -248,7 +250,7 @@ footer.sito a{color:var(--nebbia)}
 .sf-gpag{
 
   flex:0 0 var(--pag-w); width:var(--pag-w); min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 34);
+  font-size:calc(var(--pag-w) / 35.5);
   display:flex; flex-direction:column; padding:1.5em 1.75em 1.1em;
   background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
 }
@@ -275,14 +277,17 @@ footer.sito a{color:var(--nebbia)}
 
 /* ---- sotto i 900px: si impila, niente prospettiva ---- */
 @media (max-width:900px){
-  .sfoglia, .sf-gspread{--pag-w:320px}
+  .sfoglia, .sf-gspread{--pag-w:320px; --pag-h:calc(var(--pag-w) * 1.6)}
   @supports (width: 1cqw){
     .sfoglia, .sf-gspread{--pag-w:min(100cqw, 340px)}
   }
   .sfoglia-scena{flex-direction:column; align-items:center; perspective:none}
   .sfoglia-cop, .sfoglia-foglio, .sf-gpag{flex-basis:auto; width:var(--pag-w); max-width:100%}
-  .sfoglia-cop{margin:0 auto 16px; align-self:auto; height:var(--pag-h);
-    transform:none !important; animation:none; transition:none}
+  .sfoglia-foglio{margin-left:0}
+  .sfoglia-cop{position:static; margin:0 auto 16px; height:var(--pag-h);
+    transform:none !important; z-index:auto}
+  .sf-fronte{position:relative; inset:auto; height:100%}
+  .sf-retro{display:none}
   .sfoglia-foglio{border-radius:6px}
   .sfoglia-foglio::after{display:none}
   .sf-gspread{flex-direction:column; align-items:center; gap:12px;
@@ -291,7 +296,7 @@ footer.sito a{color:var(--nebbia)}
   .sf-2col{grid-template-columns:1fr; gap:0}
 }
 @media (prefers-reduced-motion:reduce){
-  .sfoglia-cop{animation:none; transform:rotateY(-20deg)}
+  .sfoglia-cop{transform:rotateY(-178deg) !important}
 }
 </style>
 <script type="application/ld+json">{
@@ -434,12 +439,10 @@ footer.sito a{color:var(--nebbia)}
               <section class="sezione sfoglia">
     <h2>Sfoglia dentro: la prima pagina</h2>
     <div class="sfoglia-scena">
-      <div class="sfoglia-cop">
-        <picture>
+      <div class="sfoglia-cop"><div class="sf-fronte"><picture>
           <source srcset="/assets/books/PromessiSposi_cover.webp" type="image/webp">
           <img src="/assets/books/PromessiSposi_cover.jpg" width="800" height="1280" alt="Copertina di Don Abbondio e i bravi" loading="lazy" decoding="async">
-        </picture>
-      </div>
+        </picture></div><div class="sf-retro"></div></div>
       <div class="sfoglia-foglio">
         <p class="sf-capnum">CAPITOLO 1</p>
         <img class="sf-vign" src="/assets/books/vignette/i-promessi-sposi.png" alt="Vignetta del capitolo" width="148" height="148" loading="lazy" decoding="async">
@@ -482,15 +485,15 @@ footer.sito a{color:var(--nebbia)}
           <dt><b lang="it">bravi</b> &middot; <i lang="en">bravi, hired thugs</i> <span>((sin. scherani, sicari))</span></dt>
           <dd lang="it">Nel Seicento, uomini armati al servizio di un signore, pagati per proteggerlo, minacciare o eliminare i suoi nemici.</dd>
           <dd class="en" lang="en">In 17th-century Italy, armed men in the pay of a lord, hired to intimidate or kill his enemies.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: They are not soldiers, and they are not bandits: they are the private guard of the small provincial lords, who act with complete impunity. The opening scene of the novel — two bravi waiting for Don Abbondio on the road — sets up the whole system in a single image: quiet, technically illegal, in practice untouchable.</dd>
+          <dd class="sf-gnota" lang="en">They are not soldiers, and they are not bandits: they are the private guard of the small provincial lords, who act with complete impunity. The opening scene of the novel — two bravi waiting for Don Abbondio on the road — sets up the whole system in a single image: quiet, technically illegal, in practice untouchable.</dd>
           <dt><b lang="it">calunnia</b> &middot; <i lang="en">slander, calumny</i> <span>((sin. diffamazione, menzogna))</span></dt>
           <dd lang="it">L&#x27;accusa falsa fatta a qualcuno per rovinargli la reputazione o cacciarlo nei guai.</dd>
           <dd class="en" lang="en">A false accusation made to ruin someone&#x27;s reputation.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Renzo suffers it in Milan: from one moment to the next he becomes a dangerous leader of the mob, with a warrant out for his arrest. Manzoni devotes many pages to the mechanism — how a slander is built, how it runs faster than truth, how nearly impossible it is to clean it off. Read today, the pages sound familiar.</dd>
+          <dd class="sf-gnota" lang="en">Renzo suffers it in Milan: from one moment to the next he becomes a dangerous leader of the mob, with a warrant out for his arrest. Manzoni devotes many pages to the mechanism — how a slander is built, how it runs faster than truth, how nearly impossible it is to clean it off. Read today, the pages sound familiar.</dd>
           <dt><b lang="it">carestia</b> &middot; <i lang="en">famine</i> <span>((sin. fame, penuria))</span></dt>
           <dd lang="it">Una grave mancanza di cibo che si prolunga per mesi, portando la popolazione alla fame.</dd>
           <dd class="en" lang="en">A grave shortage of food that lasts for months.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Milan was hit hard by it in 1628, and Renzo runs into it in the middle of his flight. Famine in Manzoni is not a background: it is a character — the one that drives the crowd to break open the bakeries, and the one that will get Renzo mistaken for a revolutionary.</dd>
+          <dd class="sf-gnota" lang="en">Milan was hit hard by it in 1628, and Renzo runs into it in the middle of his flight. Famine in Manzoni is not a background: it is a character — the one that drives the crowd to break open the bakeries, and the one that will get Renzo mistaken for a revolutionary.</dd>
         </dl>
       </div>
       <div class="sf-gpag">
@@ -498,11 +501,15 @@ footer.sito a{color:var(--nebbia)}
           <dt><b lang="it">conversione</b> &middot; <i lang="en">conversion</i> <span>((sin. ravvedimento, trasformazione))</span></dt>
           <dd lang="it">Il cambiamento radicale e definitivo di vita e di fede: da chi si era a chi si diventa dopo aver visto qualcosa che non si potrà più dimenticare.</dd>
           <dd class="en" lang="en">A radical and final change of life and of faith.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: It is the secret heart of the novel. Fra Cristoforo was converted in his youth, after a duel. The Innominato will be converted in a single night, and that night is perhaps the most famous chapter in all of Italian narrative. Manzoni tells it without rhetoric: how the whole scaffolding a man has built around himself collapses, from the inside.</dd>
+          <dd class="sf-gnota" lang="en">It is the secret heart of the novel. Fra Cristoforo was converted in his youth, after a duel. The Innominato will be converted in a single night, and that night is perhaps the most famous chapter in all of Italian narrative. Manzoni tells it without rhetoric: how the whole scaffolding a man has built around himself collapses, from the inside.</dd>
           <dt><b lang="it">coscienza</b> &middot; <i lang="en">conscience</i> <span>((sin. senso morale, interiorità))</span></dt>
           <dd lang="it">La voce interiore che dice cosa è bene e cosa è male, e che tormenta chi non l&#x27;ha ascoltata.</dd>
           <dd class="en" lang="en">The inner voice that tells us what is right and what is wrong.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: It is the great hidden character of the novel. Don Abbondio silences it, Don Rodrigo ignores it, the Innominato meets it one night and does not recognize it, Federigo has it speak to everyone. For Manzoni conscience was the part of God inside man — and in this book he says so, without ever pronouncing the name.</dd>
+          <dd class="sf-gnota" lang="en">It is the great hidden character of the novel. Don Abbondio silences it, Don Rodrigo ignores it, the Innominato meets it one night and does not recognize it, Federigo has it speak to everyone. For Manzoni conscience was the part of God inside man — and in this book he says so, without ever pronouncing the name.</dd>
+          <dt><b lang="it">dominazione</b> &middot; <i lang="en">domination, foreign rule</i> <span>((sin. occupazione, sovranità))</span></dt>
+          <dd lang="it">Il controllo politico e militare esercitato da uno Stato straniero su una terra che non è sua.</dd>
+          <dd class="en" lang="en">Political and military control of a foreign state over a land not its own.</dd>
+          <dd class="sf-gnota" lang="en">In 1628 Lombardy had been under Spanish rule for a century. Manzoni describes it without ideology: a distant, indifferent power that issues edicts against the bravi and never enforces them. His critique is not patriotic — it is civic: a State that does not deliver justice is not a State.</dd>
         </dl>
         <p class="sf-gpie">Il glossario contiene 31 voci in tutto</p>
       </div>
@@ -632,22 +639,33 @@ footer.sito a{color:var(--nebbia)}
 <script>document.getElementById('anno').textContent=new Date().getFullYear();</script>
 <script src="/js/whatsapp.js" defer></script>
 <script>
-/* sfoglia — apertura della copertina quando la scheda entra nello schermo.
-   Solo animazione: ogni parola e' gia' nell'HTML, senza JS la copertina
-   resta semplicemente aperta. */
+/* sfoglia — la copertina si apre man mano che si scende e si richiude
+   risalendo. Solo animazione: ogni parola e' gia' nell'HTML; senza
+   JavaScript la copertina resta aperta e il libro si legge comunque. */
 (function(){
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if(innerWidth <= 900 || !window.IntersectionObserver) return;
-  document.querySelectorAll('.sfoglia').forEach(function(s){
-    s.classList.add('sf-chiusa');
-    new IntersectionObserver(function(v,o){
-      v.forEach(function(e){
-        if(!e.isIntersecting) return;
-        requestAnimationFrame(function(){ s.classList.remove('sf-chiusa'); });
-        o.unobserve(e.target);
-      });
-    },{threshold:0.35}).observe(s);
-  });
+  if(innerWidth <= 900) return;
+  var scene=[].slice.call(document.querySelectorAll('.sfoglia-scena'));
+  if(!scene.length) return;
+  function aggiorna(){
+    var vh=innerHeight;
+    scene.forEach(function(s){
+      var r=s.getBoundingClientRect();
+      /* 0 = scena appena entrata dal basso (libro chiuso)
+         1 = scena a meta' schermo (libro tutto aperto) */
+      var p=(vh - r.top) / (vh*.5 + r.height*.5);
+      p=Math.max(0, Math.min(1, p));
+      p=p*p*(3-2*p);                       /* partenza e arrivo morbidi */
+      s.style.setProperty('--sf-apri', p.toFixed(4));
+    });
+  }
+  var occupato=false;
+  addEventListener('scroll', function(){
+    if(occupato) return; occupato=true;
+    requestAnimationFrame(function(){ occupato=false; aggiorna(); });
+  }, {passive:true});
+  addEventListener('resize', aggiorna, {passive:true});
+  aggiorna();
 })();
 </script>
 

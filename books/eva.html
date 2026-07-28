@@ -147,39 +147,41 @@ footer.sito a{color:var(--nebbia)}
 
 .sfoglia{
   container-type:inline-size;
-  --pag-w:min(420px, 36vw);
-  --pag-h:calc(var(--pag-w) * 1.6);
+  --pag-w:min(380px, 30vw);
+  --pag-h:calc(var(--pag-w) * 1.5);
   --scorcio:.108;                    /* 1 - larghezza proiettata a 32°: vedi margin-left */
   margin:34px 0 42px;
 }
 
 .sfoglia-scena{
-  display:flex; align-items:stretch; justify-content:center;
-  perspective:2600px; perspective-origin:56% 50%;
+  position:relative; display:flex; width:fit-content; max-width:100%;
+  margin-inline:auto;
+  perspective:2400px; perspective-origin:50% 46%;
 }
 
 .sfoglia-cop{
-  position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
-  align-self:stretch;                                   /* stessa altezza della pagina, sempre */
-  margin-left:calc(var(--pag-w) * var(--scorcio) * -1);  /* recupera lo spazio che la rotazione libera */
-  border-radius:4px 2px 2px 4px; overflow:hidden;
-  transform-origin:right center; backface-visibility:hidden;
-  box-shadow:0 22px 44px -16px rgba(20,24,38,.46), 0 2px 6px rgba(20,24,38,.18);
-  transform:rotateY(-20deg);
+  position:absolute; top:0; bottom:0; right:0; width:var(--pag-w);
+  z-index:2; transform-style:preserve-3d;
+  transform-origin:left center;
+  transform:rotateY(calc(var(--sf-apri, 1) * -178deg));
+  will-change:transform;
 }
-.sfoglia-cop img{display:block; width:100%; height:100%; object-fit:cover; object-position:center}
-.sfoglia-cop::after{content:""; position:absolute; inset:0; pointer-events:none;
-  background:linear-gradient(90deg, rgba(0,0,0,.20), rgba(0,0,0,0) 26%, rgba(255,255,255,.08))}
+.sf-fronte, .sf-retro{position:absolute; inset:0; backface-visibility:hidden;
+  border-radius:2px 5px 5px 2px; overflow:hidden}
+.sf-fronte{box-shadow:0 18px 40px -16px rgba(20,24,38,.45), 0 2px 6px rgba(20,24,38,.16)}
+.sf-fronte img, .sf-fronte picture{display:block; width:100%; height:100%}
+.sf-fronte img{object-fit:cover; object-position:center}
+.sf-retro{transform:rotateY(180deg);
+  background:linear-gradient(258deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
+  box-shadow:inset -14px 0 24px -16px rgba(92,72,42,.42), 0 18px 38px -18px rgba(20,24,38,.28)}
 
-@media (min-width:901px) and (prefers-reduced-motion:no-preference){
-  .sfoglia-cop{transition:transform 2.2s cubic-bezier(.16,.8,.24,1)}
-  .sfoglia.sf-chiusa .sfoglia-cop{transform:rotateY(-86deg)}
-}
+
 
 .sfoglia-foglio{
   position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
+  margin-left:var(--pag-w);
   min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 34);
+  font-size:calc(var(--pag-w) / 35.5);
   display:flex; flex-direction:column;
   padding:1.5em 1.75em 1.1em 2.1em;
   border-radius:2px 5px 5px 2px;
@@ -238,8 +240,8 @@ footer.sito a{color:var(--nebbia)}
    e non restano le due strisce di fondo ai lati. */
 .sf-gspread-box{container-type:inline-size}
 .sf-gspread{
-  --pag-w:min(420px, 36vw);
-  --pag-h:calc(var(--pag-w) * 1.6);
+  --pag-w:min(380px, 30vw);
+  --pag-h:calc(var(--pag-w) * 1.5);
   display:flex; align-items:stretch;
   width:fit-content; max-width:100%; margin:18px auto 0;
   border-radius:3px; overflow:hidden;
@@ -248,7 +250,7 @@ footer.sito a{color:var(--nebbia)}
 .sf-gpag{
 
   flex:0 0 var(--pag-w); width:var(--pag-w); min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 34);
+  font-size:calc(var(--pag-w) / 35.5);
   display:flex; flex-direction:column; padding:1.5em 1.75em 1.1em;
   background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
 }
@@ -275,14 +277,17 @@ footer.sito a{color:var(--nebbia)}
 
 /* ---- sotto i 900px: si impila, niente prospettiva ---- */
 @media (max-width:900px){
-  .sfoglia, .sf-gspread{--pag-w:320px}
+  .sfoglia, .sf-gspread{--pag-w:320px; --pag-h:calc(var(--pag-w) * 1.6)}
   @supports (width: 1cqw){
     .sfoglia, .sf-gspread{--pag-w:min(100cqw, 340px)}
   }
   .sfoglia-scena{flex-direction:column; align-items:center; perspective:none}
   .sfoglia-cop, .sfoglia-foglio, .sf-gpag{flex-basis:auto; width:var(--pag-w); max-width:100%}
-  .sfoglia-cop{margin:0 auto 16px; align-self:auto; height:var(--pag-h);
-    transform:none !important; animation:none; transition:none}
+  .sfoglia-foglio{margin-left:0}
+  .sfoglia-cop{position:static; margin:0 auto 16px; height:var(--pag-h);
+    transform:none !important; z-index:auto}
+  .sf-fronte{position:relative; inset:auto; height:100%}
+  .sf-retro{display:none}
   .sfoglia-foglio{border-radius:6px}
   .sfoglia-foglio::after{display:none}
   .sf-gspread{flex-direction:column; align-items:center; gap:12px;
@@ -291,7 +296,7 @@ footer.sito a{color:var(--nebbia)}
   .sf-2col{grid-template-columns:1fr; gap:0}
 }
 @media (prefers-reduced-motion:reduce){
-  .sfoglia-cop{animation:none; transform:rotateY(-20deg)}
+  .sfoglia-cop{transform:rotateY(-178deg) !important}
 }
 </style>
 <script type="application/ld+json">{
@@ -434,12 +439,10 @@ footer.sito a{color:var(--nebbia)}
               <section class="sezione sfoglia">
     <h2>Look inside: the first page</h2>
     <div class="sfoglia-scena">
-      <div class="sfoglia-cop">
-        <picture>
+      <div class="sfoglia-cop"><div class="sf-fronte"><picture>
           <source srcset="/assets/books/Eva_cover.webp" type="image/webp">
           <img src="/assets/books/Eva_cover.jpg" width="800" height="1280" alt="Cover of Il pittore povero" loading="lazy" decoding="async">
-        </picture>
-      </div>
+        </picture></div><div class="sf-retro"></div></div>
       <div class="sfoglia-foglio">
         <p class="sf-capnum">CAPITOLO 1</p>
         <img class="sf-vign" src="/assets/books/vignette/eva.png" alt="Chapter vignette" width="148" height="148" loading="lazy" decoding="async">
@@ -489,19 +492,19 @@ footer.sito a{color:var(--nebbia)}
           <dt><b lang="it">amante</b> &middot; <i lang="en">lover</i> <span>((sin. compagna, innamorata))</span></dt>
           <dd lang="it">La persona che si ama, fuori dal matrimonio.</dd>
           <dd class="en" lang="en">The person one loves, outside marriage.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: A delicate word, and the book uses it without shame: Eva is Enrico&#x27;s lover, then the count&#x27;s. In the 1800s a woman like that is outside «respectable» society — and Verga writes the book precisely to ask: who is more honest, her or the society?</dd>
+          <dd class="sf-gnota" lang="en">A delicate word, and the book uses it without shame: Eva is Enrico&#x27;s lover, then the count&#x27;s. In the 1800s a woman like that is outside «respectable» society — and Verga writes the book precisely to ask: who is more honest, her or the society?</dd>
           <dt><b lang="it">applauso</b> &middot; <i lang="en">applause</i> <span>((sin. battimani, ovazione))</span></dt>
           <dd lang="it">Il rumore delle mani del pubblico, quando lo spettacolo piace.</dd>
           <dd class="en" lang="en">The sound of the audience&#x27;s hands when they like the show.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Applause is Eva&#x27;s bread: «you feel that you&#x27;re beautiful», she says. But it&#x27;s also Enrico&#x27;s poison, because every clap is a thousand men wanting his woman. In this book applause is never innocent.</dd>
+          <dd class="sf-gnota" lang="en">Applause is Eva&#x27;s bread: «you feel that you&#x27;re beautiful», she says. But it&#x27;s also Enrico&#x27;s poison, because every clap is a thousand men wanting his woman. In this book applause is never innocent.</dd>
           <dt><b lang="it">bacio</b> &middot; <i lang="en">kiss</i> <span>((sin. effusione, carezza con le labbra))</span></dt>
           <dd lang="it">Toccare con le labbra una persona, per amore.</dd>
           <dd class="en" lang="en">Touching a person with the lips, out of love.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The first kiss in the book Eva gives like this: she comes in, takes Enrico&#x27;s head in her hands, and says «Here&#x27;s your tea». The last kiss Enrico gives, in front of everyone, for a bet — and that one costs blood. Between the two kisses lies the whole story.</dd>
+          <dd class="sf-gnota" lang="en">The first kiss in the book Eva gives like this: she comes in, takes Enrico&#x27;s head in her hands, and says «Here&#x27;s your tea». The last kiss Enrico gives, in front of everyone, for a bet — and that one costs blood. Between the two kisses lies the whole story.</dd>
           <dt><b lang="it">ballerina</b> &middot; <i lang="en">ballerina</i> <span>((sin. danzatrice, artista di teatro))</span></dt>
           <dd lang="it">La donna che balla sul palco del teatro, per il pubblico.</dd>
           <dd class="en" lang="en">A woman who dances on stage, for the audience.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Eva isn&#x27;t just a woman who dances: it&#x27;s a profession, a world, a condition. A ballerina in the 1800s lives on the public and on rich gentlemen — and society looks down on her. Eva knows it, says it, and isn&#x27;t ashamed. She&#x27;s the most honest person in the book.</dd>
+          <dd class="sf-gnota" lang="en">Eva isn&#x27;t just a woman who dances: it&#x27;s a profession, a world, a condition. A ballerina in the 1800s lives on the public and on rich gentlemen — and society looks down on her. Eva knows it, says it, and isn&#x27;t ashamed. She&#x27;s the most honest person in the book.</dd>
         </dl>
       </div>
       <div class="sf-gpag">
@@ -509,15 +512,19 @@ footer.sito a{color:var(--nebbia)}
           <dt><b lang="it">carrozza</b> &middot; <i lang="en">carriage</i> <span>((sin. vettura, cocchio))</span></dt>
           <dd lang="it">La macchina dell&#x27;Ottocento: una cabina con le ruote, tirata dai cavalli.</dd>
           <dd class="en" lang="en">A cabin on wheels, pulled by horses.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The carriage is the book&#x27;s thermometer. Eva in a carriage is far away and untouchable; Eva stepping out of a carriage to walk in the snow is close and real. And the last carriage — the one at the duel — carries everything away.</dd>
+          <dd class="sf-gnota" lang="en">The carriage is the book&#x27;s thermometer. Eva in a carriage is far away and untouchable; Eva stepping out of a carriage to walk in the snow is close and real. And the last carriage — the one at the duel — carries everything away.</dd>
           <dt><b lang="it">cavalletto</b> &middot; <i lang="en">easel</i> <span>((sin. sostegno, treppiede))</span></dt>
           <dd lang="it">Il supporto di legno che tiene il quadro mentre il pittore dipinge.</dd>
           <dd class="en" lang="en">The wooden stand that holds the canvas while the painter works.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The easel is a painter&#x27;s most precious tool, the thing that lets him work. Enrico breaks it and burns it to keep Eva warm on the first night. It&#x27;s the most beautiful gesture in the book — and the first warning: for this woman, Enrico will burn everything.</dd>
+          <dd class="sf-gnota" lang="en">The easel is a painter&#x27;s most precious tool, the thing that lets him work. Enrico breaks it and burns it to keep Eva warm on the first night. It&#x27;s the most beautiful gesture in the book — and the first warning: for this woman, Enrico will burn everything.</dd>
           <dt><b lang="it">dimenticare</b> &middot; <i lang="en">to forget</i> <span>((sin. scordare, cancellare dalla mente))</span></dt>
           <dd lang="it">Non ricordare più una cosa o una persona.</dd>
           <dd class="en" lang="en">To no longer remember a thing or a person.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: «To forget» is what Enrico cannot do. Eva forgets quickly — not out of cruelty, but to survive. Enrico remembers everything, always, and the memories burn him like fever. In this book those who forget live, and those who remember die.</dd>
+          <dd class="sf-gnota" lang="en">«To forget» is what Enrico cannot do. Eva forgets quickly — not out of cruelty, but to survive. Enrico remembers everything, always, and the memories burn him like fever. In this book those who forget live, and those who remember die.</dd>
+          <dt><b lang="it">duello</b> &middot; <i lang="en">duel</i> <span>((sin. sfida armata, scontro d&#x27;onore))</span></dt>
+          <dd lang="it">Il combattimento tra due uomini, con le spade, per l&#x27;onore.</dd>
+          <dd class="en" lang="en">A fight between two men, with swords, for honour.</dd>
+          <dd class="sf-gnota" lang="en">In the 1800s two gentlemen settled insults this way: at dawn, with swords and witnesses. It was illegal and done anyway. The duel in the book is in the snow, at the Cascine — and Verga tells it cold as ice, without a gram of heroism.</dd>
         </dl>
         <p class="sf-gpie">The glossary contains 21 entries in all</p>
       </div>
@@ -647,22 +654,33 @@ footer.sito a{color:var(--nebbia)}
 <script>document.getElementById('anno').textContent=new Date().getFullYear();</script>
 <script src="/js/whatsapp.js" defer></script>
 <script>
-/* sfoglia — apertura della copertina quando la scheda entra nello schermo.
-   Solo animazione: ogni parola e' gia' nell'HTML, senza JS la copertina
-   resta semplicemente aperta. */
+/* sfoglia — la copertina si apre man mano che si scende e si richiude
+   risalendo. Solo animazione: ogni parola e' gia' nell'HTML; senza
+   JavaScript la copertina resta aperta e il libro si legge comunque. */
 (function(){
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if(innerWidth <= 900 || !window.IntersectionObserver) return;
-  document.querySelectorAll('.sfoglia').forEach(function(s){
-    s.classList.add('sf-chiusa');
-    new IntersectionObserver(function(v,o){
-      v.forEach(function(e){
-        if(!e.isIntersecting) return;
-        requestAnimationFrame(function(){ s.classList.remove('sf-chiusa'); });
-        o.unobserve(e.target);
-      });
-    },{threshold:0.35}).observe(s);
-  });
+  if(innerWidth <= 900) return;
+  var scene=[].slice.call(document.querySelectorAll('.sfoglia-scena'));
+  if(!scene.length) return;
+  function aggiorna(){
+    var vh=innerHeight;
+    scene.forEach(function(s){
+      var r=s.getBoundingClientRect();
+      /* 0 = scena appena entrata dal basso (libro chiuso)
+         1 = scena a meta' schermo (libro tutto aperto) */
+      var p=(vh - r.top) / (vh*.5 + r.height*.5);
+      p=Math.max(0, Math.min(1, p));
+      p=p*p*(3-2*p);                       /* partenza e arrivo morbidi */
+      s.style.setProperty('--sf-apri', p.toFixed(4));
+    });
+  }
+  var occupato=false;
+  addEventListener('scroll', function(){
+    if(occupato) return; occupato=true;
+    requestAnimationFrame(function(){ occupato=false; aggiorna(); });
+  }, {passive:true});
+  addEventListener('resize', aggiorna, {passive:true});
+  aggiorna();
 })();
 </script>
 

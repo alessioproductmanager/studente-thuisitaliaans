@@ -147,39 +147,41 @@ footer.sito a{color:var(--nebbia)}
 
 .sfoglia{
   container-type:inline-size;
-  --pag-w:min(420px, 36vw);
-  --pag-h:calc(var(--pag-w) * 1.6);
+  --pag-w:min(380px, 30vw);
+  --pag-h:calc(var(--pag-w) * 1.5);
   --scorcio:.108;                    /* 1 - larghezza proiettata a 32°: vedi margin-left */
   margin:34px 0 42px;
 }
 
 .sfoglia-scena{
-  display:flex; align-items:stretch; justify-content:center;
-  perspective:2600px; perspective-origin:56% 50%;
+  position:relative; display:flex; width:fit-content; max-width:100%;
+  margin-inline:auto;
+  perspective:2400px; perspective-origin:50% 46%;
 }
 
 .sfoglia-cop{
-  position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
-  align-self:stretch;                                   /* stessa altezza della pagina, sempre */
-  margin-left:calc(var(--pag-w) * var(--scorcio) * -1);  /* recupera lo spazio che la rotazione libera */
-  border-radius:4px 2px 2px 4px; overflow:hidden;
-  transform-origin:right center; backface-visibility:hidden;
-  box-shadow:0 22px 44px -16px rgba(20,24,38,.46), 0 2px 6px rgba(20,24,38,.18);
-  transform:rotateY(-20deg);
+  position:absolute; top:0; bottom:0; right:0; width:var(--pag-w);
+  z-index:2; transform-style:preserve-3d;
+  transform-origin:left center;
+  transform:rotateY(calc(var(--sf-apri, 1) * -178deg));
+  will-change:transform;
 }
-.sfoglia-cop img{display:block; width:100%; height:100%; object-fit:cover; object-position:center}
-.sfoglia-cop::after{content:""; position:absolute; inset:0; pointer-events:none;
-  background:linear-gradient(90deg, rgba(0,0,0,.20), rgba(0,0,0,0) 26%, rgba(255,255,255,.08))}
+.sf-fronte, .sf-retro{position:absolute; inset:0; backface-visibility:hidden;
+  border-radius:2px 5px 5px 2px; overflow:hidden}
+.sf-fronte{box-shadow:0 18px 40px -16px rgba(20,24,38,.45), 0 2px 6px rgba(20,24,38,.16)}
+.sf-fronte img, .sf-fronte picture{display:block; width:100%; height:100%}
+.sf-fronte img{object-fit:cover; object-position:center}
+.sf-retro{transform:rotateY(180deg);
+  background:linear-gradient(258deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
+  box-shadow:inset -14px 0 24px -16px rgba(92,72,42,.42), 0 18px 38px -18px rgba(20,24,38,.28)}
 
-@media (min-width:901px) and (prefers-reduced-motion:no-preference){
-  .sfoglia-cop{transition:transform 2.2s cubic-bezier(.16,.8,.24,1)}
-  .sfoglia.sf-chiusa .sfoglia-cop{transform:rotateY(-86deg)}
-}
+
 
 .sfoglia-foglio{
   position:relative; flex:0 0 var(--pag-w); width:var(--pag-w);
+  margin-left:var(--pag-w);
   min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 34);
+  font-size:calc(var(--pag-w) / 35.5);
   display:flex; flex-direction:column;
   padding:1.5em 1.75em 1.1em 2.1em;
   border-radius:2px 5px 5px 2px;
@@ -238,8 +240,8 @@ footer.sito a{color:var(--nebbia)}
    e non restano le due strisce di fondo ai lati. */
 .sf-gspread-box{container-type:inline-size}
 .sf-gspread{
-  --pag-w:min(420px, 36vw);
-  --pag-h:calc(var(--pag-w) * 1.6);
+  --pag-w:min(380px, 30vw);
+  --pag-h:calc(var(--pag-w) * 1.5);
   display:flex; align-items:stretch;
   width:fit-content; max-width:100%; margin:18px auto 0;
   border-radius:3px; overflow:hidden;
@@ -248,7 +250,7 @@ footer.sito a{color:var(--nebbia)}
 .sf-gpag{
 
   flex:0 0 var(--pag-w); width:var(--pag-w); min-height:var(--pag-h);
-  font-size:calc(var(--pag-w) / 34);
+  font-size:calc(var(--pag-w) / 35.5);
   display:flex; flex-direction:column; padding:1.5em 1.75em 1.1em;
   background:linear-gradient(102deg,#efe7d8 0,#fbf7ef 12%,#fdfcf8 58%,#f6f0e4 100%);
 }
@@ -275,14 +277,17 @@ footer.sito a{color:var(--nebbia)}
 
 /* ---- sotto i 900px: si impila, niente prospettiva ---- */
 @media (max-width:900px){
-  .sfoglia, .sf-gspread{--pag-w:320px}
+  .sfoglia, .sf-gspread{--pag-w:320px; --pag-h:calc(var(--pag-w) * 1.6)}
   @supports (width: 1cqw){
     .sfoglia, .sf-gspread{--pag-w:min(100cqw, 340px)}
   }
   .sfoglia-scena{flex-direction:column; align-items:center; perspective:none}
   .sfoglia-cop, .sfoglia-foglio, .sf-gpag{flex-basis:auto; width:var(--pag-w); max-width:100%}
-  .sfoglia-cop{margin:0 auto 16px; align-self:auto; height:var(--pag-h);
-    transform:none !important; animation:none; transition:none}
+  .sfoglia-foglio{margin-left:0}
+  .sfoglia-cop{position:static; margin:0 auto 16px; height:var(--pag-h);
+    transform:none !important; z-index:auto}
+  .sf-fronte{position:relative; inset:auto; height:100%}
+  .sf-retro{display:none}
   .sfoglia-foglio{border-radius:6px}
   .sfoglia-foglio::after{display:none}
   .sf-gspread{flex-direction:column; align-items:center; gap:12px;
@@ -291,7 +296,7 @@ footer.sito a{color:var(--nebbia)}
   .sf-2col{grid-template-columns:1fr; gap:0}
 }
 @media (prefers-reduced-motion:reduce){
-  .sfoglia-cop{animation:none; transform:rotateY(-20deg)}
+  .sfoglia-cop{transform:rotateY(-178deg) !important}
 }
 </style>
 <script type="application/ld+json">{
@@ -434,12 +439,10 @@ footer.sito a{color:var(--nebbia)}
               <section class="sezione sfoglia">
     <h2>Look inside: the first page</h2>
     <div class="sfoglia-scena">
-      <div class="sfoglia-cop">
-        <picture>
+      <div class="sfoglia-cop"><div class="sf-fronte"><picture>
           <source srcset="/assets/books/GianBurrasca_cover.webp" type="image/webp">
           <img src="/assets/books/GianBurrasca_cover.jpg" width="800" height="1280" alt="Cover of Il giornalino nuovo" loading="lazy" decoding="async">
-        </picture>
-      </div>
+        </picture></div><div class="sf-retro"></div></div>
       <div class="sfoglia-foglio">
         <p class="sf-capnum">CAPITOLO 1</p>
         <img class="sf-vign" src="/assets/books/vignette/gian-burrasca.png" alt="Chapter vignette" width="148" height="148" loading="lazy" decoding="async">
@@ -453,7 +456,6 @@ footer.sito a{color:var(--nebbia)}
             <p>Ma io lo so perché mi chiamano così: perché io combino sempre qualche <span class="sf-kw">guaio</span>.<sup>1</sup></p>
             <p class="sf-sep">&#9670;</p>
             <p>Oggi ho ricevuto molti regali.</p>
-            <p>Il babbo mi ha regalato una pistola da tirare al bersaglio. Ada mi ha dato un vestito nuovo. Luisa un astuccio con la penna.</p>
         </div>
         <p class="sf-gloss"><span class="sf-kw">famiglia</span> = family &#183; <span class="sf-kw">monello</span> = scamp, imp &#183; <span class="sf-kw">guaio</span> = trouble, scrape</p>
         <div class="sf-note">
@@ -486,31 +488,39 @@ footer.sito a{color:var(--nebbia)}
           <dt><b lang="it">burla</b> &middot; <i lang="en">prank, hoax</i> <span>((sin. scherzo, beffa))</span></dt>
           <dd lang="it">Uno scherzo fatto a qualcuno, di solito alle sue spalle.</dd>
           <dd class="en" lang="en">A joke played on someone, often behind their back.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Heavier than a joke: a burla always has someone at the receiving end. Giannino&#x27;s begin as small copyings and hidings and grow, one by one, into things that break lives — a fiancé driven out, an election lost.</dd>
+          <dd class="sf-gnota" lang="en">Heavier than a joke: a burla always has someone at the receiving end. Giannino&#x27;s begin as small copyings and hidings and grow, one by one, into things that break lives — a fiancé driven out, an election lost.</dd>
           <dt><b lang="it">complotto</b> &middot; <i lang="en">plot, conspiracy</i> <span>((sin. cospirazione, trama))</span></dt>
           <dd lang="it">Il mettersi d&#x27;accordo di nascosto per fare qualcosa contro qualcuno.</dd>
           <dd class="en" lang="en">A secret agreement between people to act against someone.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: At the college Giannino is no longer alone: with Tito, Maurizio and Carlo he becomes part of a band, and every prank is now a plot. It is the first time in the book he has allies — and Vamba is right that four boys against the rector are far more frightening than one boy alone.</dd>
+          <dd class="sf-gnota" lang="en">At the college Giannino is no longer alone: with Tito, Maurizio and Carlo he becomes part of a band, and every prank is now a plot. It is the first time in the book he has allies — and Vamba is right that four boys against the rector are far more frightening than one boy alone.</dd>
           <dt><b lang="it">disubbidire</b> &middot; <i lang="en">to disobey</i> <span>((sin. trasgredire, non ubbidire))</span></dt>
           <dd lang="it">Non fare quello che dicono i genitori o i grandi.</dd>
           <dd class="en" lang="en">Not to do what the grown-ups say.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: Giannino disobeys, but almost never out of malice: he disobeys because nobody has ever explained why he ought to obey. It is his only weapon as a child against a world that gives him orders instead of reasons.</dd>
+          <dd class="sf-gnota" lang="en">Giannino disobeys, but almost never out of malice: he disobeys because nobody has ever explained why he ought to obey. It is his only weapon as a child against a world that gives him orders instead of reasons.</dd>
+          <dt><b lang="it">divisa</b> &middot; <i lang="en">uniform</i> <span>((sin. uniforme, vestito))</span></dt>
+          <dd lang="it">Il vestito uguale per tutti quelli che stanno insieme, come i soldati.</dd>
+          <dd class="en" lang="en">The same clothes worn by everyone in a group, as soldiers do.</dd>
+          <dd class="sf-gnota" lang="en">At the college Giannino hates the uniform because it makes him look like everyone else. It is the first time his own clothes have been taken from him, and it is the first piece of himself he loses: a uniform, the book quietly says, wipes a child out — and what is left is a number, in the dormitory, in the refectory, in class.</dd>
         </dl>
       </div>
       <div class="sf-gpag">
         <dl>
-          <dt><b lang="it">divisa</b> &middot; <i lang="en">uniform</i> <span>((sin. uniforme, vestito))</span></dt>
-          <dd lang="it">Il vestito uguale per tutti quelli che stanno insieme, come i soldati.</dd>
-          <dd class="en" lang="en">The same clothes worn by everyone in a group, as soldiers do.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: At the college Giannino hates the uniform because it makes him look like everyone else. It is the first time his own clothes have been taken from him, and it is the first piece of himself he loses: a uniform, the book quietly says, wipes a child out — and what is left is a number, in the dormitory, in the refectory, in class.</dd>
           <dt><b lang="it">dote</b> &middot; <i lang="en">dowry</i> <span>((sin. corredo, assegno))</span></dt>
           <dd lang="it">I soldi o le cose che una sposa porta con sé nel matrimonio.</dd>
           <dd class="en" lang="en">The money or goods a family gives to a daughter who marries.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: In 1907 Italy no woman married without one. The three Stoppani sisters wait for a dowry the way one waits for permission to live, and Aunt Bettina is the possible dowry. Giannino drives the aunt away with a prank — and unknowingly cancels three marriages. It is the book&#x27;s first great scrape.</dd>
+          <dd class="sf-gnota" lang="en">In 1907 Italy no woman married without one. The three Stoppani sisters wait for a dowry the way one waits for permission to live, and Aunt Bettina is the possible dowry. Giannino drives the aunt away with a prank — and unknowingly cancels three marriages. It is the book&#x27;s first great scrape.</dd>
           <dt><b lang="it">eredità</b> &middot; <i lang="en">inheritance</i> <span>((sin. patrimonio, lascito))</span></dt>
           <dd lang="it">I soldi e le cose che restano ai figli quando un parente muore.</dd>
           <dd class="en" lang="en">The money and things left to the children when a parent dies.</dd>
-          <dd class="sf-gnota" lang="en">In the novel: The whole Stoppani family lives waiting for Aunt Bettina&#x27;s inheritance: to talk about the aunt is to talk about when she will die, and Giannino grasps this as a child. The book says something hard: in Ottocento bourgeois families the death of an old woman was good news, and nobody said so aloud.</dd>
+          <dd class="sf-gnota" lang="en">The whole Stoppani family lives waiting for Aunt Bettina&#x27;s inheritance: to talk about the aunt is to talk about when she will die, and Giannino grasps this as a child. The book says something hard: in Ottocento bourgeois families the death of an old woman was good news, and nobody said so aloud.</dd>
+          <dt><b lang="it">famiglia</b> &middot; <i lang="en">family</i> <span>((sin. parenti, casata))</span></dt>
+          <dd lang="it">I genitori, i figli, i fratelli e le sorelle che vivono nella stessa casa.</dd>
+          <dd class="en" lang="en">Parents, children, brothers and sisters living together.</dd>
+          <dd class="sf-gnota" lang="en">The Stoppani family is the true protagonist of the novel: five adults talking about money, dowry, inheritance and marriages, with one child watching them from below. The house is not a place of affection, it is a bargaining table — and Giannino, unwittingly, keeps sticking his head into the cards.</dd>
+          <dt><b lang="it">fidanzato</b> &middot; <i lang="en">fiancé, betrothed</i> <span>((sin. promesso sposo, innamorato))</span></dt>
+          <dd lang="it">Un uomo che si è promesso a una donna in vista del matrimonio.</dd>
+          <dd class="en" lang="en">A man promised to a woman with a view to marriage.</dd>
+          <dd class="sf-gnota" lang="en">Fiancés come and go in the Stoppani parlour. Signor Capitani for Ada, Doctor Collalto for Luisa, the lawyer Maralli for Virginia. Each is a deal transacted around the dinner table. And each time it is Giannino who, with one sentence spoken at the wrong moment, brings it down.</dd>
         </dl>
         <p class="sf-gpie">The glossary contains 25 entries in all</p>
       </div>
@@ -640,22 +650,33 @@ footer.sito a{color:var(--nebbia)}
 <script>document.getElementById('anno').textContent=new Date().getFullYear();</script>
 <script src="/js/whatsapp.js" defer></script>
 <script>
-/* sfoglia — apertura della copertina quando la scheda entra nello schermo.
-   Solo animazione: ogni parola e' gia' nell'HTML, senza JS la copertina
-   resta semplicemente aperta. */
+/* sfoglia — la copertina si apre man mano che si scende e si richiude
+   risalendo. Solo animazione: ogni parola e' gia' nell'HTML; senza
+   JavaScript la copertina resta aperta e il libro si legge comunque. */
 (function(){
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if(innerWidth <= 900 || !window.IntersectionObserver) return;
-  document.querySelectorAll('.sfoglia').forEach(function(s){
-    s.classList.add('sf-chiusa');
-    new IntersectionObserver(function(v,o){
-      v.forEach(function(e){
-        if(!e.isIntersecting) return;
-        requestAnimationFrame(function(){ s.classList.remove('sf-chiusa'); });
-        o.unobserve(e.target);
-      });
-    },{threshold:0.35}).observe(s);
-  });
+  if(innerWidth <= 900) return;
+  var scene=[].slice.call(document.querySelectorAll('.sfoglia-scena'));
+  if(!scene.length) return;
+  function aggiorna(){
+    var vh=innerHeight;
+    scene.forEach(function(s){
+      var r=s.getBoundingClientRect();
+      /* 0 = scena appena entrata dal basso (libro chiuso)
+         1 = scena a meta' schermo (libro tutto aperto) */
+      var p=(vh - r.top) / (vh*.5 + r.height*.5);
+      p=Math.max(0, Math.min(1, p));
+      p=p*p*(3-2*p);                       /* partenza e arrivo morbidi */
+      s.style.setProperty('--sf-apri', p.toFixed(4));
+    });
+  }
+  var occupato=false;
+  addEventListener('scroll', function(){
+    if(occupato) return; occupato=true;
+    requestAnimationFrame(function(){ occupato=false; aggiorna(); });
+  }, {passive:true});
+  addEventListener('resize', aggiorna, {passive:true});
+  aggiorna();
 })();
 </script>
 
