@@ -55,7 +55,14 @@ form textarea{min-height:110px;resize:vertical}.nascosto{position:absolute;left:
 .anteprima iframe{width:100%;height:280px;border:1px solid var(--linea);border-radius:12px;background:#fff}
 .anteprima .nota{font-size:12px;color:var(--secondario);margin-top:8px}
 .altre a{display:block;padding:8px 0;border-bottom:1px dashed var(--linea);text-decoration:none;font-size:14px}
-.altre a:hover{color:var(--terracotta)}</style>
+.altre a:hover{color:var(--terracotta)}
+.dativ2{display:flex;flex-direction:column}
+.riga-dato{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px dashed var(--linea);font-size:14px}
+.riga-dato:last-child{border-bottom:0}
+.riga-dato svg{flex:0 0 18px;width:18px;height:18px;color:var(--terracotta)}
+.riga-dato .etich{color:var(--secondario)}
+.riga-dato .val{margin-left:auto;font-weight:600;color:var(--inchiostro);text-align:right;max-width:55%}
+.badge-ev{display:inline-block;margin-left:8px;font-size:10.5px;font-weight:700;background:var(--salvia-chiara);color:var(--salvia);border-radius:6px;padding:2px 6px;vertical-align:1px}</style>
 </head>
 <body>
 <header><div class="contenitore testata">
@@ -72,24 +79,17 @@ form textarea{min-height:110px;resize:vertical}.nascosto{position:absolute;left:
   <div class="colonne">
     <div>
       <div class="pannello"><h2>The course</h2>
-        <div class="dati">
-          <div>Intensive<b>20 h/wk</b></div>
-          <div>Light<b>10 h/wk</b></div>
-          <div>Start<b>every Monday</b></div>
-          <div>Complete beginners<b>fixed dates, usually every 2 weeks</b></div>
-          <div>Minimum length<b>1 week(s)</b></div>
-          <div>Housing<b>yes</b></div>
-          
-        </div>
+        <div class="dativ2"><div class="riga-dato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span class="etich">Intensive</span><span class="val">20 h/wk</span></div><div class="riga-dato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 21c0-9 4-15 14-17-1 10-6 15-14 17z"/><path d="M6 21c4-6 8-9 12-11"/></svg><span class="etich">Light</span><span class="val">10 h/wk</span></div><div class="riga-dato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span class="etich">Start</span><span class="val">every Monday</span></div><div class="riga-dato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-8"/><path d="M12 14C12 9 9 7 4 7c0 5 3 8 8 7z"/><path d="M12 12c0-4 3-6 8-6 0 5-3 8-8 6z"/></svg><span class="etich">Complete beginners</span><span class="val">fixed dates, usually every 2 weeks</span></div><div class="riga-dato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 12 12 17 22 12"/><polyline points="2 17 12 22 22 17"/></svg><span class="etich">Minimum length</span><span class="val">1 week</span></div><div class="riga-dato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V21h-6v-7h-6v7H3z"/></svg><span class="etich">Housing</span><span class="val">yes</span></div></div>
       </div>
-      <div class="pannello" style="margin-bottom:18px"><h2>Key facts</h2><div class="dati"><div>Lesson length<b>45 minutes</b></div><div>Students per class<b>max 12</b></div><div>Books and materials<b>included</b></div><div>Placement test<b>online</b></div><div>Housing placement service<b>free</b></div><div>Wi-Fi<b>yes</b></div></div><div class="tagriga"><span class="tag">Seaside town</span></div></div>
+      <div class="pannello" style="margin-bottom:18px"><h2>Key facts</h2><div class="dativ2"><div class="riga-dato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg><span class="etich">Lesson length</span><span class="val">45 minutes</span></div><div class="riga-dato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4"/><path d="M2 21v-2a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v2"/><path d="M16 3.5a4 4 0 0 1 0 7"/><path d="M22 21v-2a5 5 0 0 0-3-4.6"/></svg><span class="etich">Students per class</span><span class="val">max 12</span></div><div class="riga-dato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5z"/><path d="M4 19.5V4.5"/></svg><span class="etich">Books and materials</span><span class="val">included</span></div><div class="riga-dato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><polyline points="8.5 12.5 11 15 15.5 9.5"/></svg><span class="etich">Placement test</span><span class="val">online</span></div><div class="riga-dato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="15.5" r="4.5"/><path d="m11 12 9-9m-4 2 3 3m-6 0 2 2"/></svg><span class="etich">Housing placement service</span><span class="val">free</span></div><div class="riga-dato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a16 16 0 0 1 20 0"/><path d="M5.5 12.5a11 11 0 0 1 13 0"/><path d="M8.8 15.8a6 6 0 0 1 6.4 0"/><circle cx="12" cy="19" r="1.2" fill="currentColor" stroke="none"/></svg><span class="etich">Wi-Fi</span><span class="val">yes</span></div></div><div class="tagriga"><span class="tag">Seaside town</span></div></div>
       <div class="pannello guida" style="margin-top:18px"><h2>What not to miss in Otranto</h2>
         <ol><li><div><b>Cattedrale e il mosaico</b></div></li><li><div><b>Castello aragonese e borgo</b></div></li><li><div><b>Baia dei Turchi</b></div></li></ol>
-        <h2 style="margin-top:16px">Events this year</h2><div class="evento"><b>Alba dei Popoli</b><span>December–January</span></div>
+        <h2 style="margin-top:16px">Events this year</h2><div class="evento"><div><b>Alba dei Popoli</b><span class="badge-ev">✓ courses on these dates</span></div><span>December–January</span></div><div class="evento"><div><b>Festa dei Santi Martiri</b><span class="badge-ev">✓ courses on these dates</span></div><span>metà August</span></div>
         <div class="aero">✈ Best airport: Brindisi (BDS)</div>
       </div>
     </div>
     <div>
+      
       <div class="pannello"><h2>Write to the school</h2>
         <p style="font-size:13px;color:var(--secondario);margin-bottom:12px">Your message is sent via thuisitaliaans; the school replies straight to your email.</p>
         <form id="modulo">
@@ -100,9 +100,7 @@ form textarea{min-height:110px;resize:vertical}.nascosto{position:absolute;left:
           <button class="bottone pieno" type="submit" style="width:100%">Send</button>
           <div class="esito" id="esito"></div>
         </form>
-        
       </div>
-      
       
     </div>
   </div>
@@ -119,6 +117,10 @@ form.addEventListener("submit",function(ev){ev.preventDefault();
  .then(function(r){if(!r.ok)throw 0;esito.className="esito ok";esito.textContent="Sent! The school will reply by email.";form.reset();})
  .catch(function(){esito.className="esito err";esito.textContent="Sending failed. Try again shortly, or contact the school via its website.";})
  .finally(function(){btn.disabled=false;});});
+// L'anteprima sparisce da sola se il sito non risponde entro 6 secondi.
+var fr=document.querySelector(".anteprima iframe");
+if(fr){fr.addEventListener("load",function(){fr.dataset.ok="1"});
+ setTimeout(function(){if(!fr.dataset.ok){var p=fr.closest(".anteprima");if(p)p.style.display="none"}},6000);}
 })();
 </script>
 </body></html>

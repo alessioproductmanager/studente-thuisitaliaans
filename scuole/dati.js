@@ -4374,6 +4374,18 @@ const DATI = {
         {
           "nome": "Maggio Musicale Fiorentino",
           "quando": "aprile–giugno"
+        },
+        {
+          "nome": "Pitti Uomo",
+          "quando": "gennaio e giugno"
+        },
+        {
+          "nome": "Firenze Rocks",
+          "quando": "giugno"
+        },
+        {
+          "nome": "Festa della Rificolona",
+          "quando": "7 settembre"
         }
       ],
       "aeroporto": "Firenze (FLR) o Pisa (PSA)"
@@ -4402,6 +4414,18 @@ const DATI = {
         {
           "nome": "Estate Romana",
           "quando": "giugno–settembre"
+        },
+        {
+          "nome": "Festa del Cinema di Roma",
+          "quando": "ottobre"
+        },
+        {
+          "nome": "Internazionali di tennis",
+          "quando": "maggio"
+        },
+        {
+          "nome": "Sei Nazioni di rugby",
+          "quando": "febbraio–marzo"
         }
       ],
       "aeroporto": "Roma Fiumicino (FCO)"
@@ -4430,6 +4454,14 @@ const DATI = {
         {
           "nome": "Prima della Scala",
           "quando": "7 dicembre"
+        },
+        {
+          "nome": "Settimana della Moda",
+          "quando": "febbraio e settembre"
+        },
+        {
+          "nome": "MiTo SettembreMusica",
+          "quando": "settembre"
         }
       ],
       "aeroporto": "Milano Linate (LIN) o Malpensa (MXP)"
@@ -4454,6 +4486,14 @@ const DATI = {
         {
           "nome": "Il Cinema Ritrovato",
           "quando": "fine giugno"
+        },
+        {
+          "nome": "Arte Fiera",
+          "quando": "febbraio"
+        },
+        {
+          "nome": "Bologna Estate",
+          "quando": "giugno–settembre"
         }
       ],
       "aeroporto": "Bologna (BLQ)"
@@ -4482,6 +4522,18 @@ const DATI = {
         {
           "nome": "Festa del Redentore",
           "quando": "terzo weekend di luglio"
+        },
+        {
+          "nome": "Mostra del Cinema",
+          "quando": "fine agosto–settembre"
+        },
+        {
+          "nome": "Biennale",
+          "quando": "maggio–novembre"
+        },
+        {
+          "nome": "Regata Storica",
+          "quando": "prima domenica di settembre"
         }
       ],
       "aeroporto": "Venezia (VCE)"
@@ -4506,6 +4558,10 @@ const DATI = {
         {
           "nome": "Palio di Siena",
           "quando": "2 luglio e 16 agosto"
+        },
+        {
+          "nome": "Chigiana International Festival",
+          "quando": "luglio–agosto"
         }
       ],
       "aeroporto": "Firenze (FLR) o Pisa (PSA)"
@@ -4534,6 +4590,10 @@ const DATI = {
         {
           "nome": "Eurochocolate",
           "quando": "autunno"
+        },
+        {
+          "nome": "Festival Internazionale del Giornalismo",
+          "quando": "aprile"
         }
       ],
       "aeroporto": "Perugia (PEG) o Roma (FCO)"
@@ -4558,6 +4618,14 @@ const DATI = {
         {
           "nome": "Salone Internazionale del Libro",
           "quando": "maggio"
+        },
+        {
+          "nome": "Terra Madre Salone del Gusto",
+          "quando": "settembre"
+        },
+        {
+          "nome": "Luci d'Artista",
+          "quando": "novembre–gennaio"
         }
       ],
       "aeroporto": "Torino (TRN) o Milano (MXP)"
@@ -4582,6 +4650,10 @@ const DATI = {
         {
           "nome": "Rolli Days",
           "quando": "primavera e autunno"
+        },
+        {
+          "nome": "Salone Nautico",
+          "quando": "settembre"
         }
       ],
       "aeroporto": "Genova (GOA)"
@@ -4606,6 +4678,10 @@ const DATI = {
         {
           "nome": "Andersen Festival",
           "quando": "giugno"
+        },
+        {
+          "nome": "Barcarolata",
+          "quando": "luglio"
         }
       ],
       "aeroporto": "Genova (GOA) o Pisa (PSA)"
@@ -4630,6 +4706,10 @@ const DATI = {
         {
           "nome": "Festival di Sanremo",
           "quando": "febbraio"
+        },
+        {
+          "nome": "Milano-Sanremo, la Classicissima",
+          "quando": "marzo"
         }
       ],
       "aeroporto": "Nizza (NCE) o Genova (GOA)"
@@ -4654,6 +4734,14 @@ const DATI = {
         {
           "nome": "Maggio dei Monumenti",
           "quando": "maggio"
+        },
+        {
+          "nome": "Miracolo di San Gennaro",
+          "quando": "19 settembre"
+        },
+        {
+          "nome": "Napoli Pizza Village",
+          "quando": "giugno"
         }
       ],
       "aeroporto": "Napoli (NAP)"
@@ -4678,6 +4766,10 @@ const DATI = {
         {
           "nome": "Concerti e feste d'estate",
           "quando": "estate"
+        },
+        {
+          "nome": "Processioni della Settimana Santa",
+          "quando": "Pasqua"
         }
       ],
       "aeroporto": "Napoli (NAP)"
@@ -4702,6 +4794,10 @@ const DATI = {
         {
           "nome": "Luci d'Artista",
           "quando": "novembre–gennaio"
+        },
+        {
+          "nome": "Giffoni Film Festival",
+          "quando": "luglio"
         }
       ],
       "aeroporto": "Napoli (NAP)"
@@ -4725,6 +4821,10 @@ const DATI = {
       "eventi": [
         {
           "nome": "Feste patronali d'estate",
+          "quando": "estate"
+        },
+        {
+          "nome": "Sagra della cipolla rossa",
           "quando": "estate"
         }
       ],
@@ -4750,6 +4850,14 @@ const DATI = {
         {
           "nome": "Barcolana",
           "quando": "ottobre"
+        },
+        {
+          "nome": "Trieste Film Festival",
+          "quando": "gennaio"
+        },
+        {
+          "nome": "Bloomsday",
+          "quando": "16 giugno"
         }
       ],
       "aeroporto": "Trieste (TRS) o Venezia (VCE)"
@@ -4774,6 +4882,10 @@ const DATI = {
         {
           "nome": "Taormina Film Fest",
           "quando": "giugno–luglio"
+        },
+        {
+          "nome": "Concerti al Teatro Antico",
+          "quando": "giugno–settembre"
         }
       ],
       "aeroporto": "Catania (CTA)"
@@ -4798,6 +4910,10 @@ const DATI = {
         {
           "nome": "Feste patronali",
           "quando": "estate"
+        },
+        {
+          "nome": "MishMash Festival",
+          "quando": "agosto"
         }
       ],
       "aeroporto": "Catania (CTA) o Palermo (PMO)"
@@ -4822,6 +4938,10 @@ const DATI = {
         {
           "nome": "Festino di Santa Rosalia",
           "quando": "metà luglio"
+        },
+        {
+          "nome": "Ballarò Buskers",
+          "quando": "ottobre"
         }
       ],
       "aeroporto": "Palermo (PMO)"
@@ -4846,6 +4966,10 @@ const DATI = {
         {
           "nome": "Festino di Santa Rosalia",
           "quando": "metà luglio"
+        },
+        {
+          "nome": "Ballarò Buskers",
+          "quando": "ottobre"
         }
       ],
       "aeroporto": "Palermo (PMO)"
@@ -4870,6 +4994,14 @@ const DATI = {
         {
           "nome": "Settimana Santa algherese",
           "quando": "Pasqua"
+        },
+        {
+          "nome": "Cap d'Any de l'Alguer",
+          "quando": "dicembre–gennaio"
+        },
+        {
+          "nome": "Festa de Sant Miquel",
+          "quando": "settembre"
         }
       ],
       "aeroporto": "Alghero (AHO)"
@@ -4894,6 +5026,10 @@ const DATI = {
         {
           "nome": "Alba dei Popoli",
           "quando": "dicembre–gennaio"
+        },
+        {
+          "nome": "Festa dei Santi Martiri",
+          "quando": "metà agosto"
         }
       ],
       "aeroporto": "Brindisi (BDS)"
@@ -4922,6 +5058,10 @@ const DATI = {
         {
           "nome": "Festival Puccini",
           "quando": "luglio–agosto"
+        },
+        {
+          "nome": "Premio letterario Viareggio-Rèpaci",
+          "quando": "estate"
         }
       ],
       "aeroporto": "Pisa (PSA)"
@@ -4950,6 +5090,10 @@ const DATI = {
         {
           "nome": "Lucca Comics & Games",
           "quando": "fine ottobre"
+        },
+        {
+          "nome": "Luminara di Santa Croce",
+          "quando": "13 settembre"
         }
       ],
       "aeroporto": "Pisa (PSA)"
@@ -4974,6 +5118,14 @@ const DATI = {
         {
           "nome": "Luminara di San Ranieri",
           "quando": "16 giugno"
+        },
+        {
+          "nome": "Gioco del Ponte",
+          "quando": "ultimo sabato di giugno"
+        },
+        {
+          "nome": "Internet Festival",
+          "quando": "ottobre"
         }
       ],
       "aeroporto": "Pisa (PSA)"
@@ -4998,6 +5150,10 @@ const DATI = {
         {
           "nome": "Bravìo delle Botti",
           "quando": "ultima domenica di agosto"
+        },
+        {
+          "nome": "Cantiere Internazionale d'Arte",
+          "quando": "luglio"
         }
       ],
       "aeroporto": "Firenze (FLR) o Roma (FCO)"
@@ -5022,6 +5178,10 @@ const DATI = {
         {
           "nome": "Sagre della laguna",
           "quando": "estate"
+        },
+        {
+          "nome": "Palio marinaro dell'Argentario",
+          "quando": "15 agosto"
         }
       ],
       "aeroporto": "Roma (FCO)"
@@ -5046,6 +5206,10 @@ const DATI = {
         {
           "nome": "Motor Valley Fest",
           "quando": "primavera"
+        },
+        {
+          "nome": "Festival della Filosofia",
+          "quando": "settembre"
         }
       ],
       "aeroporto": "Bologna (BLQ)"
@@ -5070,6 +5234,10 @@ const DATI = {
         {
           "nome": "La Notte Rosa",
           "quando": "inizio luglio"
+        },
+        {
+          "nome": "Meeting di Rimini",
+          "quando": "agosto"
         }
       ],
       "aeroporto": "Rimini (RMI) o Bologna (BLQ)"
@@ -5098,6 +5266,14 @@ const DATI = {
         {
           "nome": "Vinitaly",
           "quando": "aprile"
+        },
+        {
+          "nome": "Verona in Love",
+          "quando": "febbraio"
+        },
+        {
+          "nome": "Tocatì, festival dei giochi di strada",
+          "quando": "settembre"
         }
       ],
       "aeroporto": "Verona (VRN)"
@@ -5146,6 +5322,10 @@ const DATI = {
         {
           "nome": "Festa di Sant'Antonio",
           "quando": "13 giugno"
+        },
+        {
+          "nome": "Sherwood Festival",
+          "quando": "giugno–luglio"
         }
       ],
       "aeroporto": "Venezia (VCE)"
@@ -5170,6 +5350,14 @@ const DATI = {
         {
           "nome": "Mercatini di Natale",
           "quando": "dicembre"
+        },
+        {
+          "nome": "Bolzano Film Festival",
+          "quando": "aprile"
+        },
+        {
+          "nome": "Südtirol Jazz Festival",
+          "quando": "giugno–luglio"
         }
       ],
       "aeroporto": "Bolzano (BZO) o Verona (VRN)"
@@ -5194,6 +5382,14 @@ const DATI = {
         {
           "nome": "Merano WineFestival",
           "quando": "novembre"
+        },
+        {
+          "nome": "Settimane Musicali Meranesi",
+          "quando": "fine agosto–settembre"
+        },
+        {
+          "nome": "Gran Premio ippico di Merano",
+          "quando": "settembre"
         }
       ],
       "aeroporto": "Bolzano (BZO) o Verona (VRN)"
@@ -5242,6 +5438,10 @@ const DATI = {
         {
           "nome": "Fotografia Europea",
           "quando": "primavera"
+        },
+        {
+          "nome": "Festival Aperto",
+          "quando": "autunno"
         }
       ],
       "aeroporto": "Bologna (BLQ)"
@@ -5266,6 +5466,14 @@ const DATI = {
         {
           "nome": "Ravenna Festival",
           "quando": "giugno–luglio"
+        },
+        {
+          "nome": "Settembre Dantesco",
+          "quando": "settembre"
+        },
+        {
+          "nome": "La Notte d'Oro",
+          "quando": "ottobre"
         }
       ],
       "aeroporto": "Bologna (BLQ) o Rimini (RMI)"
@@ -5338,6 +5546,10 @@ const DATI = {
         {
           "nome": "Calendimaggio",
           "quando": "maggio"
+        },
+        {
+          "nome": "Festa di San Francesco",
+          "quando": "4 ottobre"
         }
       ],
       "aeroporto": "Perugia (PEG) o Roma (FCO)"
@@ -5362,6 +5574,10 @@ const DATI = {
         {
           "nome": "Umbria Jazz Winter",
           "quando": "dicembre–gennaio"
+        },
+        {
+          "nome": "Corpus Domini col corteo storico",
+          "quando": "giugno"
         }
       ],
       "aeroporto": "Roma (FCO)"
@@ -5410,6 +5626,10 @@ const DATI = {
         {
           "nome": "Lunaria",
           "quando": "luglio"
+        },
+        {
+          "nome": "Celebrazioni leopardiane",
+          "quando": "29 giugno"
         }
       ],
       "aeroporto": "Ancona (AOI)"
@@ -5482,6 +5702,14 @@ const DATI = {
         {
           "nome": "Mercatini di Natale",
           "quando": "dicembre"
+        },
+        {
+          "nome": "Festival dell'Economia",
+          "quando": "maggio–giugno"
+        },
+        {
+          "nome": "Feste Vigiliane",
+          "quando": "giugno"
         }
       ],
       "aeroporto": "Verona (VRN)"
@@ -5506,6 +5734,10 @@ const DATI = {
         {
           "nome": "Notte di Fiaba",
           "quando": "fine agosto"
+        },
+        {
+          "nome": "Musica Riva Festival",
+          "quando": "luglio"
         }
       ],
       "aeroporto": "Verona (VRN)"
@@ -5530,6 +5762,10 @@ const DATI = {
         {
           "nome": "Stagione balneare",
           "quando": "maggio–settembre"
+        },
+        {
+          "nome": "Elba Isola Musicale d'Europa",
+          "quando": "settembre"
         }
       ],
       "aeroporto": "Pisa (PSA) + traghetto da Piombino"
@@ -5602,6 +5838,14 @@ const DATI = {
         {
           "nome": "Processione dei Misteri",
           "quando": "Pasqua"
+        },
+        {
+          "nome": "Luglio Musicale Trapanese",
+          "quando": "estate"
+        },
+        {
+          "nome": "Cous Cous Fest a San Vito Lo Capo",
+          "quando": "settembre"
         }
       ],
       "aeroporto": "Trapani (TPS) o Palermo (PMO)"
@@ -5626,6 +5870,10 @@ const DATI = {
         {
           "nome": "Festa di Sant'Efisio",
           "quando": "1 maggio"
+        },
+        {
+          "nome": "Festa di San Saturnino",
+          "quando": "fine ottobre"
         }
       ],
       "aeroporto": "Cagliari (CAG)"

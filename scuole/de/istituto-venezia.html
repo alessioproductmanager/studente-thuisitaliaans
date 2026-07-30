@@ -55,7 +55,14 @@ form textarea{min-height:110px;resize:vertical}.nascosto{position:absolute;left:
 .anteprima iframe{width:100%;height:280px;border:1px solid var(--linea);border-radius:12px;background:#fff}
 .anteprima .nota{font-size:12px;color:var(--secondario);margin-top:8px}
 .altre a{display:block;padding:8px 0;border-bottom:1px dashed var(--linea);text-decoration:none;font-size:14px}
-.altre a:hover{color:var(--terracotta)}</style>
+.altre a:hover{color:var(--terracotta)}
+.dativ2{display:flex;flex-direction:column}
+.riga-dato{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px dashed var(--linea);font-size:14px}
+.riga-dato:last-child{border-bottom:0}
+.riga-dato svg{flex:0 0 18px;width:18px;height:18px;color:var(--terracotta)}
+.riga-dato .etich{color:var(--secondario)}
+.riga-dato .val{margin-left:auto;font-weight:600;color:var(--inchiostro);text-align:right;max-width:55%}
+.badge-ev{display:inline-block;margin-left:8px;font-size:10.5px;font-weight:700;background:var(--salvia-chiara);color:var(--salvia);border-radius:6px;padding:2px 6px;vertical-align:1px}</style>
 </head>
 <body>
 <header><div class="contenitore testata">
@@ -72,24 +79,17 @@ form textarea{min-height:110px;resize:vertical}.nascosto{position:absolute;left:
   <div class="colonne">
     <div>
       <div class="pannello"><h2>Der Kurs</h2>
-        <div class="dati">
-          <div>Intensiv<b>20 Std./Wo.</b></div>
-          <div>Leicht<b>10 Std./Wo.</b></div>
-          <div>Beginn<b>jeden Montag</b></div>
-          <div>Absolute Anfänger<b>feste Termine, meist alle 2 Wochen</b></div>
-          <div>Mindestdauer<b>1 Woche(n)</b></div>
-          <div>Unterkunft<b>ja</b></div>
-          
-        </div>
+        <div class="dativ2"><div class="riga-dato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span class="etich">Intensiv</span><span class="val">20 Std./Wo.</span></div><div class="riga-dato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 21c0-9 4-15 14-17-1 10-6 15-14 17z"/><path d="M6 21c4-6 8-9 12-11"/></svg><span class="etich">Leicht</span><span class="val">10 Std./Wo.</span></div><div class="riga-dato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span class="etich">Beginn</span><span class="val">jeden Montag</span></div><div class="riga-dato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-8"/><path d="M12 14C12 9 9 7 4 7c0 5 3 8 8 7z"/><path d="M12 12c0-4 3-6 8-6 0 5-3 8-8 6z"/></svg><span class="etich">Absolute Anfänger</span><span class="val">feste Termine, meist alle 2 Wochen</span></div><div class="riga-dato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 12 12 17 22 12"/><polyline points="2 17 12 22 22 17"/></svg><span class="etich">Mindestdauer</span><span class="val">1 Woche</span></div><div class="riga-dato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V21h-6v-7h-6v7H3z"/></svg><span class="etich">Unterkunft</span><span class="val">ja</span></div></div>
       </div>
-      <div class="pannello" style="margin-bottom:18px"><h2>Auf einen Blick</h2><div class="dati"><div>Dauer einer Lektion<b>45 Minuten</b></div><div>Teilnehmer pro Klasse<b>max. 12</b></div><div>Bücher und Lernmaterial<b>inklusive</b></div><div>Einstufungstest<b>online</b></div><div>Unterkunftsservice<b>kostenlos</b></div><div>WLAN<b>ja</b></div></div><div class="tagriga"><span class="tag">Stadt am Meer</span></div></div>
+      <div class="pannello" style="margin-bottom:18px"><h2>Auf einen Blick</h2><div class="dativ2"><div class="riga-dato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg><span class="etich">Dauer einer Lektion</span><span class="val">45 Minuten</span></div><div class="riga-dato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4"/><path d="M2 21v-2a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v2"/><path d="M16 3.5a4 4 0 0 1 0 7"/><path d="M22 21v-2a5 5 0 0 0-3-4.6"/></svg><span class="etich">Teilnehmer pro Klasse</span><span class="val">max. 12</span></div><div class="riga-dato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5z"/><path d="M4 19.5V4.5"/></svg><span class="etich">Bücher und Lernmaterial</span><span class="val">inklusive</span></div><div class="riga-dato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><polyline points="8.5 12.5 11 15 15.5 9.5"/></svg><span class="etich">Einstufungstest</span><span class="val">online</span></div><div class="riga-dato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="15.5" r="4.5"/><path d="m11 12 9-9m-4 2 3 3m-6 0 2 2"/></svg><span class="etich">Unterkunftsservice</span><span class="val">kostenlos</span></div><div class="riga-dato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a16 16 0 0 1 20 0"/><path d="M5.5 12.5a11 11 0 0 1 13 0"/><path d="M8.8 15.8a6 6 0 0 1 6.4 0"/><circle cx="12" cy="19" r="1.2" fill="currentColor" stroke="none"/></svg><span class="etich">WLAN</span><span class="val">ja</span></div></div><div class="tagriga"><span class="tag">Stadt am Meer</span></div></div>
       <div class="pannello guida" style="margin-top:18px"><h2>Nicht verpassen in Venezia</h2>
         <ol><li><div><b>Piazza San Marco e Palazzo Ducale</b></div></li><li><div><b>Murano e Burano</b></div></li><li><div><b>Cannaregio e il ghetto</b></div></li></ol>
-        <h2 style="margin-top:16px">Events im Jahr</h2><div class="evento"><b>Carnevale</b><span>Januar–Februar</span></div><div class="evento"><b>Festa del Redentore</b><span>drittes Juli-Wochenende</span></div>
+        <h2 style="margin-top:16px">Events im Jahr</h2><div class="evento"><div><b>Carnevale</b><span class="badge-ev">✓ Kurse in dieser Zeit</span></div><span>Januar–Februar</span></div><div class="evento"><div><b>Festa del Redentore</b><span class="badge-ev">✓ Kurse in dieser Zeit</span></div><span>drittes Juli-Wochenende</span></div><div class="evento"><div><b>Mostra del Cinema</b><span class="badge-ev">✓ Kurse in dieser Zeit</span></div><span>Ende August–September</span></div><div class="evento"><div><b>Biennale</b><span class="badge-ev">✓ Kurse in dieser Zeit</span></div><span>Mai–November</span></div><div class="evento"><div><b>Regata Storica</b><span class="badge-ev">✓ Kurse in dieser Zeit</span></div><span>erster Sonntag im September</span></div>
         <div class="aero">✈ Empfohlener Flughafen: Venezia (VCE)</div>
       </div>
     </div>
     <div>
+      <div class="pannello anteprima" style="margin-bottom:18px"><iframe src="https://www.istitutovenezia.com" loading="lazy" referrerpolicy="no-referrer" title="Istituto Venezia"></iframe></div>
       <div class="pannello"><h2>Schreib der Schule</h2>
         <p style="font-size:13px;color:var(--secondario);margin-bottom:12px">Deine Nachricht wird über thuisitaliaans gesendet; die Schule antwortet direkt an deine E-Mail.</p>
         <form id="modulo">
@@ -100,9 +100,7 @@ form textarea{min-height:110px;resize:vertical}.nascosto{position:absolute;left:
           <button class="bottone pieno" type="submit" style="width:100%">Senden</button>
           <div class="esito" id="esito"></div>
         </form>
-        <a class="bottone" style="width:100%;margin-top:10px" target="_blank" rel="noopener" href="https://www.istitutovenezia.com">Website der Schule</a>
       </div>
-      <div class="pannello anteprima" style="margin-top:18px"><h2>Website-Vorschau</h2><iframe src="https://www.istitutovenezia.com" loading="lazy" referrerpolicy="no-referrer" title="Istituto Venezia"></iframe><div class="nota">Bleibt die Vorschau leer, erlaubt die Website der Schule keine Einbettung: öffne sie über den Button oben.</div></div>
       <div class="pannello altre" style="margin-top:18px"><h2>Weitere Schulen in Venezia</h2><a href="easy-italian-language-art.html">Easy Italian Language &amp; Art</a><a href="ca-foscari-school-for-international-education.html">Ca&#x27; Foscari School for International Education</a></div>
     </div>
   </div>
@@ -119,6 +117,10 @@ form.addEventListener("submit",function(ev){ev.preventDefault();
  .then(function(r){if(!r.ok)throw 0;esito.className="esito ok";esito.textContent="Gesendet! Die Schule antwortet per E-Mail.";form.reset();})
  .catch(function(){esito.className="esito err";esito.textContent="Senden fehlgeschlagen. Versuch es gleich noch einmal oder kontaktiere die Schule über ihre Website.";})
  .finally(function(){btn.disabled=false;});});
+// L'anteprima sparisce da sola se il sito non risponde entro 6 secondi.
+var fr=document.querySelector(".anteprima iframe");
+if(fr){fr.addEventListener("load",function(){fr.dataset.ok="1"});
+ setTimeout(function(){if(!fr.dataset.ok){var p=fr.closest(".anteprima");if(p)p.style.display="none"}},6000);}
 })();
 </script>
 </body></html>
