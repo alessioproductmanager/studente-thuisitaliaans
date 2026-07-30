@@ -28,14 +28,23 @@
 
   var CFG = {
     autoInserimento: true,
-    urlApp: '/app-ti',
-    libri: {
-      A1: '/libri-italiano-facile-a1',
-      A2: '/libri-italiano-facile-a2',
-      B1: '/libri-italiano-facile-b1',
-      B2: '/libri-italiano-facile-b2',
-      C1: '/libri-italiano-facile-c1',
-      C2: '/libri-italiano-facile-c2'
+    /* URL dell'app per lingua: la pagina di default (/app-ti) e' in
+       italiano, le altre lingue hanno la propria versione. */
+    urlApp: function (lingua) {
+      if (lingua === 'it') return '/app-ti';
+      var note = ['nl','en','de','es','fr','pt','ro','uk','sq','ar','zh','bn','tl','ti'];
+      return note.indexOf(lingua) !== -1 ? '/app-ti-' + lingua : '/app-ti-en';
+    },
+    /* Pagine-livello dei libri per lingua (nl/en/it; le altre lingue
+       ricadono sull'inglese). */
+    libriPerLingua: {
+      nl: { A1:'/italiaanse-boeken-a1', A2:'/italiaanse-boeken-a2', B1:'/italiaanse-boeken-b1', B2:'/italiaanse-boeken-b2', C1:'/italiaanse-boeken-c1', C2:'/italiaanse-boeken-c2' },
+      en: { A1:'/italian-books-a1', A2:'/italian-books-a2', B1:'/italian-books-b1', B2:'/italian-books-b2', C1:'/italian-books-c1', C2:'/italian-books-c2' },
+      it: { A1:'/libri-italiano-facile-a1', A2:'/libri-italiano-facile-a2', B1:'/libri-italiano-facile-b1', B2:'/libri-italiano-facile-b2', C1:'/libri-italiano-facile-c1', C2:'/libri-italiano-facile-c2' }
+    },
+    urlLibro: function (lingua, liv) {
+      var mappa = this.libriPerLingua[lingua] || this.libriPerLingua.en;
+      return mappa[liv] || mappa[CFG.livelloDefault];
     },
     /* Livello del blocco libri in base alla categoria del post. */
     livelloPerCategoria: {
@@ -378,9 +387,9 @@
     if (a) {
       a.textContent = diz[p + '_c'].replace('{L}', liv) + freccia;
       if (tipo === 'libri') {
-        a.setAttribute('href', CFG.libri[liv] || CFG.libri[CFG.livelloDefault]);
+        a.setAttribute('href', CFG.urlLibro(lingua, liv));
       } else if (!a.getAttribute('href') || a.getAttribute('href') === '#') {
-        a.setAttribute('href', CFG.urlApp);
+        a.setAttribute('href', CFG.urlApp(lingua));
       }
     }
 

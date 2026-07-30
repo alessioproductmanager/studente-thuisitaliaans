@@ -23,6 +23,29 @@
 
   var attuale = (document.documentElement.lang || 'nl').slice(0, 2).toLowerCase();
 
+  // Un click su un selettore di lingua (nav o footer) vale come scelta
+  // esplicita: la salviamo, cosi' il redirect automatico non riporta
+  // l'utente indietro dopo un cambio manuale.
+  (function () {
+    var alternates = {};
+    var tags = document.querySelectorAll('link[rel="alternate"][hreflang]');
+    for (var i = 0; i < tags.length; i++) {
+      var hl = (tags[i].getAttribute('hreflang') || '').slice(0, 2).toLowerCase();
+      var hr = tags[i].getAttribute('href');
+      if (LINGUE.indexOf(hl) > -1 && hr) alternates[hr.replace(/\/$/, '')] = hl;
+    }
+    document.addEventListener('click', function (e) {
+      var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+      if (!a) return;
+      var assoluto;
+      try { assoluto = new URL(a.getAttribute('href'), location.href).toString().replace(/\/$/, ''); }
+      catch (err) { return; }
+      var hl = a.getAttribute('hreflang');
+      var lingua = hl ? hl.slice(0, 2).toLowerCase() : alternates[assoluto];
+      if (lingua && LINGUE.indexOf(lingua) > -1) memoria('lingua-scelta', lingua);
+    }, true);
+  })();
+
   // se l'utente ha già scelto, rispettiamo la scelta e non chiediamo più
   var scelta = memoria('lingua-scelta');
   if (scelta) {
