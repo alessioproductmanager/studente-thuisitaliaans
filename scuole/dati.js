@@ -58,10 +58,15 @@ const DATI = {
       "nome": "ABC Firenze",
       "citta": "Firenze",
       "regione": "Toscana",
-      "sito": "https://www.abcschool.com",
+      "sito": "https://abcschool.com",
       "pagina_corsi": "https://www.abcschool.com/it/corsi/gruppo",
       "email": "info@abcschool.com",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "ASILS",
+        "AIL",
+        "Bildungsurlaub",
+        "CSN"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -81,8 +86,11 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
-      "note": "",
+      "esami_in_sede": [
+        "CILS",
+        "AIL"
+      ],
+      "note": "Dal 1982, in via dei Bardi. Sponsorizzata dal Comune di Firenze; sede d'esame CILS (tutti i livelli) e AIL.",
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
@@ -90,11 +98,16 @@ const DATI = {
         "max_studenti_classe": 12,
         "materiale": "inclusi",
         "test_ingresso": "online",
-        "tassa_iscrizione": null,
+        "tassa_iscrizione": 70,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "arte",
+        "cucina",
+        "online",
+        "storia dell'arte"
+      ],
       "anteprima": true,
       "email_stato": "stimata"
     },
@@ -151,7 +164,10 @@ const DATI = {
       "sito": "https://www.michelangelo-edu.it",
       "pagina_corsi": "",
       "email": "info@michelangelo-edu.it",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "ASILS",
+        "EDUITALIA"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -172,7 +188,7 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [],
-      "note": "",
+      "note": "Dal 1983, palazzo ottocentesco nel centro storico, a 5–10 min dal Duomo.",
       "verificato_il": null,
       "stato_dati": "da_verificare",
       "info": {
@@ -184,7 +200,11 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "arte",
+        "storia dell'arte",
+        "cucina"
+      ],
       "anteprima": true,
       "email_stato": "stimata"
     },
@@ -196,7 +216,10 @@ const DATI = {
       "sito": "https://www.europassitalian.com",
       "pagina_corsi": "https://www.europassitalian.com/courses/live-courses",
       "email": "info@europassitalian.com",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "EDUITALIA",
+        "DITALS"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -216,20 +239,27 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
-      "note": "Le date di inizio non sono pubblicate sul sito della scuola. Nella maggior parte delle scuole i corsi intensivi di gruppo partono ogni lunedì (i principianti assoluti in date fisse, in genere ogni due settimane). Scrivi alla scuola per confermare la prossima data utile: in alta stagione (giugno–settembre) i posti si chiudono 2–3 settimane prima.",
+      "esami_in_sede": [
+        "CILS",
+        "CELI"
+      ],
+      "note": "Centro storico di Firenze; insegnanti con master e DITALS. Sede d'esame CILS e CELI (anche cittadinanza e università).",
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
+        "max_studenti_classe": 10,
         "materiale": "inclusi",
         "test_ingresso": "online",
-        "tassa_iscrizione": null,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "arte",
+        "cucina",
+        "storia dell'arte",
+        "online"
+      ],
       "anteprima": false,
       "email_stato": "stimata"
     },
@@ -238,10 +268,15 @@ const DATI = {
       "nome": "Centro Machiavelli",
       "citta": "Firenze",
       "regione": "Toscana",
-      "sito": "https://www.centromachiavelli.it",
+      "sito": "https://centromachiavelli.it",
       "pagina_corsi": "https://centromachiavelli.it/it/iscrizione-altri-corsi",
       "email": "info@centromachiavelli.it",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "ASILS",
+        "EDUITALIA",
+        "Bildungsurlaub",
+        "CSN"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -262,19 +297,27 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [],
-      "note": "Le date di inizio non sono pubblicate sul sito della scuola. Nella maggior parte delle scuole i corsi intensivi di gruppo partono ogni lunedì (i principianti assoluti in date fisse, in genere ogni due settimane). Scrivi alla scuola per confermare la prossima data utile: in alta stagione (giugno–settembre) i posti si chiudono 2–3 settimane prima.",
+      "note": "In Oltrarno, quartiere San Niccolò. Oltre 40 anni di esperienza; ex rete TANDEM International.",
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
+        "max_studenti_classe": 10,
         "materiale": "inclusi",
         "test_ingresso": "online",
-        "tassa_iscrizione": null,
+        "tassa_iscrizione": 0,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "arte",
+        "cucina",
+        "dizione",
+        "pittura",
+        "storia dell'arte",
+        "vino",
+        "over50"
+      ],
       "anteprima": true,
       "email_stato": "stimata"
     },
@@ -327,10 +370,12 @@ const DATI = {
       "nome": "Accademia del Giglio",
       "citta": "Firenze",
       "regione": "Toscana",
-      "sito": "https://www.adg.it",
+      "sito": "https://adg.it",
       "pagina_corsi": "",
       "email": "info@adg.it",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "ASILS"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -351,7 +396,7 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [],
-      "note": "",
+      "note": "Dal 1995 nel cuore di Firenze. Corsi di lingua abbinati ad arte (disegno, pittura, storia dell'arte) in piccoli gruppi.",
       "verificato_il": null,
       "stato_dati": "da_verificare",
       "info": {
@@ -363,7 +408,11 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "arte",
+        "pittura",
+        "storia dell'arte"
+      ],
       "anteprima": true,
       "email_stato": "stimata"
     },
