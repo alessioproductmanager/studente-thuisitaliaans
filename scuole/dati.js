@@ -95,7 +95,7 @@ const DATI = {
       "nome": "Centro Fiorenza",
       "citta": "Firenze",
       "regione": "Toscana",
-      "sito": "https://www.centrofiorenza.it",
+      "sito": "https://centrofiorenza.com",
       "pagina_corsi": "",
       "email": "",
       "accreditamenti": [],
@@ -439,7 +439,7 @@ const DATI = {
       "nome": "Parola Italian Language School",
       "citta": "Firenze",
       "regione": "Toscana",
-      "sito": "",
+      "sito": "https://www.parola.it",
       "pagina_corsi": "",
       "email": "",
       "accreditamenti": [],
@@ -462,7 +462,9 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
+      "esami_in_sede": [
+        "CILS"
+      ],
       "note": "",
       "verificato_il": null,
       "stato_dati": "da_verificare",
@@ -482,7 +484,7 @@ const DATI = {
       "nome": "Istituto Lorenzo de' Medici Firenze",
       "citta": "Firenze",
       "regione": "Toscana",
-      "sito": "https://www.lorenzodemedici.edu",
+      "sito": "https://www.lorenzodemedici.it",
       "pagina_corsi": "",
       "email": "",
       "accreditamenti": [],
@@ -998,7 +1000,7 @@ const DATI = {
       "nome": "Studioitalia",
       "citta": "Roma",
       "regione": "Lazio",
-      "sito": "https://www.studioitalia.com",
+      "sito": "https://accademiastudioitalia.com",
       "pagina_corsi": "",
       "email": "",
       "accreditamenti": [],
@@ -1213,7 +1215,7 @@ const DATI = {
       "nome": "Scuola d'Italiano Dante Alighieri Roma",
       "citta": "Roma",
       "regione": "Lazio",
-      "sito": "",
+      "sito": "https://clidante.it",
       "pagina_corsi": "",
       "email": "",
       "accreditamenti": [],
@@ -1256,7 +1258,7 @@ const DATI = {
       "nome": "Istituto Lorenzo de' Medici Roma",
       "citta": "Roma",
       "regione": "Lazio",
-      "sito": "https://www.lorenzodemedici.edu",
+      "sito": "https://www.lorenzodemedici.it",
       "pagina_corsi": "",
       "email": "",
       "accreditamenti": [],
@@ -1299,7 +1301,7 @@ const DATI = {
       "nome": "Istituto Italiano",
       "citta": "Roma",
       "regione": "Lazio",
-      "sito": "https://www.istitutoitaliano.com",
+      "sito": "",
       "pagina_corsi": "",
       "email": "",
       "accreditamenti": [],
@@ -2523,11 +2525,12 @@ const DATI = {
       "nome": "Romanica",
       "citta": "Modena",
       "regione": "Emilia-Romagna",
-      "sito": "",
+      "sito": "https://www.romanica.it",
       "pagina_corsi": "",
       "email": "",
       "accreditamenti": [
-        "ASILS"
+        "ASILS",
+        "AIL"
       ],
       "corsi": [
         {
@@ -2548,7 +2551,10 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
+      "esami_in_sede": [
+        "CILS",
+        "CELI"
+      ],
       "note": "Corsi in presenza e online",
       "verificato_il": null,
       "stato_dati": "da_verificare",
@@ -3223,7 +3229,7 @@ const DATI = {
       "nome": "Centro Fiorenza Isola d'Elba",
       "citta": "Isola d'Elba",
       "regione": "Toscana",
-      "sito": "https://www.centrofiorenza.it",
+      "sito": "https://centrofiorenza.com",
       "pagina_corsi": "",
       "email": "",
       "accreditamenti": [],
@@ -3614,7 +3620,7 @@ const DATI = {
       "nome": "Istituto Lorenzo de' Medici Tuscania",
       "citta": "Tuscania",
       "regione": "Lazio",
-      "sito": "https://www.lorenzodemedici.edu",
+      "sito": "https://www.lorenzodemedici.it",
       "pagina_corsi": "",
       "email": "",
       "accreditamenti": [],
@@ -3960,10 +3966,12 @@ const DATI = {
       "nome": "Porta d'Oriente",
       "citta": "Otranto",
       "regione": "Puglia",
-      "sito": "",
+      "sito": "https://www.porta-doriente.com",
       "pagina_corsi": "",
       "email": "",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "Bildungsurlaub"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -3983,20 +3991,27 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
+      "esami_in_sede": [
+        "CELI"
+      ],
       "note": "",
       "verificato_il": null,
       "stato_dati": "da_verificare",
       "info": {
-        "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
+        "durata_lezione_min": 50,
+        "max_studenti_classe": 8,
         "materiale": "inclusi",
-        "test_ingresso": "online",
-        "tassa_iscrizione": null,
+        "test_ingresso": "in sede",
+        "tassa_iscrizione": 70,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [
+        "arte",
+        "cucina",
+        "vino",
+        "over50"
+      ]
     },
     {
       "id": "babilonia-centro-di-lingua-e-cultura-italiana",
@@ -4093,8 +4108,8 @@ const DATI = {
       "nome": "Solemar Academy",
       "citta": "Cefalù",
       "regione": "Sicilia",
-      "sito": "",
-      "pagina_corsi": "",
+      "sito": "https://solemar-academy.com",
+      "pagina_corsi": "https://solemar-academy.com/en/italian-courses/",
       "email": "",
       "accreditamenti": [
         "ASILS"
@@ -4118,7 +4133,9 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
+      "esami_in_sede": [
+        "CELI"
+      ],
       "note": "",
       "verificato_il": null,
       "stato_dati": "da_verificare",
@@ -4388,7 +4405,11 @@ const DATI = {
           "quando": "7 settembre"
         }
       ],
-      "aeroporto": "Firenze (FLR) o Pisa (PSA)"
+      "aeroporto": "Firenze (FLR) o Pisa (PSA)",
+      "coord": [
+        43.77,
+        11.25
+      ]
     },
     "Roma": {
       "regione": "Lazio",
@@ -4428,7 +4449,11 @@ const DATI = {
           "quando": "febbraio–marzo"
         }
       ],
-      "aeroporto": "Roma Fiumicino (FCO)"
+      "aeroporto": "Roma Fiumicino (FCO)",
+      "coord": [
+        41.9,
+        12.5
+      ]
     },
     "Milano": {
       "regione": "Lombardia",
@@ -4464,7 +4489,11 @@ const DATI = {
           "quando": "settembre"
         }
       ],
-      "aeroporto": "Milano Linate (LIN) o Malpensa (MXP)"
+      "aeroporto": "Milano Linate (LIN) o Malpensa (MXP)",
+      "coord": [
+        45.46,
+        9.19
+      ]
     },
     "Bologna": {
       "regione": "Emilia-Romagna",
@@ -4496,7 +4525,11 @@ const DATI = {
           "quando": "giugno–settembre"
         }
       ],
-      "aeroporto": "Bologna (BLQ)"
+      "aeroporto": "Bologna (BLQ)",
+      "coord": [
+        44.49,
+        11.34
+      ]
     },
     "Venezia": {
       "regione": "Veneto",
@@ -4536,7 +4569,11 @@ const DATI = {
           "quando": "prima domenica di settembre"
         }
       ],
-      "aeroporto": "Venezia (VCE)"
+      "aeroporto": "Venezia (VCE)",
+      "coord": [
+        45.44,
+        12.32
+      ]
     },
     "Siena": {
       "regione": "Toscana",
@@ -4564,7 +4601,11 @@ const DATI = {
           "quando": "luglio–agosto"
         }
       ],
-      "aeroporto": "Firenze (FLR) o Pisa (PSA)"
+      "aeroporto": "Firenze (FLR) o Pisa (PSA)",
+      "coord": [
+        43.32,
+        11.33
+      ]
     },
     "Perugia": {
       "regione": "Umbria",
@@ -4596,7 +4637,11 @@ const DATI = {
           "quando": "aprile"
         }
       ],
-      "aeroporto": "Perugia (PEG) o Roma (FCO)"
+      "aeroporto": "Perugia (PEG) o Roma (FCO)",
+      "coord": [
+        43.11,
+        12.39
+      ]
     },
     "Torino": {
       "regione": "Piemonte",
@@ -4628,7 +4673,11 @@ const DATI = {
           "quando": "novembre–gennaio"
         }
       ],
-      "aeroporto": "Torino (TRN) o Milano (MXP)"
+      "aeroporto": "Torino (TRN) o Milano (MXP)",
+      "coord": [
+        45.07,
+        7.69
+      ]
     },
     "Genova": {
       "regione": "Liguria",
@@ -4656,7 +4705,11 @@ const DATI = {
           "quando": "settembre"
         }
       ],
-      "aeroporto": "Genova (GOA)"
+      "aeroporto": "Genova (GOA)",
+      "coord": [
+        44.41,
+        8.93
+      ]
     },
     "Sestri Levante": {
       "regione": "Liguria",
@@ -4684,7 +4737,11 @@ const DATI = {
           "quando": "luglio"
         }
       ],
-      "aeroporto": "Genova (GOA) o Pisa (PSA)"
+      "aeroporto": "Genova (GOA) o Pisa (PSA)",
+      "coord": [
+        44.27,
+        9.4
+      ]
     },
     "Sanremo": {
       "regione": "Liguria",
@@ -4712,7 +4769,11 @@ const DATI = {
           "quando": "marzo"
         }
       ],
-      "aeroporto": "Nizza (NCE) o Genova (GOA)"
+      "aeroporto": "Nizza (NCE) o Genova (GOA)",
+      "coord": [
+        43.82,
+        7.78
+      ]
     },
     "Napoli": {
       "regione": "Campania",
@@ -4744,7 +4805,11 @@ const DATI = {
           "quando": "giugno"
         }
       ],
-      "aeroporto": "Napoli (NAP)"
+      "aeroporto": "Napoli (NAP)",
+      "coord": [
+        40.85,
+        14.27
+      ]
     },
     "Sorrento": {
       "regione": "Campania",
@@ -4772,7 +4837,11 @@ const DATI = {
           "quando": "Pasqua"
         }
       ],
-      "aeroporto": "Napoli (NAP)"
+      "aeroporto": "Napoli (NAP)",
+      "coord": [
+        40.63,
+        14.37
+      ]
     },
     "Salerno": {
       "regione": "Campania",
@@ -4800,7 +4869,11 @@ const DATI = {
           "quando": "luglio"
         }
       ],
-      "aeroporto": "Napoli (NAP)"
+      "aeroporto": "Napoli (NAP)",
+      "coord": [
+        40.68,
+        14.77
+      ]
     },
     "Tropea": {
       "regione": "Calabria",
@@ -4828,7 +4901,11 @@ const DATI = {
           "quando": "estate"
         }
       ],
-      "aeroporto": "Lamezia Terme (SUF)"
+      "aeroporto": "Lamezia Terme (SUF)",
+      "coord": [
+        38.68,
+        15.9
+      ]
     },
     "Trieste": {
       "regione": "Friuli-Venezia Giulia",
@@ -4860,7 +4937,11 @@ const DATI = {
           "quando": "16 giugno"
         }
       ],
-      "aeroporto": "Trieste (TRS) o Venezia (VCE)"
+      "aeroporto": "Trieste (TRS) o Venezia (VCE)",
+      "coord": [
+        45.65,
+        13.77
+      ]
     },
     "Taormina": {
       "regione": "Sicilia",
@@ -4888,7 +4969,11 @@ const DATI = {
           "quando": "giugno–settembre"
         }
       ],
-      "aeroporto": "Catania (CTA)"
+      "aeroporto": "Catania (CTA)",
+      "coord": [
+        37.85,
+        15.29
+      ]
     },
     "Milazzo": {
       "regione": "Sicilia",
@@ -4916,7 +5001,11 @@ const DATI = {
           "quando": "agosto"
         }
       ],
-      "aeroporto": "Catania (CTA) o Palermo (PMO)"
+      "aeroporto": "Catania (CTA) o Palermo (PMO)",
+      "coord": [
+        38.22,
+        15.24
+      ]
     },
     "Palermo (Mondello)": {
       "regione": "Sicilia",
@@ -4944,7 +5033,11 @@ const DATI = {
           "quando": "ottobre"
         }
       ],
-      "aeroporto": "Palermo (PMO)"
+      "aeroporto": "Palermo (PMO)",
+      "coord": [
+        38.2,
+        13.32
+      ]
     },
     "Palermo": {
       "regione": "Sicilia",
@@ -4972,7 +5065,11 @@ const DATI = {
           "quando": "ottobre"
         }
       ],
-      "aeroporto": "Palermo (PMO)"
+      "aeroporto": "Palermo (PMO)",
+      "coord": [
+        38.12,
+        13.36
+      ]
     },
     "Alghero": {
       "regione": "Sardegna",
@@ -5004,7 +5101,11 @@ const DATI = {
           "quando": "settembre"
         }
       ],
-      "aeroporto": "Alghero (AHO)"
+      "aeroporto": "Alghero (AHO)",
+      "coord": [
+        40.56,
+        8.32
+      ]
     },
     "Otranto": {
       "regione": "Puglia",
@@ -5032,7 +5133,11 @@ const DATI = {
           "quando": "metà agosto"
         }
       ],
-      "aeroporto": "Brindisi (BDS)"
+      "aeroporto": "Brindisi (BDS)",
+      "coord": [
+        40.15,
+        18.49
+      ]
     },
     "Viareggio": {
       "regione": "Toscana",
@@ -5064,7 +5169,11 @@ const DATI = {
           "quando": "estate"
         }
       ],
-      "aeroporto": "Pisa (PSA)"
+      "aeroporto": "Pisa (PSA)",
+      "coord": [
+        43.87,
+        10.24
+      ]
     },
     "Lucca": {
       "regione": "Toscana",
@@ -5096,7 +5205,11 @@ const DATI = {
           "quando": "13 settembre"
         }
       ],
-      "aeroporto": "Pisa (PSA)"
+      "aeroporto": "Pisa (PSA)",
+      "coord": [
+        43.84,
+        10.5
+      ]
     },
     "Pisa": {
       "regione": "Toscana",
@@ -5128,7 +5241,11 @@ const DATI = {
           "quando": "ottobre"
         }
       ],
-      "aeroporto": "Pisa (PSA)"
+      "aeroporto": "Pisa (PSA)",
+      "coord": [
+        43.72,
+        10.4
+      ]
     },
     "Montepulciano": {
       "regione": "Toscana",
@@ -5156,7 +5273,11 @@ const DATI = {
           "quando": "luglio"
         }
       ],
-      "aeroporto": "Firenze (FLR) o Roma (FCO)"
+      "aeroporto": "Firenze (FLR) o Roma (FCO)",
+      "coord": [
+        43.1,
+        11.78
+      ]
     },
     "Orbetello": {
       "regione": "Toscana",
@@ -5184,7 +5305,11 @@ const DATI = {
           "quando": "15 agosto"
         }
       ],
-      "aeroporto": "Roma (FCO)"
+      "aeroporto": "Roma (FCO)",
+      "coord": [
+        42.44,
+        11.21
+      ]
     },
     "Modena": {
       "regione": "Emilia-Romagna",
@@ -5212,7 +5337,11 @@ const DATI = {
           "quando": "settembre"
         }
       ],
-      "aeroporto": "Bologna (BLQ)"
+      "aeroporto": "Bologna (BLQ)",
+      "coord": [
+        44.65,
+        10.93
+      ]
     },
     "Rimini": {
       "regione": "Emilia-Romagna",
@@ -5240,7 +5369,11 @@ const DATI = {
           "quando": "agosto"
         }
       ],
-      "aeroporto": "Rimini (RMI) o Bologna (BLQ)"
+      "aeroporto": "Rimini (RMI) o Bologna (BLQ)",
+      "coord": [
+        44.06,
+        12.57
+      ]
     },
     "Verona": {
       "regione": "Veneto",
@@ -5276,7 +5409,11 @@ const DATI = {
           "quando": "settembre"
         }
       ],
-      "aeroporto": "Verona (VRN)"
+      "aeroporto": "Verona (VRN)",
+      "coord": [
+        45.44,
+        10.99
+      ]
     },
     "Urbania": {
       "regione": "Marche",
@@ -5300,7 +5437,11 @@ const DATI = {
           "quando": "primi di gennaio"
         }
       ],
-      "aeroporto": "Rimini (RMI) o Ancona (AOI)"
+      "aeroporto": "Rimini (RMI) o Ancona (AOI)",
+      "coord": [
+        43.67,
+        12.52
+      ]
     },
     "Padova": {
       "regione": "Veneto",
@@ -5328,7 +5469,11 @@ const DATI = {
           "quando": "giugno–luglio"
         }
       ],
-      "aeroporto": "Venezia (VCE)"
+      "aeroporto": "Venezia (VCE)",
+      "coord": [
+        45.41,
+        11.88
+      ]
     },
     "Bolzano": {
       "regione": "Alto Adige",
@@ -5360,7 +5505,11 @@ const DATI = {
           "quando": "giugno–luglio"
         }
       ],
-      "aeroporto": "Bolzano (BZO) o Verona (VRN)"
+      "aeroporto": "Bolzano (BZO) o Verona (VRN)",
+      "coord": [
+        46.5,
+        11.35
+      ]
     },
     "Merano": {
       "regione": "Alto Adige",
@@ -5392,7 +5541,11 @@ const DATI = {
           "quando": "settembre"
         }
       ],
-      "aeroporto": "Bolzano (BZO) o Verona (VRN)"
+      "aeroporto": "Bolzano (BZO) o Verona (VRN)",
+      "coord": [
+        46.67,
+        11.16
+      ]
     },
     "Lignano Sabbiadoro": {
       "regione": "Friuli-Venezia Giulia",
@@ -5416,7 +5569,11 @@ const DATI = {
           "quando": "giugno–settembre"
         }
       ],
-      "aeroporto": "Venezia (VCE) o Trieste (TRS)"
+      "aeroporto": "Venezia (VCE) o Trieste (TRS)",
+      "coord": [
+        45.68,
+        13.14
+      ]
     },
     "Reggio Emilia": {
       "regione": "Emilia-Romagna",
@@ -5444,7 +5601,11 @@ const DATI = {
           "quando": "autunno"
         }
       ],
-      "aeroporto": "Bologna (BLQ)"
+      "aeroporto": "Bologna (BLQ)",
+      "coord": [
+        44.7,
+        10.63
+      ]
     },
     "Ravenna": {
       "regione": "Emilia-Romagna",
@@ -5476,7 +5637,11 @@ const DATI = {
           "quando": "ottobre"
         }
       ],
-      "aeroporto": "Bologna (BLQ) o Rimini (RMI)"
+      "aeroporto": "Bologna (BLQ) o Rimini (RMI)",
+      "coord": [
+        44.42,
+        12.2
+      ]
     },
     "Bagno di Romagna": {
       "regione": "Emilia-Romagna",
@@ -5500,7 +5665,11 @@ const DATI = {
           "quando": "autunno"
         }
       ],
-      "aeroporto": "Bologna (BLQ) o Firenze (FLR)"
+      "aeroporto": "Bologna (BLQ) o Firenze (FLR)",
+      "coord": [
+        43.83,
+        11.96
+      ]
     },
     "Arezzo": {
       "regione": "Toscana",
@@ -5524,7 +5693,11 @@ const DATI = {
           "quando": "giugno e settembre"
         }
       ],
-      "aeroporto": "Firenze (FLR)"
+      "aeroporto": "Firenze (FLR)",
+      "coord": [
+        43.46,
+        11.88
+      ]
     },
     "Assisi": {
       "regione": "Umbria",
@@ -5552,7 +5725,11 @@ const DATI = {
           "quando": "4 ottobre"
         }
       ],
-      "aeroporto": "Perugia (PEG) o Roma (FCO)"
+      "aeroporto": "Perugia (PEG) o Roma (FCO)",
+      "coord": [
+        43.07,
+        12.62
+      ]
     },
     "Orvieto": {
       "regione": "Umbria",
@@ -5580,7 +5757,11 @@ const DATI = {
           "quando": "giugno"
         }
       ],
-      "aeroporto": "Roma (FCO)"
+      "aeroporto": "Roma (FCO)",
+      "coord": [
+        42.72,
+        12.11
+      ]
     },
     "Todi": {
       "regione": "Umbria",
@@ -5604,7 +5785,11 @@ const DATI = {
           "quando": "fine agosto"
         }
       ],
-      "aeroporto": "Perugia (PEG) o Roma (FCO)"
+      "aeroporto": "Perugia (PEG) o Roma (FCO)",
+      "coord": [
+        42.78,
+        12.41
+      ]
     },
     "Recanati": {
       "regione": "Marche",
@@ -5632,7 +5817,11 @@ const DATI = {
           "quando": "29 giugno"
         }
       ],
-      "aeroporto": "Ancona (AOI)"
+      "aeroporto": "Ancona (AOI)",
+      "coord": [
+        43.4,
+        13.55
+      ]
     },
     "Tuscania": {
       "regione": "Lazio",
@@ -5656,7 +5845,11 @@ const DATI = {
           "quando": "estate"
         }
       ],
-      "aeroporto": "Roma (FCO)"
+      "aeroporto": "Roma (FCO)",
+      "coord": [
+        42.42,
+        11.87
+      ]
     },
     "San Giovanni Valdarno": {
       "regione": "Toscana",
@@ -5680,7 +5873,11 @@ const DATI = {
           "quando": "settembre"
         }
       ],
-      "aeroporto": "Firenze (FLR)"
+      "aeroporto": "Firenze (FLR)",
+      "coord": [
+        43.57,
+        11.53
+      ]
     },
     "Trento": {
       "regione": "Trentino",
@@ -5712,7 +5909,11 @@ const DATI = {
           "quando": "giugno"
         }
       ],
-      "aeroporto": "Verona (VRN)"
+      "aeroporto": "Verona (VRN)",
+      "coord": [
+        46.07,
+        11.12
+      ]
     },
     "Riva del Garda": {
       "regione": "Trentino",
@@ -5740,7 +5941,11 @@ const DATI = {
           "quando": "luglio"
         }
       ],
-      "aeroporto": "Verona (VRN)"
+      "aeroporto": "Verona (VRN)",
+      "coord": [
+        45.88,
+        10.84
+      ]
     },
     "Isola d'Elba": {
       "regione": "Toscana",
@@ -5768,7 +5973,11 @@ const DATI = {
           "quando": "settembre"
         }
       ],
-      "aeroporto": "Pisa (PSA) + traghetto da Piombino"
+      "aeroporto": "Pisa (PSA) + traghetto da Piombino",
+      "coord": [
+        42.81,
+        10.31
+      ]
     },
     "Reggio Calabria": {
       "regione": "Calabria",
@@ -5792,7 +6001,11 @@ const DATI = {
           "quando": "settembre"
         }
       ],
-      "aeroporto": "Reggio Calabria (REG)"
+      "aeroporto": "Reggio Calabria (REG)",
+      "coord": [
+        38.11,
+        15.65
+      ]
     },
     "Cefalù": {
       "regione": "Sicilia",
@@ -5816,7 +6029,11 @@ const DATI = {
           "quando": "inizio agosto"
         }
       ],
-      "aeroporto": "Palermo (PMO)"
+      "aeroporto": "Palermo (PMO)",
+      "coord": [
+        38.04,
+        14.02
+      ]
     },
     "Trapani": {
       "regione": "Sicilia",
@@ -5848,7 +6065,11 @@ const DATI = {
           "quando": "settembre"
         }
       ],
-      "aeroporto": "Trapani (TPS) o Palermo (PMO)"
+      "aeroporto": "Trapani (TPS) o Palermo (PMO)",
+      "coord": [
+        38.02,
+        12.51
+      ]
     },
     "Cagliari": {
       "regione": "Sardegna",
@@ -5876,7 +6097,11 @@ const DATI = {
           "quando": "fine ottobre"
         }
       ],
-      "aeroporto": "Cagliari (CAG)"
+      "aeroporto": "Cagliari (CAG)",
+      "coord": [
+        39.22,
+        9.12
+      ]
     }
   }
 };
