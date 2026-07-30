@@ -420,7 +420,12 @@ const DATI = {
       "sito": "https://www.davidschool.com",
       "pagina_corsi": "",
       "email": "info@davidschool.com",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "EDUITALIA",
+        "LICET",
+        "Bildungsurlaub",
+        "CSN"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -445,15 +450,22 @@ const DATI = {
       "verificato_il": null,
       "stato_dati": "da_verificare",
       "info": {
-        "durata_lezione_min": 45,
+        "durata_lezione_min": 55,
         "max_studenti_classe": 12,
         "materiale": "inclusi",
         "test_ingresso": "online",
-        "tassa_iscrizione": null,
+        "tassa_iscrizione": 0,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "arte",
+        "cucina",
+        "pittura",
+        "artigianato",
+        "over50",
+        "junior"
+      ],
       "anteprima": true,
       "email_stato": "stimata"
     },
