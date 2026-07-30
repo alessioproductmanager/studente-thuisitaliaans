@@ -29,7 +29,7 @@ header{padding:16px 0;border-bottom:1px solid var(--linea)}.testata{display:flex
 .bottone{display:inline-block;text-align:center;text-decoration:none;font-size:14px;font-weight:600;border-radius:var(--r-s);padding:10px 16px;border:1px solid var(--linea);background:var(--carta);cursor:pointer;font-family:var(--sans)}
 .bottone.pieno{background:var(--terracotta);border-color:var(--terracotta);color:#fff}.bottone.pieno:hover{background:var(--terracotta-scuro)}
 footer{border-top:1px solid var(--linea);padding:26px 0 40px;color:var(--secondario);font-size:13px;margin-top:50px}
-.sigle{margin-top:18px;padding-top:14px;border-top:1px dashed var(--linea);display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:8px 22px;font-size:12px;line-height:1.45}
+.sigle{margin-top:18px;padding-top:14px;border-top:1px dashed var(--linea);display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:8px 22px;font-size:12px;line-height:1.45}
 .sigle-h{grid-column:1/-1;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--secondario)}
 .sigle b{color:var(--inchiostro)}
 .tagriga{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
@@ -37,7 +37,12 @@ footer{border-top:1px solid var(--linea);padding:26px 0 40px;color:var(--seconda
 .badge[data-tip]{position:relative;cursor:help}
 .badge[data-tip]:hover::after{content:attr(data-tip);position:absolute;left:0;top:calc(100% + 6px);z-index:9;background:var(--inchiostro);color:#fff;padding:8px 10px;border-radius:8px;font-size:12px;font-weight:500;width:260px;line-height:1.4;box-shadow:var(--ombra)}
 html{-webkit-text-size-adjust:100%}
-body{overflow-x:hidden}
+*,*::before,*::after{box-sizing:border-box}
+html,body{overflow-x:hidden;max-width:100%}
+img,iframe,table,pre{max-width:100%}
+.contenitore{width:100%}
+.meta,.dati,.griglia,.citta-scuole,.sigle{min-width:0}
+.scheda,.pannello,.citta-scuola{min-width:0;overflow-wrap:anywhere}
 .sep{border:0;border-top:1px solid var(--linea);margin:22px 0}
 table{max-width:100%}
 @media(max-width:640px){
@@ -83,7 +88,7 @@ h1{font-size:24px!important}
 .chip{border:1px solid var(--linea);background:var(--card);border-radius:999px;padding:7px 14px;font-size:13px;cursor:pointer;user-select:none;color:var(--secondario)}
 .chip.attivo{background:var(--inchiostro);border-color:var(--inchiostro);color:#fff}
 .riga-esito{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:34px 0 14px}.riga-esito h2{font-family:var(--serif);font-weight:600;font-size:20px}.riga-esito small{color:var(--secondario)}
-.griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;padding-bottom:60px}
+.griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(320px,100%),1fr));gap:18px;padding-bottom:60px}
 .scheda{background:var(--card);border:1px solid var(--linea);border-radius:var(--r);box-shadow:var(--ombra);padding:18px;display:flex;flex-direction:column;gap:10px}
 .scheda .dove{font-size:12px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:var(--terracotta)}.scheda .dove span{color:var(--secondario);font-weight:500;letter-spacing:0;text-transform:none}
 .scheda h3{font-family:var(--serif);font-weight:600;font-size:19px;line-height:1.25}
@@ -120,7 +125,8 @@ form textarea{min-height:110px;resize:vertical}.nascosto{position:absolute;left:
 .riga-dato .etich{color:var(--secondario)}
 .riga-dato .val{margin-left:auto;font-weight:600;color:var(--inchiostro);text-align:right;max-width:55%}
 .badge-ev{display:inline-block;margin-left:8px;font-size:10.5px;font-weight:700;background:var(--salvia-chiara);color:var(--salvia);border-radius:6px;padding:2px 6px;vertical-align:1px}
-.cornice{border:8px solid #26221C;border-radius:20px;overflow:hidden;background:#fff;box-shadow:var(--ombra);aspect-ratio:1280/840;position:relative}
+.anteprima{max-width:100%;overflow:hidden}
+.cornice{border:8px solid #26221C;border-radius:20px;overflow:hidden;background:#fff;box-shadow:var(--ombra);aspect-ratio:1280/840;position:relative;max-width:100%}
 .cornice iframe{position:absolute;top:0;left:0;width:1280px;height:840px;border:0;transform-origin:0 0;pointer-events:none}
 .evseo{margin-top:14px;padding-top:12px;border-top:1px dashed var(--linea);font-size:13.5px;color:var(--secondario)}
 .sigpan summary{font-family:var(--serif);font-weight:600;font-size:17px;cursor:pointer}
@@ -157,7 +163,8 @@ form textarea{min-height:110px;resize:vertical}.nascosto{position:absolute;left:
 .meteo-card{display:none}
 .meteo-card.attivo{display:block}
 .meteo-card .meteo-riga{margin-top:4px}
-.eventi-tab{width:100%;border-collapse:collapse}
+.eventi-tab{width:100%;border-collapse:collapse;table-layout:fixed}
+.eventi-tab td{overflow-wrap:anywhere}
 .eventi-tab td{padding:7px 6px;border-bottom:1px dashed var(--linea);font-size:13.5px;vertical-align:top;color:var(--secondario)}
 .eventi-tab td:first-child b{color:var(--inchiostro);font-weight:600}
 .eventi-tab td:last-child{text-align:right;white-space:nowrap;font-size:12.5px}
@@ -170,7 +177,7 @@ form textarea{min-height:110px;resize:vertical}.nascosto{position:absolute;left:
 .sigle-tab tr:last-child td{border-bottom:0}
 @media(max-width:640px){.eventi-tab td:last-child{white-space:normal}.sigle-tab td:first-child{width:auto}}.citta-hero{padding:34px 0 6px}.citta-hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(26px,4.4vw,38px)}.citta-hero h1 em{font-style:italic;color:var(--terracotta)}
 .citta-hero p{margin-top:10px;color:var(--secondario);font-size:15px;max-width:680px}
-.citta-scuole{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:22px 0 8px}
+.citta-scuole{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(280px,100%),1fr));gap:14px;margin:22px 0 8px}
 .citta-scuola{background:var(--card);border:1px solid var(--linea);border-radius:var(--r-s);box-shadow:var(--ombra);padding:14px 16px;text-decoration:none;color:inherit;display:block}
 .citta-scuola:hover{border-color:var(--terracotta)}
 .citta-scuola b{font-family:var(--serif);font-weight:600;font-size:15.5px;display:block}
