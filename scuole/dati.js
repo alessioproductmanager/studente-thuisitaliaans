@@ -119,7 +119,9 @@ const DATI = {
       "sito": "https://centrofiorenza.com",
       "pagina_corsi": "",
       "email": "info@centrofiorenza.com",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "ASILS"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -140,7 +142,7 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [],
-      "note": "",
+      "note": "In via Santo Spirito (Oltrarno), con sede estiva all'Isola d'Elba. Classi max 12.",
       "verificato_il": null,
       "stato_dati": "da_verificare",
       "info": {
@@ -152,7 +154,11 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "arte",
+        "cucina",
+        "storia dell'arte"
+      ],
       "anteprima": true,
       "email_stato": "stimata"
     },
@@ -329,7 +335,11 @@ const DATI = {
       "sito": "https://www.linguaviva.it",
       "pagina_corsi": "",
       "email": "info@linguaviva.it",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "IALC",
+        "Bildungsurlaub",
+        "CSN"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -350,7 +360,7 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [],
-      "note": "",
+      "note": "Dal 1976 vicino a Santa Maria Novella. Membro IALC; 17 aule su tre piani. Sito con protezione anti-bot.",
       "verificato_il": null,
       "stato_dati": "da_verificare",
       "info": {
@@ -362,7 +372,13 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "arte",
+        "cucina",
+        "storia dell'arte",
+        "moda",
+        "online"
+      ],
       "email_stato": "stimata"
     },
     {
@@ -424,7 +440,11 @@ const DATI = {
       "sito": "https://www.scuola-toscana.com",
       "pagina_corsi": "https://www.scuola-toscana.com/en/course-individual-private.php",
       "email": "info@scuola-toscana.com",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "ASILS",
+        "AIL",
+        "Bildungsurlaub"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -444,22 +464,28 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
-      "note": "",
+      "esami_in_sede": [
+        "AIL"
+      ],
+      "note": "Dal 1989, in via de' Benci. Membro fondatore ASILS e AIL; inizio ogni lunedì tutto l'anno, classi max 8.",
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
+        "max_studenti_classe": 8,
         "materiale": "inclusi",
         "test_ingresso": "online",
-        "tassa_iscrizione": null,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "arte",
+        "cucina",
+        "storia dell'arte",
+        "online"
+      ],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "confermata"
     },
     {
       "id": "istituto-il-david",
@@ -573,7 +599,9 @@ const DATI = {
       "sito": "https://www.lorenzodemedici.it",
       "pagina_corsi": "",
       "email": "info@lorenzodemedici.it",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "EDUITALIA"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -594,7 +622,7 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [],
-      "note": "",
+      "note": "Istituto internazionale (LdM) dal 1973, in via Faenza. Sede principale del gruppo; programmi con crediti USA.",
       "verificato_il": null,
       "stato_dati": "da_verificare",
       "info": {
@@ -606,7 +634,13 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "arte",
+        "storia dell'arte",
+        "cucina",
+        "moda",
+        "pittura"
+      ],
       "anteprima": false,
       "email_stato": "stimata"
     },
@@ -618,7 +652,10 @@ const DATI = {
       "sito": "https://www.clicschool.it",
       "pagina_corsi": "",
       "email": "info@clicschool.it",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "Bildungsurlaub",
+        "CSN"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -638,8 +675,10 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
-      "note": "",
+      "esami_in_sede": [
+        "CILS"
+      ],
+      "note": "CLIC, viale Fratelli Rosselli. Preparazione e sede d'esame CILS; corsi 2/4/6 ore al giorno.",
       "verificato_il": null,
       "stato_dati": "da_verificare",
       "info": {
@@ -651,7 +690,11 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "arte",
+        "cucina",
+        "storia dell'arte"
+      ],
       "email_stato": "stimata"
     },
     {
@@ -662,7 +705,9 @@ const DATI = {
       "sito": "https://www.galilei.it",
       "pagina_corsi": "",
       "email": "info@galilei.it",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "Bildungsurlaub"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -683,19 +728,28 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [],
-      "note": "Specializzata in corsi individuali",
+      "note": "A 5 min dal Duomo. Specializzata in corsi individuali e piccoli gruppi (max 4), lezioni da 60 min.",
       "verificato_il": null,
       "stato_dati": "da_verificare",
       "info": {
-        "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
+        "durata_lezione_min": 60,
+        "max_studenti_classe": 4,
         "materiale": "inclusi",
         "test_ingresso": "online",
-        "tassa_iscrizione": null,
+        "tassa_iscrizione": 0,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "arte",
+        "cucina",
+        "online",
+        "letteratura",
+        "pittura",
+        "storia dell'arte",
+        "vino",
+        "over50"
+      ],
       "anteprima": true,
       "email_stato": "stimata"
     },
@@ -707,7 +761,9 @@ const DATI = {
       "sito": "https://www.sprachcaffe.com",
       "pagina_corsi": "",
       "email": "info@sprachcaffe.com",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "Bildungsurlaub"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -728,7 +784,7 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [],
-      "note": "",
+      "note": "Parte della catena internazionale Sprachcaffe; corsi tutto l'anno con inizio ogni lunedì.",
       "verificato_il": null,
       "stato_dati": "da_verificare",
       "info": {
@@ -740,7 +796,11 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "cucina",
+        "arte",
+        "online"
+      ],
       "anteprima": true,
       "email_stato": "stimata"
     },
@@ -749,10 +809,12 @@ const DATI = {
       "nome": "Istituto Europeo",
       "citta": "Firenze",
       "regione": "Toscana",
-      "sito": "https://www.istitutoeuropeo.it",
+      "sito": "https://www.istitutoeuropeo.org",
       "pagina_corsi": "",
-      "email": "info@istitutoeuropeo.it",
-      "accreditamenti": [],
+      "email": "info@istitutoeuropeo.org",
+      "accreditamenti": [
+        "EDUITALIA"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -773,7 +835,7 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [],
-      "note": "Lingua e musica",
+      "note": "Corsi di lingua abbinati a musica/canto lirico, belle arti, cucina e vino; programmi di internship.",
       "verificato_il": null,
       "stato_dati": "da_verificare",
       "info": {
@@ -785,7 +847,13 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "arte",
+        "musica",
+        "cucina",
+        "vino",
+        "storia dell'arte"
+      ],
       "anteprima": true,
       "email_stato": "stimata"
     },
@@ -837,10 +905,12 @@ const DATI = {
       "nome": "Accademia Europea di Firenze",
       "citta": "Firenze",
       "regione": "Toscana",
-      "sito": "https://www.aefirenze.it",
+      "sito": "https://aefirenze.it",
       "pagina_corsi": "",
       "email": "info@aefirenze.it",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "EDUITALIA"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -860,8 +930,10 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
-      "note": "",
+      "esami_in_sede": [
+        "CILS"
+      ],
+      "note": "Nel centro, vicino a Palazzo Medici Riccardi. Sede d'esame CILS; corsi combinati lingua + arte, cultura e musica.",
       "verificato_il": null,
       "stato_dati": "da_verificare",
       "info": {
@@ -873,7 +945,12 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "arte",
+        "musica",
+        "storia dell'arte",
+        "cucina"
+      ],
       "anteprima": false,
       "email_stato": "stimata"
     },
@@ -918,7 +995,12 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "arte",
+        "cucina",
+        "storia dell'arte",
+        "over50"
+      ],
       "anteprima": true,
       "email_stato": "stimata"
     },
@@ -951,7 +1033,7 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [],
-      "note": "Lingua, arte e design",
+      "note": "Scuola d'arte e design dal 1983 nel centro storico. Lingua abbinata a oreficeria, scultura, pittura, artigianato; lezioni molto personalizzate.",
       "verificato_il": null,
       "stato_dati": "da_verificare",
       "info": {
@@ -963,7 +1045,13 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "arte",
+        "pittura",
+        "artigianato",
+        "moda",
+        "storia dell'arte"
+      ],
       "anteprima": true,
       "email_stato": "stimata"
     },
@@ -4889,6 +4977,9 @@ const DATI = {
         "principianti": "date fisse ogni 2 settimane"
       },
       "info": {
+        "max_studenti_classe": 12,
+        "materiale": "inclusi",
+        "servizio_alloggio": "gratuito",
         "wifi": true
       },
       "extra": [
@@ -4899,7 +4990,8 @@ const DATI = {
       "stato_dati": "da_verificare",
       "verificato_il": null,
       "email": "info@centroitalianofirenze.com",
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "note": "In Piazza D'Azeglio; corsi personalizzati con abbinamento a interessi dello studente."
     },
     {
       "id": "studitalia",
