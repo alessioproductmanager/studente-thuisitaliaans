@@ -71,6 +71,75 @@ async function gestisciContatto(request, env) {
 	return risposta({ ok: true, messaggio: TESTI[lingua].ok });
 }
 
+/* ------------------------------------------------------------------
+ * /api/scuola — la domanda dello studente parte dal sito e arriva
+ * alla scuola, con lo studente in CC e noi in BCC. Il destinatario
+ * si risolve SEMPRE lato server da /scuole/dati.json (il client manda
+ * solo lo slug: cosi' il form non e' usabile come spam relay).
+ * Se la scuola non ha ancora un'email verificata nel database, il
+ * messaggio arriva a noi con [DA INOLTRARE] e lo giriamo a mano:
+ * per lo studente l'esperienza e' identica.
+ * ------------------------------------------------------------------ */
+async function gestisciScuola(request, env) {
+	if (request.method !== "POST") return risposta({ ok: false, errore: "metodo non consentito" }, 405);
+
+	const tipo = request.headers.get("content-type") || "";
+	const campi = tipo.includes("application/json")
+		? await request.json()
+		: Object.fromEntries(await request.formData());
+
+	// honeypot: se e' pieno e' un bot. Rispondiamo ok e buttiamo via.
+	if (campi._gotcha) return risposta({ ok: true });
+
+	const slug  = String(campi.scuola || "").trim().slice(0, 80);
+	const nome  = String(campi.naam   || "").trim().slice(0, 120);
+	const email = String(campi.email  || "").trim().slice(0, 160);
+	const vraag = String(campi.vraag  || "").trim().slice(0, 4000);
+
+	if (!slug || !nome || !email || !vraag || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+		return risposta({ ok: false, errore: "campi mancanti o e-mail non valida" }, 400);
+	}
+	if (!env.RESEND_API_KEY) return risposta({ ok: false, errore: "provider non configurato" }, 503);
+
+	// destinatario dal database, mai dal client
+	const db = await env.ASSETS.fetch(new Request(new URL("/scuole/dati.json", request.url)));
+	if (!db.ok) return risposta({ ok: false, errore: "database scuole non trovato" }, 500);
+	const scuole = await db.json();
+	const scuola = scuole[slug];
+	if (!scuola) return risposta({ ok: false, errore: "scuola sconosciuta" }, 404);
+
+	const noi = env.MAIL_A || "thuisitaliaans@gmail.com";
+	const diretta = Boolean(scuola.email);
+
+	const testo =
+		`Gentile ${scuola.nome},\n\n` +
+		`uno studente vi scrive tramite la guida indipendente thuisitaliaans.com:\n\n` +
+		`"${vraag}"\n\n` +
+		`— ${nome} (${email})\n\n` +
+		`Rispondendo a questa email risponderete direttamente allo studente.\n` +
+		`A student is writing to you via the independent guide thuisitaliaans.com; ` +
+		`replying to this email will reach the student directly.\n\n` +
+		`---\nthuisitaliaans.com/scuole/ — gids van taalscholen in Italie\n` +
+		(diretta ? "" : `\n[DA INOLTRARE] La scuola non ha ancora un indirizzo verificato nel database: inoltrare a mano e aggiornare email_pubblica.\n`);
+
+	const invio = await fetch("https://api.resend.com/emails", {
+		method: "POST",
+		headers: { authorization: `Bearer ${env.RESEND_API_KEY}`, "content-type": "application/json" },
+		body: JSON.stringify({
+			from: env.MAIL_DA || "modulo@thuisitaliaans.com",
+			to: diretta ? [scuola.email] : [noi],
+			cc: [email],
+			...(diretta ? { bcc: [noi] } : {}),
+			reply_to: email,
+			subject: (diretta ? "" : "[DA INOLTRARE] ") + `Richiesta studente — ${scuola.nome} — ${nome}`,
+			text: testo,
+		}),
+	});
+
+	if (!invio.ok) return risposta({ ok: false, errore: "invio fallito" }, 502);
+	return risposta({ ok: true });
+}
+
 
 /* ------------------------------------------------------------------
  * 301 permanenti.
@@ -200,7 +269,7 @@ function redirectPermanente(url) {
  * Per questo qui si chiede sempre la forma SENZA estensione.
  * ------------------------------------------------------------------ */
 const CARTELLE = ["", "lessen/", "niveaus/", "app/"];
-const PASSANTI = /^\/(assets|css|js|esercizi|blog|libri|boeken|books|lingue|it|en)\//;
+const PASSANTI = /^\/(assets|css|js|esercizi|blog|libri|boeken|books|lingue|it|en|scuole)\//;
 
 async function trovaIn(nome, url, request, env) {
 	for (const cartella of CARTELLE) {
@@ -237,6 +306,7 @@ export default {
 	async fetch(request, env, ctx) {
 		const url = new URL(request.url);
 		if (url.pathname === "/api/contatto") return gestisciContatto(request, env);
+		if (url.pathname === "/api/scuola") return gestisciScuola(request, env);
 
 		const permanente = redirectPermanente(url);
 		if (permanente) return Response.redirect(permanente, 301);
