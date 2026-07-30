@@ -22,6 +22,7 @@ header{padding:16px 0;border-bottom:1px solid var(--linea)}.testata{display:flex
 .badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;line-height:1;border-radius:6px;padding:4px 8px;background:var(--salvia-chiara);color:var(--salvia);white-space:nowrap}
 .badge svg{flex:0 0 13px;width:13px!important;height:13px!important}
 .badge.esame{background:#F7E9E0;color:var(--terracotta)}
+.pross,.pross-b{color:var(--salvia);font-weight:600;font-size:12.5px;white-space:nowrap}
 .scheda .tagriga{margin-top:10px}.scheda .tag{font-size:11px;padding:3px 9px}
 .badge-riga{display:flex;flex-wrap:wrap;gap:6px}
 .timbro{display:inline-flex;align-items:center;gap:6px;font-size:12px;border-radius:8px;padding:6px 10px}
@@ -89,7 +90,86 @@ h1{font-size:24px!important}
 .scheda h3{font-family:var(--serif);font-weight:600;font-size:19px;line-height:1.25}
 .meta{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;font-size:13.5px;color:var(--secondario)}.meta b{color:var(--inchiostro);font-weight:600}
 .azioni{display:flex;gap:8px;margin-top:auto;padding-top:4px}.azioni .bottone{flex:1}
-.vuoto{grid-column:1/-1;text-align:center;color:var(--secondario);padding:50px 0}.citta-hero{padding:34px 0 6px}.citta-hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(26px,4.4vw,38px)}.citta-hero h1 em{font-style:italic;color:var(--terracotta)}
+.vuoto{grid-column:1/-1;text-align:center;color:var(--secondario);padding:50px 0}.crumb{margin:22px 0 6px;font-size:13px}.crumb a{color:var(--terracotta);text-decoration:none;font-weight:600}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:var(--terracotta);margin-top:10px}.eyebrow span{color:var(--secondario);font-weight:500;letter-spacing:0;text-transform:none}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(26px,4vw,36px);line-height:1.15;margin:4px 0 10px}
+.descr{max-width:760px;color:var(--secondario);font-size:15.5px;margin:10px 0 4px}
+.colonne{display:grid;grid-template-columns:1.2fr .9fr;gap:18px;margin-top:22px}@media(max-width:820px){.colonne{grid-template-columns:1fr}}
+.pannello{background:var(--card);border:1px solid var(--linea);border-radius:var(--r);box-shadow:var(--ombra);padding:20px}
+.pannello h2{font-family:var(--serif);font-weight:600;font-size:19px;margin-bottom:12px}
+.dati{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;font-size:14px;color:var(--secondario)}.dati b{display:block;color:var(--inchiostro);font-weight:600}
+.guida ol{list-style:none;counter-reset:n;display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.guida ol li{counter-increment:n;display:flex;gap:12px;align-items:flex-start}
+.guida ol li::before{content:counter(n);flex:0 0 26px;height:26px;border-radius:50%;background:var(--carta);border:1px solid var(--linea);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--terracotta)}
+.guida b{display:block;font-weight:600}.guida small{color:var(--secondario)}
+.evento{display:flex;justify-content:space-between;gap:10px;font-size:14px;padding:7px 0;border-bottom:1px dashed var(--linea)}.evento span{color:var(--secondario)}
+.aero{color:var(--secondario);font-size:14px;margin-top:10px}
+form .riga{margin-bottom:10px}form label{display:block;font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--secondario);margin-bottom:4px}
+form input,form textarea{width:100%;font:inherit;font-size:15px;padding:12px 14px;border:1.5px solid var(--linea);border-radius:var(--r-s);background:#fff;outline:none;box-shadow:0 1px 2px rgba(34,29,22,.04)}
+form input:focus,form textarea:focus{border-color:var(--terracotta);box-shadow:0 0 0 3px rgba(188,85,51,.12)}
+form textarea{min-height:110px;resize:vertical}.nascosto{position:absolute;left:-9999px}
+.esito{margin-top:10px;font-size:14px;display:none;border-radius:var(--r-s);padding:10px 12px}
+.esito.ok{display:block;background:var(--salvia-chiara);color:var(--salvia)}.esito.err{display:block;background:var(--ambra-chiara);color:var(--ambra)}
+.anteprima iframe{width:100%;height:280px;border:1px solid var(--linea);border-radius:12px;background:#fff}
+.anteprima .nota{font-size:12px;color:var(--secondario);margin-top:8px}
+.altre a{display:block;padding:8px 0;border-bottom:1px dashed var(--linea);text-decoration:none;font-size:14px}
+.altre a:hover{color:var(--terracotta)}
+.dativ2{display:flex;flex-direction:column}
+.riga-dato{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px dashed var(--linea);font-size:14px}
+.riga-dato:last-child{border-bottom:0}
+.riga-dato svg{flex:0 0 18px;width:18px;height:18px;color:var(--terracotta)}
+.riga-dato .etich{color:var(--secondario)}
+.riga-dato .val{margin-left:auto;font-weight:600;color:var(--inchiostro);text-align:right;max-width:55%}
+.badge-ev{display:inline-block;margin-left:8px;font-size:10.5px;font-weight:700;background:var(--salvia-chiara);color:var(--salvia);border-radius:6px;padding:2px 6px;vertical-align:1px}
+.cornice{border:8px solid #26221C;border-radius:20px;overflow:hidden;background:#fff;box-shadow:var(--ombra);aspect-ratio:1280/840;position:relative}
+.cornice iframe{position:absolute;top:0;left:0;width:1280px;height:840px;border:0;transform-origin:0 0;pointer-events:none}
+.evseo{margin-top:14px;padding-top:12px;border-top:1px dashed var(--linea);font-size:13.5px;color:var(--secondario)}
+.sigpan summary{font-family:var(--serif);font-weight:600;font-size:17px;cursor:pointer}
+.sez{margin-top:34px}.sez h2{font-family:var(--serif);font-weight:600;font-size:22px;margin-bottom:14px}
+.faq.pannello{padding-bottom:8px}
+.faq details{background:var(--carta);border:1px solid var(--linea);border-radius:var(--r-s);margin-bottom:10px;padding:12px 14px}
+.faq summary{font-weight:600;cursor:pointer;font-size:15px}
+.faq details div{margin-top:8px;font-size:14px;color:var(--secondario)}
+#dir-cerca{width:100%;font:inherit;font-size:15px;padding:11px 14px;border:1px solid var(--linea);border-radius:var(--r-s);background:var(--card);outline:none;margin-bottom:16px}
+.dir{columns:3 240px;column-gap:26px}
+.dir-g{break-inside:avoid;margin-bottom:14px;font-size:13px}
+.dir-g b{display:block;margin-bottom:3px;font-size:12px;letter-spacing:.6px;text-transform:uppercase;color:var(--terracotta)}
+.dir-g a{display:block;padding:2.5px 0;text-decoration:none;color:var(--secondario)}
+.dir-g a:hover{color:var(--inchiostro)}
+.festivi{margin-top:12px;padding-top:12px;border-top:1px dashed var(--linea);font-size:12.5px;color:var(--secondario)}
+.festivi b{color:var(--inchiostro);font-weight:600}
+.meteo{margin:2px 0 14px;padding:10px 12px;background:var(--carta);border:1px solid var(--linea);border-radius:var(--r-s);display:none}
+.meteo.attivo{display:block}
+.meteo-t{font-size:11px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:var(--secondario)}
+.meteo-riga{display:flex;gap:10px;overflow-x:auto;margin-top:6px;font-size:12.5px}
+.meteo-riga .m-ora{font-size:20px;font-weight:700;color:var(--inchiostro);display:flex;align-items:center;gap:6px;padding-right:10px;border-right:1px dashed var(--linea)}
+.meteo-riga .m-g{text-align:center;color:var(--secondario);min-width:44px}
+.meteo-riga .m-g b{display:block;color:var(--inchiostro);font-weight:600}
+.maps{display:inline-block;margin-top:10px;font-size:13px;font-weight:600;color:var(--terracotta);text-decoration:none}
+.maps:hover{text-decoration:underline}
+.sig-ico{width:13px!important;height:13px!important;vertical-align:-2px;margin-right:4px;flex:0 0 13px}
+.sigle .sig-ico{color:var(--terracotta)}
+.sigle-tab .sig-ico{width:14px!important;height:14px!important}
+.colh2{font-family:var(--serif);font-weight:600;font-size:19px;margin-bottom:10px}
+.festivi-tab{width:100%;border-collapse:collapse;margin:8px 0 10px}
+.festivi-tab td{padding:4px 6px;border-bottom:1px dashed var(--linea);font-size:12.5px;color:var(--secondario)}
+.festivi-tab td:first-child{white-space:nowrap;font-weight:600;color:var(--inchiostro);width:112px}
+.festivi-tab tr:last-child td{border-bottom:0}
+.meteo-card{display:none}
+.meteo-card.attivo{display:block}
+.meteo-card .meteo-riga{margin-top:4px}
+.eventi-tab{width:100%;border-collapse:collapse}
+.eventi-tab td{padding:7px 6px;border-bottom:1px dashed var(--linea);font-size:13.5px;vertical-align:top;color:var(--secondario)}
+.eventi-tab td:first-child b{color:var(--inchiostro);font-weight:600}
+.eventi-tab td:last-child{text-align:right;white-space:nowrap;font-size:12.5px}
+.eventi-tab tr:last-child td{border-bottom:0}
+.eventi-tab .badge-ev{margin-left:0;margin-top:3px}
+.sigle-blocco{margin-top:18px;padding-top:14px;border-top:1px dashed var(--linea)}
+.sigle-tab{width:100%;border-collapse:collapse;margin-top:8px}
+.sigle-tab td{padding:6px;border-bottom:1px dashed var(--linea);font-size:12px;line-height:1.45;vertical-align:top;color:var(--secondario)}
+.sigle-tab td:first-child{white-space:nowrap;font-weight:700;color:var(--inchiostro);width:132px}
+.sigle-tab tr:last-child td{border-bottom:0}
+@media(max-width:640px){.eventi-tab td:last-child{white-space:normal}.sigle-tab td:first-child{width:auto}}.citta-hero{padding:34px 0 6px}.citta-hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(26px,4.4vw,38px)}.citta-hero h1 em{font-style:italic;color:var(--terracotta)}
 .citta-hero p{margin-top:10px;color:var(--secondario);font-size:15px;max-width:680px}
 .citta-scuole{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:22px 0 8px}
 .citta-scuola{background:var(--card);border:1px solid var(--linea);border-radius:var(--r-s);box-shadow:var(--ombra);padding:14px 16px;text-decoration:none;color:inherit;display:block}
@@ -112,7 +192,7 @@ h1{font-size:24px!important}
     <h1>Scuole di italiano a <em>Venezia</em></h1>
     <p>3 scuole selezionate a Venezia, Veneto. Confronta ore di corso, alloggio e accreditamenti, poi scrivi direttamente alla scuola che preferisci.</p>
   </section>
-  <div class="citta-scuole"><a class="citta-scuola" href="../ca-foscari-school-for-international-education.html"><b>Ca&#x27; Foscari School for International Education</b><div class="meta2">20 h/sett.</div></a><a class="citta-scuola" href="../easy-italian-language-art.html"><b>Easy Italian Language &amp; Art</b><div class="meta2">20 h/sett.</div></a><a class="citta-scuola" href="../istituto-venezia.html"><b>Istituto Venezia</b><div class="badge-riga"><span class="badge"><svg class="sig-ico" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><polyline points="9 12 11 14 15 9.5"/></svg>ASILS</span></div><div class="meta2">20 h/sett.</div></a></div>
+  <div class="citta-scuole"><a class="citta-scuola" href="../ca-foscari-school-for-international-education.html"><b>Ca&#x27; Foscari School for International Education</b><div class="meta2">20 h/sett.</div></a><a class="citta-scuola" href="../easy-italian-language-art.html"><b>Easy Italian Language &amp; Art</b><div class="meta2">15 h/sett.</div></a><a class="citta-scuola" href="../istituto-venezia.html"><b>Istituto Venezia</b><div class="badge-riga"><span class="badge"><svg class="sig-ico" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><polyline points="9 12 11 14 15 9.5"/></svg>ASILS</span></div><div class="meta2">20 h/sett.</div></a></div>
   <section class="sez"><h2>Altre città in Veneto</h2><div class="citta-altre"><a href="padova.html">Padova</a><a href="verona.html">Verona</a></div></section>
   <section class="sez"><h2>Eventi dell'anno</h2><table class="eventi-tab"><tr><td><b>Carnevale</b></td><td>gennaio–febbraio</td></tr><tr><td><b>Festa del Redentore</b></td><td>terzo weekend di luglio</td></tr><tr><td><b>Mostra del Cinema</b></td><td>fine agosto–settembre</td></tr><tr><td><b>Biennale</b></td><td>maggio–novembre</td></tr><tr><td><b>Regata Storica</b></td><td>prima domenica di settembre</td></tr></table></section>
 </main>

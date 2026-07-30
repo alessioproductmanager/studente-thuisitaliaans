@@ -1776,14 +1776,14 @@ const DATI = {
       "nome": "Easy Italian Language & Art",
       "citta": "Venezia",
       "regione": "Veneto",
-      "sito": "",
+      "sito": "https://easyitalianlanguage.com",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@easyitalianlanguage.com",
       "accreditamenti": [],
       "corsi": [
         {
           "tipo": "intensivo",
-          "ore_settimana": 20,
+          "ore_settimana": 15,
           "prezzo_da_settimana": null
         },
         {
@@ -1805,14 +1805,17 @@ const DATI = {
       "stato_dati": "da_verificare",
       "info": {
         "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
+        "max_studenti_classe": 5,
         "materiale": "inclusi",
         "test_ingresso": "online",
-        "tassa_iscrizione": null,
+        "tassa_iscrizione": 0,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [
+        "arte"
+      ],
+      "email_stato": "stimata"
     },
     {
       "id": "ca-foscari-school-for-international-education",
@@ -1956,9 +1959,9 @@ const DATI = {
       "nome": "L'Italiano con Noi",
       "citta": "Verona",
       "regione": "Veneto",
-      "sito": "",
+      "sito": "https://litalianoconnoi.com",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@litalianoconnoi.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -1979,20 +1982,23 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
+      "esami_in_sede": [
+        "CILS"
+      ],
       "note": "",
       "verificato_il": null,
       "stato_dati": "da_verificare",
       "info": {
         "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
+        "max_studenti_classe": 10,
         "materiale": "inclusi",
         "test_ingresso": "online",
         "tassa_iscrizione": null,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "email_stato": "stimata"
     },
     {
       "id": "bertrand-russell",
