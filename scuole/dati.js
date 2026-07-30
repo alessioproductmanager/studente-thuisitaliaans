@@ -926,7 +926,12 @@ const DATI = {
       "sito": "https://www.dilit.it",
       "pagina_corsi": "https://www.dilit.it/en/dates-and-fees.html",
       "email": "info@dilit.it",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "ASILS",
+        "IALC",
+        "EDUITALIA",
+        "Bildungsurlaub"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -946,20 +951,29 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
-      "note": "Le date di inizio non sono pubblicate sul sito della scuola. Nella maggior parte delle scuole i corsi intensivi di gruppo partono ogni lunedì (i principianti assoluti in date fisse, in genere ogni due settimane). Scrivi alla scuola per confermare la prossima data utile: in alta stagione (giugno–settembre) i posti si chiudono 2–3 settimane prima.",
+      "esami_in_sede": [
+        "CILS",
+        "CELI",
+        "DITALS"
+      ],
+      "note": "Fondata nel 1974, villino Liberty a due passi da Termini. Membro International House, EAQUALS, IALC. Classi 5–14 studenti.",
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
-        "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
+        "durata_lezione_min": 55,
+        "max_studenti_classe": 14,
         "materiale": "inclusi",
-        "test_ingresso": "online",
-        "tassa_iscrizione": null,
+        "test_ingresso": "primo giorno",
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "arte",
+        "storia dell'arte",
+        "cucina",
+        "online",
+        "over50"
+      ],
       "anteprima": true,
       "email_stato": "stimata"
     },
@@ -1089,7 +1103,9 @@ const DATI = {
       "sito": "https://accademiastudioitalia.com",
       "pagina_corsi": "https://accademiastudioitalia.com/beginner-intensive-italian-course-calendar-2025-2026",
       "email": "info@accademiastudioitalia.com",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "Bildungsurlaub"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -1103,26 +1119,35 @@ const DATI = {
         }
       ],
       "inizio": {
-        "frequenza": "ogni-lunedi",
-        "date": [],
-        "principianti": "date fisse, in genere ogni 2 settimane"
+        "frequenza": "date-fisse",
+        "date": [
+          "2026-08-03",
+          "2026-09-07",
+          "2026-10-05",
+          "2026-11-02",
+          "2026-12-07"
+        ],
+        "principianti": "date fisse mensili; chi parla già italiano inizia ogni lunedì"
       },
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [],
-      "note": "",
+      "note": "Dal 1985, vicino Piazza del Popolo (Ottaviano/Lepanto). Partner Cambridge, metodologia DITALS.",
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
         "materiale": "inclusi",
-        "test_ingresso": "online",
-        "tassa_iscrizione": null,
+        "test_ingresso": "primo giorno",
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "online",
+        "cucina",
+        "arte"
+      ],
       "anteprima": true,
       "email_stato": "stimata"
     },
@@ -1188,8 +1213,8 @@ const DATI = {
       "citta": "Roma",
       "regione": "Lazio",
       "sito": "https://www.scudit.net",
-      "pagina_corsi": "",
-      "email": "info@scudit.net",
+      "pagina_corsi": "https://www.scudit.net/tipidicorso.htm",
+      "email": "scudit@scudit.net",
       "accreditamenti": [],
       "corsi": [
         {
@@ -1204,26 +1229,40 @@ const DATI = {
         }
       ],
       "inizio": {
-        "frequenza": "ogni-lunedi",
-        "date": [],
-        "principianti": "date fisse, in genere ogni 2 settimane"
+        "frequenza": "date-fisse",
+        "date": [
+          "2026-08-10",
+          "2026-08-24",
+          "2026-09-07",
+          "2026-09-21",
+          "2026-10-05",
+          "2026-10-19",
+          "2026-11-02",
+          "2026-11-16",
+          "2026-11-30",
+          "2026-12-14"
+        ],
+        "principianti": "date fisse ogni 2 settimane (principianti assoluti in date dedicate)"
       },
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [],
-      "note": "Le date di inizio non sono pubblicate sul sito della scuola. Nella maggior parte delle scuole i corsi intensivi di gruppo partono ogni lunedì (i principianti assoluti in date fisse, in genere ogni due settimane). Scrivi alla scuola per confermare la prossima data utile: in alta stagione (giugno–settembre) i posti si chiudono 2–3 settimane prima.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "note": "Fondata da Roberto Tartaglione, in via La Spezia. Lezioni 45 min, gruppi max 12. Corso speciale 'Mille e una Roma'.",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
         "materiale": "inclusi",
-        "test_ingresso": "online",
-        "tassa_iscrizione": null,
-        "servizio_alloggio": "gratuito",
+        "test_ingresso": "primo giorno",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "arte",
+        "cucina",
+        "storia dell'arte",
+        "musica"
+      ],
       "anteprima": true,
       "email_stato": "stimata"
     },
@@ -1296,7 +1335,10 @@ const DATI = {
       "sito": "https://www.italiaidea.com",
       "pagina_corsi": "",
       "email": "info@italiaidea.com",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "ASILS",
+        "PLIDA"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -1316,20 +1358,26 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
-      "note": "Le date di inizio non sono pubblicate sul sito della scuola. Nella maggior parte delle scuole i corsi intensivi di gruppo partono ogni lunedì (i principianti assoluti in date fisse, in genere ogni due settimane). Scrivi alla scuola per confermare la prossima data utile: in alta stagione (giugno–settembre) i posti si chiudono 2–3 settimane prima.",
+      "esami_in_sede": [
+        "PLIDA"
+      ],
+      "note": "Aperta a Roma dal 1984, riconosciuta dal Ministero. Servizio alloggio €40.",
       "verificato_il": null,
       "stato_dati": "da_verificare",
       "info": {
-        "durata_lezione_min": 45,
+        "durata_lezione_min": 60,
         "max_studenti_classe": 12,
         "materiale": "inclusi",
         "test_ingresso": "online",
-        "tassa_iscrizione": null,
-        "servizio_alloggio": "gratuito",
+        "tassa_iscrizione": 0,
+        "servizio_alloggio": "a pagamento",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "online",
+        "letteratura",
+        "storia dell'arte"
+      ],
       "anteprima": true,
       "email_stato": "stimata"
     },
@@ -1341,7 +1389,11 @@ const DATI = {
       "sito": "https://clidante.it",
       "pagina_corsi": "",
       "email": "info@clidante.it",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "ASILS",
+        "EDUITALIA",
+        "Bildungsurlaub"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -1361,20 +1413,30 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
-      "note": "",
+      "esami_in_sede": [
+        "CILS"
+      ],
+      "note": "Dal 1981 in Piazza Bologna. Iscrizione e alloggio gratuiti.",
       "verificato_il": null,
       "stato_dati": "da_verificare",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
         "materiale": "inclusi",
-        "test_ingresso": "online",
-        "tassa_iscrizione": null,
+        "test_ingresso": "primo giorno",
+        "tassa_iscrizione": 0,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "arte",
+        "cucina",
+        "dizione",
+        "letteratura",
+        "pittura",
+        "storia dell'arte",
+        "over50"
+      ],
       "anteprima": true,
       "email_stato": "stimata"
     },
@@ -1386,7 +1448,9 @@ const DATI = {
       "sito": "https://www.lorenzodemedici.it",
       "pagina_corsi": "",
       "email": "info@lorenzodemedici.it",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "EDUITALIA"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -1407,7 +1471,7 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [],
-      "note": "",
+      "note": "Istituto internazionale (LdM) dal 1973; programmi universitari con crediti USA. Sedi a Firenze, Roma e Tuscania.",
       "verificato_il": null,
       "stato_dati": "da_verificare",
       "info": {
@@ -1419,7 +1483,13 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "arte",
+        "storia dell'arte",
+        "cucina",
+        "moda",
+        "pittura"
+      ],
       "anteprima": false,
       "email_stato": "stimata"
     },
@@ -1431,7 +1501,9 @@ const DATI = {
       "sito": "https://www.istitutoitaliano.it",
       "pagina_corsi": "",
       "email": "info@istitutoitaliano.it",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "ASILS"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -1452,19 +1524,20 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [],
-      "note": "",
+      "note": "In via Calimala, palazzo storico tra il Duomo e Ponte Vecchio (sede fiorentina del gruppo).",
       "verificato_il": null,
       "stato_dati": "da_verificare",
       "info": {
-        "durata_lezione_min": 45,
         "max_studenti_classe": 12,
         "materiale": "inclusi",
-        "test_ingresso": "online",
-        "tassa_iscrizione": null,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "arte",
+        "cucina",
+        "storia dell'arte"
+      ],
       "email_stato": "stimata"
     },
     {
