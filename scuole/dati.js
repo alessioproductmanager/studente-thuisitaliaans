@@ -3361,7 +3361,7 @@ const DATI = {
       "citta": "Montepulciano",
       "regione": "Toscana",
       "sito": "https://www.ilsasso.com",
-      "pagina_corsi": "https://www.ilsasso.com/it/corsi-di-cultura-al-sasso-in-toscana-2026-date-prezzi.html",
+      "pagina_corsi": "https://www.ilsasso.com/date-dei-corsi/",
       "email": "info@ilsasso.com",
       "accreditamenti": [],
       "corsi": [
@@ -3377,14 +3377,25 @@ const DATI = {
         }
       ],
       "inizio": {
-        "frequenza": "ogni-lunedi",
-        "date": [],
-        "principianti": "date fisse, in genere ogni 2 settimane"
+        "frequenza": "date-fisse",
+        "date": [
+          "2026-07-27",
+          "2026-08-10",
+          "2026-08-24",
+          "2026-09-07",
+          "2026-09-21",
+          "2026-10-05",
+          "2026-10-19",
+          "2026-11-02",
+          "2026-11-16",
+          "2026-11-30"
+        ],
+        "principianti": "date fisse ogni 2 settimane; chi parla già italiano inizia ogni lunedì"
       },
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [],
-      "note": "Le date di inizio non sono pubblicate sul sito della scuola. Nella maggior parte delle scuole i corsi intensivi di gruppo partono ogni lunedì (i principianti assoluti in date fisse, in genere ogni due settimane). Scrivi alla scuola per confermare la prossima data utile: in alta stagione (giugno–settembre) i posti si chiudono 2–3 settimane prima.",
+      "note": "Chiusa per vacanze dal 12 dicembre 2026 al 7 febbraio 2027. Corsi speciali 'Avventure Italiane': Italiano camminando, Italiano & Arte, Il mondo etrusco (ottobre–novembre 2026).",
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
@@ -3396,9 +3407,14 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "arte",
+        "vino",
+        "storia dell'arte",
+        "letteratura"
+      ],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "confermata"
     },
     {
       "id": "terramare",
