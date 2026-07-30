@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soggiorni linguistici in Italia — 100 scuole di italiano | thuisitaliaans</title>
+<meta name="description" content="Trova il tuo corso di italiano in Italia: 100 scuole selezionate, filtri per città, periodo, intensità e durata, guide di viaggio ed eventi.">
+<link rel="canonical" href="https://thuisitaliaans.com/scuole/">
+<link rel="alternate" hreflang="it" href="https://thuisitaliaans.com/scuole/">
+<link rel="alternate" hreflang="en" href="https://thuisitaliaans.com/scuole/en/">
+<link rel="alternate" hreflang="nl" href="https://thuisitaliaans.com/scuole/nl/">
+<link rel="alternate" hreflang="de" href="https://thuisitaliaans.com/scuole/de/">
+<link rel="alternate" hreflang="fr" href="https://thuisitaliaans.com/scuole/fr/">
+<link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/scuole/en/">
+<style>:root{--carta:#FAF6EF;--card:#FFF;--inchiostro:#221D16;--secondario:#6E6759;--terracotta:#BC5533;--terracotta-scuro:#9E4527;--salvia:#5E7357;--salvia-chiara:#EAF0E6;--ambra:#B07C1F;--ambra-chiara:#FBF3DF;--linea:#E7E0D2;--r:18px;--r-s:12px;--ombra:0 1px 2px rgba(34,29,22,.05),0 10px 30px -12px rgba(34,29,22,.14);--serif:"Iowan Old Style",Georgia,"Times New Roman",serif;--sans:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}body{background:var(--carta);color:var(--inchiostro);font-family:var(--sans);line-height:1.5}a{color:inherit}
+.contenitore{max-width:1100px;margin:0 auto;padding:0 20px}
+header{padding:16px 0;border-bottom:1px solid var(--linea)}.testata{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.logo{font-family:var(--serif);font-size:20px;font-weight:700}.logo span{color:var(--terracotta)}.logo a{text-decoration:none}
+.lingue{font-size:12px;color:var(--secondario)}.lingue a{text-decoration:none;padding:2px 5px;border-radius:6px}.lingue a.attiva{background:var(--inchiostro);color:#fff}
+.badge{font-size:11px;font-weight:700;border-radius:6px;padding:3px 7px;background:var(--salvia-chiara);color:var(--salvia)}
+.badge-riga{display:flex;flex-wrap:wrap;gap:6px}
+.timbro{display:inline-flex;align-items:center;gap:6px;font-size:12px;border-radius:8px;padding:6px 10px}
+.timbro.ok{background:var(--salvia-chiara);color:var(--salvia)}.timbro.attenzione{background:var(--ambra-chiara);color:var(--ambra)}
+.bottone{display:inline-block;text-align:center;text-decoration:none;font-size:14px;font-weight:600;border-radius:var(--r-s);padding:10px 16px;border:1px solid var(--linea);background:var(--carta);cursor:pointer;font-family:var(--sans)}
+.bottone.pieno{background:var(--terracotta);border-color:var(--terracotta);color:#fff}.bottone.pieno:hover{background:var(--terracotta-scuro)}
+footer{border-top:1px solid var(--linea);padding:26px 0 40px;color:var(--secondario);font-size:13px;margin-top:50px}.hero{padding:44px 0 28px;text-align:center}.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(30px,5vw,44px);line-height:1.12}.hero h1 em{font-style:italic;color:var(--terracotta)}
+.hero p{margin:12px auto 0;max-width:640px;color:var(--secondario);font-size:16px}
+.barra{margin:26px auto 0;max-width:900px;background:var(--card);border:1px solid var(--linea);border-radius:999px;box-shadow:var(--ombra);display:grid;grid-template-columns:1.2fr 1fr 1fr .9fr auto;overflow:hidden}
+.campo{padding:12px 18px;text-align:left;border-right:1px solid var(--linea)}.campo label{display:block;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--secondario)}
+.campo select{width:100%;border:0;background:transparent;font:inherit;font-size:15px;outline:none;margin-top:2px}
+.barra button{border:0;background:var(--terracotta);color:#fff;font:inherit;font-weight:700;padding:0 28px;cursor:pointer}
+@media(max-width:760px){.barra{grid-template-columns:1fr 1fr;border-radius:var(--r)}.campo{border-right:0;border-bottom:1px solid var(--linea)}.barra button{grid-column:1/-1;padding:14px}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
+.chip{border:1px solid var(--linea);background:var(--card);border-radius:999px;padding:7px 14px;font-size:13px;cursor:pointer;user-select:none;color:var(--secondario)}
+.chip.attivo{background:var(--inchiostro);border-color:var(--inchiostro);color:#fff}
+.riga-esito{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:34px 0 14px}.riga-esito h2{font-family:var(--serif);font-weight:600;font-size:20px}.riga-esito small{color:var(--secondario)}
+.griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;padding-bottom:60px}
+.scheda{background:var(--card);border:1px solid var(--linea);border-radius:var(--r);box-shadow:var(--ombra);padding:18px;display:flex;flex-direction:column;gap:10px}
+.scheda .dove{font-size:12px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:var(--terracotta)}.scheda .dove span{color:var(--secondario);font-weight:500;letter-spacing:0;text-transform:none}
+.scheda h3{font-family:var(--serif);font-weight:600;font-size:19px;line-height:1.25}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;font-size:13.5px;color:var(--secondario)}.meta b{color:var(--inchiostro);font-weight:600}
+.azioni{display:flex;gap:8px;margin-top:auto;padding-top:4px}.azioni .bottone{flex:1}
+.vuoto{grid-column:1/-1;text-align:center;color:var(--secondario);padding:50px 0}</style>
+</head>
+<body>
+<header><div class="contenitore testata">
+  <div class="logo"><a href="https://thuisitaliaans.com/">thuis<span>italiaans</span></a> · 100 scuole selezionate in Italia</div>
+  <nav class="lingue"><a class="attiva" href="/scuole/">IT</a> · <a href="/scuole/en/">EN</a> · <a href="/scuole/nl/">NL</a> · <a href="/scuole/de/">DE</a> · <a href="/scuole/fr/">FR</a></nav>
+</div></header>
+<section class="hero contenitore">
+  <h1>Il tuo corso di italiano <em>in Italia</em>,<br>pianificato come un viaggio.</h1><p>Scegli la città, il periodo e il ritmo di studio. Per ogni destinazione: la scuola, le ore a settimana, l'alloggio e una guida con le tre cose da non perdere e gli eventi dell'anno.</p>
+  <div class="barra">
+    <div class="campo"><label>Dove</label><select id="f-citta"><option value="">Tutta l'Italia</option></select></div>
+    <div class="campo"><label>Quando</label><select id="f-mese"><option value="">Qualsiasi mese</option></select></div>
+    <div class="campo"><label>Ritmo</label><select id="f-ritmo"><option value="">Qualsiasi</option><option value="intensivo">Intensivo (20+ h/sett.)</option><option value="leggero">Leggero (≈10 h/sett.)</option></select></div>
+    <div class="campo"><label>Durata</label><select id="f-durata"><option value="">Libera</option><option value="1">1 settimana</option><option value="2">2 settimane</option><option value="4">3–4 settimane</option><option value="12">1–3 mesi</option></select></div>
+    <button id="cerca">Cerca</button>
+  </div>
+  <div class="chips">
+    <span class="chip" data-filtro="alloggio">Con alloggio</span>
+    <span class="chip" data-filtro="asils">Accreditate ASILS</span>
+    <span class="chip" data-filtro="mare">Vicino al mare</span>
+    <span class="chip" data-filtro="verificate">Solo dati verificati</span>
+  </div>
+</section>
+<main class="contenitore">
+  <div class="riga-esito"><h2 id="conta"></h2>
+  <small>Ordina: <select id="ordina" style="border:0;background:transparent;font:inherit;color:var(--terracotta);font-weight:600"><option value="citta">città A–Z</option><option value="nome">scuola A–Z</option></select></small></div>
+  <div class="griglia" id="griglia"></div>
+</main>
+<footer><div class="contenitore">Le informazioni su corsi, date e prezzi sono indicative e vanno sempre confermate con la scuola. Le schede con il timbro verde riportano la data dell'ultima verifica. Selezione basata sugli elenchi ufficiali ASILS, EDUITALIA, IALC e sui centri d'esame CILS, CELI e PLIDA.</div></footer>
+<script src="dati.js"></script>
+<script>
+(function(){
+const T={"lbl_int": "Intensivo", "lbl_leg": "Leggero", "lbl_inizio": "Inizio", "lbl_all": "Alloggio", "si": "sì", "no": "no", "ogni_lun": "ogni lunedì", "dal": "dal", "su_r": "su richiesta", "hsett": "h/sett.", "prezzo_da": "da €", "sett_abbr": "/sett.", "prezzo_sur": "prezzo su richiesta", "verif": "Verificato il", "daconf": "Dati da confermare con la scuola", "vedi": "Vedi la scuola", "vuoto1": "Nessuna scuola con questi filtri.", "vuoto2": "Prova ad allargare il periodo o togliere un filtro.", "trovate": "scuole trovate", "mesi": ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"]};
+const MARE=["Taormina","Milazzo","Palermo","Palermo (Mondello)","Alghero","Otranto","Tropea","Sorrento","Salerno","Napoli","Genova","Sestri Levante","Sanremo","Viareggio","Rimini","Orbetello","Trieste","Venezia","Pisa","Cefal\u00f9","Trapani","Cagliari","Lignano Sabbiadoro","Isola d'Elba"];
+const stato={chips:{}};
+const selCitta=document.getElementById("f-citta");
+[...new Set(DATI.scuole.map(function(s){return s.citta}))].sort(function(a,b){return a.localeCompare(b,"it")}).forEach(function(c){
+  var o=document.createElement("option");o.value=c;o.textContent=c;selCitta.appendChild(o);});
+const selMese=document.getElementById("f-mese");const oggi=new Date();
+for(var i=0;i<12;i++){var d=new Date(oggi.getFullYear(),oggi.getMonth()+i,1);var o=document.createElement("option");
+  o.value=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0");o.textContent=T.mesi[d.getMonth()]+" "+d.getFullYear();selMese.appendChild(o);}
+document.querySelectorAll(".chip").forEach(function(ch){ch.addEventListener("click",function(){
+  ch.classList.toggle("attivo");stato.chips[ch.dataset.filtro]=ch.classList.contains("attivo");disegna();});});
+["f-citta","f-mese","f-ritmo","f-durata","ordina"].forEach(function(id){document.getElementById(id).addEventListener("change",disegna)});
+document.getElementById("cerca").addEventListener("click",disegna);
+function iniziaNelMese(s,mese){if(!mese)return true;if(s.inizio&&s.inizio.frequenza==="ogni-lunedi")return true;
+  return ((s.inizio&&s.inizio.date)||[]).some(function(d){return String(d).indexOf(mese)===0});}
+function filtra(){var citta=selCitta.value,mese=selMese.value,ritmo=document.getElementById("f-ritmo").value,durata=document.getElementById("f-durata").value;
+ return DATI.scuole.filter(function(s){
+  if(citta&&s.citta!==citta)return false;
+  if(!iniziaNelMese(s,mese))return false;
+  if(ritmo&&!s.corsi.some(function(c){return c.tipo===ritmo}))return false;
+  if(durata&&s.durata_min_settimane>Number(durata))return false;
+  if(stato.chips.alloggio&&!s.alloggio)return false;
+  if(stato.chips.asils&&s.accreditamenti.indexOf("ASILS")<0)return false;
+  if(stato.chips.mare&&MARE.indexOf(s.citta)<0)return false;
+  if(stato.chips.verificate&&s.stato_dati!=="verificato")return false;
+  return true;});}
+function card(s){
+ var i=null,l=null;s.corsi.forEach(function(c){if(c.tipo==="intensivo")i=c;if(c.tipo==="leggero")l=c;});
+ var inizio=s.inizio.frequenza==="ogni-lunedi"?T.ogni_lun:(s.inizio.date[0]?T.dal+" "+s.inizio.date[0]:T.su_r);
+ var prezzo=(i&&i.prezzo_da_settimana)?T.prezzo_da+i.prezzo_da_settimana+T.sett_abbr:T.prezzo_sur;
+ var timbro=s.stato_dati==="verificato"?'<div class="timbro ok">\u2713 '+T.verif+' '+(s.verificato_il||"\u2014")+'</div>'
+   :'<div class="timbro attenzione">\u25cc '+T.daconf+'</div>';
+ var badges=s.accreditamenti.map(function(a){return '<span class="badge">'+a+'</span>'}).join("");
+ return '<article class="scheda">'
+  +'<div class="dove">'+s.citta+' <span>\u00b7 '+s.regione+'</span></div><h3>'+s.nome+'</h3>'
+  +(badges?'<div class="badge-riga">'+badges+'</div>':'')
+  +'<div class="meta"><div>'+T.lbl_int+' <b>'+(i?i.ore_settimana+" "+T.hsett:"\u2014")+'</b></div>'
+  +'<div>'+T.lbl_leg+' <b>'+(l?l.ore_settimana+" "+T.hsett:"\u2014")+'</b></div>'
+  +'<div>'+T.lbl_inizio+' <b>'+inizio+'</b></div>'
+  +'<div>'+T.lbl_all+' <b>'+(s.alloggio?T.si:T.no)+'</b></div>'
+  +'<div style="grid-column:1/-1">'+T.lbl_int+' <b>'+prezzo+'</b></div></div>'
+  +timbro
+  +'<div class="azioni"><a class="bottone pieno" href="'+s.id+'.html">'+T.vedi+'</a></div></article>';}
+function disegna(){var lista=filtra();var ord=document.getElementById("ordina").value;
+ lista.sort(function(a,b){return (a[ord]+a.nome).localeCompare(b[ord]+b.nome,"it")});
+ document.getElementById("griglia").innerHTML=lista.length?lista.map(card).join("")
+  :'<div class="vuoto">'+T.vuoto1+'<br>'+T.vuoto2+'</div>';
+ document.getElementById("conta").textContent=lista.length+" "+T.trovate;}
+disegna();
+})();
+</script>
+</body></html>
