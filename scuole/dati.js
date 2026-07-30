@@ -1,7 +1,7 @@
 // Database soggiorni linguistici — thuisitaliaans.com
 // UNICA FONTE DI VERITÀ: genera_sito.py legge da qui e produce tutte le pagine.
 const DATI = {
-  "aggiornato_il": "2026-07-30",
+  "aggiornato_il": "2026-07-31",
   "nota": "Date, prezzi, email e parte degli accreditamenti sono SEGNAPOSTO finché stato_dati non passa a 'verificato'. Il badge ASILS è presente solo dove verificato sugli elenchi ufficiali. Usare verifica_scuole.py e COME_SI_AGGIORNA.txt.",
   "scuole": [
     {
@@ -9,10 +9,12 @@ const DATI = {
       "nome": "Scuola Leonardo da Vinci Firenze",
       "citta": "Firenze",
       "regione": "Toscana",
-      "sito": "https://www.scuolaleonardo.com",
-      "pagina_corsi": "",
+      "sito": "https://www.leonardo-florence.com",
+      "pagina_corsi": "https://www.leonardo-florence.com/it/corsi-di-italiano-a-firenze.html",
       "email": "",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "AIL"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -32,10 +34,13 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
-      "note": "Le date di inizio non sono pubblicate sul sito della scuola. Nella maggior parte delle scuole i corsi intensivi di gruppo partono ogni lunedì (i principianti assoluti in date fisse, in genere ogni due settimane). Scrivi alla scuola per confermare la prossima data utile: in alta stagione (giugno–settembre) i posti si chiudono 2–3 settimane prima.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "esami_in_sede": [
+        "AIL",
+        "CILS"
+      ],
+      "note": "Corsi di gruppo con inizio ogni lunedì (principianti assoluti in date fisse, ogni 2 settimane). Verificato a mano sul sito ufficiale il 31/07/2026: il sito ha una protezione anti-bot e lo script non può leggerlo.",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -53,7 +58,7 @@ const DATI = {
       "citta": "Firenze",
       "regione": "Toscana",
       "sito": "https://www.abcschool.com",
-      "pagina_corsi": "",
+      "pagina_corsi": "https://www.abcschool.com/it/corsi/gruppo",
       "email": "",
       "accreditamenti": [],
       "corsi": [
@@ -77,7 +82,7 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": "2026-07-30",
+      "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
@@ -88,7 +93,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "centro-fiorenza",
@@ -131,7 +137,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "istituto-michelangelo",
@@ -174,7 +181,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "europass-italian-language-school",
@@ -182,7 +190,7 @@ const DATI = {
       "citta": "Firenze",
       "regione": "Toscana",
       "sito": "https://www.europassitalian.com",
-      "pagina_corsi": "",
+      "pagina_corsi": "https://www.europassitalian.com/courses/live-courses",
       "email": "",
       "accreditamenti": [],
       "corsi": [
@@ -206,8 +214,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "Le date di inizio non sono pubblicate sul sito della scuola. Nella maggior parte delle scuole i corsi intensivi di gruppo partono ogni lunedì (i principianti assoluti in date fisse, in genere ogni due settimane). Scrivi alla scuola per confermare la prossima data utile: in alta stagione (giugno–settembre) i posti si chiudono 2–3 settimane prima.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -217,7 +225,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": false
     },
     {
       "id": "centro-machiavelli",
@@ -225,7 +234,7 @@ const DATI = {
       "citta": "Firenze",
       "regione": "Toscana",
       "sito": "https://www.centromachiavelli.it",
-      "pagina_corsi": "",
+      "pagina_corsi": "https://centromachiavelli.it/it/iscrizione-altri-corsi",
       "email": "",
       "accreditamenti": [],
       "corsi": [
@@ -249,8 +258,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "Le date di inizio non sono pubblicate sul sito della scuola. Nella maggior parte delle scuole i corsi intensivi di gruppo partono ogni lunedì (i principianti assoluti in date fisse, in genere ogni due settimane). Scrivi alla scuola per confermare la prossima data utile: in alta stagione (giugno–settembre) i posti si chiudono 2–3 settimane prima.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -260,7 +269,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "linguaviva",
@@ -346,7 +356,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "scuola-toscana",
@@ -354,7 +365,7 @@ const DATI = {
       "citta": "Firenze",
       "regione": "Toscana",
       "sito": "https://www.scuola-toscana.com",
-      "pagina_corsi": "",
+      "pagina_corsi": "https://www.scuola-toscana.com/en/course-individual-private.php",
       "email": "",
       "accreditamenti": [],
       "corsi": [
@@ -378,8 +389,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -389,7 +400,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "istituto-il-david",
@@ -432,7 +444,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "parola-italian-language-school",
@@ -440,7 +453,7 @@ const DATI = {
       "citta": "Firenze",
       "regione": "Toscana",
       "sito": "https://www.parola.it",
-      "pagina_corsi": "",
+      "pagina_corsi": "https://www.parola.it/starting-dates-courses-2",
       "email": "",
       "accreditamenti": [],
       "corsi": [
@@ -466,8 +479,8 @@ const DATI = {
         "CILS"
       ],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -477,7 +490,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "istituto-lorenzo-de-medici-firenze",
@@ -520,7 +534,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": false
     },
     {
       "id": "centro-lingua-italiana-calvino",
@@ -606,7 +621,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "sprachcaffe-firenze",
@@ -649,7 +665,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "istituto-europeo",
@@ -692,7 +709,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "centro-ponte-vecchio",
@@ -778,7 +796,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": false
     },
     {
       "id": "centro-koine-firenze",
@@ -810,8 +829,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -821,7 +840,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "accademia-riaci",
@@ -864,7 +884,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "dilit-international-house",
@@ -872,7 +893,7 @@ const DATI = {
       "citta": "Roma",
       "regione": "Lazio",
       "sito": "https://www.dilit.it",
-      "pagina_corsi": "",
+      "pagina_corsi": "https://www.dilit.it/en/dates-and-fees.html",
       "email": "",
       "accreditamenti": [],
       "corsi": [
@@ -896,8 +917,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "Le date di inizio non sono pubblicate sul sito della scuola. Nella maggior parte delle scuole i corsi intensivi di gruppo partono ogni lunedì (i principianti assoluti in date fisse, in genere ogni due settimane). Scrivi alla scuola per confermare la prossima data utile: in alta stagione (giugno–settembre) i posti si chiudono 2–3 settimane prima.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -907,7 +928,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "torre-di-babele",
@@ -950,7 +972,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "scuola-leonardo-da-vinci-roma",
@@ -960,7 +983,9 @@ const DATI = {
       "sito": "https://www.scuolaleonardo.com",
       "pagina_corsi": "",
       "email": "",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "AIL"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -980,13 +1005,16 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
-      "note": "Le date di inizio non sono pubblicate sul sito della scuola. Nella maggior parte delle scuole i corsi intensivi di gruppo partono ogni lunedì (i principianti assoluti in date fisse, in genere ogni due settimane). Scrivi alla scuola per confermare la prossima data utile: in alta stagione (giugno–settembre) i posti si chiudono 2–3 settimane prima.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "esami_in_sede": [
+        "AIL",
+        "CILS"
+      ],
+      "note": "Corsi di gruppo con inizio ogni lunedì (principianti assoluti in date fisse, ogni 2 settimane). Verificato a mano sul sito ufficiale il 31/07/2026: il sito ha una protezione anti-bot e lo script non può leggerlo.",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
+        "max_studenti_classe": 14,
         "materiale": "inclusi",
         "test_ingresso": "online",
         "tassa_iscrizione": null,
@@ -1001,7 +1029,7 @@ const DATI = {
       "citta": "Roma",
       "regione": "Lazio",
       "sito": "https://accademiastudioitalia.com",
-      "pagina_corsi": "",
+      "pagina_corsi": "https://accademiastudioitalia.com/beginner-intensive-italian-course-calendar-2025-2026",
       "email": "",
       "accreditamenti": [],
       "corsi": [
@@ -1025,8 +1053,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -1036,7 +1064,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "kappa-language-school",
@@ -1079,7 +1108,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "scudit-scuola-d-italiano",
@@ -1122,7 +1152,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "ciao-italia",
@@ -1154,8 +1185,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -1165,7 +1196,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "italiaidea",
@@ -1208,7 +1240,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "scuola-d-italiano-dante-alighieri-roma",
@@ -1251,7 +1284,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "istituto-lorenzo-de-medici-roma",
@@ -1294,7 +1328,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": false
     },
     {
       "id": "istituto-italiano",
@@ -1347,7 +1382,9 @@ const DATI = {
       "sito": "https://www.scuolaleonardo.com",
       "pagina_corsi": "",
       "email": "",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "AIL"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -1367,13 +1404,16 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
-      "note": "Le date di inizio non sono pubblicate sul sito della scuola. Nella maggior parte delle scuole i corsi intensivi di gruppo partono ogni lunedì (i principianti assoluti in date fisse, in genere ogni due settimane). Scrivi alla scuola per confermare la prossima data utile: in alta stagione (giugno–settembre) i posti si chiudono 2–3 settimane prima.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "esami_in_sede": [
+        "AIL",
+        "CILS"
+      ],
+      "note": "Corsi di gruppo con inizio ogni lunedì (principianti assoluti in date fisse, ogni 2 settimane). Verificato a mano sul sito ufficiale il 31/07/2026: il sito ha una protezione anti-bot e lo script non può leggerlo.",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
+        "max_studenti_classe": 14,
         "materiale": "inclusi",
         "test_ingresso": "online",
         "tassa_iscrizione": null,
@@ -1455,8 +1495,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -1466,7 +1506,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "ellci-milano",
@@ -1498,7 +1539,7 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": "2026-07-30",
+      "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
@@ -1509,7 +1550,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "cultura-italiana-bologna",
@@ -1552,7 +1594,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "madrelingua",
@@ -1597,7 +1640,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "alce-accademia-lingue-e-culture-europee",
@@ -1640,7 +1684,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "istituto-venezia",
@@ -1648,7 +1693,7 @@ const DATI = {
       "citta": "Venezia",
       "regione": "Veneto",
       "sito": "https://www.istitutovenezia.com",
-      "pagina_corsi": "",
+      "pagina_corsi": "https://www.istitutovenezia.com/italian-language-courses-dates.html",
       "email": "",
       "accreditamenti": [
         "ASILS"
@@ -1674,8 +1719,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "Le date di inizio non sono pubblicate sul sito della scuola. Nella maggior parte delle scuole i corsi intensivi di gruppo partono ogni lunedì (i principianti assoluti in date fisse, in genere ogni due settimane). Scrivi alla scuola per confermare la prossima data utile: in alta stagione (giugno–settembre) i posti si chiudono 2–3 settimane prima.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -1685,7 +1730,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "easy-italian-language-art",
@@ -1760,8 +1806,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "Corsi di italiano dell'Università Ca' Foscari",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -1771,7 +1817,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": false
     },
     {
       "id": "idea-verona",
@@ -1779,7 +1826,7 @@ const DATI = {
       "citta": "Verona",
       "regione": "Veneto",
       "sito": "https://www.ideaverona.com",
-      "pagina_corsi": "",
+      "pagina_corsi": "https://www.ideaverona.com/it/home/iscrizione",
       "email": "",
       "accreditamenti": [],
       "corsi": [
@@ -1803,8 +1850,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "Le date di inizio non sono pubblicate sul sito della scuola. Nella maggior parte delle scuole i corsi intensivi di gruppo partono ogni lunedì (i principianti assoluti in date fisse, in genere ogni due settimane). Scrivi alla scuola per confermare la prossima data utile: in alta stagione (giugno–settembre) i posti si chiudono 2–3 settimane prima.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -1814,7 +1861,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "lingua-it",
@@ -1859,7 +1907,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "l-italiano-con-noi",
@@ -1910,7 +1959,7 @@ const DATI = {
       "citta": "Padova",
       "regione": "Veneto",
       "sito": "https://www.bertrand-russell.it",
-      "pagina_corsi": "",
+      "pagina_corsi": "https://www.bertrand-russell.it/scheda-di-iscrizione-corsi-di-italiano",
       "email": "",
       "accreditamenti": [],
       "corsi": [
@@ -1934,8 +1983,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -1945,7 +1994,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "piccola-universita-italiana-trieste",
@@ -1953,7 +2003,7 @@ const DATI = {
       "citta": "Trieste",
       "regione": "Friuli-Venezia Giulia",
       "sito": "https://www.piccolauniversitaitaliana.com",
-      "pagina_corsi": "",
+      "pagina_corsi": "https://piccolauniversitaitaliana.com/italian-language-courses/italian-course-to-enrol-at-italian-universities",
       "email": "",
       "accreditamenti": [],
       "corsi": [
@@ -1977,8 +2027,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "Le date di inizio non sono pubblicate sul sito della scuola. Nella maggior parte delle scuole i corsi intensivi di gruppo partono ogni lunedì (i principianti assoluti in date fisse, in genere ogni due settimane). Scrivi alla scuola per confermare la prossima data utile: in alta stagione (giugno–settembre) i posti si chiudono 2–3 settimane prima.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -1988,7 +2038,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "istituto-venezia-trieste",
@@ -1996,7 +2047,7 @@ const DATI = {
       "citta": "Trieste",
       "regione": "Friuli-Venezia Giulia",
       "sito": "https://www.istitutovenezia.com",
-      "pagina_corsi": "",
+      "pagina_corsi": "https://www.istitutovenezia.com/italian-language-courses-dates.html",
       "email": "",
       "accreditamenti": [
         "ASILS"
@@ -2022,8 +2073,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "Le date di inizio non sono pubblicate sul sito della scuola. Nella maggior parte delle scuole i corsi intensivi di gruppo partono ogni lunedì (i principianti assoluti in date fisse, in genere ogni due settimane). Scrivi alla scuola per confermare la prossima data utile: in alta stagione (giugno–settembre) i posti si chiudono 2–3 settimane prima.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -2033,7 +2084,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "linguaviva-lignano",
@@ -2121,7 +2173,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "alpha-beta-piccadilly-merano",
@@ -2164,7 +2217,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "clm-bell-trento",
@@ -2196,7 +2250,7 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": "2026-07-30",
+      "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
@@ -2207,7 +2261,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": false
     },
     {
       "id": "clm-bell-riva-del-garda",
@@ -2239,7 +2294,7 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": "2026-07-30",
+      "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
@@ -2250,7 +2305,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": false
     },
     {
       "id": "l-italiano-porticando",
@@ -2295,7 +2351,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "ciaoitaly-scuola-leonardo-da-vinci-torino",
@@ -2306,7 +2363,8 @@ const DATI = {
       "pagina_corsi": "",
       "email": "",
       "accreditamenti": [
-        "ASILS"
+        "ASILS",
+        "AIL"
       ],
       "corsi": [
         {
@@ -2327,10 +2385,13 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
-      "note": "Le date di inizio non sono pubblicate sul sito della scuola. Nella maggior parte delle scuole i corsi intensivi di gruppo partono ogni lunedì (i principianti assoluti in date fisse, in genere ogni due settimane). Scrivi alla scuola per confermare la prossima data utile: in alta stagione (giugno–settembre) i posti si chiudono 2–3 settimane prima.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "esami_in_sede": [
+        "AIL",
+        "CILS"
+      ],
+      "note": "Corsi di gruppo con inizio ogni lunedì (principianti assoluti in date fisse, ogni 2 settimane). Verificato a mano sul sito ufficiale il 31/07/2026: il sito ha una protezione anti-bot e lo script non può leggerlo.",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -2436,7 +2497,7 @@ const DATI = {
       "citta": "Sestri Levante",
       "regione": "Liguria",
       "sito": "https://www.abcschool.com",
-      "pagina_corsi": "",
+      "pagina_corsi": "https://www.abcschool.com/it/corsi/gruppo",
       "email": "",
       "accreditamenti": [
         "ASILS"
@@ -2462,7 +2523,7 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": "2026-07-30",
+      "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
@@ -2473,7 +2534,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "omnilingua",
@@ -2481,7 +2543,7 @@ const DATI = {
       "citta": "Sanremo",
       "regione": "Liguria",
       "sito": "https://www.omnilingua.net",
-      "pagina_corsi": "",
+      "pagina_corsi": "https://www.omnilingua.net/courses/italian/prices",
       "email": "",
       "accreditamenti": [
         "ASILS"
@@ -2507,8 +2569,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -2518,7 +2580,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "romanica",
@@ -2567,7 +2630,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": false
     },
     {
       "id": "reggio-lingua",
@@ -2612,7 +2676,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "scuola-palazzo-malvisi-ravenna",
@@ -2655,7 +2720,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "scuola-palazzo-malvisi-bagno-di-romagna",
@@ -2698,7 +2764,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "tiberius-international",
@@ -2706,7 +2773,7 @@ const DATI = {
       "citta": "Rimini",
       "regione": "Emilia-Romagna",
       "sito": "https://www.tiberius-international.com",
-      "pagina_corsi": "",
+      "pagina_corsi": "https://www.tiberius-international.com/italian-courses-in-rimini",
       "email": "",
       "accreditamenti": [],
       "corsi": [
@@ -2730,8 +2797,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -2741,7 +2808,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "societa-dante-alighieri-siena",
@@ -2784,7 +2852,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "saena-iulii",
@@ -2859,7 +2928,7 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "Corsi di lingua dell'ateneo, sede degli esami CILS",
-      "verificato_il": "2026-07-30",
+      "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
@@ -2870,7 +2939,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "cultura-italiana-arezzo",
@@ -2915,7 +2985,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "lucca-italian-school",
@@ -2958,7 +3029,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "centro-koine-lucca",
@@ -2992,8 +3064,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -3003,7 +3075,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "istituto-linguistico-mediterraneo",
@@ -3048,7 +3121,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "centro-culturale-giacomo-puccini",
@@ -3056,7 +3130,7 @@ const DATI = {
       "citta": "Viareggio",
       "regione": "Toscana",
       "sito": "https://www.centropuccini.it",
-      "pagina_corsi": "",
+      "pagina_corsi": "https://www.centropuccini.it/italian-language-courses-dates-in-viareggio.html",
       "email": "",
       "accreditamenti": [
         "ASILS"
@@ -3082,8 +3156,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -3093,7 +3167,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": false
     },
     {
       "id": "scuola-leonardo-da-vinci-viareggio",
@@ -3103,7 +3178,9 @@ const DATI = {
       "sito": "https://www.scuolaleonardo.com",
       "pagina_corsi": "",
       "email": "",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "AIL"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -3123,13 +3200,16 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
-      "note": "Le date di inizio non sono pubblicate sul sito della scuola. Nella maggior parte delle scuole i corsi intensivi di gruppo partono ogni lunedì (i principianti assoluti in date fisse, in genere ogni due settimane). Scrivi alla scuola per confermare la prossima data utile: in alta stagione (giugno–settembre) i posti si chiudono 2–3 settimane prima.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "esami_in_sede": [
+        "AIL",
+        "CILS"
+      ],
+      "note": "Corsi di gruppo con inizio ogni lunedì (principianti assoluti in date fisse, ogni 2 settimane). Verificato a mano sul sito ufficiale il 31/07/2026: il sito ha una protezione anti-bot e lo script non può leggerlo.",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
+        "max_studenti_classe": 14,
         "materiale": "inclusi",
         "test_ingresso": "online",
         "tassa_iscrizione": null,
@@ -3144,7 +3224,7 @@ const DATI = {
       "citta": "Montepulciano",
       "regione": "Toscana",
       "sito": "https://www.ilsasso.com",
-      "pagina_corsi": "",
+      "pagina_corsi": "https://www.ilsasso.com/it/corsi-di-cultura-al-sasso-in-toscana-2026-date-prezzi.html",
       "email": "",
       "accreditamenti": [],
       "corsi": [
@@ -3168,8 +3248,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "Le date di inizio non sono pubblicate sul sito della scuola. Nella maggior parte delle scuole i corsi intensivi di gruppo partono ogni lunedì (i principianti assoluti in date fisse, in genere ogni due settimane). Scrivi alla scuola per confermare la prossima data utile: in alta stagione (giugno–settembre) i posti si chiudono 2–3 settimane prima.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -3179,7 +3259,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "terramare",
@@ -3222,7 +3303,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "centro-fiorenza-isola-d-elba",
@@ -3265,7 +3347,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "il-sillabo",
@@ -3342,7 +3425,7 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": "2026-07-30",
+      "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
@@ -3353,7 +3436,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "universita-per-stranieri-di-perugia",
@@ -3385,7 +3469,7 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "L'ateneo storico per stranieri, sede degli esami CELI",
-      "verificato_il": "2026-07-30",
+      "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
@@ -3396,14 +3480,15 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": false
     },
     {
       "id": "accademia-lingua-italiana-assisi",
       "nome": "Accademia Lingua Italiana Assisi",
       "citta": "Assisi",
       "regione": "Umbria",
-      "sito": "",
+      "sito": "https://aliassisi.it",
       "pagina_corsi": "",
       "email": "",
       "accreditamenti": [],
@@ -3420,19 +3505,28 @@ const DATI = {
         }
       ],
       "inizio": {
-        "frequenza": "ogni-lunedi",
-        "date": [],
+        "frequenza": "date-fisse",
+        "date": [
+          "2026-08-24",
+          "2026-09-14",
+          "2026-10-12",
+          "2026-11-02",
+          "2026-11-30"
+        ],
         "principianti": "date fisse, in genere ogni 2 settimane"
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
+      "esami_in_sede": [
+        "CILS",
+        "PLIDA"
+      ],
       "note": "",
       "verificato_il": null,
       "stato_dati": "da_verificare",
       "info": {
-        "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
+        "durata_lezione_min": 50,
+        "max_studenti_classe": 15,
         "materiale": "inclusi",
         "test_ingresso": "online",
         "tassa_iscrizione": null,
@@ -3482,7 +3576,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": false
     },
     {
       "id": "la-lingua-la-vita",
@@ -3525,7 +3620,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "centro-studi-italiani",
@@ -3613,7 +3709,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "istituto-lorenzo-de-medici-tuscania",
@@ -3656,7 +3753,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": false
     },
     {
       "id": "centro-italiano",
@@ -3742,7 +3840,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "accademia-italiana-salerno",
@@ -3750,7 +3849,7 @@ const DATI = {
       "citta": "Salerno",
       "regione": "Campania",
       "sito": "https://www.accademia-italiana.it",
-      "pagina_corsi": "",
+      "pagina_corsi": "https://accademia-italiana.it/language-courses-it/date-e-prezzi-2026",
       "email": "",
       "accreditamenti": [
         "ASILS"
@@ -3776,8 +3875,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "Le date di inizio non sono pubblicate sul sito della scuola. Nella maggior parte delle scuole i corsi intensivi di gruppo partono ogni lunedì (i principianti assoluti in date fisse, in genere ogni due settimane). Scrivi alla scuola per confermare la prossima data utile: in alta stagione (giugno–settembre) i posti si chiudono 2–3 settimane prima.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -3787,7 +3886,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "accademia-leonardo",
@@ -3795,7 +3895,7 @@ const DATI = {
       "citta": "Salerno",
       "regione": "Campania",
       "sito": "https://www.accademialeonardo.it",
-      "pagina_corsi": "",
+      "pagina_corsi": "https://www.accademialeonardo.it/it/studiare-l-italiano/date-inizio-corsi.html",
       "email": "",
       "accreditamenti": [],
       "corsi": [
@@ -3819,8 +3919,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -3830,7 +3930,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "piccola-universita-italiana-tropea",
@@ -3838,7 +3939,7 @@ const DATI = {
       "citta": "Tropea",
       "regione": "Calabria",
       "sito": "https://www.piccolauniversitaitaliana.com",
-      "pagina_corsi": "",
+      "pagina_corsi": "https://piccolauniversitaitaliana.com/italian-language-courses/italian-course-to-enrol-at-italian-universities",
       "email": "",
       "accreditamenti": [],
       "corsi": [
@@ -3862,8 +3963,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "Le date di inizio non sono pubblicate sul sito della scuola. Nella maggior parte delle scuole i corsi intensivi di gruppo partono ogni lunedì (i principianti assoluti in date fisse, in genere ogni due settimane). Scrivi alla scuola per confermare la prossima data utile: in alta stagione (giugno–settembre) i posti si chiudono 2–3 settimane prima.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -3873,7 +3974,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "caffe-italiano-club",
@@ -3916,7 +4018,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "universita-per-stranieri-dante-alighieri",
@@ -3959,7 +4062,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "porta-d-oriente",
@@ -4011,7 +4115,8 @@ const DATI = {
         "cucina",
         "vino",
         "over50"
-      ]
+      ],
+      "anteprima": true
     },
     {
       "id": "babilonia-centro-di-lingua-e-cultura-italiana",
@@ -4056,7 +4161,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "laboling",
@@ -4064,7 +4170,7 @@ const DATI = {
       "citta": "Milazzo",
       "regione": "Sicilia",
       "sito": "https://www.laboling.com",
-      "pagina_corsi": "",
+      "pagina_corsi": "https://www.laboling.com/it/dates-and-prices",
       "email": "",
       "accreditamenti": [
         "ASILS"
@@ -4090,8 +4196,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "Partner Università per Stranieri di Siena",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -4101,7 +4207,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "solemar-academy",
@@ -4137,8 +4244,8 @@ const DATI = {
         "CELI"
       ],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -4148,7 +4255,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": false
     },
     {
       "id": "solemar-sicilia",
@@ -4223,8 +4331,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "Scuola di italiano per stranieri dell'Università di Palermo",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -4234,7 +4342,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": false
     },
     {
       "id": "scuola-virgilio",
@@ -4277,7 +4386,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "pintadera-centro-mediterraneo",
@@ -4285,7 +4395,7 @@ const DATI = {
       "citta": "Alghero",
       "regione": "Sardegna",
       "sito": "https://www.pintadera.info",
-      "pagina_corsi": "",
+      "pagina_corsi": "https://pintadera.info/courses/italian-language/lingua-standard-group-course",
       "email": "",
       "accreditamenti": [],
       "corsi": [
@@ -4309,8 +4419,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -4320,7 +4430,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     },
     {
       "id": "one-world-italiano",
@@ -4363,7 +4474,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "anteprima": true
     }
   ],
   "citta": {
