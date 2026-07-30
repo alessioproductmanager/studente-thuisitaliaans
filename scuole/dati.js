@@ -67,8 +67,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare"
+      "verificato_il": "2026-07-30",
+      "stato_dati": "verificato"
     },
     {
       "id": "centro-fiorenza",
@@ -1156,8 +1156,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare"
+      "verificato_il": "2026-07-30",
+      "stato_dati": "verificato"
     },
     {
       "id": "cultura-italiana-bologna",
@@ -1694,8 +1694,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare"
+      "verificato_il": "2026-07-30",
+      "stato_dati": "verificato"
     },
     {
       "id": "clm-bell-riva-del-garda",
@@ -1727,8 +1727,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare"
+      "verificato_il": "2026-07-30",
+      "stato_dati": "verificato"
     },
     {
       "id": "l-italiano-porticando",
@@ -1900,8 +1900,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare"
+      "verificato_il": "2026-07-30",
+      "stato_dati": "verificato"
     },
     {
       "id": "omnilingua",
@@ -2203,8 +2203,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "Corsi di lingua dell'ateneo, sede degli esami CILS",
-      "verificato_il": null,
-      "stato_dati": "da_verificare"
+      "verificato_il": "2026-07-30",
+      "stato_dati": "verificato"
     },
     {
       "id": "cultura-italiana-arezzo",
@@ -2576,8 +2576,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare"
+      "verificato_il": "2026-07-30",
+      "stato_dati": "verificato"
     },
     {
       "id": "universita-per-stranieri-di-perugia",
@@ -2609,8 +2609,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "L'ateneo storico per stranieri, sede degli esami CELI",
-      "verificato_il": null,
-      "stato_dati": "da_verificare"
+      "verificato_il": "2026-07-30",
+      "stato_dati": "verificato"
     },
     {
       "id": "accademia-lingua-italiana-assisi",
