@@ -11,7 +11,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.leonardo-florence.com",
       "pagina_corsi": "https://www.leonardo-florence.com/it/corsi-di-italiano-a-firenze.html",
-      "email": "",
+      "email": "info@leonardo-florence.com",
       "accreditamenti": [
         "AIL"
       ],
@@ -50,7 +50,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "email_stato": "stimata"
     },
     {
       "id": "abc-firenze",
@@ -59,7 +60,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.abcschool.com",
       "pagina_corsi": "https://www.abcschool.com/it/corsi/gruppo",
-      "email": "",
+      "email": "info@abcschool.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -94,7 +95,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "centro-fiorenza",
@@ -103,7 +105,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://centrofiorenza.com",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@centrofiorenza.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -138,7 +140,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "istituto-michelangelo",
@@ -147,7 +150,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.michelangelo-edu.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@michelangelo-edu.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -182,7 +185,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "europass-italian-language-school",
@@ -191,7 +195,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.europassitalian.com",
       "pagina_corsi": "https://www.europassitalian.com/courses/live-courses",
-      "email": "",
+      "email": "info@europassitalian.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -226,7 +230,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": false
+      "anteprima": false,
+      "email_stato": "stimata"
     },
     {
       "id": "centro-machiavelli",
@@ -235,7 +240,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.centromachiavelli.it",
       "pagina_corsi": "https://centromachiavelli.it/it/iscrizione-altri-corsi",
-      "email": "",
+      "email": "info@centromachiavelli.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -270,7 +275,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "linguaviva",
@@ -279,50 +285,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.linguaviva.it",
       "pagina_corsi": "",
-      "email": "",
-      "accreditamenti": [],
-      "corsi": [
-        {
-          "tipo": "intensivo",
-          "ore_settimana": 20,
-          "prezzo_da_settimana": null
-        },
-        {
-          "tipo": "leggero",
-          "ore_settimana": 10,
-          "prezzo_da_settimana": null
-        }
-      ],
-      "inizio": {
-        "frequenza": "ogni-lunedi",
-        "date": [],
-        "principianti": "date fisse, in genere ogni 2 settimane"
-      },
-      "durata_min_settimane": 1,
-      "alloggio": true,
-      "esami_in_sede": [],
-      "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
-      "info": {
-        "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
-        "materiale": "inclusi",
-        "test_ingresso": "online",
-        "tassa_iscrizione": null,
-        "servizio_alloggio": "gratuito",
-        "wifi": true
-      },
-      "extra": []
-    },
-    {
-      "id": "accademia-del-giglio",
-      "nome": "Accademia del Giglio",
-      "citta": "Firenze",
-      "regione": "Toscana",
-      "sito": "https://www.adg.it",
-      "pagina_corsi": "",
-      "email": "",
+      "email": "info@linguaviva.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -357,7 +320,52 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "email_stato": "stimata"
+    },
+    {
+      "id": "accademia-del-giglio",
+      "nome": "Accademia del Giglio",
+      "citta": "Firenze",
+      "regione": "Toscana",
+      "sito": "https://www.adg.it",
+      "pagina_corsi": "",
+      "email": "info@adg.it",
+      "accreditamenti": [],
+      "corsi": [
+        {
+          "tipo": "intensivo",
+          "ore_settimana": 20,
+          "prezzo_da_settimana": null
+        },
+        {
+          "tipo": "leggero",
+          "ore_settimana": 10,
+          "prezzo_da_settimana": null
+        }
+      ],
+      "inizio": {
+        "frequenza": "ogni-lunedi",
+        "date": [],
+        "principianti": "date fisse, in genere ogni 2 settimane"
+      },
+      "durata_min_settimane": 1,
+      "alloggio": true,
+      "esami_in_sede": [],
+      "note": "",
+      "verificato_il": null,
+      "stato_dati": "da_verificare",
+      "info": {
+        "durata_lezione_min": 45,
+        "max_studenti_classe": 12,
+        "materiale": "inclusi",
+        "test_ingresso": "online",
+        "tassa_iscrizione": null,
+        "servizio_alloggio": "gratuito",
+        "wifi": true
+      },
+      "extra": [],
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "scuola-toscana",
@@ -366,7 +374,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.scuola-toscana.com",
       "pagina_corsi": "https://www.scuola-toscana.com/en/course-individual-private.php",
-      "email": "",
+      "email": "info@scuola-toscana.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -401,7 +409,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "istituto-il-david",
@@ -410,7 +419,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.davidschool.com",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@davidschool.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -445,7 +454,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "parola-italian-language-school",
@@ -454,7 +464,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.parola.it",
       "pagina_corsi": "https://www.parola.it/starting-dates-courses-2",
-      "email": "",
+      "email": "info@parola.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -491,7 +501,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "confermata"
     },
     {
       "id": "istituto-lorenzo-de-medici-firenze",
@@ -500,7 +511,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.lorenzodemedici.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@lorenzodemedici.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -535,7 +546,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": false
+      "anteprima": false,
+      "email_stato": "stimata"
     },
     {
       "id": "centro-lingua-italiana-calvino",
@@ -544,7 +556,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.clicschool.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@clicschool.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -578,7 +590,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "email_stato": "stimata"
     },
     {
       "id": "istituto-galilei",
@@ -587,7 +600,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.galilei.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@galilei.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -622,7 +635,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "sprachcaffe-firenze",
@@ -631,7 +645,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.sprachcaffe.com",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@sprachcaffe.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -666,7 +680,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "istituto-europeo",
@@ -675,7 +690,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.istitutoeuropeo.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@istitutoeuropeo.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -710,7 +725,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "centro-ponte-vecchio",
@@ -762,7 +778,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.aefirenze.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@aefirenze.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -797,7 +813,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": false
+      "anteprima": false,
+      "email_stato": "stimata"
     },
     {
       "id": "centro-koine-firenze",
@@ -806,7 +823,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.koinecenter.com",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@koinecenter.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -841,7 +858,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "accademia-riaci",
@@ -850,7 +868,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.accademiariaci.info",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@accademiariaci.info",
       "accreditamenti": [],
       "corsi": [
         {
@@ -885,7 +903,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "dilit-international-house",
@@ -894,7 +913,7 @@ const DATI = {
       "regione": "Lazio",
       "sito": "https://www.dilit.it",
       "pagina_corsi": "https://www.dilit.it/en/dates-and-fees.html",
-      "email": "",
+      "email": "info@dilit.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -929,7 +948,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "torre-di-babele",
@@ -938,7 +958,7 @@ const DATI = {
       "regione": "Lazio",
       "sito": "https://www.torredibabele.com",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@torredibabele.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -973,7 +993,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "scuola-leonardo-da-vinci-roma",
@@ -982,7 +1003,7 @@ const DATI = {
       "regione": "Lazio",
       "sito": "https://www.scuolaleonardo.com",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@scuolaleonardo.com",
       "accreditamenti": [
         "AIL"
       ],
@@ -1021,7 +1042,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "email_stato": "stimata"
     },
     {
       "id": "studioitalia",
@@ -1030,7 +1052,7 @@ const DATI = {
       "regione": "Lazio",
       "sito": "https://accademiastudioitalia.com",
       "pagina_corsi": "https://accademiastudioitalia.com/beginner-intensive-italian-course-calendar-2025-2026",
-      "email": "",
+      "email": "info@accademiastudioitalia.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -1065,7 +1087,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "kappa-language-school",
@@ -1074,7 +1097,7 @@ const DATI = {
       "regione": "Lazio",
       "sito": "https://www.kappalanguageschool.com",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@kappalanguageschool.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -1109,7 +1132,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "scudit-scuola-d-italiano",
@@ -1118,7 +1142,7 @@ const DATI = {
       "regione": "Lazio",
       "sito": "https://www.scudit.net",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@scudit.net",
       "accreditamenti": [],
       "corsi": [
         {
@@ -1153,7 +1177,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "ciao-italia",
@@ -1162,7 +1187,7 @@ const DATI = {
       "regione": "Lazio",
       "sito": "https://www.ciao-italia.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@ciao-italia.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -1197,7 +1222,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "italiaidea",
@@ -1206,7 +1232,7 @@ const DATI = {
       "regione": "Lazio",
       "sito": "https://www.italiaidea.com",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@italiaidea.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -1241,7 +1267,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "scuola-d-italiano-dante-alighieri-roma",
@@ -1250,7 +1277,7 @@ const DATI = {
       "regione": "Lazio",
       "sito": "https://clidante.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@clidante.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -1285,7 +1312,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "istituto-lorenzo-de-medici-roma",
@@ -1294,7 +1322,7 @@ const DATI = {
       "regione": "Lazio",
       "sito": "https://www.lorenzodemedici.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@lorenzodemedici.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -1329,7 +1357,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": false
+      "anteprima": false,
+      "email_stato": "stimata"
     },
     {
       "id": "istituto-italiano",
@@ -1338,7 +1367,7 @@ const DATI = {
       "regione": "Lazio",
       "sito": "https://www.istitutoitaliano.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@istitutoitaliano.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -1372,7 +1401,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "email_stato": "stimata"
     },
     {
       "id": "scuola-leonardo-da-vinci-milano",
@@ -1381,7 +1411,7 @@ const DATI = {
       "regione": "Lombardia",
       "sito": "https://www.scuolaleonardo.com",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@scuolaleonardo.com",
       "accreditamenti": [
         "AIL"
       ],
@@ -1420,7 +1450,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "email_stato": "stimata"
     },
     {
       "id": "linguadue",
@@ -1429,7 +1460,7 @@ const DATI = {
       "regione": "Lombardia",
       "sito": "https://www.linguaviva.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@linguaviva.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -1463,7 +1494,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "email_stato": "stimata"
     },
     {
       "id": "il-centro",
@@ -1472,7 +1504,7 @@ const DATI = {
       "regione": "Lombardia",
       "sito": "https://www.ilcentro.net",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@ilcentro.net",
       "accreditamenti": [],
       "corsi": [
         {
@@ -1507,7 +1539,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "ellci-milano",
@@ -1516,7 +1549,7 @@ const DATI = {
       "regione": "Lombardia",
       "sito": "https://www.ellci.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@ellci.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -1551,7 +1584,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "cultura-italiana-bologna",
@@ -1560,7 +1594,7 @@ const DATI = {
       "regione": "Emilia-Romagna",
       "sito": "https://www.culturaitaliana.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@culturaitaliana.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -1595,7 +1629,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "madrelingua",
@@ -1604,7 +1639,7 @@ const DATI = {
       "regione": "Emilia-Romagna",
       "sito": "https://madrelinguaitaliano.com",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@madrelinguaitaliano.com",
       "accreditamenti": [
         "ASILS"
       ],
@@ -1641,7 +1676,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "alce-accademia-lingue-e-culture-europee",
@@ -1650,7 +1686,7 @@ const DATI = {
       "regione": "Emilia-Romagna",
       "sito": "https://www.alce.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@alce.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -1685,7 +1721,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "istituto-venezia",
@@ -1694,7 +1731,7 @@ const DATI = {
       "regione": "Veneto",
       "sito": "https://www.istitutovenezia.com",
       "pagina_corsi": "https://www.istitutovenezia.com/italian-language-courses-dates.html",
-      "email": "",
+      "email": "info@istitutovenezia.com",
       "accreditamenti": [
         "ASILS"
       ],
@@ -1731,7 +1768,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "easy-italian-language-art",
@@ -1783,7 +1821,7 @@ const DATI = {
       "regione": "Veneto",
       "sito": "https://www.unive.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@unive.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -1818,7 +1856,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": false
+      "anteprima": false,
+      "email_stato": "stimata"
     },
     {
       "id": "idea-verona",
@@ -1827,7 +1866,7 @@ const DATI = {
       "regione": "Veneto",
       "sito": "https://www.ideaverona.com",
       "pagina_corsi": "https://www.ideaverona.com/it/home/iscrizione",
-      "email": "",
+      "email": "info@ideaverona.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -1862,7 +1901,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "lingua-it",
@@ -1871,7 +1911,7 @@ const DATI = {
       "regione": "Veneto",
       "sito": "https://www.linguait.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@linguait.it",
       "accreditamenti": [
         "ASILS"
       ],
@@ -1908,7 +1948,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "l-italiano-con-noi",
@@ -1960,7 +2001,7 @@ const DATI = {
       "regione": "Veneto",
       "sito": "https://www.bertrand-russell.it",
       "pagina_corsi": "https://www.bertrand-russell.it/scheda-di-iscrizione-corsi-di-italiano",
-      "email": "",
+      "email": "info@bertrand-russell.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -1995,7 +2036,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "piccola-universita-italiana-trieste",
@@ -2004,7 +2046,7 @@ const DATI = {
       "regione": "Friuli-Venezia Giulia",
       "sito": "https://www.piccolauniversitaitaliana.com",
       "pagina_corsi": "https://piccolauniversitaitaliana.com/italian-language-courses/italian-course-to-enrol-at-italian-universities",
-      "email": "",
+      "email": "info@piccolauniversitaitaliana.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -2039,7 +2081,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "istituto-venezia-trieste",
@@ -2048,7 +2091,7 @@ const DATI = {
       "regione": "Friuli-Venezia Giulia",
       "sito": "https://www.istitutovenezia.com",
       "pagina_corsi": "https://www.istitutovenezia.com/italian-language-courses-dates.html",
-      "email": "",
+      "email": "info@istitutovenezia.com",
       "accreditamenti": [
         "ASILS"
       ],
@@ -2085,7 +2128,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "linguaviva-lignano",
@@ -2094,7 +2138,7 @@ const DATI = {
       "regione": "Friuli-Venezia Giulia",
       "sito": "https://www.linguaviva.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@linguaviva.it",
       "accreditamenti": [
         "ASILS"
       ],
@@ -2130,7 +2174,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "email_stato": "stimata"
     },
     {
       "id": "alpha-beta-piccadilly-bolzano",
@@ -2139,7 +2184,7 @@ const DATI = {
       "regione": "Alto Adige",
       "sito": "https://www.alphabeta.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@alphabeta.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -2174,7 +2219,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "alpha-beta-piccadilly-merano",
@@ -2183,7 +2229,7 @@ const DATI = {
       "regione": "Alto Adige",
       "sito": "https://www.alphabeta.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@alphabeta.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -2218,7 +2264,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "clm-bell-trento",
@@ -2227,7 +2274,7 @@ const DATI = {
       "regione": "Trentino",
       "sito": "https://www.clm-bell.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@clm-bell.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -2262,7 +2309,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": false
+      "anteprima": false,
+      "email_stato": "stimata"
     },
     {
       "id": "clm-bell-riva-del-garda",
@@ -2271,7 +2319,7 @@ const DATI = {
       "regione": "Trentino",
       "sito": "https://www.clm-bell.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@clm-bell.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -2306,7 +2354,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": false
+      "anteprima": false,
+      "email_stato": "stimata"
     },
     {
       "id": "l-italiano-porticando",
@@ -2315,7 +2364,7 @@ const DATI = {
       "regione": "Piemonte",
       "sito": "https://www.italianoporticando.com",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@italianoporticando.com",
       "accreditamenti": [
         "ASILS"
       ],
@@ -2352,7 +2401,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "ciaoitaly-scuola-leonardo-da-vinci-torino",
@@ -2361,7 +2411,7 @@ const DATI = {
       "regione": "Piemonte",
       "sito": "https://www.scuolaleonardo.com",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@scuolaleonardo.com",
       "accreditamenti": [
         "ASILS",
         "AIL"
@@ -2401,7 +2451,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "email_stato": "stimata"
     },
     {
       "id": "a-door-to-italy",
@@ -2410,7 +2461,7 @@ const DATI = {
       "regione": "Liguria",
       "sito": "https://www.adoortoitaly.com",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@adoortoitaly.com",
       "accreditamenti": [
         "ASILS"
       ],
@@ -2446,7 +2497,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "email_stato": "stimata"
     },
     {
       "id": "scuola-tricolore",
@@ -2455,7 +2507,7 @@ const DATI = {
       "regione": "Liguria",
       "sito": "https://www.scuolatricolore.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@scuolatricolore.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -2489,7 +2541,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "email_stato": "stimata"
     },
     {
       "id": "abc-school-sestri-levante",
@@ -2498,7 +2551,7 @@ const DATI = {
       "regione": "Liguria",
       "sito": "https://www.abcschool.com",
       "pagina_corsi": "https://www.abcschool.com/it/corsi/gruppo",
-      "email": "",
+      "email": "info@abcschool.com",
       "accreditamenti": [
         "ASILS"
       ],
@@ -2535,7 +2588,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "omnilingua",
@@ -2544,7 +2598,7 @@ const DATI = {
       "regione": "Liguria",
       "sito": "https://www.omnilingua.net",
       "pagina_corsi": "https://www.omnilingua.net/courses/italian/prices",
-      "email": "",
+      "email": "info@omnilingua.net",
       "accreditamenti": [
         "ASILS"
       ],
@@ -2581,7 +2635,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "romanica",
@@ -2590,7 +2645,7 @@ const DATI = {
       "regione": "Emilia-Romagna",
       "sito": "https://www.romanica.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "scuola@romanica.it",
       "accreditamenti": [
         "ASILS",
         "AIL"
@@ -2631,7 +2686,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": false
+      "anteprima": false,
+      "email_stato": "confermata"
     },
     {
       "id": "reggio-lingua",
@@ -2640,7 +2696,7 @@ const DATI = {
       "regione": "Emilia-Romagna",
       "sito": "https://www.reggiolingua.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@reggiolingua.it",
       "accreditamenti": [
         "ASILS"
       ],
@@ -2677,7 +2733,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "scuola-palazzo-malvisi-ravenna",
@@ -2686,7 +2743,7 @@ const DATI = {
       "regione": "Emilia-Romagna",
       "sito": "https://www.scuolapalazzomalvisi.com",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@scuolapalazzomalvisi.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -2721,7 +2778,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "scuola-palazzo-malvisi-bagno-di-romagna",
@@ -2730,7 +2788,7 @@ const DATI = {
       "regione": "Emilia-Romagna",
       "sito": "https://www.scuolapalazzomalvisi.com",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@scuolapalazzomalvisi.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -2765,7 +2823,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "tiberius-international",
@@ -2774,7 +2833,7 @@ const DATI = {
       "regione": "Emilia-Romagna",
       "sito": "https://www.tiberius-international.com",
       "pagina_corsi": "https://www.tiberius-international.com/italian-courses-in-rimini",
-      "email": "",
+      "email": "info@tiberius-international.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -2809,7 +2868,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "societa-dante-alighieri-siena",
@@ -2818,7 +2878,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.dantealighieri.com",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@dantealighieri.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -2853,7 +2913,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "saena-iulii",
@@ -2905,7 +2966,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.unistrasi.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@unistrasi.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -2940,7 +3001,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "cultura-italiana-arezzo",
@@ -2949,7 +3011,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.culturaitalianaarezzo.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@culturaitalianaarezzo.it",
       "accreditamenti": [
         "ASILS"
       ],
@@ -2986,7 +3048,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "lucca-italian-school",
@@ -2995,7 +3058,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.luccaitalianschool.com",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@luccaitalianschool.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -3030,7 +3093,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "centro-koine-lucca",
@@ -3039,7 +3103,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.koinecenter.com",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@koinecenter.com",
       "accreditamenti": [
         "ASILS"
       ],
@@ -3076,7 +3140,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "istituto-linguistico-mediterraneo",
@@ -3085,7 +3150,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.ilm.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@ilm.it",
       "accreditamenti": [
         "ASILS"
       ],
@@ -3122,7 +3187,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "centro-culturale-giacomo-puccini",
@@ -3131,7 +3197,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.centropuccini.it",
       "pagina_corsi": "https://www.centropuccini.it/italian-language-courses-dates-in-viareggio.html",
-      "email": "",
+      "email": "info@centropuccini.it",
       "accreditamenti": [
         "ASILS"
       ],
@@ -3168,7 +3234,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": false
+      "anteprima": false,
+      "email_stato": "stimata"
     },
     {
       "id": "scuola-leonardo-da-vinci-viareggio",
@@ -3177,7 +3244,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.scuolaleonardo.com",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@scuolaleonardo.com",
       "accreditamenti": [
         "AIL"
       ],
@@ -3216,7 +3283,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "email_stato": "stimata"
     },
     {
       "id": "il-sasso",
@@ -3225,7 +3293,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.ilsasso.com",
       "pagina_corsi": "https://www.ilsasso.com/it/corsi-di-cultura-al-sasso-in-toscana-2026-date-prezzi.html",
-      "email": "",
+      "email": "info@ilsasso.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -3260,7 +3328,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "terramare",
@@ -3269,7 +3338,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.terramare.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@terramare.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -3304,7 +3373,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "centro-fiorenza-isola-d-elba",
@@ -3313,7 +3383,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://centrofiorenza.com",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@centrofiorenza.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -3348,7 +3418,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "il-sillabo",
@@ -3357,7 +3428,7 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.sillabo.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@sillabo.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -3391,7 +3462,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "email_stato": "stimata"
     },
     {
       "id": "comitato-linguistico",
@@ -3400,7 +3472,7 @@ const DATI = {
       "regione": "Umbria",
       "sito": "https://www.comitatolinguistico.com",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@comitatolinguistico.com",
       "accreditamenti": [
         "ASILS"
       ],
@@ -3437,7 +3509,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "universita-per-stranieri-di-perugia",
@@ -3446,7 +3519,7 @@ const DATI = {
       "regione": "Umbria",
       "sito": "https://www.unistrapg.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@unistrapg.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -3481,7 +3554,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": false
+      "anteprima": false,
+      "email_stato": "stimata"
     },
     {
       "id": "accademia-lingua-italiana-assisi",
@@ -3490,7 +3564,7 @@ const DATI = {
       "regione": "Umbria",
       "sito": "https://aliassisi.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@aliassisi.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -3533,7 +3607,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "email_stato": "confermata"
     },
     {
       "id": "lingua-si",
@@ -3542,7 +3617,7 @@ const DATI = {
       "regione": "Umbria",
       "sito": "https://www.linguasi.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@linguasi.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -3577,7 +3652,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": false
+      "anteprima": false,
+      "email_stato": "stimata"
     },
     {
       "id": "la-lingua-la-vita",
@@ -3586,7 +3662,7 @@ const DATI = {
       "regione": "Umbria",
       "sito": "https://www.lalingualavita.com",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@lalingualavita.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -3621,7 +3697,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "centro-studi-italiani",
@@ -3630,7 +3707,7 @@ const DATI = {
       "regione": "Marche",
       "sito": "https://www.centrostudiitaliani.org",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@centrostudiitaliani.org",
       "accreditamenti": [],
       "corsi": [
         {
@@ -3664,7 +3741,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "email_stato": "stimata"
     },
     {
       "id": "scuola-dante-alighieri-campus-l-infinito",
@@ -3673,7 +3751,7 @@ const DATI = {
       "regione": "Marche",
       "sito": "https://www.scuoladantealighieri.org",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@scuoladantealighieri.org",
       "accreditamenti": [
         "ASILS"
       ],
@@ -3710,7 +3788,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "istituto-lorenzo-de-medici-tuscania",
@@ -3719,7 +3798,7 @@ const DATI = {
       "regione": "Lazio",
       "sito": "https://www.lorenzodemedici.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@lorenzodemedici.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -3754,7 +3833,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": false
+      "anteprima": false,
+      "email_stato": "stimata"
     },
     {
       "id": "centro-italiano",
@@ -3763,7 +3843,7 @@ const DATI = {
       "regione": "Campania",
       "sito": "https://www.centroitaliano.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@centroitaliano.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -3797,7 +3877,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "email_stato": "stimata"
     },
     {
       "id": "sant-anna-institute",
@@ -3806,7 +3887,7 @@ const DATI = {
       "regione": "Campania",
       "sito": "https://www.santannainstitute.com",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@santannainstitute.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -3841,7 +3922,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "accademia-italiana-salerno",
@@ -3850,7 +3932,7 @@ const DATI = {
       "regione": "Campania",
       "sito": "https://www.accademia-italiana.it",
       "pagina_corsi": "https://accademia-italiana.it/language-courses-it/date-e-prezzi-2026",
-      "email": "",
+      "email": "info@accademia-italiana.it",
       "accreditamenti": [
         "ASILS"
       ],
@@ -3887,7 +3969,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "accademia-leonardo",
@@ -3896,7 +3979,7 @@ const DATI = {
       "regione": "Campania",
       "sito": "https://www.accademialeonardo.it",
       "pagina_corsi": "https://www.accademialeonardo.it/it/studiare-l-italiano/date-inizio-corsi.html",
-      "email": "",
+      "email": "info@accademialeonardo.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -3931,7 +4014,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "piccola-universita-italiana-tropea",
@@ -3940,7 +4024,7 @@ const DATI = {
       "regione": "Calabria",
       "sito": "https://www.piccolauniversitaitaliana.com",
       "pagina_corsi": "https://piccolauniversitaitaliana.com/italian-language-courses/italian-course-to-enrol-at-italian-universities",
-      "email": "",
+      "email": "info@piccolauniversitaitaliana.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -3975,7 +4059,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "caffe-italiano-club",
@@ -3984,7 +4069,7 @@ const DATI = {
       "regione": "Calabria",
       "sito": "https://www.caffeitalianoclub.net",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@caffeitalianoclub.net",
       "accreditamenti": [],
       "corsi": [
         {
@@ -4019,7 +4104,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "universita-per-stranieri-dante-alighieri",
@@ -4028,7 +4114,7 @@ const DATI = {
       "regione": "Calabria",
       "sito": "https://www.unistrada.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@unistrada.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -4063,7 +4149,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "porta-d-oriente",
@@ -4072,7 +4159,7 @@ const DATI = {
       "regione": "Puglia",
       "sito": "https://www.porta-doriente.com",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@porta-doriente.com",
       "accreditamenti": [
         "Bildungsurlaub"
       ],
@@ -4116,7 +4203,8 @@ const DATI = {
         "vino",
         "over50"
       ],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "confermata"
     },
     {
       "id": "babilonia-centro-di-lingua-e-cultura-italiana",
@@ -4125,7 +4213,7 @@ const DATI = {
       "regione": "Sicilia",
       "sito": "https://www.babilonia.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@babilonia.it",
       "accreditamenti": [
         "ASILS"
       ],
@@ -4162,7 +4250,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "laboling",
@@ -4171,7 +4260,7 @@ const DATI = {
       "regione": "Sicilia",
       "sito": "https://www.laboling.com",
       "pagina_corsi": "https://www.laboling.com/it/dates-and-prices",
-      "email": "",
+      "email": "info@laboling.com",
       "accreditamenti": [
         "ASILS"
       ],
@@ -4208,7 +4297,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "solemar-academy",
@@ -4217,7 +4307,7 @@ const DATI = {
       "regione": "Sicilia",
       "sito": "https://solemar-academy.com",
       "pagina_corsi": "https://solemar-academy.com/en/italian-courses/",
-      "email": "",
+      "email": "cefalu@solemar-academy.com",
       "accreditamenti": [
         "ASILS"
       ],
@@ -4256,7 +4346,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": false
+      "anteprima": false,
+      "email_stato": "confermata"
     },
     {
       "id": "solemar-sicilia",
@@ -4265,7 +4356,7 @@ const DATI = {
       "regione": "Sicilia",
       "sito": "https://www.solemarsicilia.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@solemarsicilia.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -4299,7 +4390,8 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": []
+      "extra": [],
+      "email_stato": "stimata"
     },
     {
       "id": "itastra-universita-di-palermo",
@@ -4308,7 +4400,7 @@ const DATI = {
       "regione": "Sicilia",
       "sito": "https://www.unipa.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@unipa.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -4343,7 +4435,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": false
+      "anteprima": false,
+      "email_stato": "stimata"
     },
     {
       "id": "scuola-virgilio",
@@ -4352,7 +4445,7 @@ const DATI = {
       "regione": "Sicilia",
       "sito": "https://www.scuolavirgilio.it",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@scuolavirgilio.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -4387,7 +4480,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "pintadera-centro-mediterraneo",
@@ -4396,7 +4490,7 @@ const DATI = {
       "regione": "Sardegna",
       "sito": "https://www.pintadera.info",
       "pagina_corsi": "https://pintadera.info/courses/italian-language/lingua-standard-group-course",
-      "email": "",
+      "email": "info@pintadera.info",
       "accreditamenti": [],
       "corsi": [
         {
@@ -4431,7 +4525,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     },
     {
       "id": "one-world-italiano",
@@ -4440,7 +4535,7 @@ const DATI = {
       "regione": "Sardegna",
       "sito": "https://www.oneworlditaliano.com",
       "pagina_corsi": "",
-      "email": "",
+      "email": "info@oneworlditaliano.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -4475,7 +4570,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true
+      "anteprima": true,
+      "email_stato": "stimata"
     }
   ],
   "citta": {
