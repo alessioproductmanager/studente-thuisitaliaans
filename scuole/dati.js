@@ -4976,6 +4976,104 @@ const DATI = {
       "note": "Classi piccole (3–8 studenti). Chiusa 10–23 agosto e 21 dic–10 gen. Una delle prime scuole d'italiano di Bologna.",
       "stato_dati": "da_verificare",
       "verificato_il": null
+    },
+    {
+      "id": "italianme",
+      "nome": "Italianme",
+      "citta": "Firenze",
+      "regione": "Toscana",
+      "sito": "https://www.italianme.it",
+      "accreditamenti": [
+        "LICET",
+        "Bildungsurlaub",
+        "CILS"
+      ],
+      "esami_in_sede": [
+        "CILS"
+      ],
+      "alloggio": true,
+      "corsi": [
+        {
+          "tipo": "intensivo",
+          "ore_settimana": 20
+        },
+        {
+          "tipo": "leggero",
+          "ore_settimana": 10
+        }
+      ],
+      "durata_min_settimane": 1,
+      "inizio": {
+        "frequenza": "date-fisse",
+        "date": [
+          "2026-08-03",
+          "2026-09-07",
+          "2026-10-05",
+          "2026-11-02",
+          "2026-11-30"
+        ],
+        "principianti": "date fisse mensili; chi parla già italiano inizia ogni lunedì"
+      },
+      "info": {
+        "durata_lezione_min": 45,
+        "materiale": "inclusi",
+        "servizio_alloggio": "gratuito",
+        "wifi": true
+      },
+      "extra": [
+        "arte",
+        "cucina",
+        "musica",
+        "fotografia",
+        "letteratura",
+        "moda",
+        "teatro"
+      ],
+      "email": "info@italianme.it",
+      "email_stato": "stimata",
+      "note": "In via Tornabuoni, palazzo storico con terrazza panoramica. Corsi combinati lingua + passione (arte, canto, cucina, cinema).",
+      "stato_dati": "da_verificare",
+      "verificato_il": null
+    },
+    {
+      "id": "influent",
+      "nome": "Influent",
+      "citta": "Firenze",
+      "regione": "Toscana",
+      "sito": "https://www.influent.it",
+      "accreditamenti": [],
+      "esami_in_sede": [],
+      "alloggio": true,
+      "corsi": [
+        {
+          "tipo": "intensivo",
+          "ore_settimana": 20
+        },
+        {
+          "tipo": "leggero",
+          "ore_settimana": 10
+        }
+      ],
+      "durata_min_settimane": 1,
+      "inizio": {
+        "frequenza": "flessibile",
+        "date": [],
+        "principianti": "date a scelta dello studente (dalla domenica al sabato)"
+      },
+      "info": {
+        "max_studenti_classe": 1,
+        "servizio_alloggio": "gratuito",
+        "wifi": true
+      },
+      "extra": [
+        "cucina",
+        "arte"
+      ],
+      "email": "info@influent.it",
+      "email_stato": "stimata",
+      "note": "Corsi interamente individuali (one-to-one), programma e date su misura dello studente.",
+      "stato_dati": "da_verificare",
+      "verificato_il": null
     }
   ],
   "citta": {
