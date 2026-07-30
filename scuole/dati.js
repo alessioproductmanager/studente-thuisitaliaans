@@ -971,7 +971,10 @@ const DATI = {
       "sito": "https://www.torredibabele.com",
       "pagina_corsi": "",
       "email": "info@torredibabele.com",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "ASILS",
+        "EDUITALIA"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -991,7 +994,9 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
+      "esami_in_sede": [
+        "DITALS"
+      ],
       "note": "Le date di inizio non sono pubblicate sul sito della scuola. Nella maggior parte delle scuole i corsi intensivi di gruppo partono ogni lunedì (i principianti assoluti in date fisse, in genere ogni due settimane). Scrivi alla scuola per confermare la prossima data utile: in alta stagione (giugno–settembre) i posti si chiudono 2–3 settimane prima.",
       "verificato_il": null,
       "stato_dati": "da_verificare",
@@ -1004,7 +1009,13 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "arte",
+        "cucina",
+        "moda",
+        "storia dell'arte",
+        "vino"
+      ],
       "anteprima": true,
       "email_stato": "stimata"
     },
@@ -1017,7 +1028,12 @@ const DATI = {
       "pagina_corsi": "",
       "email": "info@scuolaleonardo.com",
       "accreditamenti": [
-        "AIL"
+        "ASILS",
+        "AIL",
+        "EDUITALIA",
+        "Bildungsurlaub",
+        "CILS",
+        "CSN"
       ],
       "corsi": [
         {
@@ -1050,11 +1066,19 @@ const DATI = {
         "max_studenti_classe": 14,
         "materiale": "inclusi",
         "test_ingresso": "online",
-        "tassa_iscrizione": null,
+        "tassa_iscrizione": 70,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "arte",
+        "cucina",
+        "online",
+        "letteratura",
+        "storia dell'arte",
+        "vino",
+        "over50"
+      ],
       "email_stato": "stimata"
     },
     {
@@ -1110,12 +1134,16 @@ const DATI = {
       "sito": "https://www.kappalanguageschool.com",
       "pagina_corsi": "",
       "email": "info@kappalanguageschool.com",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "CELI",
+        "PLIDA",
+        "LICET"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
           "ore_settimana": 20,
-          "prezzo_da_settimana": null
+          "prezzo_da_settimana": 200
         },
         {
           "tipo": "leggero",
@@ -1130,20 +1158,27 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
+      "esami_in_sede": [
+        "PLIDA",
+        "CELI"
+      ],
       "note": "",
       "verificato_il": null,
       "stato_dati": "da_verificare",
       "info": {
-        "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
+        "durata_lezione_min": 60,
+        "max_studenti_classe": 10,
         "materiale": "inclusi",
         "test_ingresso": "online",
-        "tassa_iscrizione": null,
-        "servizio_alloggio": "gratuito",
+        "tassa_iscrizione": 30,
+        "servizio_alloggio": "a pagamento",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "arte",
+        "cucina",
+        "online"
+      ],
       "anteprima": true,
       "email_stato": "stimata"
     },
@@ -1200,7 +1235,13 @@ const DATI = {
       "sito": "https://www.ciao-italia.it",
       "pagina_corsi": "",
       "email": "info@ciao-italia.it",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "EDUITALIA",
+        "Bildungsurlaub",
+        "CELI",
+        "CILS",
+        "PLIDA"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -1220,20 +1261,30 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
+      "esami_in_sede": [
+        "CELI",
+        "CILS",
+        "PLIDA"
+      ],
       "note": "",
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
-        "durata_lezione_min": 45,
+        "durata_lezione_min": 50,
         "max_studenti_classe": 12,
         "materiale": "inclusi",
         "test_ingresso": "online",
-        "tassa_iscrizione": null,
+        "tassa_iscrizione": 45,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "online",
+        "letteratura",
+        "pittura",
+        "storia dell'arte",
+        "over50"
+      ],
       "anteprima": true,
       "email_stato": "stimata"
     },
