@@ -1472,11 +1472,16 @@ const DATI = {
       "nome": "Scuola Leonardo da Vinci Milano",
       "citta": "Milano",
       "regione": "Lombardia",
-      "sito": "https://www.scuolaleonardo.com",
-      "pagina_corsi": "",
+      "sito": "https://www.leonardo-milan.com",
+      "pagina_corsi": "https://www.leonardo-milan.com/dates-courses-in-milan.html",
       "email": "info@scuolaleonardo.com",
       "accreditamenti": [
-        "AIL"
+        "ASILS",
+        "AIL",
+        "EDUITALIA",
+        "Bildungsurlaub",
+        "CILS",
+        "CSN"
       ],
       "corsi": [
         {
@@ -1499,7 +1504,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [
         "AIL",
-        "CILS"
+        "CILS",
+        "DITALS"
       ],
       "note": "Corsi di gruppo con inizio ogni lunedì (principianti assoluti in date fisse, ogni 2 settimane). Verificato a mano sul sito ufficiale il 31/07/2026: il sito ha una protezione anti-bot e lo script non può leggerlo.",
       "verificato_il": "2026-07-31",
@@ -1509,11 +1515,21 @@ const DATI = {
         "max_studenti_classe": 14,
         "materiale": "inclusi",
         "test_ingresso": "online",
-        "tassa_iscrizione": null,
+        "tassa_iscrizione": 70,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "arte",
+        "cucina",
+        "online",
+        "letteratura",
+        "moda",
+        "pittura",
+        "storia dell'arte",
+        "vino",
+        "over50"
+      ],
       "email_stato": "stimata"
     },
     {
@@ -1655,20 +1671,18 @@ const DATI = {
       "nome": "Cultura Italiana Bologna",
       "citta": "Bologna",
       "regione": "Emilia-Romagna",
-      "sito": "https://www.culturaitaliana.it",
-      "pagina_corsi": "",
+      "sito": "https://www.culturaitaliana.eu",
+      "pagina_corsi": "https://www.culturaitaliana.eu/it/informazioni/prezzi-e-date-di-inizio/",
       "email": "info@culturaitaliana.it",
       "accreditamenti": [],
       "corsi": [
         {
           "tipo": "intensivo",
-          "ore_settimana": 20,
-          "prezzo_da_settimana": null
+          "ore_settimana": 25
         },
         {
           "tipo": "leggero",
-          "ore_settimana": 10,
-          "prezzo_da_settimana": null
+          "ore_settimana": 15
         }
       ],
       "inizio": {
@@ -3970,10 +3984,13 @@ const DATI = {
       "nome": "Sant'Anna Institute",
       "citta": "Sorrento",
       "regione": "Campania",
-      "sito": "https://www.santannainstitute.com",
+      "sito": "https://www.sorrentolingue.com",
       "pagina_corsi": "",
-      "email": "info@santannainstitute.com",
-      "accreditamenti": [],
+      "email": "info@sorrentolingue.com",
+      "accreditamenti": [
+        "EDUITALIA",
+        "CELI"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -3993,8 +4010,10 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
-      "note": "Le date di inizio non sono pubblicate sul sito della scuola. Nella maggior parte delle scuole i corsi intensivi di gruppo partono ogni lunedì (i principianti assoluti in date fisse, in genere ogni due settimane). Scrivi alla scuola per confermare la prossima data utile: in alta stagione (giugno–settembre) i posti si chiudono 2–3 settimane prima.",
+      "esami_in_sede": [
+        "CELI"
+      ],
+      "note": "Struttura storica sulla Marina Grande, di fronte al Vesuvio. Programmi universitari con crediti USA; centro esami CELI e Cambridge.",
       "verificato_il": null,
       "stato_dati": "da_verificare",
       "info": {
@@ -4006,7 +4025,11 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "cucina",
+        "arte",
+        "storia dell'arte"
+      ],
       "anteprima": true,
       "email_stato": "stimata"
     },
@@ -4657,6 +4680,302 @@ const DATI = {
       "extra": [],
       "anteprima": true,
       "email_stato": "stimata"
+    },
+    {
+      "id": "inflorence-academy",
+      "nome": "InFlorence Academy",
+      "citta": "Firenze",
+      "regione": "Toscana",
+      "sito": "https://www.inflorenceacademy.it",
+      "accreditamenti": [
+        "EDUITALIA",
+        "LICET",
+        "DITALS",
+        "CSN"
+      ],
+      "esami_in_sede": [
+        "DITALS"
+      ],
+      "alloggio": true,
+      "corsi": [
+        {
+          "tipo": "intensivo",
+          "ore_settimana": 25
+        },
+        {
+          "tipo": "leggero",
+          "ore_settimana": 10
+        }
+      ],
+      "durata_min_settimane": 1,
+      "inizio": {
+        "frequenza": "date-fisse",
+        "date": [
+          "2026-08-25",
+          "2026-09-15",
+          "2026-10-13",
+          "2026-11-10"
+        ],
+        "principianti": "date fisse mensili; chi parla già italiano inizia ogni lunedì"
+      },
+      "info": {
+        "durata_lezione_min": 55,
+        "max_studenti_classe": 12,
+        "materiale": "inclusi",
+        "test_ingresso": "online",
+        "servizio_alloggio": "gratuito",
+        "wifi": true
+      },
+      "extra": [
+        "arte",
+        "pittura",
+        "moda",
+        "storia dell'arte",
+        "cucina"
+      ],
+      "stato_dati": "da_verificare",
+      "verificato_il": null,
+      "email": "info@inflorenceacademy.it",
+      "email_stato": "stimata",
+      "note": "Prima scuola di lingua italiana fondata a Firenze, in Palazzo Guadagni (1502)."
+    },
+    {
+      "id": "centro-italiano-firenze",
+      "nome": "Centro Italiano Firenze",
+      "citta": "Firenze",
+      "regione": "Toscana",
+      "sito": "https://www.centroitalianofirenze.com",
+      "accreditamenti": [
+        "ASILS"
+      ],
+      "esami_in_sede": [],
+      "alloggio": true,
+      "corsi": [
+        {
+          "tipo": "intensivo",
+          "ore_settimana": 20
+        },
+        {
+          "tipo": "leggero",
+          "ore_settimana": 10
+        }
+      ],
+      "durata_min_settimane": 1,
+      "inizio": {
+        "frequenza": "ogni-lunedi",
+        "date": [],
+        "principianti": "date fisse ogni 2 settimane"
+      },
+      "info": {
+        "wifi": true
+      },
+      "extra": [
+        "arte",
+        "cucina",
+        "storia dell'arte"
+      ],
+      "stato_dati": "da_verificare",
+      "verificato_il": null,
+      "email": "info@centroitalianofirenze.com",
+      "email_stato": "stimata"
+    },
+    {
+      "id": "studitalia",
+      "nome": "Studitalia",
+      "citta": "Olbia",
+      "regione": "Sardegna",
+      "sito": "https://www.studitalia.com",
+      "accreditamenti": [],
+      "esami_in_sede": [],
+      "alloggio": true,
+      "corsi": [
+        {
+          "tipo": "intensivo",
+          "ore_settimana": 20
+        },
+        {
+          "tipo": "leggero",
+          "ore_settimana": 10
+        }
+      ],
+      "durata_min_settimane": 1,
+      "inizio": {
+        "frequenza": "ogni-lunedi",
+        "date": [],
+        "principianti": "date fisse ogni 2 settimane"
+      },
+      "info": {
+        "wifi": true
+      },
+      "extra": [
+        "cucina",
+        "online"
+      ],
+      "stato_dati": "da_verificare",
+      "verificato_il": null,
+      "email": "info@studitalia.com",
+      "email_stato": "stimata"
+    },
+    {
+      "id": "trulli-italian-school",
+      "nome": "Trulli Italian School",
+      "citta": "Alberobello",
+      "regione": "Puglia",
+      "sito": "https://www.trulliitalianschool.com",
+      "accreditamenti": [],
+      "esami_in_sede": [],
+      "alloggio": true,
+      "corsi": [
+        {
+          "tipo": "intensivo",
+          "ore_settimana": 20
+        },
+        {
+          "tipo": "leggero",
+          "ore_settimana": 10
+        }
+      ],
+      "durata_min_settimane": 1,
+      "inizio": {
+        "frequenza": "ogni-lunedi",
+        "date": [],
+        "principianti": "date fisse ogni 2 settimane"
+      },
+      "info": {
+        "wifi": true
+      },
+      "extra": [
+        "cucina",
+        "vino",
+        "artigianato"
+      ],
+      "stato_dati": "da_verificare",
+      "verificato_il": null,
+      "email": "info@trulliitalianschool.com",
+      "email_stato": "stimata"
+    },
+    {
+      "id": "gaia-institute",
+      "nome": "GAIA Institute",
+      "citta": "La Maddalena",
+      "regione": "Sardegna",
+      "sito": "https://www.gaia-institute.it",
+      "accreditamenti": [],
+      "esami_in_sede": [],
+      "alloggio": true,
+      "corsi": [
+        {
+          "tipo": "intensivo",
+          "ore_settimana": 20
+        },
+        {
+          "tipo": "leggero",
+          "ore_settimana": 10
+        }
+      ],
+      "durata_min_settimane": 1,
+      "inizio": {
+        "frequenza": "ogni-lunedi",
+        "date": [],
+        "principianti": "date fisse ogni 2 settimane"
+      },
+      "info": {
+        "wifi": true
+      },
+      "extra": [
+        "cucina",
+        "online"
+      ],
+      "stato_dati": "da_verificare",
+      "verificato_il": null,
+      "email": "info@gaia-institute.it",
+      "email_stato": "stimata"
+    },
+    {
+      "id": "punto-e-virgola",
+      "nome": "Punto e Virgola",
+      "citta": "Grottaglie",
+      "regione": "Puglia",
+      "sito": "https://www.puntoevirgola.eu",
+      "accreditamenti": [],
+      "esami_in_sede": [],
+      "alloggio": true,
+      "corsi": [
+        {
+          "tipo": "intensivo",
+          "ore_settimana": 20
+        },
+        {
+          "tipo": "leggero",
+          "ore_settimana": 10
+        }
+      ],
+      "durata_min_settimane": 1,
+      "inizio": {
+        "frequenza": "ogni-lunedi",
+        "date": [],
+        "principianti": "date fisse ogni 2 settimane"
+      },
+      "info": {
+        "wifi": true
+      },
+      "extra": [
+        "cucina",
+        "artigianato",
+        "online"
+      ],
+      "stato_dati": "da_verificare",
+      "verificato_il": null,
+      "email": "info@puntoevirgola.eu",
+      "email_stato": "stimata"
+    },
+    {
+      "id": "arca",
+      "nome": "Arca",
+      "citta": "Bologna",
+      "regione": "Emilia-Romagna",
+      "sito": "https://www.arca-bologna.com",
+      "pagina_corsi": "https://www.arca-bologna.com/it/corsi/date-prezzi/",
+      "accreditamenti": [
+        "ASILS"
+      ],
+      "esami_in_sede": [],
+      "alloggio": true,
+      "corsi": [
+        {
+          "tipo": "intensivo",
+          "ore_settimana": 20
+        },
+        {
+          "tipo": "leggero",
+          "ore_settimana": 10
+        }
+      ],
+      "durata_min_settimane": 1,
+      "inizio": {
+        "frequenza": "ogni-lunedi",
+        "date": [],
+        "principianti": "ogni lunedì; possibile qualsiasi giorno lavorativo"
+      },
+      "info": {
+        "max_studenti_classe": 8,
+        "materiale": "inclusi",
+        "servizio_alloggio": "gratuito",
+        "wifi": true
+      },
+      "extra": [
+        "cucina",
+        "vino",
+        "musica",
+        "letteratura",
+        "storia dell'arte",
+        "over50"
+      ],
+      "email": "info@arca-bologna.com",
+      "email_stato": "stimata",
+      "note": "Classi piccole (3–8 studenti). Chiusa 10–23 agosto e 21 dic–10 gen. Una delle prime scuole d'italiano di Bologna.",
+      "stato_dati": "da_verificare",
+      "verificato_il": null
     }
   ],
   "citta": {
@@ -6395,6 +6714,50 @@ const DATI = {
         39.22,
         9.12
       ]
+    },
+    "Olbia": {
+      "regione": "Sardegna",
+      "coord": [
+        40.92,
+        9.5
+      ],
+      "aeroporto": "Olbia Costa Smeralda (OLB)",
+      "top3": [],
+      "eventi": [],
+      "guida": ""
+    },
+    "Alberobello": {
+      "regione": "Puglia",
+      "coord": [
+        40.78,
+        17.24
+      ],
+      "aeroporto": "Bari (BRI)",
+      "top3": [],
+      "eventi": [],
+      "guida": ""
+    },
+    "La Maddalena": {
+      "regione": "Sardegna",
+      "coord": [
+        41.21,
+        9.41
+      ],
+      "aeroporto": "Olbia (OLB)",
+      "top3": [],
+      "eventi": [],
+      "guida": ""
+    },
+    "Grottaglie": {
+      "regione": "Puglia",
+      "coord": [
+        40.53,
+        17.43
+      ],
+      "aeroporto": "Brindisi (BDS)",
+      "top3": [],
+      "eventi": [],
+      "guida": ""
     }
   }
 };
