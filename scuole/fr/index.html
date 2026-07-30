@@ -11,6 +11,7 @@
 <link rel="alternate" hreflang="de" href="https://thuisitaliaans.com/scuole/de/">
 <link rel="alternate" hreflang="fr" href="https://thuisitaliaans.com/scuole/fr/">
 <link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/scuole/en/">
+<meta property="og:site_name" content="thuisitaliaans"><meta property="og:type" content="website"><meta property="og:title" content="Séjours linguistiques en Italie — 100 écoles d&#x27;italien | thuisitaliaans"><meta property="og:description" content="Trouvez votre cours d&#x27;italien en Italie : 100 écoles sélectionnées, filtres par ville, période, intensité et durée, avec guides de voyage et événements."><meta property="og:url" content="https://thuisitaliaans.com/scuole/fr/"><meta property="og:locale" content="fr_FR">
 <style>:root{--carta:#FAF6EF;--card:#FFF;--inchiostro:#221D16;--secondario:#6E6759;--terracotta:#BC5533;--terracotta-scuro:#9E4527;--salvia:#5E7357;--salvia-chiara:#EAF0E6;--ambra:#B07C1F;--ambra-chiara:#FBF3DF;--linea:#E7E0D2;--r:18px;--r-s:12px;--ombra:0 1px 2px rgba(34,29,22,.05),0 10px 30px -12px rgba(34,29,22,.14);--serif:"Iowan Old Style",Georgia,"Times New Roman",serif;--sans:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}body{background:var(--carta);color:var(--inchiostro);font-family:var(--sans);line-height:1.5}a{color:inherit}
 .contenitore{max-width:1100px;margin:0 auto;padding:0 20px}
@@ -23,7 +24,14 @@ header{padding:16px 0;border-bottom:1px solid var(--linea)}.testata{display:flex
 .timbro.ok{background:var(--salvia-chiara);color:var(--salvia)}.timbro.attenzione{background:var(--ambra-chiara);color:var(--ambra)}
 .bottone{display:inline-block;text-align:center;text-decoration:none;font-size:14px;font-weight:600;border-radius:var(--r-s);padding:10px 16px;border:1px solid var(--linea);background:var(--carta);cursor:pointer;font-family:var(--sans)}
 .bottone.pieno{background:var(--terracotta);border-color:var(--terracotta);color:#fff}.bottone.pieno:hover{background:var(--terracotta-scuro)}
-footer{border-top:1px solid var(--linea);padding:26px 0 40px;color:var(--secondario);font-size:13px;margin-top:50px}.hero{padding:44px 0 28px;text-align:center}.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(30px,5vw,44px);line-height:1.12}.hero h1 em{font-style:italic;color:var(--terracotta)}
+footer{border-top:1px solid var(--linea);padding:26px 0 40px;color:var(--secondario);font-size:13px;margin-top:50px}
+.sigle{margin-top:18px;padding-top:14px;border-top:1px dashed var(--linea);display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:8px 22px;font-size:12px;line-height:1.45}
+.sigle-h{grid-column:1/-1;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--secondario)}
+.sigle b{color:var(--inchiostro)}
+.tagriga{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tag{font-size:12px;border-radius:999px;padding:4px 11px;background:var(--carta);border:1px solid var(--linea);color:var(--secondario)}
+.badge[data-tip]{position:relative;cursor:help}
+.badge[data-tip]:hover::after{content:attr(data-tip);position:absolute;left:0;top:calc(100% + 6px);z-index:9;background:var(--inchiostro);color:#fff;padding:8px 10px;border-radius:8px;font-size:12px;font-weight:500;width:260px;line-height:1.4;box-shadow:var(--ombra)}.hero{padding:44px 0 28px;text-align:center}.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(30px,5vw,44px);line-height:1.12}.hero h1 em{font-style:italic;color:var(--terracotta)}
 .hero p{margin:12px auto 0;max-width:640px;color:var(--secondario);font-size:16px}
 .barra{margin:26px auto 0;max-width:900px;background:var(--card);border:1px solid var(--linea);border-radius:999px;box-shadow:var(--ombra);display:grid;grid-template-columns:1.2fr 1fr 1fr .9fr auto;overflow:hidden}
 .campo{padding:12px 18px;text-align:left;border-right:1px solid var(--linea)}.campo label{display:block;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--secondario)}
@@ -48,7 +56,7 @@ footer{border-top:1px solid var(--linea);padding:26px 0 40px;color:var(--seconda
   <nav class="lingue"><a href="/scuole/">IT</a> · <a href="/scuole/en/">EN</a> · <a href="/scuole/nl/">NL</a> · <a href="/scuole/de/">DE</a> · <a class="attiva" href="/scuole/fr/">FR</a></nav>
 </div></header>
 <section class="hero contenitore">
-  <h1>Votre cours d'italien <em>en Italie</em>,<br>organisé comme un voyage.</h1><p>Choisissez la ville, la période et le rythme d'étude. Pour chaque destination : l'école, les heures par semaine, le logement et un mini-guide avec les trois incontournables et les événements de l'année.</p>
+  <h1>Écoles d'italien en Italie : <em>trouvez votre cours, planifiez le voyage</em>.</h1><p>Choisissez la ville, la période et le rythme d'étude. Pour chaque destination : l'école, les heures par semaine, le logement et un mini-guide avec les trois incontournables et les événements de l'année.</p>
   <div class="barra">
     <div class="campo"><label>Où</label><select id="f-citta"><option value="">Toute l'Italie</option></select></div>
     <div class="campo"><label>Quand</label><select id="f-mese"><option value="">Tous les mois</option></select></div>
@@ -68,11 +76,11 @@ footer{border-top:1px solid var(--linea);padding:26px 0 40px;color:var(--seconda
   <small>Trier : <select id="ordina" style="border:0;background:transparent;font:inherit;color:var(--terracotta);font-weight:600"><option value="citta">ville A–Z</option><option value="nome">école A–Z</option></select></small></div>
   <div class="griglia" id="griglia"></div>
 </main>
-<footer><div class="contenitore">Les informations sur les cours, dates et prix sont indicatives et doivent toujours être confirmées auprès de l'école. Les fiches avec le tampon vert indiquent la date de la dernière vérification. Sélection basée sur les listes officielles ASILS, EDUITALIA, IALC et les centres d'examen CILS, CELI et PLIDA.</div></footer>
+<footer><div class="contenitore">Les informations sur les cours, dates et prix sont indicatives et doivent toujours être confirmées auprès de l'école. Les fiches avec le tampon vert indiquent la date de la dernière vérification. Sélection basée sur les listes officielles ASILS, EDUITALIA, IALC et les centres d'examen CILS, CELI et PLIDA.<div class="sigle"><div class="sigle-h">Les sigles, en bref</div><span><b>ASILS</b> Association italienne des écoles d'italien langue seconde ; qualité contrôlée par un certificateur indépendant.</span><span><b>EDUITALIA</b> Association d'écoles et d'universités accréditées qui promeut les études en Italie.</span><span><b>AIL</b> Accademia Italiana di Lingua : réseau d'écoles avec ses propres examens « Firenze ».</span><span><b>IALC</b> Réseau international d'écoles de langues indépendantes et inspectées.</span><span><b>Bildungsurlaub</b> Reconnaissance allemande : le cours ouvre droit au congé de formation rémunéré.</span><span><b>CILS</b> Certification officielle de l'Université pour étrangers de Sienne.</span><span><b>CELI</b> Certification officielle de l'Université pour étrangers de Pérouse.</span><span><b>PLIDA</b> Certification officielle de la Società Dante Alighieri.</span></div></div></footer>
 <script src="../dati.js"></script>
 <script>
 (function(){
-const T={"lbl_int": "Intensif", "lbl_leg": "Léger", "lbl_inizio": "Début", "lbl_all": "Logement", "si": "oui", "no": "non", "ogni_lun": "chaque lundi", "dal": "dès le", "su_r": "sur demande", "hsett": "h/sem.", "prezzo_da": "dès €", "sett_abbr": "/sem.", "prezzo_sur": "prix sur demande", "verif": "Vérifié le", "daconf": "Infos à confirmer avec l'école", "vedi": "Voir l'école", "vuoto1": "Aucune école avec ces filtres.", "vuoto2": "Élargissez la période ou retirez un filtre.", "trovate": "écoles trouvées", "mesi": ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]};
+const T={"lbl_int": "Intensif", "lbl_leg": "Léger", "lbl_inizio": "Début", "lbl_all": "Logement", "si": "oui", "no": "non", "ogni_lun": "chaque lundi", "dal": "dès le", "su_r": "sur demande", "hsett": "h/sem.", "prezzo_da": "dès €", "sett_abbr": "/sem.", "prezzo_sur": "prix sur demande", "verif": "Vérifié le", "daconf": "Infos à confirmer avec l'école", "vedi": "Voir l'école", "vuoto1": "Aucune école avec ces filtres.", "vuoto2": "Élargissez la période ou retirez un filtre.", "trovate": "écoles trouvées", "mesi": ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"], "gloss": {"ASILS": "Association italienne des écoles d'italien langue seconde ; qualité contrôlée par un certificateur indépendant.", "EDUITALIA": "Association d'écoles et d'universités accréditées qui promeut les études en Italie.", "AIL": "Accademia Italiana di Lingua : réseau d'écoles avec ses propres examens « Firenze ».", "IALC": "Réseau international d'écoles de langues indépendantes et inspectées.", "Bildungsurlaub": "Reconnaissance allemande : le cours ouvre droit au congé de formation rémunéré.", "CILS": "Certification officielle de l'Université pour étrangers de Sienne.", "CELI": "Certification officielle de l'Université pour étrangers de Pérouse.", "PLIDA": "Certification officielle de la Società Dante Alighieri."}};
 const MARE=["Taormina","Milazzo","Palermo","Palermo (Mondello)","Alghero","Otranto","Tropea","Sorrento","Salerno","Napoli","Genova","Sestri Levante","Sanremo","Viareggio","Rimini","Orbetello","Trieste","Venezia","Pisa","Cefal\u00f9","Trapani","Cagliari","Lignano Sabbiadoro","Isola d'Elba"];
 const stato={chips:{}};
 const selCitta=document.getElementById("f-citta");
@@ -104,7 +112,7 @@ function card(s){
  var prezzo=(i&&i.prezzo_da_settimana)?T.prezzo_da+i.prezzo_da_settimana+T.sett_abbr:T.prezzo_sur;
  var timbro=s.stato_dati==="verificato"?'<div class="timbro ok">\u2713 '+T.verif+' '+(s.verificato_il||"\u2014")+'</div>'
    :'<div class="timbro attenzione">\u25cc '+T.daconf+'</div>';
- var badges=s.accreditamenti.map(function(a){return '<span class="badge">'+a+'</span>'}).join("");
+var badges=s.accreditamenti.map(function(a){return '<span class="badge" title="'+(T.gloss[a]||a)+'">'+a+'</span>'}).join("");
  return '<article class="scheda">'
   +'<div class="dove">'+s.citta+' <span>\u00b7 '+s.regione+'</span></div><h3>'+s.nome+'</h3>'
   +(badges?'<div class="badge-riga">'+badges+'</div>':'')
