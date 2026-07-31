@@ -351,6 +351,19 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
 .mappa-elenco{margin-top:22px}
 .mappa-elenco .citta-altre a span{color:var(--secondario);font-weight:500}
 @media(max-width:640px){#mappa{height:min(62vh,460px)}}
+/*fix-v4*/
+/* colonne in percentuale: con table-layout:fixed una larghezza in px non si adatta
+   e il testo in nowrap finiva addosso alla colonna accanto */
+.festivi-tab td:first-child,.sigle-tab td:first-child{white-space:normal!important;padding-right:12px}
+.festivi-tab td:first-child{width:38%!important}
+.sigle-tab td:first-child{width:34%!important}
+.eventi-tab td:last-child{padding-left:10px}
+@media(max-width:640px){
+.festivi-tab td:first-child{width:40%!important}
+.sigle-tab td:first-child{width:36%!important}
+.eventi-tab td:last-child{width:32%}
+}
+.mail-multi b{font-weight:500;font-size:13px;color:var(--secondario)}
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script></head>
 <body>
