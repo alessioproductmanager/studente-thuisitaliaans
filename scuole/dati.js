@@ -1000,7 +1000,13 @@ const DATI = {
         "Preparazione CILS",
         "Voice & Opera",
         "Disegno e Pittura"
-      ]
+      ],
+      "prezzi_rilevati": {
+        "iscrizione": 80,
+        "iscrizione_mesi": 12,
+        "fonte": "aefirenze.it",
+        "rilevato_il": "2026-07-31"
+      }
     },
     {
       "id": "centro-koine-firenze",
@@ -1241,7 +1247,8 @@ const DATI = {
         "Italian on tour",
         "Preparazione esami"
       ],
-      "fondata_nel": 1984
+      "fondata_nel": 1984,
+      "nota_asils": "socia fondatrice ASILS, non nell elenco soci attuale"
     },
     {
       "id": "scuola-leonardo-da-vinci-roma",
