@@ -44,10 +44,10 @@ const DATI = {
       "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
+        "max_studenti_classe": 14,
         "materiale": "inclusi",
         "test_ingresso": "online",
-        "tassa_iscrizione": null,
+        "tassa_iscrizione": 80,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
@@ -60,7 +60,15 @@ const DATI = {
         "Moda e design",
         "Preparazione DITALS",
         "La Dolce Vita 50+"
-      ]
+      ],
+      "prezzi_rilevati": {
+        "aula_da": null,
+        "online_da": 150,
+        "iscrizione": 80,
+        "iscrizione_mesi": 12,
+        "fonte": "leonardo-florence.com",
+        "rilevato_il": "2026-07-31"
+      }
     },
     {
       "id": "abc-firenze",
@@ -1159,7 +1167,15 @@ const DATI = {
         "over50"
       ],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "prezzi_rilevati": {
+        "aula_da": null,
+        "online_da": null,
+        "iscrizione": 85,
+        "iscrizione_mesi": 12,
+        "fonte": "dilit.it",
+        "rilevato_il": "2026-07-31"
+      }
     },
     {
       "id": "torre-di-babele",
@@ -1296,7 +1312,15 @@ const DATI = {
         "vino",
         "over50"
       ],
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "prezzi_rilevati": {
+        "aula_da": 175,
+        "online_da": null,
+        "iscrizione": 80,
+        "iscrizione_mesi": 12,
+        "fonte": "leonardo-rome.com",
+        "rilevato_il": "2026-07-31"
+      }
     },
     {
       "id": "studioitalia",
