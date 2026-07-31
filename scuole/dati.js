@@ -3841,7 +3841,7 @@ const DATI = {
         {
           "tipo": "intensivo",
           "ore_settimana": 20,
-          "prezzo_da_settimana": null
+          "prezzo_da_settimana": 270
         },
         {
           "tipo": "leggero",
@@ -3857,7 +3857,7 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [],
-      "note": "",
+      "note": "Dal 1986 nel centro storico di Perugia, aule panoramiche. Corso intensivo €270/sett, standard €180/sett; membro ASILS.",
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
@@ -4651,7 +4651,7 @@ const DATI = {
         {
           "tipo": "intensivo",
           "ore_settimana": 20,
-          "prezzo_da_settimana": null
+          "prezzo_da_settimana": 280
         },
         {
           "tipo": "leggero",
@@ -4666,8 +4666,10 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
-      "note": "Partner Università per Stranieri di Siena",
+      "esami_in_sede": [
+        "CILS"
+      ],
+      "note": "A Milazzo, base per le Isole Eolie. Da €280/sett. Corsi speciali: italiano + vela e trekking, corso alle Eolie, 50+, preparazione CILS. Sede d'esame CILS.",
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
@@ -4679,9 +4681,23 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "cucina",
+        "online",
+        "over50",
+        "vela",
+        "trekking"
+      ],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "corsi_speciali": [
+        "Intensivo Plus",
+        "Campus",
+        "50+ Senior",
+        "Preparazione CILS",
+        "Italiano + vela e trekking",
+        "Corso alle Isole Eolie"
+      ]
     },
     {
       "id": "solemar-academy",
