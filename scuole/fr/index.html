@@ -250,7 +250,22 @@ form textarea{min-height:110px;resize:vertical}.nascosto{position:absolute;left:
 .citta-altre{display:flex;flex-wrap:wrap;gap:10px 12px;line-height:1.9}
 .citta-altre a{border:1px solid var(--linea);border-radius:999px;padding:8px 15px;font-size:13.5px;text-decoration:none;color:var(--secondario);background:var(--card);transition:border-color .15s,color .15s}
 .citta-altre a:hover{color:var(--inchiostro);border-color:var(--terracotta)}
-.citta-altre a span{color:var(--terracotta);font-weight:600}</style>
+.citta-altre a span{color:var(--terracotta);font-weight:600}/*fix-card-mobile-v1*/
+.scheda,.pannello,.citta-scuola,.app-promo,.meta,.dati,.dativ2,.colonne,.griglia,.citta-scuole{min-width:0}
+.scheda>*,.pannello>*,.citta-scuola>*,.meta>*,.dati>*,.dativ2>*{min-width:0}
+.scheda,.pannello,.citta-scuola,.meta,.dati,.dativ2,.meta b,.dati b,.riga-dato .etich,.riga-dato .val,.hl-chip span,.tematici,.descr,.altre a,.citta-scuola .meta2,.tag{overflow-wrap:break-word;word-break:break-word}
+.scheda a[href^="mailto:"],.pannello a[href^="mailto:"],.riga-dato .val a,.scheda a[href^="http"]{word-break:break-all}
+@media(max-width:640px){
+.meta{grid-template-columns:1fr;gap:5px 0}
+.meta>div,.meta>span,.meta>p{display:block}
+.badge{white-space:normal}
+.pross,.pross-b{white-space:normal}
+.scheda{overflow:visible}
+}
+@media(max-width:400px){
+.dativ2{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
 <header><div class="contenitore testata">
