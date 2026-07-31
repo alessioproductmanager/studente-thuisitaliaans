@@ -1082,9 +1082,15 @@ const DATI = {
         }
       ],
       "inizio": {
-        "frequenza": "ogni-lunedi",
-        "date": [],
-        "principianti": "date fisse, in genere ogni 2 settimane"
+        "frequenza": "date-fisse",
+        "date": [
+          "2026-08-17",
+          "2026-09-21",
+          "2026-10-19",
+          "2026-11-16",
+          "2026-12-07"
+        ],
+        "principianti": "date fisse mensili per principianti assoluti; chi parla già italiano inizia ogni lunedì"
       },
       "durata_min_settimane": 1,
       "alloggio": true,
@@ -1198,9 +1204,20 @@ const DATI = {
         }
       ],
       "inizio": {
-        "frequenza": "ogni-lunedi",
-        "date": [],
-        "principianti": "date fisse, in genere ogni 2 settimane"
+        "frequenza": "date-fisse",
+        "date": [
+          "2026-08-03",
+          "2026-08-17",
+          "2026-08-31",
+          "2026-09-14",
+          "2026-09-28",
+          "2026-10-12",
+          "2026-10-26",
+          "2026-11-09",
+          "2026-11-23",
+          "2026-12-07"
+        ],
+        "principianti": "date fisse ogni 2 settimane; chi parla già italiano inizia ogni lunedì"
       },
       "durata_min_settimane": 1,
       "alloggio": true,
@@ -1216,7 +1233,7 @@ const DATI = {
         "max_studenti_classe": 14,
         "materiale": "inclusi",
         "test_ingresso": "online",
-        "tassa_iscrizione": 70,
+        "tassa_iscrizione": 80,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
