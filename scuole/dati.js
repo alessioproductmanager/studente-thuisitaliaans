@@ -1554,7 +1554,18 @@ const DATI = {
         "Due settimane a Roma",
         "Superintensivo 30/35/40",
         "Full immersion"
-      ]
+      ],
+      "prezzi_rilevati": {
+        "individuale": 35,
+        "attivita": "gratuite con almeno 7 iscritti",
+        "fonte": "scudit.net",
+        "rilevato_il": "2026-07-31"
+      },
+      "condizioni": {
+        "festivi": "non recuperati nei gruppi, recuperati o rimborsati nelle private",
+        "fonte": "scudit.net"
+      },
+      "altri_corsi": "diretta da Roberto Tartaglione, partner Oslo e Belgrado, corso residenti"
     },
     {
       "id": "ciao-italia",
@@ -5455,8 +5466,15 @@ const DATI = {
       "citta": "Firenze",
       "regione": "Toscana",
       "sito": "https://www.centroitalianofirenze.com",
-      "accreditamenti": [],
-      "esami_in_sede": [],
+      "accreditamenti": [
+        "ASILS",
+        "EDUITALIA",
+        "Bildungsurlaub",
+        "CSN"
+      ],
+      "esami_in_sede": [
+        "CILS"
+      ],
       "alloggio": true,
       "corsi": [
         {
@@ -5475,21 +5493,30 @@ const DATI = {
         "principianti": "date fisse ogni 2 settimane"
       },
       "info": {
-        "max_studenti_classe": 12,
+        "max_studenti_classe": 6,
         "materiale": "inclusi",
         "servizio_alloggio": "gratuito",
-        "wifi": true
+        "wifi": true,
+        "durata_lezione_min": 55,
+        "tassa_iscrizione": 0
       },
       "extra": [
         "arte",
         "cucina",
         "storia dell'arte"
       ],
-      "stato_dati": "da_verificare",
-      "verificato_il": null,
+      "stato_dati": "verificato",
+      "verificato_il": "2026-07-31",
       "email": "info@centroitalianofirenze.com",
       "email_stato": "stimata",
-      "note": "In Piazza D'Azeglio; corsi personalizzati con abbinamento a interessi dello studente."
+      "note": "In Piazza D'Azeglio; corsi personalizzati con abbinamento a interessi dello studente.",
+      "prezzi_rilevati": {
+        "iscrizione": 0,
+        "acconto": "14 giorni prima",
+        "fonte": "centroitalianofirenze.it",
+        "rilevato_il": "2026-07-31"
+      },
+      "altri_corsi": "classi da 6, centro culturale, affiliati a Orbetello Lucca Bologna Napoli"
     },
     {
       "id": "studitalia",
