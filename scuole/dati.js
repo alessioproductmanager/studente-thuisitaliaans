@@ -3078,19 +3078,28 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
         "materiale": "inclusi",
         "test_ingresso": "online",
-        "tassa_iscrizione": null,
+        "tassa_iscrizione": 50,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
       "extra": [],
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 2002,
+      "prezzi_rilevati": {
+        "iscrizione": 50,
+        "iscrizione_mesi": 12,
+        "sconto": "5% altri corsi",
+        "fonte": "adoortoitaly.com",
+        "rilevato_il": "2026-07-31"
+      },
+      "altri_corsi": "forma interpreti UE dal 2008, dipartimento interpretariato dal 2014"
     },
     {
       "id": "scuola-tricolore",
@@ -3778,22 +3787,35 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
+      "esami_in_sede": [
+        "CILS",
+        "CELI"
+      ],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
         "materiale": "inclusi",
         "test_ingresso": "online",
-        "tassa_iscrizione": null,
+        "tassa_iscrizione": 70,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 1981,
+      "prezzi_rilevati": {
+        "iscrizione": 70,
+        "iscrizione_mesi": 12,
+        "transfer": 50,
+        "acconto": "iscrizione + 20%",
+        "fonte": "ilm.it",
+        "rilevato_il": "2026-07-31"
+      },
+      "altri_corsi": "scuola piccola 500 studenti/anno, sede estiva a Viareggio"
     },
     {
       "id": "centro-culturale-giacomo-puccini",
