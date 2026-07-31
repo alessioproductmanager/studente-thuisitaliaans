@@ -162,7 +162,9 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
+      "esami_in_sede": [
+        "CILS"
+      ],
       "note": "In via Santo Spirito (Oltrarno), con sede estiva all'Isola d'Elba. Classi max 12.",
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
@@ -188,7 +190,9 @@ const DATI = {
         "serale_12sett": 400,
         "fonte": "comune.fi.it",
         "rilevato_il": "2026-07-31"
-      }
+      },
+      "fondata_nel": 1982,
+      "altri_corsi": "sede CILS, LifeLong Learners 40+"
     },
     {
       "id": "istituto-michelangelo",
@@ -2728,8 +2732,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "Centro estivo per ragazzi e adulti",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -2740,7 +2744,9 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 1995,
+      "altri_corsi": "campo estivo per ragazzi dal 1995, spiaggia privata e sport"
     },
     {
       "id": "alpha-beta-piccadilly-bolzano",
@@ -4028,8 +4034,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "Sede estiva sull'isola",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -4041,7 +4047,8 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "altri_corsi": "sede estiva a Marciana Marina, italiano + sport"
     },
     {
       "id": "il-sillabo",
