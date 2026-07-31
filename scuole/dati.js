@@ -38,7 +38,7 @@ const DATI = {
         "CILS",
         "AIL"
       ],
-      "note": "Corsi di gruppo con inizio ogni lunedì (principianti assoluti in date fisse, ogni 2 settimane). Verificato a mano sul sito ufficiale il 31/07/2026: il sito ha una protezione anti-bot e lo script non può leggerlo.",
+      "note": "Parte del network Scuola Leonardo da Vinci (Firenze, Milano, Roma, Torino). Corsi standard/intensivi e programmi culturali su arte, cucina, moda; sede d'esame DITALS. Corso online da €150/sett.",
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
@@ -51,7 +51,15 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "corsi_speciali": [
+        "Storia dell'arte",
+        "Cucina",
+        "Musica",
+        "Moda e design",
+        "Preparazione DITALS",
+        "La Dolce Vita 50+"
+      ]
     },
     {
       "id": "abc-firenze",
@@ -87,10 +95,10 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [
-        "CILS",
-        "AIL"
+        "AIL",
+        "CILS"
       ],
-      "note": "Dal 1982, in via dei Bardi. Sponsorizzata dal Comune di Firenze; sede d'esame CILS (tutti i livelli) e AIL.",
+      "note": "Scuola a Firenze (e Sestri Levante). Corso intensivo di gruppo da 30 lezioni/sett: grammatica, conversazione e pratica. Sede d'esame per certificazioni di italiano.",
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
@@ -109,7 +117,12 @@ const DATI = {
         "storia dell'arte"
       ],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "corsi_speciali": [
+        "Intensivo 30 lezioni",
+        "Individuali",
+        "Preparazione CILS"
+      ]
     },
     {
       "id": "centro-fiorenza",
@@ -194,7 +207,7 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [],
-      "note": "Dal 1983, palazzo ottocentesco nel centro storico, a 5–10 min dal Duomo.",
+      "note": "Corsi intensivi di lingua più programmi di storia dell'arte (anche in inglese per principianti) con visite a musei e monumenti di Firenze. Corsi di cultura italiana abbinabili al pomeriggio.",
       "verificato_il": null,
       "stato_dati": "da_verificare",
       "info": {
@@ -208,11 +221,18 @@ const DATI = {
       },
       "extra": [
         "arte",
+        "cucina",
         "storia dell'arte",
-        "cucina"
+        "online"
       ],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "corsi_speciali": [
+        "Storia dell'arte",
+        "Cultura italiana",
+        "Cucina italiana",
+        "Perfezionamento per insegnanti"
+      ]
     },
     {
       "id": "europass-italian-language-school",
@@ -249,7 +269,7 @@ const DATI = {
         "CELI",
         "DITALS"
       ],
-      "note": "Centro storico di Firenze; insegnanti con master e DITALS. Sede d'esame CILS e CELI (anche cittadinanza e università).",
+      "note": "Scuola dinamica in centro a Firenze e online. Ampio programma di attività culturali; corsi standard e intensivi per tutti i livelli, lezioni da 45 minuti.",
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
@@ -287,7 +307,7 @@ const DATI = {
         {
           "tipo": "intensivo",
           "ore_settimana": 20,
-          "prezzo_da_settimana": null
+          "prezzo_da_settimana": 320
         },
         {
           "tipo": "leggero",
@@ -303,11 +323,11 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [],
-      "note": "In Oltrarno, quartiere San Niccolò. Oltre 40 anni di esperienza; ex rete TANDEM International.",
+      "note": "Fondata nel 1978 in Oltrarno (San Niccolò), terrazza sull'Arno. Intensivo €320/sett, max 10 per classe. Famosa per i laboratori artigianali 'Firenze nell'Arte': oreficeria, mosaico fiorentino, restauro, calzature, rilegatura.",
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
-        "durata_lezione_min": 45,
+        "durata_lezione_min": 55,
         "max_studenti_classe": 10,
         "materiale": "inclusi",
         "test_ingresso": "online",
@@ -322,10 +342,19 @@ const DATI = {
         "pittura",
         "storia dell'arte",
         "vino",
-        "over50"
+        "over50",
+        "online"
       ],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "corsi_speciali": [
+        "Super intensivo",
+        "Giro d'Italia",
+        "Italiano + storia dell'arte",
+        "50+",
+        "Firenze nell'Arte (oreficeria, mosaico, restauro, pittura)",
+        "Experit (italiano + tirocinio)"
+      ]
     },
     {
       "id": "linguaviva",
@@ -360,7 +389,7 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [],
-      "note": "Dal 1976 vicino a Santa Maria Novella. Membro IALC; 17 aule su tre piani. Sito con protezione anti-bot.",
+      "note": "Storica scuola fiorentina, parte del gruppo Linguaviva. Corsi intensivi, preparazione esami e programmi culturali; sede riconosciuta per Bildungsurlaub.",
       "verificato_il": null,
       "stato_dati": "da_verificare",
       "info": {
@@ -412,7 +441,7 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [],
-      "note": "Dal 1995 nel cuore di Firenze. Corsi di lingua abbinati ad arte (disegno, pittura, storia dell'arte) in piccoli gruppi.",
+      "note": "In centro a Firenze, unisce lingua e arte: corsi di disegno, pittura e storia dell'arte accanto all'italiano. Classi piccole.",
       "verificato_il": null,
       "stato_dati": "da_verificare",
       "info": {
@@ -430,7 +459,12 @@ const DATI = {
         "storia dell'arte"
       ],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "corsi_speciali": [
+        "Italiano + disegno e pittura",
+        "Storia dell'arte",
+        "Preparazione CILS/CELI"
+      ]
     },
     {
       "id": "scuola-toscana",
@@ -1155,11 +1189,11 @@ const DATI = {
       "esami_in_sede": [
         "DITALS"
       ],
-      "note": "Le date di inizio non sono pubblicate sul sito della scuola. Nella maggior parte delle scuole i corsi intensivi di gruppo partono ogni lunedì (i principianti assoluti in date fisse, in genere ogni due settimane). Scrivi alla scuola per confermare la prossima data utile: in alta stagione (giugno–settembre) i posti si chiudono 2–3 settimane prima.",
+      "note": "Dal 1984 in una villa liberty vicino a La Sapienza. Max 12 per classe (media 8). Sede d'esame DITALS. Ricchi corsi tematici: cucina, fotografia, moda, pittura, gioielleria, canto.",
       "verificato_il": null,
       "stato_dati": "da_verificare",
       "info": {
-        "durata_lezione_min": 45,
+        "durata_lezione_min": 55,
         "max_studenti_classe": 12,
         "materiale": "inclusi",
         "test_ingresso": "online",
@@ -1170,12 +1204,22 @@ const DATI = {
       "extra": [
         "arte",
         "cucina",
+        "fotografia",
         "moda",
-        "storia dell'arte",
-        "vino"
+        "musica",
+        "over50",
+        "online"
       ],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "corsi_speciali": [
+        "Intensive Plus",
+        "Super Intensive",
+        "50+",
+        "Experit (italiano + tirocinio)",
+        "Italian on tour",
+        "Preparazione esami"
+      ]
     },
     {
       "id": "scuola-leonardo-da-vinci-roma",
@@ -1372,7 +1416,7 @@ const DATI = {
         {
           "tipo": "intensivo",
           "ore_settimana": 20,
-          "prezzo_da_settimana": null
+          "prezzo_da_settimana": 210
         },
         {
           "tipo": "leggero",
@@ -1399,7 +1443,7 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [],
-      "note": "Fondata da Roberto Tartaglione, in via La Spezia. Lezioni 45 min, gruppi max 12. Corso speciale 'Mille e una Roma'.",
+      "note": "Fondata da Roberto Tartaglione, autore di manuali d'italiano. Intensivo €210/sett (20 ore, 45 min), classi di solito 5-9 (max 12). Tassa €50. Membro LICET. Attività culturale gratuita ogni settimana.",
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
@@ -1416,7 +1460,15 @@ const DATI = {
         "musica"
       ],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "tassa_iscrizione": 50,
+      "corsi_speciali": [
+        "Mille e una Roma",
+        "Un viaggio chiamato cinema",
+        "Due settimane a Roma",
+        "Superintensivo 30/35/40",
+        "Full immersion"
+      ]
     },
     {
       "id": "ciao-italia",
@@ -1509,12 +1561,12 @@ const DATI = {
       "esami_in_sede": [
         "PLIDA"
       ],
-      "note": "Aperta a Roma dal 1984, riconosciuta dal Ministero. Servizio alloggio €40.",
+      "note": "In centro a Roma, classi piccole (max 8). Specializzata in italiano per il lavoro e commerciale, oltre ai corsi standard.",
       "verificato_il": null,
       "stato_dati": "da_verificare",
       "info": {
-        "durata_lezione_min": 60,
-        "max_studenti_classe": 12,
+        "durata_lezione_min": 55,
+        "max_studenti_classe": 8,
         "materiale": "inclusi",
         "test_ingresso": "online",
         "tassa_iscrizione": 0,
@@ -1527,7 +1579,12 @@ const DATI = {
         "storia dell'arte"
       ],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "corsi_speciali": [
+        "Italiano per il lavoro",
+        "Italiano commerciale",
+        "Preparazione CILS/CELI"
+      ]
     },
     {
       "id": "scuola-d-italiano-dante-alighieri-roma",
@@ -1881,8 +1938,10 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
-      "note": "",
+      "esami_in_sede": [
+        "CELI"
+      ],
+      "note": "In centro a Milano, piccoli gruppi (5-12). Standard 20 lezioni/sett, corsi mattina/pomeriggio/sera. Centro d'esame CELI, accreditata Regione Lombardia, Bildungsurlaub, EduItalia.",
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
@@ -1973,7 +2032,7 @@ const DATI = {
         {
           "tipo": "intensivo",
           "ore_settimana": 20,
-          "prezzo_da_settimana": null
+          "prezzo_da_settimana": 300
         },
         {
           "tipo": "leggero",
@@ -1989,7 +2048,7 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [],
-      "note": "",
+      "note": "Nel centro storico di Bologna (via Altabella). Standard 20h €300/sett, intensivo 30h €450. Membro ASILS, certificata UNI 11863:2022. Sconto 15% sui corsi di gruppo.",
       "verificato_il": null,
       "stato_dati": "da_verificare",
       "info": {
@@ -2003,7 +2062,13 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "corsi_speciali": [
+        "Intensivo 30 ore",
+        "Corsi serali",
+        "Lezioni individuali",
+        "Online"
+      ]
     },
     {
       "id": "alce-accademia-lingue-e-culture-europee",
@@ -4210,7 +4275,7 @@ const DATI = {
         {
           "tipo": "intensivo",
           "ore_settimana": 20,
-          "prezzo_da_settimana": null
+          "prezzo_da_settimana": 230
         },
         {
           "tipo": "leggero",
@@ -4226,7 +4291,7 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [],
-      "note": "",
+      "note": "Dal 1982 nel centro storico di Napoli, vicino all'università e a Via Toledo. Intensivo €230/sett, classi max 12. Corsi speciali su cucina napoletana, vini campani e canto lirico.",
       "verificato_il": null,
       "stato_dati": "da_verificare",
       "info": {
@@ -4239,7 +4304,14 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "corsi_speciali": [
+        "Italiano + cucina napoletana",
+        "Degustazione vini campani",
+        "Italiano + canto lirico",
+        "50+",
+        "Immersione nei borghi della Campania"
+      ]
     },
     {
       "id": "sant-anna-institute",

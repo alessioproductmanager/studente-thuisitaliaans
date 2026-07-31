@@ -23,6 +23,12 @@ header{padding:16px 0;border-bottom:1px solid var(--linea)}.testata{display:flex
 .badge svg{flex:0 0 13px;width:13px!important;height:13px!important}
 .badge.esame{background:#F7E9E0;color:var(--terracotta)}
 .tematici{margin:14px 0 4px;font-size:14.5px;color:var(--secondario);line-height:1.55}
+.tematici.speciali{margin-top:8px}
+.tematici.speciali b{color:var(--terracotta)}
+.highlights{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.hl-chip{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#FBF7F0,#F1E7D8);border:1px solid var(--linea);border-radius:999px;padding:7px 13px;font-size:13px;font-weight:600;color:var(--inchiostro);max-width:100%}
+.hl-chip svg{width:15px;height:15px;color:var(--terracotta);flex:0 0 15px}
+.hl-chip span{overflow-wrap:anywhere}
 .tematici b{color:var(--inchiostro)}
 .dativ2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:8px 22px}
 .pross,.pross-b{color:var(--salvia);font-weight:600;font-size:12.5px;white-space:nowrap}
@@ -46,7 +52,8 @@ footer{border-top:1px solid var(--linea);padding:26px 0 40px;color:var(--seconda
 .badge[data-tip].tip-dx:hover::before,.badge[data-tip].tip-dx:focus::before,.badge[data-tip].tip-dx.mostra::before{left:auto;right:14px}
 html{-webkit-text-size-adjust:100%}
 *,*::before,*::after{box-sizing:border-box}
-html,body{max-width:100%!important;overflow-x:hidden!important}
+html,body{max-width:100%!important;overflow-x:hidden!important;width:100%}
+.contenitore,main,section,.pannello,.scheda{max-width:100%;overflow-wrap:anywhere}
 body{width:100%;position:relative}
 img,table,pre,code{max-width:100%!important;word-break:break-word}
 iframe:not(.live){max-width:100%}
@@ -61,8 +68,8 @@ table{max-width:100%}
 .pannello{padding:16px}
 .riga-dato{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 9px;font-size:14.5px;padding:12px 0}
 .riga-dato svg{flex:0 0 18px;width:18px;height:18px;align-self:center}
-.riga-dato .etich{color:var(--secondario);font-size:14px;white-space:nowrap}
-.riga-dato .val{flex:1 1 auto;min-width:110px;text-align:right;font-weight:600;margin-left:auto;overflow-wrap:anywhere;color:var(--inchiostro)}
+.riga-dato .etich{color:var(--secondario);font-size:14px;white-space:normal;flex:1 1 auto;min-width:0;overflow-wrap:anywhere}
+.riga-dato .val{flex:0 1 auto;max-width:100%;text-align:right;font-weight:600;margin-left:auto;overflow-wrap:anywhere;color:var(--inchiostro)}
 .riga-dato .val:only-child,.riga-dato .val.lungo{flex-basis:100%;text-align:left;padding-left:27px;margin-left:0;margin-top:2px}
 .evento{flex-wrap:wrap;row-gap:2px}
 .dati{grid-template-columns:1fr}
