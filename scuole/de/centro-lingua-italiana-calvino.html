@@ -376,6 +376,22 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
 .mail-multi .mm-voce b{display:block;font-size:13px;font-weight:500;color:var(--secondario);
  line-height:1.4;min-width:0;overflow-wrap:break-word}
 .mail-multi label{cursor:pointer;display:contents}
+/*colonne-tabelle-v6*/
+/* con table-layout:fixed il browser ignora min() e clamp() sulle colonne
+   e ripiega su larghezze uguali: qui servono valori piani */
+.festivi-tab td:first-child{width:132px!important}
+.sigle-tab td:first-child{width:148px!important}
+.eventi-tab td:last-child{width:116px!important}
+@media(max-width:640px){
+.festivi-tab td:first-child{width:112px!important}
+.sigle-tab td:first-child{width:116px!important}
+.eventi-tab td:last-child{width:100px!important}
+}
+@media(max-width:360px){
+.festivi-tab td:first-child{width:100px!important}
+.sigle-tab td:first-child{width:104px!important}
+.eventi-tab td:last-child{width:88px!important}
+}
 </style>
 </head>
 <body data-scuola="centro-lingua-italiana-calvino">
