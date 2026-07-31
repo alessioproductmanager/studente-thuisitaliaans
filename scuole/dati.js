@@ -3330,7 +3330,9 @@ const DATI = {
       "sito": "https://www.scuolapalazzomalvisi.com",
       "pagina_corsi": "",
       "email": "info@scuolapalazzomalvisi.com",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "ASILS"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -3352,11 +3354,11 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
-        "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
+        "durata_lezione_min": 55,
+        "max_studenti_classe": 6,
         "materiale": "inclusi",
         "test_ingresso": "online",
         "tassa_iscrizione": null,
@@ -3365,7 +3367,9 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 1981,
+      "altri_corsi": "socia fondatrice ASILS, italiano + terme/tartufo/golf/bici, costo vita basso"
     },
     {
       "id": "scuola-palazzo-malvisi-bagno-di-romagna",
@@ -3375,7 +3379,9 @@ const DATI = {
       "sito": "https://www.scuolapalazzomalvisi.com",
       "pagina_corsi": "",
       "email": "info@scuolapalazzomalvisi.com",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "ASILS"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -3397,11 +3403,11 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "Lingua e benessere termale",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
-        "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
+        "durata_lezione_min": 55,
+        "max_studenti_classe": 6,
         "materiale": "inclusi",
         "test_ingresso": "online",
         "tassa_iscrizione": null,
@@ -3410,7 +3416,9 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 1981,
+      "altri_corsi": "socia fondatrice ASILS, italiano + terme/tartufo/golf/bici, costo vita basso"
     },
     {
       "id": "tiberius-international",
