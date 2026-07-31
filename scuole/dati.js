@@ -449,7 +449,7 @@ const DATI = {
         {
           "tipo": "intensivo",
           "ore_settimana": 20,
-          "prezzo_da_settimana": null
+          "prezzo_da_settimana": 183
         },
         {
           "tipo": "leggero",
@@ -1915,7 +1915,8 @@ const DATI = {
       "corsi": [
         {
           "tipo": "intensivo",
-          "ore_settimana": 25
+          "ore_settimana": 25,
+          "prezzo_da_settimana": 394
         },
         {
           "tipo": "leggero",
@@ -2067,7 +2068,7 @@ const DATI = {
         {
           "tipo": "intensivo",
           "ore_settimana": 20,
-          "prezzo_da_settimana": null
+          "prezzo_da_settimana": 350
         },
         {
           "tipo": "leggero",
