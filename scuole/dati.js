@@ -3787,11 +3787,11 @@ const DATI = {
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
-        "durata_lezione_min": 45,
+        "durata_lezione_min": 50,
         "max_studenti_classe": 12,
         "materiale": "inclusi",
         "test_ingresso": "online",
-        "tassa_iscrizione": null,
+        "tassa_iscrizione": 0,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
@@ -3802,7 +3802,14 @@ const DATI = {
         "letteratura"
       ],
       "anteprima": true,
-      "email_stato": "confermata"
+      "email_stato": "confermata",
+      "fondata_nel": 1983,
+      "prezzi_rilevati": {
+        "iscrizione": 0,
+        "sconto": "10% studenti e over 70",
+        "fonte": "ilsasso.com",
+        "rilevato_il": "2026-07-31"
+      }
     },
     {
       "id": "terramare",
