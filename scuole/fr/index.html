@@ -2,8 +2,8 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Séjours linguistiques en Italie — 109 écoles d&#x27;italien | thuisitaliaans</title>
-<meta name="description" content="Trouvez votre cours d&#x27;italien en Italie : 109 écoles sélectionnées, filtres par ville, période, intensité et durée, avec guides de voyage et événements.">
+<title>Séjours linguistiques en Italie — 108 écoles d&#x27;italien | thuisitaliaans</title>
+<meta name="description" content="Trouvez votre cours d&#x27;italien en Italie : 108 écoles sélectionnées, filtres par ville, période, intensité et durée, avec guides de voyage et événements.">
 <link rel="canonical" href="https://thuisitaliaans.com/scuole/fr/">
 <link rel="alternate" hreflang="it" href="https://thuisitaliaans.com/scuole/">
 <link rel="alternate" hreflang="en" href="https://thuisitaliaans.com/scuole/en/">
@@ -11,7 +11,7 @@
 <link rel="alternate" hreflang="de" href="https://thuisitaliaans.com/scuole/de/">
 <link rel="alternate" hreflang="fr" href="https://thuisitaliaans.com/scuole/fr/">
 <link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/scuole/en/">
-<meta property="og:site_name" content="thuisitaliaans"><meta property="og:type" content="website"><meta property="og:title" content="Séjours linguistiques en Italie — 109 écoles d&#x27;italien | thuisitaliaans"><meta property="og:description" content="Trouvez votre cours d&#x27;italien en Italie : 109 écoles sélectionnées, filtres par ville, période, intensité et durée, avec guides de voyage et événements."><meta property="og:url" content="https://thuisitaliaans.com/scuole/fr/"><meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="thuisitaliaans"><meta property="og:type" content="website"><meta property="og:title" content="Séjours linguistiques en Italie — 108 écoles d&#x27;italien | thuisitaliaans"><meta property="og:description" content="Trouvez votre cours d&#x27;italien en Italie : 108 écoles sélectionnées, filtres par ville, période, intensité et durée, avec guides de voyage et événements."><meta property="og:url" content="https://thuisitaliaans.com/scuole/fr/"><meta property="og:locale" content="fr_FR">
 <style>:root{--carta:#FAF6EF;--card:#FFF;--inchiostro:#221D16;--secondario:#6E6759;--terracotta:#BC5533;--terracotta-scuro:#9E4527;--salvia:#5E7357;--salvia-chiara:#EAF0E6;--ambra:#B07C1F;--ambra-chiara:#FBF3DF;--linea:#E7E0D2;--r:18px;--r-s:12px;--ombra:0 1px 2px rgba(34,29,22,.05),0 10px 30px -12px rgba(34,29,22,.14);--serif:"Iowan Old Style",Georgia,"Times New Roman",serif;--sans:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}body{background:var(--carta);color:var(--inchiostro);font-family:var(--sans);line-height:1.5}a{color:inherit}
 .contenitore{max-width:1100px;margin:0 auto;padding:0 20px}
@@ -361,7 +361,7 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
 </head>
 <body>
 <header><div class="contenitore testata">
-  <div class="logo"><a href="https://thuisitaliaans.com/">thuis<span>italiaans</span></a> · 109 écoles sélectionnées en Italie</div>
+  <div class="logo"><a href="https://thuisitaliaans.com/">thuis<span>italiaans</span></a> · 108 écoles sélectionnées en Italie</div>
   <nav class="lingue"><a href="/scuole/">IT</a> · <a href="/scuole/en/">EN</a> · <a href="/scuole/nl/">NL</a> · <a href="/scuole/de/">DE</a> · <a class="attiva" href="/scuole/fr/">FR</a></nav>
 </div></header>
 <section class="hero contenitore">
@@ -436,11 +436,7 @@ function card(s){
  (s.extra||[]).slice(0,3).forEach(function(x){tags+='<span class="tag">'+(T.extras[x]||x)+'</span>';});
  var ci=DATI.citta[s.citta];
  if(ci&&ci.eventi&&ci.eventi.length)tags+='<span class="tag">'+ci.eventi.length+' '+T.nev+'</span>';
- var inizio;
- if(s.inizio.frequenza==="ogni-lunedi"){inizio='<b>'+T.pross+' '+prossimoLunedi()+'</b>';}
- else{var fu=((s.inizio.date)||[]).filter(function(d){return d>=OGGI_ISO});
-  inizio=fu[0]?"<b>"+T.pross+" "+fu[0]+"</b>":(s.inizio.date&&s.inizio.date[0]?"<b>"+T.pross+" "+s.inizio.date[0]+"</b>":T.su_r);}
- var righe='<div style="grid-column:1/-1">'+inizio+'</div>';
+ var righe="";
  if(i&&i.prezzo_da_settimana)righe+='<div style="grid-column:1/-1"><b>'+T.prezzo_da+i.prezzo_da_settimana+T.sett_abbr+'</b></div>';
  return '<article class="scheda">'
   +'<div class="dove">'+s.citta+' <span>· '+s.regione+'</span></div><h3>'+s.nome+'</h3>'

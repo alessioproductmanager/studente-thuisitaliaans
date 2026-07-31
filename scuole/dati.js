@@ -226,8 +226,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "Corsi intensivi di lingua più programmi di storia dell'arte (anche in inglese per principianti) con visite a musei e monumenti di Firenze. Corsi di cultura italiana abbinabili al pomeriggio.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -250,7 +250,9 @@ const DATI = {
         "Cultura italiana",
         "Cucina italiana",
         "Perfezionamento per insegnanti"
-      ]
+      ],
+      "fondata_nel": 1975,
+      "altri_corsi": "listino ridotto per corsi lunghi, specializzazione per insegnanti, programmi senior"
     },
     {
       "id": "europass-italian-language-school",
@@ -320,7 +322,8 @@ const DATI = {
         "ASILS",
         "EDUITALIA",
         "Bildungsurlaub",
-        "CSN"
+        "CSN",
+        "ALTO"
       ],
       "corsi": [
         {
@@ -373,7 +376,17 @@ const DATI = {
         "50+",
         "Firenze nell'Arte (oreficeria, mosaico, restauro, pittura)",
         "Experit (italiano + tirocinio)"
-      ]
+      ],
+      "fondata_nel": 1978,
+      "prezzi_rilevati": {
+        "iscrizione": 0,
+        "materiale": "incluso",
+        "alloggio": "gratuito",
+        "fonte": "centromachiavelli.it",
+        "rilevato_il": "2026-07-31"
+      },
+      "altri_corsi": "oreficeria e disegno del gioiello, Oltrarno, ex TANDEM 1988-2019",
+      "nota_verifica": "TANDEM International solo fino al 2019: non va indicato come accreditamento attuale"
     },
     {
       "id": "linguaviva",
@@ -442,7 +455,9 @@ const DATI = {
       "sito": "https://adg.it",
       "pagina_corsi": "",
       "email": "info@adg.it",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "CSN"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -464,14 +479,14 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "In centro a Firenze, unisce lingua e arte: corsi di disegno, pittura e storia dell'arte accanto all'italiano. Classi piccole.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
+        "max_studenti_classe": 7,
         "materiale": "inclusi",
         "test_ingresso": "online",
-        "tassa_iscrizione": null,
+        "tassa_iscrizione": 41,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
@@ -486,7 +501,16 @@ const DATI = {
         "Italiano + disegno e pittura",
         "Storia dell'arte",
         "Preparazione CILS/CELI"
-      ]
+      ],
+      "fondata_nel": 1995,
+      "prezzi_rilevati": {
+        "iscrizione": 41,
+        "lingua_12sett_24ore": 270,
+        "semestre": 8490,
+        "fonte": "adg.it",
+        "rilevato_il": "2026-07-31"
+      },
+      "altri_corsi": "lingua insieme all arte, sede corsi estivi University of Kansas"
     },
     {
       "id": "scuola-toscana",
@@ -796,8 +820,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "A 5 min dal Duomo. Specializzata in corsi individuali e piccoli gruppi (max 4), lezioni da 60 min.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 60,
         "max_studenti_classe": 4,
@@ -818,7 +842,17 @@ const DATI = {
         "over50"
       ],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 1985,
+      "prezzi_rilevati": {
+        "iscrizione": 0,
+        "calcolo": "a ore",
+        "supplemento_fuori_orario": "10%",
+        "sconto_last_minute": "10%",
+        "fonte": "galilei.it",
+        "rilevato_il": "2026-07-31"
+      },
+      "altri_corsi": "specializzata in individuali e gruppi da 4, italiano per il lavoro, weekend crash"
     },
     {
       "id": "sprachcaffe-firenze",
@@ -930,49 +964,6 @@ const DATI = {
       ],
       "anteprima": true,
       "email_stato": "stimata"
-    },
-    {
-      "id": "centro-ponte-vecchio",
-      "nome": "Centro Ponte Vecchio",
-      "citta": "Firenze",
-      "regione": "Toscana",
-      "sito": "",
-      "pagina_corsi": "",
-      "email": "",
-      "accreditamenti": [],
-      "corsi": [
-        {
-          "tipo": "intensivo",
-          "ore_settimana": 20,
-          "prezzo_da_settimana": null
-        },
-        {
-          "tipo": "leggero",
-          "ore_settimana": 10,
-          "prezzo_da_settimana": null
-        }
-      ],
-      "inizio": {
-        "frequenza": "ogni-lunedi",
-        "date": [],
-        "principianti": "date fisse, in genere ogni 2 settimane"
-      },
-      "durata_min_settimane": 1,
-      "alloggio": true,
-      "esami_in_sede": [],
-      "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
-      "info": {
-        "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
-        "materiale": "inclusi",
-        "test_ingresso": "online",
-        "tassa_iscrizione": null,
-        "servizio_alloggio": "gratuito",
-        "wifi": true
-      },
-      "extra": []
     },
     {
       "id": "accademia-europea-di-firenze",
@@ -1660,8 +1651,8 @@ const DATI = {
         "PLIDA"
       ],
       "note": "In centro a Roma, classi piccole (max 8). Specializzata in italiano per il lavoro e commerciale, oltre ai corsi standard.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 55,
         "max_studenti_classe": 8,
@@ -1682,7 +1673,10 @@ const DATI = {
         "Italiano per il lavoro",
         "Italiano commerciale",
         "Preparazione CILS/CELI"
-      ]
+      ],
+      "fondata_nel": 1984,
+      "altri_corsi": "forma insegnanti, corso breve estivo, centro PLIDA",
+      "nota_verifica": "indirizzo: fonti recenti indicano Corso Vittorio Emanuele II 184, non piu Via dei Due Macelli. Da confermare."
     },
     {
       "id": "scuola-d-italiano-dante-alighieri-roma",
@@ -2165,7 +2159,8 @@ const DATI = {
       "pagina_corsi": "",
       "email": "info@madrelinguaitaliano.com",
       "accreditamenti": [
-        "ASILS"
+        "ASILS",
+        "UNI 11863:2022"
       ],
       "corsi": [
         {
@@ -2188,11 +2183,11 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "Nel centro storico di Bologna (via Altabella). Standard 20h €300/sett, intensivo 30h €450. Membro ASILS, certificata UNI 11863:2022. Sconto 15% sui corsi di gruppo.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
+        "max_studenti_classe": 10,
         "materiale": "inclusi",
         "test_ingresso": "online",
         "tassa_iscrizione": null,
@@ -2207,7 +2202,10 @@ const DATI = {
         "Corsi serali",
         "Lezioni individuali",
         "Online"
-      ]
+      ],
+      "fondata_nel": 2005,
+      "altri_corsi": "norma UNI 11863:2022, tutor 2h al giorno, pausa al bar con insegnante",
+      "nota_verifica": "il sito della scuola indica sia 2005 sia 2006 come anno di fondazione: adottato 2005"
     },
     {
       "id": "alce-accademia-lingue-e-culture-europee",
@@ -3125,7 +3123,11 @@ const DATI = {
       "sito": "https://www.scuolatricolore.it",
       "pagina_corsi": "",
       "email": "info@scuolatricolore.it",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "LICET",
+        "EDUITALIA",
+        "Bildungsurlaub"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -3145,21 +3147,30 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
+      "esami_in_sede": [
+        "CILS"
+      ],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
-        "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
+        "durata_lezione_min": 55,
+        "max_studenti_classe": 10,
         "materiale": "inclusi",
         "test_ingresso": "online",
-        "tassa_iscrizione": null,
+        "tassa_iscrizione": 65,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
       "extra": [],
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "prezzi_rilevati": {
+        "iscrizione": 65,
+        "fonte": "myitalianlanguageschools/centrostudi",
+        "rilevato_il": "2026-07-31"
+      },
+      "altri_corsi": "dal 2018 Centro Studi Italiani, B1 cittadinanza e A2 carta di soggiorno",
+      "nota_verifica": "dal 2018 opera come Centro Studi Italiani Genova (ex Scuola Tricolore)"
     },
     {
       "id": "abc-school-sestri-levante",
@@ -3459,7 +3470,11 @@ const DATI = {
       "sito": "https://www.tiberius-international.com",
       "pagina_corsi": "https://www.tiberius-international.com/italian-courses-in-rimini",
       "email": "info@tiberius-international.com",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "LICET",
+        "CSN",
+        "Bildungsurlaub"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -3479,12 +3494,15 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
+      "esami_in_sede": [
+        "CILS",
+        "DITALS"
+      ],
       "note": "",
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
-        "durata_lezione_min": 45,
+        "durata_lezione_min": 55,
         "max_studenti_classe": 12,
         "materiale": "inclusi",
         "test_ingresso": "online",
@@ -3494,7 +3512,9 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 1994,
+      "altri_corsi": "due insegnanti per classe, corso per cantanti lirici, settimana doppia con Palazzo Malvisi"
     },
     {
       "id": "societa-dante-alighieri-siena",
@@ -4129,19 +4149,26 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
         "materiale": "inclusi",
         "test_ingresso": "online",
-        "tassa_iscrizione": null,
+        "tassa_iscrizione": 15,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
       "extra": [],
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 1996,
+      "prezzi_rilevati": {
+        "iscrizione": 15,
+        "fonte": "convenzione CGT/Unisi",
+        "rilevato_il": "2026-07-31"
+      },
+      "altri_corsi": "scuola di famiglia, tour guidati e yoga, corsi anche a distanza"
     },
     {
       "id": "comitato-linguistico",
@@ -4422,10 +4449,12 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
+      "esami_in_sede": [
+        "CILS"
+      ],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -4436,7 +4465,9 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 1985,
+      "altri_corsi": "scuola madre, dal 2018 anche sede di Genova"
     },
     {
       "id": "scuola-dante-alighieri-campus-l-infinito",
