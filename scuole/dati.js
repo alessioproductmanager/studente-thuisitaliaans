@@ -1121,7 +1121,8 @@ const DATI = {
         "ASILS",
         "IALC",
         "EDUITALIA",
-        "Bildungsurlaub"
+        "Bildungsurlaub",
+        "EAQUALS"
       ],
       "corsi": [
         {
@@ -1181,7 +1182,8 @@ const DATI = {
         "iscrizione_mesi": 12,
         "fonte": "dilit.it",
         "rilevato_il": "2026-07-31"
-      }
+      },
+      "fondata_nel": 1974
     },
     {
       "id": "torre-di-babele",
@@ -1372,7 +1374,7 @@ const DATI = {
       "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
+        "max_studenti_classe": 10,
         "materiale": "inclusi",
         "test_ingresso": "primo giorno",
         "servizio_alloggio": "gratuito",
@@ -1384,7 +1386,14 @@ const DATI = {
         "arte"
       ],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 1985,
+      "prezzi_rilevati": {
+        "intensivo_3sett": 610,
+        "incluso": "iscrizione e libro",
+        "fonte": "accademiastudioitalia.it",
+        "rilevato_il": "2026-07-31"
+      }
     },
     {
       "id": "kappa-language-school",
@@ -1687,7 +1696,8 @@ const DATI = {
         "Corsi serali",
         "Programmi per università USA",
         "Combinati"
-      ]
+      ],
+      "fondata_nel": 1994
     },
     {
       "id": "istituto-lorenzo-de-medici-roma",
@@ -2310,7 +2320,9 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
+      "esami_in_sede": [
+        "CILS"
+      ],
       "note": "Corsi di italiano dell'Università Ca' Foscari",
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
@@ -4470,16 +4482,23 @@ const DATI = {
       "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
+        "max_studenti_classe": 10,
         "materiale": "inclusi",
         "test_ingresso": "online",
-        "tassa_iscrizione": null,
+        "tassa_iscrizione": 80,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "prezzi_rilevati": {
+        "iscrizione": 80,
+        "iscrizione_mesi": 12,
+        "fonte": "accademia-italiana.it",
+        "rilevato_il": "2026-07-31"
+      },
+      "nota_sedi": "iscrizione valida anche per la sede di Napoli"
     },
     {
       "id": "accademia-leonardo",
