@@ -369,7 +369,7 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
   <div class="barra">
     <div class="campo"><label>Où</label><select id="f-citta"><option value="">Toute l'Italie</option></select></div>
     <div class="campo"><label>Classe</label><select id="f-classe"><option value="">Toute taille de classe</option><option value="8">Au maximum 8 étudiants</option><option value="10">Au maximum 10</option><option value="12">Au maximum 12</option></select></div>
-    <div class="campo campo-ultimo"><label>Thème</label><select id="f-tema"><option value="">Tout thème</option></select></div>
+    <div class="campo"><label>Âge</label><select id="f-eta"><option value="">Tout âge</option><option value="ragazzi">Enfants et ados</option><option value="50">Cours 50+</option></select></div><div class="campo campo-ultimo"><label>Thème</label><select id="f-tema"><option value="">Tout thème</option></select></div>
   </div>
   <div class="chips">
     <a class="chip-mappa" href="mappa.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3 3 5.5v15L9 18l6 3 6-2.5v-15L15 6z"/><path d="M9 3v15M15 6v15"/></svg>Chercher sur la carte</a><span class="chip" data-filtro="online">Aussi en ligne</span>
@@ -403,19 +403,21 @@ const selCitta=document.getElementById("f-citta");
 [...new Set(DATI.scuole.map(function(s){return s.regione}))].sort(function(a,b){return a.localeCompare(b,"it")}).forEach(function(r){
   var o=document.createElement("option");o.value=r;o.textContent=r;selCitta.appendChild(o);});
 
-const selClasse=document.getElementById("f-classe");const selTema=document.getElementById("f-tema");
+const selClasse=document.getElementById("f-classe");const selEta=document.getElementById("f-eta");const selTema=document.getElementById("f-tema");
 var temiSet={};DATI.scuole.forEach(function(s){(s.extra||[]).forEach(function(x){temiSet[x]=(temiSet[x]||0)+1})});
 Object.keys(temiSet).sort(function(a,b){return temiSet[b]-temiSet[a]}).forEach(function(k){
   if(temiSet[k]>=3 && k!=="online" && k!=="over50"){var o=document.createElement("option");o.value=k;o.textContent=(T.extras[k]||k);selTema.appendChild(o);}});
 
 document.querySelectorAll(".chip").forEach(function(ch){ch.addEventListener("click",function(){
   ch.classList.toggle("attivo");stato.chips[ch.dataset.filtro]=ch.classList.contains("attivo");disegna();});});
-["f-citta","f-classe","f-tema","ordina"].forEach(function(id){document.getElementById(id).addEventListener("change",disegna)});
+["f-citta","f-classe","f-eta","f-tema","ordina"].forEach(function(id){document.getElementById(id).addEventListener("change",disegna)});
+function etaOk(s,e){if(!e)return true;if(e==="50")return !!s.eta_50;if(e==="ragazzi")return s.eta==="ragazzi"||s.eta==="da 6 anni"||s.eta==="tutte";if(e==="adulti")return s.eta==="adulti"||s.eta==="tutte"||!s.eta;return true;}
 function classeMax(s,max){if(!max)return true;var n=(s.info&&s.info.max_studenti_classe)||null;return n!==null&&n<=parseInt(max,10);}
-function filtra(){var reg=selCitta.value,classe=selClasse.value,tema=selTema.value;
+function filtra(){var reg=selCitta.value,classe=selClasse.value,eta=selEta.value,tema=selTema.value;
  return DATI.scuole.filter(function(s){
   if(reg&&s.regione!==reg)return false;
   if(!classeMax(s,classe))return false;
+ if(!etaOk(s,eta))return false;
   if(tema&&(s.extra||[]).indexOf(tema)<0)return false;
   if(stato.chips.esami&&!(s.esami_in_sede&&s.esami_in_sede.length))return false;
   if(stato.chips.online&&(s.extra||[]).indexOf("online")<0)return false;

@@ -1,5 +1,5 @@
 // Database soggiorni linguistici — thuisitaliaans.com
-// UNICA FONTE DI VERITÀ: genera_sito.py legge da qui e produce tutte le pagine.
+// COPIA PUBBLICA (senza email) — la fonte completa è dati-privato.js: genera_sito.py legge da qui e produce tutte le pagine.
 const DATI = {
   "aggiornato_il": "2026-07-31",
   "nota": "Date, prezzi, email e parte degli accreditamenti sono SEGNAPOSTO finché stato_dati non passa a 'verificato'. Il badge ASILS è presente solo dove verificato sugli elenchi ufficiali. Usare verifica_scuole.py e COME_SI_AGGIORNA.txt.",
@@ -11,7 +11,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.leonardo-florence.com",
       "pagina_corsi": "https://www.leonardo-florence.com/it/corsi-di-italiano-a-firenze.html",
-      "email": "info@leonardo-florence.com",
       "accreditamenti": [
         "ASILS",
         "AIL"
@@ -52,7 +51,6 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "email_stato": "stimata",
       "corsi_speciali": [
         "Storia dell'arte",
         "Cucina",
@@ -78,7 +76,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://abcschool.com",
       "pagina_corsi": "https://www.abcschool.com/it/corsi/gruppo",
-      "email": "info@abcschool.com",
       "accreditamenti": [
         "ASILS",
         "AIL",
@@ -127,7 +124,6 @@ const DATI = {
         "storia dell'arte"
       ],
       "anteprima": true,
-      "email_stato": "stimata",
       "corsi_speciali": [
         "Intensivo 30 lezioni",
         "Individuali",
@@ -141,7 +137,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://centrofiorenza.com",
       "pagina_corsi": "",
-      "email": "info@centrofiorenza.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -183,7 +178,6 @@ const DATI = {
         "storia dell'arte"
       ],
       "anteprima": true,
-      "email_stato": "stimata",
       "prezzi_rilevati": {
         "serale_4sett": 150,
         "serale_8sett": 290,
@@ -201,7 +195,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.michelangelo-edu.it",
       "pagina_corsi": "",
-      "email": "info@michelangelo-edu.it",
       "accreditamenti": [
         "EDUITALIA"
       ],
@@ -244,7 +237,6 @@ const DATI = {
         "online"
       ],
       "anteprima": true,
-      "email_stato": "stimata",
       "corsi_speciali": [
         "Storia dell'arte",
         "Cultura italiana",
@@ -261,7 +253,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.europassitalian.com",
       "pagina_corsi": "https://www.europassitalian.com/courses/live-courses",
-      "email": "info@europassitalian.com",
       "accreditamenti": [
         "ASILS",
         "EDUITALIA"
@@ -307,8 +298,7 @@ const DATI = {
         "storia dell'arte",
         "online"
       ],
-      "anteprima": false,
-      "email_stato": "stimata"
+      "anteprima": false
     },
     {
       "id": "centro-machiavelli",
@@ -317,7 +307,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://centromachiavelli.it",
       "pagina_corsi": "https://centromachiavelli.it/it/iscrizione-altri-corsi",
-      "email": "info@centromachiavelli.it",
       "accreditamenti": [
         "ASILS",
         "EDUITALIA",
@@ -368,7 +357,6 @@ const DATI = {
         "online"
       ],
       "anteprima": true,
-      "email_stato": "stimata",
       "corsi_speciali": [
         "Super intensivo",
         "Giro d'Italia",
@@ -386,7 +374,8 @@ const DATI = {
         "rilevato_il": "2026-07-31"
       },
       "altri_corsi": "oreficeria e disegno del gioiello, Oltrarno, ex TANDEM 1988-2019",
-      "nota_verifica": "TANDEM International solo fino al 2019: non va indicato come accreditamento attuale"
+      "eta": "adulti",
+      "eta_50": true
     },
     {
       "id": "linguaviva",
@@ -395,7 +384,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.linguaviva.it",
       "pagina_corsi": "",
-      "email": "info@linguaviva.it",
       "accreditamenti": [
         "ASILS",
         "IALC",
@@ -443,7 +431,6 @@ const DATI = {
         "moda",
         "online"
       ],
-      "email_stato": "stimata",
       "fondata_nel": 1976,
       "altri_corsi": "preparazione CILS individuale 10 lezioni/sett"
     },
@@ -454,7 +441,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://adg.it",
       "pagina_corsi": "",
-      "email": "info@adg.it",
       "accreditamenti": [
         "CSN"
       ],
@@ -496,7 +482,6 @@ const DATI = {
         "storia dell'arte"
       ],
       "anteprima": true,
-      "email_stato": "stimata",
       "corsi_speciali": [
         "Italiano + disegno e pittura",
         "Storia dell'arte",
@@ -519,7 +504,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.scuola-toscana.com",
       "pagina_corsi": "https://www.scuola-toscana.com/en/course-individual-private.php",
-      "email": "info@scuola-toscana.com",
       "accreditamenti": [
         "ASILS",
         "AIL",
@@ -565,7 +549,6 @@ const DATI = {
         "online"
       ],
       "anteprima": true,
-      "email_stato": "confermata",
       "fondata_nel": 1989,
       "prezzi_rilevati": {
         "alloggio": "senza commissione",
@@ -581,7 +564,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.davidschool.com",
       "pagina_corsi": "",
-      "email": "info@davidschool.com",
       "accreditamenti": [
         "EDUITALIA",
         "LICET",
@@ -629,9 +611,10 @@ const DATI = {
         "junior"
       ],
       "anteprima": true,
-      "email_stato": "stimata",
       "fondata_nel": 1983,
-      "altri_corsi": "corsi 1 settimana-1 anno, gruppi lun-ven mattina, studenti da 80 paesi"
+      "altri_corsi": "corsi 1 settimana-1 anno, gruppi lun-ven mattina, studenti da 80 paesi",
+      "eta": "adulti",
+      "eta_50": true
     },
     {
       "id": "parola-italian-language-school",
@@ -640,7 +623,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.parola.it",
       "pagina_corsi": "https://www.parola.it/starting-dates-courses-2",
-      "email": "info@parola.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -677,8 +659,7 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true,
-      "email_stato": "confermata"
+      "anteprima": true
     },
     {
       "id": "istituto-lorenzo-de-medici-firenze",
@@ -687,7 +668,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.lorenzodemedici.it",
       "pagina_corsi": "",
-      "email": "info@lorenzodemedici.it",
       "accreditamenti": [
         "EDUITALIA"
       ],
@@ -731,9 +711,10 @@ const DATI = {
         "pittura"
       ],
       "anteprima": false,
-      "email_stato": "stimata",
       "fondata_nel": 1973,
-      "altri_corsi": "italiano 1 corso su 500, gli altri in inglese; campus Marist University; MIUR dal 1989"
+      "altri_corsi": "italiano 1 corso su 500, gli altri in inglese; campus Marist University; MIUR dal 1989",
+      "eta": "adulti",
+      "eta_50": false
     },
     {
       "id": "centro-lingua-italiana-calvino",
@@ -742,7 +723,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.clicschool.it",
       "pagina_corsi": "",
-      "email": "info@clicschool.it",
       "accreditamenti": [
         "Bildungsurlaub",
         "CSN"
@@ -785,8 +765,7 @@ const DATI = {
         "arte",
         "cucina",
         "storia dell'arte"
-      ],
-      "email_stato": "stimata"
+      ]
     },
     {
       "id": "istituto-galilei",
@@ -795,7 +774,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.galilei.it",
       "pagina_corsi": "",
-      "email": "info@galilei.it",
       "accreditamenti": [
         "Bildungsurlaub"
       ],
@@ -842,7 +820,6 @@ const DATI = {
         "over50"
       ],
       "anteprima": true,
-      "email_stato": "stimata",
       "fondata_nel": 1985,
       "prezzi_rilevati": {
         "iscrizione": 0,
@@ -852,7 +829,9 @@ const DATI = {
         "fonte": "galilei.it",
         "rilevato_il": "2026-07-31"
       },
-      "altri_corsi": "specializzata in individuali e gruppi da 4, italiano per il lavoro, weekend crash"
+      "altri_corsi": "specializzata in individuali e gruppi da 4, italiano per il lavoro, weekend crash",
+      "eta": "adulti",
+      "eta_50": true
     },
     {
       "id": "sprachcaffe-firenze",
@@ -861,7 +840,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.sprachcaffe.com",
       "pagina_corsi": "",
-      "email": "info@sprachcaffe.com",
       "accreditamenti": [
         "Bildungsurlaub"
       ],
@@ -903,7 +881,6 @@ const DATI = {
         "online"
       ],
       "anteprima": true,
-      "email_stato": "stimata",
       "prezzi_rilevati": {
         "standard_settimana": 260,
         "lezioni": 20,
@@ -919,7 +896,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.istitutoeuropeo.org",
       "pagina_corsi": "",
-      "email": "info@istitutoeuropeo.org",
       "accreditamenti": [
         "EDUITALIA"
       ],
@@ -962,8 +938,7 @@ const DATI = {
         "vino",
         "storia dell'arte"
       ],
-      "anteprima": true,
-      "email_stato": "stimata"
+      "anteprima": true
     },
     {
       "id": "accademia-europea-di-firenze",
@@ -972,7 +947,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://aefirenze.it",
       "pagina_corsi": "",
-      "email": "info@aefirenze.it",
       "accreditamenti": [
         "EDUITALIA"
       ],
@@ -1017,7 +991,6 @@ const DATI = {
         "online"
       ],
       "anteprima": false,
-      "email_stato": "stimata",
       "corsi_speciali": [
         "Italiano Plus Arte",
         "Italiano Plus Cultura",
@@ -1040,7 +1013,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.koinecenter.com",
       "pagina_corsi": "",
-      "email": "info@koinecenter.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -1081,8 +1053,9 @@ const DATI = {
         "over50"
       ],
       "anteprima": true,
-      "email_stato": "stimata",
-      "fondata_nel": 1980
+      "fondata_nel": 1980,
+      "eta": "adulti",
+      "eta_50": true
     },
     {
       "id": "accademia-riaci",
@@ -1091,7 +1064,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.accademiariaci.info",
       "pagina_corsi": "",
-      "email": "info@accademiariaci.info",
       "accreditamenti": [],
       "corsi": [
         {
@@ -1132,8 +1104,7 @@ const DATI = {
         "moda",
         "storia dell'arte"
       ],
-      "anteprima": true,
-      "email_stato": "stimata"
+      "anteprima": true
     },
     {
       "id": "dilit-international-house",
@@ -1142,7 +1113,6 @@ const DATI = {
       "regione": "Lazio",
       "sito": "https://www.dilit.it",
       "pagina_corsi": "https://www.dilit.it/en/dates-and-fees.html",
-      "email": "info@dilit.it",
       "accreditamenti": [
         "ASILS",
         "IALC",
@@ -1200,7 +1170,6 @@ const DATI = {
         "over50"
       ],
       "anteprima": true,
-      "email_stato": "stimata",
       "prezzi_rilevati": {
         "aula_da": null,
         "online_da": null,
@@ -1209,7 +1178,9 @@ const DATI = {
         "fonte": "dilit.it",
         "rilevato_il": "2026-07-31"
       },
-      "fondata_nel": 1974
+      "fondata_nel": 1974,
+      "eta": "adulti",
+      "eta_50": true
     },
     {
       "id": "torre-di-babele",
@@ -1218,7 +1189,6 @@ const DATI = {
       "regione": "Lazio",
       "sito": "https://www.torredibabele.com",
       "pagina_corsi": "",
-      "email": "info@torredibabele.com",
       "accreditamenti": [
         "EDUITALIA"
       ],
@@ -1266,7 +1236,6 @@ const DATI = {
         "online"
       ],
       "anteprima": true,
-      "email_stato": "stimata",
       "corsi_speciali": [
         "Intensive Plus",
         "Super Intensive",
@@ -1276,7 +1245,9 @@ const DATI = {
         "Preparazione esami"
       ],
       "fondata_nel": 1984,
-      "nota_asils": "socia fondatrice ASILS, non nell elenco soci attuale"
+      "nota_asils": "socia fondatrice ASILS, non nell elenco soci attuale",
+      "eta": "adulti",
+      "eta_50": true
     },
     {
       "id": "scuola-leonardo-da-vinci-roma",
@@ -1285,7 +1256,6 @@ const DATI = {
       "regione": "Lazio",
       "sito": "https://www.scuolaleonardo.com",
       "pagina_corsi": "",
-      "email": "info@scuolaleonardo.com",
       "accreditamenti": [
         "ASILS",
         "AIL",
@@ -1348,7 +1318,6 @@ const DATI = {
         "vino",
         "over50"
       ],
-      "email_stato": "stimata",
       "prezzi_rilevati": {
         "aula_da": 175,
         "online_da": null,
@@ -1356,7 +1325,9 @@ const DATI = {
         "iscrizione_mesi": 12,
         "fonte": "leonardo-rome.com",
         "rilevato_il": "2026-07-31"
-      }
+      },
+      "eta": "adulti",
+      "eta_50": true
     },
     {
       "id": "studioitalia",
@@ -1365,7 +1336,6 @@ const DATI = {
       "regione": "Lazio",
       "sito": "https://accademiastudioitalia.com",
       "pagina_corsi": "https://accademiastudioitalia.com/beginner-intensive-italian-course-calendar-2025-2026",
-      "email": "info@accademiastudioitalia.com",
       "accreditamenti": [
         "Bildungsurlaub"
       ],
@@ -1412,7 +1382,6 @@ const DATI = {
         "arte"
       ],
       "anteprima": true,
-      "email_stato": "stimata",
       "fondata_nel": 1985,
       "prezzi_rilevati": {
         "intensivo_3sett": 610,
@@ -1428,7 +1397,6 @@ const DATI = {
       "regione": "Lazio",
       "sito": "https://www.kappalanguageschool.com",
       "pagina_corsi": "",
-      "email": "info@kappalanguageschool.com",
       "accreditamenti": [
         "LICET"
       ],
@@ -1473,7 +1441,6 @@ const DATI = {
         "online"
       ],
       "anteprima": true,
-      "email_stato": "stimata",
       "prezzi_rilevati": {
         "quota_associativa": 30,
         "iscrizione_intensivo": 50,
@@ -1486,8 +1453,7 @@ const DATI = {
         "acconto_online": "50%",
         "festivi": "recuperati",
         "fonte": "kappalanguageschool.com"
-      },
-      "nota_verifica": "un aggregatore indica 20 EUR di iscrizione: smentito dal sito della scuola"
+      }
     },
     {
       "id": "scudit-scuola-d-italiano",
@@ -1496,7 +1462,6 @@ const DATI = {
       "regione": "Lazio",
       "sito": "https://www.scudit.net",
       "pagina_corsi": "https://www.scudit.net/tipidicorso.htm",
-      "email": "scudit@scudit.net",
       "accreditamenti": [],
       "corsi": [
         {
@@ -1546,7 +1511,6 @@ const DATI = {
         "musica"
       ],
       "anteprima": true,
-      "email_stato": "stimata",
       "tassa_iscrizione": 50,
       "corsi_speciali": [
         "Mille e una Roma",
@@ -1565,7 +1529,9 @@ const DATI = {
         "festivi": "non recuperati nei gruppi, recuperati o rimborsati nelle private",
         "fonte": "scudit.net"
       },
-      "altri_corsi": "diretta da Roberto Tartaglione, partner Oslo e Belgrado, corso residenti"
+      "altri_corsi": "diretta da Roberto Tartaglione, partner Oslo e Belgrado, corso residenti",
+      "eta": "adulti",
+      "eta_50": false
     },
     {
       "id": "ciao-italia",
@@ -1574,7 +1540,6 @@ const DATI = {
       "regione": "Lazio",
       "sito": "https://www.ciao-italia.it",
       "pagina_corsi": "",
-      "email": "info@ciao-italia.it",
       "accreditamenti": [
         "EDUITALIA",
         "Bildungsurlaub"
@@ -1621,7 +1586,6 @@ const DATI = {
         "online"
       ],
       "anteprima": true,
-      "email_stato": "stimata",
       "corsi_speciali": [
         "Business",
         "Arte",
@@ -1637,7 +1601,6 @@ const DATI = {
       "regione": "Lazio",
       "sito": "https://www.italiaidea.com",
       "pagina_corsi": "",
-      "email": "info@italiaidea.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -1679,15 +1642,13 @@ const DATI = {
         "storia dell'arte"
       ],
       "anteprima": true,
-      "email_stato": "stimata",
       "corsi_speciali": [
         "Italiano per il lavoro",
         "Italiano commerciale",
         "Preparazione CILS/CELI"
       ],
       "fondata_nel": 1984,
-      "altri_corsi": "forma insegnanti, corso breve estivo, centro PLIDA",
-      "nota_verifica": "indirizzo: fonti recenti indicano Corso Vittorio Emanuele II 184, non piu Via dei Due Macelli. Da confermare."
+      "altri_corsi": "forma insegnanti, corso breve estivo, centro PLIDA"
     },
     {
       "id": "scuola-d-italiano-dante-alighieri-roma",
@@ -1696,7 +1657,6 @@ const DATI = {
       "regione": "Lazio",
       "sito": "https://clidante.it",
       "pagina_corsi": "",
-      "email": "info@clidante.it",
       "accreditamenti": [
         "ASILS",
         "EDUITALIA",
@@ -1743,7 +1703,6 @@ const DATI = {
         "online"
       ],
       "anteprima": true,
-      "email_stato": "stimata",
       "corsi_speciali": [
         "Lingua e cultura",
         "Programma Opera (lingua e canto)",
@@ -1760,7 +1719,6 @@ const DATI = {
       "regione": "Lazio",
       "sito": "https://www.lorenzodemedici.it",
       "pagina_corsi": "",
-      "email": "info@lorenzodemedici.it",
       "accreditamenti": [
         "EDUITALIA"
       ],
@@ -1804,9 +1762,10 @@ const DATI = {
         "pittura"
       ],
       "anteprima": false,
-      "email_stato": "stimata",
       "fondata_nel": 1973,
-      "altri_corsi": "italiano 1 corso su 500, gli altri in inglese; campus Marist University; MIUR dal 1989"
+      "altri_corsi": "italiano 1 corso su 500, gli altri in inglese; campus Marist University; MIUR dal 1989",
+      "eta": "adulti",
+      "eta_50": false
     },
     {
       "id": "istituto-italiano",
@@ -1815,7 +1774,6 @@ const DATI = {
       "regione": "Lazio",
       "sito": "https://www.istitutoitaliano.it",
       "pagina_corsi": "",
-      "email": "info@istitutoitaliano.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -1851,8 +1809,7 @@ const DATI = {
         "arte",
         "cucina",
         "storia dell'arte"
-      ],
-      "email_stato": "stimata"
+      ]
     },
     {
       "id": "scuola-leonardo-da-vinci-milano",
@@ -1861,7 +1818,6 @@ const DATI = {
       "regione": "Lombardia",
       "sito": "https://www.leonardo-milan.com",
       "pagina_corsi": "https://www.leonardo-milan.com/dates-courses-in-milan.html",
-      "email": "info@scuolaleonardo.com",
       "accreditamenti": [
         "ASILS",
         "AIL",
@@ -1916,7 +1872,8 @@ const DATI = {
         "vino",
         "over50"
       ],
-      "email_stato": "stimata"
+      "eta": "adulti",
+      "eta_50": true
     },
     {
       "id": "linguadue",
@@ -1925,7 +1882,6 @@ const DATI = {
       "regione": "Lombardia",
       "sito": "https://www.linguaviva.it",
       "pagina_corsi": "",
-      "email": "info@linguaviva.it",
       "accreditamenti": [
         "ASILS",
         "IALC",
@@ -1965,7 +1921,6 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "email_stato": "stimata",
       "fondata_nel": 1990
     },
     {
@@ -1975,7 +1930,6 @@ const DATI = {
       "regione": "Lombardia",
       "sito": "https://ilcentro.net",
       "pagina_corsi": "",
-      "email": "info@ilcentro.net",
       "accreditamenti": [
         "ASILS",
         "CSN"
@@ -2023,7 +1977,6 @@ const DATI = {
         "online"
       ],
       "anteprima": true,
-      "email_stato": "stimata",
       "fondata_nel": 1986,
       "prezzi_rilevati": {
         "iscrizione": 0,
@@ -2039,7 +1992,6 @@ const DATI = {
       "regione": "Lombardia",
       "sito": "https://www.ellci.it",
       "pagina_corsi": "",
-      "email": "info@ellci.it",
       "accreditamenti": [
         "EDUITALIA",
         "Bildungsurlaub"
@@ -2080,7 +2032,6 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata",
       "prezzi_rilevati": {
         "iscrizione": 80,
         "iscrizione_breve": 40,
@@ -2102,7 +2053,6 @@ const DATI = {
       "regione": "Emilia-Romagna",
       "sito": "https://www.culturaitaliana.eu",
       "pagina_corsi": "https://www.culturaitaliana.eu/it/informazioni/prezzi-e-date-di-inizio/",
-      "email": "info@culturaitaliana.it",
       "accreditamenti": [
         "ASILS",
         "Bildungsurlaub",
@@ -2153,13 +2103,14 @@ const DATI = {
         "over50"
       ],
       "anteprima": true,
-      "email_stato": "stimata",
       "fondata_nel": 1981,
       "prezzi_rilevati": {
         "tutto_compreso": true,
         "fonte": "culturaitaliana.eu",
         "rilevato_il": "2026-07-31"
-      }
+      },
+      "eta": "adulti",
+      "eta_50": true
     },
     {
       "id": "madrelingua",
@@ -2168,7 +2119,6 @@ const DATI = {
       "regione": "Emilia-Romagna",
       "sito": "https://madrelinguaitaliano.com",
       "pagina_corsi": "",
-      "email": "info@madrelinguaitaliano.com",
       "accreditamenti": [
         "ASILS",
         "UNI 11863:2022"
@@ -2207,7 +2157,6 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata",
       "corsi_speciali": [
         "Intensivo 30 ore",
         "Corsi serali",
@@ -2215,8 +2164,7 @@ const DATI = {
         "Online"
       ],
       "fondata_nel": 2005,
-      "altri_corsi": "norma UNI 11863:2022, tutor 2h al giorno, pausa al bar con insegnante",
-      "nota_verifica": "il sito della scuola indica sia 2005 sia 2006 come anno di fondazione: adottato 2005"
+      "altri_corsi": "norma UNI 11863:2022, tutor 2h al giorno, pausa al bar con insegnante"
     },
     {
       "id": "alce-accademia-lingue-e-culture-europee",
@@ -2225,7 +2173,6 @@ const DATI = {
       "regione": "Emilia-Romagna",
       "sito": "https://www.alce.it",
       "pagina_corsi": "",
-      "email": "info@alce.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -2261,7 +2208,6 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata",
       "fondata_nel": 2000
     },
     {
@@ -2271,7 +2217,6 @@ const DATI = {
       "regione": "Veneto",
       "sito": "https://www.istitutovenezia.com",
       "pagina_corsi": "https://www.istitutovenezia.com/italian-language-courses-dates.html",
-      "email": "info@istitutovenezia.com",
       "accreditamenti": [
         "ASILS",
         "Bildungsurlaub",
@@ -2322,7 +2267,6 @@ const DATI = {
         "storia dell'arte"
       ],
       "anteprima": true,
-      "email_stato": "stimata",
       "prezzi_rilevati": {
         "sconto": "20% Erasmus e scambi internazionali",
         "fonte": "istitutovenezia.com",
@@ -2336,7 +2280,6 @@ const DATI = {
       "regione": "Veneto",
       "sito": "https://easyitalianlanguage.com",
       "pagina_corsi": "",
-      "email": "info@easyitalianlanguage.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -2372,8 +2315,7 @@ const DATI = {
       },
       "extra": [
         "arte"
-      ],
-      "email_stato": "stimata"
+      ]
     },
     {
       "id": "ca-foscari-school-for-international-education",
@@ -2382,7 +2324,6 @@ const DATI = {
       "regione": "Veneto",
       "sito": "https://www.unive.it",
       "pagina_corsi": "",
-      "email": "info@unive.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -2419,8 +2360,7 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": false,
-      "email_stato": "stimata"
+      "anteprima": false
     },
     {
       "id": "idea-verona",
@@ -2429,7 +2369,6 @@ const DATI = {
       "regione": "Veneto",
       "sito": "https://www.ideaverona.com",
       "pagina_corsi": "https://www.ideaverona.com/it/home/iscrizione",
-      "email": "info@ideaverona.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -2464,9 +2403,7 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true,
-      "email_stato": "stimata",
-      "nota_verifica": "si dichiara la prima scuola di italiano nata a Verona, anno non pubblicato"
+      "anteprima": true
     },
     {
       "id": "lingua-it",
@@ -2475,7 +2412,6 @@ const DATI = {
       "regione": "Veneto",
       "sito": "https://www.linguait.it",
       "pagina_corsi": "",
-      "email": "info@linguait.it",
       "accreditamenti": [
         "ASILS"
       ],
@@ -2513,7 +2449,6 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata",
       "fondata_nel": 2002
     },
     {
@@ -2523,7 +2458,6 @@ const DATI = {
       "regione": "Veneto",
       "sito": "https://litalianoconnoi.com",
       "pagina_corsi": "",
-      "email": "info@litalianoconnoi.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -2559,9 +2493,7 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
-      "email_stato": "stimata",
-      "nota_verifica": "DITALS/CEDILS citate come titoli degli insegnanti, non come sede d esame: da confermare"
+      "extra": []
     },
     {
       "id": "bertrand-russell",
@@ -2570,7 +2502,6 @@ const DATI = {
       "regione": "Veneto",
       "sito": "https://www.bertrand-russell.it",
       "pagina_corsi": "https://www.bertrand-russell.it/scheda-di-iscrizione-corsi-di-italiano",
-      "email": "info@bertrand-russell.it",
       "accreditamenti": [
         "LICET",
         "Bildungsurlaub"
@@ -2611,7 +2542,6 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata",
       "fondata_nel": 1975,
       "prezzi_rilevati": {
         "iscrizione": 0,
@@ -2631,7 +2561,6 @@ const DATI = {
       "regione": "Friuli-Venezia Giulia",
       "sito": "https://www.piccolauniversitaitaliana.com",
       "pagina_corsi": "https://piccolauniversitaitaliana.com/italian-language-courses/italian-course-to-enrol-at-italian-universities",
-      "email": "info@piccolauniversitaitaliana.com",
       "accreditamenti": [
         "EDUITALIA",
         "IALC",
@@ -2674,7 +2603,6 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata",
       "fondata_nel": 1993,
       "altri_corsi": "15 livelli, test d ingresso online, riduzione festivi"
     },
@@ -2685,7 +2613,6 @@ const DATI = {
       "regione": "Friuli-Venezia Giulia",
       "sito": "https://www.istitutovenezia.com",
       "pagina_corsi": "https://www.istitutovenezia.com/italian-language-courses-dates.html",
-      "email": "info@istitutovenezia.com",
       "accreditamenti": [
         "ASILS"
       ],
@@ -2722,8 +2649,7 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true,
-      "email_stato": "stimata"
+      "anteprima": true
     },
     {
       "id": "linguaviva-lignano",
@@ -2732,7 +2658,6 @@ const DATI = {
       "regione": "Friuli-Venezia Giulia",
       "sito": "https://www.linguaviva.it",
       "pagina_corsi": "",
-      "email": "info@linguaviva.it",
       "accreditamenti": [
         "ASILS"
       ],
@@ -2769,9 +2694,10 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "email_stato": "stimata",
       "fondata_nel": 1995,
-      "altri_corsi": "campo estivo per ragazzi dal 1995, spiaggia privata e sport"
+      "altri_corsi": "campo estivo per ragazzi dal 1995, spiaggia privata e sport",
+      "eta": "ragazzi",
+      "eta_50": false
     },
     {
       "id": "alpha-beta-piccadilly-bolzano",
@@ -2780,7 +2706,6 @@ const DATI = {
       "regione": "Alto Adige",
       "sito": "https://www.alphabeta.it",
       "pagina_corsi": "",
-      "email": "info@alphabeta.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -2818,9 +2743,10 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata",
       "fondata_nel": 1987,
-      "altri_corsi": "CELI valido per esame di bilinguismo, min 8 max 12"
+      "altri_corsi": "CELI valido per esame di bilinguismo, min 8 max 12",
+      "eta": "da 6 anni",
+      "eta_50": false
     },
     {
       "id": "alpha-beta-piccadilly-merano",
@@ -2829,7 +2755,6 @@ const DATI = {
       "regione": "Alto Adige",
       "sito": "https://www.alphabeta.it",
       "pagina_corsi": "",
-      "email": "info@alphabeta.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -2867,9 +2792,10 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata",
       "fondata_nel": 1987,
-      "altri_corsi": "CELI valido per esame di bilinguismo, min 8 max 12"
+      "altri_corsi": "CELI valido per esame di bilinguismo, min 8 max 12",
+      "eta": "da 6 anni",
+      "eta_50": false
     },
     {
       "id": "clm-bell-trento",
@@ -2878,7 +2804,6 @@ const DATI = {
       "regione": "Trentino",
       "sito": "https://www.clm-bell.it",
       "pagina_corsi": "",
-      "email": "info@clm-bell.it",
       "accreditamenti": [
         "EAQUALS"
       ],
@@ -2916,9 +2841,10 @@ const DATI = {
       },
       "extra": [],
       "anteprima": false,
-      "email_stato": "stimata",
       "fondata_nel": 1966,
-      "altri_corsi": "scuola di lingue locale, italiano una delle 6 lingue, corsi serali per lavoratori"
+      "altri_corsi": "scuola di lingue locale, italiano una delle 6 lingue, corsi serali per lavoratori",
+      "eta": "da 6 anni",
+      "eta_50": false
     },
     {
       "id": "clm-bell-riva-del-garda",
@@ -2927,7 +2853,6 @@ const DATI = {
       "regione": "Trentino",
       "sito": "https://www.clm-bell.it",
       "pagina_corsi": "",
-      "email": "info@clm-bell.it",
       "accreditamenti": [
         "EAQUALS"
       ],
@@ -2965,9 +2890,10 @@ const DATI = {
       },
       "extra": [],
       "anteprima": false,
-      "email_stato": "stimata",
       "fondata_nel": 1966,
-      "altri_corsi": "scuola di lingue locale, italiano una delle 6 lingue, corsi serali per lavoratori"
+      "altri_corsi": "scuola di lingue locale, italiano una delle 6 lingue, corsi serali per lavoratori",
+      "eta": "da 6 anni",
+      "eta_50": false
     },
     {
       "id": "l-italiano-porticando",
@@ -2976,7 +2902,6 @@ const DATI = {
       "regione": "Piemonte",
       "sito": "https://www.italianoporticando.com",
       "pagina_corsi": "",
-      "email": "info@italianoporticando.com",
       "accreditamenti": [
         "ASILS",
         "Bildungsurlaub",
@@ -3016,7 +2941,6 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata",
       "fondata_nel": 2005
     },
     {
@@ -3026,7 +2950,6 @@ const DATI = {
       "regione": "Piemonte",
       "sito": "https://www.scuolaleonardo.com",
       "pagina_corsi": "",
-      "email": "info@scuolaleonardo.com",
       "accreditamenti": [
         "ASILS",
         "AIL",
@@ -3068,7 +2991,6 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "email_stato": "stimata",
       "fondata_nel": 2008
     },
     {
@@ -3078,7 +3000,6 @@ const DATI = {
       "regione": "Liguria",
       "sito": "https://www.adoortoitaly.com",
       "pagina_corsi": "",
-      "email": "info@adoortoitaly.com",
       "accreditamenti": [
         "ASILS"
       ],
@@ -3115,7 +3036,6 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "email_stato": "stimata",
       "fondata_nel": 2002,
       "prezzi_rilevati": {
         "iscrizione": 50,
@@ -3124,7 +3044,9 @@ const DATI = {
         "fonte": "adoortoitaly.com",
         "rilevato_il": "2026-07-31"
       },
-      "altri_corsi": "forma interpreti UE dal 2008, dipartimento interpretariato dal 2014"
+      "altri_corsi": "forma interpreti UE dal 2008, dipartimento interpretariato dal 2014",
+      "eta": "adulti",
+      "eta_50": false
     },
     {
       "id": "scuola-tricolore",
@@ -3133,7 +3055,6 @@ const DATI = {
       "regione": "Liguria",
       "sito": "https://www.scuolatricolore.it",
       "pagina_corsi": "",
-      "email": "info@scuolatricolore.it",
       "accreditamenti": [
         "LICET",
         "EDUITALIA",
@@ -3174,14 +3095,12 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "email_stato": "stimata",
       "prezzi_rilevati": {
         "iscrizione": 65,
         "fonte": "myitalianlanguageschools/centrostudi",
         "rilevato_il": "2026-07-31"
       },
-      "altri_corsi": "dal 2018 Centro Studi Italiani, B1 cittadinanza e A2 carta di soggiorno",
-      "nota_verifica": "dal 2018 opera come Centro Studi Italiani Genova (ex Scuola Tricolore)"
+      "altri_corsi": "dal 2018 Centro Studi Italiani, B1 cittadinanza e A2 carta di soggiorno"
     },
     {
       "id": "abc-school-sestri-levante",
@@ -3190,7 +3109,6 @@ const DATI = {
       "regione": "Liguria",
       "sito": "https://www.abcschool.com",
       "pagina_corsi": "https://www.abcschool.com/it/corsi/gruppo",
-      "email": "info@abcschool.com",
       "accreditamenti": [
         "ASILS"
       ],
@@ -3227,8 +3145,7 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true,
-      "email_stato": "stimata"
+      "anteprima": true
     },
     {
       "id": "omnilingua",
@@ -3237,7 +3154,6 @@ const DATI = {
       "regione": "Liguria",
       "sito": "https://www.omnilingua.net",
       "pagina_corsi": "https://www.omnilingua.net/courses/italian/prices",
-      "email": "info@omnilingua.net",
       "accreditamenti": [
         "ASILS"
       ],
@@ -3274,8 +3190,7 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true,
-      "email_stato": "stimata"
+      "anteprima": true
     },
     {
       "id": "romanica",
@@ -3284,7 +3199,6 @@ const DATI = {
       "regione": "Emilia-Romagna",
       "sito": "https://www.romanica.it",
       "pagina_corsi": "",
-      "email": "scuola@romanica.it",
       "accreditamenti": [
         "ASILS",
         "AIL"
@@ -3325,8 +3239,7 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": false,
-      "email_stato": "confermata"
+      "anteprima": false
     },
     {
       "id": "reggio-lingua",
@@ -3335,7 +3248,6 @@ const DATI = {
       "regione": "Emilia-Romagna",
       "sito": "https://www.reggiolingua.it",
       "pagina_corsi": "",
-      "email": "info@reggiolingua.it",
       "accreditamenti": [
         "ASILS"
       ],
@@ -3372,8 +3284,7 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true,
-      "email_stato": "stimata"
+      "anteprima": true
     },
     {
       "id": "scuola-palazzo-malvisi-ravenna",
@@ -3382,7 +3293,6 @@ const DATI = {
       "regione": "Emilia-Romagna",
       "sito": "https://www.scuolapalazzomalvisi.com",
       "pagina_corsi": "",
-      "email": "info@scuolapalazzomalvisi.com",
       "accreditamenti": [
         "ASILS"
       ],
@@ -3420,9 +3330,10 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata",
       "fondata_nel": 1981,
-      "altri_corsi": "socia fondatrice ASILS, italiano + terme/tartufo/golf/bici, costo vita basso"
+      "altri_corsi": "socia fondatrice ASILS, italiano + terme/tartufo/golf/bici, costo vita basso",
+      "eta": "adulti",
+      "eta_50": false
     },
     {
       "id": "scuola-palazzo-malvisi-bagno-di-romagna",
@@ -3431,7 +3342,6 @@ const DATI = {
       "regione": "Emilia-Romagna",
       "sito": "https://www.scuolapalazzomalvisi.com",
       "pagina_corsi": "",
-      "email": "info@scuolapalazzomalvisi.com",
       "accreditamenti": [
         "ASILS"
       ],
@@ -3469,9 +3379,10 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata",
       "fondata_nel": 1981,
-      "altri_corsi": "socia fondatrice ASILS, italiano + terme/tartufo/golf/bici, costo vita basso"
+      "altri_corsi": "socia fondatrice ASILS, italiano + terme/tartufo/golf/bici, costo vita basso",
+      "eta": "adulti",
+      "eta_50": false
     },
     {
       "id": "tiberius-international",
@@ -3480,7 +3391,6 @@ const DATI = {
       "regione": "Emilia-Romagna",
       "sito": "https://www.tiberius-international.com",
       "pagina_corsi": "https://www.tiberius-international.com/italian-courses-in-rimini",
-      "email": "info@tiberius-international.com",
       "accreditamenti": [
         "LICET",
         "CSN",
@@ -3523,9 +3433,10 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata",
       "fondata_nel": 1994,
-      "altri_corsi": "due insegnanti per classe, corso per cantanti lirici, settimana doppia con Palazzo Malvisi"
+      "altri_corsi": "due insegnanti per classe, corso per cantanti lirici, settimana doppia con Palazzo Malvisi",
+      "eta": "tutte",
+      "eta_50": false
     },
     {
       "id": "societa-dante-alighieri-siena",
@@ -3534,7 +3445,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.dantealighieri.com",
       "pagina_corsi": "",
-      "email": "info@dantealighieri.com",
       "accreditamenti": [
         "IALC"
       ],
@@ -3574,11 +3484,9 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata",
       "fondata_nel": 1979,
       "nota_sede": "Comitato di Siena, Via Tommaso Pendola 37 dal 2001",
-      "altri_corsi": "scuola 1979 (Sienalingue), Comitato Dante Alighieri dal 1990, lezioni solo di mattina",
-      "nota_verifica": "CORRETTO: 1893 era la data in cui la Societa Dante Alighieri nazionale divenne Ente Morale, non la fondazione della scuola. La scuola e Sienalingue srl, 1979."
+      "altri_corsi": "scuola 1979 (Sienalingue), Comitato Dante Alighieri dal 1990, lezioni solo di mattina"
     },
     {
       "id": "saena-iulii",
@@ -3587,7 +3495,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.saenaiulia.it",
       "pagina_corsi": "",
-      "email": "",
       "accreditamenti": [],
       "corsi": [
         {
@@ -3630,7 +3537,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.unistrasi.it",
       "pagina_corsi": "",
-      "email": "info@unistrasi.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -3665,8 +3571,7 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true,
-      "email_stato": "stimata"
+      "anteprima": true
     },
     {
       "id": "cultura-italiana-arezzo",
@@ -3675,7 +3580,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.culturaitalianaarezzo.it",
       "pagina_corsi": "",
-      "email": "info@culturaitalianaarezzo.it",
       "accreditamenti": [
         "ASILS"
       ],
@@ -3712,8 +3616,7 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true,
-      "email_stato": "stimata"
+      "anteprima": true
     },
     {
       "id": "lucca-italian-school",
@@ -3722,7 +3625,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.luccaitalianschool.com",
       "pagina_corsi": "",
-      "email": "info@luccaitalianschool.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -3757,8 +3659,7 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true,
-      "email_stato": "stimata"
+      "anteprima": true
     },
     {
       "id": "centro-koine-lucca",
@@ -3767,7 +3668,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.koinecenter.com",
       "pagina_corsi": "",
-      "email": "info@koinecenter.com",
       "accreditamenti": [
         "ASILS"
       ],
@@ -3805,7 +3705,6 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata",
       "altri_corsi": "gruppo Koine nato a Firenze nel 1980, 4 centri"
     },
     {
@@ -3815,7 +3714,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.ilm.it",
       "pagina_corsi": "",
-      "email": "info@ilm.it",
       "accreditamenti": [
         "ASILS"
       ],
@@ -3856,7 +3754,6 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata",
       "fondata_nel": 1981,
       "prezzi_rilevati": {
         "iscrizione": 70,
@@ -3875,7 +3772,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.centropuccini.it",
       "pagina_corsi": "https://www.centropuccini.it/italian-language-courses-dates-in-viareggio.html",
-      "email": "info@centropuccini.it",
       "accreditamenti": [
         "ASILS"
       ],
@@ -3912,8 +3808,7 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": false,
-      "email_stato": "stimata"
+      "anteprima": false
     },
     {
       "id": "scuola-leonardo-da-vinci-viareggio",
@@ -3922,7 +3817,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.scuolaleonardo.com",
       "pagina_corsi": "",
-      "email": "info@scuolaleonardo.com",
       "accreditamenti": [
         "AIL"
       ],
@@ -3961,8 +3855,7 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
-      "email_stato": "stimata"
+      "extra": []
     },
     {
       "id": "il-sasso",
@@ -3971,7 +3864,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.ilsasso.com",
       "pagina_corsi": "https://www.ilsasso.com/date-dei-corsi/",
-      "email": "info@ilsasso.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -4023,7 +3915,6 @@ const DATI = {
         "letteratura"
       ],
       "anteprima": true,
-      "email_stato": "confermata",
       "fondata_nel": 1983,
       "prezzi_rilevati": {
         "iscrizione": 0,
@@ -4039,7 +3930,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.terramare.it",
       "pagina_corsi": "",
-      "email": "info@terramare.it",
       "accreditamenti": [
         "LICET",
         "Bildungsurlaub"
@@ -4078,7 +3968,6 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata",
       "fondata_nel": 1985,
       "prezzi_rilevati": {
         "online_20ore": 510,
@@ -4095,7 +3984,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://centrofiorenza.com",
       "pagina_corsi": "",
-      "email": "info@centrofiorenza.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -4131,7 +4019,6 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata",
       "altri_corsi": "sede estiva a Marciana Marina, italiano + sport"
     },
     {
@@ -4141,7 +4028,6 @@ const DATI = {
       "regione": "Toscana",
       "sito": "https://www.sillabo.it",
       "pagina_corsi": "",
-      "email": "info@sillabo.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -4176,14 +4062,15 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "email_stato": "stimata",
       "fondata_nel": 1996,
       "prezzi_rilevati": {
         "iscrizione": 15,
         "fonte": "convenzione CGT/Unisi",
         "rilevato_il": "2026-07-31"
       },
-      "altri_corsi": "scuola di famiglia, tour guidati e yoga, corsi anche a distanza"
+      "altri_corsi": "scuola di famiglia, tour guidati e yoga, corsi anche a distanza",
+      "eta": "da 6 anni",
+      "eta_50": false
     },
     {
       "id": "comitato-linguistico",
@@ -4192,7 +4079,6 @@ const DATI = {
       "regione": "Umbria",
       "sito": "https://www.comitatolinguistico.com",
       "pagina_corsi": "",
-      "email": "info@comitatolinguistico.com",
       "accreditamenti": [
         "ASILS"
       ],
@@ -4230,7 +4116,6 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata",
       "fondata_nel": 1986,
       "prezzi_rilevati": {
         "standard_1sett": 180,
@@ -4249,7 +4134,6 @@ const DATI = {
       "regione": "Umbria",
       "sito": "https://www.unistrapg.it",
       "pagina_corsi": "",
-      "email": "info@unistrapg.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -4285,7 +4169,6 @@ const DATI = {
       },
       "extra": [],
       "anteprima": false,
-      "email_stato": "stimata",
       "condizioni": {
         "sconto_anticipo": 50,
         "mora": 50,
@@ -4300,7 +4183,6 @@ const DATI = {
       "regione": "Umbria",
       "sito": "https://aliassisi.it",
       "pagina_corsi": "",
-      "email": "info@aliassisi.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -4343,8 +4225,7 @@ const DATI = {
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
-      "email_stato": "confermata"
+      "extra": []
     },
     {
       "id": "lingua-si",
@@ -4353,7 +4234,6 @@ const DATI = {
       "regione": "Umbria",
       "sito": "https://www.linguasi.it",
       "pagina_corsi": "",
-      "email": "info@linguasi.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -4388,8 +4268,7 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": false,
-      "email_stato": "stimata"
+      "anteprima": false
     },
     {
       "id": "la-lingua-la-vita",
@@ -4398,7 +4277,6 @@ const DATI = {
       "regione": "Umbria",
       "sito": "https://www.lalingualavita.com",
       "pagina_corsi": "",
-      "email": "info@lalingualavita.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -4433,8 +4311,7 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true,
-      "email_stato": "stimata"
+      "anteprima": true
     },
     {
       "id": "centro-studi-italiani",
@@ -4443,7 +4320,6 @@ const DATI = {
       "regione": "Marche",
       "sito": "https://www.centrostudiitaliani.org",
       "pagina_corsi": "",
-      "email": "info@centrostudiitaliani.org",
       "accreditamenti": [],
       "corsi": [
         {
@@ -4480,7 +4356,6 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "email_stato": "stimata",
       "fondata_nel": 1985,
       "altri_corsi": "scuola madre, dal 2018 anche sede di Genova"
     },
@@ -4491,7 +4366,6 @@ const DATI = {
       "regione": "Marche",
       "sito": "https://www.scuoladantealighieri.org",
       "pagina_corsi": "",
-      "email": "info@scuoladantealighieri.org",
       "accreditamenti": [
         "ASILS"
       ],
@@ -4528,8 +4402,7 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true,
-      "email_stato": "stimata"
+      "anteprima": true
     },
     {
       "id": "istituto-lorenzo-de-medici-tuscania",
@@ -4538,7 +4411,6 @@ const DATI = {
       "regione": "Lazio",
       "sito": "https://www.lorenzodemedici.it",
       "pagina_corsi": "",
-      "email": "info@lorenzodemedici.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -4574,9 +4446,10 @@ const DATI = {
       },
       "extra": [],
       "anteprima": false,
-      "email_stato": "stimata",
       "fondata_nel": 1973,
-      "altri_corsi": "italiano 1 corso su 500, gli altri in inglese; campus Marist University; MIUR dal 1989"
+      "altri_corsi": "italiano 1 corso su 500, gli altri in inglese; campus Marist University; MIUR dal 1989",
+      "eta": "adulti",
+      "eta_50": false
     },
     {
       "id": "centro-italiano",
@@ -4585,7 +4458,6 @@ const DATI = {
       "regione": "Campania",
       "sito": "https://www.centroitaliano.it",
       "pagina_corsi": "",
-      "email": "info@centroitaliano.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -4620,14 +4492,15 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "email_stato": "stimata",
       "corsi_speciali": [
         "Italiano + cucina napoletana",
         "Degustazione vini campani",
         "Italiano + canto lirico",
         "50+",
         "Immersione nei borghi della Campania"
-      ]
+      ],
+      "eta": "adulti",
+      "eta_50": true
     },
     {
       "id": "sant-anna-institute",
@@ -4636,7 +4509,6 @@ const DATI = {
       "regione": "Campania",
       "sito": "https://www.sorrentolingue.com",
       "pagina_corsi": "",
-      "email": "info@sorrentolingue.com",
       "accreditamenti": [
         "EDUITALIA"
       ],
@@ -4679,8 +4551,7 @@ const DATI = {
         "arte",
         "storia dell'arte"
       ],
-      "anteprima": true,
-      "email_stato": "stimata"
+      "anteprima": true
     },
     {
       "id": "accademia-italiana-salerno",
@@ -4689,7 +4560,6 @@ const DATI = {
       "regione": "Campania",
       "sito": "https://www.accademia-italiana.it",
       "pagina_corsi": "https://accademia-italiana.it/language-courses-it/date-e-prezzi-2026",
-      "email": "info@accademia-italiana.it",
       "accreditamenti": [
         "ASILS"
       ],
@@ -4727,7 +4597,6 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata",
       "prezzi_rilevati": {
         "iscrizione": 80,
         "iscrizione_mesi": 12,
@@ -4743,7 +4612,6 @@ const DATI = {
       "regione": "Campania",
       "sito": "https://www.accademialeonardo.it",
       "pagina_corsi": "https://www.accademialeonardo.it/it/studiare-l-italiano/date-inizio-corsi.html",
-      "email": "info@accademialeonardo.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -4778,8 +4646,7 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true,
-      "email_stato": "stimata"
+      "anteprima": true
     },
     {
       "id": "piccola-universita-italiana-tropea",
@@ -4788,7 +4655,6 @@ const DATI = {
       "regione": "Calabria",
       "sito": "https://www.piccolauniversitaitaliana.com",
       "pagina_corsi": "https://piccolauniversitaitaliana.com/italian-language-courses/italian-course-to-enrol-at-italian-universities",
-      "email": "info@piccolauniversitaitaliana.com",
       "accreditamenti": [
         "EDUITALIA",
         "IALC",
@@ -4831,7 +4697,6 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata",
       "fondata_nel": 1993,
       "altri_corsi": "15 livelli, test d ingresso online, riduzione festivi"
     },
@@ -4842,7 +4707,6 @@ const DATI = {
       "regione": "Calabria",
       "sito": "https://www.caffeitalianoclub.net",
       "pagina_corsi": "",
-      "email": "info@caffeitalianoclub.net",
       "accreditamenti": [],
       "corsi": [
         {
@@ -4877,8 +4741,7 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true,
-      "email_stato": "stimata"
+      "anteprima": true
     },
     {
       "id": "universita-per-stranieri-dante-alighieri",
@@ -4887,7 +4750,6 @@ const DATI = {
       "regione": "Calabria",
       "sito": "https://www.unistrada.it",
       "pagina_corsi": "",
-      "email": "info@unistrada.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -4922,8 +4784,7 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true,
-      "email_stato": "stimata"
+      "anteprima": true
     },
     {
       "id": "porta-d-oriente",
@@ -4932,7 +4793,6 @@ const DATI = {
       "regione": "Puglia",
       "sito": "https://www.porta-doriente.com",
       "pagina_corsi": "",
-      "email": "info@porta-doriente.com",
       "accreditamenti": [
         "Bildungsurlaub"
       ],
@@ -4977,7 +4837,8 @@ const DATI = {
         "over50"
       ],
       "anteprima": true,
-      "email_stato": "confermata"
+      "eta": "adulti",
+      "eta_50": true
     },
     {
       "id": "babilonia-centro-di-lingua-e-cultura-italiana",
@@ -4986,7 +4847,6 @@ const DATI = {
       "regione": "Sicilia",
       "sito": "https://www.babilonia.it",
       "pagina_corsi": "",
-      "email": "info@babilonia.it",
       "accreditamenti": [
         "ASILS",
         "EDUITALIA",
@@ -5039,14 +4899,15 @@ const DATI = {
         "over50"
       ],
       "anteprima": true,
-      "email_stato": "confermata",
       "prezzi_rilevati": {
         "iscrizione": 0,
         "tutto_compreso": true,
         "fonte": "babilonia.it",
         "rilevato_il": "2026-07-31"
       },
-      "altri_corsi": "lezioni solo di mattina, insegnanti DILS II, corso B1 cittadinanza"
+      "altri_corsi": "lezioni solo di mattina, insegnanti DILS II, corso B1 cittadinanza",
+      "eta": "tutte",
+      "eta_50": true
     },
     {
       "id": "laboling",
@@ -5055,7 +4916,6 @@ const DATI = {
       "regione": "Sicilia",
       "sito": "https://www.laboling.com",
       "pagina_corsi": "https://www.laboling.com/it/dates-and-prices",
-      "email": "info@laboling.com",
       "accreditamenti": [
         "ASILS"
       ],
@@ -5102,7 +4962,6 @@ const DATI = {
         "trekking"
       ],
       "anteprima": true,
-      "email_stato": "stimata",
       "corsi_speciali": [
         "Intensivo Plus",
         "Campus",
@@ -5112,7 +4971,9 @@ const DATI = {
         "Corso alle Isole Eolie"
       ],
       "fondata_nel": 1994,
-      "altri_corsi": "corsi alle Eolie e in barca a vela, centro DITALS, tutto anche online"
+      "altri_corsi": "corsi alle Eolie e in barca a vela, centro DITALS, tutto anche online",
+      "eta": "tutte",
+      "eta_50": true
     },
     {
       "id": "solemar-academy",
@@ -5121,7 +4982,6 @@ const DATI = {
       "regione": "Sicilia",
       "sito": "https://solemar-academy.com",
       "pagina_corsi": "https://solemar-academy.com/en/italian-courses/",
-      "email": "cefalu@solemar-academy.com",
       "accreditamenti": [
         "ASILS",
         "EDUITALIA",
@@ -5164,8 +5024,9 @@ const DATI = {
       },
       "extra": [],
       "anteprima": false,
-      "email_stato": "confermata",
-      "altri_corsi": "gruppi max 6, struttura accessibile, sede CELI e DILS-PG"
+      "altri_corsi": "gruppi max 6, struttura accessibile, sede CELI e DILS-PG",
+      "eta": "tutte",
+      "eta_50": false
     },
     {
       "id": "solemar-sicilia",
@@ -5174,7 +5035,6 @@ const DATI = {
       "regione": "Sicilia",
       "sito": "https://www.solemarsicilia.it",
       "pagina_corsi": "",
-      "email": "info@solemarsicilia.it",
       "accreditamenti": [
         "ASILS",
         "EDUITALIA",
@@ -5213,7 +5073,6 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "email_stato": "stimata",
       "altri_corsi": "gruppo Solemar, 30+ anni, ASILS e EDUITALIA dal 2018"
     },
     {
@@ -5223,7 +5082,6 @@ const DATI = {
       "regione": "Sicilia",
       "sito": "https://www.unipa.it",
       "pagina_corsi": "",
-      "email": "info@unipa.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -5258,8 +5116,7 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": false,
-      "email_stato": "stimata"
+      "anteprima": false
     },
     {
       "id": "scuola-virgilio",
@@ -5268,7 +5125,6 @@ const DATI = {
       "regione": "Sicilia",
       "sito": "https://www.scuolavirgilio.it",
       "pagina_corsi": "",
-      "email": "info@scuolavirgilio.it",
       "accreditamenti": [],
       "corsi": [
         {
@@ -5303,8 +5159,7 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true,
-      "email_stato": "stimata"
+      "anteprima": true
     },
     {
       "id": "pintadera-centro-mediterraneo",
@@ -5313,7 +5168,6 @@ const DATI = {
       "regione": "Sardegna",
       "sito": "https://www.pintadera.info",
       "pagina_corsi": "https://pintadera.info/courses/italian-language/lingua-standard-group-course",
-      "email": "info@pintadera.info",
       "accreditamenti": [
         "LICET",
         "Bildungsurlaub"
@@ -5354,9 +5208,10 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata",
       "fondata_nel": 2004,
-      "altri_corsi": "corso per chi lavora a distanza, gruppi 3-8, fondatrice LICET"
+      "altri_corsi": "corso per chi lavora a distanza, gruppi 3-8, fondatrice LICET",
+      "eta": "da 6 anni",
+      "eta_50": false
     },
     {
       "id": "one-world-italiano",
@@ -5365,7 +5220,6 @@ const DATI = {
       "regione": "Sardegna",
       "sito": "https://www.oneworlditaliano.com",
       "pagina_corsi": "",
-      "email": "info@oneworlditaliano.com",
       "accreditamenti": [],
       "corsi": [
         {
@@ -5400,8 +5254,7 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "anteprima": true,
-      "email_stato": "stimata"
+      "anteprima": true
     },
     {
       "id": "inflorence-academy",
@@ -5456,8 +5309,6 @@ const DATI = {
       ],
       "stato_dati": "da_verificare",
       "verificato_il": null,
-      "email": "info@inflorenceacademy.it",
-      "email_stato": "stimata",
       "note": "Prima scuola di lingua italiana fondata a Firenze, in Palazzo Guadagni (1502)."
     },
     {
@@ -5507,8 +5358,6 @@ const DATI = {
       ],
       "stato_dati": "verificato",
       "verificato_il": "2026-07-31",
-      "email": "info@centroitalianofirenze.com",
-      "email_stato": "stimata",
       "note": "In Piazza D'Azeglio; corsi personalizzati con abbinamento a interessi dello studente.",
       "prezzi_rilevati": {
         "iscrizione": 0,
@@ -5563,9 +5412,9 @@ const DATI = {
       ],
       "stato_dati": "verificato",
       "verificato_il": "2026-07-31",
-      "email": "info@studitalia.com",
-      "email_stato": "stimata",
-      "note": "Piccola scuola vicino al centro di Olbia, a due passi dalla Costa Smeralda. Gruppi ridotti (max 6), iscrizione gratuita; corsi pratici di cucina, ceramica, chitarra."
+      "note": "Piccola scuola vicino al centro di Olbia, a due passi dalla Costa Smeralda. Gruppi ridotti (max 6), iscrizione gratuita; corsi pratici di cucina, ceramica, chitarra.",
+      "eta": "adulti",
+      "eta_50": true
     },
     {
       "id": "trulli-italian-school",
@@ -5617,9 +5466,9 @@ const DATI = {
       ],
       "stato_dati": "verificato",
       "verificato_il": "2026-07-31",
-      "email": "info@trullischool.com",
-      "email_stato": "stimata",
-      "note": "Ad Alberobello, città UNESCO dei trulli. Classi da 5-6 studenti; alloggio anche in trullo. Iscrizione gratuita."
+      "note": "Ad Alberobello, città UNESCO dei trulli. Classi da 5-6 studenti; alloggio anche in trullo. Iscrizione gratuita.",
+      "eta": "adulti",
+      "eta_50": true
     },
     {
       "id": "gaia-institute",
@@ -5654,9 +5503,7 @@ const DATI = {
         "online"
       ],
       "stato_dati": "da_verificare",
-      "verificato_il": null,
-      "email": "info@gaia-institute.it",
-      "email_stato": "stimata"
+      "verificato_il": null
     },
     {
       "id": "punto-e-virgola",
@@ -5692,9 +5539,7 @@ const DATI = {
         "online"
       ],
       "stato_dati": "da_verificare",
-      "verificato_il": null,
-      "email": "info@puntoevirgola.eu",
-      "email_stato": "stimata"
+      "verificato_il": null
     },
     {
       "id": "arca",
@@ -5746,12 +5591,12 @@ const DATI = {
         "vino",
         "over50"
       ],
-      "email": "info@arca-bologna.com",
-      "email_stato": "stimata",
       "note": "Classi piccole (3–8 studenti). Chiusa 10–23 agosto e 21 dic–10 gen. Una delle prime scuole d'italiano di Bologna.",
       "stato_dati": "verificato",
       "verificato_il": "2026-07-31",
-      "fondata_nel": 1998
+      "fondata_nel": 1998,
+      "eta": "adulti",
+      "eta_50": true
     },
     {
       "id": "italianme",
@@ -5805,8 +5650,6 @@ const DATI = {
         "moda",
         "teatro"
       ],
-      "email": "info@italianme.it",
-      "email_stato": "stimata",
       "note": "In via Tornabuoni, palazzo storico con terrazza panoramica. Corsi combinati lingua + passione (arte, canto, cucina, cinema).",
       "stato_dati": "da_verificare",
       "verificato_il": null
@@ -5845,8 +5688,6 @@ const DATI = {
         "cucina",
         "arte"
       ],
-      "email": "info@influent.it",
-      "email_stato": "stimata",
       "note": "Corsi interamente individuali (one-to-one), programma e date su misura dello studente.",
       "stato_dati": "da_verificare",
       "verificato_il": null
