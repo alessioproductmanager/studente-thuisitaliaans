@@ -5425,23 +5425,28 @@ const DATI = {
       "eventi": [
         {
           "nome": "Scoppio del Carro",
-          "quando": "Pasqua"
+          "quando": "Pasqua",
+          "desc": "La domenica di Pasqua, in Piazza del Duomo, un carro secolare esplode in fuochi d'artificio accesi da una colomba meccanica. Tradizione fiorentina purissima: ideale per il lessico delle feste e delle tradizioni."
         },
         {
           "nome": "Maggio Musicale Fiorentino",
-          "quando": "aprile–giugno"
+          "quando": "aprile–giugno",
+          "desc": "Uno dei più antichi festival musicali d'Europa porta opera e concerti in città per settimane. Per chi studia a Firenze è l'occasione di unire lingua e cultura alta, con il lessico della musica e del teatro."
         },
         {
           "nome": "Pitti Uomo",
-          "quando": "gennaio e giugno"
+          "quando": "gennaio e giugno",
+          "desc": "Due volte l'anno Firenze diventa capitale mondiale della moda maschile. Le strade si riempiono di addetti ai lavori: utile per il vocabolario della moda e per sentire l'italiano del business e dello stile."
         },
         {
           "nome": "Firenze Rocks",
-          "quando": "giugno"
+          "quando": "giugno",
+          "desc": "A giugno il più grande festival rock italiano porta star internazionali alle Cascine. Ambiente giovane e informale: ottimo per l'italiano colloquiale, il gergo dei concerti e socializzare con coetanei."
         },
         {
           "nome": "Festa della Rificolona",
-          "quando": "7 settembre"
+          "quando": "7 settembre",
+          "desc": "Il 7 settembre i bambini sfilano con lanterne di carta illuminate. Una festa popolare e poetica, perfetta per il lessico delle tradizioni e per vedere la Firenze più autentica lontano dai circuiti turistici."
         }
       ],
       "aeroporto": "Firenze (FLR) o Pisa (PSA)",
@@ -5469,23 +5474,28 @@ const DATI = {
       "eventi": [
         {
           "nome": "Natale di Roma",
-          "quando": "21 aprile"
+          "quando": "21 aprile",
+          "desc": "Il 21 aprile Roma celebra la sua fondazione (753 a.C.) con cortei in costume, rievocazioni storiche ai Fori e fuochi al Circo Massimo. Per uno studente è un'immersione nella storia romana raccontata dal vivo: ottimo per il lessico storico e per capire quanto i romani amino la loro città."
         },
         {
           "nome": "Estate Romana",
-          "quando": "giugno–settembre"
+          "quando": "giugno–settembre",
+          "desc": "Da giugno a settembre Roma si riempie di cinema all'aperto, concerti sul Tevere e festival nei quartieri. Le serate lunghe sono l'occasione ideale per praticare l'italiano fuori dall'aula, ordinando un gelato o chiacchierando a un concerto gratuito."
         },
         {
           "nome": "Festa del Cinema di Roma",
-          "quando": "ottobre"
+          "quando": "ottobre",
+          "desc": "A ottobre l'Auditorium ospita anteprime, registi e attori da tutto il mondo. Anche senza biglietto, la città respira cinema: perfetto per allenare l'ascolto con l'italiano parlato del red carpet e delle interviste."
         },
         {
           "nome": "Internazionali di tennis",
-          "quando": "maggio"
+          "quando": "maggio",
+          "desc": "A maggio il Foro Italico ospita uno dei tornei più importanti al mondo. Il vocabolario dello sport, i numeri e il tifo dal vivo rendono queste giornate un laboratorio di italiano colloquiale."
         },
         {
           "nome": "Sei Nazioni di rugby",
-          "quando": "febbraio–marzo"
+          "quando": "febbraio–marzo",
+          "desc": "Tra febbraio e marzo Roma ospita le partite casalinghe dell'Italia. I pub e lo stadio si riempiono di tifosi: un contesto informale perfetto per imparare esclamazioni, tifo e italiano di tutti i giorni."
         }
       ],
       "aeroporto": "Roma Fiumicino (FCO)",
@@ -5513,19 +5523,23 @@ const DATI = {
       "eventi": [
         {
           "nome": "Fuorisalone / Design Week",
-          "quando": "aprile"
+          "quando": "aprile",
+          "desc": "Ad aprile Milano diventa la capitale mondiale del design: installazioni, mostre e feste in ogni quartiere. Per uno studente è un'immersione nel lessico del design, dell'arte e dell'italiano creativo e professionale."
         },
         {
           "nome": "Prima della Scala",
-          "quando": "7 dicembre"
+          "quando": "7 dicembre",
+          "desc": "Il 7 dicembre la Scala inaugura la stagione lirica: è l'evento culturale più elegante d'Italia. Anche solo viverne l'atmosfera in città aiuta col lessico dell'opera, della musica e dell'italiano formale."
         },
         {
           "nome": "Settimana della Moda",
-          "quando": "febbraio e settembre"
+          "quando": "febbraio e settembre",
+          "desc": "Milano Fashion Week riempie la città di sfilate ed eventi due volte l'anno. Vocabolario della moda, dei colori e dello stile: perfetto per chi vuole un italiano legato al mondo del fashion."
         },
         {
           "nome": "MiTo SettembreMusica",
-          "quando": "settembre"
+          "quando": "settembre",
+          "desc": "A settembre Milano e Torino si uniscono in un festival di musica classica e contemporanea. Concerti spesso gratuiti: un modo raffinato per allenare l'ascolto e il lessico musicale."
         }
       ],
       "aeroporto": "Milano Linate (LIN) o Malpensa (MXP)",
@@ -5553,15 +5567,18 @@ const DATI = {
       "eventi": [
         {
           "nome": "Il Cinema Ritrovato",
-          "quando": "fine giugno"
+          "quando": "fine giugno",
+          "desc": "A giugno Bologna proietta capolavori restaurati in Piazza Maggiore, sotto le stelle. Cinema d'autore gratuito all'aperto: ideale per l'ascolto e per immergersi nell'italiano colto e cinefilo."
         },
         {
           "nome": "Arte Fiera",
-          "quando": "febbraio"
+          "quando": "febbraio",
+          "desc": "A gennaio-febbraio Bologna ospita una delle più importanti fiere d'arte moderna d'Italia. Per gli studenti è l'occasione di praticare il lessico dell'arte contemporanea e della critica."
         },
         {
           "nome": "Bologna Estate",
-          "quando": "giugno–settembre"
+          "quando": "giugno–settembre",
+          "desc": "Da giugno a settembre la città anima cortili, parchi e piazze con concerti, cinema e incontri, spesso gratuiti. La Bologna universitaria dà il meglio: perfetta per socializzare e praticare l'italiano."
         }
       ],
       "aeroporto": "Bologna (BLQ)",
@@ -5589,23 +5606,28 @@ const DATI = {
       "eventi": [
         {
           "nome": "Carnevale",
-          "quando": "gennaio–febbraio"
+          "quando": "gennaio–febbraio",
+          "desc": "A febbraio Venezia indossa maschere e costumi settecenteschi in una delle feste più famose al mondo. Tra calli e piazze è un'immersione totale: lessico delle tradizioni, dei costumi e della storia veneziana."
         },
         {
           "nome": "Festa del Redentore",
-          "quando": "terzo weekend di luglio"
+          "quando": "terzo weekend di luglio",
+          "desc": "La terza domenica di luglio Venezia celebra con un ponte votivo e fuochi d'artificio spettacolari sull'acqua. Festa profondamente veneziana: ottima per vivere la città con i locali, lontano dai clichè turistici."
         },
         {
           "nome": "Mostra del Cinema",
-          "quando": "fine agosto–settembre"
+          "quando": "fine agosto–settembre",
+          "desc": "A fine agosto il Lido ospita il festival di cinema più antico del mondo. Registi e attori invadono Venezia: perfetto per allenare l'ascolto con l'italiano del cinema e delle interviste."
         },
         {
           "nome": "Biennale",
-          "quando": "maggio–novembre"
+          "quando": "maggio–novembre",
+          "desc": "La grande mostra internazionale d'arte e architettura anima Venezia per mesi. Per chi studia è un percorso nel lessico dell'arte contemporanea e un motivo in più per esplorare la città in italiano."
         },
         {
           "nome": "Regata Storica",
-          "quando": "prima domenica di settembre"
+          "quando": "prima domenica di settembre",
+          "desc": "La prima domenica di settembre il Canal Grande ospita un corteo di barche storiche e gare di voga. Spettacolo veneziano autentico: ideale per il lessico delle tradizioni e della vita sull'acqua."
         }
       ],
       "aeroporto": "Venezia (VCE)",
@@ -5665,15 +5687,18 @@ const DATI = {
       "eventi": [
         {
           "nome": "Umbria Jazz",
-          "quando": "luglio"
+          "quando": "luglio",
+          "desc": "A luglio Perugia diventa la capitale del jazz mondiale, con concerti in piazza e per le vie del centro, molti gratuiti. Ambiente internazionale e rilassato: perfetto per praticare l'italiano tra un concerto e l'altro."
         },
         {
           "nome": "Eurochocolate",
-          "quando": "autunno"
+          "quando": "autunno",
+          "desc": "A ottobre Perugia si riempie di cioccolato con degustazioni e sculture di cacao. Una festa golosa e affollata: ottima per il lessico del cibo, dei sapori e per socializzare in italiano."
         },
         {
           "nome": "Festival Internazionale del Giornalismo",
-          "quando": "aprile"
+          "quando": "aprile",
+          "desc": "In primavera Perugia ospita giornalisti da tutto il mondo per incontri gratuiti sull'attualità. Per uno studente avanzato è un'occasione unica di ascoltare l'italiano dei media e del dibattito."
         }
       ],
       "aeroporto": "Perugia (PEG) o Roma (FCO)",
@@ -6033,11 +6058,13 @@ const DATI = {
       "eventi": [
         {
           "nome": "Feste patronali",
-          "quando": "estate"
+          "quando": "estate",
+          "desc": "Durante l'estate Milazzo celebra i suoi santi con processioni, luminarie e sagre sul mare. Feste popolari genuine: perfette per il lessico delle tradizioni siciliane e per conoscere la gente del posto."
         },
         {
           "nome": "MishMash Festival",
-          "quando": "agosto"
+          "quando": "agosto",
+          "desc": "Un festival estivo che mescola musica, arte e cultura sul lungomare di Milazzo. Ambiente giovane e informale, ideale per praticare l'italiano colloquiale in un contesto rilassato e balneare."
         }
       ],
       "aeroporto": "Catania (CTA) o Palermo (PMO)",
