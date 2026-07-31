@@ -675,8 +675,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "Istituto internazionale (LdM) dal 1973, in via Faenza. Sede principale del gruppo; programmi con crediti USA.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -694,7 +694,9 @@ const DATI = {
         "pittura"
       ],
       "anteprima": false,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 1973,
+      "altri_corsi": "italiano 1 corso su 500, gli altri in inglese; campus Marist University; MIUR dal 1989"
     },
     {
       "id": "centro-lingua-italiana-calvino",
@@ -1075,7 +1077,8 @@ const DATI = {
         "over50"
       ],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 1980
     },
     {
       "id": "accademia-riaci",
@@ -1764,8 +1767,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "Istituto internazionale (LdM) dal 1973; programmi universitari con crediti USA. Sedi a Firenze, Roma e Tuscania.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -1783,7 +1786,9 @@ const DATI = {
         "pittura"
       ],
       "anteprima": false,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 1973,
+      "altri_corsi": "italiano 1 corso su 500, gli altri in inglese; campus Marist University; MIUR dal 1989"
     },
     {
       "id": "istituto-italiano",
@@ -2017,7 +2022,10 @@ const DATI = {
       "sito": "https://www.ellci.it",
       "pagina_corsi": "",
       "email": "info@ellci.it",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "EDUITALIA",
+        "Bildungsurlaub"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -2048,13 +2056,26 @@ const DATI = {
         "max_studenti_classe": 12,
         "materiale": "inclusi",
         "test_ingresso": "online",
-        "tassa_iscrizione": null,
-        "servizio_alloggio": "gratuito",
+        "tassa_iscrizione": 80,
+        "servizio_alloggio": "50 euro",
         "wifi": true
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "prezzi_rilevati": {
+        "iscrizione": 80,
+        "iscrizione_breve": 40,
+        "ricerca_alloggio": 50,
+        "trattenuta_annullamento": 130,
+        "fonte": "ellci.it",
+        "rilevato_il": "2026-07-31"
+      },
+      "condizioni": {
+        "acconto": "30% senza visto",
+        "visto": "20 ore settimanali",
+        "fonte": "ellci.it"
+      }
     },
     {
       "id": "cultura-italiana-bologna",
@@ -2573,7 +2594,11 @@ const DATI = {
       "sito": "https://www.piccolauniversitaitaliana.com",
       "pagina_corsi": "https://piccolauniversitaitaliana.com/italian-language-courses/italian-course-to-enrol-at-italian-universities",
       "email": "info@piccolauniversitaitaliana.com",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "EDUITALIA",
+        "IALC",
+        "CSN"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -2593,7 +2618,10 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
+      "esami_in_sede": [
+        "CILS",
+        "CELI"
+      ],
       "note": "Le date di inizio non sono pubblicate sul sito della scuola. Nella maggior parte delle scuole i corsi intensivi di gruppo partono ogni lunedì (i principianti assoluti in date fisse, in genere ogni due settimane). Scrivi alla scuola per confermare la prossima data utile: in alta stagione (giugno–settembre) i posti si chiudono 2–3 settimane prima.",
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
@@ -2608,7 +2636,9 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 1993,
+      "altri_corsi": "15 livelli, test d ingresso online, riduzione festivi"
     },
     {
       "id": "istituto-venezia-trieste",
@@ -2731,10 +2761,12 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
+      "esami_in_sede": [
+        "CELI"
+      ],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -2746,7 +2778,9 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 1987,
+      "altri_corsi": "CELI valido per esame di bilinguismo, min 8 max 12"
     },
     {
       "id": "alpha-beta-piccadilly-merano",
@@ -2776,10 +2810,12 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
+      "esami_in_sede": [
+        "CELI"
+      ],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -2791,7 +2827,9 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 1987,
+      "altri_corsi": "CELI valido per esame di bilinguismo, min 8 max 12"
     },
     {
       "id": "clm-bell-trento",
@@ -3676,7 +3714,8 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "altri_corsi": "gruppo Koine nato a Firenze nel 1980, 4 centri"
     },
     {
       "id": "istituto-linguistico-mediterraneo",
@@ -4060,7 +4099,7 @@ const DATI = {
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
-        "materiale": "inclusi",
+        "materiale": "circa 25 euro",
         "test_ingresso": "online",
         "tassa_iscrizione": null,
         "servizio_alloggio": "gratuito",
@@ -4395,8 +4434,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -4408,7 +4447,9 @@ const DATI = {
       },
       "extra": [],
       "anteprima": false,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 1973,
+      "altri_corsi": "italiano 1 corso su 500, gli altri in inglese; campus Marist University; MIUR dal 1989"
     },
     {
       "id": "centro-italiano",
@@ -4621,7 +4662,11 @@ const DATI = {
       "sito": "https://www.piccolauniversitaitaliana.com",
       "pagina_corsi": "https://piccolauniversitaitaliana.com/italian-language-courses/italian-course-to-enrol-at-italian-universities",
       "email": "info@piccolauniversitaitaliana.com",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "EDUITALIA",
+        "IALC",
+        "CSN"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -4641,7 +4686,10 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
+      "esami_in_sede": [
+        "CILS",
+        "CELI"
+      ],
       "note": "Le date di inizio non sono pubblicate sul sito della scuola. Nella maggior parte delle scuole i corsi intensivi di gruppo partono ogni lunedì (i principianti assoluti in date fisse, in genere ogni due settimane). Scrivi alla scuola per confermare la prossima data utile: in alta stagione (giugno–settembre) i posti si chiudono 2–3 settimane prima.",
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
@@ -4656,7 +4704,9 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 1993,
+      "altri_corsi": "15 livelli, test d ingresso online, riduzione festivi"
     },
     {
       "id": "caffe-italiano-club",
