@@ -305,7 +305,6 @@ for(var i=0;i<12;i++){var d=new Date(oggi.getFullYear(),oggi.getMonth()+i,1);var
 document.querySelectorAll(".chip").forEach(function(ch){ch.addEventListener("click",function(){
   ch.classList.toggle("attivo");stato.chips[ch.dataset.filtro]=ch.classList.contains("attivo");disegna();});});
 ["f-citta","f-mese","f-tema","ordina"].forEach(function(id){document.getElementById(id).addEventListener("change",disegna)});
-document.getElementById("cerca").addEventListener("click",disegna);
 function iniziaNelMese(s,mese){if(!mese)return true;if(s.inizio&&s.inizio.frequenza==="ogni-lunedi")return true;
   return ((s.inizio&&s.inizio.date)||[]).some(function(d){return String(d).indexOf(mese)===0});}
 function filtra(){var reg=selCitta.value,mese=selMese.value,tema=selTema.value;

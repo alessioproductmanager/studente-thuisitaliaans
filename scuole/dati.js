@@ -949,7 +949,7 @@ const DATI = {
         {
           "tipo": "intensivo",
           "ore_settimana": 20,
-          "prezzo_da_settimana": null
+          "prezzo_da_settimana": 240
         },
         {
           "tipo": "leggero",
@@ -967,26 +967,34 @@ const DATI = {
       "esami_in_sede": [
         "CILS"
       ],
-      "note": "Nel centro, vicino a Palazzo Medici Riccardi. Sede d'esame CILS; corsi combinati lingua + arte, cultura e musica.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "note": "A Palazzo Niccolini (via Cavour). Corso di gruppo €240/sett, max 14, tassa €80, lezioni 45 min. Attività culturali settimanali: opera, degustazioni, concerti di fine corso. Date fisse mensili 2026.",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
+        "max_studenti_classe": 14,
         "materiale": "inclusi",
         "test_ingresso": "online",
-        "tassa_iscrizione": null,
+        "tassa_iscrizione": 80,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
       "extra": [
         "arte",
         "musica",
-        "storia dell'arte",
-        "cucina"
+        "cultura",
+        "online"
       ],
       "anteprima": false,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "corsi_speciali": [
+        "Italiano Plus Arte",
+        "Italiano Plus Cultura",
+        "Italiano Plus Musica",
+        "Preparazione CILS",
+        "Voice & Opera",
+        "Disegno e Pittura"
+      ]
     },
     {
       "id": "centro-koine-firenze",
@@ -1486,7 +1494,7 @@ const DATI = {
         {
           "tipo": "intensivo",
           "ore_settimana": 20,
-          "prezzo_da_settimana": null
+          "prezzo_da_settimana": 140
         },
         {
           "tipo": "leggero",
@@ -1502,11 +1510,10 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [
-        "CILS",
         "CELI",
         "PLIDA"
       ],
-      "note": "",
+      "note": "Nel quartiere Monti, a due passi dal Colosseo. Standard da €140/sett (2 sett €260), max 12. Membro EDUITALIA, sede d'esame CELI/PLIDA, riconosciuta Bildungsurlaub. Corsi di arte, cucina e pittura.",
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
@@ -1519,14 +1526,20 @@ const DATI = {
         "wifi": true
       },
       "extra": [
-        "online",
-        "letteratura",
+        "arte",
+        "cucina",
         "pittura",
-        "storia dell'arte",
-        "over50"
+        "online"
       ],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "corsi_speciali": [
+        "Business",
+        "Arte",
+        "Cucina",
+        "Pittura",
+        "Preparazione CELI/PLIDA"
+      ]
     },
     {
       "id": "italiaidea",
@@ -1621,9 +1634,9 @@ const DATI = {
       "esami_in_sede": [
         "CILS"
       ],
-      "note": "Dal 1981 in Piazza Bologna. Iscrizione e alloggio gratuiti.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "note": "Dal 1994 in Piazza Bologna. Corsi di gruppo con inizio ogni lunedì, versioni standard o combinate, anche serali. Programma Opera unico: lingua italiana e canto lirico. Membro ASILS.",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -1635,15 +1648,19 @@ const DATI = {
       },
       "extra": [
         "arte",
-        "cucina",
-        "dizione",
-        "letteratura",
-        "pittura",
         "storia dell'arte",
-        "over50"
+        "musica",
+        "online"
       ],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "corsi_speciali": [
+        "Lingua e cultura",
+        "Programma Opera (lingua e canto)",
+        "Corsi serali",
+        "Programmi per università USA",
+        "Combinati"
+      ]
     },
     {
       "id": "istituto-lorenzo-de-medici-roma",
