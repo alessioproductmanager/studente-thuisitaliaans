@@ -537,7 +537,14 @@ const DATI = {
         "online"
       ],
       "anteprima": true,
-      "email_stato": "confermata"
+      "email_stato": "confermata",
+      "fondata_nel": 1989,
+      "prezzi_rilevati": {
+        "alloggio": "senza commissione",
+        "fonte": "scuola-toscana.it",
+        "rilevato_il": "2026-07-31"
+      },
+      "altri_corsi": "partenze ogni 2 settimane, corsi 1 settimana - 3 anni, 60-100 studenti/mese"
     },
     {
       "id": "istituto-il-david",
@@ -574,8 +581,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 55,
         "max_studenti_classe": 12,
@@ -594,7 +601,9 @@ const DATI = {
         "junior"
       ],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 1983,
+      "altri_corsi": "corsi 1 settimana-1 anno, gruppi lun-ven mattina, studenti da 80 paesi"
     },
     {
       "id": "parola-italian-language-school",
@@ -4944,7 +4953,8 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [
-        "CILS"
+        "CILS",
+        "DITALS"
       ],
       "note": "A Milazzo, base per le Isole Eolie. Da €280/sett. Corsi speciali: italiano + vela e trekking, corso alle Eolie, 50+, preparazione CILS. Sede d'esame CILS.",
       "verificato_il": "2026-07-31",
@@ -4974,7 +4984,9 @@ const DATI = {
         "Preparazione CILS",
         "Italiano + vela e trekking",
         "Corso alle Isole Eolie"
-      ]
+      ],
+      "fondata_nel": 1994,
+      "altri_corsi": "corsi alle Eolie e in barca a vela, centro DITALS, tutto anche online"
     },
     {
       "id": "solemar-academy",
