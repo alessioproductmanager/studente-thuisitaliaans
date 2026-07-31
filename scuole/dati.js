@@ -2848,7 +2848,9 @@ const DATI = {
       "sito": "https://www.clm-bell.it",
       "pagina_corsi": "",
       "email": "info@clm-bell.it",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "EAQUALS"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -2883,7 +2885,9 @@ const DATI = {
       },
       "extra": [],
       "anteprima": false,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 1966,
+      "altri_corsi": "scuola di lingue locale, italiano una delle 6 lingue, corsi serali per lavoratori"
     },
     {
       "id": "clm-bell-riva-del-garda",
@@ -2893,7 +2897,9 @@ const DATI = {
       "sito": "https://www.clm-bell.it",
       "pagina_corsi": "",
       "email": "info@clm-bell.it",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "EAQUALS"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -2928,7 +2934,9 @@ const DATI = {
       },
       "extra": [],
       "anteprima": false,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 1966,
+      "altri_corsi": "scuola di lingue locale, italiano una delle 6 lingue, corsi serali per lavoratori"
     },
     {
       "id": "l-italiano-porticando",

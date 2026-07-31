@@ -368,7 +368,7 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
   <h1>Italian language schools in Italy: <em>find your course, plan the trip</em>.</h1><p>Choose the city, the period and your study pace. For every destination: the school, hours per week, housing and a short guide with the three must-sees and this year's events.</p>
   <div class="barra">
     <div class="campo"><label>Where</label><select id="f-citta"><option value="">All of Italy</option></select></div>
-    <div class="campo"><label>When</label><select id="f-mese"><option value="">Any month</option></select></div>
+    <div class="campo"><label>Class</label><select id="f-classe"><option value="">Any class size</option><option value="8">No more than 8 students</option><option value="10">No more than 10</option><option value="12">No more than 12</option></select></div>
     <div class="campo campo-ultimo"><label>Theme</label><select id="f-tema"><option value="">Any theme</option></select></div>
   </div>
   <div class="chips">
@@ -402,22 +402,20 @@ function prossimoLunedi(){var d=new Date();var gg=(8-d.getDay())%7||7;d.setDate(
 const selCitta=document.getElementById("f-citta");
 [...new Set(DATI.scuole.map(function(s){return s.regione}))].sort(function(a,b){return a.localeCompare(b,"it")}).forEach(function(r){
   var o=document.createElement("option");o.value=r;o.textContent=r;selCitta.appendChild(o);});
-const selMese=document.getElementById("f-mese");const oggi=new Date();
-const selTema=document.getElementById("f-tema");
+
+const selClasse=document.getElementById("f-classe");const selTema=document.getElementById("f-tema");
 var temiSet={};DATI.scuole.forEach(function(s){(s.extra||[]).forEach(function(x){temiSet[x]=(temiSet[x]||0)+1})});
 Object.keys(temiSet).sort(function(a,b){return temiSet[b]-temiSet[a]}).forEach(function(k){
   if(temiSet[k]>=3 && k!=="online" && k!=="over50"){var o=document.createElement("option");o.value=k;o.textContent=(T.extras[k]||k);selTema.appendChild(o);}});
-for(var i=0;i<12;i++){var d=new Date(oggi.getFullYear(),oggi.getMonth()+i,1);var o=document.createElement("option");
-  o.value=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0");o.textContent=T.mesi[d.getMonth()]+" "+d.getFullYear();selMese.appendChild(o);}
+
 document.querySelectorAll(".chip").forEach(function(ch){ch.addEventListener("click",function(){
   ch.classList.toggle("attivo");stato.chips[ch.dataset.filtro]=ch.classList.contains("attivo");disegna();});});
-["f-citta","f-mese","f-tema","ordina"].forEach(function(id){document.getElementById(id).addEventListener("change",disegna)});
-function iniziaNelMese(s,mese){if(!mese)return true;if(s.inizio&&s.inizio.frequenza==="ogni-lunedi")return true;
-  return ((s.inizio&&s.inizio.date)||[]).some(function(d){return String(d).indexOf(mese)===0});}
-function filtra(){var reg=selCitta.value,mese=selMese.value,tema=selTema.value;
+["f-citta","f-classe","f-tema","ordina"].forEach(function(id){document.getElementById(id).addEventListener("change",disegna)});
+function classeMax(s,max){if(!max)return true;var n=(s.info&&s.info.max_studenti_classe)||null;return n!==null&&n<=parseInt(max,10);}
+function filtra(){var reg=selCitta.value,classe=selClasse.value,tema=selTema.value;
  return DATI.scuole.filter(function(s){
   if(reg&&s.regione!==reg)return false;
-  if(!iniziaNelMese(s,mese))return false;
+  if(!classeMax(s,classe))return false;
   if(tema&&(s.extra||[]).indexOf(tema)<0)return false;
   if(stato.chips.esami&&!(s.esami_in_sede&&s.esami_in_sede.length))return false;
   if(stato.chips.online&&(s.extra||[]).indexOf("online")<0)return false;
