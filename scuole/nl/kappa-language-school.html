@@ -420,6 +420,17 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
  .lingue{justify-content:center;width:100%;margin-top:6px;gap:2px 6px}
  .lingue a{padding:3px 7px}
 }
+/*prezzo-modulo-v1*/
+.pz-chiedi{margin-top:4px}
+.pz-chiedi .pz-riga{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.pz-chiedi input[type=email]{flex:1 1 180px;min-width:0;padding:9px 11px;
+ border:1px solid var(--linea);border-radius:10px;font:inherit;font-size:14px;
+ background:var(--card);color:var(--inchiostro)}
+.pz-chiedi input[type=email]:focus{outline:2px solid var(--terracotta);outline-offset:1px}
+.pz-chiedi button{flex:0 0 auto;padding:9px 16px;border:0;border-radius:10px;
+ background:var(--terracotta);color:#fff;font:inherit;font-size:14px;font-weight:600;cursor:pointer}
+.pz-chiedi button:hover{filter:brightness(1.06)}
+@media(max-width:520px){.pz-chiedi button{flex:1 1 100%}}
 </style>
 </head>
 <body data-scuola="kappa-language-school">
@@ -575,5 +586,23 @@ document.addEventListener("click",function(){document.querySelectorAll(".badge.m
    box.classList.remove('mostra');});
  document.body.appendChild(box);
  setTimeout(function(){box.classList.add('mostra');},600);
+})();
+</script><script>/*prezzo-modulo-v1*/
+(function(){
+ var box=document.querySelector('.pz-chiedi'); if(!box) return;
+ var campo=box.querySelector('input[type=email]'), bott=box.querySelector('button');
+ var form=document.getElementById('modulo'); if(!form) return;
+ var TESTO="Ciao gentile staff di Kappa Language School,\n\nI'd like to know the price of your Italian courses. Could you send me the total cost including enrolment fee, materials and accommodation, and the available start dates for the coming months?\n\nGrazie infinite del vostro aiuto e ci vediamo presto!";
+ function porta(){
+   if(campo.value && form.email && !form.email.value) form.email.value=campo.value;
+   if(form.messaggio && !form.messaggio.value.trim()) form.messaggio.value=TESTO;
+   var ta=form.messaggio;
+   if(ta){ ta.style.height='auto'; ta.style.height=Math.min(ta.scrollHeight+8,420)+'px'; }
+   form.scrollIntoView({behavior:'smooth',block:'center'});
+   var primo = form.nome && !form.nome.value ? form.nome : (form.email && !form.email.value ? form.email : form.messaggio);
+   setTimeout(function(){ if(primo) primo.focus({preventScroll:true}); },420);
+ }
+ bott.addEventListener('click',porta);
+ campo.addEventListener('keydown',function(e){ if(e.key==='Enter'){e.preventDefault();porta();} });
 })();
 </script></body></html>

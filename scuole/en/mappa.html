@@ -444,7 +444,7 @@ var PRE="../";
  var temi={};DATI.scuole.forEach(function(s){(s.extra||[]).forEach(function(x){temi[x]=(temi[x]||0)+1})});
  Object.keys(temi).sort(function(a,b){return temi[b]-temi[a]}).forEach(function(x){
    if(temi[x]>=3&&x!=="online"&&x!=="over50"){var o=document.createElement("option");
-    o.value=x;o.textContent=(T.extras&&T.extras[x])||x;selTema.appendChild(o);}});
+    o.value=x;var et=(T.extras&&T.extras[x])||x;o.textContent=et.charAt(0).toUpperCase()+et.slice(1);selTema.appendChild(o);}});
  var chip={};
  function fresca(s){if(s.stato_dati!=="verificato"||!s.verificato_il)return false;
   return (Date.now()-new Date(s.verificato_il).getTime())<=60*24*3600*1000;}
