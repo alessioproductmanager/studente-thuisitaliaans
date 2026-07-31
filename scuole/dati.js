@@ -1240,7 +1240,8 @@ const DATI = {
         "Experit (italiano + tirocinio)",
         "Italian on tour",
         "Preparazione esami"
-      ]
+      ],
+      "fondata_nel": 1984
     },
     {
       "id": "scuola-leonardo-da-vinci-roma",
@@ -2207,7 +2208,12 @@ const DATI = {
         "storia dell'arte"
       ],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "prezzi_rilevati": {
+        "sconto": "20% Erasmus e scambi internazionali",
+        "fonte": "istitutovenezia.com",
+        "rilevato_il": "2026-07-31"
+      }
     },
     {
       "id": "easy-italian-language-art",
