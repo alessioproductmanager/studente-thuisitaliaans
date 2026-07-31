@@ -35,8 +35,8 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [
-        "AIL",
-        "CILS"
+        "CILS",
+        "AIL"
       ],
       "note": "Corsi di gruppo con inizio ogni lunedì (principianti assoluti in date fisse, ogni 2 settimane). Verificato a mano sul sito ufficiale il 31/07/2026: il sito ha una protezione anti-bot e lo script non può leggerlo.",
       "verificato_il": "2026-07-31",
@@ -223,8 +223,7 @@ const DATI = {
       "pagina_corsi": "https://www.europassitalian.com/courses/live-courses",
       "email": "info@europassitalian.com",
       "accreditamenti": [
-        "EDUITALIA",
-        "DITALS"
+        "EDUITALIA"
       ],
       "corsi": [
         {
@@ -247,7 +246,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [
         "CILS",
-        "CELI"
+        "CELI",
+        "DITALS"
       ],
       "note": "Centro storico di Firenze; insegnanti con master e DITALS. Sede d'esame CILS e CELI (anche cittadinanza e università).",
       "verificato_il": "2026-07-31",
@@ -1183,7 +1183,6 @@ const DATI = {
         "AIL",
         "EDUITALIA",
         "Bildungsurlaub",
-        "CILS",
         "CSN"
       ],
       "corsi": [
@@ -1206,8 +1205,8 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [
-        "AIL",
-        "CILS"
+        "CILS",
+        "AIL"
       ],
       "note": "Corsi di gruppo con inizio ogni lunedì (principianti assoluti in date fisse, ogni 2 settimane). Verificato a mano sul sito ufficiale il 31/07/2026: il sito ha una protezione anti-bot e lo script non può leggerlo.",
       "verificato_il": "2026-07-31",
@@ -1297,8 +1296,6 @@ const DATI = {
       "pagina_corsi": "",
       "email": "info@kappalanguageschool.com",
       "accreditamenti": [
-        "CELI",
-        "PLIDA",
         "LICET"
       ],
       "corsi": [
@@ -1321,8 +1318,8 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [
-        "PLIDA",
-        "CELI"
+        "CELI",
+        "PLIDA"
       ],
       "note": "",
       "verificato_il": null,
@@ -1413,10 +1410,7 @@ const DATI = {
       "email": "info@ciao-italia.it",
       "accreditamenti": [
         "EDUITALIA",
-        "Bildungsurlaub",
-        "CELI",
-        "CILS",
-        "PLIDA"
+        "Bildungsurlaub"
       ],
       "corsi": [
         {
@@ -1438,8 +1432,8 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [
-        "CELI",
         "CILS",
+        "CELI",
         "PLIDA"
       ],
       "note": "",
@@ -1473,8 +1467,7 @@ const DATI = {
       "pagina_corsi": "",
       "email": "info@italiaidea.com",
       "accreditamenti": [
-        "ASILS",
-        "PLIDA"
+        "ASILS"
       ],
       "corsi": [
         {
@@ -1667,6 +1660,7 @@ const DATI = {
       "info": {
         "max_studenti_classe": 12,
         "materiale": "inclusi",
+        "test_ingresso": "online",
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
@@ -1690,7 +1684,6 @@ const DATI = {
         "AIL",
         "EDUITALIA",
         "Bildungsurlaub",
-        "CILS",
         "CSN"
       ],
       "corsi": [
@@ -1713,8 +1706,8 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [
-        "AIL",
         "CILS",
+        "AIL",
         "DITALS"
       ],
       "note": "Corsi di gruppo con inizio ogni lunedì (principianti assoluti in date fisse, ogni 2 settimane). Verificato a mano sul sito ufficiale il 31/07/2026: il sito ha una protezione anti-bot e lo script non può leggerlo.",
@@ -1897,7 +1890,6 @@ const DATI = {
       "accreditamenti": [
         "ASILS",
         "Bildungsurlaub",
-        "CILS",
         "CSN",
         "EDUITALIA"
       ],
@@ -2769,8 +2761,8 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [
-        "AIL",
-        "CILS"
+        "CILS",
+        "AIL"
       ],
       "note": "Corsi di gruppo con inizio ogni lunedì (principianti assoluti in date fisse, ogni 2 settimane). Verificato a mano sul sito ufficiale il 31/07/2026: il sito ha una protezione anti-bot e lo script non può leggerlo.",
       "verificato_il": "2026-07-31",
@@ -3601,8 +3593,8 @@ const DATI = {
       "durata_min_settimane": 1,
       "alloggio": true,
       "esami_in_sede": [
-        "AIL",
-        "CILS"
+        "CILS",
+        "AIL"
       ],
       "note": "Corsi di gruppo con inizio ogni lunedì (principianti assoluti in date fisse, ogni 2 settimane). Verificato a mano sul sito ufficiale il 31/07/2026: il sito ha una protezione anti-bot e lo script non può leggerlo.",
       "verificato_il": "2026-07-31",
@@ -4238,8 +4230,7 @@ const DATI = {
       "pagina_corsi": "",
       "email": "info@sorrentolingue.com",
       "accreditamenti": [
-        "EDUITALIA",
-        "CELI"
+        "EDUITALIA"
       ],
       "corsi": [
         {
@@ -4576,7 +4567,6 @@ const DATI = {
         "ASILS",
         "EDUITALIA",
         "Bildungsurlaub",
-        "CELI",
         "CSN"
       ],
       "corsi": [
@@ -4955,7 +4945,6 @@ const DATI = {
       "accreditamenti": [
         "EDUITALIA",
         "LICET",
-        "DITALS",
         "CSN"
       ],
       "esami_in_sede": [
@@ -5074,24 +5063,38 @@ const DATI = {
         "principianti": "date fisse ogni 2 settimane"
       },
       "info": {
+        "durata_lezione_min": 50,
+        "max_studenti_classe": 6,
+        "materiale": "inclusi",
+        "test_ingresso": "online",
+        "tassa_iscrizione": 0,
+        "servizio_alloggio": "gratuito",
         "wifi": true
       },
       "extra": [
+        "arte",
         "cucina",
-        "online"
+        "online",
+        "letteratura",
+        "storia dell'arte",
+        "vino",
+        "over50"
       ],
-      "stato_dati": "da_verificare",
-      "verificato_il": null,
+      "stato_dati": "verificato",
+      "verificato_il": "2026-07-31",
       "email": "info@studitalia.com",
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "note": "Piccola scuola vicino al centro di Olbia, a due passi dalla Costa Smeralda. Gruppi ridotti (max 6), iscrizione gratuita; corsi pratici di cucina, ceramica, chitarra."
     },
     {
       "id": "trulli-italian-school",
       "nome": "Trulli Italian School",
       "citta": "Alberobello",
       "regione": "Puglia",
-      "sito": "https://www.trulliitalianschool.com",
-      "accreditamenti": [],
+      "sito": "https://www.trullischool.com",
+      "accreditamenti": [
+        "LICET"
+      ],
       "esami_in_sede": [],
       "alloggio": true,
       "corsi": [
@@ -5111,17 +5114,31 @@ const DATI = {
         "principianti": "date fisse ogni 2 settimane"
       },
       "info": {
+        "durata_lezione_min": 55,
+        "max_studenti_classe": 6,
+        "materiale": "inclusi",
+        "test_ingresso": "primo giorno",
+        "tassa_iscrizione": 0,
+        "servizio_alloggio": "gratuito",
         "wifi": true
       },
       "extra": [
+        "arte",
         "cucina",
+        "dizione",
+        "online",
+        "letteratura",
+        "moda",
+        "pittura",
+        "storia dell'arte",
         "vino",
-        "artigianato"
+        "over50"
       ],
-      "stato_dati": "da_verificare",
-      "verificato_il": null,
-      "email": "info@trulliitalianschool.com",
-      "email_stato": "stimata"
+      "stato_dati": "verificato",
+      "verificato_il": "2026-07-31",
+      "email": "info@trullischool.com",
+      "email_stato": "stimata",
+      "note": "Ad Alberobello, città UNESCO dei trulli. Classi da 5-6 studenti; alloggio anche in trullo. Iscrizione gratuita."
     },
     {
       "id": "gaia-institute",
@@ -5207,8 +5224,7 @@ const DATI = {
       "pagina_corsi": "https://www.arca-bologna.com/it/corsi/date-prezzi/",
       "accreditamenti": [
         "ASILS",
-        "Bildungsurlaub",
-        "CELI"
+        "Bildungsurlaub"
       ],
       "esami_in_sede": [
         "CELI"
@@ -5263,8 +5279,7 @@ const DATI = {
       "sito": "https://www.italianme.it",
       "accreditamenti": [
         "LICET",
-        "Bildungsurlaub",
-        "CILS"
+        "Bildungsurlaub"
       ],
       "esami_in_sede": [
         "CILS"

@@ -129,8 +129,6 @@ form textarea{min-height:110px;resize:vertical}.nascosto{position:absolute;left:
 .riga-dato .etich{color:var(--secondario)}
 .riga-dato .val{margin-left:auto;font-weight:600;color:var(--inchiostro);text-align:right;max-width:62%;overflow-wrap:anywhere}
 .badge-ev{display:inline-block;margin-left:8px;font-size:10.5px;font-weight:700;background:var(--salvia-chiara);color:var(--salvia);border-radius:6px;padding:2px 6px;vertical-align:1px}
-.sito-link{display:inline-block;margin-top:14px;font-weight:600;color:var(--terracotta);text-decoration:none;border:1.5px solid var(--terracotta);border-radius:999px;padding:8px 16px;font-size:14px}
-.sito-link:hover{background:var(--terracotta);color:#fff}
 .nota-fest{display:block;margin-top:8px;font-size:12.5px;color:var(--secondario);line-height:1.5}
 .scena{margin-bottom:20px}
 .scena-desk{position:relative;padding:14px 0 40px;perspective:1400px}
@@ -277,8 +275,8 @@ var OGGI_ISO=new Date().toISOString().slice(0,10);
 function prossimoLunedi(){var d=new Date();var gg=(8-d.getDay())%7||7;d.setDate(d.getDate()+gg);
  return d.toLocaleDateString(document.documentElement.lang,{day:"numeric",month:"short"});}
 const selCitta=document.getElementById("f-citta");
-[...new Set(DATI.scuole.map(function(s){return s.citta}))].sort(function(a,b){return a.localeCompare(b,"it")}).forEach(function(c){
-  var o=document.createElement("option");o.value=c;o.textContent=c;selCitta.appendChild(o);});
+[...new Set(DATI.scuole.map(function(s){return s.regione}))].sort(function(a,b){return a.localeCompare(b,"it")}).forEach(function(r){
+  var o=document.createElement("option");o.value=r;o.textContent=r;selCitta.appendChild(o);});
 const selMese=document.getElementById("f-mese");const oggi=new Date();
 const selTema=document.getElementById("f-tema");
 var temiSet={};DATI.scuole.forEach(function(s){(s.extra||[]).forEach(function(x){temiSet[x]=(temiSet[x]||0)+1})});
@@ -292,9 +290,9 @@ document.querySelectorAll(".chip").forEach(function(ch){ch.addEventListener("cli
 document.getElementById("cerca").addEventListener("click",disegna);
 function iniziaNelMese(s,mese){if(!mese)return true;if(s.inizio&&s.inizio.frequenza==="ogni-lunedi")return true;
   return ((s.inizio&&s.inizio.date)||[]).some(function(d){return String(d).indexOf(mese)===0});}
-function filtra(){var citta=selCitta.value,mese=selMese.value,tema=selTema.value;
+function filtra(){var reg=selCitta.value,mese=selMese.value,tema=selTema.value;
  return DATI.scuole.filter(function(s){
-  if(citta&&s.citta!==citta)return false;
+  if(reg&&s.regione!==reg)return false;
   if(!iniziaNelMese(s,mese))return false;
   if(tema&&(s.extra||[]).indexOf(tema)<0)return false;
   if(stato.chips.esami&&!(s.esami_in_sede&&s.esami_in_sede.length))return false;
@@ -307,7 +305,7 @@ function card(s){
  var timbro=fresca(s)?'<div class="timbro ok">✓ '+T.verif+' '+(s.verificato_il||"—")+'</div>'
    :'<div class="timbro attenzione">◌ '+T.daconf+'</div>';
  var badges=s.accreditamenti.map(function(a){return '<span class="badge" title="'+(T.gloss[a]||a)+'">'+(T.icone[a]||"")+a+'</span>'}).join("");
- (s.esami_in_sede||[]).forEach(function(x){badges+='<span class="badge esame" title="'+(T.gloss[x]||x)+'">'+(T.icone[x]||"")+x+'</span>';});
+ (s.esami_in_sede||[]).forEach(function(x){if(s.accreditamenti.indexOf(x)<0)badges+='<span class="badge esame" title="'+(T.gloss[x]||x)+'">'+(T.icone[x]||"")+x+'</span>';});
  var tags="";
  if(MARE.indexOf(s.citta)>=0)tags+='<span class="tag">🌊 '+T.mare_tag+'</span>';
  if(s.info&&s.info.max_studenti_classe)tags+='<span class="tag">'+T.maxp+' '+s.info.max_studenti_classe+' '+T.percl+'</span>';
