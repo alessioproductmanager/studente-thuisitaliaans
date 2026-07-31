@@ -1,0 +1,368 @@
+/* ==========================================================================
+   cartoline.css — mazzo di cartoline per pagine città e schede scuola
+   thuisitaliaans.com · usa i token già presenti nelle pagine
+   ========================================================================== */
+
+.cartoline{
+  --cart-blu:#2C4B78;            /* blu posta aerea */
+  --cart-mano:"Snell Roundhand","Segoe Script","Bradley Hand",var(--serif);
+  --cart-carta:#FCFAF5;
+  --cart-ombra:0 1px 2px rgba(34,29,22,.10),0 20px 38px -18px rgba(34,29,22,.45);
+  margin:24px 0;
+  display:grid;
+  gap:14px;
+  align-items:center;
+  background:var(--card);
+  border:1px solid var(--linea);
+  border-radius:var(--r);
+  padding:20px 22px 18px;
+  box-shadow:var(--ombra);
+}
+.cartoline--scuola{margin-top:18px;padding:16px 16px 14px}
+@media(min-width:880px){
+  .cartoline--citta{grid-template-columns:1fr minmax(300px,430px);gap:34px;padding:24px 28px 22px}
+}
+
+/* ---------- testo di corredo ---------------------------------------- */
+.cart-testo h2,.cart-testo h3{font-family:var(--serif);font-size:20px;margin-bottom:8px;font-weight:600}
+.cart-testo p{font-size:15px;color:var(--secondario);line-height:1.6}
+.cart-crediti{margin-top:12px;font-size:11.5px;line-height:1.55;color:var(--secondario)}
+.cart-crediti a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+
+/* ---------- il mazzo -------------------------------------------------- */
+.cart-mazzo{
+  position:relative;
+  width:100%;
+  aspect-ratio:1.44/1;
+  margin:6px 84px 26px 16px;
+  perspective:1400px;
+}
+.cart-mazzo:focus-visible{outline:2px solid var(--terracotta);outline-offset:8px;border-radius:6px}
+
+.cart{
+  position:absolute;
+  inset:0;
+  margin:0;
+  transform-origin:50% 88%;
+  transition:transform .85s cubic-bezier(.22,.85,.28,1),filter .85s ease,opacity .4s ease;
+  will-change:transform;
+}
+.cart[data-pos="0"]{transform:rotate(var(--rot,0deg));z-index:3}
+.cart[data-pos="1"]{transform:rotate(calc(var(--rot,0deg) - 3.2deg)) translate(-3%,3.4%) scale(.955);z-index:2;filter:brightness(.965) saturate(.95)}
+.cart[data-pos="2"]{transform:rotate(calc(var(--rot,0deg) + 4.4deg)) translate(-6.5%,6.8%) scale(.912);z-index:1;filter:brightness(.93) saturate(.9)}
+.cart.esce{transform:rotate(calc(var(--rot,0deg) + 2deg)) translate(16px,-11%) scale(1.01);z-index:9}
+
+.cart-carta{
+  position:relative;height:100%;
+  background:var(--card);
+  border-radius:3px;
+  padding:11px 11px 13px;
+  box-shadow:var(--cart-ombra);
+}
+.cart-foto{position:relative;height:100%;overflow:hidden;background:var(--linea)}
+.cart-foto img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* ---------- francobollo ---------------------------------------------- */
+.cart-bollo{
+  position:absolute;top:9px;right:9px;z-index:3;
+  width:40px;height:49px;
+  background:linear-gradient(155deg,#EFE5D2,#DDCBAB);
+  border:2px solid #FFFDF8;
+  border-radius:2px;
+  box-shadow:0 1px 3px rgba(34,29,22,.3);
+  transform:rotate(4deg);
+  display:flex;align-items:flex-end;justify-content:center;
+  font:700 8px/1 var(--sans);letter-spacing:.4px;color:#8A7A5C;
+  padding-bottom:4px;
+}
+.cart-bollo::before{
+  content:"";position:absolute;inset:4px;border:1px dashed rgba(138,122,92,.55);border-radius:1px;
+}
+.cart-bollo::after{content:"ITALIA";position:relative}
+
+/* ---------- timbro postale ------------------------------------------- */
+.cart-timbro{
+  position:absolute;top:38px;right:16px;z-index:4;
+  width:62px;height:62px;border-radius:50%;
+  border:1.6px solid rgba(44,75,120,.62);
+  color:rgba(44,75,120,.72);
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  font:700 8.5px/1.25 var(--sans);letter-spacing:.6px;text-transform:uppercase;
+  transform:rotate(-13deg);
+  padding:6px;
+  overflow:hidden;
+}
+.cart-timbro::before{
+  content:"";position:absolute;inset:4px;border-radius:50%;border:1px solid rgba(44,75,120,.4);
+}
+
+/* ---------- saluto ---------------------------------------------------- */
+.cart-saluto{
+  position:absolute;left:0;right:0;bottom:0;z-index:3;
+  padding:26px 14px 11px;
+  background:linear-gradient(transparent,rgba(20,15,10,.72));
+  color:#fff;
+  font-family:var(--cart-mano);font-style:italic;
+  font-size:clamp(19px,4.4vw,27px);line-height:1.15;
+  text-shadow:0 2px 10px rgba(0,0,0,.5);
+}
+
+/* ==========================================================================
+   TEMPLATE 1 — posta aerea (bordo a chevron rosso/blu)
+   ========================================================================== */
+.cart--t1 .cart-carta{
+  padding:13px;
+  background:
+    repeating-linear-gradient(45deg,var(--terracotta) 0 9px,#fff 9px 18px,var(--cart-blu) 18px 27px,#fff 27px 36px) border-box;
+  border:0;
+}
+.cart--t1 .cart-carta::before{
+  content:"";position:absolute;inset:7px;background:var(--card);
+}
+.cart--t1 .cart-foto{z-index:1;margin:-2px}
+.cart--t1 .cart-bollo{top:12px;right:12px}
+.cart--t1 .cart-timbro{top:66px;right:26px}
+
+/* ==========================================================================
+   TEMPLATE 2 — timbro grande a cavallo dell'angolo
+   ========================================================================== */
+.cart--t2 .cart-carta{padding:9px 9px 11px}
+.cart--t2 .cart-timbro{
+  width:92px;height:92px;top:-14px;right:-14px;
+  border-width:2px;font-size:9.5px;letter-spacing:1px;
+  background:rgba(250,246,239,.28);backdrop-filter:blur(1px);
+  transform:rotate(-9deg);
+}
+.cart--t2 .cart-bollo{display:none}
+.cart--t2 .cart-saluto{
+  background:none;color:var(--card);
+  text-align:center;padding:0 16px 16px;
+  font-size:clamp(20px,4.8vw,30px);
+}
+.cart--t2 .cart-foto::after{
+  content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(20,15,10,.62))
+}
+
+/* ==========================================================================
+   TEMPLATE 3 — lettere grandi in serif, sotto la foto
+   ========================================================================== */
+.cart--t3 .cart-carta{padding:10px 10px 46px;background:var(--cart-carta)}
+.cart--t3 .cart-saluto{
+  position:absolute;bottom:8px;left:12px;right:12px;top:auto;
+  background:none;color:var(--terracotta);
+  font-family:var(--serif);font-style:normal;font-weight:700;
+  font-size:clamp(15px,3.2vw,21px);letter-spacing:.6px;text-transform:uppercase;
+  text-shadow:none;padding:0;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.cart--t3 .cart-bollo{top:10px;right:10px;bottom:auto;width:34px;height:42px;transform:rotate(-5deg)}
+.cart--t3 .cart-timbro{display:none}
+
+/* ==========================================================================
+   TEMPLATE 4 — retro della cartolina (righe + riquadro indirizzo)
+   ========================================================================== */
+.cart--t4 .cart-carta{padding:10px;display:flex;gap:9px;background:var(--cart-carta)}
+.cart--t4 .cart-foto{flex:1 1 60%;min-width:0}
+.cart--t4 .cart-carta::after{
+  content:"";flex:1 1 40%;
+  border-left:1px solid var(--linea);
+  background:
+    repeating-linear-gradient(transparent 0 15px,var(--linea) 15px 16px) 0 42px/100% 100% no-repeat;
+}
+.cart--t4 .cart-bollo{top:14px;right:14px;transform:rotate(-3deg)}
+.cart--t4 .cart-timbro{top:52px;right:22px;width:52px;height:52px;font-size:7.5px}
+.cart--t4 .cart-saluto{
+  left:auto;right:12px;bottom:12px;width:36%;
+  background:none;color:var(--inchiostro);text-shadow:none;padding:0;
+  font-size:clamp(14px,3vw,20px);line-height:1.25;
+}
+
+/* ==========================================================================
+   TEMPLATE 5 — nastro di carta (come il post-it del monitor)
+   ========================================================================== */
+.cart--t5 .cart-carta{padding:12px 12px 14px;transform:none}
+.cart--t5 .cart-saluto{
+  top:16px;bottom:auto;left:-8px;right:auto;
+  width:auto;max-width:78%;
+  background:var(--ambra-chiara);
+  color:var(--inchiostro);text-shadow:none;
+  padding:7px 16px 8px;
+  border-radius:2px;
+  box-shadow:0 4px 12px rgba(34,29,22,.2);
+  transform:rotate(-2.2deg);
+  font-size:clamp(16px,3.4vw,23px);
+}
+.cart--t5 .cart-saluto::before{
+  content:"";position:absolute;top:-7px;left:22px;width:44px;height:14px;
+  background:rgba(255,255,255,.55);border:1px solid rgba(34,29,22,.08);transform:rotate(-4deg);
+}
+.cart--t5 .cart-bollo{top:auto;bottom:10px;right:10px}
+.cart--t5 .cart-timbro{display:none}
+
+/* ==========================================================================
+   TEMPLATE 6 — fascia diagonale in alto a sinistra
+   ========================================================================== */
+.cart--t6 .cart-carta{padding:10px}
+.cart--t6 .cart-saluto{
+  top:30px;bottom:auto;left:-72px;right:auto;
+  width:300px;text-align:center;
+  background:var(--terracotta);
+  padding:8px 0 9px;
+  transform:rotate(-32deg);
+  font-size:clamp(12px,2.4vw,15px);line-height:1.2;
+  text-shadow:none;
+  box-shadow:0 6px 16px rgba(34,29,22,.25);
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.cart--t6 .cart-bollo{top:auto;bottom:11px;left:11px;right:auto;transform:rotate(-6deg)}
+.cart--t6 .cart-timbro{top:auto;bottom:20px;left:52px;right:auto;width:54px;height:54px;font-size:7.5px}
+
+/* ==========================================================================
+   TEMPLATE 7 — la cartolina è un francobollo (bordo dentellato)
+   ========================================================================== */
+.cart--t7 .cart-carta{padding:14px;background:#fff;border-radius:2px}
+.cart--t7 .cart-carta::before{
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:
+    radial-gradient(circle 4.5px at 8px 0,var(--carta) 97%,#0000) top left/16px 16px repeat-x,
+    radial-gradient(circle 4.5px at 8px 16px,var(--carta) 97%,#0000) bottom left/16px 16px repeat-x,
+    radial-gradient(circle 4.5px at 0 8px,var(--carta) 97%,#0000) top left/16px 16px repeat-y,
+    radial-gradient(circle 4.5px at 16px 8px,var(--carta) 97%,#0000) top right/16px 16px repeat-y;
+}
+.cart--t7 .cart-bollo{display:none}
+.cart--t7 .cart-timbro{top:16px;right:18px;width:56px;height:56px;font-size:7.5px}
+.cart--t7 .cart-saluto{
+  padding:24px 14px 10px;
+  font-family:var(--serif);font-style:italic;font-weight:600;
+  font-size:clamp(16px,3.4vw,22px);
+}
+.cart--t7 .cart-foto::before{
+  content:"€ 0,15";position:absolute;left:8px;bottom:8px;z-index:3;
+  font:700 10px/1 var(--sans);color:#fff;letter-spacing:.6px;
+  text-shadow:0 1px 4px rgba(0,0,0,.6);
+}
+
+/* ==========================================================================
+   TEMPLATE 8 — album di viaggio (angolini di carta)
+   ========================================================================== */
+.cart--t8 .cart-carta{padding:16px 16px 42px;background:var(--ambra-chiara)}
+.cart--t8 .cart-foto{box-shadow:0 2px 8px rgba(34,29,22,.22)}
+.cart--t8 .cart-carta::before,
+.cart--t8 .cart-carta::after{
+  content:"";position:absolute;width:26px;height:26px;z-index:3;
+  background:linear-gradient(45deg,rgba(255,255,255,.9) 50%,transparent 51%);
+  box-shadow:0 1px 2px rgba(34,29,22,.2);
+}
+.cart--t8 .cart-carta::before{left:10px;bottom:36px;transform:rotate(45deg)}
+.cart--t8 .cart-carta::after{right:10px;top:10px;transform:rotate(225deg)}
+.cart--t8 .cart-saluto{
+  bottom:9px;left:16px;right:16px;top:auto;
+  background:none;color:var(--inchiostro);text-shadow:none;padding:0;
+  font-size:clamp(16px,3.4vw,23px);
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.cart--t8 .cart-bollo{top:auto;bottom:6px;right:14px;width:28px;height:34px}
+.cart--t8 .cart-timbro{display:none}
+
+/* ==========================================================================
+   TEMPLATE 9 — fascia salvia in basso
+   ========================================================================== */
+.cart--t9 .cart-carta{padding:10px 10px 40px;background:var(--salvia)}
+.cart--t9 .cart-saluto{
+  bottom:8px;left:14px;right:14px;top:auto;
+  background:none;color:#fff;text-shadow:none;padding:0;
+  font-family:var(--serif);font-style:normal;font-weight:600;
+  font-size:clamp(14px,3vw,19px);
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.cart--t9 .cart-bollo{top:10px;left:10px;right:auto;transform:rotate(-5deg)}
+.cart--t9 .cart-timbro{top:42px;left:20px;right:auto;border-color:rgba(255,255,255,.75);color:rgba(255,255,255,.85)}
+.cart--t9 .cart-timbro::before{border-color:rgba(255,255,255,.5)}
+
+/* ==========================================================================
+   TEMPLATE 10 — cartiglio ovale in basso a destra
+   ========================================================================== */
+.cart--t10 .cart-carta{padding:12px;border-radius:14px;background:var(--cart-carta)}
+.cart--t10 .cart-foto{border-radius:9px}
+.cart--t10 .cart-saluto{
+  left:auto;right:14px;bottom:14px;width:auto;max-width:70%;
+  background:rgba(252,250,245,.94);
+  color:var(--terracotta-scuro);text-shadow:none;
+  padding:9px 20px 10px;border-radius:999px;
+  border:1px solid var(--linea);
+  box-shadow:0 6px 18px rgba(34,29,22,.22);
+  font-size:clamp(15px,3.2vw,21px);
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.cart--t10 .cart-bollo{top:12px;right:12px;transform:rotate(6deg)}
+.cart--t10 .cart-timbro{display:none}
+
+/* ==========================================================================
+   accessibilità / preferenze
+   ========================================================================== */
+@media(prefers-reduced-motion:reduce){
+  .cart{transition:none}
+}
+@media(max-width:760px){
+  .cart-mazzo{margin:4px 64px 20px 8px}
+  .cart.esce{transform:rotate(calc(var(--rot,0deg) + 2deg)) translate(10px,-12%) scale(.99)}
+  .cart[data-pos="1"]{transform:rotate(calc(var(--rot,0deg) - 2.6deg)) translate(-2.4%,2.8%) scale(.962)}
+  .cart[data-pos="2"]{transform:rotate(calc(var(--rot,0deg) + 3.4deg)) translate(-5%,5.4%) scale(.925)}
+}
+@media(max-width:520px){
+  .cartoline{padding:14px 14px 12px}
+  .cart-mazzo{margin:4px 30px 18px 14px}
+  .cart-timbro{transform:rotate(-13deg) scale(.85)}
+}
+
+/* frasi lunghe (nomi di scuola) */
+.cartoline--scuola .cart-saluto{font-size:clamp(14px,2.9vw,19px);line-height:1.2}
+.cartoline--scuola .cart--t3 .cart-saluto,
+.cartoline--scuola .cart--t9 .cart-saluto{font-size:clamp(12px,2.5vw,16px)}
+.cartoline--scuola .cart--t6 .cart-saluto{font-size:clamp(11px,2.2vw,13.5px)}
+
+/* più aria per le fasce di testo quando la frase è lunga */
+.cartoline--scuola .cart--t3 .cart-carta{padding-bottom:58px}
+.cartoline--scuola .cart--t8 .cart-carta{padding-bottom:56px}
+.cartoline--scuola .cart--t9 .cart-carta{padding-bottom:56px}
+
+/* riga crediti compatta */
+.cart-crediti{margin-top:10px;font-size:11.5px;line-height:1.5;color:var(--secondario)}
+.cart-crediti a{color:inherit}
+
+/* crediti completi nel piede pagina */
+.cart-crediti-lungo{margin-top:14px;padding-top:12px;border-top:1px dashed var(--linea);font-size:11.5px;line-height:1.55;color:var(--secondario)}
+.cart-crediti-lungo b{color:var(--inchiostro);font-size:11px;letter-spacing:.6px;text-transform:uppercase;display:block;margin-bottom:6px}
+.cart-crediti-lungo li{list-style:none;margin-bottom:4px}
+.cart-crediti-lungo a{color:inherit}
+
+/* chip informativi nelle liste scuola delle pagine città */
+.citta-scuola .tagriga{margin-top:8px}
+.citta-scuola .tag{font-size:11.5px;padding:3px 9px}
+
+/* schede scuola: colonna stretta, la cartolina non deve sbordare */
+.cartoline--scuola .cart-mazzo{margin:4px 84px 18px 4px}
+.cartoline--scuola .cart.esce{transform:rotate(calc(var(--rot,0deg) + 1.5deg)) translate(14px,-11%) scale(1)}
+
+/* crediti in fondo pagina, dentro un riquadro */
+.cart-crediti-lungo{margin:22px 0 6px;padding:16px 18px;border:1px solid var(--linea);
+  border-radius:var(--r-s);background:var(--card);font-size:12px;line-height:1.6;color:var(--secondario)}
+.cart-crediti-lungo b{color:var(--inchiostro);font-size:11px;letter-spacing:.8px;text-transform:uppercase;
+  display:block;margin-bottom:8px}
+.cart-crediti-lungo ul{margin:0;padding:0}
+.cart-crediti-lungo li{list-style:none;margin-bottom:5px}
+.cart-crediti-lungo i{color:var(--inchiostro);font-style:italic}
+.cart-crediti-lungo a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+
+/* promo app compatta, dentro la scheda scuola */
+.app-mini{margin-top:18px;display:grid;grid-template-columns:98px 1fr;gap:18px;align-items:center;
+  background:linear-gradient(135deg,#FBF7F0,#F3E9DD);border:1px solid var(--linea);
+  border-radius:var(--r);padding:16px 18px}
+.app-mini-tel{width:100%;height:auto;border-radius:10px;filter:drop-shadow(3px 6px 12px rgba(34,29,22,.2))}
+.app-mini h2{font-family:var(--serif);font-size:19px;margin:0 0 6px;font-weight:600}
+.app-mini p{font-size:14px;color:var(--secondario);line-height:1.55;margin:0 0 12px}
+.app-mini p b{color:var(--inchiostro)}
+.app-mini .app-cta{display:inline-block;background:var(--inchiostro);color:#fff;font-weight:600;
+  text-decoration:none;padding:9px 17px;border-radius:999px;font-size:14px}
+.app-mini .app-cta:hover{background:var(--terracotta)}
+@media(max-width:520px){.app-mini{grid-template-columns:74px 1fr;gap:14px;padding:14px}}
