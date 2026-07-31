@@ -1905,7 +1905,8 @@ const DATI = {
       "pagina_corsi": "",
       "email": "info@ilcentro.net",
       "accreditamenti": [
-        "ASILS"
+        "ASILS",
+        "CSN"
       ],
       "corsi": [
         {
@@ -1950,7 +1951,14 @@ const DATI = {
         "online"
       ],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 1986,
+      "prezzi_rilevati": {
+        "iscrizione": 0,
+        "incluso": "materiale dalle 3 settimane, alloggio, visto, attivita",
+        "fonte": "ilcentro.net",
+        "rilevato_il": "2026-07-31"
+      }
     },
     {
       "id": "ellci-milano",
