@@ -7265,8 +7265,37 @@ const DATI = {
         9.5
       ],
       "aeroporto": "Olbia Costa Smeralda (OLB)",
-      "top3": [],
-      "eventi": [],
+      "top3": [
+        {
+          "nome": "Basilica di San Simplicio",
+          "perche": "Chiesa romanica in granito dell'XI secolo, il monumento più antico della Gallura."
+        },
+        {
+          "nome": "Golfo di Olbia e Isola di Tavolara",
+          "perche": "Un'ora di barca e ti trovi davanti a una montagna che esce dal mare."
+        },
+        {
+          "nome": "Corso Umberto",
+          "perche": "La passeggiata del centro: aperitivo, negozi e la vita quotidiana olbiese."
+        }
+      ],
+      "eventi": [
+        {
+          "nome": "Festa di San Simplicio",
+          "quando": "metà maggio",
+          "desc": "A metà maggio Olbia festeggia il patrono per una settimana, tra processione, palio, poesia sarda e stand gastronomici. È la festa più sentita dell'anno: perfetta per il lessico delle tradizioni e per conoscere i sardi."
+        },
+        {
+          "nome": "Sagra delle cozze",
+          "quando": "estate",
+          "desc": "Il golfo di Olbia vive di allevamenti di cozze e d'estate li celebra con degustazioni sul mare. Occasione golosa per il lessico del cibo, dei numeri e per imparare a ordinare al banco."
+        },
+        {
+          "nome": "Estate olbiese",
+          "quando": "giugno–settembre",
+          "desc": "Da giugno a settembre concerti, cinema all'aperto e mercatini animano il molo Brin e le piazze del centro. Serate lunghe e informali, ideali per praticare l'italiano fuori dall'aula."
+        }
+      ],
       "guida": ""
     },
     "Alberobello": {
@@ -7276,8 +7305,37 @@ const DATI = {
         17.24
       ],
       "aeroporto": "Bari (BRI)",
-      "top3": [],
-      "eventi": [],
+      "top3": [
+        {
+          "nome": "Rione Monti",
+          "perche": "Oltre mille trulli in fila sulla collina: patrimonio UNESCO, da girare la mattina presto."
+        },
+        {
+          "nome": "Trullo Sovrano",
+          "perche": "L'unico trullo a due piani, oggi museo: si capisce come si viveva davvero qui."
+        },
+        {
+          "nome": "Rione Aia Piccola",
+          "perche": "Il quartiere dei trulli ancora abitati: silenzioso, senza negozi, molto più autentico."
+        }
+      ],
+      "eventi": [
+        {
+          "nome": "Festa dei Santi Medici Cosma e Damiano",
+          "quando": "fine settembre",
+          "desc": "A fine settembre Alberobello si accende di luminarie monumentali, bande musicali e processione per i santi patroni. La festa più importante dell'anno: perfetta per il lessico delle tradizioni pugliesi."
+        },
+        {
+          "nome": "Alberobello Light Festival",
+          "quando": "dicembre–gennaio",
+          "desc": "Nelle settimane di Natale i trulli diventano schermi per proiezioni luminose e il paese si riempie di mercatini. Un modo suggestivo di vedere Alberobello fuori stagione, con meno turisti e più tempo per parlare."
+        },
+        {
+          "nome": "Sagre della Valle d'Itria",
+          "quando": "estate",
+          "desc": "D'estate i paesi vicini — Locorotondo, Martina Franca, Cisternino — si susseguono con sagre di orecchiette, bombette e vino. Il contesto migliore per il lessico del cibo e per l'italiano informale a tavola."
+        }
+      ],
       "guida": ""
     },
     "La Maddalena": {
@@ -7287,8 +7345,37 @@ const DATI = {
         9.41
       ],
       "aeroporto": "Olbia (OLB)",
-      "top3": [],
-      "eventi": [],
+      "top3": [
+        {
+          "nome": "Parco Nazionale dell'Arcipelago",
+          "perche": "Sessanta isole di granito e acqua trasparente: il giro in barca è d'obbligo."
+        },
+        {
+          "nome": "Caprera e il Compendio Garibaldino",
+          "perche": "La casa dove Garibaldi visse e morì, a pochi minuti di bici dal centro."
+        },
+        {
+          "nome": "Giro in barca tra Budelli, Spargi e Santa Maria",
+          "perche": "Una giornata in gommone tra cale deserte: si prenota al porto la mattina."
+        }
+      ],
+      "eventi": [
+        {
+          "nome": "Festa di Santa Maria Maddalena",
+          "quando": "22 luglio",
+          "desc": "Il 22 luglio l'isola festeggia la patrona con processione a mare, barche addobbate e fuochi d'artificio. Festa profondamente locale: ottima per il lessico delle tradizioni marinare."
+        },
+        {
+          "nome": "Regate nell'arcipelago",
+          "quando": "primavera–estate",
+          "desc": "Tra primavera ed estate l'arcipelago ospita regate veliche di ogni livello e il porto si riempie di equipaggi. Utile per il lessico della vela, del mare e del meteo."
+        },
+        {
+          "nome": "Estate maddalenina",
+          "quando": "giugno–settembre",
+          "desc": "D'estate concerti, cinema all'aperto e mercatini animano piazza Umberto I e il lungomare fino a notte. Serate informali, ideali per chiacchierare con gli isolani."
+        }
+      ],
       "guida": ""
     },
     "Grottaglie": {
@@ -7298,8 +7385,37 @@ const DATI = {
         17.43
       ],
       "aeroporto": "Brindisi (BDS)",
-      "top3": [],
-      "eventi": [],
+      "top3": [
+        {
+          "nome": "Quartiere delle Ceramiche",
+          "perche": "Decine di botteghe scavate nella roccia: si entra, si guarda tornire, si compra."
+        },
+        {
+          "nome": "Castello Episcopio e Museo della Ceramica",
+          "perche": "Nelle cantine del castello, otto secoli di ceramica grottagliese."
+        },
+        {
+          "nome": "Gravina di Riggio e le chiese rupestri",
+          "perche": "Un canyon con cascata e cripte affrescate, a pochi minuti dal centro."
+        }
+      ],
+      "eventi": [
+        {
+          "nome": "Mostra della Ceramica",
+          "quando": "agosto",
+          "desc": "Ad agosto il castello ospita la storica mostra-concorso della ceramica, con opere dei maestri locali e dimostrazioni al tornio. Perfetta per il lessico dell'artigianato e dei materiali."
+        },
+        {
+          "nome": "Festa di San Ciro",
+          "quando": "31 gennaio",
+          "desc": "Il 31 gennaio Grottaglie celebra il patrono con processione, luminarie e bancarelle nel freddo dell'inverno pugliese. Una festa vera, senza turisti: ottima per ascoltare l'italiano quotidiano del Sud."
+        },
+        {
+          "nome": "Presepi e Natale nelle grotte",
+          "quando": "dicembre–gennaio",
+          "desc": "A dicembre le grotte e le botteghe del quartiere ceramico ospitano presepi artistici e mercatini. Occasione ideale per il lessico del Natale e delle tradizioni religiose."
+        }
+      ],
       "guida": ""
     }
   }

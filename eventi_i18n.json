@@ -1,0 +1,1990 @@
+{
+ "Firenze": {
+  "slug": "firenze",
+  "eventi": [
+   {
+    "nome": "Scoppio del Carro",
+    "quando": {
+     "it": "Pasqua",
+     "en": "Easter",
+     "de": "Ostern",
+     "fr": "Pâques",
+     "nl": "Pasen"
+    },
+    "desc": {
+     "it": "La domenica di Pasqua, in Piazza del Duomo, un carro secolare esplode in fuochi d'artificio accesi da una colomba meccanica. Tradizione fiorentina purissima: ideale per il lessico delle feste e delle tradizioni.",
+     "en": "On Easter Sunday, in Piazza del Duomo, a centuries-old cart erupts into fireworks lit by a mechanical dove. Pure Florentine tradition: ideal for the vocabulary of festivals and customs.",
+     "de": "Am Ostersonntag explodiert auf der Piazza del Duomo ein jahrhundertealter Wagen in einem Feuerwerk, entzündet von einer mechanischen Taube. Reinste florentinische Tradition: ideal für den Wortschatz rund um Feste und Bräuche.",
+     "fr": "Le dimanche de Pâques, sur la Piazza del Duomo, un char séculaire explose en feux d'artifice allumés par une colombe mécanique. Tradition florentine à l'état pur : idéale pour le vocabulaire des fêtes et des traditions.",
+     "nl": "Op paaszondag ontploft op de Piazza del Duomo een eeuwenoude kar in vuurwerk, aangestoken door een mechanische duif. Puur Florentijnse traditie: ideaal voor woordenschat over feesten en gebruiken."
+    }
+   },
+   {
+    "nome": "Maggio Musicale Fiorentino",
+    "quando": {
+     "it": "aprile–giugno",
+     "en": "April–June",
+     "de": "April–Juni",
+     "fr": "avril–juin",
+     "nl": "april–juni"
+    },
+    "desc": {
+     "it": "Uno dei più antichi festival musicali d'Europa porta opera e concerti in città per settimane. Per chi studia a Firenze è l'occasione di unire lingua e cultura alta, con il lessico della musica e del teatro.",
+     "en": "One of Europe's oldest music festivals brings opera and concerts to the city for weeks. If you are studying in Florence it combines language with high culture, plus the vocabulary of music and theatre.",
+     "de": "Eines der ältesten Musikfestivals Europas bringt wochenlang Oper und Konzerte in die Stadt. Wer in Florenz lernt, verbindet hier Sprache und Hochkultur samt Wortschatz aus Musik und Theater.",
+     "fr": "L'un des plus anciens festivals de musique d'Europe amène opéra et concerts en ville pendant des semaines. Pour qui étudie à Florence, c'est l'occasion d'allier langue et haute culture, avec le vocabulaire de la musique et du théâtre.",
+     "nl": "Een van de oudste muziekfestivals van Europa brengt wekenlang opera en concerten naar de stad. Wie in Florence studeert, combineert zo taal met hoge cultuur, inclusief het vocabulaire van muziek en theater."
+    }
+   },
+   {
+    "nome": "Pitti Uomo",
+    "quando": {
+     "it": "gennaio e giugno",
+     "en": "January and June",
+     "de": "Januar und Juni",
+     "fr": "janvier et juin",
+     "nl": "januari en juni"
+    },
+    "desc": {
+     "it": "Due volte l'anno Firenze diventa capitale mondiale della moda maschile. Le strade si riempiono di addetti ai lavori: utile per il vocabolario della moda e per sentire l'italiano del business e dello stile.",
+     "en": "Twice a year Florence becomes the world capital of menswear. The streets fill with insiders: useful for fashion vocabulary and for hearing the Italian of business and style.",
+     "de": "Zweimal im Jahr wird Florenz zur Welthauptstadt der Herrenmode. Die Straßen füllen sich mit Fachleuten: nützlich für Modevokabular und für das Italienisch von Business und Stil.",
+     "fr": "Deux fois par an, Florence devient la capitale mondiale de la mode masculine. Les rues se remplissent de professionnels : utile pour le vocabulaire de la mode et l'italien des affaires et du style.",
+     "nl": "Twee keer per jaar wordt Florence de wereldhoofdstad van herenmode. De straten vullen zich met vakmensen: handig voor modewoordenschat en het Italiaans van business en stijl."
+    }
+   },
+   {
+    "nome": "Firenze Rocks",
+    "quando": {
+     "it": "giugno",
+     "en": "June",
+     "de": "Juni",
+     "fr": "juin",
+     "nl": "juni"
+    },
+    "desc": {
+     "it": "A giugno il più grande festival rock italiano porta star internazionali alle Cascine. Ambiente giovane e informale: ottimo per l'italiano colloquiale, il gergo dei concerti e socializzare con coetanei.",
+     "en": "In June Italy's biggest rock festival brings international stars to the Cascine park. Young, informal crowd: great for colloquial Italian, concert slang and meeting people your own age.",
+     "de": "Im Juni bringt Italiens größtes Rockfestival internationale Stars in den Cascine-Park. Junges, lockeres Publikum: ideal für Umgangssprache, Konzertslang und Kontakte zu Gleichaltrigen.",
+     "fr": "En juin, le plus grand festival rock d'Italie fait venir des stars internationales aux Cascine. Ambiance jeune et décontractée : parfait pour l'italien familier, l'argot des concerts et rencontrer des jeunes.",
+     "nl": "In juni brengt het grootste rockfestival van Italië internationale sterren naar het Cascine-park. Jong en informeel publiek: ideaal voor spreektaal, concertjargon en leeftijdsgenoten ontmoeten."
+    }
+   },
+   {
+    "nome": "Festa della Rificolona",
+    "quando": {
+     "it": "7 settembre",
+     "en": "7 September",
+     "de": "7 September",
+     "fr": "7 septembre",
+     "nl": "7 september"
+    },
+    "desc": {
+     "it": "Il 7 settembre i bambini sfilano con lanterne di carta illuminate. Una festa popolare e poetica, perfetta per il lessico delle tradizioni e per vedere la Firenze più autentica lontano dai circuiti turistici.",
+     "en": "On 7 September children parade with lit paper lanterns. A poetic neighbourhood festival, perfect for traditional vocabulary and for seeing the most authentic Florence, far from the tourist circuit.",
+     "de": "Am 7. September ziehen Kinder mit beleuchteten Papierlaternen durch die Stadt. Ein poetisches Volksfest, perfekt für Traditionsvokabular und für das authentische Florenz abseits der Touristenpfade.",
+     "fr": "Le 7 septembre, les enfants défilent avec des lanternes de papier allumées. Une fête populaire et poétique, parfaite pour le vocabulaire des traditions et pour voir la Florence la plus authentique.",
+     "nl": "Op 7 september lopen kinderen in optocht met verlichte papieren lampionnen. Een poëtisch volksfeest, perfect voor traditiewoordenschat en het meest authentieke Florence, ver van de toeristenroutes."
+    }
+   }
+  ]
+ },
+ "Roma": {
+  "slug": "roma",
+  "eventi": [
+   {
+    "nome": "Natale di Roma",
+    "quando": {
+     "it": "21 aprile",
+     "en": "21 April",
+     "de": "21 April",
+     "fr": "21 avril",
+     "nl": "21 april"
+    },
+    "desc": {
+     "it": "Il 21 aprile Roma celebra la sua fondazione (753 a.C.) con cortei in costume, rievocazioni storiche ai Fori e fuochi al Circo Massimo. Per uno studente è un'immersione nella storia romana raccontata dal vivo: ottimo per il lessico storico e per capire quanto i romani amino la loro città.",
+     "en": "On 21 April Rome celebrates its founding (753 BC) with costumed parades, historical re-enactments at the Forums and fireworks at the Circus Maximus. A living immersion in Roman history: excellent for historical vocabulary and for seeing how much Romans love their city.",
+     "de": "Am 21. April feiert Rom seine Gründung (753 v. Chr.) mit Kostümumzügen, historischen Nachstellungen an den Foren und Feuerwerk am Circus Maximus. Römische Geschichte zum Anfassen: ideal für historisches Vokabular und um zu verstehen, wie sehr die Römer ihre Stadt lieben.",
+     "fr": "Le 21 avril, Rome célèbre sa fondation (753 av. J.-C.) avec des cortèges en costume, des reconstitutions aux Forums et des feux d'artifice au Circus Maximus. Une immersion vivante dans l'histoire romaine : parfait pour le vocabulaire historique et pour mesurer l'attachement des Romains à leur ville.",
+     "nl": "Op 21 april viert Rome zijn stichting (753 v.Chr.) met kostuumoptochten, historische re-enactments bij de Fora en vuurwerk bij het Circus Maximus. Een levende onderdompeling in de Romeinse geschiedenis: ideaal voor historische woordenschat en om te zien hoezeer Romeinen van hun stad houden."
+    }
+   },
+   {
+    "nome": "Estate Romana",
+    "quando": {
+     "it": "giugno–settembre",
+     "en": "June–September",
+     "de": "Juni–September",
+     "fr": "juin–septembre",
+     "nl": "juni–september"
+    },
+    "desc": {
+     "it": "Da giugno a settembre Roma si riempie di cinema all'aperto, concerti sul Tevere e festival nei quartieri. Le serate lunghe sono l'occasione ideale per praticare l'italiano fuori dall'aula, ordinando un gelato o chiacchierando a un concerto gratuito.",
+     "en": "From June to September Rome fills with open-air cinema, concerts along the Tiber and neighbourhood festivals. The long evenings are the ideal moment to practise Italian outside the classroom, ordering an ice cream or chatting at a free concert.",
+     "de": "Von Juni bis September füllt sich Rom mit Freiluftkinos, Konzerten am Tiber und Stadtteilfesten. Die langen Abende sind ideal, um Italienisch außerhalb des Unterrichts zu üben: beim Eisbestellen oder beim Plaudern auf einem Gratiskonzert.",
+     "fr": "De juin à septembre, Rome se remplit de cinémas en plein air, de concerts au bord du Tibre et de festivals de quartier. Les longues soirées sont idéales pour pratiquer l'italien hors de la salle de classe, en commandant une glace ou en bavardant à un concert gratuit.",
+     "nl": "Van juni tot september vult Rome zich met openluchtbioscopen, concerten langs de Tiber en wijkfestivals. De lange avonden zijn ideaal om Italiaans te oefenen buiten de les, bij een ijsje of een gratis concert."
+    }
+   },
+   {
+    "nome": "Festa del Cinema di Roma",
+    "quando": {
+     "it": "ottobre",
+     "en": "October",
+     "de": "Oktober",
+     "fr": "octobre",
+     "nl": "oktober"
+    },
+    "desc": {
+     "it": "A ottobre l'Auditorium ospita anteprime, registi e attori da tutto il mondo. Anche senza biglietto, la città respira cinema: perfetto per allenare l'ascolto con l'italiano parlato del red carpet e delle interviste.",
+     "en": "In October the Auditorium hosts premieres, directors and actors from all over the world. Even without a ticket the city breathes cinema: perfect listening practice with the Italian of red carpets and interviews.",
+     "de": "Im Oktober zeigt das Auditorium Premieren mit Regisseuren und Schauspielern aus aller Welt. Auch ohne Ticket atmet die Stadt Kino: perfektes Hörtraining mit dem Italienisch von Red Carpet und Interviews.",
+     "fr": "En octobre, l'Auditorium accueille avant-premières, réalisateurs et acteurs du monde entier. Même sans billet, la ville respire le cinéma : idéal pour travailler l'écoute avec l'italien des tapis rouges et des interviews.",
+     "nl": "In oktober organiseert het Auditorium premières met regisseurs en acteurs van over de hele wereld. Ook zonder kaartje ademt de stad film: perfecte luisteroefening met het Italiaans van rode lopers en interviews."
+    }
+   },
+   {
+    "nome": "Internazionali di tennis",
+    "quando": {
+     "it": "maggio",
+     "en": "May",
+     "de": "Mai",
+     "fr": "mai",
+     "nl": "mei"
+    },
+    "desc": {
+     "it": "A maggio il Foro Italico ospita uno dei tornei più importanti al mondo. Il vocabolario dello sport, i numeri e il tifo dal vivo rendono queste giornate un laboratorio di italiano colloquiale.",
+     "en": "In May the Foro Italico hosts one of the most important tournaments in the world. Sports vocabulary, numbers and live crowd support turn these days into a laboratory of colloquial Italian.",
+     "de": "Im Mai richtet das Foro Italico eines der wichtigsten Turniere der Welt aus. Sportvokabular, Zahlen und Anfeuerungsrufe live machen diese Tage zum Labor der italienischen Umgangssprache.",
+     "fr": "En mai, le Foro Italico accueille l'un des tournois les plus importants au monde. Vocabulaire du sport, chiffres et ferveur des tribunes : ces journées sont un vrai laboratoire d'italien familier.",
+     "nl": "In mei is het Foro Italico gastheer van een van de belangrijkste toernooien ter wereld. Sportwoordenschat, cijfers en live publiek maken van deze dagen een laboratorium voor spreektaal."
+    }
+   },
+   {
+    "nome": "Sei Nazioni di rugby",
+    "quando": {
+     "it": "febbraio–marzo",
+     "en": "February–March",
+     "de": "Februar–März",
+     "fr": "février–mars",
+     "nl": "februari–maart"
+    },
+    "desc": {
+     "it": "Tra febbraio e marzo Roma ospita le partite casalinghe dell'Italia. I pub e lo stadio si riempiono di tifosi: un contesto informale perfetto per imparare esclamazioni, tifo e italiano di tutti i giorni.",
+     "en": "Between February and March Rome hosts Italy's home matches. Pubs and the stadium fill with fans: an informal setting, perfect for picking up exclamations, chants and everyday Italian.",
+     "de": "Zwischen Februar und März trägt Rom die Heimspiele Italiens aus. Pubs und Stadion füllen sich mit Fans: ein lockerer Rahmen, ideal für Ausrufe, Fangesänge und Alltagsitalienisch.",
+     "fr": "Entre février et mars, Rome accueille les matchs à domicile de l'Italie. Pubs et stade se remplissent de supporters : un cadre informel parfait pour apprendre les exclamations, les chants et l'italien de tous les jours.",
+     "nl": "Tussen februari en maart speelt Italië zijn thuiswedstrijden in Rome. Pubs en stadion lopen vol supporters: een informele setting, perfect voor uitroepen, spreekkoren en alledaags Italiaans."
+    }
+   }
+  ]
+ },
+ "Milano": {
+  "slug": "milano",
+  "eventi": [
+   {
+    "nome": "Fuorisalone / Design Week",
+    "quando": {
+     "it": "aprile",
+     "en": "April",
+     "de": "April",
+     "fr": "avril",
+     "nl": "april"
+    },
+    "desc": {
+     "it": "Ad aprile Milano diventa la capitale mondiale del design: installazioni, mostre e feste in ogni quartiere. Per uno studente è un'immersione nel lessico del design, dell'arte e dell'italiano creativo e professionale.",
+     "en": "In April Milan becomes the world capital of design: installations, exhibitions and parties in every district. An immersion in the vocabulary of design, art and creative, professional Italian.",
+     "de": "Im April wird Mailand zur Welthauptstadt des Designs: Installationen, Ausstellungen und Partys in jedem Viertel. Ein Eintauchen in das Vokabular von Design, Kunst und kreativem Berufsitalienisch.",
+     "fr": "En avril, Milan devient la capitale mondiale du design : installations, expositions et fêtes dans chaque quartier. Une immersion dans le vocabulaire du design, de l'art et de l'italien créatif et professionnel.",
+     "nl": "In april wordt Milaan de wereldhoofdstad van design: installaties, exposities en feesten in elke wijk. Een onderdompeling in het vocabulaire van design, kunst en creatief, professioneel Italiaans."
+    }
+   },
+   {
+    "nome": "Prima della Scala",
+    "quando": {
+     "it": "7 dicembre",
+     "en": "7 December",
+     "de": "7 Dezember",
+     "fr": "7 décembre",
+     "nl": "7 december"
+    },
+    "desc": {
+     "it": "Il 7 dicembre la Scala inaugura la stagione lirica: è l'evento culturale più elegante d'Italia. Anche solo viverne l'atmosfera in città aiuta col lessico dell'opera, della musica e dell'italiano formale.",
+     "en": "On 7 December La Scala opens the opera season: Italy's most elegant cultural event. Even just soaking up the atmosphere around town helps with the language of opera, music and formal Italian.",
+     "de": "Am 7. Dezember eröffnet die Scala die Opernsaison, das eleganteste Kulturereignis Italiens. Schon die Atmosphäre in der Stadt hilft beim Wortschatz von Oper, Musik und formellem Italienisch.",
+     "fr": "Le 7 décembre, la Scala inaugure la saison lyrique : l'événement culturel le plus élégant d'Italie. Rien que vivre l'ambiance en ville aide pour le vocabulaire de l'opéra, de la musique et de l'italien soutenu.",
+     "nl": "Op 7 december opent La Scala het operaseizoen: het meest elegante culturele evenement van Italië. Alleen al de sfeer in de stad helpt met opera-, muziek- en formeel Italiaans."
+    }
+   },
+   {
+    "nome": "Settimana della Moda",
+    "quando": {
+     "it": "febbraio e settembre",
+     "en": "February and September",
+     "de": "Februar und September",
+     "fr": "février et septembre",
+     "nl": "februari en september"
+    },
+    "desc": {
+     "it": "Milano Fashion Week riempie la città di sfilate ed eventi due volte l'anno. Vocabolario della moda, dei colori e dello stile: perfetto per chi vuole un italiano legato al mondo del fashion.",
+     "en": "Milan Fashion Week fills the city with shows and events twice a year. Vocabulary of fashion, colours and style: perfect if you want Italian tied to the fashion world.",
+     "de": "Die Mailänder Fashion Week füllt die Stadt zweimal jährlich mit Schauen und Events. Wortschatz zu Mode, Farben und Stil: perfekt für ein Italienisch rund um die Modewelt.",
+     "fr": "La Fashion Week de Milan remplit la ville de défilés et d'événements deux fois par an. Vocabulaire de la mode, des couleurs et du style : parfait pour un italien lié à l'univers de la mode.",
+     "nl": "De Milaan Fashion Week vult de stad twee keer per jaar met shows en evenementen. Woordenschat van mode, kleuren en stijl: perfect voor Italiaans rond de modewereld."
+    }
+   },
+   {
+    "nome": "MiTo SettembreMusica",
+    "quando": {
+     "it": "settembre",
+     "en": "September",
+     "de": "September",
+     "fr": "septembre",
+     "nl": "september"
+    },
+    "desc": {
+     "it": "A settembre Milano e Torino si uniscono in un festival di musica classica e contemporanea. Concerti spesso gratuiti: un modo raffinato per allenare l'ascolto e il lessico musicale.",
+     "en": "In September Milan and Turin join forces for a festival of classical and contemporary music. Concerts are often free: a refined way to train your listening and your musical vocabulary.",
+     "de": "Im September verbinden sich Mailand und Turin zu einem Festival für klassische und zeitgenössische Musik. Konzerte oft gratis: eine feine Art, Hörverstehen und Musikvokabular zu trainieren.",
+     "fr": "En septembre, Milan et Turin s'unissent pour un festival de musique classique et contemporaine. Concerts souvent gratuits : une façon raffinée de travailler l'écoute et le vocabulaire musical.",
+     "nl": "In september bundelen Milaan en Turijn hun krachten in een festival voor klassieke en hedendaagse muziek. Concerten zijn vaak gratis: een verfijnde manier om luistervaardigheid en muziekwoordenschat te trainen."
+    }
+   }
+  ]
+ },
+ "Bologna": {
+  "slug": "bologna",
+  "eventi": [
+   {
+    "nome": "Il Cinema Ritrovato",
+    "quando": {
+     "it": "fine giugno",
+     "en": "late June",
+     "de": "Ende Juni",
+     "fr": "fin juin",
+     "nl": "eind juni"
+    },
+    "desc": {
+     "it": "A giugno Bologna proietta capolavori restaurati in Piazza Maggiore, sotto le stelle. Cinema d'autore gratuito all'aperto: ideale per l'ascolto e per immergersi nell'italiano colto e cinefilo.",
+     "en": "In June Bologna screens restored masterpieces in Piazza Maggiore, under the stars. Free open-air arthouse cinema: ideal for listening practice and for cultured, film-loving Italian.",
+     "de": "Im Juni zeigt Bologna restaurierte Meisterwerke unter freiem Himmel auf der Piazza Maggiore. Gratis-Autorenkino im Freien: ideal fürs Hörverstehen und für gebildetes, cinephiles Italienisch.",
+     "fr": "En juin, Bologne projette des chefs-d'œuvre restaurés Piazza Maggiore, sous les étoiles. Cinéma d'auteur gratuit en plein air : idéal pour l'écoute et pour l'italien cultivé des cinéphiles.",
+     "nl": "In juni vertoont Bologna gerestaureerde meesterwerken op de Piazza Maggiore, onder de sterren. Gratis openluchtarthouse: ideaal voor luistervaardigheid en cultureel, cinefiel Italiaans."
+    }
+   },
+   {
+    "nome": "Arte Fiera",
+    "quando": {
+     "it": "febbraio",
+     "en": "February",
+     "de": "Februar",
+     "fr": "février",
+     "nl": "februari"
+    },
+    "desc": {
+     "it": "A gennaio-febbraio Bologna ospita una delle più importanti fiere d'arte moderna d'Italia. Per gli studenti è l'occasione di praticare il lessico dell'arte contemporanea e della critica.",
+     "en": "In January and February Bologna hosts one of Italy's most important modern art fairs. For students it is a chance to practise the vocabulary of contemporary art and criticism.",
+     "de": "Im Januar und Februar findet in Bologna eine der wichtigsten Messen für moderne Kunst Italiens statt. Für Lernende eine Gelegenheit, Vokabular zu zeitgenössischer Kunst und Kritik zu üben.",
+     "fr": "En janvier et février, Bologne accueille l'une des plus importantes foires d'art moderne d'Italie. Pour les étudiants, l'occasion de pratiquer le vocabulaire de l'art contemporain et de la critique.",
+     "nl": "In januari en februari organiseert Bologna een van de belangrijkste beurzen voor moderne kunst van Italië. Voor studenten een kans om de woordenschat van hedendaagse kunst en kritiek te oefenen."
+    }
+   },
+   {
+    "nome": "Bologna Estate",
+    "quando": {
+     "it": "giugno–settembre",
+     "en": "June–September",
+     "de": "Juni–September",
+     "fr": "juin–septembre",
+     "nl": "juni–september"
+    },
+    "desc": {
+     "it": "Da giugno a settembre la città anima cortili, parchi e piazze con concerti, cinema e incontri, spesso gratuiti. La Bologna universitaria dà il meglio: perfetta per socializzare e praticare l'italiano.",
+     "en": "From June to September the city brings courtyards, parks and squares alive with concerts, films and talks, often free. Student Bologna at its best: perfect for socialising and practising Italian.",
+     "de": "Von Juni bis September beleben Konzerte, Filme und Gespräche die Höfe, Parks und Plätze der Stadt, oft gratis. Das studentische Bologna von seiner besten Seite: perfekt zum Kontakteknüpfen und Üben.",
+     "fr": "De juin à septembre, la ville anime cours, parcs et places avec concerts, cinéma et rencontres, souvent gratuits. La Bologne étudiante au meilleur de sa forme : parfait pour socialiser et pratiquer l'italien.",
+     "nl": "Van juni tot september vullen concerten, films en ontmoetingen de binnenplaatsen, parken en pleinen, vaak gratis. Het studentikoze Bologna op zijn best: perfect om contacten te leggen en Italiaans te oefenen."
+    }
+   }
+  ]
+ },
+ "Venezia": {
+  "slug": "venezia",
+  "eventi": [
+   {
+    "nome": "Carnevale",
+    "quando": {
+     "it": "gennaio–febbraio",
+     "en": "January–February",
+     "de": "Januar–Februar",
+     "fr": "janvier–février",
+     "nl": "januari–februari"
+    },
+    "desc": {
+     "it": "A febbraio Venezia indossa maschere e costumi settecenteschi in una delle feste più famose al mondo. Tra calli e piazze è un'immersione totale: lessico delle tradizioni, dei costumi e della storia veneziana.",
+     "en": "In February Venice puts on masks and eighteenth-century costumes for one of the most famous festivals in the world. Total immersion through the alleys and squares: vocabulary of traditions, costume and Venetian history.",
+     "de": "Im Februar legt Venedig Masken und Kostüme des 18. Jahrhunderts an, für eines der berühmtesten Feste der Welt. Vollständiges Eintauchen in Gassen und Plätze: Vokabular zu Traditionen, Kostümen und venezianischer Geschichte.",
+     "fr": "En février, Venise revêt masques et costumes du XVIIIe siècle pour l'une des fêtes les plus célèbres au monde. Immersion totale dans les ruelles et les places : vocabulaire des traditions, des costumes et de l'histoire vénitienne.",
+     "nl": "In februari hult Venetië zich in maskers en achttiende-eeuwse kostuums voor een van de beroemdste feesten ter wereld. Volledige onderdompeling in de steegjes en op de pleinen: woordenschat van tradities, kostuums en Venetiaanse geschiedenis."
+    }
+   },
+   {
+    "nome": "Festa del Redentore",
+    "quando": {
+     "it": "terzo weekend di luglio",
+     "en": "third weekend of July",
+     "de": "drittes Juli-Wochenende",
+     "fr": "troisième week-end de juillet",
+     "nl": "derde weekend van juli"
+    },
+    "desc": {
+     "it": "La terza domenica di luglio Venezia celebra con un ponte votivo e fuochi d'artificio spettacolari sull'acqua. Festa profondamente veneziana: ottima per vivere la città con i locali, lontano dai clichè turistici.",
+     "en": "On the third Sunday in July Venice celebrates with a votive pontoon bridge and spectacular fireworks over the water. A deeply Venetian festival: excellent for experiencing the city with locals, far from the tourist clichés.",
+     "de": "Am dritten Julisonntag feiert Venedig mit einer Votiv-Pontonbrücke und spektakulärem Feuerwerk über dem Wasser. Ein zutiefst venezianisches Fest: ideal, um die Stadt mit Einheimischen zu erleben, fernab der Klischees.",
+     "fr": "Le troisième dimanche de juillet, Venise célèbre avec un pont votif et des feux d'artifice spectaculaires sur l'eau. Une fête profondément vénitienne : idéale pour vivre la ville avec les habitants, loin des clichés touristiques.",
+     "nl": "Op de derde zondag van juli viert Venetië feest met een votiefbrug en spectaculair vuurwerk boven het water. Een door en door Venetiaans feest: ideaal om de stad met locals te beleven, ver van de clichés."
+    }
+   },
+   {
+    "nome": "Mostra del Cinema",
+    "quando": {
+     "it": "fine agosto–settembre",
+     "en": "late August–September",
+     "de": "Ende August–September",
+     "fr": "fin août–septembre",
+     "nl": "eind augustus–september"
+    },
+    "desc": {
+     "it": "A fine agosto il Lido ospita il festival di cinema più antico del mondo. Registi e attori invadono Venezia: perfetto per allenare l'ascolto con l'italiano del cinema e delle interviste.",
+     "en": "In late August the Lido hosts the oldest film festival in the world. Directors and actors take over Venice: perfect listening practice with the Italian of cinema and interviews.",
+     "de": "Ende August beherbergt der Lido das älteste Filmfestival der Welt. Regisseure und Schauspieler erobern Venedig: perfektes Hörtraining mit dem Italienisch von Kino und Interviews.",
+     "fr": "Fin août, le Lido accueille le plus ancien festival de cinéma au monde. Réalisateurs et acteurs envahissent Venise : parfait pour l'écoute de l'italien du cinéma et des interviews.",
+     "nl": "Eind augustus is het Lido gastheer van het oudste filmfestival ter wereld. Regisseurs en acteurs nemen Venetië over: perfecte luisteroefening met het Italiaans van film en interviews."
+    }
+   },
+   {
+    "nome": "Biennale",
+    "quando": {
+     "it": "maggio–novembre",
+     "en": "May–November",
+     "de": "Mai–November",
+     "fr": "mai–novembre",
+     "nl": "mei–november"
+    },
+    "desc": {
+     "it": "La grande mostra internazionale d'arte e architettura anima Venezia per mesi. Per chi studia è un percorso nel lessico dell'arte contemporanea e un motivo in più per esplorare la città in italiano.",
+     "en": "The great international art and architecture exhibition animates Venice for months. For students it is a walk through the vocabulary of contemporary art and one more reason to explore the city in Italian.",
+     "de": "Die große internationale Kunst- und Architekturausstellung belebt Venedig monatelang. Für Lernende ein Streifzug durch das Vokabular zeitgenössischer Kunst und ein Grund mehr, die Stadt auf Italienisch zu erkunden.",
+     "fr": "La grande exposition internationale d'art et d'architecture anime Venise pendant des mois. Pour les étudiants, un parcours dans le vocabulaire de l'art contemporain et une raison de plus d'explorer la ville en italien.",
+     "nl": "De grote internationale kunst- en architectuurtentoonstelling brengt Venetië maandenlang tot leven. Voor studenten een tocht door de woordenschat van hedendaagse kunst en een reden te meer om de stad in het Italiaans te verkennen."
+    }
+   },
+   {
+    "nome": "Regata Storica",
+    "quando": {
+     "it": "prima domenica di settembre",
+     "en": "first Sunday of September",
+     "de": "erster Sonntag im September",
+     "fr": "premier dimanche de septembre",
+     "nl": "eerste zondag van september"
+    },
+    "desc": {
+     "it": "La prima domenica di settembre il Canal Grande ospita un corteo di barche storiche e gare di voga. Spettacolo veneziano autentico: ideale per il lessico delle tradizioni e della vita sull'acqua.",
+     "en": "On the first Sunday in September the Grand Canal hosts a procession of historic boats and rowing races. Authentic Venetian spectacle: ideal for the vocabulary of traditions and of life on the water.",
+     "de": "Am ersten Septembersonntag zieht ein Korso historischer Boote mit Ruderregatten über den Canal Grande. Authentisch venezianisches Schauspiel: ideal für Traditionen und für das Leben auf dem Wasser.",
+     "fr": "Le premier dimanche de septembre, le Grand Canal accueille un cortège de bateaux historiques et des régates à la rame. Spectacle vénitien authentique : idéal pour le vocabulaire des traditions et de la vie sur l'eau.",
+     "nl": "Op de eerste zondag van september vaart een stoet historische boten met roeiwedstrijden over het Canal Grande. Authentiek Venetiaans schouwspel: ideaal voor traditie- en waterwoordenschat."
+    }
+   }
+  ]
+ },
+ "Siena": {
+  "slug": "siena",
+  "eventi": [
+   {
+    "nome": "Palio di Siena",
+    "quando": {
+     "it": "2 luglio e 16 agosto",
+     "en": "2 July and 16 August",
+     "de": "2 Juli und 16 August",
+     "fr": "2 juillet et 16 août",
+     "nl": "2 juli en 16 augustus"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Chigiana International Festival",
+    "quando": {
+     "it": "luglio–agosto",
+     "en": "July–August",
+     "de": "Juli–August",
+     "fr": "juillet–août",
+     "nl": "juli–augustus"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Perugia": {
+  "slug": "perugia",
+  "eventi": [
+   {
+    "nome": "Umbria Jazz",
+    "quando": {
+     "it": "luglio",
+     "en": "July",
+     "de": "Juli",
+     "fr": "juillet",
+     "nl": "juli"
+    },
+    "desc": {
+     "it": "A luglio Perugia diventa la capitale del jazz mondiale, con concerti in piazza e per le vie del centro, molti gratuiti. Ambiente internazionale e rilassato: perfetto per praticare l'italiano tra un concerto e l'altro.",
+     "en": "In July Perugia becomes a world capital of jazz, with concerts in the squares and streets of the old town, many of them free. International, relaxed atmosphere: perfect for practising Italian between two sets.",
+     "de": "Im Juli wird Perugia zur Welthauptstadt des Jazz, mit Konzerten auf Plätzen und in den Gassen der Altstadt, viele davon gratis. Internationales, entspanntes Umfeld: perfekt, um zwischen zwei Konzerten Italienisch zu üben.",
+     "fr": "En juillet, Pérouse devient une capitale mondiale du jazz, avec des concerts sur les places et dans les rues du centre, souvent gratuits. Ambiance internationale et détendue : parfait pour pratiquer l'italien entre deux concerts.",
+     "nl": "In juli wordt Perugia een wereldhoofdstad van de jazz, met concerten op pleinen en in de straten van het centrum, vaak gratis. Internationale, ontspannen sfeer: perfect om tussen optredens door Italiaans te oefenen."
+    }
+   },
+   {
+    "nome": "Eurochocolate",
+    "quando": {
+     "it": "autunno",
+     "en": "autumn",
+     "de": "Herbst",
+     "fr": "automne",
+     "nl": "herfst"
+    },
+    "desc": {
+     "it": "A ottobre Perugia si riempie di cioccolato con degustazioni e sculture di cacao. Una festa golosa e affollata: ottima per il lessico del cibo, dei sapori e per socializzare in italiano.",
+     "en": "In October Perugia fills with chocolate, tastings and cocoa sculptures. A sweet and crowded festival: excellent for the vocabulary of food and flavours, and for socialising in Italian.",
+     "de": "Im Oktober füllt sich Perugia mit Schokolade, Verkostungen und Kakaoskulpturen. Ein süßes, volles Fest: ideal für Wortschatz zu Essen und Geschmack und zum Kontakteknüpfen auf Italienisch.",
+     "fr": "En octobre, Pérouse se remplit de chocolat, de dégustations et de sculptures en cacao. Une fête gourmande et animée : excellente pour le vocabulaire de la nourriture et des saveurs, et pour socialiser en italien.",
+     "nl": "In oktober vult Perugia zich met chocolade, proeverijen en cacaosculpturen. Een zoet, druk feest: ideaal voor eten- en smaakwoordenschat en om in het Italiaans contacten te leggen."
+    }
+   },
+   {
+    "nome": "Festival Internazionale del Giornalismo",
+    "quando": {
+     "it": "aprile",
+     "en": "April",
+     "de": "April",
+     "fr": "avril",
+     "nl": "april"
+    },
+    "desc": {
+     "it": "In primavera Perugia ospita giornalisti da tutto il mondo per incontri gratuiti sull'attualità. Per uno studente avanzato è un'occasione unica di ascoltare l'italiano dei media e del dibattito.",
+     "en": "In spring Perugia hosts journalists from all over the world for free talks on current affairs. For advanced students, a rare chance to hear the Italian of the media and of public debate.",
+     "de": "Im Frühjahr empfängt Perugia Journalisten aus aller Welt zu kostenlosen Gesprächen über aktuelle Themen. Für Fortgeschrittene eine seltene Gelegenheit, das Italienisch der Medien und der Debatte zu hören.",
+     "fr": "Au printemps, Pérouse accueille des journalistes du monde entier pour des rencontres gratuites sur l'actualité. Pour les étudiants avancés, une occasion rare d'entendre l'italien des médias et du débat.",
+     "nl": "In het voorjaar ontvangt Perugia journalisten uit de hele wereld voor gratis gesprekken over actualiteit. Voor gevorderden een zeldzame kans om het Italiaans van media en debat te horen."
+    }
+   }
+  ]
+ },
+ "Torino": {
+  "slug": "torino",
+  "eventi": [
+   {
+    "nome": "Salone Internazionale del Libro",
+    "quando": {
+     "it": "maggio",
+     "en": "May",
+     "de": "Mai",
+     "fr": "mai",
+     "nl": "mei"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Terra Madre Salone del Gusto",
+    "quando": {
+     "it": "settembre",
+     "en": "September",
+     "de": "September",
+     "fr": "septembre",
+     "nl": "september"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Luci d'Artista",
+    "quando": {
+     "it": "novembre–gennaio",
+     "en": "November–January",
+     "de": "November–Januar",
+     "fr": "novembre–janvier",
+     "nl": "november–januari"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Genova": {
+  "slug": "genova",
+  "eventi": [
+   {
+    "nome": "Rolli Days",
+    "quando": {
+     "it": "primavera e autunno",
+     "en": "spring and autumn",
+     "de": "Frühjahr und Herbst",
+     "fr": "printemps et automne",
+     "nl": "lente en herfst"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Salone Nautico",
+    "quando": {
+     "it": "settembre",
+     "en": "September",
+     "de": "September",
+     "fr": "septembre",
+     "nl": "september"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Sestri Levante": {
+  "slug": "sestri-levante",
+  "eventi": [
+   {
+    "nome": "Andersen Festival",
+    "quando": {
+     "it": "giugno",
+     "en": "June",
+     "de": "Juni",
+     "fr": "juin",
+     "nl": "juni"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Barcarolata",
+    "quando": {
+     "it": "luglio",
+     "en": "July",
+     "de": "Juli",
+     "fr": "juillet",
+     "nl": "juli"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Sanremo": {
+  "slug": "sanremo",
+  "eventi": [
+   {
+    "nome": "Festival di Sanremo",
+    "quando": {
+     "it": "febbraio",
+     "en": "February",
+     "de": "Februar",
+     "fr": "février",
+     "nl": "februari"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Milano-Sanremo, la Classicissima",
+    "quando": {
+     "it": "marzo",
+     "en": "March",
+     "de": "März",
+     "fr": "mars",
+     "nl": "maart"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Napoli": {
+  "slug": "napoli",
+  "eventi": [
+   {
+    "nome": "Maggio dei Monumenti",
+    "quando": {
+     "it": "maggio",
+     "en": "May",
+     "de": "Mai",
+     "fr": "mai",
+     "nl": "mei"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Miracolo di San Gennaro",
+    "quando": {
+     "it": "19 settembre",
+     "en": "19 September",
+     "de": "19 September",
+     "fr": "19 septembre",
+     "nl": "19 september"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Napoli Pizza Village",
+    "quando": {
+     "it": "giugno",
+     "en": "June",
+     "de": "Juni",
+     "fr": "juin",
+     "nl": "juni"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Sorrento": {
+  "slug": "sorrento",
+  "eventi": [
+   {
+    "nome": "Concerti e feste d'estate",
+    "quando": {
+     "it": "estate",
+     "en": "summer",
+     "de": "Sommer",
+     "fr": "été",
+     "nl": "zomer"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Processioni della Settimana Santa",
+    "quando": {
+     "it": "Pasqua",
+     "en": "Easter",
+     "de": "Ostern",
+     "fr": "Pâques",
+     "nl": "Pasen"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Salerno": {
+  "slug": "salerno",
+  "eventi": [
+   {
+    "nome": "Luci d'Artista",
+    "quando": {
+     "it": "novembre–gennaio",
+     "en": "November–January",
+     "de": "November–Januar",
+     "fr": "novembre–janvier",
+     "nl": "november–januari"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Giffoni Film Festival",
+    "quando": {
+     "it": "luglio",
+     "en": "July",
+     "de": "Juli",
+     "fr": "juillet",
+     "nl": "juli"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Tropea": {
+  "slug": "tropea",
+  "eventi": [
+   {
+    "nome": "Feste patronali d'estate",
+    "quando": {
+     "it": "estate",
+     "en": "summer",
+     "de": "Sommer",
+     "fr": "été",
+     "nl": "zomer"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Sagra della cipolla rossa",
+    "quando": {
+     "it": "estate",
+     "en": "summer",
+     "de": "Sommer",
+     "fr": "été",
+     "nl": "zomer"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Trieste": {
+  "slug": "trieste",
+  "eventi": [
+   {
+    "nome": "Barcolana",
+    "quando": {
+     "it": "ottobre",
+     "en": "October",
+     "de": "Oktober",
+     "fr": "octobre",
+     "nl": "oktober"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Trieste Film Festival",
+    "quando": {
+     "it": "gennaio",
+     "en": "January",
+     "de": "Januar",
+     "fr": "janvier",
+     "nl": "januari"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Bloomsday",
+    "quando": {
+     "it": "16 giugno",
+     "en": "16 June",
+     "de": "16 Juni",
+     "fr": "16 juin",
+     "nl": "16 juni"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Taormina": {
+  "slug": "taormina",
+  "eventi": [
+   {
+    "nome": "Taormina Film Fest",
+    "quando": {
+     "it": "giugno–luglio",
+     "en": "June–July",
+     "de": "Juni–Juli",
+     "fr": "juin–juillet",
+     "nl": "juni–juli"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Concerti al Teatro Antico",
+    "quando": {
+     "it": "giugno–settembre",
+     "en": "June–September",
+     "de": "Juni–September",
+     "fr": "juin–septembre",
+     "nl": "juni–september"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Milazzo": {
+  "slug": "milazzo",
+  "eventi": [
+   {
+    "nome": "Feste patronali",
+    "quando": {
+     "it": "estate",
+     "en": "summer",
+     "de": "Sommer",
+     "fr": "été",
+     "nl": "zomer"
+    },
+    "desc": {
+     "it": "Durante l'estate Milazzo celebra i suoi santi con processioni, luminarie e sagre sul mare. Feste popolari genuine: perfette per il lessico delle tradizioni siciliane e per conoscere la gente del posto.",
+     "en": "Through the summer Milazzo honours its patron saints with processions, light displays and food festivals by the sea. Genuine popular celebrations: perfect for Sicilian traditions and for getting to know local people.",
+     "de": "Den Sommer über ehrt Milazzo seine Schutzheiligen mit Prozessionen, Lichterschmuck und Festen am Meer. Echte Volksfeste: perfekt für sizilianische Traditionen und für den Kontakt zu Einheimischen.",
+     "fr": "Tout l'été, Milazzo honore ses saints patrons avec processions, illuminations et fêtes gastronomiques en bord de mer. Fêtes populaires authentiques : parfait pour les traditions siciliennes et pour rencontrer les habitants.",
+     "nl": "De hele zomer eert Milazzo zijn beschermheiligen met processies, lichtversieringen en eetfeesten aan zee. Echte volksfeesten: perfect voor Siciliaanse tradities en contact met locals."
+    }
+   },
+   {
+    "nome": "MishMash Festival",
+    "quando": {
+     "it": "agosto",
+     "en": "August",
+     "de": "August",
+     "fr": "août",
+     "nl": "augustus"
+    },
+    "desc": {
+     "it": "Un festival estivo che mescola musica, arte e cultura sul lungomare di Milazzo. Ambiente giovane e informale, ideale per praticare l'italiano colloquiale in un contesto rilassato e balneare.",
+     "en": "A summer festival mixing music, art and culture on Milazzo's seafront. Young and informal: ideal for practising colloquial Italian in a relaxed, seaside setting.",
+     "de": "Ein Sommerfestival, das Musik, Kunst und Kultur an der Uferpromenade von Milazzo mischt. Jung und locker: ideal, um Umgangssprache in entspannter Strandatmosphäre zu üben.",
+     "fr": "Un festival d'été qui mêle musique, art et culture sur le front de mer de Milazzo. Jeune et informel : idéal pour pratiquer l'italien familier dans une ambiance balnéaire détendue.",
+     "nl": "Een zomerfestival dat muziek, kunst en cultuur mengt op de boulevard van Milazzo. Jong en informeel: ideaal om spreektaal te oefenen in een ontspannen strandsfeer."
+    }
+   }
+  ]
+ },
+ "Palermo (Mondello)": {
+  "slug": "palermo-mondello",
+  "eventi": [
+   {
+    "nome": "Festino di Santa Rosalia",
+    "quando": {
+     "it": "metà luglio",
+     "en": "mid-July",
+     "de": "Mitte Juli",
+     "fr": "mi-juillet",
+     "nl": "half juli"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Ballarò Buskers",
+    "quando": {
+     "it": "ottobre",
+     "en": "October",
+     "de": "Oktober",
+     "fr": "octobre",
+     "nl": "oktober"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Palermo": {
+  "slug": "palermo",
+  "eventi": [
+   {
+    "nome": "Festino di Santa Rosalia",
+    "quando": {
+     "it": "metà luglio",
+     "en": "mid-July",
+     "de": "Mitte Juli",
+     "fr": "mi-juillet",
+     "nl": "half juli"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Ballarò Buskers",
+    "quando": {
+     "it": "ottobre",
+     "en": "October",
+     "de": "Oktober",
+     "fr": "octobre",
+     "nl": "oktober"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Alghero": {
+  "slug": "alghero",
+  "eventi": [
+   {
+    "nome": "Settimana Santa algherese",
+    "quando": {
+     "it": "Pasqua",
+     "en": "Easter",
+     "de": "Ostern",
+     "fr": "Pâques",
+     "nl": "Pasen"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Cap d'Any de l'Alguer",
+    "quando": {
+     "it": "dicembre–gennaio",
+     "en": "December–January",
+     "de": "Dezember–Januar",
+     "fr": "décembre–janvier",
+     "nl": "december–januari"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Festa de Sant Miquel",
+    "quando": {
+     "it": "settembre",
+     "en": "September",
+     "de": "September",
+     "fr": "septembre",
+     "nl": "september"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Otranto": {
+  "slug": "otranto",
+  "eventi": [
+   {
+    "nome": "Alba dei Popoli",
+    "quando": {
+     "it": "dicembre–gennaio",
+     "en": "December–January",
+     "de": "Dezember–Januar",
+     "fr": "décembre–janvier",
+     "nl": "december–januari"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Festa dei Santi Martiri",
+    "quando": {
+     "it": "metà agosto",
+     "en": "metà August",
+     "de": "metà August",
+     "fr": "metà août",
+     "nl": "metà augustus"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Viareggio": {
+  "slug": "viareggio",
+  "eventi": [
+   {
+    "nome": "Carnevale di Viareggio",
+    "quando": {
+     "it": "febbraio",
+     "en": "February",
+     "de": "Februar",
+     "fr": "février",
+     "nl": "februari"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Festival Puccini",
+    "quando": {
+     "it": "luglio–agosto",
+     "en": "July–August",
+     "de": "Juli–August",
+     "fr": "juillet–août",
+     "nl": "juli–augustus"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Premio letterario Viareggio-Rèpaci",
+    "quando": {
+     "it": "estate",
+     "en": "summer",
+     "de": "Sommer",
+     "fr": "été",
+     "nl": "zomer"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Lucca": {
+  "slug": "lucca",
+  "eventi": [
+   {
+    "nome": "Lucca Summer Festival",
+    "quando": {
+     "it": "giugno–luglio",
+     "en": "June–July",
+     "de": "Juni–Juli",
+     "fr": "juin–juillet",
+     "nl": "juni–juli"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Lucca Comics & Games",
+    "quando": {
+     "it": "fine ottobre",
+     "en": "late October",
+     "de": "Ende Oktober",
+     "fr": "fin octobre",
+     "nl": "eind oktober"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Luminara di Santa Croce",
+    "quando": {
+     "it": "13 settembre",
+     "en": "13 September",
+     "de": "13 September",
+     "fr": "13 septembre",
+     "nl": "13 september"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Pisa": {
+  "slug": "pisa",
+  "eventi": [
+   {
+    "nome": "Luminara di San Ranieri",
+    "quando": {
+     "it": "16 giugno",
+     "en": "16 June",
+     "de": "16 Juni",
+     "fr": "16 juin",
+     "nl": "16 juni"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Gioco del Ponte",
+    "quando": {
+     "it": "ultimo sabato di giugno",
+     "en": "last Saturday of June",
+     "de": "letzter Samstag im Juni",
+     "fr": "dernier samedi de juin",
+     "nl": "laatste zaterdag van juni"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Internet Festival",
+    "quando": {
+     "it": "ottobre",
+     "en": "October",
+     "de": "Oktober",
+     "fr": "octobre",
+     "nl": "oktober"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Montepulciano": {
+  "slug": "montepulciano",
+  "eventi": [
+   {
+    "nome": "Bravìo delle Botti",
+    "quando": {
+     "it": "ultima domenica di agosto",
+     "en": "last Sunday of August",
+     "de": "letzter Sonntag im August",
+     "fr": "dernier dimanche d'août",
+     "nl": "laatste zondag van augustus"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Cantiere Internazionale d'Arte",
+    "quando": {
+     "it": "luglio",
+     "en": "July",
+     "de": "Juli",
+     "fr": "juillet",
+     "nl": "juli"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Orbetello": {
+  "slug": "orbetello",
+  "eventi": [
+   {
+    "nome": "Sagre della laguna",
+    "quando": {
+     "it": "estate",
+     "en": "summer",
+     "de": "Sommer",
+     "fr": "été",
+     "nl": "zomer"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Palio marinaro dell'Argentario",
+    "quando": {
+     "it": "15 agosto",
+     "en": "15 August",
+     "de": "15 August",
+     "fr": "15 août",
+     "nl": "15 augustus"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Modena": {
+  "slug": "modena",
+  "eventi": [
+   {
+    "nome": "Motor Valley Fest",
+    "quando": {
+     "it": "primavera",
+     "en": "spring",
+     "de": "Frühjahr",
+     "fr": "printemps",
+     "nl": "lente"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Festival della Filosofia",
+    "quando": {
+     "it": "settembre",
+     "en": "September",
+     "de": "September",
+     "fr": "septembre",
+     "nl": "september"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Rimini": {
+  "slug": "rimini",
+  "eventi": [
+   {
+    "nome": "La Notte Rosa",
+    "quando": {
+     "it": "inizio luglio",
+     "en": "early July",
+     "de": "Anfang Juli",
+     "fr": "début juillet",
+     "nl": "begin juli"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Meeting di Rimini",
+    "quando": {
+     "it": "agosto",
+     "en": "August",
+     "de": "August",
+     "fr": "août",
+     "nl": "augustus"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Verona": {
+  "slug": "verona",
+  "eventi": [
+   {
+    "nome": "Stagione lirica areniana",
+    "quando": {
+     "it": "giugno–settembre",
+     "en": "June–September",
+     "de": "Juni–September",
+     "fr": "juin–septembre",
+     "nl": "juni–september"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Vinitaly",
+    "quando": {
+     "it": "aprile",
+     "en": "April",
+     "de": "April",
+     "fr": "avril",
+     "nl": "april"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Verona in Love",
+    "quando": {
+     "it": "febbraio",
+     "en": "February",
+     "de": "Februar",
+     "fr": "février",
+     "nl": "februari"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Tocatì, festival dei giochi di strada",
+    "quando": {
+     "it": "settembre",
+     "en": "September",
+     "de": "September",
+     "fr": "septembre",
+     "nl": "september"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Urbania": {
+  "slug": "urbania",
+  "eventi": [
+   {
+    "nome": "Festa Nazionale della Befana",
+    "quando": {
+     "it": "primi di gennaio",
+     "en": "early January",
+     "de": "Anfang Januar",
+     "fr": "début janvier",
+     "nl": "begin januari"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Padova": {
+  "slug": "padova",
+  "eventi": [
+   {
+    "nome": "Festa di Sant'Antonio",
+    "quando": {
+     "it": "13 giugno",
+     "en": "13 June",
+     "de": "13 Juni",
+     "fr": "13 juin",
+     "nl": "13 juni"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Sherwood Festival",
+    "quando": {
+     "it": "giugno–luglio",
+     "en": "June–July",
+     "de": "Juni–Juli",
+     "fr": "juin–juillet",
+     "nl": "juni–juli"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Bolzano": {
+  "slug": "bolzano",
+  "eventi": [
+   {
+    "nome": "Mercatini di Natale",
+    "quando": {
+     "it": "dicembre",
+     "en": "December",
+     "de": "Dezember",
+     "fr": "décembre",
+     "nl": "december"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Bolzano Film Festival",
+    "quando": {
+     "it": "aprile",
+     "en": "April",
+     "de": "April",
+     "fr": "avril",
+     "nl": "april"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Südtirol Jazz Festival",
+    "quando": {
+     "it": "giugno–luglio",
+     "en": "June–July",
+     "de": "Juni–Juli",
+     "fr": "juin–juillet",
+     "nl": "juni–juli"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Merano": {
+  "slug": "merano",
+  "eventi": [
+   {
+    "nome": "Merano WineFestival",
+    "quando": {
+     "it": "novembre",
+     "en": "November",
+     "de": "November",
+     "fr": "novembre",
+     "nl": "november"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Settimane Musicali Meranesi",
+    "quando": {
+     "it": "fine agosto–settembre",
+     "en": "late August–September",
+     "de": "Ende August–September",
+     "fr": "fin août–septembre",
+     "nl": "eind augustus–september"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Gran Premio ippico di Merano",
+    "quando": {
+     "it": "settembre",
+     "en": "September",
+     "de": "September",
+     "fr": "septembre",
+     "nl": "september"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Lignano Sabbiadoro": {
+  "slug": "lignano-sabbiadoro",
+  "eventi": [
+   {
+    "nome": "Stagione balneare",
+    "quando": {
+     "it": "giugno–settembre",
+     "en": "June–September",
+     "de": "Juni–September",
+     "fr": "juin–septembre",
+     "nl": "juni–september"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Reggio Emilia": {
+  "slug": "reggio-emilia",
+  "eventi": [
+   {
+    "nome": "Fotografia Europea",
+    "quando": {
+     "it": "primavera",
+     "en": "spring",
+     "de": "Frühjahr",
+     "fr": "printemps",
+     "nl": "lente"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Festival Aperto",
+    "quando": {
+     "it": "autunno",
+     "en": "autumn",
+     "de": "Herbst",
+     "fr": "automne",
+     "nl": "herfst"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Ravenna": {
+  "slug": "ravenna",
+  "eventi": [
+   {
+    "nome": "Ravenna Festival",
+    "quando": {
+     "it": "giugno–luglio",
+     "en": "June–July",
+     "de": "Juni–Juli",
+     "fr": "juin–juillet",
+     "nl": "juni–juli"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Settembre Dantesco",
+    "quando": {
+     "it": "settembre",
+     "en": "September",
+     "de": "September",
+     "fr": "septembre",
+     "nl": "september"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "La Notte d'Oro",
+    "quando": {
+     "it": "ottobre",
+     "en": "October",
+     "de": "Oktober",
+     "fr": "octobre",
+     "nl": "oktober"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Bagno di Romagna": {
+  "slug": "bagno-di-romagna",
+  "eventi": [
+   {
+    "nome": "Sagre d'autunno",
+    "quando": {
+     "it": "autunno",
+     "en": "autumn",
+     "de": "Herbst",
+     "fr": "automne",
+     "nl": "herfst"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Arezzo": {
+  "slug": "arezzo",
+  "eventi": [
+   {
+    "nome": "Giostra del Saracino",
+    "quando": {
+     "it": "giugno e settembre",
+     "en": "June and September",
+     "de": "Juni und September",
+     "fr": "juin et septembre",
+     "nl": "juni en september"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Assisi": {
+  "slug": "assisi",
+  "eventi": [
+   {
+    "nome": "Calendimaggio",
+    "quando": {
+     "it": "maggio",
+     "en": "May",
+     "de": "Mai",
+     "fr": "mai",
+     "nl": "mei"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Festa di San Francesco",
+    "quando": {
+     "it": "4 ottobre",
+     "en": "4 October",
+     "de": "4 Oktober",
+     "fr": "4 octobre",
+     "nl": "4 oktober"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Orvieto": {
+  "slug": "orvieto",
+  "eventi": [
+   {
+    "nome": "Umbria Jazz Winter",
+    "quando": {
+     "it": "dicembre–gennaio",
+     "en": "December–January",
+     "de": "Dezember–Januar",
+     "fr": "décembre–janvier",
+     "nl": "december–januari"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Corpus Domini col corteo storico",
+    "quando": {
+     "it": "giugno",
+     "en": "June",
+     "de": "Juni",
+     "fr": "juin",
+     "nl": "juni"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Todi": {
+  "slug": "todi",
+  "eventi": [
+   {
+    "nome": "Todi Festival",
+    "quando": {
+     "it": "fine agosto",
+     "en": "late August",
+     "de": "Ende August",
+     "fr": "fin août",
+     "nl": "eind augustus"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Recanati": {
+  "slug": "recanati",
+  "eventi": [
+   {
+    "nome": "Lunaria",
+    "quando": {
+     "it": "luglio",
+     "en": "July",
+     "de": "Juli",
+     "fr": "juillet",
+     "nl": "juli"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Celebrazioni leopardiane",
+    "quando": {
+     "it": "29 giugno",
+     "en": "29 June",
+     "de": "29 Juni",
+     "fr": "29 juin",
+     "nl": "29 juni"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Tuscania": {
+  "slug": "tuscania",
+  "eventi": [
+   {
+    "nome": "Sagre della Tuscia",
+    "quando": {
+     "it": "estate",
+     "en": "summer",
+     "de": "Sommer",
+     "fr": "été",
+     "nl": "zomer"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "San Giovanni Valdarno": {
+  "slug": "san-giovanni-valdarno",
+  "eventi": [
+   {
+    "nome": "Perdono di San Giovanni",
+    "quando": {
+     "it": "settembre",
+     "en": "September",
+     "de": "September",
+     "fr": "septembre",
+     "nl": "september"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Trento": {
+  "slug": "trento",
+  "eventi": [
+   {
+    "nome": "Mercatini di Natale",
+    "quando": {
+     "it": "dicembre",
+     "en": "December",
+     "de": "Dezember",
+     "fr": "décembre",
+     "nl": "december"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Festival dell'Economia",
+    "quando": {
+     "it": "maggio–giugno",
+     "en": "May–June",
+     "de": "Mai–Juni",
+     "fr": "mai–juin",
+     "nl": "mei–juni"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Feste Vigiliane",
+    "quando": {
+     "it": "giugno",
+     "en": "June",
+     "de": "Juni",
+     "fr": "juin",
+     "nl": "juni"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Riva del Garda": {
+  "slug": "riva-del-garda",
+  "eventi": [
+   {
+    "nome": "Notte di Fiaba",
+    "quando": {
+     "it": "fine agosto",
+     "en": "late August",
+     "de": "Ende August",
+     "fr": "fin août",
+     "nl": "eind augustus"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Musica Riva Festival",
+    "quando": {
+     "it": "luglio",
+     "en": "July",
+     "de": "Juli",
+     "fr": "juillet",
+     "nl": "juli"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Isola d'Elba": {
+  "slug": "isola-d-elba",
+  "eventi": [
+   {
+    "nome": "Stagione balneare",
+    "quando": {
+     "it": "maggio–settembre",
+     "en": "May–September",
+     "de": "Mai–September",
+     "fr": "mai–septembre",
+     "nl": "mei–september"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Elba Isola Musicale d'Europa",
+    "quando": {
+     "it": "settembre",
+     "en": "September",
+     "de": "September",
+     "fr": "septembre",
+     "nl": "september"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Reggio Calabria": {
+  "slug": "reggio-calabria",
+  "eventi": [
+   {
+    "nome": "Festa della Madonna della Consolazione",
+    "quando": {
+     "it": "settembre",
+     "en": "September",
+     "de": "September",
+     "fr": "septembre",
+     "nl": "september"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Cefalù": {
+  "slug": "cefalu",
+  "eventi": [
+   {
+    "nome": "Festa del SS. Salvatore",
+    "quando": {
+     "it": "inizio agosto",
+     "en": "early August",
+     "de": "Anfang August",
+     "fr": "début août",
+     "nl": "begin augustus"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Trapani": {
+  "slug": "trapani",
+  "eventi": [
+   {
+    "nome": "Processione dei Misteri",
+    "quando": {
+     "it": "Pasqua",
+     "en": "Easter",
+     "de": "Ostern",
+     "fr": "Pâques",
+     "nl": "Pasen"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Luglio Musicale Trapanese",
+    "quando": {
+     "it": "estate",
+     "en": "summer",
+     "de": "Sommer",
+     "fr": "été",
+     "nl": "zomer"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Cous Cous Fest a San Vito Lo Capo",
+    "quando": {
+     "it": "settembre",
+     "en": "September",
+     "de": "September",
+     "fr": "septembre",
+     "nl": "september"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Cagliari": {
+  "slug": "cagliari",
+  "eventi": [
+   {
+    "nome": "Festa di Sant'Efisio",
+    "quando": {
+     "it": "1 maggio",
+     "en": "1 May",
+     "de": "1 Mai",
+     "fr": "1 mai",
+     "nl": "1 mei"
+    },
+    "desc": {}
+   },
+   {
+    "nome": "Festa di San Saturnino",
+    "quando": {
+     "it": "fine ottobre",
+     "en": "late October",
+     "de": "Ende Oktober",
+     "fr": "fin octobre",
+     "nl": "eind oktober"
+    },
+    "desc": {}
+   }
+  ]
+ },
+ "Olbia": {
+  "slug": "olbia",
+  "eventi": [
+   {
+    "nome": "Festa di San Simplicio",
+    "quando": {
+     "it": "metà maggio",
+     "en": "mid-May",
+     "de": "Mitte Mai",
+     "fr": "mi-mai",
+     "nl": "half mei"
+    },
+    "desc": {
+     "it": "A metà maggio Olbia festeggia il patrono per una settimana, tra processione, palio, poesia sarda e stand gastronomici. È la festa più sentita dell'anno: perfetta per il lessico delle tradizioni e per conoscere i sardi.",
+     "en": "In mid-May Olbia celebrates its patron saint for a whole week, with a procession, a palio, Sardinian poetry contests and food stalls. The most heartfelt festival of the year: perfect for the vocabulary of traditions and for meeting Sardinians.",
+     "de": "Mitte Mai feiert Olbia eine Woche lang seinen Schutzpatron, mit Prozession, Palio, sardischen Dichterwettstreiten und Essensständen. Das wichtigste Fest des Jahres: perfekt für Traditionsvokabular und um Sarden kennenzulernen.",
+     "fr": "À la mi-mai, Olbia fête son saint patron pendant une semaine : procession, palio, joutes poétiques sardes et stands gastronomiques. La fête la plus vécue de l'année : parfaite pour le vocabulaire des traditions et pour rencontrer les Sardes.",
+     "nl": "Half mei viert Olbia een week lang zijn beschermheilige, met processie, palio, Sardijnse dichtwedstrijden en eetkraampjes. Het meest doorleefde feest van het jaar: perfect voor traditiewoordenschat en om Sardiniërs te leren kennen."
+    }
+   },
+   {
+    "nome": "Sagra delle cozze",
+    "quando": {
+     "it": "estate",
+     "en": "summer",
+     "de": "Sommer",
+     "fr": "été",
+     "nl": "zomer"
+    },
+    "desc": {
+     "it": "Il golfo di Olbia vive di allevamenti di cozze e d'estate li celebra con degustazioni sul mare. Occasione golosa per il lessico del cibo, dei numeri e per imparare a ordinare al banco.",
+     "en": "The gulf of Olbia lives off its mussel farms and celebrates them in summer with tastings by the sea. A tasty chance to work on food vocabulary, numbers and ordering at the counter.",
+     "de": "Der Golf von Olbia lebt von seinen Muschelzuchten und feiert sie im Sommer mit Verkostungen am Meer. Eine schmackhafte Gelegenheit für Wortschatz zu Essen, Zahlen und zum Bestellen am Tresen.",
+     "fr": "Le golfe d'Olbia vit de ses élevages de moules et les célèbre l'été par des dégustations en bord de mer. Une occasion gourmande pour le vocabulaire de la nourriture, les chiffres et l'art de commander au comptoir.",
+     "nl": "De golf van Olbia leeft van mosselkwekerijen en viert die in de zomer met proeverijen aan zee. Een smakelijke kans voor eetwoordenschat, getallen en leren bestellen aan de toonbank."
+    }
+   },
+   {
+    "nome": "Estate olbiese",
+    "quando": {
+     "it": "giugno–settembre",
+     "en": "June–September",
+     "de": "Juni–September",
+     "fr": "juin–septembre",
+     "nl": "juni–september"
+    },
+    "desc": {
+     "it": "Da giugno a settembre concerti, cinema all'aperto e mercatini animano il molo Brin e le piazze del centro. Serate lunghe e informali, ideali per praticare l'italiano fuori dall'aula.",
+     "en": "From June to September concerts, open-air cinema and markets bring the Brin quay and the central squares to life. Long, informal evenings, ideal for practising Italian outside the classroom.",
+     "de": "Von Juni bis September beleben Konzerte, Freiluftkino und Märkte die Mole Brin und die Plätze der Altstadt. Lange, lockere Abende, ideal, um Italienisch außerhalb des Unterrichts zu üben.",
+     "fr": "De juin à septembre, concerts, cinéma en plein air et marchés animent le quai Brin et les places du centre. De longues soirées informelles, idéales pour pratiquer l'italien hors de la salle de classe.",
+     "nl": "Van juni tot september brengen concerten, openluchtbioscoop en markten de Brin-kade en de pleinen in het centrum tot leven. Lange, informele avonden, ideaal om Italiaans te oefenen buiten de les."
+    }
+   }
+  ]
+ },
+ "Alberobello": {
+  "slug": "alberobello",
+  "eventi": [
+   {
+    "nome": "Festa dei Santi Medici Cosma e Damiano",
+    "quando": {
+     "it": "fine settembre",
+     "en": "late September",
+     "de": "Ende September",
+     "fr": "fin septembre",
+     "nl": "eind september"
+    },
+    "desc": {
+     "it": "A fine settembre Alberobello si accende di luminarie monumentali, bande musicali e processione per i santi patroni. La festa più importante dell'anno: perfetta per il lessico delle tradizioni pugliesi.",
+     "en": "In late September Alberobello lights up with monumental illuminations, brass bands and a procession for its patron saints. The biggest festival of the year: perfect for the vocabulary of Apulian traditions.",
+     "de": "Ende September erstrahlt Alberobello in monumentalen Lichterbögen, mit Blaskapellen und Prozession für die Schutzheiligen. Das größte Fest des Jahres: perfekt für den Wortschatz apulischer Traditionen.",
+     "fr": "Fin septembre, Alberobello s'illumine d'arches lumineuses monumentales, avec fanfares et procession pour les saints patrons. La plus grande fête de l'année : parfaite pour le vocabulaire des traditions des Pouilles.",
+     "nl": "Eind september baadt Alberobello in monumentale lichtbogen, met blaaskapellen en een processie voor de beschermheiligen. Het grootste feest van het jaar: perfect voor de woordenschat van Apulische tradities."
+    }
+   },
+   {
+    "nome": "Alberobello Light Festival",
+    "quando": {
+     "it": "dicembre–gennaio",
+     "en": "December–January",
+     "de": "Dezember–Januar",
+     "fr": "décembre–janvier",
+     "nl": "december–januari"
+    },
+    "desc": {
+     "it": "Nelle settimane di Natale i trulli diventano schermi per proiezioni luminose e il paese si riempie di mercatini. Un modo suggestivo di vedere Alberobello fuori stagione, con meno turisti e più tempo per parlare.",
+     "en": "Over the Christmas weeks the trulli turn into screens for light projections and the town fills with markets. A striking way to see Alberobello off season, with fewer tourists and more time to talk.",
+     "de": "In den Wochen um Weihnachten werden die Trulli zu Leinwänden für Lichtprojektionen, und der Ort füllt sich mit Märkten. Eine stimmungsvolle Art, Alberobello außerhalb der Saison zu erleben, mit weniger Touristen und mehr Zeit zum Reden.",
+     "fr": "Pendant les semaines de Noël, les trulli deviennent des écrans pour des projections lumineuses et le village se remplit de marchés. Une façon saisissante de voir Alberobello hors saison, avec moins de touristes et plus de temps pour parler.",
+     "nl": "In de kerstweken worden de trulli schermen voor lichtprojecties en vult het dorp zich met markten. Een sfeervolle manier om Alberobello buiten het seizoen te zien, met minder toeristen en meer tijd om te praten."
+    }
+   },
+   {
+    "nome": "Sagre della Valle d'Itria",
+    "quando": {
+     "it": "estate",
+     "en": "summer",
+     "de": "Sommer",
+     "fr": "été",
+     "nl": "zomer"
+    },
+    "desc": {
+     "it": "D'estate i paesi vicini — Locorotondo, Martina Franca, Cisternino — si susseguono con sagre di orecchiette, bombette e vino. Il contesto migliore per il lessico del cibo e per l'italiano informale a tavola.",
+     "en": "In summer the nearby towns — Locorotondo, Martina Franca, Cisternino — take turns hosting festivals of orecchiette, bombette and wine. The best possible setting for food vocabulary and informal Italian at the table.",
+     "de": "Im Sommer wechseln sich die Nachbarorte Locorotondo, Martina Franca und Cisternino mit Festen rund um Orecchiette, Bombette und Wein ab. Der beste Rahmen für Essensvokabular und lockeres Italienisch bei Tisch.",
+     "fr": "L'été, les villages voisins — Locorotondo, Martina Franca, Cisternino — enchaînent les fêtes autour des orecchiette, des bombette et du vin. Le meilleur cadre pour le vocabulaire de la cuisine et l'italien informel à table.",
+     "nl": "In de zomer wisselen de nabije dorpen Locorotondo, Martina Franca en Cisternino elkaar af met feesten rond orecchiette, bombette en wijn. De beste omgeving voor eetwoordenschat en informeel Italiaans aan tafel."
+    }
+   }
+  ]
+ },
+ "La Maddalena": {
+  "slug": "la-maddalena",
+  "eventi": [
+   {
+    "nome": "Festa di Santa Maria Maddalena",
+    "quando": {
+     "it": "22 luglio",
+     "en": "22 July",
+     "de": "22. Juli",
+     "fr": "22 juillet",
+     "nl": "22 juli"
+    },
+    "desc": {
+     "it": "Il 22 luglio l'isola festeggia la patrona con processione a mare, barche addobbate e fuochi d'artificio. Festa profondamente locale: ottima per il lessico delle tradizioni marinare.",
+     "en": "On 22 July the island celebrates its patron saint with a procession at sea, decorated boats and fireworks. A deeply local festival: excellent for the vocabulary of seafaring traditions.",
+     "de": "Am 22. Juli feiert die Insel ihre Schutzpatronin mit Seeprozession, geschmückten Booten und Feuerwerk. Ein zutiefst lokales Fest: ideal für den Wortschatz maritimer Traditionen.",
+     "fr": "Le 22 juillet, l'île fête sa patronne avec une procession en mer, des bateaux décorés et des feux d'artifice. Fête profondément locale : excellente pour le vocabulaire des traditions maritimes.",
+     "nl": "Op 22 juli viert het eiland zijn patroonheilige met een processie op zee, versierde boten en vuurwerk. Een door en door lokaal feest: uitstekend voor de woordenschat van maritieme tradities."
+    }
+   },
+   {
+    "nome": "Regate nell'arcipelago",
+    "quando": {
+     "it": "primavera–estate",
+     "en": "spring–summer",
+     "de": "Frühling–Sommer",
+     "fr": "printemps–été",
+     "nl": "voorjaar–zomer"
+    },
+    "desc": {
+     "it": "Tra primavera ed estate l'arcipelago ospita regate veliche di ogni livello e il porto si riempie di equipaggi. Utile per il lessico della vela, del mare e del meteo.",
+     "en": "Between spring and summer the archipelago hosts sailing regattas at every level and the harbour fills with crews. Useful for the vocabulary of sailing, the sea and the weather.",
+     "de": "Zwischen Frühling und Sommer finden im Archipel Segelregatten aller Klassen statt, und der Hafen füllt sich mit Crews. Nützlich für Wortschatz zu Segeln, Meer und Wetter.",
+     "fr": "Du printemps à l'été, l'archipel accueille des régates de tous niveaux et le port se remplit d'équipages. Utile pour le vocabulaire de la voile, de la mer et de la météo.",
+     "nl": "Tussen voorjaar en zomer organiseert de archipel zeilwedstrijden van elk niveau en loopt de haven vol bemanningen. Handig voor woordenschat rond zeilen, zee en weer."
+    }
+   },
+   {
+    "nome": "Estate maddalenina",
+    "quando": {
+     "it": "giugno–settembre",
+     "en": "June–September",
+     "de": "Juni–September",
+     "fr": "juin–septembre",
+     "nl": "juni–september"
+    },
+    "desc": {
+     "it": "D'estate concerti, cinema all'aperto e mercatini animano piazza Umberto I e il lungomare fino a notte. Serate informali, ideali per chiacchierare con gli isolani.",
+     "en": "In summer concerts, open-air cinema and markets keep Piazza Umberto I and the seafront alive well into the night. Informal evenings, ideal for chatting with islanders.",
+     "de": "Im Sommer beleben Konzerte, Freiluftkino und Märkte die Piazza Umberto I und die Uferpromenade bis tief in die Nacht. Lockere Abende, ideal zum Plaudern mit Insulanern.",
+     "fr": "L'été, concerts, cinéma en plein air et marchés animent la piazza Umberto I et le front de mer jusque tard. Soirées informelles, idéales pour bavarder avec les insulaires.",
+     "nl": "In de zomer houden concerten, openluchtbioscoop en markten de Piazza Umberto I en de boulevard tot diep in de nacht levendig. Informele avonden, ideaal om met eilandbewoners te kletsen."
+    }
+   }
+  ]
+ },
+ "Grottaglie": {
+  "slug": "grottaglie",
+  "eventi": [
+   {
+    "nome": "Mostra della Ceramica",
+    "quando": {
+     "it": "agosto",
+     "en": "August",
+     "de": "August",
+     "fr": "août",
+     "nl": "augustus"
+    },
+    "desc": {
+     "it": "Ad agosto il castello ospita la storica mostra-concorso della ceramica, con opere dei maestri locali e dimostrazioni al tornio. Perfetta per il lessico dell'artigianato e dei materiali.",
+     "en": "In August the castle hosts the historic ceramics exhibition and competition, with work by local masters and throwing demonstrations. Perfect for the vocabulary of craft and materials.",
+     "de": "Im August zeigt die Burg die traditionsreiche Keramikausstellung mit Wettbewerb, Werken lokaler Meister und Vorführungen an der Töpferscheibe. Perfekt für Wortschatz zu Handwerk und Materialien.",
+     "fr": "En août, le château accueille l'historique exposition-concours de céramique, avec les œuvres des maîtres locaux et des démonstrations au tour. Parfait pour le vocabulaire de l'artisanat et des matériaux.",
+     "nl": "In augustus huisvest het kasteel de historische keramiektentoonstelling en -wedstrijd, met werk van lokale meesters en demonstraties aan de draaischijf. Perfect voor ambachts- en materiaalwoordenschat."
+    }
+   },
+   {
+    "nome": "Festa di San Ciro",
+    "quando": {
+     "it": "31 gennaio",
+     "en": "31 January",
+     "de": "31. Januar",
+     "fr": "31 janvier",
+     "nl": "31 januari"
+    },
+    "desc": {
+     "it": "Il 31 gennaio Grottaglie celebra il patrono con processione, luminarie e bancarelle nel freddo dell'inverno pugliese. Una festa vera, senza turisti: ottima per ascoltare l'italiano quotidiano del Sud.",
+     "en": "On 31 January Grottaglie celebrates its patron saint with a procession, illuminations and stalls in the cold of the Apulian winter. A real festival with no tourists: excellent for hearing everyday southern Italian.",
+     "de": "Am 31. Januar feiert Grottaglie seinen Schutzpatron mit Prozession, Lichterschmuck und Ständen in der Kälte des apulischen Winters. Ein echtes Fest ohne Touristen: ideal, um das Alltagsitalienisch des Südens zu hören.",
+     "fr": "Le 31 janvier, Grottaglie célèbre son saint patron avec procession, illuminations et étals dans le froid de l'hiver des Pouilles. Une vraie fête sans touristes : excellente pour entendre l'italien quotidien du Sud.",
+     "nl": "Op 31 januari viert Grottaglie zijn beschermheilige met processie, lichtversiering en kraampjes in de kou van de Apulische winter. Een echt feest zonder toeristen: uitstekend om alledaags Zuid-Italiaans te horen."
+    }
+   },
+   {
+    "nome": "Presepi e Natale nelle grotte",
+    "quando": {
+     "it": "dicembre–gennaio",
+     "en": "December–January",
+     "de": "Dezember–Januar",
+     "fr": "décembre–janvier",
+     "nl": "december–januari"
+    },
+    "desc": {
+     "it": "A dicembre le grotte e le botteghe del quartiere ceramico ospitano presepi artistici e mercatini. Occasione ideale per il lessico del Natale e delle tradizioni religiose.",
+     "en": "In December the caves and workshops of the ceramics district host artistic nativity scenes and markets. An ideal occasion for the vocabulary of Christmas and religious traditions.",
+     "de": "Im Dezember beherbergen die Höhlen und Werkstätten des Keramikviertels künstlerische Krippen und Märkte. Ideale Gelegenheit für Wortschatz zu Weihnachten und religiösen Bräuchen.",
+     "fr": "En décembre, les grottes et les ateliers du quartier de la céramique accueillent crèches artistiques et marchés. Occasion idéale pour le vocabulaire de Noël et des traditions religieuses.",
+     "nl": "In december herbergen de grotten en werkplaatsen van de keramiekwijk artistieke kerststallen en markten. Ideale gelegenheid voor kerst- en religieuze traditiewoordenschat."
+    }
+   }
+  ]
+ }
+}
