@@ -2062,7 +2062,7 @@ const DATI = {
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
-        "durata_lezione_min": 50,
+        "durata_lezione_min": 45,
         "max_studenti_classe": 12,
         "materiale": "inclusi",
         "test_ingresso": "primo giorno",
@@ -2081,7 +2081,13 @@ const DATI = {
         "over50"
       ],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 1981,
+      "prezzi_rilevati": {
+        "tutto_compreso": true,
+        "fonte": "culturaitaliana.eu",
+        "rilevato_il": "2026-07-31"
+      }
     },
     {
       "id": "madrelingua",
@@ -2179,7 +2185,8 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 2000
     },
     {
       "id": "istituto-venezia",
@@ -3382,7 +3389,9 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
+      "esami_in_sede": [
+        "PLIDA"
+      ],
       "note": "",
       "verificato_il": null,
       "stato_dati": "da_verificare",
@@ -3397,7 +3406,9 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 1893,
+      "nota_sede": "Comitato di Siena, Via Tommaso Pendola 37 dal 2001"
     },
     {
       "id": "saena-iulii",
@@ -5462,7 +5473,8 @@ const DATI = {
       "email_stato": "stimata",
       "note": "Classi piccole (3–8 studenti). Chiusa 10–23 agosto e 21 dic–10 gen. Una delle prime scuole d'italiano di Bologna.",
       "stato_dati": "verificato",
-      "verificato_il": "2026-07-31"
+      "verificato_il": "2026-07-31",
+      "fondata_nel": 1998
     },
     {
       "id": "italianme",
