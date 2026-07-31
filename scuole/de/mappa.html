@@ -339,11 +339,13 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
  box-shadow:0 2px 6px rgba(34,29,22,.35)}
 .pin.spento{background:var(--secondario);opacity:.45}
 .leaflet-popup-content{margin:12px 14px;font-family:var(--sans);min-width:0}
-.leaflet-popup-content b{font-family:var(--serif);font-size:16px;display:block;margin-bottom:6px}
-.leaflet-popup-content a{display:block;padding:6px 0;border-bottom:1px dashed var(--linea);
- text-decoration:none;font-size:14px;color:var(--inchiostro);overflow-wrap:break-word}
-.leaflet-popup-content a:last-child{border-bottom:0}
-.leaflet-popup-content a:hover{color:var(--terracotta)}
+.leaflet-popup-content b.pop-citta{font-family:var(--serif);font-size:16px;display:block;margin-bottom:2px}
+.leaflet-popup-content .pop-conta{display:block;font-size:11.5px;color:var(--secondario);margin-bottom:8px}
+.pop-lista{columns:132px;column-gap:14px}
+.pop-lista a{display:block;break-inside:avoid;padding:4px 0;border-bottom:1px dashed var(--linea);
+ text-decoration:none;font-size:12.5px;line-height:1.3;color:var(--inchiostro);overflow-wrap:break-word}
+.pop-lista a:hover{color:var(--terracotta)}
+
 .mappa-elenco{margin-top:22px}
 .mappa-elenco .citta-altre a span{color:var(--secondario);font-weight:500}
 @media(max-width:640px){#mappa{height:min(62vh,460px)}}
@@ -440,9 +442,11 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
     var ico=L.divIcon({className:"",html:'<div class="pin" style="width:'+d+'px;height:'+d+'px">'+n+'</div>',
       iconSize:[d,d], iconAnchor:[d/2,d/2]});
     var m=L.marker(DATI.citta[c].coord,{icon:ico,title:c}).addTo(mappa);
-    var html='<b>'+c+'</b>'+perCitta[c].map(function(s){
-      return '<a href="'+PRE+s.id+'.html">'+s.nome+' →</a>';}).join("");
-    m.bindPopup(html);
+    var html='<b class="pop-citta">'+c+'</b><span class="pop-conta">'+n+' '+(n===1?T.scuola:T.scuole)+'</span>'
+      +'<div class="pop-lista">'+perCitta[c].map(function(s){
+      return '<a href="'+PRE+s.id+'.html">'+s.nome+' \u2192</a>';}).join("")+'</div>';
+    m.bindPopup(html,{maxWidth:Math.min(n>12?500:(n>5?360:260),Math.round(mappa.getSize().x*0.78)),
+      maxHeight:Math.round(mappa.getSize().y*0.68),autoPan:true,autoPanPadding:[16,16]});
     marcatori.push({citta:c,m:m,testo:(c+" "+perCitta[c].map(function(s){return s.nome;}).join(" ")).toLowerCase()});
     gruppo.push(DATI.citta[c].coord);
   });
