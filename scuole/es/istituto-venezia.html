@@ -501,7 +501,7 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
 (function(){
 var form=document.getElementById("modulo"),esito=document.getElementById("esito");
 form.addEventListener("submit",function(ev){ev.preventDefault();
- var multi=document.getElementById("multi-citta");var multiR=document.getElementById("multi-regione");var altreC=["easy-italian-language-art", "ca-foscari-school-for-international-education"];var altreR=["idea-verona", "lingua-it", "l-italiano-con-noi", "bertrand-russell"];var altre=[].concat((multi&&multi.checked)?altreC:[],(multiR&&multiR.checked)?altreR:[]);var d={scuola_id:"istituto-venezia",altre_scuole:altre,citta:"Venezia",lingua:"it",pagina:"https://thuisitaliaans.com/scuole/istituto-venezia.html",
+ var multi=document.getElementById("multi-citta");var multiR=document.getElementById("multi-regione");var altreC=["easy-italian-language-art", "ca-foscari-school-for-international-education"];var altreR=["idea-verona", "lingua-it", "l-italiano-con-noi", "bertrand-russell"];var altre=[].concat((multi&&multi.checked)?altreC:[],(multiR&&multiR.checked)?altreR:[]);var d={scuola_id:"istituto-venezia",altre_scuole:altre,citta:"Venezia",lingua:"es",pagina:"https://thuisitaliaans.com/scuole/istituto-venezia.html",
   nome:form.nome.value,email:form.email.value,messaggio:form.messaggio.value,sito_web:form.sito_web.value};
  var btn=form.querySelector("button");btn.disabled=true;
  fetch("/scuole/api/contatto",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)})

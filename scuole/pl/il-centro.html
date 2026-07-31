@@ -502,7 +502,7 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
 (function(){
 var form=document.getElementById("modulo"),esito=document.getElementById("esito");
 form.addEventListener("submit",function(ev){ev.preventDefault();
- var multi=document.getElementById("multi-citta");var multiR=document.getElementById("multi-regione");var altreC=["scuola-leonardo-da-vinci-milano", "linguadue", "ellci-milano"];var altreR=[];var altre=[].concat((multi&&multi.checked)?altreC:[],(multiR&&multiR.checked)?altreR:[]);var d={scuola_id:"il-centro",altre_scuole:altre,citta:"Milano",lingua:"it",pagina:"https://thuisitaliaans.com/scuole/il-centro.html",
+ var multi=document.getElementById("multi-citta");var multiR=document.getElementById("multi-regione");var altreC=["scuola-leonardo-da-vinci-milano", "linguadue", "ellci-milano"];var altreR=[];var altre=[].concat((multi&&multi.checked)?altreC:[],(multiR&&multiR.checked)?altreR:[]);var d={scuola_id:"il-centro",altre_scuole:altre,citta:"Milano",lingua:"pl",pagina:"https://thuisitaliaans.com/scuole/il-centro.html",
   nome:form.nome.value,email:form.email.value,messaggio:form.messaggio.value,sito_web:form.sito_web.value};
  var btn=form.querySelector("button");btn.disabled=true;
  fetch("/scuole/api/contatto",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)})

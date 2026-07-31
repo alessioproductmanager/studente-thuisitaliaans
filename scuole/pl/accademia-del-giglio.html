@@ -514,7 +514,7 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
 (function(){
 var form=document.getElementById("modulo"),esito=document.getElementById("esito");
 form.addEventListener("submit",function(ev){ev.preventDefault();
- var multi=document.getElementById("multi-citta");var multiR=document.getElementById("multi-regione");var altreC=["scuola-leonardo-da-vinci-firenze", "abc-firenze", "centro-fiorenza", "istituto-michelangelo", "europass-italian-language-school", "centro-machiavelli", "linguaviva", "scuola-toscana", "istituto-il-david", "parola-italian-language-school", "istituto-lorenzo-de-medici-firenze", "centro-lingua-italiana-calvino", "istituto-galilei", "sprachcaffe-firenze", "istituto-europeo", "accademia-europea-di-firenze", "centro-koine-firenze", "accademia-riaci", "inflorence-academy", "centro-italiano-firenze", "italianme", "influent"];var altreR=["societa-dante-alighieri-siena", "saena-iulii", "universita-per-stranieri-di-siena", "cultura-italiana-arezzo", "lucca-italian-school", "centro-koine-lucca", "istituto-linguistico-mediterraneo", "centro-culturale-giacomo-puccini", "scuola-leonardo-da-vinci-viareggio", "il-sasso", "terramare", "centro-fiorenza-isola-d-elba", "il-sillabo"];var altre=[].concat((multi&&multi.checked)?altreC:[],(multiR&&multiR.checked)?altreR:[]);var d={scuola_id:"accademia-del-giglio",altre_scuole:altre,citta:"Firenze",lingua:"it",pagina:"https://thuisitaliaans.com/scuole/accademia-del-giglio.html",
+ var multi=document.getElementById("multi-citta");var multiR=document.getElementById("multi-regione");var altreC=["scuola-leonardo-da-vinci-firenze", "abc-firenze", "centro-fiorenza", "istituto-michelangelo", "europass-italian-language-school", "centro-machiavelli", "linguaviva", "scuola-toscana", "istituto-il-david", "parola-italian-language-school", "istituto-lorenzo-de-medici-firenze", "centro-lingua-italiana-calvino", "istituto-galilei", "sprachcaffe-firenze", "istituto-europeo", "accademia-europea-di-firenze", "centro-koine-firenze", "accademia-riaci", "inflorence-academy", "centro-italiano-firenze", "italianme", "influent"];var altreR=["societa-dante-alighieri-siena", "saena-iulii", "universita-per-stranieri-di-siena", "cultura-italiana-arezzo", "lucca-italian-school", "centro-koine-lucca", "istituto-linguistico-mediterraneo", "centro-culturale-giacomo-puccini", "scuola-leonardo-da-vinci-viareggio", "il-sasso", "terramare", "centro-fiorenza-isola-d-elba", "il-sillabo"];var altre=[].concat((multi&&multi.checked)?altreC:[],(multiR&&multiR.checked)?altreR:[]);var d={scuola_id:"accademia-del-giglio",altre_scuole:altre,citta:"Firenze",lingua:"pl",pagina:"https://thuisitaliaans.com/scuole/accademia-del-giglio.html",
   nome:form.nome.value,email:form.email.value,messaggio:form.messaggio.value,sito_web:form.sito_web.value};
  var btn=form.querySelector("button");btn.disabled=true;
  fetch("/scuole/api/contatto",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)})
@@ -587,23 +587,5 @@ document.addEventListener("click",function(){document.querySelectorAll(".badge.m
    box.classList.remove('mostra');});
  document.body.appendChild(box);
  setTimeout(function(){box.classList.add('mostra');},600);
-})();
-</script><script>/*prezzo-modulo-v1*/
-(function(){
- var box=document.querySelector('.pz-chiedi'); if(!box) return;
- var campo=box.querySelector('input[type=email]'), bott=box.querySelector('button');
- var form=document.getElementById('modulo'); if(!form) return;
- var TESTO="Ciao gentile staff di Accademia del Giglio,\n\nI'd like to know the price of your Italian courses. Could you send me the total cost including enrolment fee, materials and accommodation, and the available start dates for the coming months?\n\nGrazie infinite del vostro aiuto e ci vediamo presto!";
- function porta(){
-   if(campo.value && form.email && !form.email.value) form.email.value=campo.value;
-   if(form.messaggio && !form.messaggio.value.trim()) form.messaggio.value=TESTO;
-   var ta=form.messaggio;
-   if(ta){ ta.style.height='auto'; ta.style.height=Math.min(ta.scrollHeight+8,420)+'px'; }
-   form.scrollIntoView({behavior:'smooth',block:'center'});
-   var primo = form.nome && !form.nome.value ? form.nome : (form.email && !form.email.value ? form.email : form.messaggio);
-   setTimeout(function(){ if(primo) primo.focus({preventScroll:true}); },420);
- }
- bott.addEventListener('click',porta);
- campo.addEventListener('keydown',function(e){ if(e.key==='Enter'){e.preventDefault();porta();} });
 })();
 </script></body></html>

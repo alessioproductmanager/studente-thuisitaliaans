@@ -501,7 +501,7 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
 (function(){
 var form=document.getElementById("modulo"),esito=document.getElementById("esito");
 form.addEventListener("submit",function(ev){ev.preventDefault();
- var multi=document.getElementById("multi-citta");var multiR=document.getElementById("multi-regione");var altreC=[];var altreR=["babilonia-centro-di-lingua-e-cultura-italiana", "solemar-academy", "solemar-sicilia", "itastra-universita-di-palermo", "scuola-virgilio"];var altre=[].concat((multi&&multi.checked)?altreC:[],(multiR&&multiR.checked)?altreR:[]);var d={scuola_id:"laboling",altre_scuole:altre,lingua:"it",pagina:"https://thuisitaliaans.com/scuole/laboling.html",
+ var multi=document.getElementById("multi-citta");var multiR=document.getElementById("multi-regione");var altreC=[];var altreR=["babilonia-centro-di-lingua-e-cultura-italiana", "solemar-academy", "solemar-sicilia", "itastra-universita-di-palermo", "scuola-virgilio"];var altre=[].concat((multi&&multi.checked)?altreC:[],(multiR&&multiR.checked)?altreR:[]);var d={scuola_id:"laboling",altre_scuole:altre,lingua:"pl",pagina:"https://thuisitaliaans.com/scuole/laboling.html",
   nome:form.nome.value,email:form.email.value,messaggio:form.messaggio.value,sito_web:form.sito_web.value};
  var btn=form.querySelector("button");btn.disabled=true;
  fetch("/scuole/api/contatto",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)})

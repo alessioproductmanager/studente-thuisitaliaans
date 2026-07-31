@@ -501,7 +501,7 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
 (function(){
 var form=document.getElementById("modulo"),esito=document.getElementById("esito");
 form.addEventListener("submit",function(ev){ev.preventDefault();
- var multi=document.getElementById("multi-citta");var multiR=document.getElementById("multi-regione");var altreC=["cultura-italiana-bologna", "alce-accademia-lingue-e-culture-europee", "arca"];var altreR=["romanica", "reggio-lingua", "scuola-palazzo-malvisi-ravenna", "scuola-palazzo-malvisi-bagno-di-romagna", "tiberius-international"];var altre=[].concat((multi&&multi.checked)?altreC:[],(multiR&&multiR.checked)?altreR:[]);var d={scuola_id:"madrelingua",altre_scuole:altre,citta:"Bologna",lingua:"it",pagina:"https://thuisitaliaans.com/scuole/madrelingua.html",
+ var multi=document.getElementById("multi-citta");var multiR=document.getElementById("multi-regione");var altreC=["cultura-italiana-bologna", "alce-accademia-lingue-e-culture-europee", "arca"];var altreR=["romanica", "reggio-lingua", "scuola-palazzo-malvisi-ravenna", "scuola-palazzo-malvisi-bagno-di-romagna", "tiberius-international"];var altre=[].concat((multi&&multi.checked)?altreC:[],(multiR&&multiR.checked)?altreR:[]);var d={scuola_id:"madrelingua",altre_scuole:altre,citta:"Bologna",lingua:"pl",pagina:"https://thuisitaliaans.com/scuole/madrelingua.html",
   nome:form.nome.value,email:form.email.value,messaggio:form.messaggio.value,sito_web:form.sito_web.value};
  var btn=form.querySelector("button");btn.disabled=true;
  fetch("/scuole/api/contatto",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)})

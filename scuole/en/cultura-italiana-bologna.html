@@ -584,22 +584,4 @@ document.addEventListener("click",function(){document.querySelectorAll(".badge.m
  document.body.appendChild(box);
  setTimeout(function(){box.classList.add('mostra');},600);
 })();
-</script><script>/*prezzo-modulo-v1*/
-(function(){
- var box=document.querySelector('.pz-chiedi'); if(!box) return;
- var campo=box.querySelector('input[type=email]'), bott=box.querySelector('button');
- var form=document.getElementById('modulo'); if(!form) return;
- var TESTO="Ciao gentile staff di Cultura Italiana Bologna,\n\nI'd like to know the price of your Italian courses. Could you send me the total cost including enrolment fee, materials and accommodation, and the available start dates for the coming months?\n\nGrazie infinite del vostro aiuto e ci vediamo presto!";
- function porta(){
-   if(campo.value && form.email && !form.email.value) form.email.value=campo.value;
-   if(form.messaggio && !form.messaggio.value.trim()) form.messaggio.value=TESTO;
-   var ta=form.messaggio;
-   if(ta){ ta.style.height='auto'; ta.style.height=Math.min(ta.scrollHeight+8,420)+'px'; }
-   form.scrollIntoView({behavior:'smooth',block:'center'});
-   var primo = form.nome && !form.nome.value ? form.nome : (form.email && !form.email.value ? form.email : form.messaggio);
-   setTimeout(function(){ if(primo) primo.focus({preventScroll:true}); },420);
- }
- bott.addEventListener('click',porta);
- campo.addEventListener('keydown',function(e){ if(e.key==='Enter'){e.preventDefault();porta();} });
-})();
 </script></body></html>
