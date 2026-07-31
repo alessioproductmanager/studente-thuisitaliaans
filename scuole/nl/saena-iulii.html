@@ -247,7 +247,7 @@ form textarea{min-height:110px;resize:vertical}.nascosto{position:absolute;left:
 .mail-corpo label{font-size:12px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--secondario);margin:0;padding-top:11px;display:block}
 .mail-corpo input,.mail-corpo textarea{border:0!important;box-shadow:none!important;background:transparent!important;padding:3px 0 11px!important;border-radius:0!important;font-size:15px;width:100%;min-width:0}
 .mail-corpo input:focus,.mail-corpo textarea:focus{border:0!important;box-shadow:none!important;outline:none}
-.mail-corpo textarea{min-height:120px;padding-top:7px!important;resize:vertical}
+.mail-corpo textarea{min-height:190px;padding-top:7px!important;resize:vertical}
 .mail-corpo .esito{margin:0 0 12px}
 .mail-piede{display:flex;align-items:center;gap:12px;padding:12px 16px;border-top:1px solid var(--linea);background:#FBF7F0;min-width:0}
 .mail-piede .bottone{border-radius:999px;padding:10px 24px;flex:0 0 auto}
@@ -566,6 +566,8 @@ document.addEventListener("click",function(){document.querySelectorAll(".badge.m
  function porta(){
    if(campo.value && form.email && !form.email.value) form.email.value=campo.value;
    if(form.messaggio && !form.messaggio.value.trim()) form.messaggio.value=TESTO;
+   var ta=form.messaggio;
+   if(ta){ ta.style.height='auto'; ta.style.height=Math.min(ta.scrollHeight+8,420)+'px'; }
    form.scrollIntoView({behavior:'smooth',block:'center'});
    var primo = form.nome && !form.nome.value ? form.nome : (form.email && !form.email.value ? form.email : form.messaggio);
    setTimeout(function(){ if(primo) primo.focus({preventScroll:true}); },420);
