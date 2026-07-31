@@ -557,7 +557,7 @@ const DATI = {
         {
           "tipo": "intensivo",
           "ore_settimana": 20,
-          "prezzo_da_settimana": null
+          "prezzo_da_settimana": 190
         },
         {
           "tipo": "leggero",
@@ -1073,7 +1073,7 @@ const DATI = {
         {
           "tipo": "intensivo",
           "ore_settimana": 20,
-          "prezzo_da_settimana": null
+          "prezzo_da_settimana": 230
         },
         {
           "tipo": "leggero",
@@ -1108,7 +1108,8 @@ const DATI = {
         "materiale": "inclusi",
         "test_ingresso": "primo giorno",
         "servizio_alloggio": "gratuito",
-        "wifi": true
+        "wifi": true,
+        "tassa_iscrizione": 85
       },
       "extra": [
         "arte",
@@ -1195,7 +1196,7 @@ const DATI = {
         {
           "tipo": "intensivo",
           "ore_settimana": 20,
-          "prezzo_da_settimana": null
+          "prezzo_da_settimana": 175
         },
         {
           "tipo": "leggero",
@@ -1811,7 +1812,7 @@ const DATI = {
         {
           "tipo": "intensivo",
           "ore_settimana": 20,
-          "prezzo_da_settimana": null
+          "prezzo_da_settimana": 300
         },
         {
           "tipo": "leggero",
@@ -1840,7 +1841,8 @@ const DATI = {
         "materiale": "inclusi",
         "test_ingresso": "online",
         "servizio_alloggio": "gratuito",
-        "wifi": true
+        "wifi": true,
+        "tassa_iscrizione": 0
       },
       "extra": [
         "cucina",
