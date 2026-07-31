@@ -5252,7 +5252,10 @@ const DATI = {
       "sito": "https://www.pintadera.info",
       "pagina_corsi": "https://pintadera.info/courses/italian-language/lingua-standard-group-course",
       "email": "info@pintadera.info",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "LICET",
+        "Bildungsurlaub"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -5272,13 +5275,15 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
+      "esami_in_sede": [
+        "CILS"
+      ],
       "note": "",
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
+        "max_studenti_classe": 8,
         "materiale": "inclusi",
         "test_ingresso": "online",
         "tassa_iscrizione": null,
@@ -5287,7 +5292,9 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 2004,
+      "altri_corsi": "corso per chi lavora a distanza, gruppi 3-8, fondatrice LICET"
     },
     {
       "id": "one-world-italiano",
