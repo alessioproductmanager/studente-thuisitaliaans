@@ -164,8 +164,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "In via Santo Spirito (Oltrarno), con sede estiva all'Isola d'Elba. Classi max 12.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -404,13 +404,15 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
+      "esami_in_sede": [
+        "CILS"
+      ],
       "note": "Storica scuola fiorentina, parte del gruppo Linguaviva. Corsi intensivi, preparazione esami e programmi culturali; sede riconosciuta per Bildungsurlaub.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
+        "max_studenti_classe": 14,
         "materiale": "inclusi",
         "test_ingresso": "online",
         "tassa_iscrizione": null,
@@ -424,7 +426,9 @@ const DATI = {
         "moda",
         "online"
       ],
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 1976,
+      "altri_corsi": "preparazione CILS individuale 10 lezioni/sett"
     },
     {
       "id": "accademia-del-giglio",
@@ -833,8 +837,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "Parte della catena internazionale Sprachcaffe; corsi tutto l'anno con inizio ogni lunedì.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -850,7 +854,14 @@ const DATI = {
         "online"
       ],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "prezzi_rilevati": {
+        "standard_settimana": 260,
+        "lezioni": 20,
+        "fonte": "languagecourse.net",
+        "rilevato_il": "2026-07-31"
+      },
+      "altri_corsi": "standard, intensivo, individuale, gruppo, tutor, italiano per italiani"
     },
     {
       "id": "istituto-europeo",
@@ -1227,8 +1238,8 @@ const DATI = {
         "DITALS"
       ],
       "note": "Dal 1984 in una villa liberty vicino a La Sapienza. Max 12 per classe (media 8). Sede d'esame DITALS. Ricchi corsi tematici: cucina, fotografia, moda, pittura, gioielleria, canto.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 55,
         "max_studenti_classe": 12,
@@ -1438,8 +1449,8 @@ const DATI = {
         "PLIDA"
       ],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 60,
         "max_studenti_classe": 10,
@@ -1455,7 +1466,21 @@ const DATI = {
         "online"
       ],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "prezzi_rilevati": {
+        "quota_associativa": 30,
+        "iscrizione_intensivo": 50,
+        "ricerca_alloggio": 60,
+        "materiale": "gratuito",
+        "fonte": "kappalanguageschool.com",
+        "rilevato_il": "2026-07-31"
+      },
+      "condizioni": {
+        "acconto_online": "50%",
+        "festivi": "recuperati",
+        "fonte": "kappalanguageschool.com"
+      },
+      "nota_verifica": "un aggregatore indica 20 EUR di iscrizione: smentito dal sito della scuola"
     },
     {
       "id": "scudit-scuola-d-italiano",
@@ -1905,8 +1930,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "Gruppo Linguaviva",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -2180,8 +2205,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -2432,8 +2457,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
@@ -2892,8 +2917,8 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "Le date di inizio non sono pubblicate sul sito della scuola. Nella maggior parte delle scuole i corsi intensivi di gruppo partono ogni lunedì (i principianti assoluti in date fisse, in genere ogni due settimane). Scrivi alla scuola per confermare la prossima data utile: in alta stagione (giugno–settembre) i posti si chiudono 2–3 settimane prima.",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 8,
@@ -3409,8 +3434,8 @@ const DATI = {
         "PLIDA"
       ],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
