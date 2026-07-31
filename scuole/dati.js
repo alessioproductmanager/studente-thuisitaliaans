@@ -5500,15 +5500,15 @@ const DATI = {
       "top3": [
         {
           "nome": "Galleria degli Uffizi",
-          "perche": "Botticelli, Leonardo e il Rinascimento in un solo palazzo."
+          "perche": "Botticelli, Leonardo e il Rinascimento in un solo palazzo, nato nel Cinquecento come sede degli uffici amministrativi granducali: da lì il nome. Prenotare sempre."
         },
         {
           "nome": "Cupola del Brunelleschi e Duomo",
-          "perche": "La salita fra le due calotte è una lezione di ingegneria del Quattrocento."
+          "perche": "La salita fra le due calotte è una lezione di ingegneria del Quattrocento: Brunelleschi la costruì senza centine, con oltre quattro milioni di mattoni posati a spina di pesce."
         },
         {
           "nome": "Oltrarno e Ponte Vecchio",
-          "perche": "Botteghe artigiane, San Frediano, tramonto da piazzale Michelangelo."
+          "perche": "Botteghe artigiane, San Frediano e il tramonto da piazzale Michelangelo. Sopra il ponte corre il Corridoio Vasariano, il passaggio privato che i Medici usavano per non passare in strada."
         }
       ],
       "eventi": [
@@ -5549,15 +5549,15 @@ const DATI = {
       "top3": [
         {
           "nome": "Colosseo e Fori Imperiali",
-          "perche": "Il centro del mondo antico, da percorrere a piedi in mezza giornata."
+          "perche": "Il centro del mondo antico, da percorrere a piedi in mezza giornata. Il nome ufficiale è Anfiteatro Flavio: «Colosseo» viene dal colosso di Nerone che stava lì accanto."
         },
         {
           "nome": "Musei Vaticani e San Pietro",
-          "perche": "Cappella Sistina e la cupola: prenotare sempre."
+          "perche": "Cappella Sistina e cupola: prenotare sempre. La Guardia Svizzera presta servizio qui ininterrottamente dal 1506, ed è tuttora composta solo da cittadini svizzeri."
         },
         {
           "nome": "Pantheon e Trastevere",
-          "perche": "La Roma che si vive la sera, fra piazze e trattorie."
+          "perche": "La Roma che si vive la sera, fra piazze e trattorie. La cupola del Pantheon, in calcestruzzo romano, resta dopo duemila anni la più grande al mondo senza armatura in acciaio."
         }
       ],
       "eventi": [
@@ -5598,15 +5598,15 @@ const DATI = {
       "top3": [
         {
           "nome": "Duomo e terrazze",
-          "perche": "Il gotico più teatrale d'Italia, visto da sopra."
+          "perche": "Il Duomo ha più di tremila statue e si cammina sulle terrazze fra le guglie, in marmo di Candoglia. La cattedrale fu iniziata nel 1386 e la facciata finita solo nell'Ottocento."
         },
         {
           "nome": "Cenacolo di Leonardo",
-          "perche": "L'Ultima Cena: biglietti mesi prima."
+          "perche": "L'Ultima Cena in Santa Maria delle Grazie: si entra a gruppi di venticinque per quindici minuti, e i biglietti finiscono con mesi di anticipo."
         },
         {
           "nome": "Brera e Navigli",
-          "perche": "Pinacoteca di giorno, aperitivo sui canali la sera."
+          "perche": "La pinacoteca e le vie d'artista di Brera, poi i canali dell'aperitivo. I Navigli servivano a portare per via d'acqua il marmo di Candoglia al cantiere del Duomo."
         }
       ],
       "eventi": [
@@ -5681,15 +5681,15 @@ const DATI = {
       "top3": [
         {
           "nome": "Piazza San Marco e Palazzo Ducale",
-          "perche": "Basilica, campanile e il palazzo della Serenissima."
+          "perche": "Ottomila metri quadri di mosaici su fondo d'oro nella basilica, e accanto il palazzo del doge. I quattro cavalli di bronzo in facciata sono copie: gli originali, presi a Costantinopoli nel 1204, sono all'interno."
         },
         {
           "nome": "Murano e Burano",
-          "perche": "Vetro e case colorate: mezza giornata in vaporetto."
+          "perche": "Le isole del vetro e del merletto, in vaporetto. Le case di Burano sono dipinte a colori forti perché i pescatori le riconoscessero rientrando con la nebbia."
         },
         {
           "nome": "Cannaregio e il ghetto",
-          "perche": "La Venezia dei veneziani, lontana dalla folla."
+          "perche": "La Venezia dove si vive davvero, con i bacari e le osterie. Il Ghetto di Venezia, istituito nel 1516, è il primo d'Europa e ha dato il nome alla parola in tutte le lingue."
         }
       ],
       "eventi": [
@@ -5730,25 +5730,27 @@ const DATI = {
       "top3": [
         {
           "nome": "Piazza del Campo",
-          "perche": "La conchiglia più bella d'Italia; salire sulla Torre del Mangia."
+          "perche": "La conchiglia più bella d'Italia, divisa in nove settori in ricordo del Governo dei Nove che resse Siena nel Trecento. Si sale sulla Torre del Mangia."
         },
         {
           "nome": "Duomo di Siena",
-          "perche": "Il pavimento istoriato e la libreria Piccolomini."
+          "perche": "Il pavimento istoriato e la libreria Piccolomini. La navata incompiuta accanto doveva essere il transetto di una cattedrale ancora più grande, fermata dalla peste del 1348."
         },
         {
           "nome": "Le contrade",
-          "perche": "Musei di contrada e vita di rione: chiedere alla scuola una visita."
+          "perche": "Musei di contrada e vita di rione: chiedere alla scuola una visita. Le diciassette contrade hanno un proprio territorio, una chiesa e una fontana dove si battezzano i nuovi nati."
         }
       ],
       "eventi": [
         {
           "nome": "Palio di Siena",
-          "quando": "2 luglio e 16 agosto"
+          "quando": "2 luglio e 16 agosto",
+          "desc": "Il 2 luglio e il 16 agosto le contrade si sfidano in una corsa di novanta secondi in Piazza del Campo, dopo giorni di prove e cene all'aperto. Il rito italiano più intenso che esista."
         },
         {
           "nome": "Chigiana International Festival",
-          "quando": "luglio–agosto"
+          "quando": "luglio–agosto",
+          "desc": "Fra luglio e agosto l'Accademia Chigiana porta concerti e masterclass di livello mondiale nei palazzi senesi. Ambiente colto e internazionale: buono per il lessico musicale e l'italiano formale."
         }
       ],
       "aeroporto": "Firenze (FLR) o Pisa (PSA)",
@@ -5815,15 +5817,18 @@ const DATI = {
       "eventi": [
         {
           "nome": "Salone Internazionale del Libro",
-          "quando": "maggio"
+          "quando": "maggio",
+          "desc": "A maggio il Lingotto ospita la fiera del libro più importante d'Italia, con centinaia di presentazioni e autori. Per chi studia italiano è un'immersione totale nella lingua scritta e parlata."
         },
         {
           "nome": "Terra Madre Salone del Gusto",
-          "quando": "settembre"
+          "quando": "settembre",
+          "desc": "A settembre Slow Food riunisce a Torino produttori da tutto il mondo fra degustazioni e laboratori. Perfetto per il lessico del cibo, dell'agricoltura e della sostenibilità."
         },
         {
           "nome": "Luci d'Artista",
-          "quando": "novembre–gennaio"
+          "quando": "novembre–gennaio",
+          "desc": "Da novembre a gennaio artisti contemporanei illuminano piazze e vie di Torino con opere luminose. Passeggiata serale gratuita: bella per il lessico dell'arte e per uscire con i compagni di corso."
         }
       ],
       "aeroporto": "Torino (TRN) o Milano (MXP)",
@@ -5851,11 +5856,13 @@ const DATI = {
       "eventi": [
         {
           "nome": "Rolli Days",
-          "quando": "primavera e autunno"
+          "quando": "primavera e autunno",
+          "desc": "Due volte l'anno i palazzi nobiliari dei Rolli, patrimonio UNESCO, aprono le porte con visite guidate gratuite. Occasione perfetta per il lessico dell'arte e dell'architettura, ascoltando guide italiane."
         },
         {
           "nome": "Salone Nautico",
-          "quando": "settembre"
+          "quando": "settembre",
+          "desc": "A settembre Genova ospita il più grande salone nautico del Mediterraneo e la città si riempie di visitatori. Utile per il lessico del mare, delle barche e dell'italiano commerciale."
         }
       ],
       "aeroporto": "Genova (GOA)",
@@ -5883,11 +5890,13 @@ const DATI = {
       "eventi": [
         {
           "nome": "Andersen Festival",
-          "quando": "giugno"
+          "quando": "giugno",
+          "desc": "A giugno la città si riempie di teatro di strada, illustratori e spettacoli dedicati alle fiabe, in ricordo del passaggio di Andersen. Linguaggio semplice e visivo: ottimo per i principianti."
         },
         {
           "nome": "Barcarolata",
-          "quando": "luglio"
+          "quando": "luglio",
+          "desc": "A luglio le barche del porto si travestono da carri allegorici e sfilano nella Baia del Silenzio. Festa marinara ironica e locale: perfetta per il lessico del mare e per ridere con la gente del posto."
         }
       ],
       "aeroporto": "Genova (GOA) o Pisa (PSA)",
@@ -5915,11 +5924,13 @@ const DATI = {
       "eventi": [
         {
           "nome": "Festival di Sanremo",
-          "quando": "febbraio"
+          "quando": "febbraio",
+          "desc": "A febbraio l'Ariston ospita la gara canora che tiene incollata l'Italia intera per cinque sere. Anche solo guardarlo in tv con dei coinquilini è una lezione di lingua e di costume."
         },
         {
           "nome": "Milano-Sanremo, la Classicissima",
-          "quando": "marzo"
+          "quando": "marzo",
+          "desc": "A marzo la corsa ciclistica più lunga del calendario arriva sul lungomare di Sanremo dopo quasi trecento chilometri. Giornata di festa: buona per il lessico sportivo e geografico."
         }
       ],
       "aeroporto": "Nizza (NCE) o Genova (GOA)",
@@ -5933,29 +5944,32 @@ const DATI = {
       "top3": [
         {
           "nome": "Spaccanapoli e Napoli sotterranea",
-          "perche": "La città greco-romana sotto i vicoli."
+          "perche": "La città greco-romana sotto i vicoli: quaranta metri più in basso si cammina negli acquedotti scavati dai greci e usati come rifugi durante i bombardamenti del 1943."
         },
         {
           "nome": "Museo Archeologico Nazionale",
-          "perche": "I tesori di Pompei ed Ercolano."
+          "perche": "I tesori di Pompei ed Ercolano, fra cui i mosaici della Casa del Fauno. Molti affreschi sono qui e non sul sito: senza il museo, Pompei si capisce a metà."
         },
         {
           "nome": "Pompei e il Vesuvio",
-          "perche": "In Circumvesuviana, gita di un giorno."
+          "perche": "In Circumvesuviana, gita di un giorno. Il Vesuvio è l'unico vulcano attivo dell'Europa continentale e ha alle pendici una delle aree più densamente abitate al mondo."
         }
       ],
       "eventi": [
         {
           "nome": "Maggio dei Monumenti",
-          "quando": "maggio"
+          "quando": "maggio",
+          "desc": "Per tutto maggio Napoli apre chiese, palazzi e cortili normalmente chiusi, con visite e concerti spesso gratuiti. Occasione straordinaria per il lessico dell'arte e per girare la città con i napoletani."
         },
         {
           "nome": "Miracolo di San Gennaro",
-          "quando": "19 settembre"
+          "quando": "19 settembre",
+          "desc": "Il 19 settembre il Duomo si riempie per attendere lo scioglimento del sangue del patrono, fra preghiere e applausi. Rito napoletano per eccellenza: intenso e rivelatore del rapporto tra città e fede."
         },
         {
           "nome": "Napoli Pizza Village",
-          "quando": "giugno"
+          "quando": "giugno",
+          "desc": "A giugno il lungomare si riempie di pizzaioli, forni e concerti per una settimana dedicata alla pizza napoletana. Golosissimo e affollato: perfetto per il lessico del cibo e per ordinare senza timidezza."
         }
       ],
       "aeroporto": "Napoli (NAP)",
@@ -5983,11 +5997,13 @@ const DATI = {
       "eventi": [
         {
           "nome": "Concerti e feste d'estate",
-          "quando": "estate"
+          "quando": "estate",
+          "desc": "D'estate chiostri, ville e piazze di Sorrento ospitano concerti, cinema all'aperto e serate danzanti. Contesto turistico ma vivace: buono per praticare l'italiano fuori dall'aula."
         },
         {
           "nome": "Processioni della Settimana Santa",
-          "quando": "Pasqua"
+          "quando": "Pasqua",
+          "desc": "La notte del Venerdì Santo le confraternite bianche e nere attraversano Sorrento in silenzio, con canti antichi. Rito solenne e impressionante: ottimo per il lessico religioso."
         }
       ],
       "aeroporto": "Napoli (NAP)",
@@ -6015,11 +6031,13 @@ const DATI = {
       "eventi": [
         {
           "nome": "Luci d'Artista",
-          "quando": "novembre–gennaio"
+          "quando": "novembre–gennaio",
+          "desc": "Da novembre a gennaio il centro di Salerno si copre di installazioni luminose che attirano visitatori da tutto il Sud. Passeggiata serale affollata: ottima per l'italiano di tutti i giorni."
         },
         {
           "nome": "Giffoni Film Festival",
-          "quando": "luglio"
+          "quando": "luglio",
+          "desc": "A luglio il festival di cinema per ragazzi più famoso al mondo si tiene a pochi chilometri da Salerno, con migliaia di giovani giurati. Ambiente giovanile: perfetto per l'italiano parlato dai coetanei."
         }
       ],
       "aeroporto": "Napoli (NAP)",
@@ -6033,25 +6051,27 @@ const DATI = {
       "top3": [
         {
           "nome": "Santa Maria dell'Isola",
-          "perche": "Il santuario sullo scoglio, icona della Calabria."
+          "perche": "Il santuario benedettino su uno scoglio che un tempo era davvero un'isola: la lingua di sabbia che lo unisce alla costa si è formata nei secoli. Si sale con una scalinata scavata nella roccia."
         },
         {
           "nome": "Centro storico a picco sul mare",
-          "perche": "Palazzi nobiliari e affacci sul Tirreno."
+          "perche": "Il paese sta su una rupe di arenaria alta una sessantina di metri, con i palazzi nobiliari affacciati sul Tirreno. Sotto la città corrono cantine e passaggi scavati nella roccia."
         },
         {
           "nome": "Capo Vaticano",
-          "perche": "Spiagge e tramonti sulle Eolie."
+          "perche": "Promontorio di granito con calette e uno dei tramonti più aperti del Sud: nelle giornate limpide si vede lo Stromboli fumare all'orizzonte. Il faro è del 1885."
         }
       ],
       "eventi": [
         {
           "nome": "Feste patronali d'estate",
-          "quando": "estate"
+          "quando": "estate",
+          "desc": "D'estate Tropea e i paesi vicini celebrano i santi con processioni, luminarie e fuochi sulla scogliera. Feste popolari genuine: ottime per il lessico delle tradizioni calabresi."
         },
         {
           "nome": "Sagra della cipolla rossa",
-          "quando": "estate"
+          "quando": "estate",
+          "desc": "D'estate la celebre cipolla rossa di Tropea ha la sua sagra, fra degustazioni, stand e musica. Occasione golosa per il lessico del cibo e per chiacchierare a tavola con i calabresi."
         }
       ],
       "aeroporto": "Lamezia Terme (SUF)",
@@ -6079,15 +6099,18 @@ const DATI = {
       "eventi": [
         {
           "nome": "Barcolana",
-          "quando": "ottobre"
+          "quando": "ottobre",
+          "desc": "La seconda domenica di ottobre più di duemila barche a vela partono insieme dal golfo di Trieste. È la regata più affollata al mondo e la città intera scende sulle rive: spettacolare."
         },
         {
           "nome": "Trieste Film Festival",
-          "quando": "gennaio"
+          "quando": "gennaio",
+          "desc": "A gennaio il festival porta il cinema dell'Europa centrale e orientale, in lingua originale con sottotitoli. Ottimo per l'ascolto e per capire la vocazione di frontiera di Trieste."
         },
         {
           "nome": "Bloomsday",
-          "quando": "16 giugno"
+          "quando": "16 giugno",
+          "desc": "Il 16 giugno Trieste ricorda James Joyce, che qui visse dieci anni, con letture e passeggiate letterarie. Occasione curiosa per l'italiano letterario e per una città molto europea."
         }
       ],
       "aeroporto": "Trieste (TRS) o Venezia (VCE)",
@@ -6115,11 +6138,13 @@ const DATI = {
       "eventi": [
         {
           "nome": "Taormina Film Fest",
-          "quando": "giugno–luglio"
+          "quando": "giugno–luglio",
+          "desc": "Fra giugno e luglio il Teatro Antico ospita proiezioni e ospiti internazionali sotto le stelle, con l'Etna sullo sfondo. Cornice irripetibile: buona per il lessico del cinema."
         },
         {
           "nome": "Concerti al Teatro Antico",
-          "quando": "giugno–settembre"
+          "quando": "giugno–settembre",
+          "desc": "Da giugno a settembre il teatro greco-romano ospita opera, concerti e balletto affacciato sul mare. Serata memorabile: ottima per il lessico musicale e per l'italiano formale."
         }
       ],
       "aeroporto": "Catania (CTA)",
@@ -6181,11 +6206,13 @@ const DATI = {
       "eventi": [
         {
           "nome": "Festino di Santa Rosalia",
-          "quando": "metà luglio"
+          "quando": "metà luglio",
+          "desc": "A metà luglio Palermo festeggia la patrona per cinque giorni, con il carro trionfale che sfila fino al mare e fuochi al Foro Italico. La festa più grande della Sicilia: travolgente e popolarissima."
         },
         {
           "nome": "Ballarò Buskers",
-          "quando": "ottobre"
+          "quando": "ottobre",
+          "desc": "A ottobre il quartiere di Ballarò si riempie di artisti di strada, musica e mercato, fra i vicoli più veri di Palermo. Contesto informale e caotico: ottimo per l'italiano parlato e il dialetto che si sente attorno."
         }
       ],
       "aeroporto": "Palermo (PMO)",
@@ -6213,11 +6240,13 @@ const DATI = {
       "eventi": [
         {
           "nome": "Festino di Santa Rosalia",
-          "quando": "metà luglio"
+          "quando": "metà luglio",
+          "desc": "A metà luglio Palermo festeggia la patrona per cinque giorni, con il carro trionfale che sfila fino al mare e fuochi al Foro Italico. La festa più grande della Sicilia: travolgente e popolarissima."
         },
         {
           "nome": "Ballarò Buskers",
-          "quando": "ottobre"
+          "quando": "ottobre",
+          "desc": "A ottobre il quartiere di Ballarò si riempie di artisti di strada, musica e mercato, fra i vicoli più veri di Palermo. Contesto informale e caotico: ottimo per l'italiano parlato e il dialetto che si sente attorno."
         }
       ],
       "aeroporto": "Palermo (PMO)",
@@ -6245,15 +6274,18 @@ const DATI = {
       "eventi": [
         {
           "nome": "Settimana Santa algherese",
-          "quando": "Pasqua"
+          "quando": "Pasqua",
+          "desc": "Ad Alghero la Settimana Santa segue il rito spagnolo, con confraternite incappucciate e canti in catalano. Un pezzo di Spagna in Sardegna: interessante per capire quanto sia varia l'Italia."
         },
         {
           "nome": "Cap d'Any de l'Alguer",
-          "quando": "dicembre–gennaio"
+          "quando": "dicembre–gennaio",
+          "desc": "Il capodanno algherese si festeggia in piazza con concerti e fuochi, e il nome resta in catalano. Serata informale e affollata, ottima per l'italiano di tutti i giorni."
         },
         {
           "nome": "Festa de Sant Miquel",
-          "quando": "settembre"
+          "quando": "settembre",
+          "desc": "A settembre la città celebra il patrono con processione, banda e stand nel centro storico. Festa sentita e poco turistica: perfetta per ascoltare l'italiano parlato dagli algheresi."
         }
       ],
       "aeroporto": "Alghero (AHO)",
@@ -6281,11 +6313,13 @@ const DATI = {
       "eventi": [
         {
           "nome": "Alba dei Popoli",
-          "quando": "dicembre–gennaio"
+          "quando": "dicembre–gennaio",
+          "desc": "Fra dicembre e gennaio Otranto celebra la prima alba dell'anno sul punto più a est d'Italia, con concerti e incontri. Suggestivo e poco affollato: bello per vedere il Salento d'inverno."
         },
         {
           "nome": "Festa dei Santi Martiri",
-          "quando": "metà agosto"
+          "quando": "metà agosto",
+          "desc": "A metà agosto Otranto ricorda gli ottocento martiri del 1480 con processione, luminarie e fuochi sul mare. Festa identitaria fortissima: ottima per il lessico storico e religioso."
         }
       ],
       "aeroporto": "Brindisi (BDS)",
@@ -6313,15 +6347,18 @@ const DATI = {
       "eventi": [
         {
           "nome": "Carnevale di Viareggio",
-          "quando": "febbraio"
+          "quando": "febbraio",
+          "desc": "A febbraio carri alti venti metri sfilano sul lungomare, con caricature di politici e personaggi famosi. Ironia italiana allo stato puro: ottima per capire l'attualità e il lessico della satira."
         },
         {
           "nome": "Festival Puccini",
-          "quando": "luglio–agosto"
+          "quando": "luglio–agosto",
+          "desc": "Fra luglio e agosto le opere di Puccini vanno in scena all'aperto a Torre del Lago, davanti al lago dove il compositore le scrisse. Cornice irripetibile per il lessico della lirica."
         },
         {
           "nome": "Premio letterario Viareggio-Rèpaci",
-          "quando": "estate"
+          "quando": "estate",
+          "desc": "D'estate uno dei premi letterari più antichi d'Italia porta scrittori e giurati sul lungomare, con incontri aperti al pubblico. Occasione per l'italiano letterario e per scoprire nuovi autori."
         }
       ],
       "aeroporto": "Pisa (PSA)",
@@ -6349,15 +6386,18 @@ const DATI = {
       "eventi": [
         {
           "nome": "Lucca Summer Festival",
-          "quando": "giugno–luglio"
+          "quando": "giugno–luglio",
+          "desc": "Fra giugno e luglio le mura di Lucca ospitano concerti di star internazionali in piazza Napoleone. Pubblico giovane e informale: ideale per l'italiano colloquiale e il gergo dei concerti."
         },
         {
           "nome": "Lucca Comics & Games",
-          "quando": "fine ottobre"
+          "quando": "fine ottobre",
+          "desc": "A fine ottobre Lucca diventa la capitale europea del fumetto e del gioco, con centomila visitatori in costume. Caos festoso: perfetto per l'italiano giovanile e per fare amicizia in fretta."
         },
         {
           "nome": "Luminara di Santa Croce",
-          "quando": "13 settembre"
+          "quando": "13 settembre",
+          "desc": "La sera del 13 settembre Lucca spegne le luci e una processione a lume di candela attraversa la città fino al Duomo. Atmosfera sospesa e molto locale: bella per il lessico religioso e delle tradizioni."
         }
       ],
       "aeroporto": "Pisa (PSA)",
@@ -6385,15 +6425,18 @@ const DATI = {
       "eventi": [
         {
           "nome": "Luminara di San Ranieri",
-          "quando": "16 giugno"
+          "quando": "16 giugno",
+          "desc": "La sera del 16 giugno centomila lumini disegnano i palazzi lungo l'Arno e la città spegne l'illuminazione pubblica. Uno degli spettacoli più belli d'Italia: ottimo per il lessico delle tradizioni."
         },
         {
           "nome": "Gioco del Ponte",
-          "quando": "ultimo sabato di giugno"
+          "quando": "ultimo sabato di giugno",
+          "desc": "L'ultimo sabato di giugno le due metà di Pisa si sfidano spingendo un carrello sul Ponte di Mezzo, dopo un corteo in armatura. Rievocazione fisica e rumorosa: perfetta per il tifo e il lessico storico."
         },
         {
           "nome": "Internet Festival",
-          "quando": "ottobre"
+          "quando": "ottobre",
+          "desc": "A ottobre Pisa ospita incontri, laboratori e talk sul digitale, molti gratuiti e in italiano. Per studenti avanzati è un'ottima palestra per il lessico tecnologico e per il dibattito."
         }
       ],
       "aeroporto": "Pisa (PSA)",
@@ -6421,11 +6464,13 @@ const DATI = {
       "eventi": [
         {
           "nome": "Bravìo delle Botti",
-          "quando": "ultima domenica di agosto"
+          "quando": "ultima domenica di agosto",
+          "desc": "L'ultima domenica di agosto gli otto contradaioli spingono botti da ottanta chili su per le vie in salita del paese. Sfida durissima e molto sentita: ottima per il tifo e il lessico delle contrade."
         },
         {
           "nome": "Cantiere Internazionale d'Arte",
-          "quando": "luglio"
+          "quando": "luglio",
+          "desc": "A luglio il paese si riempie di musica contemporanea, teatro e opera, con giovani artisti da tutto il mondo. Ambiente creativo e aperto: facile parlare italiano con gli altri partecipanti."
         }
       ],
       "aeroporto": "Firenze (FLR) o Roma (FCO)",
@@ -6453,11 +6498,13 @@ const DATI = {
       "eventi": [
         {
           "nome": "Sagre della laguna",
-          "quando": "estate"
+          "quando": "estate",
+          "desc": "D'estate i paesi attorno alla laguna organizzano sagre di pesce, anguilla e bottarga, con tavolate all'aperto. Contesto genuino e conviviale: ottimo per il lessico del pesce e della cucina locale."
         },
         {
           "nome": "Palio marinaro dell'Argentario",
-          "quando": "15 agosto"
+          "quando": "15 agosto",
+          "desc": "Il 15 agosto i rioni di Porto Santo Stefano si sfidano a remi nel golfo, davanti a tutto il paese. Gara antica e molto sentita: perfetta per il tifo e il lessico del mare."
         }
       ],
       "aeroporto": "Roma (FCO)",
@@ -6485,11 +6532,13 @@ const DATI = {
       "eventi": [
         {
           "nome": "Motor Valley Fest",
-          "quando": "primavera"
+          "quando": "primavera",
+          "desc": "In primavera Modena celebra la terra di Ferrari, Lamborghini e Ducati con esposizioni, prove in pista e incontri. Ideale per il lessico dei motori e dell'ingegneria, e per l'entusiasmo emiliano."
         },
         {
           "nome": "Festival della Filosofia",
-          "quando": "settembre"
+          "quando": "settembre",
+          "desc": "A settembre Modena, Carpi e Sassuolo ospitano lezioni pubbliche gratuite di filosofi da tutto il mondo. Per studenti avanzati è la palestra ideale per l'italiano del pensiero e del dibattito."
         }
       ],
       "aeroporto": "Bologna (BLQ)",
@@ -6517,11 +6566,13 @@ const DATI = {
       "eventi": [
         {
           "nome": "La Notte Rosa",
-          "quando": "inizio luglio"
+          "quando": "inizio luglio",
+          "desc": "A inizio luglio tutta la riviera romagnola resta sveglia una notte intera, fra concerti gratuiti, fuochi e spiagge aperte. Caos allegro: perfetto per l'italiano informale e per conoscere gente."
         },
         {
           "nome": "Meeting di Rimini",
-          "quando": "agosto"
+          "quando": "agosto",
+          "desc": "Ad agosto la fiera ospita una settimana di incontri, mostre e dibattiti con ospiti da tutto il mondo. Per studenti avanzati è ottimo per l'italiano del confronto e delle idee."
         }
       ],
       "aeroporto": "Rimini (RMI) o Bologna (BLQ)",
@@ -6549,19 +6600,23 @@ const DATI = {
       "eventi": [
         {
           "nome": "Stagione lirica areniana",
-          "quando": "giugno–settembre"
+          "quando": "giugno–settembre",
+          "desc": "Da giugno a settembre l'Arena romana ospita opere liriche davanti a quindicimila spettatori, con il cuscino e la candela accesa. Esperienza unica: ottima per il lessico dell'opera."
         },
         {
           "nome": "Vinitaly",
-          "quando": "aprile"
+          "quando": "aprile",
+          "desc": "Ad aprile la fiera del vino più importante d'Italia riempie Verona di produttori e buyer da tutto il mondo. Utile per il lessico del vino e per sentire l'italiano commerciale."
         },
         {
           "nome": "Verona in Love",
-          "quando": "febbraio"
+          "quando": "febbraio",
+          "desc": "Attorno a San Valentino la città di Giulietta si riempie di installazioni, mercatini e concerti a tema. Occasione leggera: buona per il lessico dei sentimenti e per l'italiano di tutti i giorni."
         },
         {
           "nome": "Tocatì, festival dei giochi di strada",
-          "quando": "settembre"
+          "quando": "settembre",
+          "desc": "A settembre le piazze di Verona si riempiono di giochi tradizionali da tutta Europa, da provare gratis. Contesto ludico e informale: perfetto per imparare verbi d'azione e regole in italiano."
         }
       ],
       "aeroporto": "Verona (VRN)",
@@ -6589,7 +6644,8 @@ const DATI = {
       "eventi": [
         {
           "nome": "Festa Nazionale della Befana",
-          "quando": "primi di gennaio"
+          "quando": "primi di gennaio",
+          "desc": "Nei primi giorni di gennaio Urbania diventa la casa ufficiale della Befana, con calze giganti, mercatini e la vecchietta che scende dalla torre. Perfetta per il lessico delle feste e per i modi di dire."
         }
       ],
       "aeroporto": "Rimini (RMI) o Ancona (AOI)",
@@ -6617,11 +6673,13 @@ const DATI = {
       "eventi": [
         {
           "nome": "Festa di Sant'Antonio",
-          "quando": "13 giugno"
+          "quando": "13 giugno",
+          "desc": "Il 13 giugno Padova si riempie di pellegrini per il santo più amato d'Italia, con processione e messe tutto il giorno. Occasione per il lessico religioso e per vedere quanto conta Sant'Antonio qui."
         },
         {
           "nome": "Sherwood Festival",
-          "quando": "giugno–luglio"
+          "quando": "giugno–luglio",
+          "desc": "Fra giugno e luglio il festival porta concerti, dibattiti e cucina all'aperto per settimane, con un pubblico universitario. Ambiente giovane e informale: perfetto per l'italiano colloquiale."
         }
       ],
       "aeroporto": "Venezia (VCE)",
@@ -6649,15 +6707,18 @@ const DATI = {
       "eventi": [
         {
           "nome": "Mercatini di Natale",
-          "quando": "dicembre"
+          "quando": "dicembre",
+          "desc": "Da fine novembre Piazza Walther diventa il mercatino di Natale più famoso d'Italia, tra vin brulé e artigianato altoatesino. Contesto bilingue italiano-tedesco: curioso da vivere mentre studi."
         },
         {
           "nome": "Bolzano Film Festival",
-          "quando": "aprile"
+          "quando": "aprile",
+          "desc": "Ad aprile il festival porta cinema indipendente dall'area alpina, spesso in lingua originale con sottotitoli. Ottimo allenamento all'ascolto e occasione per parlare di film in italiano."
         },
         {
           "nome": "Südtirol Jazz Festival",
-          "quando": "giugno–luglio"
+          "quando": "giugno–luglio",
+          "desc": "Fra giugno e luglio il jazz si suona in rifugi, cantine e piazze di tutto l'Alto Adige, spesso gratis. Pubblico internazionale e rilassato: facile attaccare bottone in italiano."
         }
       ],
       "aeroporto": "Bolzano (BZO) o Verona (VRN)",
@@ -6685,15 +6746,18 @@ const DATI = {
       "eventi": [
         {
           "nome": "Merano WineFestival",
-          "quando": "novembre"
+          "quando": "novembre",
+          "desc": "A novembre i portici e il Kurhaus ospitano una delle rassegne enologiche più selettive d'Italia, con produttori da tutto il Paese. Perfetto per il lessico del vino, dei sapori e della degustazione."
         },
         {
           "nome": "Settimane Musicali Meranesi",
-          "quando": "fine agosto–settembre"
+          "quando": "fine agosto–settembre",
+          "desc": "Fra fine agosto e settembre orchestre internazionali suonano nel Kursaal liberty di Merano. Pubblico elegante e attento: buona occasione per l'italiano formale e il lessico musicale."
         },
         {
           "nome": "Gran Premio ippico di Merano",
-          "quando": "settembre"
+          "quando": "settembre",
+          "desc": "A settembre l'ippodromo di Maia ospita una delle corse a ostacoli più importanti d'Europa. Giornata di festa e scommesse: utile per i numeri, il lessico sportivo e l'italiano parlato in fretta."
         }
       ],
       "aeroporto": "Bolzano (BZO) o Verona (VRN)",
@@ -6721,7 +6785,8 @@ const DATI = {
       "eventi": [
         {
           "nome": "Stagione balneare",
-          "quando": "giugno–settembre"
+          "quando": "giugno–settembre",
+          "desc": "Da giugno a settembre Lignano si riempie di famiglie e giovani, tra spiaggia, sport e locali sul lungomare. Ambiente informale e molto frequentato: ottimo per socializzare in italiano."
         }
       ],
       "aeroporto": "Venezia (VCE) o Trieste (TRS)",
@@ -6749,11 +6814,13 @@ const DATI = {
       "eventi": [
         {
           "nome": "Fotografia Europea",
-          "quando": "primavera"
+          "quando": "primavera",
+          "desc": "In primavera palazzi e chiostri di Reggio ospitano mostre fotografiche da tutta Europa, con incontri e visite guidate. Ottimo per il lessico dell'immagine e per parlare d'arte in italiano."
         },
         {
           "nome": "Festival Aperto",
-          "quando": "autunno"
+          "quando": "autunno",
+          "desc": "In autunno teatro, danza e musica contemporanea animano i teatri storici della città. Programmazione di ricerca: buona per un italiano colto e per il lessico dello spettacolo."
         }
       ],
       "aeroporto": "Bologna (BLQ)",
@@ -6781,15 +6848,18 @@ const DATI = {
       "eventi": [
         {
           "nome": "Ravenna Festival",
-          "quando": "giugno–luglio"
+          "quando": "giugno–luglio",
+          "desc": "Fra giugno e luglio opera, musica sinfonica e teatro riempiono basiliche e chiostri bizantini. Cornice unica: ottima per il lessico musicale e per un italiano colto e formale."
         },
         {
           "nome": "Settembre Dantesco",
-          "quando": "settembre"
+          "quando": "settembre",
+          "desc": "A settembre Ravenna ricorda Dante, che qui è sepolto, con letture della Commedia, concerti e cerimonie. Occasione preziosa per l'italiano letterario e per capire il rapporto del Paese col suo poeta."
         },
         {
           "nome": "La Notte d'Oro",
-          "quando": "ottobre"
+          "quando": "ottobre",
+          "desc": "A ottobre musei, mosaici e monumenti restano aperti fino a notte, con concerti e visite gratuite. Serata cittadina e informale: perfetta per girare e chiacchierare in italiano."
         }
       ],
       "aeroporto": "Bologna (BLQ) o Rimini (RMI)",
@@ -6817,7 +6887,8 @@ const DATI = {
       "eventi": [
         {
           "nome": "Sagre d'autunno",
-          "quando": "autunno"
+          "quando": "autunno",
+          "desc": "In autunno i borghi dell'Appennino romagnolo si riempiono di sagre dedicate a tartufo, castagne e funghi. Tavolate lunghe e clima familiare: il posto migliore per il lessico del cibo e del bosco."
         }
       ],
       "aeroporto": "Bologna (BLQ) o Firenze (FLR)",
@@ -6845,7 +6916,8 @@ const DATI = {
       "eventi": [
         {
           "nome": "Giostra del Saracino",
-          "quando": "giugno e settembre"
+          "quando": "giugno e settembre",
+          "desc": "Due volte l'anno i quattro quartieri di Arezzo si sfidano in una giostra cavalleresca in Piazza Grande, con costumi e sbandieratori. Rievocazione appassionata: ottima per il lessico storico e per il tifo di quartiere."
         }
       ],
       "aeroporto": "Firenze (FLR)",
@@ -6873,11 +6945,13 @@ const DATI = {
       "eventi": [
         {
           "nome": "Calendimaggio",
-          "quando": "maggio"
+          "quando": "maggio",
+          "desc": "A maggio Assisi torna al Medioevo: la parte di sopra e quella di sotto si sfidano in cortei, canti e prove, e la città si illumina di torce. Spettacolare per il lessico storico e musicale."
         },
         {
           "nome": "Festa di San Francesco",
-          "quando": "4 ottobre"
+          "quando": "4 ottobre",
+          "desc": "Il 4 ottobre l'Italia intera guarda ad Assisi per la festa del patrono nazionale, con celebrazioni e pellegrini da tutto il mondo. Occasione per il lessico religioso e per un italiano formale e solenne."
         }
       ],
       "aeroporto": "Perugia (PEG) o Roma (FCO)",
@@ -6905,11 +6979,13 @@ const DATI = {
       "eventi": [
         {
           "nome": "Umbria Jazz Winter",
-          "quando": "dicembre–gennaio"
+          "quando": "dicembre–gennaio",
+          "desc": "Fra Natale e Capodanno il jazz riempie teatri, palazzi e piazze di Orvieto, fino al concerto di fine anno. Città piccola e festival intenso: facile incontrare le stesse persone e fare conversazione."
         },
         {
           "nome": "Corpus Domini col corteo storico",
-          "quando": "giugno"
+          "quando": "giugno",
+          "desc": "A giugno quattrocento figuranti in costume medievale accompagnano la processione del Corpus Domini per le vie di Orvieto. Colpo d'occhio spettacolare: buono per il lessico storico e religioso."
         }
       ],
       "aeroporto": "Roma (FCO)",
@@ -6937,7 +7013,8 @@ const DATI = {
       "eventi": [
         {
           "nome": "Todi Festival",
-          "quando": "fine agosto"
+          "quando": "fine agosto",
+          "desc": "A fine agosto il borgo si riempie di teatro, musica e danza, con spettacoli nelle piazze e nei palazzi. Dimensione raccolta: facile incrociare artisti e pubblico e attaccare discorso."
         }
       ],
       "aeroporto": "Perugia (PEG) o Roma (FCO)",
@@ -6965,11 +7042,13 @@ const DATI = {
       "eventi": [
         {
           "nome": "Lunaria",
-          "quando": "luglio"
+          "quando": "luglio",
+          "desc": "A luglio concerti e spettacoli riempiono la piazza di Recanati sotto le stelle, nel paese di Leopardi. Cornice raccolta e poetica: bella per il lessico della musica e della poesia."
         },
         {
           "nome": "Celebrazioni leopardiane",
-          "quando": "29 giugno"
+          "quando": "29 giugno",
+          "desc": "Il 29 giugno Recanati ricorda Giacomo Leopardi con letture, incontri e visite ai luoghi dell'Infinito. Occasione preziosa per l'italiano letterario e per uno dei poeti più amati del Paese."
         }
       ],
       "aeroporto": "Ancona (AOI)",
@@ -6997,7 +7076,8 @@ const DATI = {
       "eventi": [
         {
           "nome": "Sagre della Tuscia",
-          "quando": "estate"
+          "quando": "estate",
+          "desc": "D'estate i borghi della Tuscia si susseguono con sagre di pesce di lago, olio e vino, spesso nelle piazze medievali. Contesto genuino: perfetto per il lessico del cibo e per l'italiano informale."
         }
       ],
       "aeroporto": "Roma (FCO)",
@@ -7025,7 +7105,8 @@ const DATI = {
       "eventi": [
         {
           "nome": "Perdono di San Giovanni",
-          "quando": "settembre"
+          "quando": "settembre",
+          "desc": "A settembre la città celebra il perdono con fiera, giostre, bancarelle e fuochi, come si fa da secoli. Festa di paese autentica: ideale per il lessico delle tradizioni e per l'italiano informale."
         }
       ],
       "aeroporto": "Firenze (FLR)",
@@ -7053,15 +7134,18 @@ const DATI = {
       "eventi": [
         {
           "nome": "Mercatini di Natale",
-          "quando": "dicembre"
+          "quando": "dicembre",
+          "desc": "A dicembre Piazza Fiera si riempie di casette di legno, strudel e vin brulè ai piedi delle mura medievali. Atmosfera alpina: ottima per il lessico del Natale e del cibo invernale."
         },
         {
           "nome": "Festival dell'Economia",
-          "quando": "maggio–giugno"
+          "quando": "maggio–giugno",
+          "desc": "Fra maggio e giugno economisti e giornalisti da tutto il mondo tengono incontri pubblici gratuiti in città. Per studenti avanzati è ottimo per l'italiano dell'attualità e dei numeri."
         },
         {
           "nome": "Feste Vigiliane",
-          "quando": "giugno"
+          "quando": "giugno",
+          "desc": "A giugno Trento celebra il patrono con palio delle zattere sull'Adige, cortei in costume e mercati. Festa cittadina viva e poco turistica: buona per il lessico delle tradizioni."
         }
       ],
       "aeroporto": "Verona (VRN)",
@@ -7089,11 +7173,13 @@ const DATI = {
       "eventi": [
         {
           "nome": "Notte di Fiaba",
-          "quando": "fine agosto"
+          "quando": "fine agosto",
+          "desc": "A fine agosto Riva si trasforma per quattro giorni attorno a una fiaba diversa ogni anno, con spettacoli e fuochi sul lago. Festa per famiglie: perfetta per un italiano semplice e chiaro."
         },
         {
           "nome": "Musica Riva Festival",
-          "quando": "luglio"
+          "quando": "luglio",
+          "desc": "A luglio giovani musicisti da tutto il mondo suonano in concerti spesso gratuiti sul lungolago. Ambiente internazionale e informale: facile fare conversazione in italiano."
         }
       ],
       "aeroporto": "Verona (VRN)",
@@ -7121,11 +7207,13 @@ const DATI = {
       "eventi": [
         {
           "nome": "Stagione balneare",
-          "quando": "maggio–settembre"
+          "quando": "maggio–settembre",
+          "desc": "Da maggio a settembre l'isola vive sulle spiagge, tra stabilimenti, escursioni in barca e feste nei paesi. Contesto informale e rilassato: perfetto per l'italiano parlato di ogni giorno."
         },
         {
           "nome": "Elba Isola Musicale d'Europa",
-          "quando": "settembre"
+          "quando": "settembre",
+          "desc": "A settembre il festival porta musica da camera di livello internazionale in chiese, ville e piazze dell'isola. Ambiente raccolto e colto: buono per il lessico musicale e per l'italiano formale."
         }
       ],
       "aeroporto": "Pisa (PSA) + traghetto da Piombino",
@@ -7153,7 +7241,8 @@ const DATI = {
       "eventi": [
         {
           "nome": "Festa della Madonna della Consolazione",
-          "quando": "settembre"
+          "quando": "settembre",
+          "desc": "A settembre il quadro della Madonna scende dal santuario in città accompagnato da migliaia di persone. La festa più sentita della Calabria: intensa e profondamente popolare."
         }
       ],
       "aeroporto": "Reggio Calabria (REG)",
@@ -7181,7 +7270,8 @@ const DATI = {
       "eventi": [
         {
           "nome": "Festa del SS. Salvatore",
-          "quando": "inizio agosto"
+          "quando": "inizio agosto",
+          "desc": "A inizio agosto Cefalù celebra il patrono per quattro giorni, con la 'ntinna a mare — un palo insaponato sopra l'acqua — processione e fuochi. Festa siciliana vera, ideale per il lessico delle tradizioni."
         }
       ],
       "aeroporto": "Palermo (PMO)",
@@ -7209,15 +7299,18 @@ const DATI = {
       "eventi": [
         {
           "nome": "Processione dei Misteri",
-          "quando": "Pasqua"
+          "quando": "Pasqua",
+          "desc": "Il Venerdì Santo venti gruppi scultorei attraversano Trapani per ventiquattro ore ininterrotte, portati a spalla. È una delle processioni più lunghe d'Europa: impressionante e identitaria."
         },
         {
           "nome": "Luglio Musicale Trapanese",
-          "quando": "estate"
+          "quando": "estate",
+          "desc": "D'estate la Villa Margherita ospita opera, operetta e concerti all'aperto, con una tradizione di decenni. Serata popolare ed elegante insieme: buona per il lessico della lirica."
         },
         {
           "nome": "Cous Cous Fest a San Vito Lo Capo",
-          "quando": "settembre"
+          "quando": "settembre",
+          "desc": "A settembre San Vito Lo Capo, a un'ora da Trapani, ospita una gara internazionale di cous cous con concerti sulla spiaggia. Golosissimo: perfetto per il lessico del cibo e delle spezie."
         }
       ],
       "aeroporto": "Trapani (TPS) o Palermo (PMO)",
@@ -7245,11 +7338,13 @@ const DATI = {
       "eventi": [
         {
           "nome": "Festa di Sant'Efisio",
-          "quando": "1 maggio"
+          "quando": "1 maggio",
+          "desc": "Il 1° maggio migliaia di sardi in costume tradizionale accompagnano il santo lungo un corteo di chilometri. È la processione più grande del Mediterraneo: imperdibile per il lessico dei costumi e delle tradizioni."
         },
         {
           "nome": "Festa di San Saturnino",
-          "quando": "fine ottobre"
+          "quando": "fine ottobre",
+          "desc": "A fine ottobre Cagliari ricorda il suo primo patrono con celebrazioni attorno alla basilica paleocristiana. Festa raccolta e cittadina: buona per il lessico religioso e per vedere la Cagliari dei cagliaritani."
         }
       ],
       "aeroporto": "Cagliari (CAG)",
