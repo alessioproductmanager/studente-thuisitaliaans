@@ -3345,10 +3345,10 @@ const DATI = {
     },
     {
       "id": "saena-iulii",
-      "nome": "Saena Iulii",
+      "nome": "Saena Iulia",
       "citta": "Siena",
       "regione": "Toscana",
-      "sito": "",
+      "sito": "https://www.saenaiulia.it",
       "pagina_corsi": "",
       "email": "",
       "accreditamenti": [],
