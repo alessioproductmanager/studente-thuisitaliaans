@@ -45,7 +45,8 @@ footer{border-top:1px solid var(--linea);padding:26px 0 40px;color:var(--seconda
 html{-webkit-text-size-adjust:100%}
 *,*::before,*::after{box-sizing:border-box}
 html,body{overflow-x:hidden;max-width:100%}
-img,iframe,table,pre{max-width:100%}
+img,table,pre{max-width:100%}
+iframe:not(.live){max-width:100%}
 .contenitore{width:100%}
 .meta,.dati,.griglia,.citta-scuole,.sigle{min-width:0}
 .scheda,.pannello,.citta-scuola{min-width:0;overflow-wrap:anywhere}
@@ -124,7 +125,7 @@ form textarea{min-height:110px;resize:vertical}.nascosto{position:absolute;left:
   font-family:var(--serif);font-size:19px;font-weight:600;padding:30px;transform:rotate(-1.5deg);z-index:0}
 .postit-tape{position:absolute;top:-8px;left:50%;transform:translateX(-50%) rotate(3deg);width:70px;height:22px;
   background:rgba(200,180,140,.55);border-radius:2px}
-.monitor-schermo iframe.live{display:block;width:1280px;height:2000px;border:0;pointer-events:none;background:#fff;animation:scorri 24s ease-in-out infinite}
+.monitor-schermo iframe.live{display:block;width:1280px!important;max-width:none!important;height:2000px;border:0;pointer-events:none;background:#fff;animation:scorri 24s ease-in-out infinite}
 .monitor-schermo .live-wrap{position:absolute;inset:0;overflow:hidden;z-index:1}
 .monitor-schermo .live-inner{position:absolute;top:0;left:0;transform-origin:0 0}
 @keyframes scorri{
