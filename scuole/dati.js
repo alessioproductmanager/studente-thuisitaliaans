@@ -4896,7 +4896,8 @@ const DATI = {
         "ASILS",
         "EDUITALIA",
         "Bildungsurlaub",
-        "CSN"
+        "CSN",
+        "IALC"
       ],
       "corsi": [
         {
@@ -4943,7 +4944,14 @@ const DATI = {
         "over50"
       ],
       "anteprima": true,
-      "email_stato": "confermata"
+      "email_stato": "confermata",
+      "prezzi_rilevati": {
+        "iscrizione": 0,
+        "tutto_compreso": true,
+        "fonte": "babilonia.it",
+        "rilevato_il": "2026-07-31"
+      },
+      "altri_corsi": "lezioni solo di mattina, insegnanti DILS II, corso B1 cittadinanza"
     },
     {
       "id": "laboling",
