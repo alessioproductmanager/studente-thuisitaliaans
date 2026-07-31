@@ -68,7 +68,8 @@ const DATI = {
         "iscrizione_mesi": 12,
         "fonte": "leonardo-florence.com",
         "rilevato_il": "2026-07-31"
-      }
+      },
+      "fondata_nel": 1977
     },
     {
       "id": "abc-firenze",
@@ -180,7 +181,14 @@ const DATI = {
         "storia dell'arte"
       ],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "prezzi_rilevati": {
+        "serale_4sett": 150,
+        "serale_8sett": 290,
+        "serale_12sett": 400,
+        "fonte": "comune.fi.it",
+        "rilevato_il": "2026-07-31"
+      }
     },
     {
       "id": "istituto-michelangelo",
@@ -2389,7 +2397,8 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "nota_verifica": "si dichiara la prima scuola di italiano nata a Verona, anno non pubblicato"
     },
     {
       "id": "lingua-it",
@@ -2436,7 +2445,8 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 2002
     },
     {
       "id": "l-italiano-con-noi",
@@ -2482,7 +2492,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "nota_verifica": "DITALS/CEDILS citate come titoli degli insegnanti, non come sede d esame: da confermare"
     },
     {
       "id": "bertrand-russell",
@@ -2856,7 +2867,9 @@ const DATI = {
       "pagina_corsi": "",
       "email": "info@italianoporticando.com",
       "accreditamenti": [
-        "ASILS"
+        "ASILS",
+        "Bildungsurlaub",
+        "EDUITALIA"
       ],
       "corsi": [
         {
@@ -2883,7 +2896,7 @@ const DATI = {
       "stato_dati": "da_verificare",
       "info": {
         "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
+        "max_studenti_classe": 8,
         "materiale": "inclusi",
         "test_ingresso": "online",
         "tassa_iscrizione": null,
@@ -2892,7 +2905,8 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 2005
     },
     {
       "id": "ciaoitaly-scuola-leonardo-da-vinci-torino",
@@ -2904,7 +2918,8 @@ const DATI = {
       "email": "info@scuolaleonardo.com",
       "accreditamenti": [
         "ASILS",
-        "AIL"
+        "AIL",
+        "EDUITALIA"
       ],
       "corsi": [
         {
@@ -2942,7 +2957,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 2008
     },
     {
       "id": "a-door-to-italy",
@@ -4027,7 +4043,17 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 1986,
+      "prezzi_rilevati": {
+        "standard_1sett": 180,
+        "standard_4sett": 648,
+        "intensivo_1sett": 270,
+        "intensivo_4sett": 972,
+        "materiale": 25,
+        "fonte": "comitatolinguistico.com",
+        "rilevato_il": "2026-07-31"
+      }
     },
     {
       "id": "universita-per-stranieri-di-perugia",
@@ -4072,7 +4098,13 @@ const DATI = {
       },
       "extra": [],
       "anteprima": false,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "condizioni": {
+        "sconto_anticipo": 50,
+        "mora": 50,
+        "durata_riferimento": "4 settimane",
+        "fonte": "unistrapg.it"
+      }
     },
     {
       "id": "accademia-lingua-italiana-assisi",
