@@ -382,6 +382,18 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
 .monitor-schermo .live-inner{position:absolute;top:0;left:0;transform-origin:0 0}
 @keyframes scorri{0%,4%{transform:translateY(0)}45%,60%{transform:translateY(-2400px)}96%,100%{transform:translateY(0)}}
 @media(prefers-reduced-motion:reduce){.monitor-schermo iframe.live{animation:none}}
+/*eventi-mobile-v1*/
+@media(max-width:640px){
+.eventi-tab,.eventi-tab tbody,.eventi-tab tr,.eventi-tab td{display:block;width:auto!important}
+.eventi-tab tr{padding:9px 0;border-bottom:1px dashed var(--linea)}
+.eventi-tab tr:last-child{border-bottom:0}
+.eventi-tab td{padding:0;border-bottom:0}
+.eventi-tab td:last-child{text-align:left;margin-top:6px;margin-left:23px;font-size:11.5px;
+ font-weight:600;color:var(--terracotta);white-space:normal;width:auto!important}
+}
+/*eventi-desktop-v1*/
+.eventi-tab td:last-child{white-space:normal;width:23%}
+@media(min-width:641px) and (max-width:1019px){.eventi-tab td:last-child{width:27%}}
 </style>
 </head>
 <body data-scuola="tiberius-international">
