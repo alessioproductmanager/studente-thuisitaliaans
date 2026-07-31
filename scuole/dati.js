@@ -3989,7 +3989,10 @@ const DATI = {
       "sito": "https://www.terramare.it",
       "pagina_corsi": "",
       "email": "info@terramare.it",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "LICET",
+        "Bildungsurlaub"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -4011,11 +4014,11 @@ const DATI = {
       "alloggio": true,
       "esami_in_sede": [],
       "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
-        "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
+        "durata_lezione_min": 60,
+        "max_studenti_classe": 6,
         "materiale": "inclusi",
         "test_ingresso": "online",
         "tassa_iscrizione": null,
@@ -4024,7 +4027,15 @@ const DATI = {
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 1985,
+      "prezzi_rilevati": {
+        "online_20ore": 510,
+        "online_listino": 600,
+        "fonte": "linguaterramare.com",
+        "rilevato_il": "2026-07-31"
+      },
+      "altri_corsi": "CFU universitari CLUSS Siena, gruppi 2-6, corsi anche in Sardegna"
     },
     {
       "id": "centro-fiorenza-isola-d-elba",
