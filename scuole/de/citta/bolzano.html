@@ -59,10 +59,11 @@ table{max-width:100%}
 .contenitore{padding:0 16px}
 .hero{padding:26px 0 16px}
 .pannello{padding:16px}
-.riga-dato{font-size:14.5px;padding:11px 0;gap:8px;align-items:flex-start}
-.riga-dato svg{margin-top:2px}
-.riga-dato .etich{flex:1 1 auto;min-width:0}
-.riga-dato .val{margin-left:8px;max-width:50%;flex:0 0 auto;text-align:right}
+.riga-dato{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 9px;font-size:14.5px;padding:12px 0}
+.riga-dato svg{flex:0 0 18px;width:18px;height:18px;align-self:center}
+.riga-dato .etich{color:var(--secondario);font-size:14px;white-space:nowrap}
+.riga-dato .val{flex:1 1 auto;min-width:110px;text-align:right;font-weight:600;margin-left:auto;overflow-wrap:anywhere;color:var(--inchiostro)}
+.riga-dato .val:only-child,.riga-dato .val.lungo{flex-basis:100%;text-align:left;padding-left:27px;margin-left:0;margin-top:2px}
 .evento{flex-wrap:wrap;row-gap:2px}
 .dati{grid-template-columns:1fr}
 .dir{columns:2 130px;column-gap:14px;font-size:12px}
