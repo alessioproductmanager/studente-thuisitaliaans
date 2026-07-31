@@ -1791,10 +1791,12 @@ const DATI = {
       "nome": "Il Centro",
       "citta": "Milano",
       "regione": "Lombardia",
-      "sito": "https://www.ilcentro.net",
+      "sito": "https://ilcentro.net",
       "pagina_corsi": "",
       "email": "info@ilcentro.net",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "ASILS"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -1814,20 +1816,28 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
-      "note": "",
+      "esami_in_sede": [
+        "CILS",
+        "CELI",
+        "PLIDA"
+      ],
+      "note": "Dal 1986 in via Ponte Vetero, a due passi dal Duomo. Lezioni da 60 minuti; preparazione esami CILS, CELI, PLIDA.",
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
-        "durata_lezione_min": 45,
+        "durata_lezione_min": 60,
         "max_studenti_classe": 12,
         "materiale": "inclusi",
         "test_ingresso": "online",
-        "tassa_iscrizione": null,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "cucina",
+        "arte",
+        "storia dell'arte",
+        "online"
+      ],
       "anteprima": true,
       "email_stato": "stimata"
     },
@@ -1884,7 +1894,13 @@ const DATI = {
       "sito": "https://www.culturaitaliana.eu",
       "pagina_corsi": "https://www.culturaitaliana.eu/it/informazioni/prezzi-e-date-di-inizio/",
       "email": "info@culturaitaliana.it",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "ASILS",
+        "Bildungsurlaub",
+        "CILS",
+        "CSN",
+        "EDUITALIA"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -1902,20 +1918,31 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
-      "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "esami_in_sede": [
+        "CILS"
+      ],
+      "note": "Dal 1980 in via Castiglione. Iscrizione gratuita, sede d'esame CILS; classi 6–12, prezzi tutto compreso.",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
-        "durata_lezione_min": 45,
+        "durata_lezione_min": 50,
         "max_studenti_classe": 12,
         "materiale": "inclusi",
-        "test_ingresso": "online",
-        "tassa_iscrizione": null,
+        "test_ingresso": "primo giorno",
+        "tassa_iscrizione": 0,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "cucina",
+        "dizione",
+        "online",
+        "letteratura",
+        "moda",
+        "storia dell'arte",
+        "vino",
+        "over50"
+      ],
       "anteprima": true,
       "email_stato": "stimata"
     },
@@ -2020,7 +2047,10 @@ const DATI = {
       "pagina_corsi": "https://www.istitutovenezia.com/italian-language-courses-dates.html",
       "email": "info@istitutovenezia.com",
       "accreditamenti": [
-        "ASILS"
+        "ASILS",
+        "Bildungsurlaub",
+        "EDUITALIA",
+        "CSN"
       ],
       "corsi": [
         {
@@ -2041,8 +2071,12 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
-      "note": "Le date di inizio non sono pubblicate sul sito della scuola. Nella maggior parte delle scuole i corsi intensivi di gruppo partono ogni lunedì (i principianti assoluti in date fisse, in genere ogni due settimane). Scrivi alla scuola per confermare la prossima data utile: in alta stagione (giugno–settembre) i posti si chiudono 2–3 settimane prima.",
+      "esami_in_sede": [
+        "CILS",
+        "CELI",
+        "PLIDA"
+      ],
+      "note": "Dal 1995 in Campo Santa Margherita, cuore universitario di Venezia. Coordina i corsi della Venice International University; sede esami CILS/CELI/PLIDA.",
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
@@ -2050,11 +2084,17 @@ const DATI = {
         "max_studenti_classe": 12,
         "materiale": "inclusi",
         "test_ingresso": "online",
-        "tassa_iscrizione": null,
+        "tassa_iscrizione": 0,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "arte",
+        "cucina",
+        "online",
+        "letteratura",
+        "storia dell'arte"
+      ],
       "anteprima": true,
       "email_stato": "stimata"
     },
@@ -4533,7 +4573,11 @@ const DATI = {
       "pagina_corsi": "",
       "email": "info@babilonia.it",
       "accreditamenti": [
-        "ASILS"
+        "ASILS",
+        "EDUITALIA",
+        "Bildungsurlaub",
+        "CELI",
+        "CSN"
       ],
       "corsi": [
         {
@@ -4554,22 +4598,33 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
-      "note": "",
-      "verificato_il": null,
-      "stato_dati": "da_verificare",
+      "esami_in_sede": [
+        "CELI"
+      ],
+      "note": "A Taormina, tra mare e monti. Iscrizione gratuita, insegnanti con DILS II (Università per Stranieri di Perugia); corsi di cucina, ceramica e vino siciliani.",
+      "verificato_il": "2026-07-31",
+      "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
         "max_studenti_classe": 12,
         "materiale": "inclusi",
-        "test_ingresso": "online",
-        "tassa_iscrizione": null,
+        "test_ingresso": "primo giorno",
+        "tassa_iscrizione": 0,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
-      "extra": [],
+      "extra": [
+        "arte",
+        "cucina",
+        "online",
+        "letteratura",
+        "pittura",
+        "storia dell'arte",
+        "vino",
+        "over50"
+      ],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "confermata"
     },
     {
       "id": "laboling",
@@ -5151,9 +5206,13 @@ const DATI = {
       "sito": "https://www.arca-bologna.com",
       "pagina_corsi": "https://www.arca-bologna.com/it/corsi/date-prezzi/",
       "accreditamenti": [
-        "ASILS"
+        "ASILS",
+        "Bildungsurlaub",
+        "CELI"
       ],
-      "esami_in_sede": [],
+      "esami_in_sede": [
+        "CELI"
+      ],
       "alloggio": true,
       "corsi": [
         {
@@ -5172,24 +5231,29 @@ const DATI = {
         "principianti": "ogni lunedì; possibile qualsiasi giorno lavorativo"
       },
       "info": {
-        "max_studenti_classe": 8,
+        "durata_lezione_min": 60,
+        "max_studenti_classe": 10,
         "materiale": "inclusi",
+        "test_ingresso": "online",
+        "tassa_iscrizione": 0,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
       "extra": [
+        "arte",
         "cucina",
-        "vino",
-        "musica",
+        "online",
         "letteratura",
         "storia dell'arte",
+        "musica",
+        "vino",
         "over50"
       ],
       "email": "info@arca-bologna.com",
       "email_stato": "stimata",
       "note": "Classi piccole (3–8 studenti). Chiusa 10–23 agosto e 21 dic–10 gen. Una delle prime scuole d'italiano di Bologna.",
-      "stato_dati": "da_verificare",
-      "verificato_il": null
+      "stato_dati": "verificato",
+      "verificato_il": "2026-07-31"
     },
     {
       "id": "italianme",
