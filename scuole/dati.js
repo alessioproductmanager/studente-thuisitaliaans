@@ -1860,7 +1860,12 @@ const DATI = {
       "sito": "https://www.linguaviva.it",
       "pagina_corsi": "",
       "email": "info@linguaviva.it",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "ASILS",
+        "IALC",
+        "Bildungsurlaub",
+        "CSN"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -1894,7 +1899,8 @@ const DATI = {
         "wifi": true
       },
       "extra": [],
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 1990
     },
     {
       "id": "il-centro",
