@@ -124,7 +124,7 @@ form textarea{min-height:110px;resize:vertical}.nascosto{position:absolute;left:
   font-family:var(--serif);font-size:19px;font-weight:600;padding:30px;transform:rotate(-1.5deg);z-index:0}
 .postit-tape{position:absolute;top:-8px;left:50%;transform:translateX(-50%) rotate(3deg);width:70px;height:22px;
   background:rgba(200,180,140,.55);border-radius:2px}
-.monitor-schermo iframe.live{position:absolute;top:0;left:0;width:100%;height:250%;border:0;pointer-events:none;z-index:1;background:#fff;animation:scorri 24s ease-in-out infinite}
+.monitor-schermo iframe.live{position:absolute;top:0;left:0;width:100%;height:250%;border:0;pointer-events:none;z-index:1;background:transparent;animation:scorri 24s ease-in-out infinite}
 @keyframes scorri{
   0%,6%{transform:translateY(0)}
   50%{transform:translateY(-60%)}
@@ -277,7 +277,7 @@ form textarea{min-height:110px;resize:vertical}.nascosto{position:absolute;left:
         </form>
       </div>
       <div class="pannello altre" style="margin-top:18px"><h2>More schools in Firenze</h2><a href="scuola-leonardo-da-vinci-firenze.html">Scuola Leonardo da Vinci Firenze</a><a href="abc-firenze.html">ABC Firenze</a><a href="centro-fiorenza.html">Centro Fiorenza</a><a href="istituto-michelangelo.html">Istituto Michelangelo</a><a href="europass-italian-language-school.html">Europass Italian Language School</a><a href="centro-machiavelli.html">Centro Machiavelli</a></div>
-      <div class="pannello" style="margin-top:18px"><h2>Events this year</h2><table class="eventi-tab"><tr><td><b>Scoppio del Carro</b><br><span class="badge-ev">✓ courses on these dates</span></td><td>Easter</td></tr><tr><td><b>Maggio Musicale Fiorentino</b><br><span class="badge-ev">✓ courses on these dates</span></td><td>April–June</td></tr><tr><td><b>Pitti Uomo</b><br><span class="badge-ev">✓ courses on these dates</span></td><td>January and June</td></tr><tr><td><b>Firenze Rocks</b><br><span class="badge-ev">✓ courses on these dates</span></td><td>June</td></tr><tr><td><b>Festa della Rificolona</b><br><span class="badge-ev">✓ courses on these dates</span></td><td>7 September</td></tr></table></div>
+      <div class="pannello" style="margin-top:18px"><h2>Events this year</h2><p class="eventi-intro">The city's big festivals, food fairs and cultural seasons through the year. They're not just entertainment: they're the best training ground for your Italian. At a local festival you end up ordering, asking directions, chatting with locals — the real language, the kind books don't teach. If you can, line up a week of your course with one of these.</p><table class="eventi-tab"><tr><td><b>Scoppio del Carro</b><br><span class="badge-ev">✓ courses on these dates</span></td><td>Easter</td></tr><tr><td><b>Maggio Musicale Fiorentino</b><br><span class="badge-ev">✓ courses on these dates</span></td><td>April–June</td></tr><tr><td><b>Pitti Uomo</b><br><span class="badge-ev">✓ courses on these dates</span></td><td>January and June</td></tr><tr><td><b>Firenze Rocks</b><br><span class="badge-ev">✓ courses on these dates</span></td><td>June</td></tr><tr><td><b>Festa della Rificolona</b><br><span class="badge-ev">✓ courses on these dates</span></td><td>7 September</td></tr></table></div>
       <div class="faq pannello" style="margin-top:18px"><h2 class="colh2">Frequently asked questions</h2><details><summary>When do Italian courses at Accademia del Giglio start?</summary><div>Courses start every Monday. Complete beginners: fixed dates, usually every 2 weeks. Always confirm the next available date using the form on this page.</div></details><details><summary>How many lesson hours per week are there?</summary><div>The intensive course runs about 20 hours per week; the lighter option about 10 hours, ideal if you want time to enjoy the city.</div></details><details><summary>How much does an Italian course in Firenze cost?</summary><div>As a rule of thumb, an intensive group course in Italy costs €200–300 per week. For the exact price ask the school directly with the form on this page — they reply to your email.</div></details><details><summary>Does the school help with accommodation?</summary><div>Yes: Accademia del Giglio offers a housing placement service (free). Ask about availability and prices together with course dates.</div></details><details><summary>Can I prepare for or take an official exam (CILS, CELI, PLIDA)?</summary><div>For CILS, CELI or PLIDA certificates, ask the school: many prepare students for the exam and point you to the nearest exam centre.</div></details><details><summary>How do I get to Firenze?</summary><div>The recommended airport is Firenze (FLR) or Pisa (PSA); from there take a train or bus to Firenze. See the city guide above for the key landmarks.</div></details></div>
     </div>
   </div>
@@ -321,6 +321,11 @@ if(pr){var ptxt="";
   var pfu=pr.dataset.d.split(",").filter(function(x){return x&&x>=poggi});
   if(pfu[0])ptxt="· next: "+pfu[0];}
  pr.textContent=ptxt;}
+// se l'iframe della TV non riesce a caricare il sito (blocco embed/errore), lo nascondo → si vede il post-it
+var tvIfr=document.querySelector(".monitor-schermo iframe.live");
+if(tvIfr){var caricato=false;
+ tvIfr.addEventListener("load",function(){try{ if(tvIfr.contentWindow&&tvIfr.contentWindow.location.href&&tvIfr.contentWindow.location.href!=="about:blank"){caricato=true;} }catch(e){caricato=true;}});
+ setTimeout(function(){ if(!caricato){tvIfr.style.display="none";} },4500);}
 })();
 </script>
 </body></html>

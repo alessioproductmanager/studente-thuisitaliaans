@@ -124,7 +124,7 @@ form textarea{min-height:110px;resize:vertical}.nascosto{position:absolute;left:
   font-family:var(--serif);font-size:19px;font-weight:600;padding:30px;transform:rotate(-1.5deg);z-index:0}
 .postit-tape{position:absolute;top:-8px;left:50%;transform:translateX(-50%) rotate(3deg);width:70px;height:22px;
   background:rgba(200,180,140,.55);border-radius:2px}
-.monitor-schermo iframe.live{position:absolute;top:0;left:0;width:100%;height:250%;border:0;pointer-events:none;z-index:1;background:#fff;animation:scorri 24s ease-in-out infinite}
+.monitor-schermo iframe.live{position:absolute;top:0;left:0;width:100%;height:250%;border:0;pointer-events:none;z-index:1;background:transparent;animation:scorri 24s ease-in-out infinite}
 @keyframes scorri{
   0%,6%{transform:translateY(0)}
   50%{transform:translateY(-60%)}
@@ -277,7 +277,7 @@ form textarea{min-height:110px;resize:vertical}.nascosto{position:absolute;left:
         </form>
       </div>
       <div class="pannello altre" style="margin-top:18px"><h2>Meer scholen in Siena</h2><a href="societa-dante-alighieri-siena.html">Società Dante Alighieri Siena</a><a href="saena-iulii.html">Saena Iulii</a></div>
-      <div class="pannello" style="margin-top:18px"><h2>Evenementen dit jaar</h2><table class="eventi-tab"><tr><td><b>Palio di Siena</b><br><span class="badge-ev">✓ cursus in deze periode</span></td><td>2 juli en 16 augustus</td></tr><tr><td><b>Chigiana International Festival</b><br><span class="badge-ev">✓ cursus in deze periode</span></td><td>juli–augustus</td></tr></table></div>
+      <div class="pannello" style="margin-top:18px"><h2>Evenementen dit jaar</h2><p class="eventi-intro">De grote feesten, food-markten en culturele seizoenen van de stad door het jaar heen. Het is niet zomaar vermaak: het is de beste oefenplek voor je Italiaans. Op een stadsfeest ga je bestellen, de weg vragen, kletsen met locals — de echte taal, die je niet uit boeken leert. Laat als het kan een cursusweek samenvallen met zo'n evenement.</p><table class="eventi-tab"><tr><td><b>Palio di Siena</b><br><span class="badge-ev">✓ cursus in deze periode</span></td><td>2 juli en 16 augustus</td></tr><tr><td><b>Chigiana International Festival</b><br><span class="badge-ev">✓ cursus in deze periode</span></td><td>juli–augustus</td></tr></table></div>
       <div class="faq pannello" style="margin-top:18px"><h2 class="colh2">Veelgestelde vragen</h2><details><summary>Wanneer beginnen de cursussen Italiaans bij Università per Stranieri di Siena?</summary><div>De cursussen starten elke maandag. Absolute beginners: vaste data, meestal om de 2 weken. Bevestig de eerstvolgende datum altijd via het formulier op deze pagina.</div></details><details><summary>Hoeveel lesuren per week telt de cursus?</summary><div>De intensieve cursus telt ongeveer 20 uur per week; de lichtere formule ongeveer 10 uur, ideaal als je tijd wilt om de stad te beleven.</div></details><details><summary>Wat kost een cursus Italiaans in Siena?</summary><div>Ter indicatie: een intensieve groepscursus in Italië kost €200–300 per week. Vraag de exacte prijs aan de school via het formulier op deze pagina — je krijgt antwoord op je e-mail.</div></details><details><summary>Helpt de school bij het vinden van accommodatie?</summary><div>Ja: Università per Stranieri di Siena biedt hulp bij accommodatie (gratis). Vraag naar beschikbaarheid en prijzen samen met de cursusdata.</div></details><details><summary>Kan ik een officieel examen (CILS, CELI, PLIDA) voorbereiden of afleggen?</summary><div>Vraag de school naar CILS, CELI of PLIDA: veel scholen bereiden je voor en wijzen je het dichtstbijzijnde examencentrum.</div></details><details><summary>Hoe kom ik in Siena?</summary><div>De beste luchthaven is Firenze (FLR) of Pisa (PSA); vandaar neem je trein of bus naar Siena. Zie de stadsgids hierboven voor de oriëntatiepunten.</div></details></div>
     </div>
   </div>
@@ -321,6 +321,11 @@ if(pr){var ptxt="";
   var pfu=pr.dataset.d.split(",").filter(function(x){return x&&x>=poggi});
   if(pfu[0])ptxt="· volgende: "+pfu[0];}
  pr.textContent=ptxt;}
+// se l'iframe della TV non riesce a caricare il sito (blocco embed/errore), lo nascondo → si vede il post-it
+var tvIfr=document.querySelector(".monitor-schermo iframe.live");
+if(tvIfr){var caricato=false;
+ tvIfr.addEventListener("load",function(){try{ if(tvIfr.contentWindow&&tvIfr.contentWindow.location.href&&tvIfr.contentWindow.location.href!=="about:blank"){caricato=true;} }catch(e){caricato=true;}});
+ setTimeout(function(){ if(!caricato){tvIfr.style.display="none";} },4500);}
 })();
 </script>
 </body></html>

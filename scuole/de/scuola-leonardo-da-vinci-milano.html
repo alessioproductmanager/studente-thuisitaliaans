@@ -124,7 +124,7 @@ form textarea{min-height:110px;resize:vertical}.nascosto{position:absolute;left:
   font-family:var(--serif);font-size:19px;font-weight:600;padding:30px;transform:rotate(-1.5deg);z-index:0}
 .postit-tape{position:absolute;top:-8px;left:50%;transform:translateX(-50%) rotate(3deg);width:70px;height:22px;
   background:rgba(200,180,140,.55);border-radius:2px}
-.monitor-schermo iframe.live{position:absolute;top:0;left:0;width:100%;height:250%;border:0;pointer-events:none;z-index:1;background:#fff;animation:scorri 24s ease-in-out infinite}
+.monitor-schermo iframe.live{position:absolute;top:0;left:0;width:100%;height:250%;border:0;pointer-events:none;z-index:1;background:transparent;animation:scorri 24s ease-in-out infinite}
 @keyframes scorri{
   0%,6%{transform:translateY(0)}
   50%{transform:translateY(-60%)}
@@ -277,7 +277,7 @@ form textarea{min-height:110px;resize:vertical}.nascosto{position:absolute;left:
         </form>
       </div>
       <div class="pannello altre" style="margin-top:18px"><h2>Weitere Schulen in Milano</h2><a href="linguadue.html">Linguadue</a><a href="il-centro.html">Il Centro</a><a href="ellci-milano.html">ELLCI Milano</a></div>
-      <div class="pannello" style="margin-top:18px"><h2>Events im Jahr</h2><table class="eventi-tab"><tr><td><b>Fuorisalone / Design Week</b><br><span class="badge-ev">✓ Kurse in dieser Zeit</span></td><td>April</td></tr><tr><td><b>Prima della Scala</b><br><span class="badge-ev">✓ Kurse in dieser Zeit</span></td><td>7 Dezember</td></tr><tr><td><b>Settimana della Moda</b><br><span class="badge-ev">✓ Kurse in dieser Zeit</span></td><td>Februar und September</td></tr><tr><td><b>MiTo SettembreMusica</b><br><span class="badge-ev">✓ Kurse in dieser Zeit</span></td><td>September</td></tr></table></div>
+      <div class="pannello" style="margin-top:18px"><h2>Events im Jahr</h2><p class="eventi-intro">Die großen Feste, Food-Märkte und Kultursaisons der Stadt übers Jahr. Das ist nicht nur Unterhaltung: Es ist das beste Training für dein Italienisch. Auf einem Stadtfest bestellst du, fragst nach dem Weg, plauderst mit Einheimischen — die echte Sprache, die in keinem Buch steht. Wenn möglich, lege eine Kurswoche auf so ein Event.</p><table class="eventi-tab"><tr><td><b>Fuorisalone / Design Week</b><br><span class="badge-ev">✓ Kurse in dieser Zeit</span></td><td>April</td></tr><tr><td><b>Prima della Scala</b><br><span class="badge-ev">✓ Kurse in dieser Zeit</span></td><td>7 Dezember</td></tr><tr><td><b>Settimana della Moda</b><br><span class="badge-ev">✓ Kurse in dieser Zeit</span></td><td>Februar und September</td></tr><tr><td><b>MiTo SettembreMusica</b><br><span class="badge-ev">✓ Kurse in dieser Zeit</span></td><td>September</td></tr></table></div>
       <div class="faq pannello" style="margin-top:18px"><h2 class="colh2">Häufige Fragen</h2><details><summary>Wann beginnen die Italienischkurse bei Scuola Leonardo da Vinci Milano?</summary><div>Die Kurse starten jeden Montag. Absolute Anfänger: feste Termine, meist alle 2 Wochen. Den nächsten Termin immer über das Formular auf dieser Seite bestätigen.</div></details><details><summary>Wie viele Unterrichtsstunden pro Woche hat der Kurs?</summary><div>Der Intensivkurs umfasst rund 20 Wochenstunden; das leichtere Format rund 10 Stunden — ideal, wenn du Zeit für die Stadt willst.</div></details><details><summary>Was kostet ein Italienischkurs in Milano?</summary><div>Als Richtwert kostet ein Intensiv-Gruppenkurs in Italien €200–300 pro Woche. Den genauen Preis erfragst du über das Formular auf dieser Seite — die Schule antwortet an deine E-Mail.</div></details><details><summary>Hilft die Schule bei der Unterkunft?</summary><div>Ja: Scuola Leonardo da Vinci Milano bietet einen Unterkunftsservice (kostenlos). Frag nach Verfügbarkeit und Preisen zusammen mit den Kursterminen.</div></details><details><summary>Kann ich eine offizielle Prüfung (CILS, CELI, PLIDA) vorbereiten oder ablegen?</summary><div>Ja: Scuola Leonardo da Vinci Milano ist offizielles Prüfungszentrum für CILS, AIL, DITALS. Vorbereitung und Prüfung direkt an der Schule.</div></details><details><summary>Wie komme ich nach Milano?</summary><div>Der empfohlene Flughafen ist Milano Linate (LIN) oder Malpensa (MXP); von dort per Zug oder Bus nach Milano. Die Orientierungspunkte findest du im Stadtguide oben.</div></details></div>
     </div>
   </div>
@@ -321,6 +321,11 @@ if(pr){var ptxt="";
   var pfu=pr.dataset.d.split(",").filter(function(x){return x&&x>=poggi});
   if(pfu[0])ptxt="· nächster: "+pfu[0];}
  pr.textContent=ptxt;}
+// se l'iframe della TV non riesce a caricare il sito (blocco embed/errore), lo nascondo → si vede il post-it
+var tvIfr=document.querySelector(".monitor-schermo iframe.live");
+if(tvIfr){var caricato=false;
+ tvIfr.addEventListener("load",function(){try{ if(tvIfr.contentWindow&&tvIfr.contentWindow.location.href&&tvIfr.contentWindow.location.href!=="about:blank"){caricato=true;} }catch(e){caricato=true;}});
+ setTimeout(function(){ if(!caricato){tvIfr.style.display="none";} },4500);}
 })();
 </script>
 </body></html>

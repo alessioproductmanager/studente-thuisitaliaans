@@ -124,7 +124,7 @@ form textarea{min-height:110px;resize:vertical}.nascosto{position:absolute;left:
   font-family:var(--serif);font-size:19px;font-weight:600;padding:30px;transform:rotate(-1.5deg);z-index:0}
 .postit-tape{position:absolute;top:-8px;left:50%;transform:translateX(-50%) rotate(3deg);width:70px;height:22px;
   background:rgba(200,180,140,.55);border-radius:2px}
-.monitor-schermo iframe.live{position:absolute;top:0;left:0;width:100%;height:250%;border:0;pointer-events:none;z-index:1;background:#fff;animation:scorri 24s ease-in-out infinite}
+.monitor-schermo iframe.live{position:absolute;top:0;left:0;width:100%;height:250%;border:0;pointer-events:none;z-index:1;background:transparent;animation:scorri 24s ease-in-out infinite}
 @keyframes scorri{
   0%,6%{transform:translateY(0)}
   50%{transform:translateY(-60%)}
@@ -277,7 +277,7 @@ form textarea{min-height:110px;resize:vertical}.nascosto{position:absolute;left:
         </form>
       </div>
       <div class="pannello altre" style="margin-top:18px"><h2>Altre scuole a Firenze</h2><a href="scuola-leonardo-da-vinci-firenze.html">Scuola Leonardo da Vinci Firenze</a><a href="abc-firenze.html">ABC Firenze</a><a href="centro-fiorenza.html">Centro Fiorenza</a><a href="istituto-michelangelo.html">Istituto Michelangelo</a><a href="europass-italian-language-school.html">Europass Italian Language School</a><a href="centro-machiavelli.html">Centro Machiavelli</a></div>
-      <div class="pannello" style="margin-top:18px"><h2>Eventi dell'anno</h2><table class="eventi-tab"><tr><td><b>Scoppio del Carro</b></td><td>Pasqua</td></tr><tr><td><b>Maggio Musicale Fiorentino</b></td><td>aprile–giugno</td></tr><tr><td><b>Pitti Uomo</b></td><td>gennaio e giugno</td></tr><tr><td><b>Firenze Rocks</b></td><td>giugno</td></tr><tr><td><b>Festa della Rificolona</b><br><span class="badge-ev">✓ corsi in queste date</span></td><td>7 settembre</td></tr></table></div>
+      <div class="pannello" style="margin-top:18px"><h2>Eventi dell'anno</h2><p class="eventi-intro">Le grandi feste, sagre e rassegne della città durante l'anno. Non sono solo spettacoli: sono la palestra migliore per l'italiano. A una festa cittadina ti trovi a ordinare, chiedere indicazioni, chiacchierare con la gente del posto — la lingua vera, quella che non c'è sui libri. Se puoi, fai coincidere una settimana di corso con uno di questi eventi.</p><table class="eventi-tab"><tr><td><b>Scoppio del Carro</b></td><td>Pasqua</td></tr><tr><td><b>Maggio Musicale Fiorentino</b></td><td>aprile–giugno</td></tr><tr><td><b>Pitti Uomo</b></td><td>gennaio e giugno</td></tr><tr><td><b>Firenze Rocks</b></td><td>giugno</td></tr><tr><td><b>Festa della Rificolona</b><br><span class="badge-ev">✓ corsi in queste date</span></td><td>7 settembre</td></tr></table></div>
       <div class="faq pannello" style="margin-top:18px"><h2 class="colh2">Domande frequenti</h2><details><summary>Quando iniziano i corsi di italiano da Italianme?</summary><div>I corsi partono dal 2026-08-03. Principianti assoluti: date fisse mensili; chi parla già italiano inizia ogni lunedì. Conferma sempre la prossima data utile con il modulo in pagina.</div></details><details><summary>Quante ore di lezione a settimana prevede il corso?</summary><div>Il corso intensivo prevede circa 20 ore a settimana; la formula più leggera circa 10 ore, ideale se vuoi tempo per vivere la città.</div></details><details><summary>Quanto costa un corso di italiano a Firenze?</summary><div>Indicativamente, un corso intensivo di gruppo in Italia costa €200–300 a settimana. Il prezzo esatto dipende da durata e formula: chiedilo alla scuola con il modulo in pagina, ti risponde alla tua email.</div></details><details><summary>La scuola aiuta a trovare l&#x27;alloggio?</summary><div>Sì: Italianme offre un servizio di ricerca alloggio (gratuito). Chiedi disponibilità e prezzi insieme alle date del corso.</div></details><details><summary>Posso preparare o sostenere un esame ufficiale (CILS, CELI, PLIDA)?</summary><div>Sì: Italianme è sede d&#x27;esame CILS. Puoi preparare e sostenere l&#x27;esame direttamente a scuola.</div></details><details><summary>Come arrivo a Firenze?</summary><div>L&#x27;aeroporto consigliato è Firenze (FLR) o Pisa (PSA); da lì treno o bus verso Firenze. Trovi i punti di riferimento nella guida della città qui sopra.</div></details></div>
     </div>
   </div>
@@ -321,6 +321,11 @@ if(pr){var ptxt="";
   var pfu=pr.dataset.d.split(",").filter(function(x){return x&&x>=poggi});
   if(pfu[0])ptxt="· prossimo: "+pfu[0];}
  pr.textContent=ptxt;}
+// se l'iframe della TV non riesce a caricare il sito (blocco embed/errore), lo nascondo → si vede il post-it
+var tvIfr=document.querySelector(".monitor-schermo iframe.live");
+if(tvIfr){var caricato=false;
+ tvIfr.addEventListener("load",function(){try{ if(tvIfr.contentWindow&&tvIfr.contentWindow.location.href&&tvIfr.contentWindow.location.href!=="about:blank"){caricato=true;} }catch(e){caricato=true;}});
+ setTimeout(function(){ if(!caricato){tvIfr.style.display="none";} },4500);}
 })();
 </script>
 </body></html>
