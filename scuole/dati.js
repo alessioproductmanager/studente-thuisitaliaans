@@ -3524,7 +3524,9 @@ const DATI = {
       "sito": "https://www.dantealighieri.com",
       "pagina_corsi": "",
       "email": "info@dantealighieri.com",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "IALC"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -3551,7 +3553,7 @@ const DATI = {
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
-        "durata_lezione_min": 45,
+        "durata_lezione_min": 50,
         "max_studenti_classe": 12,
         "materiale": "inclusi",
         "test_ingresso": "online",
@@ -3562,8 +3564,10 @@ const DATI = {
       "extra": [],
       "anteprima": true,
       "email_stato": "stimata",
-      "fondata_nel": 1893,
-      "nota_sede": "Comitato di Siena, Via Tommaso Pendola 37 dal 2001"
+      "fondata_nel": 1979,
+      "nota_sede": "Comitato di Siena, Via Tommaso Pendola 37 dal 2001",
+      "altri_corsi": "scuola 1979 (Sienalingue), Comitato Dante Alighieri dal 1990, lezioni solo di mattina",
+      "nota_verifica": "CORRETTO: 1893 era la data in cui la Societa Dante Alighieri nazionale divenne Ente Morale, non la fondazione della scuola. La scuola e Sienalingue srl, 1979."
     },
     {
       "id": "saena-iulii",
