@@ -13,6 +13,7 @@ const DATI = {
       "pagina_corsi": "https://www.leonardo-florence.com/it/corsi-di-italiano-a-firenze.html",
       "email": "info@leonardo-florence.com",
       "accreditamenti": [
+        "ASILS",
         "AIL"
       ],
       "corsi": [
@@ -103,7 +104,7 @@ const DATI = {
       "stato_dati": "verificato",
       "info": {
         "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
+        "max_studenti_classe": 10,
         "materiale": "inclusi",
         "test_ingresso": "online",
         "tassa_iscrizione": 70,
@@ -132,9 +133,7 @@ const DATI = {
       "sito": "https://centrofiorenza.com",
       "pagina_corsi": "",
       "email": "info@centrofiorenza.com",
-      "accreditamenti": [
-        "ASILS"
-      ],
+      "accreditamenti": [],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -184,7 +183,6 @@ const DATI = {
       "pagina_corsi": "",
       "email": "info@michelangelo-edu.it",
       "accreditamenti": [
-        "ASILS",
         "EDUITALIA"
       ],
       "corsi": [
@@ -243,6 +241,7 @@ const DATI = {
       "pagina_corsi": "https://www.europassitalian.com/courses/live-courses",
       "email": "info@europassitalian.com",
       "accreditamenti": [
+        "ASILS",
         "EDUITALIA"
       ],
       "corsi": [
@@ -365,6 +364,7 @@ const DATI = {
       "pagina_corsi": "",
       "email": "info@linguaviva.it",
       "accreditamenti": [
+        "ASILS",
         "IALC",
         "Bildungsurlaub",
         "CSN"
@@ -418,9 +418,7 @@ const DATI = {
       "sito": "https://adg.it",
       "pagina_corsi": "",
       "email": "info@adg.it",
-      "accreditamenti": [
-        "ASILS"
-      ],
+      "accreditamenti": [],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -1172,7 +1170,6 @@ const DATI = {
       "pagina_corsi": "",
       "email": "info@torredibabele.com",
       "accreditamenti": [
-        "ASILS",
         "EDUITALIA"
       ],
       "corsi": [
@@ -1549,9 +1546,7 @@ const DATI = {
       "sito": "https://www.italiaidea.com",
       "pagina_corsi": "",
       "email": "info@italiaidea.com",
-      "accreditamenti": [
-        "ASILS"
-      ],
+      "accreditamenti": [],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -1723,9 +1718,7 @@ const DATI = {
       "sito": "https://www.istitutoitaliano.it",
       "pagina_corsi": "",
       "email": "info@istitutoitaliano.it",
-      "accreditamenti": [
-        "ASILS"
-      ],
+      "accreditamenti": [],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -5124,9 +5117,7 @@ const DATI = {
       "citta": "Firenze",
       "regione": "Toscana",
       "sito": "https://www.centroitalianofirenze.com",
-      "accreditamenti": [
-        "ASILS"
-      ],
+      "accreditamenti": [],
       "esami_in_sede": [],
       "alloggio": true,
       "corsi": [
@@ -5436,7 +5427,8 @@ const DATI = {
         "durata_lezione_min": 45,
         "materiale": "inclusi",
         "servizio_alloggio": "gratuito",
-        "wifi": true
+        "wifi": true,
+        "max_studenti_classe": 8
       },
       "extra": [
         "arte",
