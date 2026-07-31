@@ -2562,7 +2562,10 @@ const DATI = {
       "sito": "https://www.bertrand-russell.it",
       "pagina_corsi": "https://www.bertrand-russell.it/scheda-di-iscrizione-corsi-di-italiano",
       "email": "info@bertrand-russell.it",
-      "accreditamenti": [],
+      "accreditamenti": [
+        "LICET",
+        "Bildungsurlaub"
+      ],
       "corsi": [
         {
           "tipo": "intensivo",
@@ -2582,22 +2585,35 @@ const DATI = {
       },
       "durata_min_settimane": 1,
       "alloggio": true,
-      "esami_in_sede": [],
+      "esami_in_sede": [
+        "CELI"
+      ],
       "note": "",
       "verificato_il": "2026-07-31",
       "stato_dati": "verificato",
       "info": {
-        "durata_lezione_min": 45,
-        "max_studenti_classe": 12,
+        "durata_lezione_min": 60,
+        "max_studenti_classe": 15,
         "materiale": "inclusi",
         "test_ingresso": "online",
-        "tassa_iscrizione": null,
+        "tassa_iscrizione": 0,
         "servizio_alloggio": "gratuito",
         "wifi": true
       },
       "extra": [],
       "anteprima": true,
-      "email_stato": "stimata"
+      "email_stato": "stimata",
+      "fondata_nel": 1975,
+      "prezzi_rilevati": {
+        "iscrizione": 0,
+        "materiale": "incluso",
+        "privata_ora": 30,
+        "anno": 3500,
+        "ripetizione": 200,
+        "fonte": "bertrand-russell.it",
+        "rilevato_il": "2026-07-31"
+      },
+      "altri_corsi": "80 ore in 4 settimane, 9 lingue insegnate, sede CELI"
     },
     {
       "id": "piccola-universita-italiana-trieste",
