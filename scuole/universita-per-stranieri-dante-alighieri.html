@@ -223,37 +223,18 @@ form textarea{min-height:110px;resize:vertical}.nascosto{position:absolute;left:
 @media(max-width:640px){.eventi-tab td:last-child{white-space:normal}.sigle-tab td:first-child{width:auto}}/*fix-card-mobile-v1*/
 .scheda,.pannello,.citta-scuola,.app-promo,.meta,.dati,.dativ2,.colonne,.griglia,.citta-scuole{min-width:0}
 .scheda>*,.pannello>*,.citta-scuola>*,.meta>*,.dati>*,.dativ2>*{min-width:0}
-.scheda,.pannello,.citta-scuola,.meta,.dati,.dativ2,.meta b,.dati b,.riga-dato .etich,.riga-dato .val,.hl-chip span,.tematici,.descr,.altre a,.citta-scuola .meta2,.tag{overflow-wrap:break-word;word-break:break-word}
-.scheda a[href^="mailto:"],.pannello a[href^="mailto:"],.riga-dato .val a,.scheda a[href^="http"]{word-break:break-all}
-@media(max-width:640px){
-.meta{grid-template-columns:1fr;gap:5px 0}
-.meta>div,.meta>span,.meta>p{display:block}
-.badge{white-space:normal}
-.pross,.pross-b{white-space:normal}
-.scheda{overflow:visible}
-}
-@media(max-width:400px){
-.dativ2{grid-template-columns:1fr}
-}
 /*fix-overflow-v2*/
 .colonne{grid-template-columns:minmax(0,1.2fr) minmax(0,.9fr)}
 .colonne>*,.griglia>*,.citta-scuole>*,.meta>*,.dati>*,.dativ2>*,.barra>*{min-width:0}
 @media(max-width:820px){.colonne{grid-template-columns:minmax(0,1fr)}}
 .pannello table,.sigle-tab,.festivi-tab,.eventi-tab{table-layout:fixed;width:100%;max-width:100%}
-.pannello td,.pannello th{overflow-wrap:anywhere;word-break:break-word}
-.scheda,.pannello,.citta-scuola,.meta,.dati,.dativ2,.riga-dato .etich,.riga-dato .val,
-.hl-chip span,.tematici,.descr,.altre a,.citta-scuola .meta2,.tag,.ev-desc,.guida small,.guida b{
-overflow-wrap:anywhere;word-break:break-word}
-.scheda a[href^="mailto:"],.pannello a[href^="mailto:"],.riga-dato .val a{word-break:break-all}
 .meteo-riga{min-width:0;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
 .meteo-card,.meteo-card>*{min-width:0;max-width:100%}
 @media(max-width:640px){
 .meta{grid-template-columns:minmax(0,1fr);gap:5px 0}
 .dati{grid-template-columns:minmax(0,1fr)}
-.badge,.pross,.pross-b{white-space:normal}
 .scheda{overflow:visible}
 .eventi-tab td:first-child{width:auto}
-.eventi-tab td:last-child{width:86px;white-space:normal;text-align:right}
 }
 @media(max-width:400px){.dativ2{grid-template-columns:minmax(0,1fr)}}
 .pannello.contatto{padding:0;overflow:hidden}
@@ -274,39 +255,53 @@ overflow-wrap:anywhere;word-break:break-word}
 .mail-corpo .esito{margin:0 0 12px}
 .mail-piede{display:flex;align-items:center;gap:12px;padding:12px 16px;border-top:1px solid var(--linea);background:#FBF7F0;min-width:0}
 .mail-piede .bottone{border-radius:999px;padding:10px 24px;flex:0 0 auto}
-.mail-nota{font-size:11.5px;color:var(--secondario);line-height:1.4;min-width:0;overflow-wrap:anywhere}
+.mail-nota{font-size:11.5px;color:var(--secondario);line-height:1.4;min-width:0;overflow-wrap:break-word}
 @media(max-width:400px){
 .mail-piede{flex-direction:column;align-items:stretch;gap:9px}
 .mail-piede .bottone{width:100%}
 .mail-nota{text-align:center}
 }
 /*fix-testi-v3*/
-/* anywhere spezza le parole a meta' perche' porta il min-content a 1 carattere.
-   Serve solo dove un singolo token non ci sta davvero (link, email, testi lunghi).
-   Per le etichette basta break-word, che tiene le parole intere. */
 .scheda,.pannello,.citta-scuola,.meta,.dati,.dativ2,.riga-dato .etich,
 .hl-chip span,.tematici,.descr,.altre a,.citta-scuola .meta2,.tag,.guida b,.guida small,
 .badge,.dove,.eyebrow,.crumb,.mail-nota,.mail-testata h2,label,
 .sigle-tab td:first-child,.festivi-tab td:first-child,.eventi-tab td:last-child,
-.eventi-tab td b,h1,h2,h3{
-overflow-wrap:break-word;word-break:normal;hyphens:none}
+.eventi-tab td b,h1,h2,h3{overflow-wrap:break-word;word-break:normal;hyphens:none}
 .ev-desc,.riga-dato .val,.sigle-tab td:last-child,.festivi-tab td:last-child{overflow-wrap:anywhere}
 .scheda a[href^="mailto:"],.pannello a[href^="mailto:"],.riga-dato .val a,
 .scheda a[href^="http"],.pannello a[href^="http"]{word-break:break-all}
-
-/* colonne troppo strette: le date e i periodi finivano spezzati */
 @media(max-width:640px){
 .festivi-tab td:first-child{width:108px!important;font-size:11.5px}
 .sigle-tab td:first-child{width:94px!important}
-.eventi-tab td:last-child{width:104px;font-size:11.5px}
+.eventi-tab td:last-child{width:104px;font-size:11.5px;white-space:normal;text-align:right}
+.badge,.pross,.pross-b{white-space:normal}
 }
 @media(max-width:360px){
 .festivi-tab td:first-child{width:96px!important}
 .eventi-tab td:last-child{width:92px}
 }
-
-/* riga del footer da bordo a bordo, come quella sopra */
 footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width:100%}
+.ico-aereo{width:14px;height:14px;flex:0 0 14px;vertical-align:-2px;margin-right:6px;color:var(--terracotta)}
+.ico-tag{width:13px;height:13px;flex:0 0 13px;vertical-align:-2px;margin-right:5px;color:var(--secondario)}
+.ico-ok{width:12px;height:12px;flex:0 0 12px}
+.tag{display:inline-flex;align-items:center}
+.gp{margin-top:18px}
+.gp h2{margin-bottom:6px}
+.gp-intro{font-size:14px;color:var(--secondario);line-height:1.6;margin-bottom:4px}
+.gp-voce{padding:14px 0;border-bottom:1px dashed var(--linea);min-width:0}
+.gp-voce:last-child{border-bottom:0;padding-bottom:0}
+.gp-voce b{display:block;font-family:var(--serif);font-size:16px;font-weight:600;color:var(--inchiostro);margin-bottom:4px;overflow-wrap:break-word}
+.gp-voce p{font-size:14px;line-height:1.62;color:var(--secondario);overflow-wrap:break-word}
+.gp-citta{background:linear-gradient(135deg,#FBF7F0,#F3E9DD)}
+.mail-multi{display:flex;gap:10px;align-items:flex-start;padding:12px 16px;border-top:1px solid var(--linea);background:#FBF7F0;min-width:0}
+.mail-multi input{flex:0 0 18px;width:18px;height:18px;margin-top:1px;accent-color:var(--terracotta)}
+.mail-multi div{min-width:0}
+.mail-multi b{display:block;font-size:13.5px;font-weight:600;color:var(--inchiostro);line-height:1.35;overflow-wrap:break-word}
+.mail-multi small{display:block;margin-top:3px;font-size:11.5px;color:var(--secondario);line-height:1.4}
+.mail-multi label{cursor:pointer;display:contents}
+.chip-mappa{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--terracotta);background:var(--card);color:var(--terracotta);border-radius:999px;padding:7px 15px;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap}
+.chip-mappa:hover{background:var(--terracotta);color:#fff}
+.chip-mappa svg{width:14px;height:14px;flex:0 0 14px}
 </style>
 </head>
 <body>
@@ -329,12 +324,12 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
         
         <div class="tagriga"><span class="tag">Scuola universitaria</span></div>
       </div>
-      <div class="pannello" style="margin-top:18px"><h2>Giorni festivi 2026</h2>
+      <div class="pannello gp" style="margin-top:18px"><h2>Quello che conviene sapere prima di prenotare</h2><p class="gp-intro">Sono le stesse domande per tutte le scuole, e nessun sito le spiega mai per intero. Qui trovi le risposte una volta sola, così quando scrivi alla scuola chiedi solo quello che manca davvero.</p><div class="gp-voce"><b>Il prezzo non è mai solo il corso</b><p>Alla tariffa settimanale quasi sempre si aggiunge una tassa d&#x27;iscrizione una tantum, che in Italia si aggira sui 50–90 euro. Poi possono essere separati: libri e materiali, l&#x27;alloggio, il servizio di ricerca alloggio, le attività culturali e la tassa d&#x27;esame. Chiedi sempre il totale, non il prezzo a settimana.</p></div><div class="gp-voce"><b>Venti ore non sono venti ore</b><p>Quasi tutte le scuole contano in «ore di lezione» da 45 o 50 minuti, non da 60. Un corso da 20 ore settimanali con lezioni da 45 minuti sono 15 ore reali; con lezioni da 50 minuti sono 16 ore e 40. In questa pagina, sotto «Il corso», trovi la durata effettiva della lezione: usala per confrontare due scuole a parità di prezzo.</p></div><div class="gp-voce"><b>Quanto ci vuole per salire di livello</b><p>Il riferimento più usato è di circa 200 ore di lezione guidata per passare da un livello del Quadro europeo al successivo. Con un intensivo da 20 ore a settimana significa più o meno dieci settimane per livello, meno se studi anche fuori dall&#x27;aula. Una o due settimane non fanno cambiare livello: servono a sbloccare la lingua parlata, ed è già molto.</p></div><div class="gp-voce"><b>Quale certificazione scegliere</b><p>Le quattro riconosciute dallo Stato italiano sono CILS (Università per Stranieri di Siena), CELI (Università per Stranieri di Perugia), PLIDA (Società Dante Alighieri) e CERT.IT (Università Roma Tre). Valgono le stesse cose: cambiano il formato delle prove e le sessioni. Per la cittadinanza italiana serve il livello B1; per iscriversi a un&#x27;università italiana di solito il B2. AIL è una certificazione privata, diffusa ma non nell&#x27;elenco statale.</p></div><div class="gp-voce"><b>Visto, permesso e documenti</b><p>Se hai un passaporto dell&#x27;Unione Europea non serve niente: basta la carta d&#x27;identità. Se vieni da fuori UE, molte nazionalità possono stare fino a 90 giorni ogni 180 nell&#x27;area Schengen senza visto; oltre i 90 giorni serve il visto per studio, e per ottenerlo la scuola deve mandarti una lettera di iscrizione con il corso già pagato. Entro otto giorni dall&#x27;arrivo si chiede il permesso di soggiorno. Muoviti con almeno due mesi di anticipo.</p></div><div class="gp-voce"><b>Alloggio: le tre formule</b><p>Famiglia ospitante: la più utile per la lingua, spesso con colazione o mezza pensione, e ti obbliga a parlare italiano ogni sera. Appartamento condiviso con altri studenti: più libertà, meno pratica linguistica se i coinquilini parlano inglese. Studio o residence: comodo e più caro. Chiedi sempre distanza dalla scuola, cosa è incluso, se c&#x27;è cauzione e da che giorno a che giorno decorre la settimana.</p></div><div class="gp-voce"><b>Cinque domande da fare prima di pagare</b><p>Quante persone ci sono davvero in classe in alta stagione, non il massimo dichiarato. Quanto dura la lezione in minuti. Qual è il totale comprensivo di iscrizione, materiali e alloggio. Cosa succede se il tuo livello ha pochi iscritti: la classe si accorpa, diventa individuale ridotta o salta. Quali sono le condizioni di disdetta e se l&#x27;acconto è rimborsabile.</p></div></div><div class="pannello" style="margin-top:18px"><h2>Giorni festivi 2026</h2>
         <table class="festivi-tab"><tr><td>1 gennaio</td><td>Capodanno</td></tr><tr><td>6 gennaio</td><td>Epifania</td></tr><tr><td>5–6 aprile</td><td>Pasqua e Pasquetta</td></tr><tr><td>25 aprile</td><td>Liberazione</td></tr><tr><td>1 maggio</td><td>Festa del Lavoro</td></tr><tr><td>2 giugno</td><td>Festa della Repubblica</td></tr><tr><td>15 agosto</td><td>Ferragosto</td></tr><tr><td>1 novembre</td><td>Ognissanti</td></tr><tr><td>8 dicembre</td><td>Immacolata</td></tr><tr><td>25–26 dicembre</td><td>Natale e Santo Stefano</td></tr></table><small class="nota-fest">Nelle feste nazionali le scuole in genere non fanno lezione e le ore non si recuperano: se vieni per una sola settimana, meglio evitarle.</small>
       </div>
       <div class="pannello guida" style="margin-top:18px"><h2>Cosa non perdere a Reggio Calabria</h2>
         <ol><li><div><b>Bronzi di Riace</b><small>Al Museo Archeologico: i due guerrieri greci del V secolo a.C.</small></div></li><li><div><b>Lungomare Falcomatà</b><small>&#x27;Il più bel chilometro d&#x27;Italia&#x27;.</small></div></li><li><div><b>Aspromonte</b><small>Il parco nazionale sopra lo Stretto.</small></div></li></ol>
-        <div class="aero">✈ Aeroporto consigliato: Reggio Calabria (REG)</div>
+        <div class="aero"><svg class="ico-aereo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.2 12.5 3 10.3l1.6-1.6 3.4.5 3-3-7-3.4L6 1l9.4 2.6 3-3a2 2 0 1 1 2.8 2.8l-3 3L21 16l-1.8 1.2-3.4-7-3 3 .5 3.4L11.7 18z"/></svg>Aeroporto consigliato: Reggio Calabria (REG)</div>
         <p class="evseo">Corso di italiano a Reggio Calabria: come organizzarsi. Si vola su Reggio Calabria (REG), si prenota il corso con 2–3 settimane di anticipo (in alta stagione, giugno–settembre, le classi si riempiono prima) e, potendo, si fa coincidere la settimana di studio con uno degli eventi qui sopra: usare l&#x27;italiano a una festa cittadina vale quanto una settimana di lezioni.</p>
       </div>
       <div class="pannello meteo-card" id="meteo" data-lat="38.11" data-lon="15.65" style="margin-top:18px"><h2>Il meteo adesso</h2><div class="meteo-riga" id="meteo-riga"></div></div>
@@ -378,7 +373,7 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
           <div class="esito" id="esito"></div>
         </div><div class="mail-piede"><button class="bottone pieno" type="submit">Invia</button><span class="mail-nota">Ti aiutiamo a trovare la scuola giusta per te.</span></div></form></div>
       
-      <div class="pannello" style="margin-top:18px"><h2>Eventi dell'anno</h2><p class="eventi-intro">Le grandi feste, sagre e rassegne della città durante l'anno. Non sono solo spettacoli: sono la palestra migliore per l'italiano. A una festa cittadina ti trovi a ordinare, chiedere indicazioni, chiacchierare con la gente del posto — la lingua vera, quella che non c'è sui libri. Se puoi, fai coincidere una settimana di corso con uno di questi eventi.</p><table class="eventi-tab"><tr><td><b>Festa della Madonna della Consolazione</b><br><span class="badge-ev">✓ corsi in queste date</span></td><td>settembre</td></tr></table></div>
+      <div class="pannello" style="margin-top:18px"><h2>Eventi dell'anno</h2><p class="eventi-intro">Le grandi feste, sagre e rassegne della città durante l'anno. Non sono solo spettacoli: sono la palestra migliore per l'italiano. A una festa cittadina ti trovi a ordinare, chiedere indicazioni, chiacchierare con la gente del posto — la lingua vera, quella che non c'è sui libri. Se puoi, fai coincidere una settimana di corso con uno di questi eventi.</p><table class="eventi-tab"><tr><td><b>Festa della Madonna della Consolazione</b><div class="ev-desc">A settembre il quadro della Madonna scende dal santuario in città accompagnato da migliaia di persone. La festa più sentita della Calabria: intensa e profondamente popolare.</div></td><td>settembre</td></tr></table></div>
       <div class="faq pannello" style="margin-top:18px"><h2 class="colh2">Domande frequenti</h2><details><summary>Quando iniziano i corsi di italiano da Università per Stranieri Dante Alighieri?</summary><div>I corsi partono ogni lunedì. Principianti assoluti: date fisse, in genere ogni 2 settimane. Conferma sempre la prossima data utile con il modulo in pagina.</div></details><details><summary>Quante ore di lezione a settimana prevede il corso?</summary><div>Il corso intensivo prevede circa 20 ore a settimana; la formula più leggera circa 10 ore, ideale se vuoi tempo per vivere la città.</div></details><details><summary>Quanto costa un corso di italiano a Reggio Calabria?</summary><div>Indicativamente, un corso intensivo di gruppo in Italia costa €200–300 a settimana. Il prezzo esatto dipende da durata e formula: chiedilo alla scuola con il modulo in pagina, ti risponde alla tua email.</div></details><details><summary>La scuola aiuta a trovare l&#x27;alloggio?</summary><div>Sì: Università per Stranieri Dante Alighieri offre un servizio di ricerca alloggio (gratuito). Chiedi disponibilità e prezzi insieme alle date del corso.</div></details><details><summary>Posso preparare o sostenere un esame ufficiale (CILS, CELI, PLIDA)?</summary><div>Per le certificazioni CILS, CELI o PLIDA chiedi alla scuola: molte preparano all&#x27;esame e indicano la sede più vicina per sostenerlo.</div></details><details><summary>Come arrivo a Reggio Calabria?</summary><div>L&#x27;aeroporto consigliato è Reggio Calabria (REG); da lì treno o bus verso Reggio Calabria. Trovi i punti di riferimento nella guida della città qui sopra.</div></details><details><summary>Buono a sapersi prima di iscriversi</summary><div>La lezione dura 45 minuti e le classi hanno al massimo 12 studenti, così parli tanto fin dal primo giorno. Il primo giorno fai un test per essere messo nel gruppo del tuo livello. Porta un documento e, se ce l&#x27;hai, un attestato di livello precedente. Prenota qualche settimana prima nei mesi estivi, quando le classi si riempiono.</div></details></div>
     </div>
   </div>

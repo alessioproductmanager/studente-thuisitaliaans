@@ -223,37 +223,18 @@ form textarea{min-height:110px;resize:vertical}.nascosto{position:absolute;left:
 @media(max-width:640px){.eventi-tab td:last-child{white-space:normal}.sigle-tab td:first-child{width:auto}}/*fix-card-mobile-v1*/
 .scheda,.pannello,.citta-scuola,.app-promo,.meta,.dati,.dativ2,.colonne,.griglia,.citta-scuole{min-width:0}
 .scheda>*,.pannello>*,.citta-scuola>*,.meta>*,.dati>*,.dativ2>*{min-width:0}
-.scheda,.pannello,.citta-scuola,.meta,.dati,.dativ2,.meta b,.dati b,.riga-dato .etich,.riga-dato .val,.hl-chip span,.tematici,.descr,.altre a,.citta-scuola .meta2,.tag{overflow-wrap:break-word;word-break:break-word}
-.scheda a[href^="mailto:"],.pannello a[href^="mailto:"],.riga-dato .val a,.scheda a[href^="http"]{word-break:break-all}
-@media(max-width:640px){
-.meta{grid-template-columns:1fr;gap:5px 0}
-.meta>div,.meta>span,.meta>p{display:block}
-.badge{white-space:normal}
-.pross,.pross-b{white-space:normal}
-.scheda{overflow:visible}
-}
-@media(max-width:400px){
-.dativ2{grid-template-columns:1fr}
-}
 /*fix-overflow-v2*/
 .colonne{grid-template-columns:minmax(0,1.2fr) minmax(0,.9fr)}
 .colonne>*,.griglia>*,.citta-scuole>*,.meta>*,.dati>*,.dativ2>*,.barra>*{min-width:0}
 @media(max-width:820px){.colonne{grid-template-columns:minmax(0,1fr)}}
 .pannello table,.sigle-tab,.festivi-tab,.eventi-tab{table-layout:fixed;width:100%;max-width:100%}
-.pannello td,.pannello th{overflow-wrap:anywhere;word-break:break-word}
-.scheda,.pannello,.citta-scuola,.meta,.dati,.dativ2,.riga-dato .etich,.riga-dato .val,
-.hl-chip span,.tematici,.descr,.altre a,.citta-scuola .meta2,.tag,.ev-desc,.guida small,.guida b{
-overflow-wrap:anywhere;word-break:break-word}
-.scheda a[href^="mailto:"],.pannello a[href^="mailto:"],.riga-dato .val a{word-break:break-all}
 .meteo-riga{min-width:0;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
 .meteo-card,.meteo-card>*{min-width:0;max-width:100%}
 @media(max-width:640px){
 .meta{grid-template-columns:minmax(0,1fr);gap:5px 0}
 .dati{grid-template-columns:minmax(0,1fr)}
-.badge,.pross,.pross-b{white-space:normal}
 .scheda{overflow:visible}
 .eventi-tab td:first-child{width:auto}
-.eventi-tab td:last-child{width:86px;white-space:normal;text-align:right}
 }
 @media(max-width:400px){.dativ2{grid-template-columns:minmax(0,1fr)}}
 .pannello.contatto{padding:0;overflow:hidden}
@@ -274,39 +255,53 @@ overflow-wrap:anywhere;word-break:break-word}
 .mail-corpo .esito{margin:0 0 12px}
 .mail-piede{display:flex;align-items:center;gap:12px;padding:12px 16px;border-top:1px solid var(--linea);background:#FBF7F0;min-width:0}
 .mail-piede .bottone{border-radius:999px;padding:10px 24px;flex:0 0 auto}
-.mail-nota{font-size:11.5px;color:var(--secondario);line-height:1.4;min-width:0;overflow-wrap:anywhere}
+.mail-nota{font-size:11.5px;color:var(--secondario);line-height:1.4;min-width:0;overflow-wrap:break-word}
 @media(max-width:400px){
 .mail-piede{flex-direction:column;align-items:stretch;gap:9px}
 .mail-piede .bottone{width:100%}
 .mail-nota{text-align:center}
 }
 /*fix-testi-v3*/
-/* anywhere spezza le parole a meta' perche' porta il min-content a 1 carattere.
-   Serve solo dove un singolo token non ci sta davvero (link, email, testi lunghi).
-   Per le etichette basta break-word, che tiene le parole intere. */
 .scheda,.pannello,.citta-scuola,.meta,.dati,.dativ2,.riga-dato .etich,
 .hl-chip span,.tematici,.descr,.altre a,.citta-scuola .meta2,.tag,.guida b,.guida small,
 .badge,.dove,.eyebrow,.crumb,.mail-nota,.mail-testata h2,label,
 .sigle-tab td:first-child,.festivi-tab td:first-child,.eventi-tab td:last-child,
-.eventi-tab td b,h1,h2,h3{
-overflow-wrap:break-word;word-break:normal;hyphens:none}
+.eventi-tab td b,h1,h2,h3{overflow-wrap:break-word;word-break:normal;hyphens:none}
 .ev-desc,.riga-dato .val,.sigle-tab td:last-child,.festivi-tab td:last-child{overflow-wrap:anywhere}
 .scheda a[href^="mailto:"],.pannello a[href^="mailto:"],.riga-dato .val a,
 .scheda a[href^="http"],.pannello a[href^="http"]{word-break:break-all}
-
-/* colonne troppo strette: le date e i periodi finivano spezzati */
 @media(max-width:640px){
 .festivi-tab td:first-child{width:108px!important;font-size:11.5px}
 .sigle-tab td:first-child{width:94px!important}
-.eventi-tab td:last-child{width:104px;font-size:11.5px}
+.eventi-tab td:last-child{width:104px;font-size:11.5px;white-space:normal;text-align:right}
+.badge,.pross,.pross-b{white-space:normal}
 }
 @media(max-width:360px){
 .festivi-tab td:first-child{width:96px!important}
 .eventi-tab td:last-child{width:92px}
 }
-
-/* riga del footer da bordo a bordo, come quella sopra */
 footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width:100%}
+.ico-aereo{width:14px;height:14px;flex:0 0 14px;vertical-align:-2px;margin-right:6px;color:var(--terracotta)}
+.ico-tag{width:13px;height:13px;flex:0 0 13px;vertical-align:-2px;margin-right:5px;color:var(--secondario)}
+.ico-ok{width:12px;height:12px;flex:0 0 12px}
+.tag{display:inline-flex;align-items:center}
+.gp{margin-top:18px}
+.gp h2{margin-bottom:6px}
+.gp-intro{font-size:14px;color:var(--secondario);line-height:1.6;margin-bottom:4px}
+.gp-voce{padding:14px 0;border-bottom:1px dashed var(--linea);min-width:0}
+.gp-voce:last-child{border-bottom:0;padding-bottom:0}
+.gp-voce b{display:block;font-family:var(--serif);font-size:16px;font-weight:600;color:var(--inchiostro);margin-bottom:4px;overflow-wrap:break-word}
+.gp-voce p{font-size:14px;line-height:1.62;color:var(--secondario);overflow-wrap:break-word}
+.gp-citta{background:linear-gradient(135deg,#FBF7F0,#F3E9DD)}
+.mail-multi{display:flex;gap:10px;align-items:flex-start;padding:12px 16px;border-top:1px solid var(--linea);background:#FBF7F0;min-width:0}
+.mail-multi input{flex:0 0 18px;width:18px;height:18px;margin-top:1px;accent-color:var(--terracotta)}
+.mail-multi div{min-width:0}
+.mail-multi b{display:block;font-size:13.5px;font-weight:600;color:var(--inchiostro);line-height:1.35;overflow-wrap:break-word}
+.mail-multi small{display:block;margin-top:3px;font-size:11.5px;color:var(--secondario);line-height:1.4}
+.mail-multi label{cursor:pointer;display:contents}
+.chip-mappa{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--terracotta);background:var(--card);color:var(--terracotta);border-radius:999px;padding:7px 15px;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap}
+.chip-mappa:hover{background:var(--terracotta);color:#fff}
+.chip-mappa svg{width:14px;height:14px;flex:0 0 14px}
 </style>
 </head>
 <body>
@@ -320,7 +315,7 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
   <h1>Centro Machiavelli</h1>
   <div class="badge-riga"><span class="badge" data-tip="Italienischer Verband der Schulen für Italienisch als Zweitsprache; Qualität durch unabhängige Zertifizierer geprüft."><svg class="sig-ico" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><polyline points="9 12 11 14 15 9.5"/></svg>ASILS</span><span class="badge" data-tip="Verband akkreditierter Schulen und Universitäten, der das Studium in Italien fördert."><svg class="sig-ico" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9.5 12 5l10 4.5L12 14 2 9.5z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/></svg>EDUITALIA</span><span class="badge" data-tip="Deutsche Anerkennung: der Kurs berechtigt zum bezahlten Bildungsurlaub."><svg class="sig-ico" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg>Bildungsurlaub</span><span class="badge" data-tip="Schwedische Studienförderung: der Kurs ist für CSN-Beihilfen anerkannt."><svg class="sig-ico" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M6 12h.01M18 12h.01"/></svg>CSN</span></div>
   <p class="descr">Centro Machiavelli ist eine Italienisch-Sprachschule für Ausländer in Firenze (Toscana): Intensivkurse mit rund 20 Wochenstunden und leichtere Formate, Kursbeginn in der Regel jeden Montag. Die Schule hilft auch bei der Unterkunftssuche. Unten findest du die wichtigsten Fakten, einen Mini-Guide zu Firenze für die Planung deines Aufenthalts und ein Formular, um der Schule direkt zu schreiben.</p>
-  <div class="timbro ok">✓ Geprüft am 2026-07-31</div>
+  <div class="timbro ok"><svg class="ico-ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 12.5 9.5 18 20 6.5"/></svg>Geprüft am 2026-07-31</div>
   <div class="colonne">
     <div>
       <div class="pannello"><h2>Der Kurs</h2>
@@ -329,12 +324,12 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
         <p class="tematici"><b>Bietet außerdem Themenkurse in:</b> Kunst, Kochen, Sprechtraining, Malerei, Kunstgeschichte, Wein, Ü50, online</p><p class="tematici speciali"><b>Spezialprogramme:</b> Super intensivo, Giro d&#x27;Italia, Italiano + storia dell&#x27;arte, 50+, Firenze nell&#x27;Arte (oreficeria, mosaico, restauro, pittura), Experit (italiano + tirocinio)</p>
         
       </div>
-      <div class="pannello" style="margin-top:18px"><h2>Feiertage 2026</h2>
+      <div class="pannello gp" style="margin-top:18px"><h2>Was du vor der Buchung wissen solltest</h2><p class="gp-intro">Es sind bei jeder Schule dieselben Fragen, und keine Website erklärt sie je vollständig. Hier stehen die Antworten einmal, damit du die Schule nur noch nach dem fragst, was wirklich fehlt.</p><div class="gp-voce"><b>Der Preis ist nie nur der Kurs</b><p>Zum Wochenpreis kommt fast immer eine einmalige Einschreibegebühr, in Italien meist etwa 50–90 Euro. Getrennt berechnet werden können außerdem: Bücher und Material, Unterkunft, Vermittlungsgebühr für die Unterkunft, Kulturprogramm und Prüfungsgebühr. Frag immer nach der Gesamtsumme, nicht nach dem Wochenpreis.</p></div><div class="gp-voce"><b>Zwanzig Stunden sind nicht zwanzig Stunden</b><p>Fast alle Schulen rechnen in «Unterrichtsstunden» zu 45 oder 50 Minuten, nicht zu 60. Ein Kurs mit 20 Wochenstunden à 45 Minuten sind 15 echte Stunden, à 50 Minuten 16 Stunden 40. Die tatsächliche Stundenlänge steht auf dieser Seite unter «Der Kurs»: damit vergleichst du zwei Schulen bei gleichem Preis.</p></div><div class="gp-voce"><b>Wie lange ein Niveausprung dauert</b><p>Als Faustregel gelten rund 200 Unterrichtsstunden, um von einer Stufe des Europäischen Referenzrahmens zur nächsten zu kommen. Bei einem Intensivkurs mit 20 Wochenstunden sind das etwa zehn Wochen pro Stufe, weniger, wenn du auch außerhalb des Unterrichts lernst. Ein oder zwei Wochen ändern die Stufe nicht: Sie lösen die Sprechhemmung, und das ist schon viel.</p></div><div class="gp-voce"><b>Welches Zertifikat wählen</b><p>Vom italienischen Staat anerkannt sind vier: CILS (Universität für Ausländer Siena), CELI (Universität für Ausländer Perugia), PLIDA (Società Dante Alighieri) und CERT.IT (Universität Roma Tre). Sie sind gleichwertig; es unterscheiden sich Prüfungsformat und Termine. Für die italienische Staatsbürgerschaft ist Niveau B1 nötig, für ein Studium an einer italienischen Universität meist B2. AIL ist ein privates Zertifikat, verbreitet, aber nicht auf der staatlichen Liste.</p></div><div class="gp-voce"><b>Visum, Aufenthalt und Papiere</b><p>Mit einem EU-Pass brauchst du nichts außer dem Personalausweis. Von außerhalb der EU dürfen viele Staatsangehörigkeiten bis zu 90 Tage je 180 Tage visumfrei im Schengen-Raum bleiben; darüber hinaus ist ein Studienvisum nötig, wofür die Schule ein Einschreibeschreiben mit bereits bezahltem Kurs schicken muss. Innerhalb von acht Tagen nach Ankunft beantragst du die Aufenthaltserlaubnis. Fang mindestens zwei Monate vorher an.</p></div><div class="gp-voce"><b>Unterkunft: die drei Formen</b><p>Gastfamilie: am nützlichsten für die Sprache, oft mit Frühstück oder Halbpension, und du sprichst jeden Abend Italienisch. WG mit anderen Lernenden: mehr Freiheit, weniger Sprachpraxis, wenn die Mitbewohner Englisch sprechen. Studio oder Residence: bequem und teurer. Frag immer nach Entfernung zur Schule, Leistungen, Kaution und von welchem Tag bis zu welchem Tag die Woche läuft.</p></div><div class="gp-voce"><b>Fünf Fragen vor der Zahlung</b><p>Wie viele Personen in der Hochsaison tatsächlich in der Klasse sitzen, nicht die angegebene Höchstzahl. Wie lange eine Unterrichtsstunde in Minuten dauert. Wie hoch die Gesamtsumme inklusive Einschreibung, Material und Unterkunft ist. Was passiert, wenn sich für dein Niveau wenige anmelden: Wird die Klasse zusammengelegt, auf weniger Einzelstunden reduziert oder gestrichen. Wie die Stornobedingungen lauten und ob die Anzahlung erstattet wird.</p></div></div><div class="pannello gp gp-citta" style="margin-top:18px"><h2>Lernen in Firenze: was dir niemand sagt</h2><div class="gp-voce"><b>Wo du wohnen solltest</b><p>Die Altstadt durchquert man in zwanzig Minuten zu Fuß, fast jede Schule ist also ohne Verkehrsmittel erreichbar. Oltrarno, San Frediano und Santo Spirito sind die lebendigsten Viertel und noch von Florentinern bewohnt; Campo di Marte und Le Cure sind ruhiger und günstiger. Vorsicht bei Kurzzeitmieten am Dom: Du zahlst für den Tourismus, nicht für die Lage.</p></div><div class="gp-voce"><b>Das Risiko der Englisch-Blase</b><p>Florenz hat mehr Italienischschulen als jede andere Stadt und eine riesige amerikanische Studentengemeinde: In der Altstadt kann man eine Woche verbringen, ohne ein einziges Mal Italienisch zu sprechen. Das ist hier das Hauptrisiko. Frag die Schule nach Sprachtandems mit Einheimischen und wähle die Gastfamilie statt der WG.</p></div><div class="gp-voce"><b>Das Italienisch, das du hörst</b><p>Das Standarditalienische entstand aus dem literarischen Florentinisch des 14. Jahrhunderts, doch das gesprochene Florentinisch von heute kennt die toskanische Gorgia: Das «c» zwischen Vokalen wird behaucht, «la casa» klingt wie «la hasa». Zwei Tage lang verwirrt es, dann wird es zu einem reizvollen Merkmal, das im Ohr bleibt.</p></div><div class="gp-voce"><b>Wann buchen</b><p>Von Juni bis September ist Florenz überfüllt und die Klassen sind voll: zwei Monate im Voraus buchen. Die Woche von Lucca Comics Ende Oktober füllt auch die Florentiner Unterkünfte. Am besten ist die Zeit zwischen Ende Januar und März: niedrige Preise, Museen ohne Schlange und Klassen mit vier oder fünf Personen.</p></div></div><div class="pannello" style="margin-top:18px"><h2>Feiertage 2026</h2>
         <table class="festivi-tab"><tr><td>1. Januar</td><td>Neujahr</td></tr><tr><td>6. Januar</td><td>Dreikönig</td></tr><tr><td>5.–6. April</td><td>Ostern & Ostermontag</td></tr><tr><td>25. April</td><td>Tag der Befreiung</td></tr><tr><td>1. Mai</td><td>Tag der Arbeit</td></tr><tr><td>2. Juni</td><td>Tag der Republik</td></tr><tr><td>15. August</td><td>Ferragosto (Mariä Himmelfahrt)</td></tr><tr><td>1. November</td><td>Allerheiligen</td></tr><tr><td>8. Dezember</td><td>Mariä Empfängnis</td></tr><tr><td>25.–26. Dezember</td><td>Weihnachten & Stephanstag</td></tr></table><small class="nota-fest">An nationalen Feiertagen fällt der Unterricht in der Regel aus und wird nicht nachgeholt: bei nur einer Woche besser meiden.</small>
       </div>
       <div class="pannello guida" style="margin-top:18px"><h2>Nicht verpassen in Firenze</h2>
         <ol><li><div><b>Galleria degli Uffizi</b><small>Botticelli, Leonardo und die Renaissance in einem einzigen Gebäude, im 16. Jahrhundert als Sitz der großherzoglichen Amtsstuben errichtet — daher der Name. Immer vorher buchen.</small></div></li><li><div><b>Cupola del Brunelleschi e Duomo</b><small>Der Aufstieg zwischen den beiden Schalen ist eine Lektion in Ingenieurskunst des 15. Jahrhunderts: Brunelleschi baute sie ohne Lehrgerüst, mit über vier Millionen im Fischgrätmuster gesetzten Ziegeln.</small></div></li><li><div><b>Oltrarno e Ponte Vecchio</b><small>Handwerksbetriebe, San Frediano und Sonnenuntergang vom Piazzale Michelangelo. Über der Brücke verläuft der Vasarikorridor, der Privatgang, den die Medici nutzten, um nicht durch die Straßen zu müssen.</small></div></li></ol>
-        <div class="aero">✈ Empfohlener Flughafen: Firenze (FLR) oder Pisa (PSA)</div>
+        <div class="aero"><svg class="ico-aereo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.2 12.5 3 10.3l1.6-1.6 3.4.5 3-3-7-3.4L6 1l9.4 2.6 3-3a2 2 0 1 1 2.8 2.8l-3 3L21 16l-1.8 1.2-3.4-7-3 3 .5 3.4L11.7 18z"/></svg>Empfohlener Flughafen: Firenze (FLR) oder Pisa (PSA)</div>
         <p class="evseo">Italienischkurs in Firenze planen: Anreise über Firenze (FLR) oder Pisa (PSA), den Kurs 2–3 Wochen im Voraus buchen (in der Hochsaison, Juni–September, füllen sich die Klassen schneller) und die Studienwoche nach Möglichkeit auf eines der Events oben legen — Italienisch auf einem Stadtfest zu sprechen ist eine Woche Unterricht wert.</p>
       </div>
       <div class="pannello meteo-card" id="meteo" data-lat="43.77" data-lon="11.25" style="margin-top:18px"><h2>Das Wetter jetzt</h2><div class="meteo-riga" id="meteo-riga"></div></div>
@@ -376,9 +371,9 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
           <div class="nascosto"><label>Sito web<input type="text" name="sito_web" tabindex="-1" autocomplete="off"></label></div>
           
           <div class="esito" id="esito"></div>
-        </div><div class="mail-piede"><button class="bottone pieno" type="submit">Senden</button><span class="mail-nota">Wir helfen dir, die richtige Schule zu finden.</span></div></form></div>
+        </div><div class="mail-multi"><label><input type="checkbox" id="multi-citta"><div><b>Dieselbe Nachricht auch an die anderen 23 Schulen in Firenze senden</b><small>Mehrere Antworten erhalten und Preise und Termine vergleichen, ohne alles neu zu schreiben.</small></div></label></div><div class="mail-piede"><button class="bottone pieno" type="submit">Senden</button><span class="mail-nota">Wir helfen dir, die richtige Schule zu finden.</span></div></form></div>
       <div class="pannello altre" style="margin-top:18px"><h2>Weitere Schulen in Firenze</h2><a href="scuola-leonardo-da-vinci-firenze.html">Scuola Leonardo da Vinci Firenze</a><a href="abc-firenze.html">ABC Firenze</a><a href="centro-fiorenza.html">Centro Fiorenza</a><a href="istituto-michelangelo.html">Istituto Michelangelo</a><a href="europass-italian-language-school.html">Europass Italian Language School</a><a href="linguaviva.html">Linguaviva</a></div>
-      <div class="pannello" style="margin-top:18px"><h2>Events im Jahr</h2><p class="eventi-intro">Die großen Feste, Food-Märkte und Kultursaisons der Stadt übers Jahr. Das ist nicht nur Unterhaltung: Es ist das beste Training für dein Italienisch. Auf einem Stadtfest bestellst du, fragst nach dem Weg, plauderst mit Einheimischen — die echte Sprache, die in keinem Buch steht. Wenn möglich, lege eine Kurswoche auf so ein Event.</p><table class="eventi-tab"><tr><td><b>Scoppio del Carro</b><br><span class="badge-ev">✓ Kurse in dieser Zeit</span></td><td>Ostern</td></tr><tr><td><b>Maggio Musicale Fiorentino</b><br><span class="badge-ev">✓ Kurse in dieser Zeit</span></td><td>April–Juni</td></tr><tr><td><b>Pitti Uomo</b><br><span class="badge-ev">✓ Kurse in dieser Zeit</span></td><td>Januar und Juni</td></tr><tr><td><b>Firenze Rocks</b><br><span class="badge-ev">✓ Kurse in dieser Zeit</span></td><td>Juni</td></tr><tr><td><b>Festa della Rificolona</b><br><span class="badge-ev">✓ Kurse in dieser Zeit</span></td><td>7 September</td></tr></table></div>
+      <div class="pannello" style="margin-top:18px"><h2>Events im Jahr</h2><p class="eventi-intro">Die großen Feste, Food-Märkte und Kultursaisons der Stadt übers Jahr. Das ist nicht nur Unterhaltung: Es ist das beste Training für dein Italienisch. Auf einem Stadtfest bestellst du, fragst nach dem Weg, plauderst mit Einheimischen — die echte Sprache, die in keinem Buch steht. Wenn möglich, lege eine Kurswoche auf so ein Event.</p><table class="eventi-tab"><tr><td><b>Scoppio del Carro</b><div class="ev-desc">Am Ostersonntag explodiert auf der Piazza del Duomo ein jahrhundertealter Wagen in einem Feuerwerk, entzündet von einer mechanischen Taube. Reinste florentinische Tradition: ideal für den Wortschatz rund um Feste und Bräuche.</div></td><td>Ostern</td></tr><tr><td><b>Maggio Musicale Fiorentino</b><div class="ev-desc">Eines der ältesten Musikfestivals Europas bringt wochenlang Oper und Konzerte in die Stadt. Wer in Florenz lernt, verbindet hier Sprache und Hochkultur samt Wortschatz aus Musik und Theater.</div></td><td>April–Juni</td></tr><tr><td><b>Pitti Uomo</b><div class="ev-desc">Zweimal im Jahr wird Florenz zur Welthauptstadt der Herrenmode. Die Straßen füllen sich mit Fachleuten: nützlich für Modevokabular und für das Italienisch von Business und Stil.</div></td><td>Januar und Juni</td></tr><tr><td><b>Firenze Rocks</b><div class="ev-desc">Im Juni bringt Italiens größtes Rockfestival internationale Stars in den Cascine-Park. Junges, lockeres Publikum: ideal für Umgangssprache, Konzertslang und Kontakte zu Gleichaltrigen.</div></td><td>Juni</td></tr><tr><td><b>Festa della Rificolona</b><div class="ev-desc">Am 7. September ziehen Kinder mit beleuchteten Papierlaternen durch die Stadt. Ein poetisches Volksfest, perfekt für Traditionsvokabular und für das authentische Florenz abseits der Touristenpfade.</div></td><td>7 September</td></tr></table></div>
       <div class="faq pannello" style="margin-top:18px"><h2 class="colh2">Häufige Fragen</h2><details><summary>Wann beginnen die Italienischkurse bei Centro Machiavelli?</summary><div>Die Kurse starten jeden Montag. Absolute Anfänger: feste Starttermine, meist alle 2 Wochen. Den nächsten Termin immer über das Formular auf dieser Seite bestätigen.</div></details><details><summary>Wie viele Unterrichtsstunden pro Woche hat der Kurs?</summary><div>Der Intensivkurs umfasst rund 20 Wochenstunden; das leichtere Format rund 10 Stunden — ideal, wenn du Zeit für die Stadt willst.</div></details><details><summary>Was kostet ein Italienischkurs in Firenze?</summary><div>Der Intensivkurs beginnt ab €320 pro Woche. Für ein genaues Angebot nutze das Formular auf dieser Seite.</div></details><details><summary>Hilft die Schule bei der Unterkunft?</summary><div>Ja: Centro Machiavelli bietet einen Unterkunftsservice (kostenlos). Frag nach Verfügbarkeit und Preisen zusammen mit den Kursterminen.</div></details><details><summary>Kann ich eine offizielle Prüfung (CILS, CELI, PLIDA) vorbereiten oder ablegen?</summary><div>Frag die Schule nach CILS, CELI oder PLIDA: viele bereiten auf die Prüfung vor und nennen dir das nächstgelegene Prüfungszentrum.</div></details><details><summary>Wie komme ich nach Firenze?</summary><div>Der empfohlene Flughafen ist Firenze (FLR) oder Pisa (PSA); von dort per Zug oder Bus nach Firenze. Die Orientierungspunkte findest du im Stadtguide oben.</div></details><details><summary>Gut zu wissen vor der Anmeldung</summary><div>Eine Lektion dauert 55 Minuten und die Klassen haben maximal 10 Teilnehmer, so sprichst du vom ersten Tag an viel. Am ersten Tag machst du einen Einstufungstest für die richtige Gruppe. Bring einen Ausweis mit und, falls vorhanden, ein früheres Niveauzertifikat. Buche im Sommer einige Wochen im Voraus, wenn die Kurse voll werden.</div></details></div>
     </div>
   </div>
@@ -397,7 +392,7 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
 (function(){
 var form=document.getElementById("modulo"),esito=document.getElementById("esito");
 form.addEventListener("submit",function(ev){ev.preventDefault();
- var d={scuola_id:"centro-machiavelli",lingua:"de",pagina:"https://thuisitaliaans.com/scuole/de/centro-machiavelli.html",
+ var multi=document.getElementById("multi-citta");var altre=["scuola-leonardo-da-vinci-firenze", "abc-firenze", "centro-fiorenza", "istituto-michelangelo", "europass-italian-language-school", "linguaviva", "accademia-del-giglio", "scuola-toscana", "istituto-il-david", "parola-italian-language-school", "istituto-lorenzo-de-medici-firenze", "centro-lingua-italiana-calvino", "istituto-galilei", "sprachcaffe-firenze", "istituto-europeo", "centro-ponte-vecchio", "accademia-europea-di-firenze", "centro-koine-firenze", "accademia-riaci", "inflorence-academy", "centro-italiano-firenze", "italianme", "influent"];var d={scuola_id:"centro-machiavelli",altre_scuole:(multi&&multi.checked)?altre:[],citta:"Firenze",lingua:"de",pagina:"https://thuisitaliaans.com/scuole/de/centro-machiavelli.html",
   nome:form.nome.value,email:form.email.value,messaggio:form.messaggio.value,sito_web:form.sito_web.value};
  var btn=form.querySelector("button");btn.disabled=true;
  fetch("/scuole/api/contatto",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)})

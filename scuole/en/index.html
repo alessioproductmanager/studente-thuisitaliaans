@@ -253,37 +253,18 @@ form textarea{min-height:110px;resize:vertical}.nascosto{position:absolute;left:
 .citta-altre a span{color:var(--terracotta);font-weight:600}/*fix-card-mobile-v1*/
 .scheda,.pannello,.citta-scuola,.app-promo,.meta,.dati,.dativ2,.colonne,.griglia,.citta-scuole{min-width:0}
 .scheda>*,.pannello>*,.citta-scuola>*,.meta>*,.dati>*,.dativ2>*{min-width:0}
-.scheda,.pannello,.citta-scuola,.meta,.dati,.dativ2,.meta b,.dati b,.riga-dato .etich,.riga-dato .val,.hl-chip span,.tematici,.descr,.altre a,.citta-scuola .meta2,.tag{overflow-wrap:break-word;word-break:break-word}
-.scheda a[href^="mailto:"],.pannello a[href^="mailto:"],.riga-dato .val a,.scheda a[href^="http"]{word-break:break-all}
-@media(max-width:640px){
-.meta{grid-template-columns:1fr;gap:5px 0}
-.meta>div,.meta>span,.meta>p{display:block}
-.badge{white-space:normal}
-.pross,.pross-b{white-space:normal}
-.scheda{overflow:visible}
-}
-@media(max-width:400px){
-.dativ2{grid-template-columns:1fr}
-}
 /*fix-overflow-v2*/
 .colonne{grid-template-columns:minmax(0,1.2fr) minmax(0,.9fr)}
 .colonne>*,.griglia>*,.citta-scuole>*,.meta>*,.dati>*,.dativ2>*,.barra>*{min-width:0}
 @media(max-width:820px){.colonne{grid-template-columns:minmax(0,1fr)}}
 .pannello table,.sigle-tab,.festivi-tab,.eventi-tab{table-layout:fixed;width:100%;max-width:100%}
-.pannello td,.pannello th{overflow-wrap:anywhere;word-break:break-word}
-.scheda,.pannello,.citta-scuola,.meta,.dati,.dativ2,.riga-dato .etich,.riga-dato .val,
-.hl-chip span,.tematici,.descr,.altre a,.citta-scuola .meta2,.tag,.ev-desc,.guida small,.guida b{
-overflow-wrap:anywhere;word-break:break-word}
-.scheda a[href^="mailto:"],.pannello a[href^="mailto:"],.riga-dato .val a{word-break:break-all}
 .meteo-riga{min-width:0;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
 .meteo-card,.meteo-card>*{min-width:0;max-width:100%}
 @media(max-width:640px){
 .meta{grid-template-columns:minmax(0,1fr);gap:5px 0}
 .dati{grid-template-columns:minmax(0,1fr)}
-.badge,.pross,.pross-b{white-space:normal}
 .scheda{overflow:visible}
 .eventi-tab td:first-child{width:auto}
-.eventi-tab td:last-child{width:86px;white-space:normal;text-align:right}
 }
 @media(max-width:400px){.dativ2{grid-template-columns:minmax(0,1fr)}}
 .pannello.contatto{padding:0;overflow:hidden}
@@ -304,40 +285,54 @@ overflow-wrap:anywhere;word-break:break-word}
 .mail-corpo .esito{margin:0 0 12px}
 .mail-piede{display:flex;align-items:center;gap:12px;padding:12px 16px;border-top:1px solid var(--linea);background:#FBF7F0;min-width:0}
 .mail-piede .bottone{border-radius:999px;padding:10px 24px;flex:0 0 auto}
-.mail-nota{font-size:11.5px;color:var(--secondario);line-height:1.4;min-width:0;overflow-wrap:anywhere}
+.mail-nota{font-size:11.5px;color:var(--secondario);line-height:1.4;min-width:0;overflow-wrap:break-word}
 @media(max-width:400px){
 .mail-piede{flex-direction:column;align-items:stretch;gap:9px}
 .mail-piede .bottone{width:100%}
 .mail-nota{text-align:center}
 }
 /*fix-testi-v3*/
-/* anywhere spezza le parole a meta' perche' porta il min-content a 1 carattere.
-   Serve solo dove un singolo token non ci sta davvero (link, email, testi lunghi).
-   Per le etichette basta break-word, che tiene le parole intere. */
 .scheda,.pannello,.citta-scuola,.meta,.dati,.dativ2,.riga-dato .etich,
 .hl-chip span,.tematici,.descr,.altre a,.citta-scuola .meta2,.tag,.guida b,.guida small,
 .badge,.dove,.eyebrow,.crumb,.mail-nota,.mail-testata h2,label,
 .sigle-tab td:first-child,.festivi-tab td:first-child,.eventi-tab td:last-child,
-.eventi-tab td b,h1,h2,h3{
-overflow-wrap:break-word;word-break:normal;hyphens:none}
+.eventi-tab td b,h1,h2,h3{overflow-wrap:break-word;word-break:normal;hyphens:none}
 .ev-desc,.riga-dato .val,.sigle-tab td:last-child,.festivi-tab td:last-child{overflow-wrap:anywhere}
 .scheda a[href^="mailto:"],.pannello a[href^="mailto:"],.riga-dato .val a,
 .scheda a[href^="http"],.pannello a[href^="http"]{word-break:break-all}
-
-/* colonne troppo strette: le date e i periodi finivano spezzati */
 @media(max-width:640px){
 .festivi-tab td:first-child{width:108px!important;font-size:11.5px}
 .sigle-tab td:first-child{width:94px!important}
-.eventi-tab td:last-child{width:104px;font-size:11.5px}
+.eventi-tab td:last-child{width:104px;font-size:11.5px;white-space:normal;text-align:right}
+.badge,.pross,.pross-b{white-space:normal}
 }
 @media(max-width:360px){
 .festivi-tab td:first-child{width:96px!important}
 .eventi-tab td:last-child{width:92px}
 }
-
-/* riga del footer da bordo a bordo, come quella sopra */
 footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width:100%}
-/*link-mappa*/.chip-mappa{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--terracotta);background:var(--card);color:var(--terracotta);border-radius:999px;padding:7px 15px;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap}.chip-mappa:hover{background:var(--terracotta);color:#fff}.chip-mappa svg{width:14px;height:14px;flex:0 0 14px}</style>
+.ico-aereo{width:14px;height:14px;flex:0 0 14px;vertical-align:-2px;margin-right:6px;color:var(--terracotta)}
+.ico-tag{width:13px;height:13px;flex:0 0 13px;vertical-align:-2px;margin-right:5px;color:var(--secondario)}
+.ico-ok{width:12px;height:12px;flex:0 0 12px}
+.tag{display:inline-flex;align-items:center}
+.gp{margin-top:18px}
+.gp h2{margin-bottom:6px}
+.gp-intro{font-size:14px;color:var(--secondario);line-height:1.6;margin-bottom:4px}
+.gp-voce{padding:14px 0;border-bottom:1px dashed var(--linea);min-width:0}
+.gp-voce:last-child{border-bottom:0;padding-bottom:0}
+.gp-voce b{display:block;font-family:var(--serif);font-size:16px;font-weight:600;color:var(--inchiostro);margin-bottom:4px;overflow-wrap:break-word}
+.gp-voce p{font-size:14px;line-height:1.62;color:var(--secondario);overflow-wrap:break-word}
+.gp-citta{background:linear-gradient(135deg,#FBF7F0,#F3E9DD)}
+.mail-multi{display:flex;gap:10px;align-items:flex-start;padding:12px 16px;border-top:1px solid var(--linea);background:#FBF7F0;min-width:0}
+.mail-multi input{flex:0 0 18px;width:18px;height:18px;margin-top:1px;accent-color:var(--terracotta)}
+.mail-multi div{min-width:0}
+.mail-multi b{display:block;font-size:13.5px;font-weight:600;color:var(--inchiostro);line-height:1.35;overflow-wrap:break-word}
+.mail-multi small{display:block;margin-top:3px;font-size:11.5px;color:var(--secondario);line-height:1.4}
+.mail-multi label{cursor:pointer;display:contents}
+.chip-mappa{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--terracotta);background:var(--card);color:var(--terracotta);border-radius:999px;padding:7px 15px;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap}
+.chip-mappa:hover{background:var(--terracotta);color:#fff}
+.chip-mappa svg{width:14px;height:14px;flex:0 0 14px}
+</style>
 </head>
 <body>
 <header><div class="contenitore testata">
@@ -408,12 +403,12 @@ function filtra(){var reg=selCitta.value,mese=selMese.value,tema=selTema.value;
   return true;});}
 function card(s){
  var i=null,l=null;s.corsi.forEach(function(c){if(c.tipo==="intensivo")i=c;if(c.tipo==="leggero")l=c;});
- var timbro=fresca(s)?'<div class="timbro ok">✓ '+T.verif+' '+(s.verificato_il||"—")+'</div>'
+ var timbro=fresca(s)?'<div class="timbro ok"><svg class="ico-ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 12.5 9.5 18 20 6.5"/></svg>'+T.verif+' '+(s.verificato_il||"—")+'</div>'
    :'<div class="timbro attenzione">◌ '+T.daconf+'</div>';
  var badges=s.accreditamenti.map(function(a){return '<span class="badge" title="'+(T.gloss[a]||a)+'">'+(T.icone[a]||"")+a+'</span>'}).join("");
  (s.esami_in_sede||[]).forEach(function(x){if(s.accreditamenti.indexOf(x)<0)badges+='<span class="badge esame" title="'+(T.gloss[x]||x)+'">'+(T.icone[x]||"")+x+'</span>';});
  var tags="";
- if(MARE.indexOf(s.citta)>=0)tags+='<span class="tag">🌊 '+T.mare_tag+'</span>';
+ if(MARE.indexOf(s.citta)>=0)tags+='<span class="tag"><svg class="ico-tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 15c2 0 2-1.6 4-1.6S8 15 10 15s2-1.6 4-1.6 2 1.6 4 1.6 2-1.6 4-1.6"/><path d="M2 19c2 0 2-1.6 4-1.6S8 19 10 19s2-1.6 4-1.6 2 1.6 4 1.6 2-1.6 4-1.6"/><path d="M6 10.5V7a3 3 0 0 1 6 0v3.5M14 10V6a3 3 0 0 1 4-2.8"/></svg>'+T.mare_tag+'</span>';
  if(s.info&&s.info.max_studenti_classe)tags+='<span class="tag">'+T.maxp+' '+s.info.max_studenti_classe+' '+T.percl+'</span>';
  (s.extra||[]).slice(0,3).forEach(function(x){tags+='<span class="tag">'+(T.extras[x]||x)+'</span>';});
  var ci=DATI.citta[s.citta];
