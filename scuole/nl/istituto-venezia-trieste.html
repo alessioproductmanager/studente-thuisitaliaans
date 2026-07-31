@@ -235,6 +235,51 @@ form textarea{min-height:110px;resize:vertical}.nascosto{position:absolute;left:
 @media(max-width:400px){
 .dativ2{grid-template-columns:1fr}
 }
+/*fix-overflow-v2*/
+.colonne{grid-template-columns:minmax(0,1.2fr) minmax(0,.9fr)}
+.colonne>*,.griglia>*,.citta-scuole>*,.meta>*,.dati>*,.dativ2>*,.barra>*{min-width:0}
+@media(max-width:820px){.colonne{grid-template-columns:minmax(0,1fr)}}
+.pannello table,.sigle-tab,.festivi-tab,.eventi-tab{table-layout:fixed;width:100%;max-width:100%}
+.pannello td,.pannello th{overflow-wrap:anywhere;word-break:break-word}
+.scheda,.pannello,.citta-scuola,.meta,.dati,.dativ2,.riga-dato .etich,.riga-dato .val,
+.hl-chip span,.tematici,.descr,.altre a,.citta-scuola .meta2,.tag,.ev-desc,.guida small,.guida b{
+overflow-wrap:anywhere;word-break:break-word}
+.scheda a[href^="mailto:"],.pannello a[href^="mailto:"],.riga-dato .val a{word-break:break-all}
+.meteo-riga{min-width:0;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.meteo-card,.meteo-card>*{min-width:0;max-width:100%}
+@media(max-width:640px){
+.meta{grid-template-columns:minmax(0,1fr);gap:5px 0}
+.dati{grid-template-columns:minmax(0,1fr)}
+.badge,.pross,.pross-b{white-space:normal}
+.scheda{overflow:visible}
+.eventi-tab td:first-child{width:auto}
+.eventi-tab td:last-child{width:86px;white-space:normal;text-align:right}
+}
+@media(max-width:400px){.dativ2{grid-template-columns:minmax(0,1fr)}}
+.pannello.contatto{padding:0;overflow:hidden}
+.mail-testata{display:flex;align-items:center;gap:9px;background:#F2ECE1;border-bottom:1px solid var(--linea);padding:11px 16px}
+.mail-testata h2{font-family:var(--sans);font-size:13.5px;font-weight:700;margin:0;flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mail-pallini{display:flex;gap:6px;flex:0 0 auto}
+.mail-pallini i{width:10px;height:10px;border-radius:50%;display:block}
+.mail-pallini i:nth-child(1){background:#E4A79A}
+.mail-pallini i:nth-child(2){background:#E8CE96}
+.mail-pallini i:nth-child(3){background:#A9C3A0}
+.mail-corpo{padding:0 16px}
+.mail-corpo .riga{margin:0;border-bottom:1px solid var(--linea)}
+.mail-corpo .riga.ultima{border-bottom:0}
+.mail-corpo label{font-size:12px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--secondario);margin:0;padding-top:11px;display:block}
+.mail-corpo input,.mail-corpo textarea{border:0!important;box-shadow:none!important;background:transparent!important;padding:3px 0 11px!important;border-radius:0!important;font-size:15px;width:100%;min-width:0}
+.mail-corpo input:focus,.mail-corpo textarea:focus{border:0!important;box-shadow:none!important;outline:none}
+.mail-corpo textarea{min-height:120px;padding-top:7px!important;resize:vertical}
+.mail-corpo .esito{margin:0 0 12px}
+.mail-piede{display:flex;align-items:center;gap:12px;padding:12px 16px;border-top:1px solid var(--linea);background:#FBF7F0;min-width:0}
+.mail-piede .bottone{border-radius:999px;padding:10px 24px;flex:0 0 auto}
+.mail-nota{font-size:11.5px;color:var(--secondario);line-height:1.4;min-width:0;overflow-wrap:anywhere}
+@media(max-width:400px){
+.mail-piede{flex-direction:column;align-items:stretch;gap:9px}
+.mail-piede .bottone{width:100%}
+.mail-nota{text-align:center}
+}
 </style>
 </head>
 <body>
@@ -297,17 +342,14 @@ form textarea{min-height:110px;resize:vertical}.nascosto{position:absolute;left:
     <div class="ripiano"></div>
   </div>
 </div>
-      <div class="pannello"><h2>Schrijf naar de school</h2>
-        
-        <form id="modulo">
+      <div class="pannello contatto"><div class="mail-testata"><span class="mail-pallini" aria-hidden="true"><i></i><i></i><i></i></span><h2>Schrijf naar de school</h2></div><form id="modulo"><div class="mail-corpo">
           <div class="riga"><label>Je naam</label><input type="text" name="nome" required maxlength="80"></div>
           <div class="riga"><label>Je e-mail</label><input type="email" name="email" required maxlength="120"></div>
-          <div class="riga"><label>Je bericht</label><textarea name="messaggio" required minlength="10" maxlength="3000"></textarea></div>
+          <div class="riga ultima"><label>Je bericht</label><textarea name="messaggio" required minlength="10" maxlength="3000"></textarea></div>
           <div class="nascosto"><label>Sito web<input type="text" name="sito_web" tabindex="-1" autocomplete="off"></label></div>
-          <button class="bottone pieno" type="submit" style="width:100%">Versturen</button>
+          
           <div class="esito" id="esito"></div>
-        </form>
-      </div>
+        </div><div class="mail-piede"><button class="bottone pieno" type="submit">Versturen</button><span class="mail-nota">De school antwoordt rechtstreeks op je e-mail.</span></div></form></div>
       <div class="pannello altre" style="margin-top:18px"><h2>Meer scholen in Trieste</h2><a href="piccola-universita-italiana-trieste.html">Piccola Università Italiana Trieste</a></div>
       <div class="pannello" style="margin-top:18px"><h2>Evenementen dit jaar</h2><p class="eventi-intro">De grote feesten, food-markten en culturele seizoenen van de stad door het jaar heen. Het is niet zomaar vermaak: het is de beste oefenplek voor je Italiaans. Op een stadsfeest ga je bestellen, de weg vragen, kletsen met locals — de echte taal, die je niet uit boeken leert. Laat als het kan een cursusweek samenvallen met zo'n evenement.</p><table class="eventi-tab"><tr><td><b>Barcolana</b><br><span class="badge-ev">✓ cursus in deze periode</span></td><td>oktober</td></tr><tr><td><b>Trieste Film Festival</b><br><span class="badge-ev">✓ cursus in deze periode</span></td><td>januari</td></tr><tr><td><b>Bloomsday</b><br><span class="badge-ev">✓ cursus in deze periode</span></td><td>16 juni</td></tr></table></div>
       <div class="faq pannello" style="margin-top:18px"><h2 class="colh2">Veelgestelde vragen</h2><details><summary>Wanneer beginnen de cursussen Italiaans bij Istituto Venezia Trieste?</summary><div>De cursussen starten elke maandag. Absolute beginners: vaste startdata, meestal om de 2 weken. Bevestig de eerstvolgende datum altijd via het formulier op deze pagina.</div></details><details><summary>Hoeveel lesuren per week telt de cursus?</summary><div>De intensieve cursus telt ongeveer 20 uur per week; de lichtere formule ongeveer 10 uur, ideaal als je tijd wilt om de stad te beleven.</div></details><details><summary>Wat kost een cursus Italiaans in Trieste?</summary><div>Ter indicatie: een intensieve groepscursus in Italië kost €200–300 per week. Vraag de exacte prijs aan de school via het formulier op deze pagina — je krijgt antwoord op je e-mail.</div></details><details><summary>Helpt de school bij het vinden van accommodatie?</summary><div>Ja: Istituto Venezia Trieste biedt hulp bij accommodatie (gratis). Vraag naar beschikbaarheid en prijzen samen met de cursusdata.</div></details><details><summary>Kan ik een officieel examen (CILS, CELI, PLIDA) voorbereiden of afleggen?</summary><div>Vraag de school naar CILS, CELI of PLIDA: veel scholen bereiden je voor en wijzen je het dichtstbijzijnde examencentrum.</div></details><details><summary>Hoe kom ik in Trieste?</summary><div>De beste luchthaven is Trieste (TRS) of Venezia (VCE); vandaar neem je trein of bus naar Trieste. Zie de stadsgids hierboven voor de oriëntatiepunten.</div></details><details><summary>Handig om te weten voordat je je inschrijft</summary><div>Een les duurt 45 minuten en klassen hebben maximaal 12 studenten, dus je spreekt veel vanaf dag één. Op de eerste dag doe je een niveautest om in de juiste groep te komen. Neem een identiteitsbewijs mee en, indien beschikbaar, een eerder niveaucertificaat. Boek in de zomer een paar weken van tevoren, want de klassen raken vol.</div></details></div>
