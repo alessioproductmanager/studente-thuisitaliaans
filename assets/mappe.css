@@ -95,3 +95,9 @@
   font-size:13.5px;line-height:1.55;color:var(--secondario);
 }
 .visto-ue b{color:var(--inchiostro);display:block;margin-bottom:2px;font-size:13px}
+
+/* il timbro di verifica accanto al nome della scuola */
+.titolo-riga{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:2px}
+.titolo-riga h1{margin:0}
+.titolo-riga .timbro{margin:0;flex:0 0 auto}
+@media(max-width:520px){.titolo-riga{gap:8px}}
