@@ -2124,15 +2124,10 @@
 
       buttons.forEach(function(b){ b.addEventListener('click', function(){ render(b.dataset.lang); }); });
 
-      var initial = 'it';
-      try {
-        var saved = null;
-        if(saved && data[saved]) initial = saved;
-      } catch(e){}
-      if(!localStorage.getItem('ti-lang')){
-        var browserLang = (navigator.language || 'it').slice(0, 2).toLowerCase();
-        if(data[browserLang]) initial = browserLang;
-      }
+      // la lingua della pagina vince sempre: l'indirizzo dice qual e',
+      // e i motori di ricerca devono vedere quella
+      var initial = (document.documentElement.lang || 'it').slice(0, 2).toLowerCase();
+      if (!data[initial]) initial = 'it';
       render(initial);
     })();
     </script>
