@@ -660,6 +660,22 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
 .pz-esito.ok{background:#eef5ec;color:#2f5d3a}
 .pz-esito.err{background:#fbeeea;color:#8d3a22}
 @media(min-width:521px){.pz-chiedi button{flex:0 0 auto}}
+/*shot-css-v1*/
+.monitor-schermo .live-wrap{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;
+  overscroll-behavior:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.monitor-schermo .live-wrap::-webkit-scrollbar{width:0;height:0}
+.monitor-schermo .live-inner{position:static!important;transform:none!important}
+.monitor-schermo .live-inner:empty{display:none}
+.live-shot{width:100%;height:auto;display:block;background:#141210}
+@media (max-width:820px){
+  .scena-desk,.scena,.monitor,.monitor-schermo,.live-wrap,.live-inner{
+    display:block!important;width:auto!important;height:auto!important;
+    max-width:100%!important}
+  .monitor-schermo{overflow:hidden!important}
+  .live-wrap{overflow-y:auto!important}
+  .monitor{transform:none!important;
+    filter:drop-shadow(6px 10px 14px rgba(34,29,22,.25))}
+}
 </style>
 <link rel="stylesheet" href="/assets/cartoline.css">
 <script src="/assets/cartoline.js" defer></script>
@@ -934,4 +950,5 @@ document.addEventListener("click",function(){document.querySelectorAll(".badge.m
   form.setAttribute("data-spostato","forma-mobile-v1");
 })();
 </script>
+<script src="/js/monitor.js" defer></script>
 </body></html>

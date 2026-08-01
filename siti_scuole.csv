@@ -1,0 +1,109 @@
+scuola,sito,stato,certificato,iframe,tracker
+a-door-to-italy,https://www.adoortoitaly.com,irraggiungibile,_ssl.c:1064: The handshake operation timed out,,
+abc-firenze,https://abcschool.com,200,,permesso,googletagmanager+gtag
+abc-school-sestri-levante,https://www.abcschool.com,200,,permesso,googletagmanager+gtag
+accademia-del-giglio,https://adg.it,200,,permesso,googletagmanager+gtag
+accademia-europea-di-firenze,https://aefirenze.it,200,,vietato (SAMEORIGIN),googletagmanager+gtag
+accademia-italiana-salerno,https://www.accademia-italiana.it,200,,permesso,facebook.net+fbq+google-analytics+googletagmanager+gtag
+accademia-leonardo,https://www.accademialeonardo.it,200,,permesso,facebook.net+fbq+google-analytics+googletagmanager+gtag
+accademia-lingua-italiana-assisi,https://aliassisi.it,200,,permesso,google-analytics
+accademia-riaci,https://www.accademiariaci.info,200,,permesso,googletagmanager+gtag
+alce-accademia-lingue-e-culture-europee,https://www.alce.it,TLS non valido,[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: ,,
+alpha-beta-piccadilly-bolzano,https://www.alphabeta.it,200,,permesso,facebook.net+fbq+matomo
+alpha-beta-piccadilly-merano,https://www.alphabeta.it,200,,permesso,facebook.net+fbq+matomo
+arca,https://www.arca-bologna.com,202,,permesso,
+babilonia-centro-di-lingua-e-cultura-italiana,https://www.babilonia.it,202,,permesso,
+bertrand-russell,https://www.bertrand-russell.it,200,,permesso,google-analytics+googletagmanager
+ca-foscari-school-for-international-education,https://www.unive.it,200,,vietato (SAMEORIGIN),facebook.net+fbq+matomo
+caffe-italiano-club,https://www.caffeitalianoclub.net,TLS non valido,[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: ,,
+centro-culturale-giacomo-puccini,https://www.centropuccini.it,200,,vietato (SAMEORIGIN),facebook.net+fbq+googletagmanager+gtag
+centro-fiorenza-isola-d-elba,https://centrofiorenza.com,200,,permesso,
+centro-fiorenza,https://centrofiorenza.com,200,,permesso,
+centro-italiano-firenze,https://www.centroitalianofirenze.com,200,,permesso,
+centro-italiano,https://www.centroitaliano.it,403,,,
+centro-koine-firenze,https://www.koinecenter.com,200,,permesso,googletagmanager+gtag
+centro-koine-lucca,https://www.koinecenter.com,200,,permesso,googletagmanager+gtag
+centro-lingua-italiana-calvino,https://www.clicschool.it,202,,permesso,
+centro-machiavelli,https://centromachiavelli.it,200,,permesso,googletagmanager+gtag
+centro-studi-italiani,https://www.centrostudiitaliani.org,dominio inesistente,,,
+ciao-italia,https://www.ciao-italia.it,202,,permesso,
+ciaoitaly-scuola-leonardo-da-vinci-torino,https://www.scuolaleonardo.com,200,,permesso,
+clm-bell-riva-del-garda,https://www.clm-bell.it,200,,vietato (SAMEORIGIN),facebook.net+fbq+googletagmanager+gtag+matomo
+clm-bell-trento,https://www.clm-bell.it,200,,vietato (SAMEORIGIN),facebook.net+fbq+googletagmanager+gtag+matomo
+comitato-linguistico,https://www.comitatolinguistico.com,200,,permesso,google-analytics+googletagmanager+gtag
+cultura-italiana-arezzo,https://www.culturaitalianaarezzo.it,200,,permesso,facebook.net+google-analytics
+cultura-italiana-bologna,https://www.culturaitaliana.eu,200,,permesso,
+dilit-international-house,https://www.dilit.it,200,,permesso,facebook.net+fbq+googletagmanager+gtag
+easy-italian-language-art,https://easyitalianlanguage.com,200,,permesso,googletagmanager+gtag
+ellci-milano,https://www.ellci.it,200,,permesso,facebook.net+fbq+googletagmanager
+europass-italian-language-school,https://www.europassitalian.com,200,,vietato (SAMEORIGIN),doubleclick+facebook.net+fbq+google-analytics+googletagmanager+gtag+hotjar
+gaia-institute,https://www.gaia-institute.it,dominio inesistente,,,
+idea-verona,https://www.ideaverona.com,200,,permesso,
+il-centro,https://ilcentro.net,200,,permesso,googletagmanager+gtag+hotjar
+il-sasso,https://www.ilsasso.com,200,,permesso,facebook.net+fbq+googletagmanager+gtag
+il-sillabo,https://www.sillabo.it,403,,,
+inflorence-academy,https://www.inflorenceacademy.it,200,,permesso,googletagmanager+gtag
+influent,https://www.influent.it,TLS non valido,[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: ,,
+istituto-europeo,https://www.istitutoeuropeo.org,200,,permesso,googletagmanager+gtag
+istituto-galilei,https://www.galilei.it,200,,permesso,facebook.net+fbq+google-analytics+googletagmanager+gtag
+istituto-il-david,https://www.davidschool.com,200,,permesso,facebook.net+fbq+googletagmanager+gtag
+istituto-italiano,https://www.istitutoitaliano.it,200,,permesso,googletagmanager+gtag
+istituto-linguistico-mediterraneo,https://www.ilm.it,202,,permesso,
+istituto-lorenzo-de-medici-firenze,https://www.lorenzodemedici.it,irraggiungibile,[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violatio,,
+istituto-lorenzo-de-medici-roma,https://www.lorenzodemedici.it,irraggiungibile,[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violatio,,
+istituto-lorenzo-de-medici-tuscania,https://www.lorenzodemedici.it,irraggiungibile,[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violatio,,
+istituto-michelangelo,https://www.michelangelo-edu.it,200,,permesso,google-analytics+googletagmanager
+istituto-venezia-trieste,https://www.istitutovenezia.com,200,,permesso,facebook.net+google-analytics
+istituto-venezia,https://www.istitutovenezia.com,200,,permesso,facebook.net+google-analytics
+italiaidea,https://www.italiaidea.com,200,,permesso,facebook.net+fbq+googletagmanager+gtag
+italianme,https://www.italianme.it,200,,permesso,googletagmanager+gtag
+itastra-universita-di-palermo,https://www.unipa.it,200,,vietato (SAMEORIGIN),google-analytics+matomo
+kappa-language-school,https://www.kappalanguageschool.com,202,,permesso,
+l-italiano-con-noi,https://litalianoconnoi.com,200,,vietato (SAMEORIGIN),facebook.net+fbq+google-analytics+googletagmanager+gtag
+l-italiano-porticando,https://www.italianoporticando.com,200,,permesso,google-analytics+googletagmanager+gtag
+la-lingua-la-vita,https://www.lalingualavita.com,200,,permesso,
+laboling,https://www.laboling.com,200,,permesso,
+lingua-it,https://www.linguait.it,202,,permesso,
+lingua-si,https://www.linguasi.it,500,,,
+linguadue,https://www.linguaviva.it,TLS non valido,[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: ,,
+linguaviva-lignano,https://www.linguaviva.it,TLS non valido,[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: ,,
+linguaviva,https://www.linguaviva.it,TLS non valido,[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: ,,
+lucca-italian-school,https://www.luccaitalianschool.com,200,,permesso,
+madrelingua,https://madrelinguaitaliano.com,200,,permesso,googletagmanager+gtag
+omnilingua,https://www.omnilingua.net,200,,permesso,facebook.net+googletagmanager+gtag
+one-world-italiano,https://www.oneworlditaliano.com,200,,permesso,
+parola-italian-language-school,https://www.parola.it,200,,permesso,googletagmanager+gtag
+piccola-universita-italiana-trieste,https://www.piccolauniversitaitaliana.com,200,,permesso,google-analytics+googletagmanager
+piccola-universita-italiana-tropea,https://www.piccolauniversitaitaliana.com,200,,permesso,google-analytics+googletagmanager
+pintadera-centro-mediterraneo,https://www.pintadera.info,200,,permesso,
+porta-d-oriente,https://www.porta-doriente.com,200,,permesso,googletagmanager+gtag
+punto-e-virgola,https://www.puntoevirgola.eu,200,,permesso,
+reggio-lingua,https://www.reggiolingua.it,200,,permesso,google-analytics
+romanica,https://www.romanica.it,200,,vietato (sameorigin),google-analytics+googletagmanager
+saena-iulii,https://unpkg.com/leaflet@1.9.4/dist/leaflet.css,200,,permesso,
+sant-anna-institute,https://www.sorrentolingue.com,200,,permesso,google-analytics
+scudit-scuola-d-italiano,https://www.scudit.net,200,,permesso,
+scuola-d-italiano-dante-alighieri-roma,https://clidante.it,200,,permesso,googletagmanager+gtag
+scuola-dante-alighieri-campus-l-infinito,https://www.scuoladantealighieri.org,200,,permesso,googletagmanager+gtag
+scuola-leonardo-da-vinci-firenze,https://www.leonardo-florence.com,200,,permesso,facebook.net+fbq+googletagmanager+gtag
+scuola-leonardo-da-vinci-milano,https://www.leonardo-milan.com,200,,permesso,googletagmanager+gtag
+scuola-leonardo-da-vinci-roma,https://www.scuolaleonardo.com,200,,permesso,
+scuola-leonardo-da-vinci-viareggio,https://www.scuolaleonardo.com,200,,permesso,
+scuola-palazzo-malvisi-bagno-di-romagna,https://www.scuolapalazzomalvisi.com,200,,permesso,
+scuola-palazzo-malvisi-ravenna,https://www.scuolapalazzomalvisi.com,200,,permesso,
+scuola-toscana,https://www.scuola-toscana.com,200,,permesso,facebook.net+googletagmanager+gtag
+scuola-tricolore,https://www.scuolatricolore.it,dominio inesistente,,,
+scuola-virgilio,https://www.scuolavirgilio.it,TLS non valido,[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: ,,
+societa-dante-alighieri-siena,https://www.dantealighieri.com,202,,permesso,
+solemar-academy,https://solemar-academy.com,200,,vietato (SAMEORIGIN),google-analytics
+solemar-sicilia,https://www.solemarsicilia.it,dominio inesistente,,,
+sprachcaffe-firenze,https://www.sprachcaffe.com,200,,permesso,doubleclick+google-analytics+googletagmanager+gtag
+studioitalia,https://accademiastudioitalia.com,200,,permesso,
+studitalia,https://www.studitalia.com,200,,permesso,
+terramare,https://www.terramare.it,irraggiungibile,[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violatio,,
+tiberius-international,https://www.tiberius-international.com,200,,permesso,google-analytics+googletagmanager
+torre-di-babele,https://www.torredibabele.com,200,,permesso,
+trulli-italian-school,https://www.trullischool.com,200,,permesso,facebook.net+googletagmanager+gtag
+universita-per-stranieri-dante-alighieri,https://www.unistrada.it,200,,permesso,
+universita-per-stranieri-di-perugia,https://www.unistrapg.it,200,,vietato (SAMEORIGIN),googletagmanager
+universita-per-stranieri-di-siena,https://www.unistrasi.it,200,,permesso,matomo

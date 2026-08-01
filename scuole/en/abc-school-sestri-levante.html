@@ -560,6 +560,22 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
 .pz-esito.ok{background:#eef5ec;color:#2f5d3a}
 .pz-esito.err{background:#fbeeea;color:#8d3a22}
 @media(min-width:521px){.pz-chiedi button{flex:0 0 auto}}
+/*shot-css-v1*/
+.monitor-schermo .live-wrap{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;
+  overscroll-behavior:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.monitor-schermo .live-wrap::-webkit-scrollbar{width:0;height:0}
+.monitor-schermo .live-inner{position:static!important;transform:none!important}
+.monitor-schermo .live-inner:empty{display:none}
+.live-shot{width:100%;height:auto;display:block;background:#141210}
+@media (max-width:820px){
+  .scena-desk,.scena,.monitor,.monitor-schermo,.live-wrap,.live-inner{
+    display:block!important;width:auto!important;height:auto!important;
+    max-width:100%!important}
+  .monitor-schermo{overflow:hidden!important}
+  .live-wrap{overflow-y:auto!important}
+  .monitor{transform:none!important;
+    filter:drop-shadow(6px 10px 14px rgba(34,29,22,.25))}
+}
 </style>
 <link rel="stylesheet" href="/assets/cartoline.css">
 <script src="/assets/cartoline.js" defer></script>
@@ -612,7 +628,7 @@ Grazie infinite del vostro aiuto e ci vediamo presto!</pre></details><div class=
     <div>
       <div class="scena">
   <div class="scena-desk">
-    <div class="monitor"><div class="monitor-schermo"><div class="postit"><span class="postit-tape"></span>We’re out for a coffee</div><div class="live-wrap"><div class="live-inner"><iframe class="live" sandbox="allow-scripts allow-same-origin allow-forms" src="https://www.abcschool.com" loading="lazy" referrerpolicy="no-referrer" title="ABC School Sestri Levante"></iframe></div></div></div><div class="monitor-piede"></div><div class="monitor-base"></div></div>
+    <div class="monitor"><div class="monitor-schermo"><div class="postit"><span class="postit-tape"></span>We’re out for a coffee</div><div class="live-wrap"><div class="live-inner"><!--shot-v1--><img class="live-shot" onerror="this.remove()" src="https://s0.wp.com/mshots/v1/https%3A%2F%2Fwww.abcschool.com?w=1280&amp;h=3200" width="1280" height="3200" loading="lazy" decoding="async" alt="ABC School Sestri Levante"><!--/shot-v1--></div></div></div><div class="monitor-piede"></div><div class="monitor-base"></div></div>
     <svg class="moka" viewBox="0 0 80 110" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M28.5 25 L17.5 29.5 L17.5 34.5 L29.5 33.5 Z" fill="#9AA0A6"/><path d="M28.5 25 L17.5 29.5 L17.5 31.5 L29 29 Z" fill="#C6CBD0"/><path d="M54.2 27 L74 36.5 Q77.5 38.5 77.5 41.5 Q77.5 44.5 74 46.5 L61.5 52.5 L59.5 48.5 L69.5 43.4 Q71 42 69.5 40.6 L56.2 33.8 Z" fill="#211F1D"/><path d="M28 22 L33.3 22 L27.1 51.5 L17 51.5 Z" fill="#9AA0A6"/><path d="M33.3 22 L40 22 L40 51.5 L27.1 51.5 Z" fill="#D9DDE1"/><path d="M40 22 L46.7 22 L52.9 51.5 L40 51.5 Z" fill="#BFC4C9"/><path d="M46.7 22 L52 22 L63 51.5 L52.9 51.5 Z" fill="#878D94"/><path d="M27 22 h26 l-1.6 -3.6 c-8 -4.2 -14.8 -4.2 -22.8 0 z" fill="#CBD0D5"/><path d="M40 18.6 c-4.6 0 -8.4 0.6 -11.4 1.8 l-0.6 -1.4 c8 -4.2 14.8 -4.2 22.8 0 l-0.6 1.4 c-3 -1.2 -6.8 -1.8 -11.4 -1.8 z" fill="#E4E8EB"/><path d="M50.8 17.2 c1.6 0.6 2.6 1.2 3.2 1.8 l1.1 3 h-4.6 z" fill="#211F1D"/><rect x="36.6" y="10.4" width="6.8" height="4.6" rx="1.6" fill="#211F1D"/><rect x="38.6" y="14.4" width="2.8" height="4.4" fill="#211F1D"/><path d="M15 51.5 h50 v3.2 h-50 z" fill="#B4B9BF"/><path d="M15 54.7 h50 v3.4 h-50 z" fill="#8A9096"/><path d="M17 58.1 L27.1 58.1 L29.9 97 L22 97 Z" fill="#9AA0A6"/><path d="M27.1 58.1 L40 58.1 L40 97 L29.9 97 Z" fill="#D9DDE1"/><path d="M40 58.1 L52.9 58.1 L50.1 97 L40 97 Z" fill="#BFC4C9"/><path d="M52.9 58.1 L63 58.1 L58 97 L50.1 97 Z" fill="#878D94"/><path d="M21.5 97 h37 v4.4 a2 2 0 0 1 -2 2 h-33 a2 2 0 0 1 -2 -2 z" fill="#7B8188"/><path d="M21.5 97 h37 v1.6 h-37 z" fill="#A7ADB3"/></svg>
     <svg class="tazza t1" viewBox="0 0 70 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <ellipse cx="30" cy="42" rx="26" ry="5" fill="rgba(0,0,0,.12)"/>
@@ -857,4 +873,5 @@ document.addEventListener("click",function(){document.querySelectorAll(".badge.m
   form.setAttribute("data-spostato","forma-mobile-v1");
 })();
 </script>
+<script src="/js/monitor.js" defer></script>
 </body></html>
