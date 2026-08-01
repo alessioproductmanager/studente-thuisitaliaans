@@ -571,8 +571,13 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
     max-width:100%!important}
   .monitor-schermo{overflow:hidden!important}
   .live-wrap{overflow-y:auto!important}
-  .monitor{transform:none!important;
-    filter:drop-shadow(6px 10px 14px rgba(34,29,22,.25))}
+  /* miniatura: il monitor non deve rubare la scena al testo */
+  .scena-desk,.scena{margin:14px auto 18px}
+  .monitor{max-width:300px!important;margin:0 auto!important;transform:none!important;
+    filter:drop-shadow(4px 7px 10px rgba(34,29,22,.22))}
+  .monitor-piede{height:16px!important}
+  .monitor-base{height:8px!important;margin-bottom:8px!important}
+  .postit{font-size:13px}
 }
 </style>
 <link rel="stylesheet" href="/assets/cartoline.css">
