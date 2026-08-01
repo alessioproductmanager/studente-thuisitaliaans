@@ -1,0 +1,65 @@
+/* ==========================================================================
+   mappe.css — mappe delle scuole e dei luoghi
+   ========================================================================== */
+.mappa-box{margin-top:18px}
+.mappa{
+  height:min(52vh,400px);min-height:300px;width:100%;
+  border:1px solid var(--linea);border-radius:var(--r,18px);
+  box-shadow:var(--ombra);background:#EDE7DA;
+  overflow:hidden;margin-top:4px;z-index:1;
+}
+.mappa-box .leaflet-container{font-family:var(--sans);background:#EFE9DE}
+
+/* pin: stessa forma della mappa grande di /scuole/mappa.html */
+.mappa .pin,.mappa .pin-luogo{
+  border:2px solid #fff;border-radius:999px;color:#fff;
+  font:700 12px/1 var(--sans);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 6px rgba(34,29,22,.35);
+}
+.mappa .pin{background:var(--terracotta,#BC5533);width:26px;height:26px;cursor:pointer}
+.mappa .pin-luogo{background:var(--salvia,#5E7357);width:24px;height:24px;font-size:11px}
+.mappa .pin svg,.mappa .pin-luogo svg{width:13px;height:13px;display:block}
+
+/* legenda */
+.mappa-legenda{
+  display:flex;align-items:center;flex-wrap:wrap;gap:4px 14px;
+  margin-top:10px;font-size:12px;color:var(--secondario)
+}
+.mappa-legenda .lg{width:10px;height:10px;border-radius:999px;display:inline-block;margin-right:5px;flex:0 0 10px}
+
+
+.mappa-legenda .lg-s{background:var(--terracotta,#BC5533)}
+.mappa-legenda .lg-l{background:var(--salvia,#5E7357)}
+.mappa-aiuto{flex-basis:100%;font-size:11.5px;opacity:.85;margin-top:2px}
+
+/* fumetti */
+.mappa .leaflet-popup-content{margin:12px 14px;font-family:var(--sans);min-width:0;font-size:13.5px;line-height:1.5}
+.mappa .leaflet-popup-content b{font-family:var(--serif);font-size:16px;display:block;margin-bottom:2px}
+.mappa .leaflet-popup-content a{color:var(--terracotta);font-weight:600}
+.mappa .leaflet-tooltip{min-width:170px;
+  font-family:var(--sans);font-size:12.5px;line-height:1.45;max-width:240px;white-space:normal;
+  background:var(--card,#fff);border:1px solid var(--linea);color:var(--inchiostro);
+  box-shadow:0 6px 18px rgba(34,29,22,.2);border-radius:8px;padding:8px 10px
+}
+.mappa .leaflet-tooltip b{display:block;font-family:var(--serif);font-size:13.5px;margin-bottom:2px}
+
+/* come muoversi */
+.mappa-muoversi{margin-top:14px;padding-top:12px;border-top:1px dashed var(--linea)}
+.mappa-muoversi b{
+  display:block;font-size:11px;letter-spacing:.8px;text-transform:uppercase;
+  color:var(--inchiostro);margin-bottom:6px
+}
+.mappa-muoversi p{font-size:13.5px;line-height:1.6;color:var(--secondario);margin:0 0 6px}
+.mappa-muoversi p:last-child{margin-bottom:0}
+
+@media(max-width:640px){
+  .mappa{height:270px}
+}
+
+/* fumetto della scuola: nome più invito ad aprire la scheda */
+.mappa .leaflet-tooltip.tip-scuola{min-width:0;max-width:230px;border-color:var(--terracotta)}
+.mappa .leaflet-tooltip.tip-scuola b{color:var(--terracotta-scuro,#9E4527)}
+.mappa .leaflet-tooltip.tip-scuola i{
+  display:block;font-style:normal;font-size:11.5px;color:var(--secondario);margin-top:3px
+}
