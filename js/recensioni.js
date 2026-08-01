@@ -173,3 +173,46 @@
     })
     .catch(function () { /* niente rete: restano i trattini */ });
 })();
+
+/*rec-card-v1*/
+/* --- voto Google nelle card dell'indice scuole ---
+   Pezzo separato apposta: quello delle tabelle, se non trova dati, cancella
+   la colonna. Qui le card non sono celle e quella logica non si applica. */
+(function () {
+  var card = document.querySelectorAll("p.rec-card[data-rec]");
+  if (!card.length) return;
+
+  function stelle(v) {
+    var n = Math.round(v), s = "";
+    for (var i = 1; i <= 5; i++) s += (i <= n ? "\u2605" : "\u2606");
+    return s;
+  }
+  var FONTE = {"it": "Recensioni da Google, aggiornate al {a}.", "en": "Reviews from Google, updated {a}.", "nl": "Beoordelingen van Google, bijgewerkt in {a}.", "de": "Bewertungen von Google, Stand {a}.", "fr": "Avis de Google, mis à jour en {a}.", "es": "Reseñas de Google, actualizadas en {a}.", "pl": "Opinie z Google, zaktualizowane w {a}."};
+
+  fetch("/scuole/recensioni.json", { cache: "no-cache" })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (tutte) {
+      if (!tutte) return;
+      var lg = (document.documentElement.lang || "it").slice(0, 2).toLowerCase();
+      var trovate = 0, anno = 0;
+      for (var i = 0; i < card.length; i++) {
+        var d = tutte[card[i].getAttribute("data-rec")];
+        if (!d || d.voto == null) continue;
+        trovate++;
+        var y = parseInt(String(d.aggiornato || d.data || "").slice(0, 4), 10);
+        if (y && y > anno) anno = y;
+        var voto = Number(d.voto).toFixed(1).replace(".", lg === "en" ? "." : ",");
+        card[i].innerHTML =
+          '<span class="cr-voto">' + voto + '</span>' +
+          '<span class="cr-stelle" aria-hidden="true">' + stelle(d.voto) + '</span>' +
+          '<span class="cr-conta">(' + (d.conta || 0) + ')</span>';
+      }
+      var nota = document.querySelector(".rec-fonte-griglia");
+      if (nota && trovate) {
+        nota.textContent = (FONTE[lg] || FONTE.it)
+          .replace("{a}", anno || new Date().getFullYear());
+        nota.removeAttribute("hidden");
+      }
+    })
+    .catch(function () { /* niente rete: le card restano senza voto */ });
+})();
