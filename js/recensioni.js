@@ -131,3 +131,45 @@
     : scrivi();
   setTimeout(scrivi, 0);
 })();
+
+
+/* --- colonna recensioni nella tabella di confronto delle pagine città --- */
+(function () {
+  var celle = document.querySelectorAll("td[data-rec]");
+  if (!celle.length) return;
+
+  function stelle(v) {
+    var n = Math.round(v), s = "";
+    for (var i = 1; i <= 5; i++) s += (i <= n ? "\u2605" : "\u2606");
+    return s;
+  }
+
+  fetch("/scuole/recensioni.json", { cache: "no-cache" })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (tutte) {
+      if (!tutte) return;
+      var lg = (document.documentElement.lang || "it").slice(0, 2).toLowerCase();
+      var trovate = 0;
+      for (var i = 0; i < celle.length; i++) {
+        var d = tutte[celle[i].getAttribute("data-rec")];
+        if (!d || d.voto == null) continue;
+        trovate++;
+        var voto = String(d.voto).replace(".", lg === "en" ? "." : ",");
+        celle[i].innerHTML =
+          '<span class="conf-rec"><span class="cr-voto">' + voto + '</span> ' +
+          '<span class="cr-stelle" aria-hidden="true">' + stelle(d.voto) + '</span> ' +
+          '<span class="cr-conta">(' + (d.conta || 0) + ')</span></span>';
+      }
+      // se nessuna scuola ha recensioni, tolgo del tutto la colonna
+      if (!trovate) {
+        var tab = celle[0].closest("table");
+        if (tab) {
+          var n = celle[0].cellIndex;
+          tab.querySelectorAll("tr").forEach(function (tr) {
+            if (tr.cells[n]) tr.deleteCell(n);
+          });
+        }
+      }
+    })
+    .catch(function () { /* niente rete: restano i trattini */ });
+})();
