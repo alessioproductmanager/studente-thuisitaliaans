@@ -176,43 +176,67 @@
 
 /*rec-card-v1*/
 /* --- voto Google nelle card dell'indice scuole ---
-   Pezzo separato apposta: quello delle tabelle, se non trova dati, cancella
-   la colonna. Qui le card non sono celle e quella logica non si applica. */
+   Le card nascono da disegna() e vengono ricostruite a ogni filtro: percio'
+   il riempimento si riaggancia da solo quando la griglia cambia, invece di
+   girare una volta sola all'avvio. */
 (function () {
-  var card = document.querySelectorAll("p.rec-card[data-rec]");
-  if (!card.length) return;
+  var DATI = null, inCorso = false;
 
   function stelle(v) {
     var n = Math.round(v), s = "";
     for (var i = 1; i <= 5; i++) s += (i <= n ? "\u2605" : "\u2606");
     return s;
   }
-  var FONTE = {"it": "Recensioni da Google, aggiornate al {a}.", "en": "Reviews from Google, updated {a}.", "nl": "Beoordelingen van Google, bijgewerkt in {a}.", "de": "Bewertungen von Google, Stand {a}.", "fr": "Avis de Google, mis à jour en {a}.", "es": "Reseñas de Google, actualizadas en {a}.", "pl": "Opinie z Google, zaktualizowane w {a}."};
+  var FONTE = {
+    it: "Recensioni da Google, aggiornate al {a}.",
+    en: "Reviews from Google, updated {a}.",
+    nl: "Beoordelingen van Google, bijgewerkt in {a}.",
+    de: "Bewertungen von Google, Stand {a}.",
+    fr: "Avis de Google, mis \u00e0 jour en {a}.",
+    es: "Rese\u00f1as de Google, actualizadas en {a}.",
+    pl: "Opinie z Google, zaktualizowane w {a}."
+  };
+
+  function riempi() {
+    if (!DATI) return;
+    var card = document.querySelectorAll("p.rec-card[data-rec]");
+    if (!card.length) return;
+    var lg = (document.documentElement.lang || "it").slice(0, 2).toLowerCase();
+    var trovate = 0, anno = 0;
+    for (var i = 0; i < card.length; i++) {
+      if (card[i].dataset.fatto) { trovate++; continue; }
+      var d = DATI[card[i].getAttribute("data-rec")];
+      if (!d || d.voto == null) continue;
+      trovate++;
+      var y = parseInt(String(d.aggiornato || d.data || "").slice(0, 4), 10);
+      if (y && y > anno) anno = y;
+      var voto = Number(d.voto).toFixed(1).replace(".", lg === "en" ? "." : ",");
+      card[i].innerHTML =
+        '<span class="cr-voto">' + voto + '</span>' +
+        '<span class="cr-stelle" aria-hidden="true">' + stelle(d.voto) + '</span>' +
+        '<span class="cr-conta">(' + (d.conta || 0) + ')</span>';
+      card[i].dataset.fatto = "1";
+    }
+    var nota = document.querySelector(".rec-fonte-griglia");
+    if (nota && trovate) {
+      nota.textContent = (FONTE[lg] || FONTE.it)
+        .replace("{a}", anno || new Date().getFullYear());
+      nota.removeAttribute("hidden");
+    }
+  }
+
+  function guarda() {
+    var griglia = document.getElementById("griglia");
+    if (!griglia || !window.MutationObserver) return;
+    new MutationObserver(function () {
+      if (inCorso) return;
+      inCorso = true;
+      setTimeout(function () { inCorso = false; riempi(); }, 0);
+    }).observe(griglia, { childList: true, subtree: true });
+  }
 
   fetch("/scuole/recensioni.json", { cache: "no-cache" })
     .then(function (r) { return r.ok ? r.json() : null; })
-    .then(function (tutte) {
-      if (!tutte) return;
-      var lg = (document.documentElement.lang || "it").slice(0, 2).toLowerCase();
-      var trovate = 0, anno = 0;
-      for (var i = 0; i < card.length; i++) {
-        var d = tutte[card[i].getAttribute("data-rec")];
-        if (!d || d.voto == null) continue;
-        trovate++;
-        var y = parseInt(String(d.aggiornato || d.data || "").slice(0, 4), 10);
-        if (y && y > anno) anno = y;
-        var voto = Number(d.voto).toFixed(1).replace(".", lg === "en" ? "." : ",");
-        card[i].innerHTML =
-          '<span class="cr-voto">' + voto + '</span>' +
-          '<span class="cr-stelle" aria-hidden="true">' + stelle(d.voto) + '</span>' +
-          '<span class="cr-conta">(' + (d.conta || 0) + ')</span>';
-      }
-      var nota = document.querySelector(".rec-fonte-griglia");
-      if (nota && trovate) {
-        nota.textContent = (FONTE[lg] || FONTE.it)
-          .replace("{a}", anno || new Date().getFullYear());
-        nota.removeAttribute("hidden");
-      }
-    })
+    .then(function (tutte) { DATI = tutte; riempi(); guarda(); })
     .catch(function () { /* niente rete: le card restano senza voto */ });
 })();
