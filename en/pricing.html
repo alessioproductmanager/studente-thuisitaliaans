@@ -135,18 +135,18 @@
 .app-promo-stelle .eti{color:inherit;opacity:.7;font-weight:500}
 </style>
 <style>/*rec-lato-v1*/
-.rec-lato{float:right;width:320px;max-width:100%;margin:6px 0 22px 26px;
-  border:1px solid rgba(0,0,0,.10);border-radius:16px;padding:18px;
-  background:rgba(0,0,0,.02)}
-.rec-lato h3{margin:0 0 2px;font-size:17px}
-.rec-lato .rl-conta{font-size:12.5px;opacity:.65;margin:0 0 12px}
-.rec-lato .rl-uno{padding:11px 0;border-top:1px solid rgba(0,0,0,.08)}
-.rec-lato .rl-uno p{font-size:13.5px;line-height:1.5;margin:4px 0 0}
-.rec-lato .rl-chi{font-size:12.5px;font-weight:600;margin-top:6px;display:block}
-            f'<a class="rl-cta" href="{dove}">{cta} →</a>' 
-@media (max-width:820px){.rec-lato{float:none;width:100%;margin:18px 0}}
+.rec-lato{clear:both;float:none;width:100%;margin:38px 0;padding:24px 0;
+  border-top:1px solid rgba(0,0,0,.10);border-bottom:1px solid rgba(0,0,0,.10)}
+.rec-lato h3{margin:0 0 2px;font-size:19px}
+.rec-lato .rl-conta{font-size:13px;opacity:.65;margin:0 0 18px}
+.rec-lato .rl-griglia{display:grid;gap:18px;align-items:start;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.rec-lato .rl-uno{border:0;padding:0}
+.rec-lato .rl-uno p{font-size:13.5px;line-height:1.55;margin:6px 0 0}
+.rec-lato .rl-chi{font-size:12.5px;font-weight:600;margin-top:8px;display:block;opacity:.75}
+.rec-lato .rl-cta{display:inline-block;margin-top:18px;font-size:14px;font-weight:600}
+@media (max-width:640px){.rec-lato .rl-griglia{grid-template-columns:1fr}}
 </style>
-<link rel="stylesheet" href="/assets/app-banner.css">
 </head>
 <body>
     <header class="header">
@@ -190,8 +190,8 @@
         <section class="hero hero-compatto">
             <div class="container">
                 <h1>Pricing</h1>
-<!--rec-lato-v1--><aside class="rec-lato"><h3>What students say</h3><p class="rl-conta">★★★★★ · 38 reviews</p><div class="rl-uno"><span class="stars" aria-hidden="true">★★★★★</span><p>“Warmly recommended! Professional teacher who knows how to adapt the material to the student's level. Interesting and attractive in the method and way of studying. The class goes with great pleasure.”</p><span class="rl-chi">Adi 🇮🇱</span></div><div class="rl-uno"><span class="stars" aria-hidden="true">★★★★★</span><p>“Super happy with Alessio and I would definitely recommend him to teach you Italian. Fun and interactive. Not just a text book! Lessons are tailored to your needs.”</p><span class="rl-chi">Anita 🇬🇧</span></div><div class="rl-uno"><span class="stars" aria-hidden="true">★★★★★</span><p>“Enthusiastic and good teacher — listens carefully to wishes and gives very good exercises.”</p><span class="rl-chi">Albert 🇳🇱</span></div><div class="rl-uno"><span class="stars" aria-hidden="true">★★★★★</span><p>“Very pleasant and unique way of teaching, and his English is very good.”</p><span class="rl-chi">Rutger 🇳🇱</span></div><div class="rl-uno"><span class="stars" aria-hidden="true">★★★★★</span><p>“Alessio's Italian lessons have been great — very relaxed and fun with a good balance of grammar and conversation practice. Highly recommend!”</p><span class="rl-chi">Student </span></div><a class="rl-cta" href="/en/index#contact">Book a free intake →</a></aside><!--/rec-lato-v1-->
-<!--app-serv-v1--><section class="app-banner"><div class="app-scatti"><picture class="app-scatto"><source type="image/webp" srcset="/assets/store/en/02_edicola.webp"><img src="/assets/store/en/02_edicola.jpg" alt="Ti app" width="600" height="1298" loading="lazy" decoding="async"></picture><picture class="app-scatto"><source type="image/webp" srcset="/assets/store/en/04_mappa.webp"><img src="/assets/store/en/04_mappa.jpg" alt="Ti app" width="600" height="1298" loading="lazy" decoding="async"></picture><picture class="app-scatto"><source type="image/webp" srcset="/assets/store/en/10_metodo.webp"><img src="/assets/store/en/10_metodo.jpg" alt="Ti app" width="600" height="1298" loading="lazy" decoding="async"></picture></div><div class="app-banner-testo"><p class="app-stelle"><span class="app-stelle-ico" aria-hidden="true">★★★★★</span><span>iOS App Store</span><span class="app-solo-lettori"> — Five-star rating on the iOS App Store</span></p><h3>Keep going on your phone</h3><p>The <strong>Ti</strong> app: an A1–C2 path, 25 graded novels, a themed newsstand and a dictionary in 14 languages. Twenty minutes a day.</p><a class="app-banner-cta" href="/app-ti">Discover the Ti app →</a></div></section><!--/app-serv-v1-->
+
+
 
                 <p class="occhiello">I don't work with fixed packages or subscriptions.</p>
                 <a href="index#contact" class="button">Book a free intake</a>
@@ -206,7 +206,9 @@
                 <p>Because a price list implies something untrue: that a lesson is the same for everybody. An hour of conversation with an advanced learner and a 45-minute children's lesson at someone's home are not the same work. I set the rate around your situation — how often you come, whether you learn alone or as a pair, in person or online, and what you can comfortably carry.</p>
                 <h2>What shapes the rate</h2>
                 <p>Six things: frequency, group size, in person versus online, lesson length, your level and — for lessons at your place — the distance I travel. Online is lower than in person because there's no travel; learning more often costs less per lesson than occasional sessions.</p>
-                <h2>What's always included</h2>
+                
+<!--rec-lato-v1--><aside class="rec-lato"><h3>What students say</h3><p class="rl-conta">★★★★★ · 38 reviews</p><div class="rl-griglia"><div class="rl-uno"><span class="stars" aria-hidden="true">★★★★★</span><p>“Warmly recommended! Professional teacher who knows how to adapt the material to the student's level. Interesting and attractive in the method and way of studying. The class goes with great pleasure.”</p><span class="rl-chi">Adi 🇮🇱</span></div><div class="rl-uno"><span class="stars" aria-hidden="true">★★★★★</span><p>“Super happy with Alessio and I would definitely recommend him to teach you Italian. Fun and interactive. Not just a text book! Lessons are tailored to your needs.”</p><span class="rl-chi">Anita 🇬🇧</span></div><div class="rl-uno"><span class="stars" aria-hidden="true">★★★★★</span><p>“Enthusiastic and good teacher — listens carefully to wishes and gives very good exercises.”</p><span class="rl-chi">Albert 🇳🇱</span></div><div class="rl-uno"><span class="stars" aria-hidden="true">★★★★★</span><p>“Very pleasant and unique way of teaching, and his English is very good.”</p><span class="rl-chi">Rutger 🇳🇱</span></div><div class="rl-uno"><span class="stars" aria-hidden="true">★★★★★</span><p>“Alessio's Italian lessons have been great — very relaxed and fun with a good balance of grammar and conversation practice. Highly recommend!”</p><span class="rl-chi">Student </span></div></div><div class="rl-uno"><span class="stars" aria-hidden="true">★★★★★</span><p>“Very friendly and thorough knowledge to teach you the language. Learned a lot from the first lesson!”</p><span class="rl-chi">Oona 🇳🇱</span></div><a class="rl-cta" href="/en/index#contact">Book a free intake →</a></aside><!--/rec-lato-v1-->
+<h2>What's always included</h2>
                 <p>Lesson materials, a short writing task between lessons with corrections, and access to everything that's free on this site: over 700 exercises, the blog and the graded readers.</p>
 
                 <h2>Frequently asked questions</h2>
