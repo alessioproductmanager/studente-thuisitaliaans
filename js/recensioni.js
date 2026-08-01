@@ -58,7 +58,7 @@
 
     var html = '<h2>' + testo(L.titolo) + '</h2>' +
       '<div class="rec-testa">' +
-        '<span class="rec-voto">' + String(d.voto).replace(".", lg === "en" ? "." : ",") + '</span>' +
+        '<span class="rec-voto">' + Number(d.voto).toFixed(1).replace(".", lg === "en" ? "." : ",") + '</span>' +
         '<span class="rec-stelle" aria-hidden="true">' + stelle(d.voto) + '</span>' +
         '<span class="rec-conta">' + testo(L.conta.replace("{n}", d.conta || 0)) + '</span>' +
       '</div>';
@@ -154,7 +154,7 @@
         var d = tutte[celle[i].getAttribute("data-rec")];
         if (!d || d.voto == null) continue;
         trovate++;
-        var voto = String(d.voto).replace(".", lg === "en" ? "." : ",");
+        var voto = Number(d.voto).toFixed(1).replace(".", lg === "en" ? "." : ",");
         celle[i].innerHTML =
           '<span class="conf-rec"><span class="cr-voto">' + voto + '</span> ' +
           '<span class="cr-stelle" aria-hidden="true">' + stelle(d.voto) + '</span> ' +
