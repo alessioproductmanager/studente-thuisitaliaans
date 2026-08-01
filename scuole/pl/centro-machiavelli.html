@@ -647,9 +647,13 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
 <script src="/js/recensioni.js" defer></script>
 <style>/*stelle-v1*/
 :root{--stelle-giallo:#FFC400}
-.hero-rating,.sidebar-rating,.app-stelle,.app-mini-stelle{color:inherit}
-.stars,.stelle-gialle,.rec-stelle,.app-stelle-ico,.footer-review-ster,.hero-rating .stars,.hero-rating .stelle-gialle,.hero-rating .rec-stelle,.hero-rating .app-stelle-ico,.hero-rating .footer-review-ster,.sidebar-rating .stars,.sidebar-rating .stelle-gialle,.sidebar-rating .rec-stelle,.sidebar-rating .app-stelle-ico,.sidebar-rating .footer-review-ster,.app-stelle .stars,.app-stelle .stelle-gialle,.app-stelle .rec-stelle,.app-stelle .app-stelle-ico,.app-stelle .footer-review-ster,.app-mini-stelle .stars,.app-mini-stelle .stelle-gialle,.app-mini-stelle .rec-stelle,.app-mini-stelle .app-stelle-ico,.app-mini-stelle .footer-review-ster,.hero-rating > span[aria-hidden="true"],.sidebar-rating > span[aria-hidden="true"],.app-stelle > span[aria-hidden="true"],.app-mini-stelle > span[aria-hidden="true"]{color:var(--stelle-giallo)!important;letter-spacing:.04em}
+/* 1. tutto dentro i contenitori torna al colore normale */
+.hero-rating,.sidebar-rating,.app-stelle,.app-mini-stelle,.trust-grid,.app-promo-stelle,.hero-rating *,.sidebar-rating *,.app-stelle *,.app-mini-stelle *,.trust-grid *,.app-promo-stelle *{color:inherit!important}
+/* 2. solo le stelle diventano gialle: regola piu' in basso, vince */
+.stars,.stelle-gialle,.rec-stelle,.app-stelle-ico,.footer-review-ster,.hero-rating .stars,.hero-rating .stelle-gialle,.hero-rating .rec-stelle,.hero-rating .app-stelle-ico,.hero-rating .footer-review-ster,.sidebar-rating .stars,.sidebar-rating .stelle-gialle,.sidebar-rating .rec-stelle,.sidebar-rating .app-stelle-ico,.sidebar-rating .footer-review-ster,.app-stelle .stars,.app-stelle .stelle-gialle,.app-stelle .rec-stelle,.app-stelle .app-stelle-ico,.app-stelle .footer-review-ster,.app-mini-stelle .stars,.app-mini-stelle .stelle-gialle,.app-mini-stelle .rec-stelle,.app-mini-stelle .app-stelle-ico,.app-mini-stelle .footer-review-ster,.trust-grid .stars,.trust-grid .stelle-gialle,.trust-grid .rec-stelle,.trust-grid .app-stelle-ico,.trust-grid .footer-review-ster,.app-promo-stelle .stars,.app-promo-stelle .stelle-gialle,.app-promo-stelle .rec-stelle,.app-promo-stelle .app-stelle-ico,.app-promo-stelle .footer-review-ster,.hero-rating > span[aria-hidden="true"],.sidebar-rating > span[aria-hidden="true"],.app-stelle > span[aria-hidden="true"],.app-mini-stelle > span[aria-hidden="true"],.trust-grid > span[aria-hidden="true"],.app-promo-stelle > span[aria-hidden="true"]{color:var(--stelle-giallo)!important;letter-spacing:.04em}
 .stars svg,.stars path,.stars use,.stelle-gialle svg,.stelle-gialle path,.stelle-gialle use,.rec-stelle svg,.rec-stelle path,.rec-stelle use,.app-stelle-ico svg,.app-stelle-ico path,.app-stelle-ico use,.footer-review-ster svg,.footer-review-ster path,.footer-review-ster use{fill:var(--stelle-giallo)!important;stroke:none}
+.app-promo-stelle{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;font-size:13px;font-weight:600;margin:0 0 8px}
+.app-promo-stelle .eti{color:inherit;opacity:.7;font-weight:500}
 </style>
 </head>
 <body data-scuola="centro-machiavelli">
@@ -742,7 +746,8 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
 
   <section class="app-promo">
     <div class="app-testo">
-      <h2>Nie możesz jeszcze wyjechać? Zacznij w domu.</h2>
+      <!--stelle-promo-v1--><p class="app-promo-stelle"><span aria-hidden="true">★★★★★</span><span class="eti">iOS App Store</span></p>
+<h2>Nie możesz jeszcze wyjechać? Zacznij w domu.</h2>
       <p>Z aplikacją <b>ti</b> uczysz się włoskiego, czytając stopniowane opowiadania, z 14 językami pomocniczymi, ćwiczeniami i tłumaczeniami. Najlepszy sposób, by przyjechać do Włoch przygotowanym.</p>
       <a class="app-cta" href="https://apps.apple.com/app/id6791650799" target="_blank" rel="noopener">Zacznij naukę w domu ↗</a>
     </div>
