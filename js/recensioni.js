@@ -9,34 +9,20 @@
   var DATI = "/scuole/recensioni.json";
 
   var T = {
-    it: { conta: "su {n} recensioni Google", fonte: "Recensioni da Google, {d}.",
-          titolo: "Cosa dicono gli studenti",
-          mesi: ["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio",
-                 "agosto","settembre","ottobre","novembre","dicembre"] },
-    en: { conta: "from {n} Google reviews", fonte: "Reviews from Google, {d}.",
-          titolo: "What students say",
-          mesi: ["January","February","March","April","May","June","July",
-                 "August","September","October","November","December"] },
-    nl: { conta: "uit {n} Google-recensies", fonte: "Recensies van Google, {d}.",
-          titolo: "Wat studenten zeggen",
-          mesi: ["januari","februari","maart","april","mei","juni","juli",
-                 "augustus","september","oktober","november","december"] },
-    de: { conta: "aus {n} Google-Bewertungen", fonte: "Bewertungen von Google, {d}.",
-          titolo: "Was Studierende sagen",
-          mesi: ["Januar","Februar","M\u00e4rz","April","Mai","Juni","Juli",
-                 "August","September","Oktober","November","Dezember"] },
-    fr: { conta: "sur {n} avis Google", fonte: "Avis de Google, {d}.",
-          titolo: "Ce que disent les \u00e9tudiants",
-          mesi: ["janvier","f\u00e9vrier","mars","avril","mai","juin","juillet",
-                 "ao\u00fbt","septembre","octobre","novembre","d\u00e9cembre"] },
-    es: { conta: "de {n} rese\u00f1as de Google", fonte: "Rese\u00f1as de Google, {d}.",
-          titolo: "Lo que dicen los estudiantes",
-          mesi: ["enero","febrero","marzo","abril","mayo","junio","julio",
-                 "agosto","septiembre","octubre","noviembre","diciembre"] },
-    pl: { conta: "z {n} opinii Google", fonte: "Opinie z Google, {d}.",
-          titolo: "Co m\u00f3wi\u0105 studenci",
-          mesi: ["stycze\u0144","luty","marzec","kwiecie\u0144","maj","czerwiec","lipiec",
-                 "sierpie\u0144","wrzesie\u0144","pa\u017adziernik","listopad","grudzie\u0144"] }
+    it: { conta: "su {n} recensioni Google", fonte: "Recensioni da Google, aggiornate al {d}.",
+          titolo: "Cosa dicono gli studenti" },
+    en: { conta: "from {n} Google reviews", fonte: "Reviews from Google, updated in {d}.",
+          titolo: "What students say" },
+    nl: { conta: "uit {n} Google-recensies", fonte: "Recensies van Google, bijgewerkt in {d}.",
+          titolo: "Wat studenten zeggen" },
+    de: { conta: "aus {n} Google-Bewertungen", fonte: "Bewertungen von Google, Stand {d}.",
+          titolo: "Was Studierende sagen" },
+    fr: { conta: "sur {n} avis Google", fonte: "Avis de Google, mis \u00e0 jour en {d}.",
+          titolo: "Ce que disent les \u00e9tudiants" },
+    es: { conta: "de {n} rese\u00f1as de Google", fonte: "Rese\u00f1as de Google, actualizadas en {d}.",
+          titolo: "Lo que dicen los estudiantes" },
+    pl: { conta: "z {n} opinii Google", fonte: "Opinie z Google, zaktualizowane w {d} r.",
+          titolo: "Co m\u00f3wi\u0105 studenci" }
   };
 
   function lingua() {
@@ -56,19 +42,14 @@
     return s;
   }
 
+  function anno(iso) {
+    return iso ? String(iso).slice(0, 4) : "";
+  }
+
   function testo(s) {
     var d = document.createElement("div");
     d.textContent = s == null ? "" : s;
     return d.innerHTML;
-  }
-
-  function data(iso, lg) {
-    if (!iso) return "";
-    var p = iso.split("-");
-    if (p.length < 2) return iso;
-    var m = parseInt(p[1], 10) - 1;
-    var nome = (T[lg].mesi[m] || "");
-    return nome + " " + p[0];
   }
 
   function disegna(pannello, d, lg) {
@@ -99,7 +80,7 @@
       html += '</div>';
     }
 
-    html += '<span class="rec-fonte">' + testo(L.fonte.replace("{d}", data(d.aggiornato, lg))) + '</span>';
+    html += '<span class="rec-fonte">' + testo(L.fonte.replace("{d}", anno(d.aggiornato))) + '</span>';
 
     pannello.innerHTML = html;
     pannello.removeAttribute("hidden");
@@ -122,4 +103,31 @@
   document.readyState === "loading"
     ? document.addEventListener("DOMContentLoaded", avvia)
     : avvia();
+})();
+
+
+/* --- il timbro accanto al nome della scuola mostra l'anno della verifica --- */
+(function () {
+  var VERIFICA = {
+    it: "Verificato nel {a}", en: "Checked in {a}", nl: "Gecontroleerd in {a}",
+    de: "Gepr\u00fcft {a}", fr: "V\u00e9rifi\u00e9 en {a}", es: "Verificado en {a}",
+    pl: "Zweryfikowane w {a}"
+  };
+
+  function scrivi() {
+    var e = document.querySelector(".timbro[data-verificato]");
+    if (!e) return;
+    var d = e.getAttribute("data-verificato") || "";
+    if (d.length < 4) return;             // senza data lascio quello che c'era
+    var lg = (document.documentElement.lang || "it").slice(0, 2).toLowerCase();
+    var frase = (VERIFICA[lg] || VERIFICA.it).replace("{a}", d.slice(0, 4));
+    e.className = "timbro ok";
+    e.textContent = frase;
+  }
+
+  // gira dopo lo script inline della pagina, che altrimenti riscriverebbe il testo
+  document.readyState === "loading"
+    ? document.addEventListener("DOMContentLoaded", scrivi)
+    : scrivi();
+  setTimeout(scrivi, 0);
 })();

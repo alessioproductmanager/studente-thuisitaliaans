@@ -101,3 +101,10 @@
 .titolo-riga h1{margin:0}
 .titolo-riga .timbro{margin:0;flex:0 0 auto}
 @media(max-width:520px){.titolo-riga{gap:8px}}
+
+/* colonna recensioni nella tabella di confronto */
+.conf-rec{white-space:nowrap;font-size:13.5px}
+.conf-rec .cr-voto{font-weight:700;color:var(--inchiostro)}
+.conf-rec .cr-stelle{color:var(--ambra);letter-spacing:.5px;font-size:12px}
+.conf-rec .cr-conta{color:var(--secondario);font-size:12px}
+.conf-rec.vuota{color:var(--secondario);opacity:.6}
