@@ -72,3 +72,26 @@
 .mappa .leaflet-tooltip.tip-scuola i{
   display:block;font-style:normal;font-size:11.5px;color:var(--secondario);margin-top:3px
 }
+
+/* scheda gite nei dintorni */
+.pannello.gite{margin-top:18px}
+.gite-intro{font-size:13.5px;color:var(--secondario);margin:0 0 10px}
+.gite-lista{list-style:none;margin:0 0 12px;padding:0}
+.gite-lista li{display:flex;align-items:baseline;justify-content:space-between;gap:10px;
+  padding:7px 0;border-bottom:1px dashed var(--linea)}
+.gite-lista li:last-child{border-bottom:0}
+.gite-lista a{color:var(--inchiostro);text-decoration:none;font-weight:600;font-size:14.5px}
+.gite-lista a:hover{color:var(--terracotta)}
+.gite-lista span{font-size:12.5px;color:var(--secondario);white-space:nowrap}
+.gite-come{font-size:13.5px;line-height:1.6;color:var(--secondario);margin:0 0 6px}
+.gite-nota{font-size:11.5px;color:var(--secondario);opacity:.8;margin:0}
+
+/* badge per i cittadini UE */
+.visto-ue{
+  margin:12px 0 0;padding:11px 14px;
+  background:var(--salvia-chiara,#EAF0E6);
+  border-left:3px solid var(--salvia,#5E7357);
+  border-radius:6px;
+  font-size:13.5px;line-height:1.55;color:var(--secondario);
+}
+.visto-ue b{color:var(--inchiostro);display:block;margin-bottom:2px;font-size:13px}
