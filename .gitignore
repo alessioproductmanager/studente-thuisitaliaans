@@ -9,3 +9,14 @@ __pycache__/
 *.py
 __pycache__/
 .DS_Store
+.DS_Store
+**/.DS_Store
+__pycache__/
+*.pyc
+.env
+.wrangler/
+node_modules/
+dati-privato.js
+originali/
+assets/coordinate*.json
+assets/coordinate-mancanti.txt
