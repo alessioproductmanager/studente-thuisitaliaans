@@ -20,3 +20,9 @@ dati-privato.js
 originali/
 assets/coordinate*.json
 assets/coordinate-mancanti.txt
+.env
+*.key
+dati-privato.js
+audit_*.csv
+audit_*.txt
+rapporto_stelle.txt
