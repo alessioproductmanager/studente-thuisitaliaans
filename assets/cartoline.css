@@ -355,16 +355,16 @@
 .cart-crediti-lungo a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 
 /* promo app compatta: tre schermate a ventaglio + poco testo */
-.app-mini{margin-top:0;margin-bottom:18px;display:grid;grid-template-columns:196px 1fr;gap:22px;
+.app-mini{margin-top:18px;margin-bottom:18px;display:grid;grid-template-columns:242px 1fr;gap:22px;
   align-items:center;background:linear-gradient(135deg,#FBF7F0,#F3E9DD);
   border:1px solid var(--linea);border-radius:var(--r);padding:18px 20px}
-.app-mini-scatti{position:relative;height:214px}
-.app-mini-scatti .app-tel{position:absolute;top:50%;width:98px;display:block}
+.app-mini-scatti{position:relative;height:268px}
+.app-mini-scatti .app-tel{position:absolute;top:50%;width:122px;display:block}
 .app-mini-scatti .app-tel img{width:100%;height:auto;display:block;border-radius:9px;
   box-shadow:0 1px 2px rgba(34,29,22,.16),0 14px 26px -12px rgba(34,29,22,.55)}
-.app-mini-scatti .app-tel:nth-of-type(1){left:0;transform:translateY(-50%) rotate(-7deg) scale(.9);z-index:1}
-.app-mini-scatti .app-tel:nth-of-type(2){left:44px;transform:translateY(-50%);z-index:3}
-.app-mini-scatti .app-tel:nth-of-type(3){left:90px;transform:translateY(-50%) rotate(7deg) scale(.9);z-index:2}
+.app-mini-scatti .app-tel:nth-of-type(1){left:0;transform:translateY(-50%) rotate(-4.5deg) scale(.94);z-index:1}
+.app-mini-scatti .app-tel:nth-of-type(2){left:58px;transform:translateY(-50%);z-index:3}
+.app-mini-scatti .app-tel:nth-of-type(3){left:118px;transform:translateY(-50%) rotate(4.5deg) scale(.94);z-index:2}
 .app-mini-stelle{display:flex;align-items:center;gap:7px;margin:0 0 8px;
   font:600 12px/1 var(--sans);letter-spacing:.4px;color:var(--secondario)}
 .app-mini-stelle span[aria-hidden]{color:var(--ambra);font-size:14px;letter-spacing:1px}
@@ -381,16 +381,16 @@
 .app-carosello .app-tel img{width:100%;height:auto;display:block;border-radius:8px}
 
 @media(max-width:560px){
-  .app-mini{grid-template-columns:154px 1fr;gap:16px;padding:16px}
-  .app-mini-scatti{height:172px}
-  .app-mini-scatti .app-tel{width:78px}
-  .app-mini-scatti .app-tel:nth-of-type(2){left:36px}
-  .app-mini-scatti .app-tel:nth-of-type(3){left:72px}
+  .app-mini{grid-template-columns:182px 1fr;gap:16px;padding:16px}
+  .app-mini-scatti{height:204px}
+  .app-mini-scatti .app-tel{width:92px}
+  .app-mini-scatti .app-tel:nth-of-type(2){left:44px}
+  .app-mini-scatti .app-tel:nth-of-type(3){left:90px}
   .app-mini h2{font-size:18px}
 }
 @media(max-width:400px){
   .app-mini{grid-template-columns:1fr;justify-items:center;text-align:center}
-  .app-mini-scatti{width:190px}
+  .app-mini-scatti{width:214px}
 }
 
 /* domande frequenti della home: riquadri come gli altri pannelli */
