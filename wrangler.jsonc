@@ -1,0 +1,23 @@
+{
+  "name": "studente-thuisitaliaans",
+  "main": "js/index.js",
+  "compatibility_date": "2026-07-19",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1,
+    "logs": { "enabled": true, "persist": true, "invocation_logs": true }
+  },
+  "vars": {
+    "MAIL_A": "thuisitaliaans@gmail.com",
+    "MAIL_DA": "modulo@thuisitaliaans.com"
+  },
+  "send_email": [
+    { "name": "EMAIL", "destination_address": "thuisitaliaans@gmail.com" }
+  ]
+}
