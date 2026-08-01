@@ -720,11 +720,18 @@ def metti_assets(t):
 
 
 def togli_assets(t):
-    for u in (LEAFLET_CSS, CSS_URL):
-        t = re.sub(r'<link rel="stylesheet" href="' + re.escape(u) + r'">\s*', "", t)
-    for u in (LEAFLET_JS, JS_URL):
-        t = re.sub(r'<script defer src="' + re.escape(u) + r'"></script>\s*', "", t)
-    return t
+    """Toglie solo i riferimenti aggiunti da questo script.
+    Leaflet si rimuove unicamente se è nel blocco che abbiamo messo noi:
+    in scuole/mappa.html c'era già di suo e va lasciato stare."""
+    blocco = (f'<link rel="stylesheet" href="{LEAFLET_CSS}">\n'
+              f'<link rel="stylesheet" href="{CSS_URL}">\n'
+              f'<script defer src="{LEAFLET_JS}"></script>\n'
+              f'<script defer src="{JS_URL}"></script>\n')
+    if blocco in t:
+        return t.replace(blocco, "", 1)
+    # ripiego: togli solo i nostri due file, mai Leaflet
+    t = re.sub(r'<link rel="stylesheet" href="' + re.escape(CSS_URL) + r'">\s*', "", t)
+    return re.sub(r'<script defer src="' + re.escape(JS_URL) + r'"></script>\s*', "", t)
 
 
 def innesta_citta(t, blocco):
