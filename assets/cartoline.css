@@ -405,3 +405,14 @@
 .faq-home summary{cursor:pointer;font-weight:600;color:var(--inchiostro);font-size:15px}
 .faq-home details div{margin-top:8px;color:var(--secondario);line-height:1.62;font-size:14px;max-width:70ch}
 .faq-home details[open]{border-color:#DCD3C1}
+
+/* ==========================================================================
+   riporto laterale per i blocchi rimasti a filo dello schermo (index, mappa)
+   .hero e .sez.faq-home perdevano il padding di .contenitore
+   ========================================================================== */
+.hero.contenitore{padding-left:20px;padding-right:20px}
+.sez.faq-home{max-width:1100px;margin-left:auto;margin-right:auto;padding-left:20px;padding-right:20px}
+@media(max-width:640px){
+  .hero.contenitore{padding-left:16px;padding-right:16px}
+  .sez.faq-home{padding-left:16px;padding-right:16px}
+}
