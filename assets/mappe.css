@@ -37,6 +37,8 @@
 .mappa .leaflet-popup-content{margin:12px 14px;font-family:var(--sans);min-width:0;font-size:13.5px;line-height:1.5}
 .mappa .leaflet-popup-content b{font-family:var(--serif);font-size:16px;display:block;margin-bottom:2px}
 .mappa .leaflet-popup-content a{color:var(--terracotta);font-weight:600}
+.mappa .pop-perche{display:block;color:var(--secondario);font-size:13px;line-height:1.5}
+.mappa .leaflet-popup-content-wrapper{max-width:260px}
 .mappa .leaflet-tooltip{min-width:170px;
   font-family:var(--sans);font-size:12.5px;line-height:1.45;max-width:240px;white-space:normal;
   background:var(--card,#fff);border:1px solid var(--linea);color:var(--inchiostro);

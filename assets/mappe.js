@@ -48,7 +48,9 @@
           direction: "auto", offset: [0, -6], opacity: 1, sticky: false
         });
       } else if (p.t === "l") {
-        m.bindPopup('<b>' + p.n + '</b>');
+        // nelle schede scuola niente fumetto al passaggio, ma il clic
+        // deve comunque dare il perché del luogo
+        m.bindPopup('<b>' + p.n + '</b>' + (p.d ? '<span class="pop-perche">' + p.d + '</span>' : ""));
       }
     }
 
