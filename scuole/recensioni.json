@@ -1,1 +1,50 @@
-{}
+{
+ "linguaviva": {
+  "voto": 4.5,
+  "conta": 30,
+  "mappa": "https://maps.google.com/?cid=2285971442015390291&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA",
+  "recensioni": [
+   {
+    "autore": "Karolina",
+    "foto": "https://lh3.googleusercontent.com/a/ACg8ocKB5OzNFb7fB_Wfm9hTwLocBrPkWQhHIfeqil5cIb2eoqYnGA=s128-c0x00000000-cc-rp-mo",
+    "profilo": "https://www.google.com/maps/contrib/109416709448739870974/reviews",
+    "voto": 5,
+    "quando": "2 years ago",
+    "testo": "Excellent school, all the teachers I met were extremely nice and helpful. You are motivated to get out of your comfort zone and really start speaking Italian. The focus is on real, daily conversations."
+   },
+   {
+    "autore": "omgisthatvik",
+    "foto": "https://lh3.googleusercontent.com/a-/ALV-UjWbfmzOuUgfm3pwMedglkFcFDmA5dyEwTPeHWg9_Qparjt2Lilb=s128-c0x00000000-cc-rp-mo",
+    "profilo": "https://www.google.com/maps/contrib/115967308331981804401/reviews",
+    "voto": 5,
+    "quando": "6 years ago",
+    "testo": "Phenomenal experience at Linguviva Firenze! The teachers were incredible, made the students feel very comfortable. Different levels of classes are available so even if you are brand new to a second language or more experienced they will take care of you. Meeting other students from all over the world, my class consisted of Americans, South Americans, Europeans, Asians and various age groups -- I was 28 when i attended and had ages above and below me which was a nice mix. And the city itself needs no explanation, just gorgeous! I've attended twice, so would highly recommend :)"
+   },
+   {
+    "autore": "Daniela Lozano",
+    "foto": "https://lh3.googleusercontent.com/a-/ALV-UjUgD8aWyW8Ja0jdTWRISUqzfbrH5hxARKKG1lHVmp0Rex_V6h607w=s128-c0x00000000-cc-rp-mo",
+    "profilo": "https://www.google.com/maps/contrib/103020286996813046874/reviews",
+    "voto": 5,
+    "quando": "4 years ago",
+    "testo": "Highly qualified teachers, and a very friendly atmosphere. Meeting people from all over the world is an amazing experience; everyone is always willing to help you out and you get to learn a lot about each other's cultures.\nPlus, the location is great (lots of nice places nearby with great food)"
+   },
+   {
+    "autore": "maja ababba",
+    "foto": "https://lh3.googleusercontent.com/a/ACg8ocLGx8PaYySIk0vPZZYy4XFUsqECSTCh6sJH-VmBwRb_t_vyBw=s128-c0x00000000-cc-rp-mo",
+    "profilo": "https://www.google.com/maps/contrib/105713488012028133042/reviews",
+    "voto": 5,
+    "quando": "6 years ago",
+    "testo": "A very very good language school! Very welcoming atmosphere, you are treated like a guest not like \"just another student\"(which is not normal for the brache). The teaching methods are to me very close to recent science and therefore better than in most language schools: They teach the grammar & the writing very well, but set the focus from the beginning on practicing talking and hearing. Therefore you gain the feeling for the language in unnormal speed. This meets with the expiriences of my peers. One said: I have never ever studied somewhere as good as here.\nHighly recommendable"
+   },
+   {
+    "autore": "Nick",
+    "foto": "https://lh3.googleusercontent.com/a-/ALV-UjUAz4Xtq1ha2LxgewBlOQg7ML-hcqK1WCUZfW-5GfI8GOy4hjw5Jg=s128-c0x00000000-cc-rp-mo-ba4",
+    "profilo": "https://www.google.com/maps/contrib/106800384290064614342/reviews",
+    "voto": 5,
+    "quando": "3 years ago",
+    "testo": "Best school of Italian language! I studied there 11 years back and had a really good time there learning and making new friends while exploring the beautiful city of Firenze. I totally recommend this school"
+   }
+  ],
+  "aggiornato": "2026-08-01"
+ }
+}
