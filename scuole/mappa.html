@@ -501,7 +501,7 @@ var PRE="";
    var m=L.marker(DATI.citta[c].coord,{icon:ico,title:c}).addTo(strato);
    var html='<b class="pop-citta">'+c+'</b><span class="pop-conta">'+n+' '+(n===1?T.scuola:T.scuole)+'</span>'
      +'<div class="pop-lista">'+perCitta[c].map(function(s){
-       return '<a href="'+PRE+s.id+'.html">'+s.nome+' \u2192</a>';}).join("")+'</div>';
+       return '<a href="'+PRE+s.id+'">'+s.nome+' \u2192</a>';}).join("")+'</div>';
    m.bindPopup(html,{maxWidth:Math.min(n>12?500:(n>5?360:260),Math.round(mappa.getSize().x*0.78)),
      maxHeight:Math.round(mappa.getSize().y*0.68),autoPan:true,autoPanPadding:[16,16]});
    gruppo.push(DATI.citta[c].coord);});

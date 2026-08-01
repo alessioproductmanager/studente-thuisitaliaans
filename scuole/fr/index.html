@@ -483,7 +483,7 @@ function card(s){
   +'<div class="meta">'+righe+'</div>'
   +(tags?'<div class="tagriga">'+tags+'</div>':'')
   +timbro
-  +'<div class="azioni"><a class="bottone pieno" href="'+s.id+'.html">'+T.vedi+'</a></div></article>';}
+  +'<div class="azioni"><a class="bottone pieno" href="'+s.id+'">'+T.vedi+'</a></div></article>';}
 function disegna(){var lista=filtra();var ord=document.getElementById("ordina").value;
  lista.sort(function(a,b){return (a[ord]+a.nome).localeCompare(b[ord]+b.nome,"it")});
  document.getElementById("griglia").innerHTML=lista.length?lista.map(card).join("")
