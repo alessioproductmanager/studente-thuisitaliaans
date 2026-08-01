@@ -362,14 +362,53 @@ document.getElementById('copyLinkBtn').addEventListener('click', function(){
 <script src="/js/whatsapp.js" defer></script>
 <script>/*stelle-v1*/
 (function(){
-  var SOLO=/^[\s\u2605\u2606\u2b50\ufe0f]+$/, HA=/[\u2605\u2606\u2b50]/;
-  var CAND="h1,h2,h3,h4,h5,p,span,div,b,strong,em,i,td,li,a";
+  var STELLE=/[\u2605\u2606\u2b50\u2729\u272d\u2b51]/;
+  var CORSA=/[\u2605\u2606\u2b50\u2729\u272d\u2b51\ufe0f]{2,}/g;
+  var SALTA={SCRIPT:1,STYLE:1,TEXTAREA:1,NOSCRIPT:1,TITLE:1};
+
+  function avvolgi(testo){
+    var padre=testo.parentNode;
+    if(!padre || SALTA[padre.nodeName]) return;
+    if(padre.classList && padre.classList.contains("stelle-gialle")) return;
+    var s=testo.nodeValue;
+    if(!s || !STELLE.test(s)) return;
+    CORSA.lastIndex=0;
+    if(!CORSA.test(s)) return;
+    CORSA.lastIndex=0;
+    var pezzi=document.createDocumentFragment(), ultimo=0, m;
+    while((m=CORSA.exec(s))!==null){
+      if(m.index>ultimo)
+        pezzi.appendChild(document.createTextNode(s.slice(ultimo,m.index)));
+      var sp=document.createElement("span");
+      sp.className="stelle-gialle";
+      sp.textContent=m[0];
+      pezzi.appendChild(sp);
+      ultimo=m.index+m[0].length;
+    }
+    if(ultimo<s.length)
+      pezzi.appendChild(document.createTextNode(s.slice(ultimo)));
+    padre.replaceChild(pezzi,testo);
+  }
+
+  function giro(radice){
+    try{
+      if(!radice || (radice.nodeType!==1 && radice.nodeType!==3)) return;
+      if(radice.nodeType===3){ avvolgi(radice); return; }
+      if(SALTA[radice.nodeName]) return;
+      var w=document.createTreeWalker(radice,NodeFilter.SHOW_TEXT,null,false);
+      var lista=[],n;
+      while((n=w.nextNode())) lista.push(n);
+      lista.forEach(avvolgi);
+    }catch(e){}
+  }
+
+  giro(document.body);
   try{
-    document.querySelectorAll(CAND).forEach(function(el){
-      var t=el.textContent||"";
-      if(el.children.length===0 && HA.test(t) && SOLO.test(t))
-        el.classList.add("stelle-gialle");
-    });
+    new MutationObserver(function(cambi){
+      cambi.forEach(function(c){
+        Array.prototype.forEach.call(c.addedNodes,giro);
+      });
+    }).observe(document.body,{childList:true,subtree:true});
   }catch(e){}
 })();
 </script>
