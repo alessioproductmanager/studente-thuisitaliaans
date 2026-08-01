@@ -108,3 +108,16 @@
 .conf-rec .cr-stelle{color:var(--ambra);letter-spacing:.5px;font-size:12px}
 .conf-rec .cr-conta{color:var(--secondario);font-size:12px}
 .conf-rec.vuota{color:var(--secondario);opacity:.6}
+
+/* nota sulle recensioni nel piede pagina */
+.nota-recensioni{margin:18px 0 6px;padding:16px 18px;border:1px solid var(--linea);
+  border-radius:var(--r-s);background:var(--card);font-size:12px;line-height:1.6;
+  color:var(--secondario)}
+.nota-recensioni b{color:var(--inchiostro);font-size:11px;letter-spacing:.8px;
+  text-transform:uppercase;display:block;margin-bottom:8px}
+.nota-recensioni p{margin:0 0 12px}
+.nota-recensioni a.segnala{display:inline-block;font-size:12.5px;font-weight:600;
+  color:var(--terracotta);text-decoration:none;border:1px solid var(--linea);
+  border-radius:999px;padding:7px 15px;background:var(--carta)}
+.nota-recensioni a.segnala:hover{background:var(--terracotta);border-color:var(--terracotta);
+  color:#fff}
