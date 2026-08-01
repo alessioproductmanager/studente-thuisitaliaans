@@ -21,77 +21,135 @@
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/supplemento.css">
 
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://thuisitaliaans.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Italiaanse les in Wageningen" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://thuisitaliaans.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Italiaanse les in Wageningen"
+        }
       ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-            {
-                  "@type": "Question",
-                  "name": "Can the lessons be in English?",
-                  "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Yes. I speak English fluently and often teach Italian through English for international students and researchers in Wageningen."
-                  }
-            },
-            {
-                  "@type": "Question",
-                  "name": "Ik ben hier maar voor één semester. Heeft het zin?",
-                  "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Ja, mits we het doel klein en concreet houden. In drie maanden bereik je geen B2, maar wel een bruikbare A1 of een stevige A2."
-                  }
-            },
-            {
-                  "@type": "Question",
-                  "name": "Kan ik eerst kennismaken zonder te betalen?",
-                  "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Ja, de kennismaking is gratis en vrijblijvend. We bespreken je doel en je niveau, en je merkt meteen of het klikt."
-                  }
-            },
-            {
-                  "@type": "Question",
-                  "name": "Wat kost het?",
-                  "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Alle tarieven staan open en bloot op de tarievenpagina. Geen intakekosten, geen verborgen bedragen."
-                  }
-            },
-            {
-                  "@type": "Question",
-                  "name": "Moet ik een lesboek kopen?",
-                  "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Nee. Al het lesmateriaal schrijf ik zelf en het zit bij de les in."
-                  }
-            }
+        {
+          "@type": "Question",
+          "name": "Can the lessons be in English?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. I speak English fluently and often teach Italian through English for international students and researchers in Wageningen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ik ben hier maar voor één semester. Heeft het zin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja, mits we het doel klein en concreet houden. In drie maanden bereik je geen B2, maar wel een bruikbare A1 of een stevige A2."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kan ik eerst kennismaken zonder te betalen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja, de kennismaking is gratis en vrijblijvend. We bespreken je doel en je niveau, en je merkt meteen of het klikt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat kost het?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Alle tarieven staan open en bloot op de tarievenpagina. Geen intakekosten, geen verborgen bedragen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Moet ik een lesboek kopen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nee. Al het lesmateriaal schrijf ik zelf en het zit bij de les in."
+          }
+        }
       ]
-},    {
+    },
+    {
       "@type": "Service",
       "name": "Privéles Italiaans in Wageningen",
       "serviceType": "Taalles Italiaans",
-      "provider": { "@id": "https://thuisitaliaans.com/#organizzazione" },
-      "areaServed": [{ "@type": "City", "name": "Wageningen" }, { "@type": "City", "name": "Bennekom" }, { "@type": "City", "name": "Renkum" }, { "@type": "City", "name": "Heelsum" }, { "@type": "City", "name": "Rhenen" }, { "@type": "City", "name": "Ede" }],
-      "availableChannel": [
-        { "@type": "ServiceChannel", "name": "Op locatie in Wageningen en omgeving" },
-        { "@type": "ServiceChannel", "name": "Online", "serviceUrl": "https://thuisitaliaans.com/italiaans-online-leren" }
+      "provider": {
+        "@id": "https://thuisitaliaans.com/#organizzazione",
+        "sameAs": [
+          "https://maps.google.com/?cid=1518224867092056834",
+          "https://preply.com/en/tutor/3843955",
+          "https://www.apprentus.com/en/in/italiano.amsterdam"
+        ]
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Wageningen"
+        },
+        {
+          "@type": "City",
+          "name": "Bennekom"
+        },
+        {
+          "@type": "City",
+          "name": "Renkum"
+        },
+        {
+          "@type": "City",
+          "name": "Heelsum"
+        },
+        {
+          "@type": "City",
+          "name": "Rhenen"
+        },
+        {
+          "@type": "City",
+          "name": "Ede"
+        }
       ],
-      "offers": { "@type": "Offer", "url": "https://thuisitaliaans.com/tarieven", "priceCurrency": "EUR", "price": "{{PRIJS_LOS_UUR}}" }
+      "availableChannel": [
+        {
+          "@type": "ServiceChannel",
+          "name": "Op locatie in Wageningen en omgeving"
+        },
+        {
+          "@type": "ServiceChannel",
+          "name": "Online",
+          "serviceUrl": "https://thuisitaliaans.com/italiaans-online-leren"
+        }
+      ],
+      "offers": {
+        "@type": "Offer",
+        "url": "https://thuisitaliaans.com/tarieven",
+        "priceCurrency": "EUR",
+        "price": "{{PRIJS_LOS_UUR}}"
+      }
     }
   ]
-}
-</script>
+}</script>
     <meta name="copyright" content="© 2026 Thuis Italiaans — All rights reserved">
+<style>/*stelle-v1*/
+:root{--stelle-giallo:#FFC400}
+.stars,.hero-rating,.footer-review-ster,.app-stelle,.app-stelle-ico,.app-mini-stelle,.rec-stelle,.sidebar-rating,.stelle-gialle,.stars > *,.hero-rating > *,.footer-review-ster > *,.app-stelle > *,.app-stelle-ico > *,.app-mini-stelle > *,.rec-stelle > *,.sidebar-rating > *,.stelle-gialle > *{color:var(--stelle-giallo)!important}
+.stars svg,.stars path,.stars use,.hero-rating svg,.hero-rating path,.hero-rating use,.footer-review-ster svg,.footer-review-ster path,.footer-review-ster use,.app-stelle svg,.app-stelle path,.app-stelle use,.app-stelle-ico svg,.app-stelle-ico path,.app-stelle-ico use,.app-mini-stelle svg,.app-mini-stelle path,.app-mini-stelle use,.rec-stelle svg,.rec-stelle path,.rec-stelle use,.sidebar-rating svg,.sidebar-rating path,.sidebar-rating use,.stelle-gialle svg,.stelle-gialle path,.stelle-gialle use{fill:var(--stelle-giallo)!important;stroke:none}
+.stars,.hero-rating,.footer-review-ster,.app-stelle,.app-stelle-ico,.app-mini-stelle,.rec-stelle,.sidebar-rating,.stelle-gialle{letter-spacing:.04em}
+</style>
 </head>
 <body>
 
@@ -382,5 +440,18 @@
 <script src="/js/modulo-contatto.js"></script>
 <script src="/js/ti-cta.js" defer></script>
 <script src="/js/whatsapp.js" defer></script>
+<script>/*stelle-v1*/
+(function(){
+  var SOLO=/^[\s\u2605\u2606\u2b50\ufe0f]+$/, HA=/[\u2605\u2606\u2b50]/;
+  var CAND="h1,h2,h3,h4,h5,p,span,div,b,strong,em,i,td,li,a";
+  try{
+    document.querySelectorAll(CAND).forEach(function(el){
+      var t=el.textContent||"";
+      if(el.children.length===0 && HA.test(t) && SOLO.test(t))
+        el.classList.add("stelle-gialle");
+    });
+  }catch(e){}
+})();
+</script>
 </body>
 </html>

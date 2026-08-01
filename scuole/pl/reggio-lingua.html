@@ -539,7 +539,7 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
 .pannello.recensioni[hidden]{display:none}
 .rec-testa{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:12px;min-width:0}
 .rec-voto{font-family:var(--serif);font-size:30px;font-weight:700;line-height:1}
-.rec-stelle{color:var(--ambra);font-size:15px;letter-spacing:1px;white-space:nowrap}
+.rec-stelle{color:var(--stelle-giallo);font-size:15px;letter-spacing:1px;white-space:nowrap}
 .rec-conta{font-size:13px;color:var(--secondario);overflow-wrap:break-word;min-width:0}
 .rec-lista{display:flex;flex-direction:column;gap:14px}
 .rec-uno{display:flex;gap:11px;align-items:flex-start;min-width:0}
@@ -678,6 +678,12 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
 <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script defer src="/assets/mappe.js"></script>
 <script src="/js/recensioni.js" defer></script>
+<style>/*stelle-v1*/
+:root{--stelle-giallo:#FFC400}
+.stars,.hero-rating,.footer-review-ster,.app-stelle,.app-stelle-ico,.app-mini-stelle,.rec-stelle,.sidebar-rating,.stelle-gialle,.stars > *,.hero-rating > *,.footer-review-ster > *,.app-stelle > *,.app-stelle-ico > *,.app-mini-stelle > *,.rec-stelle > *,.sidebar-rating > *,.stelle-gialle > *{color:var(--stelle-giallo)!important}
+.stars svg,.stars path,.stars use,.hero-rating svg,.hero-rating path,.hero-rating use,.footer-review-ster svg,.footer-review-ster path,.footer-review-ster use,.app-stelle svg,.app-stelle path,.app-stelle use,.app-stelle-ico svg,.app-stelle-ico path,.app-stelle-ico use,.app-mini-stelle svg,.app-mini-stelle path,.app-mini-stelle use,.rec-stelle svg,.rec-stelle path,.rec-stelle use,.sidebar-rating svg,.sidebar-rating path,.sidebar-rating use,.stelle-gialle svg,.stelle-gialle path,.stelle-gialle use{fill:var(--stelle-giallo)!important;stroke:none}
+.stars,.hero-rating,.footer-review-ster,.app-stelle,.app-stelle-ico,.app-mini-stelle,.rec-stelle,.sidebar-rating,.stelle-gialle{letter-spacing:.04em}
+</style>
 </head>
 <body data-scuola="reggio-lingua">
 <header><div class="contenitore testata">
@@ -890,4 +896,30 @@ document.addEventListener("click",function(){document.querySelectorAll(".badge.m
  [nome,mail].forEach(function(c){ c.addEventListener('keydown',function(ev){
    if(ev.key==='Enter'){ ev.preventDefault(); invia(); } }); });
 })();
-</script></body></html>
+</script><script>/*stelle-v1*/
+(function(){
+  var SOLO=/^[\s\u2605\u2606\u2b50\ufe0f]+$/, HA=/[\u2605\u2606\u2b50]/;
+  var CAND="h1,h2,h3,h4,h5,p,span,div,b,strong,em,i,td,li,a";
+  try{
+    document.querySelectorAll(CAND).forEach(function(el){
+      var t=el.textContent||"";
+      if(el.children.length===0 && HA.test(t) && SOLO.test(t))
+        el.classList.add("stelle-gialle");
+    });
+  }catch(e){}
+})();
+</script>
+<!--forma-mobile-v1-->
+<script>
+(function(){
+  if(!window.matchMedia||!window.matchMedia("(max-width: 820px)").matches) return;
+  var app  = document.querySelector("section.app-mini");
+  var form = document.querySelector(".pannello.contatto");
+  if(!app || !form) return;
+  if(document.querySelector(".pz-chiedi")) return;
+  if(form.previousElementSibling === app) return;
+  app.insertAdjacentElement("afterend", form);
+  form.setAttribute("data-spostato","forma-mobile-v1");
+})();
+</script>
+</body></html>

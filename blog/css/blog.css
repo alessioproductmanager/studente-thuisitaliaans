@@ -1,3 +1,4 @@
+/*stelle-v1*/:root{--stelle-giallo:#FFC400}
 /* ==========================================
    THUIS ITALIAANS — BLOG
    BLOG.CSS
@@ -548,7 +549,7 @@ margin-bottom:20px;
 margin-bottom:20px;
 }
 .sidebar-rating .stars{
-color:var(--gold);
+color:var(--stelle-giallo);
 font-size:1.1rem;
 letter-spacing:3px;
 margin-bottom:4px;
@@ -556,7 +557,7 @@ margin-bottom:4px;
 .sidebar-rating p{
 margin-bottom:0;
 font-size:.85rem;
-color:var(--secondary);
+color:var(--stelle-giallo);
 }
 .sidebar-card .button{
 display:inline-flex;

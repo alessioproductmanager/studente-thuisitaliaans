@@ -33,7 +33,46 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/blog.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "inLanguage": "en", "articleSection": "Language Hacking", "headline": "Comprehensible Input: Learn Italian Just Above Your Level", "description": "Krashen's input hypothesis for Italian learners: what i+1 means in practice, how to find the right material, and where input alone falls short.", "datePublished": "2026-02-02", "dateModified": "2026-07-30", "image": "https://thuisitaliaans.com/blog/media/2024/04/thought-catalog-mmwqrsjz4lw-unsplash.jpg", "author": {"@type": "Person", "@id": "https://thuisitaliaans.com/#alessio", "name": "Alessio Are"}, "publisher": {"@type": "Organization", "@id": "https://thuisitaliaans.com/#organizzazione", "name": "thuisitaliaans", "url": "https://thuisitaliaans.com/", "logo": {"@type": "ImageObject", "url": "https://thuisitaliaans.com/assets/icons/icon-512.png"}}, "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://thuisitaliaans.com/blog/comprehensible-input-italian"}}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "inLanguage": "en",
+  "articleSection": "Language Hacking",
+  "headline": "Comprehensible Input: Learn Italian Just Above Your Level",
+  "description": "Krashen's input hypothesis for Italian learners: what i+1 means in practice, how to find the right material, and where input alone falls short.",
+  "datePublished": "2026-02-02",
+  "dateModified": "2026-07-30",
+  "image": "https://thuisitaliaans.com/blog/media/2024/04/thought-catalog-mmwqrsjz4lw-unsplash.jpg",
+  "author": {
+    "@type": "Person",
+    "@id": "https://thuisitaliaans.com/#alessio",
+    "name": "Alessio Are",
+    "sameAs": [
+      "https://preply.com/en/tutor/3843955",
+      "https://www.apprentus.com/en/in/italiano.amsterdam"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://thuisitaliaans.com/#organizzazione",
+    "name": "thuisitaliaans",
+    "url": "https://thuisitaliaans.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thuisitaliaans.com/assets/icons/icon-512.png"
+    },
+    "sameAs": [
+      "https://maps.google.com/?cid=1518224867092056834",
+      "https://preply.com/en/tutor/3843955",
+      "https://www.apprentus.com/en/in/italiano.amsterdam"
+    ]
+  },
+  "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://thuisitaliaans.com/blog/comprehensible-input-italian"
+  }
+}</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -70,6 +109,12 @@
     <link rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en">
 <link rel="stylesheet" href="/assets/app-banner.css">
 <script src="/assets/app-lingua.js" defer></script>
+<style>/*stelle-v1*/
+:root{--stelle-giallo:#FFC400}
+.stars,.hero-rating,.footer-review-ster,.app-stelle,.app-stelle-ico,.app-mini-stelle,.rec-stelle,.sidebar-rating,.stelle-gialle,.stars > *,.hero-rating > *,.footer-review-ster > *,.app-stelle > *,.app-stelle-ico > *,.app-mini-stelle > *,.rec-stelle > *,.sidebar-rating > *,.stelle-gialle > *{color:var(--stelle-giallo)!important}
+.stars svg,.stars path,.stars use,.hero-rating svg,.hero-rating path,.hero-rating use,.footer-review-ster svg,.footer-review-ster path,.footer-review-ster use,.app-stelle svg,.app-stelle path,.app-stelle use,.app-stelle-ico svg,.app-stelle-ico path,.app-stelle-ico use,.app-mini-stelle svg,.app-mini-stelle path,.app-mini-stelle use,.rec-stelle svg,.rec-stelle path,.rec-stelle use,.sidebar-rating svg,.sidebar-rating path,.sidebar-rating use,.stelle-gialle svg,.stelle-gialle path,.stelle-gialle use{fill:var(--stelle-giallo)!important;stroke:none}
+.stars,.hero-rating,.footer-review-ster,.app-stelle,.app-stelle-ico,.app-mini-stelle,.rec-stelle,.sidebar-rating,.stelle-gialle{letter-spacing:.04em}
+</style>
 </head>
 
 <body>
@@ -197,6 +242,19 @@
     img.src = img.src.replace(/\/assets\/store\/[a-z_]+\//, '/assets/store/' + lang + '/');
     if (src) src.srcset = src.srcset.replace(/\/assets\/store\/[a-z_]+\//, '/assets/store/' + lang + '/');
   });
+})();
+</script>
+<script>/*stelle-v1*/
+(function(){
+  var SOLO=/^[\s\u2605\u2606\u2b50\ufe0f]+$/, HA=/[\u2605\u2606\u2b50]/;
+  var CAND="h1,h2,h3,h4,h5,p,span,div,b,strong,em,i,td,li,a";
+  try{
+    document.querySelectorAll(CAND).forEach(function(el){
+      var t=el.textContent||"";
+      if(el.children.length===0 && HA.test(t) && SOLO.test(t))
+        el.classList.add("stelle-gialle");
+    });
+  }catch(e){}
 })();
 </script>
 </body>

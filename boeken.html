@@ -149,6 +149,12 @@ footer.sito .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Welk niveau Italiaans heb ik nodig voor deze boeken?", "acceptedAnswer": {"@type": "Answer", "text": "Elk boek vermeldt zijn ERK-niveau op de omslag en in de beschrijving: van A1 voor de makkelijkste leesboeken tot C1 voor de complexste romans. Begin je net, kies dan een A1-titel en bouw rustig op."}}, {"@type": "Question", "name": "Met welk boek kan ik het beste beginnen?", "acceptedAnswer": {"@type": "Answer", "text": "Complete beginners starten bij A1 (Cuore of Eva). Heb je al een eerste cursus afgerond, kies dan A2 (Pinocchio, Il corsaro nero). Praktische test: lees het gratis Amazon-fragment — begrijp je ongeveer 90% zonder woordenboek, dan is dat jouw niveau."}}, {"@type": "Question", "name": "Zijn dit de originele teksten of vereenvoudigde versies?", "acceptedAnswer": {"@type": "Answer", "text": "Het zijn bewerkingen: plot en geest van het origineel blijven behouden, maar woordenschat en zinsbouw zijn herschreven voor het aangegeven niveau, met voetnoten en een woordenlijst voor de moeilijkste woorden."}}, {"@type": "Question", "name": "Zijn deze boeken geschikt voor wie vanaf nul begint?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. De A1-titels veronderstellen alleen basiswoordenschat, de tegenwoordige tijd en de passato prossimo. De zinnen zijn kort, moeilijke woorden worden in voetnoten uitgelegd en elk hoofdstuk eindigt met begripsvragen."}}, {"@type": "Question", "name": "Zijn ze geschikt voor Nederlandstaligen?", "acceptedAnswer": {"@type": "Answer", "text": "Zeker — de reeks wordt uitgegeven door thuisitaliaans in Nederland. Elke boekpagina op deze site bevat een woordenlijst Italiaans–Nederlands–Engels, en dezelfde teksten leven in de ti-app met woordenschat vertaald in het Nederlands en 13 andere talen."}}, {"@type": "Question", "name": "Waar kan ik ze kopen?", "acceptedAnswer": {"@type": "Answer", "text": "Op Amazon, als paperback of Kindle-ebook. Alle titels staan verzameld op de auteurspagina van Alessio Insegnante. De ebooks kosten €4,99 en zijn er ook als paperback."}}]}
 </script>
     <meta name="copyright" content="© 2026 Thuis Italiaans — All rights reserved">
+<style>/*stelle-v1*/
+:root{--stelle-giallo:#FFC400}
+.stars,.hero-rating,.footer-review-ster,.app-stelle,.app-stelle-ico,.app-mini-stelle,.rec-stelle,.sidebar-rating,.stelle-gialle,.stars > *,.hero-rating > *,.footer-review-ster > *,.app-stelle > *,.app-stelle-ico > *,.app-mini-stelle > *,.rec-stelle > *,.sidebar-rating > *,.stelle-gialle > *{color:var(--stelle-giallo)!important}
+.stars svg,.stars path,.stars use,.hero-rating svg,.hero-rating path,.hero-rating use,.footer-review-ster svg,.footer-review-ster path,.footer-review-ster use,.app-stelle svg,.app-stelle path,.app-stelle use,.app-stelle-ico svg,.app-stelle-ico path,.app-stelle-ico use,.app-mini-stelle svg,.app-mini-stelle path,.app-mini-stelle use,.rec-stelle svg,.rec-stelle path,.rec-stelle use,.sidebar-rating svg,.sidebar-rating path,.sidebar-rating use,.stelle-gialle svg,.stelle-gialle path,.stelle-gialle use{fill:var(--stelle-giallo)!important;stroke:none}
+.stars,.hero-rating,.footer-review-ster,.app-stelle,.app-stelle-ico,.app-mini-stelle,.rec-stelle,.sidebar-rating,.stelle-gialle{letter-spacing:.04em}
+</style>
 </head>
 <body>
 
@@ -538,5 +544,18 @@ document.querySelectorAll(".filtri button").forEach(b => {
 document.getElementById("anno").textContent = new Date().getFullYear();
 </script>
 <script src="/js/whatsapp.js" defer></script>
+<script>/*stelle-v1*/
+(function(){
+  var SOLO=/^[\s\u2605\u2606\u2b50\ufe0f]+$/, HA=/[\u2605\u2606\u2b50]/;
+  var CAND="h1,h2,h3,h4,h5,p,span,div,b,strong,em,i,td,li,a";
+  try{
+    document.querySelectorAll(CAND).forEach(function(el){
+      var t=el.textContent||"";
+      if(el.children.length===0 && HA.test(t) && SOLO.test(t))
+        el.classList.add("stelle-gialle");
+    });
+  }catch(e){}
+})();
+</script>
 </body>
 </html>

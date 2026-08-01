@@ -1,3 +1,4 @@
+/*stelle-v1*/:root{--stelle-giallo:#FFC400}
 /* ==========================================
    THUIS ITALIAANS
    STYLE.CSS
@@ -167,12 +168,12 @@ gap:18px;
 margin-top:25px;
 }
 .stars{
-color:#f5b400;
+color:var(--stelle-giallo);
 font-size:1.2rem;
 letter-spacing:3px;
 }
 .hero-rating p{
-color:var(--secondary);
+color:var(--stelle-giallo);
 }
 
 /* ========= VIDEO ========= */
@@ -1014,7 +1015,7 @@ margin-bottom:14px;
 
 
 /* .footer-zone / .footer-review: markup rimosso, regole eliminate */
-.footer-review-ster{color:#f5b400;font-size:1rem;}
+.footer-review-ster{color:var(--stelle-giallo);font-size:1rem;}
 
 
 /* ===== FOOTER THUIS ITALIAANS v2 ===== */
@@ -1069,7 +1070,7 @@ margin-bottom:14px;
 .footer-card-title{ font-size:1rem; font-weight:700; color:var(--primary); line-height:1.3; }
 .footer-card-text{ font-size:.9rem; line-height:1.5; color:var(--secondary); text-wrap:pretty; }
 .footer-card-cta{ margin-top:auto; padding-top:8px; font-size:.86rem; font-weight:600; color:var(--primary); }
-.footer-card-review .footer-review-ster{ color:#f5b301; font-size:1.02rem; letter-spacing:3px; line-height:1; }
+.footer-card-review .footer-review-ster{ color:var(--stelle-giallo); font-size:1.02rem; letter-spacing:3px; line-height:1; }
 
 /* --- Riga lingua --- */
 .footer-taal{

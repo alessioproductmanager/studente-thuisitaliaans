@@ -1,3 +1,4 @@
+/*stelle-v1*/:root{--stelle-giallo:#FFC400}
 /* ==========================================================================
    cartoline.css — mazzo di cartoline per pagine città e schede scuola
    thuisitaliaans.com · usa i token già presenti nelle pagine
@@ -366,8 +367,8 @@
 .app-mini-scatti .app-tel:nth-of-type(2){left:58px;transform:translateY(-50%);z-index:3}
 .app-mini-scatti .app-tel:nth-of-type(3){left:118px;transform:translateY(-50%) rotate(4.5deg) scale(.94);z-index:2}
 .app-mini-stelle{display:flex;align-items:center;gap:7px;margin:0 0 8px;
-  font:600 12px/1 var(--sans);letter-spacing:.4px;color:var(--secondario)}
-.app-mini-stelle span[aria-hidden]{color:var(--ambra);font-size:14px;letter-spacing:1px}
+  font:600 12px/1 var(--sans);letter-spacing:.4px;color:var(--stelle-giallo)}
+.app-mini-stelle span[aria-hidden]{color:var(--stelle-giallo);font-size:14px;letter-spacing:1px}
 .app-mini h2{font-family:var(--serif);font-size:20px;margin:0 0 7px;font-weight:600;line-height:1.25}
 .app-mini p{font-size:14px;color:var(--secondario);line-height:1.55;margin:0 0 14px}
 .app-mini p b{color:var(--inchiostro)}

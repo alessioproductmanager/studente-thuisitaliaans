@@ -21,77 +21,139 @@
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/supplemento.css">
 
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://thuisitaliaans.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Italiaanse les in Barneveld" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://thuisitaliaans.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Italiaanse les in Barneveld"
+        }
       ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-            {
-                  "@type": "Question",
-                  "name": "Kom je echt helemaal naar Barneveld?",
-                  "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Ja, voor lessen op locatie kom ik naar Barneveld en de omliggende dorpen. Bij een reeks lessen spreken we een vast moment af."
-                  }
-            },
-            {
-                  "@type": "Question",
-                  "name": "Werkt online les net zo goed?",
-                  "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Voor een privéles wel. Wat je mist is de koffie, niet de kwaliteit van de les."
-                  }
-            },
-            {
-                  "@type": "Question",
-                  "name": "Kan ik eerst kennismaken zonder te betalen?",
-                  "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Ja, de kennismaking is gratis en vrijblijvend. We bespreken je doel en je niveau, en je merkt meteen of het klikt."
-                  }
-            },
-            {
-                  "@type": "Question",
-                  "name": "Wat kost het?",
-                  "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Alle tarieven staan open en bloot op de tarievenpagina. Geen intakekosten, geen verborgen bedragen."
-                  }
-            },
-            {
-                  "@type": "Question",
-                  "name": "Moet ik een lesboek kopen?",
-                  "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Nee. Al het lesmateriaal schrijf ik zelf en het zit bij de les in."
-                  }
-            }
+        {
+          "@type": "Question",
+          "name": "Kom je echt helemaal naar Barneveld?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja, voor lessen op locatie kom ik naar Barneveld en de omliggende dorpen. Bij een reeks lessen spreken we een vast moment af."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Werkt online les net zo goed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Voor een privéles wel. Wat je mist is de koffie, niet de kwaliteit van de les."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kan ik eerst kennismaken zonder te betalen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja, de kennismaking is gratis en vrijblijvend. We bespreken je doel en je niveau, en je merkt meteen of het klikt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat kost het?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Alle tarieven staan open en bloot op de tarievenpagina. Geen intakekosten, geen verborgen bedragen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Moet ik een lesboek kopen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nee. Al het lesmateriaal schrijf ik zelf en het zit bij de les in."
+          }
+        }
       ]
-},    {
+    },
+    {
       "@type": "Service",
       "name": "Privéles Italiaans in Barneveld",
       "serviceType": "Taalles Italiaans",
-      "provider": { "@id": "https://thuisitaliaans.com/#organizzazione" },
-      "areaServed": [{ "@type": "City", "name": "Barneveld" }, { "@type": "City", "name": "Voorthuizen" }, { "@type": "City", "name": "Kootwijkerbroek" }, { "@type": "City", "name": "Garderen" }, { "@type": "City", "name": "Terschuur" }, { "@type": "City", "name": "Ede" }, { "@type": "City", "name": "Nijkerk" }],
-      "availableChannel": [
-        { "@type": "ServiceChannel", "name": "Op locatie in Barneveld en omgeving" },
-        { "@type": "ServiceChannel", "name": "Online", "serviceUrl": "https://thuisitaliaans.com/italiaans-online-leren" }
+      "provider": {
+        "@id": "https://thuisitaliaans.com/#organizzazione",
+        "sameAs": [
+          "https://maps.google.com/?cid=1518224867092056834",
+          "https://preply.com/en/tutor/3843955",
+          "https://www.apprentus.com/en/in/italiano.amsterdam"
+        ]
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Barneveld"
+        },
+        {
+          "@type": "City",
+          "name": "Voorthuizen"
+        },
+        {
+          "@type": "City",
+          "name": "Kootwijkerbroek"
+        },
+        {
+          "@type": "City",
+          "name": "Garderen"
+        },
+        {
+          "@type": "City",
+          "name": "Terschuur"
+        },
+        {
+          "@type": "City",
+          "name": "Ede"
+        },
+        {
+          "@type": "City",
+          "name": "Nijkerk"
+        }
       ],
-      "offers": { "@type": "Offer", "url": "https://thuisitaliaans.com/tarieven", "priceCurrency": "EUR", "price": "{{PRIJS_LOS_UUR}}" }
+      "availableChannel": [
+        {
+          "@type": "ServiceChannel",
+          "name": "Op locatie in Barneveld en omgeving"
+        },
+        {
+          "@type": "ServiceChannel",
+          "name": "Online",
+          "serviceUrl": "https://thuisitaliaans.com/italiaans-online-leren"
+        }
+      ],
+      "offers": {
+        "@type": "Offer",
+        "url": "https://thuisitaliaans.com/tarieven",
+        "priceCurrency": "EUR",
+        "price": "{{PRIJS_LOS_UUR}}"
+      }
     }
   ]
-}
-</script>
+}</script>
     <meta name="copyright" content="© 2026 Thuis Italiaans — All rights reserved">
+<style>/*stelle-v1*/
+:root{--stelle-giallo:#FFC400}
+.stars,.hero-rating,.footer-review-ster,.app-stelle,.app-stelle-ico,.app-mini-stelle,.rec-stelle,.sidebar-rating,.stelle-gialle,.stars > *,.hero-rating > *,.footer-review-ster > *,.app-stelle > *,.app-stelle-ico > *,.app-mini-stelle > *,.rec-stelle > *,.sidebar-rating > *,.stelle-gialle > *{color:var(--stelle-giallo)!important}
+.stars svg,.stars path,.stars use,.hero-rating svg,.hero-rating path,.hero-rating use,.footer-review-ster svg,.footer-review-ster path,.footer-review-ster use,.app-stelle svg,.app-stelle path,.app-stelle use,.app-stelle-ico svg,.app-stelle-ico path,.app-stelle-ico use,.app-mini-stelle svg,.app-mini-stelle path,.app-mini-stelle use,.rec-stelle svg,.rec-stelle path,.rec-stelle use,.sidebar-rating svg,.sidebar-rating path,.sidebar-rating use,.stelle-gialle svg,.stelle-gialle path,.stelle-gialle use{fill:var(--stelle-giallo)!important;stroke:none}
+.stars,.hero-rating,.footer-review-ster,.app-stelle,.app-stelle-ico,.app-mini-stelle,.rec-stelle,.sidebar-rating,.stelle-gialle{letter-spacing:.04em}
+</style>
 </head>
 <body>
 
@@ -382,5 +444,18 @@
 <script src="/js/modulo-contatto.js"></script>
 <script src="/js/ti-cta.js" defer></script>
 <script src="/js/whatsapp.js" defer></script>
+<script>/*stelle-v1*/
+(function(){
+  var SOLO=/^[\s\u2605\u2606\u2b50\ufe0f]+$/, HA=/[\u2605\u2606\u2b50]/;
+  var CAND="h1,h2,h3,h4,h5,p,span,div,b,strong,em,i,td,li,a";
+  try{
+    document.querySelectorAll(CAND).forEach(function(el){
+      var t=el.textContent||"";
+      if(el.children.length===0 && HA.test(t) && SOLO.test(t))
+        el.classList.add("stelle-gialle");
+    });
+  }catch(e){}
+})();
+</script>
 </body>
 </html>

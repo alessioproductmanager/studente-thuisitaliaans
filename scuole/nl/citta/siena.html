@@ -434,7 +434,13 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
 <link rel="stylesheet" href="/assets/mappe.css">
 <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script defer src="/assets/mappe.js"></script>
-<!--itemlist--><script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "Italiaanse talenscholen in Siena", "numberOfItems": 3, "itemListOrder": "https://schema.org/ItemListOrderAscending", "itemListElement": [{"@type": "ListItem", "position": 1, "item": {"@type": "LanguageSchool", "name": "Saena Iulia", "url": "https://thuisitaliaans.com/scuole/nl/saena-iulii", "address": {"@type": "PostalAddress", "addressLocality": "Siena", "addressRegion": "Toscana", "addressCountry": "IT"}}}, {"@type": "ListItem", "position": 2, "item": {"@type": "LanguageSchool", "name": "Società Dante Alighieri Siena", "url": "https://thuisitaliaans.com/scuole/nl/societa-dante-alighieri-siena", "address": {"@type": "PostalAddress", "addressLocality": "Siena", "addressRegion": "Toscana", "addressCountry": "IT"}}}, {"@type": "ListItem", "position": 3, "item": {"@type": "LanguageSchool", "name": "Università per Stranieri di Siena", "url": "https://thuisitaliaans.com/scuole/nl/universita-per-stranieri-di-siena", "address": {"@type": "PostalAddress", "addressLocality": "Siena", "addressRegion": "Toscana", "addressCountry": "IT"}}}]}</script><!--/itemlist--></head>
+<!--itemlist--><script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "Italiaanse talenscholen in Siena", "numberOfItems": 3, "itemListOrder": "https://schema.org/ItemListOrderAscending", "itemListElement": [{"@type": "ListItem", "position": 1, "item": {"@type": "LanguageSchool", "name": "Saena Iulia", "url": "https://thuisitaliaans.com/scuole/nl/saena-iulii", "address": {"@type": "PostalAddress", "addressLocality": "Siena", "addressRegion": "Toscana", "addressCountry": "IT"}}}, {"@type": "ListItem", "position": 2, "item": {"@type": "LanguageSchool", "name": "Società Dante Alighieri Siena", "url": "https://thuisitaliaans.com/scuole/nl/societa-dante-alighieri-siena", "address": {"@type": "PostalAddress", "addressLocality": "Siena", "addressRegion": "Toscana", "addressCountry": "IT"}}}, {"@type": "ListItem", "position": 3, "item": {"@type": "LanguageSchool", "name": "Università per Stranieri di Siena", "url": "https://thuisitaliaans.com/scuole/nl/universita-per-stranieri-di-siena", "address": {"@type": "PostalAddress", "addressLocality": "Siena", "addressRegion": "Toscana", "addressCountry": "IT"}}}]}</script><!--/itemlist--><style>/*stelle-v1*/
+:root{--stelle-giallo:#FFC400}
+.stars,.hero-rating,.footer-review-ster,.app-stelle,.app-stelle-ico,.app-mini-stelle,.rec-stelle,.sidebar-rating,.stelle-gialle,.stars > *,.hero-rating > *,.footer-review-ster > *,.app-stelle > *,.app-stelle-ico > *,.app-mini-stelle > *,.rec-stelle > *,.sidebar-rating > *,.stelle-gialle > *{color:var(--stelle-giallo)!important}
+.stars svg,.stars path,.stars use,.hero-rating svg,.hero-rating path,.hero-rating use,.footer-review-ster svg,.footer-review-ster path,.footer-review-ster use,.app-stelle svg,.app-stelle path,.app-stelle use,.app-stelle-ico svg,.app-stelle-ico path,.app-stelle-ico use,.app-mini-stelle svg,.app-mini-stelle path,.app-mini-stelle use,.rec-stelle svg,.rec-stelle path,.rec-stelle use,.sidebar-rating svg,.sidebar-rating path,.sidebar-rating use,.stelle-gialle svg,.stelle-gialle path,.stelle-gialle use{fill:var(--stelle-giallo)!important;stroke:none}
+.stars,.hero-rating,.footer-review-ster,.app-stelle,.app-stelle-ico,.app-mini-stelle,.rec-stelle,.sidebar-rating,.stelle-gialle{letter-spacing:.04em}
+</style>
+</head>
 <body>
 <header><div class="contenitore testata">
   <div class="logo"><a href="https://thuisitaliaans.com/">thuis<span>italiaans</span></a> · 108 geselecteerde scholen in Italië</div>
@@ -555,4 +561,17 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
  document.body.appendChild(box);
  setTimeout(function(){box.classList.add('mostra');},600);
 })();
-</script></body></html>
+</script><script>/*stelle-v1*/
+(function(){
+  var SOLO=/^[\s\u2605\u2606\u2b50\ufe0f]+$/, HA=/[\u2605\u2606\u2b50]/;
+  var CAND="h1,h2,h3,h4,h5,p,span,div,b,strong,em,i,td,li,a";
+  try{
+    document.querySelectorAll(CAND).forEach(function(el){
+      var t=el.textContent||"";
+      if(el.children.length===0 && HA.test(t) && SOLO.test(t))
+        el.classList.add("stelle-gialle");
+    });
+  }catch(e){}
+})();
+</script>
+</body></html>

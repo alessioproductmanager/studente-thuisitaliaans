@@ -1,3 +1,4 @@
+/*stelle-v1*/:root{--stelle-giallo:#FFC400}
 /* ==========================================================================
    app-banner.css — riquadri dell'app ti per /esercizi/ e /blog/
    usa i token già presenti (--primary, --gold, --radius, --surface, --border)
@@ -17,13 +18,13 @@
 /* ---------- riga delle stelle ------------------------------------------- */
 .app-stelle{display:flex;align-items:center;gap:7px;margin:0 0 8px;
   font:600 .78rem/1 inherit;letter-spacing:.4px}
-.app-stelle .app-stelle-ico{color:var(--gold,#f5b400);font-size:.95rem;letter-spacing:1px}
+.app-stelle .app-stelle-ico{color:var(--stelle-giallo);font-size:.95rem;letter-spacing:1px}
 .app-solo-lettori{position:absolute;width:1px;height:1px;overflow:hidden;
   clip:rect(0 0 0 0);white-space:nowrap}
 
 /* ---------- esercizi: riquadro scuro già esistente ----------------------- */
 .ex-app-promo--scatti{align-items:center;gap:28px}
-.ex-app-promo--scatti .app-stelle{color:rgba(255,255,255,.72)}
+.ex-app-promo--scatti .app-stelle{color:var(--stelle-giallo)}
 
 /* ---------- blog: riquadro dentro l'articolo ----------------------------- */
 .app-banner{
@@ -34,7 +35,7 @@
   box-shadow:0 12px 35px rgba(49,57,77,.18);
 }
 .app-banner-testo{flex:1;min-width:0}
-.app-banner .app-stelle{color:rgba(255,255,255,.72)}
+.app-banner .app-stelle{color:var(--stelle-giallo)}
 .app-banner h3{color:#fff;font-size:1.18rem;margin:0 0 7px;line-height:1.3}
 .app-banner p{color:rgba(255,255,255,.85);font-size:.95rem;line-height:1.55;margin:0 0 16px}
 .app-banner strong{color:var(--gold,#f5b400)}
