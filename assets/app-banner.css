@@ -1,0 +1,57 @@
+/* ==========================================================================
+   app-banner.css — riquadri dell'app ti per /esercizi/ e /blog/
+   usa i token già presenti (--primary, --gold, --radius, --surface, --border)
+   ========================================================================== */
+
+/* ---------- schermate a ventaglio (comuni) ------------------------------- */
+.app-scatti{position:relative;flex:0 0 238px;width:238px;height:252px}
+.app-scatti .app-scatto{position:absolute;top:50%;width:116px;display:block;margin:0}
+.app-scatti .app-scatto img{
+  width:100%;height:auto;display:block;border-radius:11px;
+  box-shadow:0 2px 4px rgba(0,0,0,.2),0 16px 30px -12px rgba(0,0,0,.6);
+}
+.app-scatti .app-scatto:nth-of-type(1){left:0;transform:translateY(-50%) rotate(-4.5deg) scale(.94);z-index:1}
+.app-scatti .app-scatto:nth-of-type(2){left:56px;transform:translateY(-50%);z-index:3}
+.app-scatti .app-scatto:nth-of-type(3){left:114px;transform:translateY(-50%) rotate(4.5deg) scale(.94);z-index:2}
+
+/* ---------- riga delle stelle ------------------------------------------- */
+.app-stelle{display:flex;align-items:center;gap:7px;margin:0 0 8px;
+  font:600 .78rem/1 inherit;letter-spacing:.4px}
+.app-stelle .app-stelle-ico{color:var(--gold,#f5b400);font-size:.95rem;letter-spacing:1px}
+.app-solo-lettori{position:absolute;width:1px;height:1px;overflow:hidden;
+  clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- esercizi: riquadro scuro già esistente ----------------------- */
+.ex-app-promo--scatti{align-items:center;gap:28px}
+.ex-app-promo--scatti .app-stelle{color:rgba(255,255,255,.72)}
+
+/* ---------- blog: riquadro dentro l'articolo ----------------------------- */
+.app-banner{
+  margin:34px 0 0;padding:26px 30px;
+  background:linear-gradient(160deg,#31394d 0%,#3f4a66 100%);
+  border-radius:var(--radius,22px);color:#fff;
+  display:flex;align-items:center;gap:28px;
+  box-shadow:0 12px 35px rgba(49,57,77,.18);
+}
+.app-banner-testo{flex:1;min-width:0}
+.app-banner .app-stelle{color:rgba(255,255,255,.72)}
+.app-banner h3{color:#fff;font-size:1.18rem;margin:0 0 7px;line-height:1.3}
+.app-banner p{color:rgba(255,255,255,.85);font-size:.95rem;line-height:1.55;margin:0 0 16px}
+.app-banner strong{color:var(--gold,#f5b400)}
+.app-banner .app-banner-cta{
+  display:inline-flex;padding:13px 26px;border-radius:999px;
+  background:var(--gold,#f5b400);color:#31394d;font-weight:700;
+  text-decoration:none;transition:.35s ease;
+}
+.app-banner .app-banner-cta:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(245,180,0,.35)}
+
+/* ---------- schermi stretti ---------------------------------------------- */
+@media(max-width:720px){
+  .app-banner,.ex-app-promo--scatti{flex-direction:column;text-align:center;gap:18px}
+  .app-scatti{flex-basis:auto;width:212px;height:224px;margin:0 auto}
+  .app-scatti .app-scatto{width:102px}
+  .app-scatti .app-scatto:nth-of-type(2){left:50px}
+  .app-scatti .app-scatto:nth-of-type(3){left:102px}
+  .app-stelle{justify-content:center}
+  .app-banner{padding:22px}
+}
