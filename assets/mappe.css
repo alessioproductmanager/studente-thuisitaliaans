@@ -11,7 +11,7 @@
 .mappa-box .leaflet-container{font-family:var(--sans);background:#EFE9DE}
 
 /* pin: stessa forma della mappa grande di /scuole/mappa.html */
-.mappa .pin,.mappa .pin-luogo{
+.mappa .pin,.mappa .pin-luogo,.mappa .pin-aereo{
   border:2px solid #fff;border-radius:999px;color:#fff;
   font:700 12px/1 var(--sans);
   display:flex;align-items:center;justify-content:center;
@@ -19,7 +19,8 @@
 }
 .mappa .pin{background:var(--terracotta,#BC5533);width:26px;height:26px;cursor:pointer}
 .mappa .pin-luogo{background:var(--salvia,#5E7357);width:24px;height:24px;font-size:11px}
-.mappa .pin svg,.mappa .pin-luogo svg{width:13px;height:13px;display:block}
+.mappa .pin-aereo{background:var(--cart-blu,#2C4B78);width:24px;height:24px}
+.mappa .pin svg,.mappa .pin-luogo svg,.mappa .pin-aereo svg{width:13px;height:13px;display:block}
 
 /* legenda */
 .mappa-legenda{
@@ -31,6 +32,7 @@
 
 .mappa-legenda .lg-s{background:var(--terracotta,#BC5533)}
 .mappa-legenda .lg-l{background:var(--salvia,#5E7357)}
+.mappa-legenda .lg-a{background:#2C4B78}
 .mappa-aiuto{flex-basis:100%;font-size:11.5px;opacity:.85;margin-top:2px}
 
 /* fumetti */
@@ -54,6 +56,11 @@
 }
 .mappa-muoversi p{font-size:13.5px;line-height:1.6;color:var(--secondario);margin:0 0 6px}
 .mappa-muoversi p:last-child{margin-bottom:0}
+
+/* aeroporto consigliato */
+.mappa-aereo{margin-top:12px;padding-top:10px;border-top:1px dashed var(--linea)}
+.mappa-aereo b{display:block;font-size:11px;letter-spacing:.8px;text-transform:uppercase;color:var(--inchiostro);margin-bottom:5px}
+.mappa-aereo p{font-size:13.5px;line-height:1.55;color:var(--secondario);margin:0}
 
 @media(max-width:640px){
   .mappa{height:270px}
