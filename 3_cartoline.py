@@ -43,6 +43,14 @@ MARCA_APP_I = "<!--app-mini-->"
 MARCA_APP_F = "<!--/app-mini-->"
 
 PREFISSO_FOTO = "/assets/scuola_cartoline"
+PREFISSO_STORE = "/assets/store"
+
+# cartelle disponibili in assets/store/
+LINGUE_STORE = ("ar", "bn", "de", "en", "en_AU", "en_CA", "en_US", "es", "es_MX",
+                "fr", "fr_CA", "it", "nl", "pt", "pt_BR", "ro", "uk", "zh")
+# tre schermate per il riquadro in alto, tre per quello in fondo
+SCATTI_ALTO = ("01_lettore", "03_percorso", "08_tappa")
+SCATTI_BASSO = ("02_edicola", "04_mappa", "10_metodo")
 CSS_URL = "/assets/cartoline.css"
 JS_URL = "/assets/cartoline.js"
 
@@ -72,6 +80,7 @@ FRASI = {
         "chip": ['{h} vere/sett.', 'max {n} in classe', 'lezione {m}'],
         "app_tit": 'Arriva già pronto.', "app_txt": "Con l'app <b>ti</b> leggi racconti graduati con la traduzione in 14 lingue. Cinque minuti al giorno da qui alla partenza.", "app_cta": "Scarica l'app ti ↗",
         "app_alt": "L'app ti: cinque minuti al giorno, da zero a C2", "credito_riga": 'Foto di {a}, licenza {l}, da Wikimedia Commons.',
+        "scatti": ['lettore', 'percorso', 'tappa', 'edicola', 'mappa', 'metodo'], "store": 'App Store', "stelle": 'Valutazione cinque stelle su App Store',
     },
     "en": {
         "citta": ["Greetings from {c}", "Hello from {c}", "A postcard from {c}"],
@@ -86,6 +95,7 @@ FRASI = {
         "chip": ['{h} real/week', 'max {n} per class', '{m} lesson'],
         "app_tit": 'Arrive ready.', "app_txt": 'With the <b>ti</b> app you read graded stories with support in 14 languages. Five minutes a day between now and departure.', "app_cta": 'Get the ti app ↗',
         "app_alt": 'The ti app: five minutes a day, from zero to C2', "credito_riga": 'Photo by {a}, licence {l}, from Wikimedia Commons.',
+        "scatti": ['reader', 'path', 'step', 'newsstand', 'map', 'method'], "store": 'App Store', "stelle": 'Five-star rating on the App Store',
     },
     "nl": {
         "citta": ["Groeten uit {c}", "Hallo uit {c}", "Een kaartje uit {c}"],
@@ -100,6 +110,7 @@ FRASI = {
         "chip": ['{h} echt/week', 'max {n} per klas', 'les {m}'],
         "app_tit": 'Kom voorbereid aan.', "app_txt": 'Met de app <b>ti</b> lees je verhalen op niveau, met ondersteuning in 14 talen. Vijf minuten per dag tot je vertrek.', "app_cta": 'Download de ti-app ↗',
         "app_alt": 'De ti-app: vijf minuten per dag, van nul naar C2', "credito_riga": 'Foto van {a}, licentie {l}, via Wikimedia Commons.',
+        "scatti": ['lezer', 'traject', 'stap', 'kiosk', 'kaart', 'methode'], "store": 'App Store', "stelle": 'Vijf sterren in de App Store',
     },
     "de": {
         "citta": ["Grüße aus {c}", "Hallo aus {c}", "Eine Karte aus {c}"],
@@ -114,6 +125,7 @@ FRASI = {
         "chip": ['{h} echt/Woche', 'max. {n} pro Klasse', '{m} Unterricht'],
         "app_tit": 'Komm vorbereitet an.', "app_txt": 'Mit der App <b>ti</b> liest du abgestufte Geschichten mit Unterstützung in 14 Sprachen. Fünf Minuten am Tag bis zur Abreise.', "app_cta": 'Die ti-App laden ↗',
         "app_alt": 'Die ti-App: fünf Minuten am Tag, von null auf C2', "credito_riga": 'Foto von {a}, Lizenz {l}, von Wikimedia Commons.',
+        "scatti": ['Leser', 'Lernpfad', 'Etappe', 'Kiosk', 'Karte', 'Methode'], "store": 'App Store', "stelle": 'Fünf Sterne im App Store',
     },
     "fr": {
         "citta": ["Bonjour de {c}", "Un bonjour de {c}", "Une carte de {c}"],
@@ -128,6 +140,7 @@ FRASI = {
         "chip": ['{h} réelles/sem.', 'max {n} par classe', 'cours {m}'],
         "app_tit": 'Arrivez déjà prêt.', "app_txt": "Avec l'appli <b>ti</b>, vous lisez des récits gradués avec un soutien en 14 langues. Cinq minutes par jour d'ici au départ.", "app_cta": "Télécharger l'appli ti ↗",
         "app_alt": "L'appli ti : cinq minutes par jour, de zéro à C2", "credito_riga": 'Photo de {a}, licence {l}, via Wikimedia Commons.',
+        "scatti": ['lecteur', 'parcours', 'étape', 'kiosque', 'carte', 'méthode'], "store": 'App Store', "stelle": "Cinq étoiles sur l'App Store",
     },
     "es": {
         "citta": ["Saludos desde {c}", "Un abrazo desde {c}", "Una postal desde {c}"],
@@ -142,6 +155,7 @@ FRASI = {
         "chip": ['{h} reales/sem.', 'máx. {n} por clase', 'clase {m}'],
         "app_tit": 'Llega ya preparado.', "app_txt": 'Con la app <b>ti</b> lees relatos graduados con apoyo en 14 idiomas. Cinco minutos al día de aquí a la salida.', "app_cta": 'Descargar la app ti ↗',
         "app_alt": 'La app ti: cinco minutos al día, de cero a C2', "credito_riga": 'Foto de {a}, licencia {l}, desde Wikimedia Commons.',
+        "scatti": ['lector', 'itinerario', 'etapa', 'quiosco', 'mapa', 'método'], "store": 'App Store', "stelle": 'Cinco estrellas en la App Store',
     },
     "pl": {
         "citta": ["Pozdrowienia z miasta {c}", "Kartka z miasta {c}", "Pozdrowienia — {c}"],
@@ -156,6 +170,7 @@ FRASI = {
         "chip": ['{h} rzecz./tydz.', 'maks. {n} w klasie', 'lekcja {m}'],
         "app_tit": 'Przyjedź przygotowany.', "app_txt": 'Z aplikacją <b>ti</b> czytasz teksty na swoim poziomie, ze wsparciem w 14 językach. Pięć minut dziennie do wyjazdu.', "app_cta": 'Pobierz aplikację ti ↗',
         "app_alt": 'Aplikacja ti: pięć minut dziennie, od zera do C2', "credito_riga": 'Zdjęcie: {a}, licencja {l}, z Wikimedia Commons.',
+        "scatti": ['czytnik', 'ścieżka', 'etap', 'kiosk', 'mapa', 'metoda'], "store": 'App Store', "stelle": 'Pięć gwiazdek w App Store',
     },
 }
 
@@ -515,18 +530,57 @@ CSS = r"""/* ===================================================================
 .cart-crediti-lungo i{color:var(--inchiostro);font-style:italic}
 .cart-crediti-lungo a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 
-/* promo app compatta, dentro la scheda scuola */
-.app-mini{margin-top:18px;display:grid;grid-template-columns:98px 1fr;gap:18px;align-items:center;
-  background:linear-gradient(135deg,#FBF7F0,#F3E9DD);border:1px solid var(--linea);
-  border-radius:var(--r);padding:16px 18px}
-.app-mini-tel{width:100%;height:auto;border-radius:10px;filter:drop-shadow(3px 6px 12px rgba(34,29,22,.2))}
-.app-mini h2{font-family:var(--serif);font-size:19px;margin:0 0 6px;font-weight:600}
-.app-mini p{font-size:14px;color:var(--secondario);line-height:1.55;margin:0 0 12px}
+/* promo app compatta: tre schermate a ventaglio + poco testo */
+.app-mini{margin-top:0;margin-bottom:18px;display:grid;grid-template-columns:196px 1fr;gap:22px;
+  align-items:center;background:linear-gradient(135deg,#FBF7F0,#F3E9DD);
+  border:1px solid var(--linea);border-radius:var(--r);padding:18px 20px}
+.app-mini-scatti{position:relative;height:214px}
+.app-mini-scatti .app-tel{position:absolute;top:50%;width:98px;display:block}
+.app-mini-scatti .app-tel img{width:100%;height:auto;display:block;border-radius:9px;
+  box-shadow:0 1px 2px rgba(34,29,22,.16),0 14px 26px -12px rgba(34,29,22,.55)}
+.app-mini-scatti .app-tel:nth-of-type(1){left:0;transform:translateY(-50%) rotate(-7deg) scale(.9);z-index:1}
+.app-mini-scatti .app-tel:nth-of-type(2){left:44px;transform:translateY(-50%);z-index:3}
+.app-mini-scatti .app-tel:nth-of-type(3){left:90px;transform:translateY(-50%) rotate(7deg) scale(.9);z-index:2}
+.app-mini-stelle{display:flex;align-items:center;gap:7px;margin:0 0 8px;
+  font:600 12px/1 var(--sans);letter-spacing:.4px;color:var(--secondario)}
+.app-mini-stelle span[aria-hidden]{color:var(--ambra);font-size:14px;letter-spacing:1px}
+.app-mini h2{font-family:var(--serif);font-size:20px;margin:0 0 7px;font-weight:600;line-height:1.25}
+.app-mini p{font-size:14px;color:var(--secondario);line-height:1.55;margin:0 0 14px}
 .app-mini p b{color:var(--inchiostro)}
 .app-mini .app-cta{display:inline-block;background:var(--inchiostro);color:#fff;font-weight:600;
-  text-decoration:none;padding:9px 17px;border-radius:999px;font-size:14px}
+  text-decoration:none;padding:10px 18px;border-radius:999px;font-size:14px}
 .app-mini .app-cta:hover{background:var(--terracotta)}
-@media(max-width:520px){.app-mini{grid-template-columns:74px 1fr;gap:14px;padding:14px}}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* il carosello grande in fondo ora contiene <picture> */
+.app-carosello .app-tel{display:block}
+.app-carosello .app-tel img{width:100%;height:auto;display:block;border-radius:8px}
+
+@media(max-width:560px){
+  .app-mini{grid-template-columns:154px 1fr;gap:16px;padding:16px}
+  .app-mini-scatti{height:172px}
+  .app-mini-scatti .app-tel{width:78px}
+  .app-mini-scatti .app-tel:nth-of-type(2){left:36px}
+  .app-mini-scatti .app-tel:nth-of-type(3){left:72px}
+  .app-mini h2{font-size:18px}
+}
+@media(max-width:400px){
+  .app-mini{grid-template-columns:1fr;justify-items:center;text-align:center}
+  .app-mini-scatti{width:190px}
+}
+
+/* domande frequenti della home: riquadri come gli altri pannelli */
+.faq-home details{
+  background:var(--card);
+  border:1px solid var(--linea);
+  border-radius:var(--r-s);
+  box-shadow:var(--ombra);
+  padding:14px 16px;
+  margin-bottom:10px;
+}
+.faq-home summary{cursor:pointer;font-weight:600;color:var(--inchiostro);font-size:15px}
+.faq-home details div{margin-top:8px;color:var(--secondario);line-height:1.62;font-size:14px;max-width:70ch}
+.faq-home details[open]{border-color:#DCD3C1}
 """
 JS = r"""/* cartoline.js — fa "smazzare" le cartoline. Senza JS restano impilate, ferme. */
 (function () {
@@ -577,6 +631,40 @@ JS = r"""/* cartoline.js — fa "smazzare" le cartoline. Senza JS restano impila
   document.readyState === 'loading'
     ? document.addEventListener('DOMContentLoaded', inizio)
     : inizio();
+})();
+
+/* Schermate dell'app nella lingua del browser (se disponibile in assets/store). */
+(function () {
+  var CARTELLE = ["ar","bn","de","en","en_AU","en_CA","en_US","es","es_MX",
+                  "fr","fr_CA","it","nl","pt","pt_BR","ro","uk","zh"];
+  var BASE = "/assets/store";
+
+  function cartella() {
+    var l = (navigator.languages && navigator.languages[0]) || navigator.language || "";
+    if (!l) return null;
+    var u = l.replace("-", "_");
+    if (CARTELLE.indexOf(u) >= 0) return u;
+    var b = u.split("_")[0];
+    return CARTELLE.indexOf(b) >= 0 ? b : null;
+  }
+
+  function applica() {
+    var c = cartella();
+    if (!c) return;
+    var el = document.querySelectorAll("picture[data-app]");
+    for (var i = 0; i < el.length; i++) {
+      var nome = el[i].getAttribute("data-app");
+      var img = el[i].querySelector("img");
+      var src = el[i].querySelector("source");
+      if (!img || img.getAttribute("src").indexOf("/" + c + "/") >= 0) continue;
+      if (src) src.srcset = BASE + "/" + c + "/" + nome + ".webp";
+      img.setAttribute("src", BASE + "/" + c + "/" + nome + ".jpg");
+    }
+  }
+
+  document.readyState === "loading"
+    ? document.addEventListener("DOMContentLoaded", applica)
+    : applica();
 })();
 """
 
@@ -821,35 +909,78 @@ def fine_div(t, i):
 
 
 def innesta_scuola(t, blocco_html):
+    """Colonna di destra: dopo il modulo 'Scrivi alla scuola',
+    prima del riquadro 'Altre scuole a ...'."""
+    i = t.find('<div class="pannello altre"')
+    if i >= 0:
+        return t[:i] + blocco_html + "\n" + t[i:]
+    # città con una sola scuola: subito dopo il modulo di contatto
+    i = t.find('<div class="pannello contatto"')
+    if i >= 0:
+        j = fine_div(t, i)
+        if j > 0:
+            return t[:j] + "\n" + blocco_html + "\n" + t[j:]
+    # ripiego: sotto "Cosa non perdere"
     i = t.find('<div class="pannello guida"')
     if i < 0:
         return None
-    j = fine_div(t, i)          # resta dentro la colonna di destra
-    if j < 0:
-        return None
-    return t[:j] + "\n" + blocco_html + "\n" + t[j:]
+    j = fine_div(t, i)
+    return None if j < 0 else t[:j] + "\n" + blocco_html + "\n" + t[j:]
 
 
 LINGUE_APP = ("it", "en", "nl", "de", "fr", "es")
 
 
+def scatto(lingua, nome, indice):
+    """<picture> con webp, jpg e l'aggancio per il cambio lingua da browser."""
+    T = FRASI[lingua]
+    cart = lingua if lingua in LINGUE_STORE else "en"
+    parola = T["scatti"][indice] if indice < len(T["scatti"]) else ""
+    return (f'<picture class="app-tel" data-app="{nome}">'
+            f'<source type="image/webp" srcset="{PREFISSO_STORE}/{cart}/{nome}.webp">'
+            f'<img src="{PREFISSO_STORE}/{cart}/{nome}.jpg" alt="App ti: {esc(parola)}" '
+            f'width="600" height="1298" loading="lazy" decoding="async"></picture>')
+
+
 def card_app(lingua, prefisso):
     T = FRASI[lingua]
-    img = lingua if lingua in LINGUE_APP else "en"
+    scatti = "".join(scatto(lingua, n, i) for i, n in enumerate(SCATTI_ALTO))
+    stelle = (f'<p class="app-mini-stelle"><span aria-hidden="true">\u2605\u2605\u2605\u2605\u2605</span> '
+              f'<span>{esc(T["store"])}</span><span class="sr-only"> \u2014 {esc(T["stelle"])}</span></p>')
     return (f'{MARCA_APP_I}<section class="app-mini">'
-            f'<img class="app-mini-tel" src="{prefisso}app/{img}/03_percorso.jpg" '
-            f'alt="{esc(T["app_alt"])}" width="600" height="1298" loading="lazy" decoding="async">'
-            f'<div class="app-mini-testo"><h2>{esc(T["app_tit"])}</h2><p>{T["app_txt"]}</p>'
+            f'<div class="app-mini-scatti">{scatti}</div>'
+            f'<div class="app-mini-testo">{stelle}<h2>{esc(T["app_tit"])}</h2><p>{T["app_txt"]}</p>'
             f'<a class="app-cta" href="https://apps.apple.com/app/id6791650799" '
             f'target="_blank" rel="noopener">{esc(T["app_cta"])}</a></div>'
             f'</section>{MARCA_APP_F}')
 
 
-def innesta_app(t, card_html):
-    i = t.find('<div class="pannello gp"')
-    if i < 0:
+def carosello_grande(t, lingua):
+    """Sostituisce le tre foto del riquadro app in fondo con le altre tre."""
+    m = re.search(r'<div class="app-carosello">.*?</div>', t, re.S)
+    if not m:
+        return t, 0
+    scatti = "".join(scatto(lingua, n, i + 3) for i, n in enumerate(SCATTI_BASSO))
+    return t.replace(m.group(0), f'<div class="app-carosello">{scatti}</div>', 1), 1
+
+
+def ripristina_carosello(t, lingua):
+    m = re.search(r'<div class="app-carosello">.*?</div>', t, re.S)
+    if not m or "data-app" not in m.group(0):
         return t
-    return t[:i] + card_html + t[i:]
+    cart = lingua if lingua in ("it", "en", "nl", "de", "fr", "es") else "en"
+    pre = "" if "/citta/" not in t[:0] else ""
+    vecchie = "".join(f'<img class="app-tel" src="app/{cart}/{n}.jpg" alt="ti app" loading="lazy">'
+                      for n in ("01_lettore", "02_edicola", "03_percorso"))
+    return t.replace(m.group(0), f'<div class="app-carosello">{vecchie}</div>', 1)
+
+
+def innesta_app(t, card_html):
+    for ancora in ('<div class="pannello perche"', '<div class="pannello gp"'):
+        i = t.find(ancora)
+        if i >= 0:
+            return t[:i] + card_html + t[i:]
+    return t
 
 
 def innesta_piede(t, piede_html):
@@ -947,8 +1078,12 @@ def main():
                     continue
                 p = os.path.join(base, f)
                 t = open(p, encoding="utf-8").read()
-                if MARCA_INIZIO in t:
-                    open(p, "w", encoding="utf-8").write(togli_blocco(t))
+                if MARCA_INIZIO in t or "data-app" in t:
+                    lg = "it"
+                    for suff, l in LINGUE.items():
+                        if suff and (os.sep + suff + os.sep) in p:
+                            lg = l
+                    open(p, "w", encoding="utf-8").write(ripristina_carosello(togli_blocco(t), lg))
                     n += 1
         print(f"blocchi rimossi da {n} pagine")
         return
@@ -1010,7 +1145,7 @@ def main():
             i += 3
 
     # ---- 6. scrittura ---------------------------------------------------
-    fatti, saltati, n_chip, n_app = 0, [], 0, 0
+    fatti, saltati, n_chip, n_app, n_car = 0, [], 0, 0, 0
     for p, lingua, tipo, cs, nome, chiave in pagine:
         voci = per_citta.get(cs)
         if not voci:
@@ -1032,11 +1167,12 @@ def main():
             continue
         nuovo = innesta_piede(nuovo, piede)
         if tipo == "scuola":
-            prefisso = "" if os.path.dirname(p) == dir_scuole else "../"
             prima = nuovo
-            nuovo = innesta_app(nuovo, card_app(lingua, prefisso))
+            nuovo = innesta_app(nuovo, card_app(lingua, ""))
             if nuovo != prima:
                 n_app += 1
+            nuovo, k = carosello_grande(nuovo, lingua)
+            n_car += k
         if tipo == "citta":
             nuovo, k = chip_citta(nuovo, lingua)
             n_chip += k
@@ -1044,9 +1180,26 @@ def main():
             open(p, "w", encoding="utf-8").write(nuovo)
         fatti += 1
 
+    # index e mappa: basta il foglio di stile (riquadri delle domande frequenti)
+    n_css = 0
+    for suff in LINGUE:
+        base = os.path.join(dir_scuole, suff) if suff else dir_scuole
+        for f in ("index.html", "mappa.html"):
+            q = os.path.join(base, f)
+            if not os.path.exists(q):
+                continue
+            tt = open(q, encoding="utf-8").read()
+            if CSS_URL in tt:
+                continue
+            if not a.prova:
+                open(q, "w", encoding="utf-8").write(metti_assets(tt))
+            n_css += 1
+
     print(f"\n{'(prova) ' if a.prova else ''}cartoline inserite in {fatti} pagine")
+    print(f"foglio di stile aggiunto a index/mappa: {n_css} pagine")
     print(f"chip informativi al posto di '20 h/sett.': {n_chip} schede")
     print(f"promo app compatta: {n_app} pagine")
+    print(f"carosello in fondo aggiornato: {n_car} pagine")
     if saltati:
         print(f"saltate {len(saltati)}:")
         for p, perche in saltati[:15]:

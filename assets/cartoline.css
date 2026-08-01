@@ -354,15 +354,54 @@
 .cart-crediti-lungo i{color:var(--inchiostro);font-style:italic}
 .cart-crediti-lungo a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 
-/* promo app compatta, dentro la scheda scuola */
-.app-mini{margin-top:18px;display:grid;grid-template-columns:98px 1fr;gap:18px;align-items:center;
-  background:linear-gradient(135deg,#FBF7F0,#F3E9DD);border:1px solid var(--linea);
-  border-radius:var(--r);padding:16px 18px}
-.app-mini-tel{width:100%;height:auto;border-radius:10px;filter:drop-shadow(3px 6px 12px rgba(34,29,22,.2))}
-.app-mini h2{font-family:var(--serif);font-size:19px;margin:0 0 6px;font-weight:600}
-.app-mini p{font-size:14px;color:var(--secondario);line-height:1.55;margin:0 0 12px}
+/* promo app compatta: tre schermate a ventaglio + poco testo */
+.app-mini{margin-top:0;margin-bottom:18px;display:grid;grid-template-columns:196px 1fr;gap:22px;
+  align-items:center;background:linear-gradient(135deg,#FBF7F0,#F3E9DD);
+  border:1px solid var(--linea);border-radius:var(--r);padding:18px 20px}
+.app-mini-scatti{position:relative;height:214px}
+.app-mini-scatti .app-tel{position:absolute;top:50%;width:98px;display:block}
+.app-mini-scatti .app-tel img{width:100%;height:auto;display:block;border-radius:9px;
+  box-shadow:0 1px 2px rgba(34,29,22,.16),0 14px 26px -12px rgba(34,29,22,.55)}
+.app-mini-scatti .app-tel:nth-of-type(1){left:0;transform:translateY(-50%) rotate(-7deg) scale(.9);z-index:1}
+.app-mini-scatti .app-tel:nth-of-type(2){left:44px;transform:translateY(-50%);z-index:3}
+.app-mini-scatti .app-tel:nth-of-type(3){left:90px;transform:translateY(-50%) rotate(7deg) scale(.9);z-index:2}
+.app-mini-stelle{display:flex;align-items:center;gap:7px;margin:0 0 8px;
+  font:600 12px/1 var(--sans);letter-spacing:.4px;color:var(--secondario)}
+.app-mini-stelle span[aria-hidden]{color:var(--ambra);font-size:14px;letter-spacing:1px}
+.app-mini h2{font-family:var(--serif);font-size:20px;margin:0 0 7px;font-weight:600;line-height:1.25}
+.app-mini p{font-size:14px;color:var(--secondario);line-height:1.55;margin:0 0 14px}
 .app-mini p b{color:var(--inchiostro)}
 .app-mini .app-cta{display:inline-block;background:var(--inchiostro);color:#fff;font-weight:600;
-  text-decoration:none;padding:9px 17px;border-radius:999px;font-size:14px}
+  text-decoration:none;padding:10px 18px;border-radius:999px;font-size:14px}
 .app-mini .app-cta:hover{background:var(--terracotta)}
-@media(max-width:520px){.app-mini{grid-template-columns:74px 1fr;gap:14px;padding:14px}}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* il carosello grande in fondo ora contiene <picture> */
+.app-carosello .app-tel{display:block}
+.app-carosello .app-tel img{width:100%;height:auto;display:block;border-radius:8px}
+
+@media(max-width:560px){
+  .app-mini{grid-template-columns:154px 1fr;gap:16px;padding:16px}
+  .app-mini-scatti{height:172px}
+  .app-mini-scatti .app-tel{width:78px}
+  .app-mini-scatti .app-tel:nth-of-type(2){left:36px}
+  .app-mini-scatti .app-tel:nth-of-type(3){left:72px}
+  .app-mini h2{font-size:18px}
+}
+@media(max-width:400px){
+  .app-mini{grid-template-columns:1fr;justify-items:center;text-align:center}
+  .app-mini-scatti{width:190px}
+}
+
+/* domande frequenti della home: riquadri come gli altri pannelli */
+.faq-home details{
+  background:var(--card);
+  border:1px solid var(--linea);
+  border-radius:var(--r-s);
+  box-shadow:var(--ombra);
+  padding:14px 16px;
+  margin-bottom:10px;
+}
+.faq-home summary{cursor:pointer;font-weight:600;color:var(--inchiostro);font-size:15px}
+.faq-home details div{margin-top:8px;color:var(--secondario);line-height:1.62;font-size:14px;max-width:70ch}
+.faq-home details[open]{border-color:#DCD3C1}
