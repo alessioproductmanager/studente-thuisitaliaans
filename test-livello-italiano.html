@@ -147,7 +147,7 @@ body.in-prova footer{display:none}
 /* la frase da completare: lo spazio vuoto si vede, come in un quaderno */
 /* anche la frase isolata sta su qualcosa: una scheda di carta a righe,
    non testo nudo in mezzo allo schermo */
-.scheda-carta{background:#FFFDF7;border:1px solid #E7E0CC;border-radius:var(--r-s);
+.scheda-carta{margin-left:auto;margin-right:auto;max-width:560px;background:#FFFDF7;border:1px solid #E7E0CC;border-radius:var(--r-s);
   padding:30px 26px;margin:0 0 24px;
   background-image:linear-gradient(#FFFDF7 0 0),repeating-linear-gradient(180deg,
     transparent 0 33px,#EDE6D2 33px 34px);
@@ -162,7 +162,7 @@ body.in-prova footer{display:none}
   background:none}
 
 /* i brani di lettura come un foglietto, i dialoghi come fumetti */
-.foglietto{position:relative;background:#FFFDF7;border:1px solid #E8E0CC;
+.foglietto{margin-left:auto;margin-right:auto;max-width:560px;position:relative;background:#FFFDF7;border:1px solid #E8E0CC;
   border-radius:var(--r-s);padding:22px 24px;margin:0 0 22px;
   font-family:var(--serif);font-size:1.06rem;line-height:1.75;
   box-shadow:0 1px 2px rgba(22,33,26,.05),0 14px 28px -18px rgba(22,33,26,.35);
@@ -172,7 +172,7 @@ body.in-prova footer{display:none}
   border-radius:3px 0 0 3px;opacity:.5}
 /* il testo cambia forma secondo che cosa è: un ritaglio di giornale non si
    legge come un post o come un avviso in bacheca */
-.giornale{background:#FCFBF7;border:1px solid #E4DFD2;border-radius:6px;padding:22px 24px;
+.giornale{margin-left:auto;margin-right:auto;max-width:560px;background:#FCFBF7;border:1px solid #E4DFD2;border-radius:6px;padding:22px 24px;
   margin:0 0 22px;font-family:var(--serif);font-size:1.02rem;line-height:1.62;
   column-gap:26px;box-shadow:var(--ombra-s)}
 .giornale .testata-g{border-bottom:2px solid var(--inchiostro);padding-bottom:6px;
@@ -184,7 +184,7 @@ body.in-prova footer{display:none}
 .giornale .occhio{font-family:var(--sans);font-size:.7rem;text-transform:uppercase;
   letter-spacing:.09em;color:var(--verde-scuro);font-weight:700;margin-bottom:4px}
 
-.social{background:#fff;border:1px solid var(--linea);border-radius:14px;
+.social{margin-left:auto;margin-right:auto;max-width:460px;background:#fff;border:1px solid var(--linea);border-radius:14px;
   margin:0 0 22px;overflow:hidden;box-shadow:var(--ombra-s)}
 .social .capo{display:flex;align-items:center;gap:10px;padding:13px 16px 9px}
 .social .capo .faccia{width:36px;height:36px;flex:0 0 36px}
@@ -194,7 +194,7 @@ body.in-prova footer{display:none}
 .social .piede{display:flex;gap:18px;padding:9px 16px;border-top:1px solid var(--linea);
   font-size:.76rem;color:var(--secondario)}
 
-.bacheca{background:#FFFDF5;border:1px solid #E8DFC6;border-radius:4px;padding:22px 24px;
+.bacheca{margin-left:auto;margin-right:auto;max-width:480px;background:#FFFDF5;border:1px solid #E8DFC6;border-radius:4px;padding:22px 24px;
   margin:0 0 22px;font-family:var(--sans);font-size:1rem;line-height:1.6;
   box-shadow:0 1px 2px rgba(22,33,26,.06);position:relative}
 .bacheca::before{content:"";position:absolute;top:-7px;left:50%;transform:translateX(-50%);
@@ -223,17 +223,18 @@ body.in-prova footer{display:none}
   font-size:.82rem;color:#6B6455;text-align:center;line-height:1.25;
   overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 
-/* affiancata al testo su schermi larghi, sopra su mobile */
-.con-foto{display:grid;gap:20px;grid-template-columns:250px 1fr;
-  align-items:start;margin:0 0 22px}
-.con-foto > .stampa{margin:0}
+/* foto e testo affiancati e centrati nel blocco, non spinti ai lati */
+.con-foto{display:grid;gap:24px;grid-template-columns:240px minmax(0,1fr);
+  align-items:center;justify-content:center;margin:0 auto 24px;max-width:640px}
+.con-foto > .stampa{margin:0;justify-self:center}
 @media (max-width:760px){
-  .con-foto{grid-template-columns:1fr}
-  .stampa{max-width:210px;margin:0 auto;padding:9px 9px 30px}
+  .con-foto{grid-template-columns:1fr;gap:18px;justify-items:center}
+  .stampa{max-width:220px;padding:10px 10px 32px}
   .stampa figcaption{font-size:.78rem}
+  .con-foto > *:not(.stampa){width:100%}
 }
 
-.chat{display:flex;flex-direction:column;gap:12px;margin:0 0 24px}
+.chat{display:flex;flex-direction:column;gap:12px;margin:0 auto 24px;max-width:560px}
 .scena{display:flex;align-items:center;gap:9px;font-size:.8rem;color:var(--secondario);
   font-weight:600;letter-spacing:.02em;margin-bottom:2px}
 .scena::before{content:"";flex:0 0 auto;width:22px;height:1px;background:var(--linea)}
@@ -357,16 +358,16 @@ body.in-prova footer{display:none}
   max-width:100%;box-sizing:border-box}
 @keyframes entra{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.scheda{animation:none}}
-.etichetta-prova{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.etichetta-prova{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:14px}
 .etichetta-prova .punto{width:7px;height:7px;border-radius:50%;background:var(--verde)}
 .etichetta-prova span{font-size:.78rem;font-weight:700;letter-spacing:.07em;
   text-transform:uppercase;color:var(--verde-scuro)}
 .domanda-testo{font-family:var(--serif);font-size:clamp(1.3rem,3.6vw,1.7rem);
-  line-height:1.35;margin:0 0 22px}
+  line-height:1.35;margin:0 auto 22px;max-width:560px;text-align:center}
 .brano{background:var(--card);border:1px solid var(--linea);border-left:3px solid var(--verde);
   border-radius:0 var(--r-s) var(--r-s) 0;padding:20px 22px;margin:0 0 22px;
   font-family:var(--serif);font-size:1.06rem;line-height:1.7;box-shadow:var(--ombra-s)}
-.scelte{display:grid;gap:10px}
+.scelte{display:grid;gap:10px;max-width:560px;margin:0 auto}
 .scelta{display:flex;align-items:center;gap:13px;padding:16px 18px;background:var(--card);
   border:1.5px solid var(--linea);border-radius:var(--r-s);cursor:pointer;
   font-size:1.02rem;text-align:left;font-family:inherit;color:inherit;
@@ -469,7 +470,7 @@ footer{margin-top:40px;padding:26px 0 46px;border-top:1px solid var(--linea);
 /* la frase da completare: lo spazio vuoto si vede, come in un quaderno */
 /* anche la frase isolata sta su qualcosa: una scheda di carta a righe,
    non testo nudo in mezzo allo schermo */
-.scheda-carta{background:#FFFDF7;border:1px solid #E7E0CC;border-radius:var(--r-s);
+.scheda-carta{margin-left:auto;margin-right:auto;max-width:560px;background:#FFFDF7;border:1px solid #E7E0CC;border-radius:var(--r-s);
   padding:30px 26px;margin:0 0 24px;
   background-image:linear-gradient(#FFFDF7 0 0),repeating-linear-gradient(180deg,
     transparent 0 33px,#EDE6D2 33px 34px);
@@ -484,7 +485,7 @@ footer{margin-top:40px;padding:26px 0 46px;border-top:1px solid var(--linea);
   background:none}
 
 /* i brani di lettura come un foglietto, i dialoghi come fumetti */
-.foglietto{position:relative;background:#FFFDF7;border:1px solid #E8E0CC;
+.foglietto{margin-left:auto;margin-right:auto;max-width:560px;position:relative;background:#FFFDF7;border:1px solid #E8E0CC;
   border-radius:var(--r-s);padding:22px 24px;margin:0 0 22px;
   font-family:var(--serif);font-size:1.06rem;line-height:1.75;
   box-shadow:0 1px 2px rgba(22,33,26,.05),0 14px 28px -18px rgba(22,33,26,.35);
@@ -494,7 +495,7 @@ footer{margin-top:40px;padding:26px 0 46px;border-top:1px solid var(--linea);
   border-radius:3px 0 0 3px;opacity:.5}
 /* il testo cambia forma secondo che cosa è: un ritaglio di giornale non si
    legge come un post o come un avviso in bacheca */
-.giornale{background:#FCFBF7;border:1px solid #E4DFD2;border-radius:6px;padding:22px 24px;
+.giornale{margin-left:auto;margin-right:auto;max-width:560px;background:#FCFBF7;border:1px solid #E4DFD2;border-radius:6px;padding:22px 24px;
   margin:0 0 22px;font-family:var(--serif);font-size:1.02rem;line-height:1.62;
   column-gap:26px;box-shadow:var(--ombra-s)}
 .giornale .testata-g{border-bottom:2px solid var(--inchiostro);padding-bottom:6px;
@@ -506,7 +507,7 @@ footer{margin-top:40px;padding:26px 0 46px;border-top:1px solid var(--linea);
 .giornale .occhio{font-family:var(--sans);font-size:.7rem;text-transform:uppercase;
   letter-spacing:.09em;color:var(--verde-scuro);font-weight:700;margin-bottom:4px}
 
-.social{background:#fff;border:1px solid var(--linea);border-radius:14px;
+.social{margin-left:auto;margin-right:auto;max-width:460px;background:#fff;border:1px solid var(--linea);border-radius:14px;
   margin:0 0 22px;overflow:hidden;box-shadow:var(--ombra-s)}
 .social .capo{display:flex;align-items:center;gap:10px;padding:13px 16px 9px}
 .social .capo .faccia{width:36px;height:36px;flex:0 0 36px}
@@ -516,7 +517,7 @@ footer{margin-top:40px;padding:26px 0 46px;border-top:1px solid var(--linea);
 .social .piede{display:flex;gap:18px;padding:9px 16px;border-top:1px solid var(--linea);
   font-size:.76rem;color:var(--secondario)}
 
-.bacheca{background:#FFFDF5;border:1px solid #E8DFC6;border-radius:4px;padding:22px 24px;
+.bacheca{margin-left:auto;margin-right:auto;max-width:480px;background:#FFFDF5;border:1px solid #E8DFC6;border-radius:4px;padding:22px 24px;
   margin:0 0 22px;font-family:var(--sans);font-size:1rem;line-height:1.6;
   box-shadow:0 1px 2px rgba(22,33,26,.06);position:relative}
 .bacheca::before{content:"";position:absolute;top:-7px;left:50%;transform:translateX(-50%);
@@ -545,17 +546,18 @@ footer{margin-top:40px;padding:26px 0 46px;border-top:1px solid var(--linea);
   font-size:.82rem;color:#6B6455;text-align:center;line-height:1.25;
   overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 
-/* affiancata al testo su schermi larghi, sopra su mobile */
-.con-foto{display:grid;gap:20px;grid-template-columns:250px 1fr;
-  align-items:start;margin:0 0 22px}
-.con-foto > .stampa{margin:0}
+/* foto e testo affiancati e centrati nel blocco, non spinti ai lati */
+.con-foto{display:grid;gap:24px;grid-template-columns:240px minmax(0,1fr);
+  align-items:center;justify-content:center;margin:0 auto 24px;max-width:640px}
+.con-foto > .stampa{margin:0;justify-self:center}
 @media (max-width:760px){
-  .con-foto{grid-template-columns:1fr}
-  .stampa{max-width:210px;margin:0 auto;padding:9px 9px 30px}
+  .con-foto{grid-template-columns:1fr;gap:18px;justify-items:center}
+  .stampa{max-width:220px;padding:10px 10px 32px}
   .stampa figcaption{font-size:.78rem}
+  .con-foto > *:not(.stampa){width:100%}
 }
 
-.chat{display:flex;flex-direction:column;gap:12px;margin:0 0 24px}
+.chat{display:flex;flex-direction:column;gap:12px;margin:0 auto 24px;max-width:560px}
 .scena{display:flex;align-items:center;gap:9px;font-size:.8rem;color:var(--secondario);
   font-weight:600;letter-spacing:.02em;margin-bottom:2px}
 .scena::before{content:"";flex:0 0 auto;width:22px;height:1px;background:var(--linea)}
@@ -711,6 +713,31 @@ footer{margin-top:40px;padding:26px 0 46px;border-top:1px solid var(--linea);
 .chip-liv li{border:1px solid var(--linea);border-radius:8px;padding:4px 9px;font-size:.83rem}
 .firma{margin-top:22px;border-top:1px solid var(--linea);padding-top:12px;
   font-size:.83rem;color:var(--secondario)}
+.crediti-foto{max-width:640px;margin:0 auto;font-size:.8rem;color:var(--secondario);
+  border-top:1px solid var(--linea);padding-top:16px}
+.crediti-foto b{display:block;font-size:.76rem;letter-spacing:.07em;
+  text-transform:uppercase;margin-bottom:8px;color:var(--secondario)}
+.crediti-foto ul{margin:0;padding-left:17px;columns:2;column-gap:26px}
+.crediti-foto li{margin-bottom:5px;line-height:1.45;break-inside:avoid}
+.crediti-foto a{color:inherit}
+@media (max-width:700px){ .crediti-foto ul{columns:1} }
+.crediti-foto{max-width:640px;margin:0 auto;font-size:.8rem;color:var(--secondario);
+  border-top:1px solid var(--linea);padding-top:16px}
+.crediti-foto b{display:block;font-size:.76rem;letter-spacing:.07em;
+  text-transform:uppercase;margin-bottom:8px}
+.crediti-foto ul{margin:0;padding-left:17px;columns:2;column-gap:26px}
+.crediti-foto li{margin-bottom:5px;line-height:1.45;break-inside:avoid}
+.crediti-foto a{color:inherit}
+@media (max-width:700px){ .crediti-foto ul{columns:1} }
+.crediti-foto{max-width:640px;margin:0 auto;font-size:.8rem;color:var(--secondario);
+  border-top:1px solid var(--linea);padding-top:16px}
+.crediti-foto b{display:block;font-size:.76rem;letter-spacing:.07em;
+  text-transform:uppercase;margin-bottom:8px}
+.crediti-foto ul{margin:0;padding-left:17px;columns:2;column-gap:26px}
+.crediti-foto li{margin-bottom:5px;line-height:1.45;break-inside:avoid}
+.crediti-foto a{color:inherit}
+@media (max-width:700px){ .crediti-foto ul{columns:1} }
+
 </style>
 </head>
 <body>
@@ -993,6 +1020,57 @@ footer{margin-top:40px;padding:26px 0 46px;border-top:1px solid var(--linea);
   </div>
 </div>
 
+<section class="wrap sezione"><div class="crediti-foto">
+  <b>Crediti fotografici</b>
+  <ul>
+  <li><i>Circle of Norbert van Bloemen Italian flower and vegetable market.jpg</i>. Circle of Norbert van Bloemen, licenza Public domain. Da <a href="https://commons.wikimedia.org/wiki/File:Circle_of_Norbert_van_Bloemen_Italian_flower_and_vegetable_market.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>Norbert Balog - Deal.jpg</i>. NBlart23, licenza CC BY 4.0. Da <a href="https://commons.wikimedia.org/wiki/File:Norbert_Balog_-_Deal.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>Norbert Balog - The Chestnut Roaster.jpg</i>. NBlart23, licenza CC BY 4.0. Da <a href="https://commons.wikimedia.org/wiki/File:Norbert_Balog_-_The_Chestnut_Roaster.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>Paolo Monti - Serie fotografica - BEIC 6340878.jpg</i>. Paolo Monti, licenza CC BY-SA 4.0. Da <a href="https://commons.wikimedia.org/wiki/File:Paolo_Monti_-_Serie_fotografica_-_BEIC_6340878.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>12 Progetto Ridiamo il mare a Pra'-Palmaro.jpg</i>. Fond primavera, licenza CC BY-SA 4.0. Da <a href="https://commons.wikimedia.org/wiki/File:12_Progetto_Ridiamo_il_mare_a_Pra%27-Palmaro.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>Among the green of the streets of old Florence -Fra il verde delle strade della vecchia Firenze.jpg</i>. PROPOLI87, licenza CC BY-SA 4.0. Da <a href="https://commons.wikimedia.org/wiki/File:Among_the_green_of_the_streets_of_old_Florence_-Fra_il_verde_delle_strade_della_vecchia_Firenze.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>Ann Uccello Street sign Italy.jpg</i>. Gciriani, licenza CC BY-SA 4.0. Da <a href="https://commons.wikimedia.org/wiki/File:Ann_Uccello_Street_sign_Italy.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>Antichi Borghi (230174867).jpeg</i>. Salvatore Bertolino, licenza CC0. Da <a href="https://commons.wikimedia.org/wiki/File:Antichi_Borghi_(230174867).jpeg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>Cadrian.png</i>. Giullino, licenza CC BY-SA 4.0. Da <a href="https://commons.wikimedia.org/wiki/File:Cadrian.png" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>Cagliari street.jpg</i>. Mksg1, licenza CC BY-SA 4.0. Da <a href="https://commons.wikimedia.org/wiki/File:Cagliari_street.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>CartelloCastelsilano.jpg</i>. Eagle992, licenza CC BY-SA 4.0. Da <a href="https://commons.wikimedia.org/wiki/File:CartelloCastelsilano.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>Colonne di San Lorenzo, Milano.jpg</i>. GianniGMilano, licenza CC0. Da <a href="https://commons.wikimedia.org/wiki/File:Colonne_di_San_Lorenzo,_Milano.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>" 13 - ITALY - books.jpg</i>. Andrea Pavanello, Milano, licenza CC BY-SA 3.0 it. Da <a href="https://commons.wikimedia.org/wiki/File:%22_13_-_ITALY_-_books.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>Bahishiquid.jpg</i>. Neronmago, licenza CC BY-SA 4.0. Da <a href="https://commons.wikimedia.org/wiki/File:Bahishiquid.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>Biblioteca della Pontificia Università Gregoriana (2).jpg</i>. ManuelaLaRosa, licenza CC BY-SA 4.0. Da <a href="https://commons.wikimedia.org/wiki/File:Biblioteca_della_Pontificia_Universit%C3%A0_Gregoriana_(2).jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>Biblioteca della Pontificia Università Gregoriana (3).jpg</i>. ManuelaLaRosa, licenza CC BY-SA 4.0. Da <a href="https://commons.wikimedia.org/wiki/File:Biblioteca_della_Pontificia_Universit%C3%A0_Gregoriana_(3).jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>Bibliothèque Chamois AO s.jpg</i>. Neronmago, licenza CC BY-SA 4.0. Da <a href="https://commons.wikimedia.org/wiki/File:Biblioth%C3%A8que_Chamois_AO_s.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>1972 school in Italy.jpg</i>. Unknown authorUnknown author, licenza Public domain. Da <a href="https://commons.wikimedia.org/wiki/File:1972_school_in_Italy.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>A scuola con metodo.jpg</i>. Lucia Musto Sara Coviello Adriano Telesca, licenza CC BY-SA 4.0. Da <a href="https://commons.wikimedia.org/wiki/File:A_scuola_con_metodo.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>Chinese apple tree.jpg</i>. GioRan, licenza CC BY-SA 4.0. Da <a href="https://commons.wikimedia.org/wiki/File:Chinese_apple_tree.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>Escuelita Unión-18.jpg</i>. Semillasperu, licenza CC BY-SA 4.0. Da <a href="https://commons.wikimedia.org/wiki/File:Escuelita_Uni%C3%B3n-18.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>ITIS "Enrico Mattei", Urbino, tra passato e presente (frame).jpg</i>. Intervista:
+
+Elisa Francioso
+Intervistati:
+
+Marta Lorenzetti
+Giorgio Paolucci
+Ri, licenza CC BY-SA 4.0. Da <a href="https://commons.wikimedia.org/wiki/File:ITIS_%22Enrico_Mattei%22,_Urbino,_tra_passato_e_presente_(frame).jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>ITIS "Enrico Mattei", Urbino, tra passato e presente.mpg</i>. Intervista:
+
+Elisa Francioso
+Intervistati:
+
+Marta Lorenzetti
+Giorgio Paolucci
+Ri, licenza CC BY-SA 4.0. Da <a href="https://commons.wikimedia.org/wiki/File:ITIS_%22Enrico_Mattei%22,_Urbino,_tra_passato_e_presente.mpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>Liceo "G. Bianchi Dottula".jpg</i>. Erebo.30, licenza CC0. Da <a href="https://commons.wikimedia.org/wiki/File:Liceo_%22G._Bianchi_Dottula%22.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>LIEUX - Kaiserhof School.jpg</i>. Chevronical, licenza CC BY-SA 4.0. Da <a href="https://commons.wikimedia.org/wiki/File:LIEUX_-_Kaiserhof_School.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>Franca Viola - 1970.png</i>. Gazzetta di Mantova, licenza Public domain. Da <a href="https://commons.wikimedia.org/wiki/File:Franca_Viola_-_1970.png" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>La Sera.jpg</i>. Unknown authorUnknown author, licenza Public domain. Da <a href="https://commons.wikimedia.org/wiki/File:La_Sera.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>Lucifero, periodico repubblicano di Ancona, 24 giugno 1914.jpg</i>. sconosciuto, licenza Public domain. Da <a href="https://commons.wikimedia.org/wiki/File:Lucifero,_periodico_repubblicano_di_Ancona,_24_giugno_1914.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>Prima Pagina L'Arena di Verona, 1866.jpg</i>. L'Arena di Verona, licenza Public domain. Da <a href="https://commons.wikimedia.org/wiki/File:Prima_Pagina_L%27Arena_di_Verona,_1866.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>Prometeo (1924,n3).jpg</i>. Unknown authorUnknown author, licenza Public domain. Da <a href="https://commons.wikimedia.org/wiki/File:Prometeo_(1924,n3).jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>Settimana Rossa - Corriere Adriatico processo a Malatesta.jpg</i>. sconosciuto, licenza Public domain. Da <a href="https://commons.wikimedia.org/wiki/File:Settimana_Rossa_-_Corriere_Adriatico_processo_a_Malatesta.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  <li><i>Settimana Rossa - L'Internazionale del 20 giugno 1914.jpg</i>. sconosciuto, licenza Public domain. Da <a href="https://commons.wikimedia.org/wiki/File:Settimana_Rossa_-_L%27Internazionale_del_20_giugno_1914.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</li>
+  </ul>
+</div></section>
 <footer><div class="wrap">
   <p data-k="footer-p">Nessun dato viene inviato: il calcolo avviene nel tuo browser
   e il profilo lo salvi tu.</p>
