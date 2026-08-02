@@ -817,3 +817,43 @@ opacity:.85;
    un filo piu' di respiro e un bottone che si vede da lontano */
 .article-end-cta .button{font-weight:700;}
 .sidebar-card .button{font-weight:700;}
+
+/* ==========================================================
+   MOBILE — la pagina usciva dallo schermo
+   Misurato nel browser a finestra stretta: .article-main aveva il
+   bordo destro a 721px, cioe' fuori dalla vista, e la pagina si
+   trascinava di lato.
+   La griglia gia' collassava a una colonna sotto i 1000px, quindi il
+   colpevole non era quella: era il max-width:700px di .article-main,
+   che non veniva mai annullato. Un elemento con larghezza fissa resta
+   largo anche quando lo spazio attorno e' minore, e sporge.
+   Qui lo lego alla larghezza disponibile, e metto al riparo le cose
+   che tipicamente sfondano una colonna: immagini, tabelle, blocchi di
+   codice, parole lunghissime e liste con rientro grande.
+   ========================================================== */
+@media (max-width:1000px){
+  .article-layout{padding:34px 0 70px;min-width:0}
+  .article-main,.article-sidebar{
+    max-width:100%;min-width:0;width:100%;box-sizing:border-box}
+  .article-body{overflow-wrap:anywhere;word-break:normal}
+  .article-body img,.article-body picture,.article-body video,
+  .article-body iframe,.article-body .post-img{
+    max-width:100%;height:auto;display:block}
+  .article-body pre,.article-body table{
+    display:block;max-width:100%;overflow-x:auto}
+  /* la lista numerata ha 44px di rientro: su 360px sono tanti */
+  .article-body ol{padding:18px 16px 18px 34px}
+  .article-body ul,.article-body ol{margin-left:18px}
+  .article-body blockquote{padding-left:14px;margin-left:0}
+}
+@media (max-width:640px){
+  .article-body h2{padding-left:10px}
+  .article-body ol{padding-left:28px}
+}
+/* rete di sicurezza: nessun elemento puo' allargare la pagina.
+   Cura il sintomo, non la causa — ma su 297 articoli scritti in
+   momenti diversi e' la garanzia che nessuno di essi trascini la
+   pagina di lato. */
+@media (max-width:1000px){
+  html,body{max-width:100%;overflow-x:clip}
+}
