@@ -873,3 +873,36 @@ opacity:.85;
 @media (max-width:1000px){
   html,body{max-width:100%;overflow-x:clip}
 }
+
+/* ==========================================================
+   TRE RITOCCHI SU MOBILE
+   ========================================================== */
+
+/* 1. La nota sui marchi registrati sta FUORI dalla colonna: e' figlia
+      diretta della griglia, quindi non eredita nessun margine laterale
+      e su mobile tocca i bordi dello schermo. */
+.tm-note{box-sizing:border-box}
+@media (max-width:1000px){
+  .article-layout > .tm-note,
+  .tm-note{padding-left:18px!important;padding-right:18px!important;
+    max-width:100%;overflow-wrap:anywhere}
+}
+
+/* 2. La freccia ↗ su iPhone diventa un'emoji colorata: iOS la rende cosi'
+      quando il font non ha il glifo testuale. font-variant-emoji:text
+      chiede la versione testuale; il font di riserva serve ai browser che
+      non conoscono ancora quella proprieta'. */
+.button,.app-banner-cta,.app-cta,.btn,.bottone,.rl-cta,.ex-passo-link,
+.sidebar-links a,.back-to-blog,.blog-back span{
+  font-variant-emoji:text;
+  font-family:inherit,"Helvetica Neue",Arial,sans-serif}
+
+/* 3. Nella colonna stretta la freccia andava a capo da sola, lasciando un
+      pulsante su due righe con un simbolo orfano sotto. Il testo resta su
+      una riga sola e il carattere si adatta alla larghezza. */
+@media (max-width:1000px){
+  .sidebar-card .button,.article-end-cta .button,.ex-passo-link{
+    white-space:nowrap;
+    font-size:clamp(.82rem,3.3vw,1rem);
+    padding-left:16px;padding-right:16px}
+}
