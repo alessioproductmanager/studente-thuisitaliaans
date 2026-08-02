@@ -1725,7 +1725,7 @@ body.in-prova .proposta-lingua{bottom:88px}
 
 /* --- le tre proposte: due per riga, la terza a tutta larghezza --- */
 .pf-firma-blocco{border-top:2px solid var(--verde);padding-top:11px;margin-bottom:14px}
-.pf-offerta{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));
+.pf-offerta{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
   gap:10px;border-top:0;padding-top:0;margin-bottom:12px}
 .pf-offerta > div{min-width:0}
 .pf-lezioni{grid-column:1 / -1}
@@ -1776,6 +1776,23 @@ body.in-prova .proposta-lingua{bottom:88px}
   #profilo section{break-inside:auto;page-break-inside:auto}
   .pf-gramm,.pf-passo,.pf-alessio,.pf-offerta > div,.pf-quadranti > div{
     break-inside:avoid;page-break-inside:avoid}
+}
+
+/* ============================================================
+   /* 118-PROPOSTE */  LE TRE PROPOSTE
+   Soglia a 250 punti: due colonne solo se il foglio le regge davvero. Sotto,
+   una sola colonna a tutta larghezza. E nessuna delle tre si spezza fra due
+   pagine: una card tagliata a meta' non si legge e non si clicca.
+   ============================================================ */
+.pf-offerta > div,.pf-lezioni{break-inside:avoid!important;page-break-inside:avoid!important}
+.pf-offerta-eti{break-after:avoid;page-break-after:avoid}
+.pf-offerta b{line-height:1.3}
+.pf-offerta p{margin-bottom:9px}
+.pf-cta{padding:6px 10px}
+@media print{
+  .pf-offerta{gap:9px}
+  .pf-offerta > div{padding:10px 12px 11px}
+  .pf-offerta p{font-size:7.6pt;line-height:1.42}
 }
 </style>
 </head>

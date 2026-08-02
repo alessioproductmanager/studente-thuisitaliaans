@@ -1725,7 +1725,7 @@ body.in-prova .proposta-lingua{bottom:88px}
 
 /* --- le tre proposte: due per riga, la terza a tutta larghezza --- */
 .pf-firma-blocco{border-top:2px solid var(--verde);padding-top:11px;margin-bottom:14px}
-.pf-offerta{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));
+.pf-offerta{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
   gap:10px;border-top:0;padding-top:0;margin-bottom:12px}
 .pf-offerta > div{min-width:0}
 .pf-lezioni{grid-column:1 / -1}
@@ -1777,6 +1777,37 @@ body.in-prova .proposta-lingua{bottom:88px}
   .pf-gramm,.pf-passo,.pf-alessio,.pf-offerta > div,.pf-quadranti > div{
     break-inside:avoid;page-break-inside:avoid}
 }
+
+/* ============================================================
+   /* 118-PROPOSTE */  LE TRE PROPOSTE
+   Soglia a 250 punti: due colonne solo se il foglio le regge davvero. Sotto,
+   una sola colonna a tutta larghezza. E nessuna delle tre si spezza fra due
+   pagine: una card tagliata a meta' non si legge e non si clicca.
+   ============================================================ */
+.pf-offerta > div,.pf-lezioni{break-inside:avoid!important;page-break-inside:avoid!important}
+.pf-offerta-eti{break-after:avoid;page-break-after:avoid}
+.pf-offerta b{line-height:1.3}
+.pf-offerta p{margin-bottom:9px}
+.pf-cta{padding:6px 10px}
+@media print{
+  .pf-offerta{gap:9px}
+  .pf-offerta > div{padding:10px 12px 11px}
+  .pf-offerta p{font-size:7.6pt;line-height:1.42}
+}
+
+/* ============================================================
+   /* 119-CORPO */  SEZIONE PER INTENTO
+   Chi cerca "test di livello" lo fa per la cittadinanza, per lavoro, per
+   studio o per passione: sono quattro bisogni diversi, e la pagina deve
+   rispondere a tutti e quattro con parole loro.
+   ============================================================ */
+.intenti{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:14px;margin-top:18px;padding:0;list-style:none}
+.intenti li{border:1px solid var(--linea);border-radius:12px;padding:16px 18px;
+  background:var(--card)}
+.intenti b{display:block;font-family:var(--serif);font-size:1.05rem;
+  color:var(--verde-scuro);margin-bottom:6px}
+.intenti span{font-size:.94rem;line-height:1.5;color:var(--secondario)}
 </style>
 </head>
 <body>
@@ -1808,70 +1839,44 @@ body.in-prova .proposta-lingua{bottom:88px}
   </section>
 
   <section class="sezione wrap">
-    <h2 data-k="h-livelli">Che cosa sono i livelli A1–C2</h2>
-    <p>Sono i sei gradini del <strong>Quadro comune europeo di riferimento per le
-    lingue</strong>. Non misurano quante regole sai a memoria: descrivono <em>che cosa
-    riesci a fare</em> con la lingua: capire un annuncio in stazione, raccontare un
-    film, sostenere una discussione tecnica.</p>
+    <h2 data-k="h-livelli">Wat de niveaus A1–C2 betekenen</h2>
+    <p>Het zijn de zes treden van het <strong>Europees Referentiekader voor Talen</strong>. Ze meten niet hoeveel regels je uit je hoofd kent: ze beschrijven <em>wat je met de taal kunt doen</em> — een omroepbericht op het station volgen, over een film vertellen, een technisch gesprek voeren.</p>
     <ul class="griglia-livelli">
-      <li><b>A1</b><span>Ti presenti e scambi informazioni molto semplici, se l'altro
-      parla lentamente.</span></li>
-      <li><b>A2</b><span>Te la cavi nelle situazioni di routine: fare la spesa,
-      prenotare, raccontare la giornata.</span></li>
-      <li><b>B1</b><span>Affronti da solo quasi tutte le situazioni di viaggio e
-      spieghi un'opinione. È il livello richiesto per la cittadinanza italiana.</span></li>
-      <li><b>B2</b><span>Segui una discussione articolata e interagisci con
-      naturalezza con chi è madrelingua.</span></li>
-      <li><b>C1</b><span>Usi la lingua con flessibilità per scopi sociali, accademici
-      e professionali, cogliendo i significati impliciti.</span></li>
-      <li><b>C2</b><span>Comprendi senza sforzo quasi tutto e ti esprimi con
-      precisione anche in situazioni complesse.</span></li>
+      <li><b>A1</b><span>Je stelt jezelf voor en wisselt heel eenvoudige informatie uit, als de ander langzaam spreekt.</span></li>
+      <li><b>A2</b><span>Je redt je in dagelijkse situaties: boodschappen doen, reserveren, over je dag vertellen.</span></li>
+      <li><b>B1</b><span>Je lost bijna elke reissituatie zelf op en legt een mening uit. Dit is het niveau dat voor het Italiaanse staatsburgerschap wordt gevraagd.</span></li>
+      <li><b>B2</b><span>Je volgt een uitgebreid gesprek en gaat natuurlijk om met moedertaalsprekers.</span></li>
+      <li><b>C1</b><span>Je gebruikt de taal soepel voor sociale, academische en professionele doelen, en vangt op wat er tussen de regels staat.</span></li>
+      <li><b>C2</b><span>Je begrijpt bijna alles moeiteloos en drukt je precies uit, ook in ingewikkelde situaties.</span></li>
     </ul>
-    <p class="piccolo" style="margin-top:16px">Descrizioni riformulate a partire dalla
-    scala globale del Quadro comune europeo di riferimento, Consiglio d'Europa (2001;
-    volume complementare 2020).
-    <a href="https://www.coe.int/en/web/common-european-framework-reference-languages"
-       target="_blank" rel="noopener">Testo ufficiale</a></p>
+    <p class="piccolo" style="margin-top:16px">Beschrijvingen geherformuleerd naar de globale schaal van het Europees Referentiekader, Raad van Europa (2001; aanvullend deel 2020).
+    <a href="https://www.coe.int/en/web/common-european-framework-reference-languages" target="_blank" rel="noopener">Officiële tekst</a></p>
   </section>
 
   <section class="sezione wrap">
-    <h2 data-k="h-come">Come è fatto questo test</h2>
+    <h2 data-k="h-come">Hoe deze test is opgebouwd</h2>
     <div class="blocco">
       <div class="passo-come"><div class="cifra">1</div><div>
-        <h3>Grammatica e uso, 12 domande</h3>
-        <p>Frasi da completare, in difficoltà crescente: articoli e presente
-        all'inizio, congiuntivo e connettivi verso la fine.</p></div></div>
+        <h3>Grammatica en gebruik, 12 vragen</h3>
+        <p>Zinnen om aan te vullen, steeds moeilijker: lidwoorden en de tegenwoordige tijd aan het begin, conjunctief en voegwoorden tegen het eind.</p></div></div>
       <div class="passo-come"><div class="cifra">2</div><div>
-        <h3>Comprensione della lettura, 6 testi</h3>
-        <p>Sei brani, uno per livello, scritti apposta per questo test. Le domande si
-        risolvono solo avendo capito il senso, non riconoscendo una parola.</p></div></div>
+        <h3>Leesvaardigheid, 6 teksten</h3>
+        <p>Zes teksten, één per niveau, speciaal voor deze test geschreven. De vragen los je alleen op door de betekenis te vatten, niet door een woord te herkennen.</p></div></div>
       <div class="passo-come"><div class="cifra">3</div><div>
-        <h3>Ampiezza del vocabolario, 6 gruppi</h3>
-        <p>Conta anche <em>quante</em> parole conosci. Per leggere senza dizionario
-        ne serve circa il 98%: questa prova stima a che punto sei.</p></div></div>
+        <h3>Woordenschat, 6 groepen</h3>
+        <p>Het telt ook <em>hoeveel</em> woorden je kent. Om zonder woordenboek te lezen heb je er ongeveer 98% van nodig: dit onderdeel schat in waar je staat.</p></div></div>
       <div class="passo-come"><div class="cifra">4</div><div>
-        <h3>Produzione scritta, un testo breve</h3>
-        <p>Nessuna macchina può valutarla davvero. Quello che scrivi finisce nel tuo
-        profilo così com'è, per rileggerlo o mostrarlo a un insegnante.</p></div></div>
+        <h3>Schrijven, één korte tekst</h3>
+        <p>Geen machine kan dit echt beoordelen. Wat je schrijft komt ongewijzigd in je profiel, om terug te lezen of aan een docent te laten zien.</p></div></div>
     </div>
-    <p class="piccolo">Il risultato è un <strong>orientamento</strong>, non una
-    certificazione. Le certificazioni riconosciute dallo Stato italiano sono CILS,
-    CELI, PLIDA e CERT.IT, e si ottengono solo con un esame in sede.</p>
+    <p class="piccolo">De uitslag is <strong>een richtlijn</strong>, geen certificaat. De door de Italiaanse staat erkende certificaten zijn CILS, CELI, PLIDA en CERT.IT, en die leg je persoonlijk af bij een erkend centrum.</p>
   </section>
 
   <section class="sezione wrap">
-    <h2 data-k="h-parole">Perché contano le parole, non solo le regole</h2>
-    <p>Se in una pagina di trecento parole ne incontri sei che non conosci, la lettura
-    resta scorrevole. Se ne incontri trenta, ti fermi a ogni riga: cominci a
-    decifrare invece di leggere. È la soglia del <strong>98%</strong> descritta da
-    Paul Nation.</p>
-    <p>Da qui viene l'idea dei libri graduati: testi scritti con un vocabolario
-    controllato, perché a ogni livello quella soglia sia rispettata.</p>
-    <div class="nota-metodo"><strong>Le quattro corsie di Nation.</strong> Un percorso
-    equilibrato dedica circa un quarto del tempo a ciascuna: leggere e ascoltare cose
-    comprensibili, parlare e scrivere per comunicare davvero, studiare deliberatamente
-    la lingua, allenare la fluidità su materiale facile. Chi studia da solo fa quasi
-    sempre solo la terza, e si chiede perché non riesce a parlare.</div>
+    <h2 data-k="h-parole">Waarom woorden tellen, niet alleen regels</h2>
+    <p>Kom je op een bladzijde van driehonderd woorden er zes tegen die je niet kent, dan blijft het lezen vloeiend. Kom je er dertig tegen, dan stop je bij elke regel: je gaat ontcijferen in plaats van lezen. Dat is de <strong>98%</strong>-grens die Paul Nation beschrijft.</p>
+    <p>Daar komt het idee van graded readers vandaan: teksten met een gecontroleerde woordenschat, zodat die grens op elk niveau overeind blijft.</p>
+    <div class="nota-metodo"><strong>De vier strengen van Nation.</strong> Een evenwichtig traject besteedt aan elk ongeveer een kwart van de tijd: lezen en luisteren naar wat je begrijpt, spreken en schrijven om echt iets over te brengen, de taal bewust bestuderen, en vlotheid trainen op makkelijk materiaal. Wie alleen studeert doet bijna altijd alleen de derde, en vraagt zich af waarom het spreken niet lukt.</div>
   </section>
 
   <section class="sezione wrap">
@@ -1891,7 +1896,12 @@ body.in-prova .proposta-lingua{bottom:88px}
   </section>
 
   <section class="sezione wrap">
-    <h2 data-k="h-fonti">Fonti</h2>
+    <h2>Waarvoor doe je de test?</h2>
+    <ul class="intenti"><li><b>Staatsburgerschap en verblijf</b><span>B1 is het niveau dat voor het Italiaanse staatsburgerschap wordt gevraagd. Weten waar je nu staat zegt hoeveel er nog te gaan is, en of een examensessie dit jaar haalbaar is.</span></li><li><b>Werk of verhuizen naar Italië</b><span>Voor werk met klantcontact verwachten werkgevers B1 tot B2. Het verschil tussen grammatica en lezen in je profiel laat zien waar je moet beginnen.</span></li><li><b>Studie en examens</b><span>Universiteiten vragen meestal B2. De test plaatst je op dezelfde schaal als CILS, CELI, PLIDA en CERT.IT, zodat je weet op welke sessie je mikt.</span></li><li><b>Familie, reizen en plezier</b><span>Geen deadline, geen examen. Hier is je woordenschat het nuttige getal: die bepaalt welke boeken je kunt lezen zonder bij elke regel te stoppen.</span></li></ul>
+  </section>
+
+  <section class="sezione wrap">
+    <h2 data-k="h-fonti">Bronnen</h2>
     <ul class="fonti">
       <li>Consiglio d'Europa, <em>Quadro comune europeo di riferimento per le
       lingue</em> (2001) e <em>Volume complementare</em> (2020): per la scala dei
@@ -1905,9 +1915,7 @@ body.in-prova .proposta-lingua{bottom:88px}
       <li>M. Hu, I.S.P. Nation, <em>Unknown Vocabulary Density and Reading
       Comprehension</em>, Reading in a Foreign Language 13(1), 2000.</li>
     </ul>
-    <p class="piccolo">I testi e le domande sono originali, scritti per questa pagina
-    da un insegnante con doppia laurea magistrale in didattica dell'italiano a
-    stranieri. Non provengono da prove d'esame né da materiali di terzi.</p>
+    <p class="piccolo">De teksten en vragen zijn origineel, geschreven voor deze pagina door een docent met een dubbele master in de didactiek van het Italiaans als tweede taal. Ze komen niet uit examenbundels of materiaal van derden.</p>
   </section>
 </main>
 

@@ -1725,7 +1725,7 @@ body.in-prova .proposta-lingua{bottom:88px}
 
 /* --- le tre proposte: due per riga, la terza a tutta larghezza --- */
 .pf-firma-blocco{border-top:2px solid var(--verde);padding-top:11px;margin-bottom:14px}
-.pf-offerta{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));
+.pf-offerta{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
   gap:10px;border-top:0;padding-top:0;margin-bottom:12px}
 .pf-offerta > div{min-width:0}
 .pf-lezioni{grid-column:1 / -1}
@@ -1777,6 +1777,37 @@ body.in-prova .proposta-lingua{bottom:88px}
   .pf-gramm,.pf-passo,.pf-alessio,.pf-offerta > div,.pf-quadranti > div{
     break-inside:avoid;page-break-inside:avoid}
 }
+
+/* ============================================================
+   /* 118-PROPOSTE */  LE TRE PROPOSTE
+   Soglia a 250 punti: due colonne solo se il foglio le regge davvero. Sotto,
+   una sola colonna a tutta larghezza. E nessuna delle tre si spezza fra due
+   pagine: una card tagliata a meta' non si legge e non si clicca.
+   ============================================================ */
+.pf-offerta > div,.pf-lezioni{break-inside:avoid!important;page-break-inside:avoid!important}
+.pf-offerta-eti{break-after:avoid;page-break-after:avoid}
+.pf-offerta b{line-height:1.3}
+.pf-offerta p{margin-bottom:9px}
+.pf-cta{padding:6px 10px}
+@media print{
+  .pf-offerta{gap:9px}
+  .pf-offerta > div{padding:10px 12px 11px}
+  .pf-offerta p{font-size:7.6pt;line-height:1.42}
+}
+
+/* ============================================================
+   /* 119-CORPO */  SEZIONE PER INTENTO
+   Chi cerca "test di livello" lo fa per la cittadinanza, per lavoro, per
+   studio o per passione: sono quattro bisogni diversi, e la pagina deve
+   rispondere a tutti e quattro con parole loro.
+   ============================================================ */
+.intenti{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:14px;margin-top:18px;padding:0;list-style:none}
+.intenti li{border:1px solid var(--linea);border-radius:12px;padding:16px 18px;
+  background:var(--card)}
+.intenti b{display:block;font-family:var(--serif);font-size:1.05rem;
+  color:var(--verde-scuro);margin-bottom:6px}
+.intenti span{font-size:.94rem;line-height:1.5;color:var(--secondario)}
 </style>
 </head>
 <body>
@@ -1888,6 +1919,11 @@ body.in-prova .proposta-lingua{bottom:88px}
       <h3>Posso rifare il test?</h3>
       <p>Sì, e la seconda volta ricevi domande diverse: le prove disponibili sono tre e si alternano.</p>
     </div>
+  </section>
+
+  <section class="sezione wrap">
+    <h2>Perché fai il test?</h2>
+    <ul class="intenti"><li><b>Cittadinanza e permesso di soggiorno</b><span>Il B1 è il livello richiesto per la cittadinanza italiana. Sapere dove sei adesso dice quanta strada manca, e se una sessione d'esame quest'anno è realistica.</span></li><li><b>Lavoro o trasferimento in Italia</b><span>Per i lavori a contatto con il pubblico le aziende si aspettano un B1 o un B2. La distanza fra grammatica e lettura nel profilo dice da dove conviene cominciare.</span></li><li><b>Studio ed esami</b><span>Le università chiedono di norma il B2. Il test ti colloca sulla stessa scala di CILS, CELI, PLIDA e CERT.IT, così sai a quale sessione puntare.</span></li><li><b>Famiglia, viaggi e piacere</b><span>Nessuna scadenza, nessun esame. Qui il numero utile è l'ampiezza del vocabolario: decide quali libri riesci a leggere senza fermarti a ogni riga.</span></li></ul>
   </section>
 
   <section class="sezione wrap">

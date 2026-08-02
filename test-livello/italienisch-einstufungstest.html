@@ -1725,7 +1725,7 @@ body.in-prova .proposta-lingua{bottom:88px}
 
 /* --- le tre proposte: due per riga, la terza a tutta larghezza --- */
 .pf-firma-blocco{border-top:2px solid var(--verde);padding-top:11px;margin-bottom:14px}
-.pf-offerta{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));
+.pf-offerta{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
   gap:10px;border-top:0;padding-top:0;margin-bottom:12px}
 .pf-offerta > div{min-width:0}
 .pf-lezioni{grid-column:1 / -1}
@@ -1777,6 +1777,37 @@ body.in-prova .proposta-lingua{bottom:88px}
   .pf-gramm,.pf-passo,.pf-alessio,.pf-offerta > div,.pf-quadranti > div{
     break-inside:avoid;page-break-inside:avoid}
 }
+
+/* ============================================================
+   /* 118-PROPOSTE */  LE TRE PROPOSTE
+   Soglia a 250 punti: due colonne solo se il foglio le regge davvero. Sotto,
+   una sola colonna a tutta larghezza. E nessuna delle tre si spezza fra due
+   pagine: una card tagliata a meta' non si legge e non si clicca.
+   ============================================================ */
+.pf-offerta > div,.pf-lezioni{break-inside:avoid!important;page-break-inside:avoid!important}
+.pf-offerta-eti{break-after:avoid;page-break-after:avoid}
+.pf-offerta b{line-height:1.3}
+.pf-offerta p{margin-bottom:9px}
+.pf-cta{padding:6px 10px}
+@media print{
+  .pf-offerta{gap:9px}
+  .pf-offerta > div{padding:10px 12px 11px}
+  .pf-offerta p{font-size:7.6pt;line-height:1.42}
+}
+
+/* ============================================================
+   /* 119-CORPO */  SEZIONE PER INTENTO
+   Chi cerca "test di livello" lo fa per la cittadinanza, per lavoro, per
+   studio o per passione: sono quattro bisogni diversi, e la pagina deve
+   rispondere a tutti e quattro con parole loro.
+   ============================================================ */
+.intenti{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:14px;margin-top:18px;padding:0;list-style:none}
+.intenti li{border:1px solid var(--linea);border-radius:12px;padding:16px 18px;
+  background:var(--card)}
+.intenti b{display:block;font-family:var(--serif);font-size:1.05rem;
+  color:var(--verde-scuro);margin-bottom:6px}
+.intenti span{font-size:.94rem;line-height:1.5;color:var(--secondario)}
 </style>
 </head>
 <body>
@@ -1808,70 +1839,44 @@ body.in-prova .proposta-lingua{bottom:88px}
   </section>
 
   <section class="sezione wrap">
-    <h2 data-k="h-livelli">Che cosa sono i livelli A1–C2</h2>
-    <p>Sono i sei gradini del <strong>Quadro comune europeo di riferimento per le
-    lingue</strong>. Non misurano quante regole sai a memoria: descrivono <em>che cosa
-    riesci a fare</em> con la lingua: capire un annuncio in stazione, raccontare un
-    film, sostenere una discussione tecnica.</p>
+    <h2 data-k="h-livelli">Was die Stufen A1–C2 bedeuten</h2>
+    <p>Es sind die sechs Stufen des <strong>Gemeinsamen Europäischen Referenzrahmens für Sprachen</strong>. Sie messen nicht, wie viele Regeln Sie auswendig können, sondern beschreiben, <em>was Sie mit der Sprache tun</em> — eine Durchsage im Bahnhof verstehen, von einem Film erzählen, eine Fachdiskussion führen.</p>
     <ul class="griglia-livelli">
-      <li><b>A1</b><span>Ti presenti e scambi informazioni molto semplici, se l'altro
-      parla lentamente.</span></li>
-      <li><b>A2</b><span>Te la cavi nelle situazioni di routine: fare la spesa,
-      prenotare, raccontare la giornata.</span></li>
-      <li><b>B1</b><span>Affronti da solo quasi tutte le situazioni di viaggio e
-      spieghi un'opinione. È il livello richiesto per la cittadinanza italiana.</span></li>
-      <li><b>B2</b><span>Segui una discussione articolata e interagisci con
-      naturalezza con chi è madrelingua.</span></li>
-      <li><b>C1</b><span>Usi la lingua con flessibilità per scopi sociali, accademici
-      e professionali, cogliendo i significati impliciti.</span></li>
-      <li><b>C2</b><span>Comprendi senza sforzo quasi tutto e ti esprimi con
-      precisione anche in situazioni complesse.</span></li>
+      <li><b>A1</b><span>Sie stellen sich vor und tauschen sehr einfache Informationen aus, wenn das Gegenüber langsam spricht.</span></li>
+      <li><b>A2</b><span>Sie kommen in Alltagssituationen zurecht: einkaufen, reservieren, vom Tag erzählen.</span></li>
+      <li><b>B1</b><span>Sie bewältigen fast jede Reisesituation allein und begründen eine Meinung. Diese Stufe wird für die italienische Staatsbürgerschaft verlangt.</span></li>
+      <li><b>B2</b><span>Sie folgen einer ausführlichen Diskussion und unterhalten sich mühelos mit Muttersprachlern.</span></li>
+      <li><b>C1</b><span>Sie verwenden die Sprache flexibel für soziale, akademische und berufliche Zwecke und erfassen Implizites.</span></li>
+      <li><b>C2</b><span>Sie verstehen praktisch alles mühelos und drücken sich auch in komplexen Situationen präzise aus.</span></li>
     </ul>
-    <p class="piccolo" style="margin-top:16px">Descrizioni riformulate a partire dalla
-    scala globale del Quadro comune europeo di riferimento, Consiglio d'Europa (2001;
-    volume complementare 2020).
-    <a href="https://www.coe.int/en/web/common-european-framework-reference-languages"
-       target="_blank" rel="noopener">Testo ufficiale</a></p>
+    <p class="piccolo" style="margin-top:16px">Beschreibungen neu formuliert nach der Globalskala des Gemeinsamen Europäischen Referenzrahmens, Europarat (2001; Begleitband 2020).
+    <a href="https://www.coe.int/en/web/common-european-framework-reference-languages" target="_blank" rel="noopener">Offizieller Text</a></p>
   </section>
 
   <section class="sezione wrap">
-    <h2 data-k="h-come">Come è fatto questo test</h2>
+    <h2 data-k="h-come">Wie dieser Test aufgebaut ist</h2>
     <div class="blocco">
       <div class="passo-come"><div class="cifra">1</div><div>
-        <h3>Grammatica e uso, 12 domande</h3>
-        <p>Frasi da completare, in difficoltà crescente: articoli e presente
-        all'inizio, congiuntivo e connettivi verso la fine.</p></div></div>
+        <h3>Grammatik und Sprachgebrauch, 12 Fragen</h3>
+        <p>Sätze zum Ergänzen, mit steigender Schwierigkeit: Artikel und Präsens am Anfang, Konjunktiv und Konnektoren gegen Ende.</p></div></div>
       <div class="passo-come"><div class="cifra">2</div><div>
-        <h3>Comprensione della lettura, 6 testi</h3>
-        <p>Sei brani, uno per livello, scritti apposta per questo test. Le domande si
-        risolvono solo avendo capito il senso, non riconoscendo una parola.</p></div></div>
+        <h3>Leseverstehen, 6 Texte</h3>
+        <p>Sechs Texte, einer pro Stufe, eigens für diesen Test geschrieben. Die Fragen lassen sich nur lösen, wenn man den Sinn erfasst hat, nicht durch das Wiedererkennen eines Wortes.</p></div></div>
       <div class="passo-come"><div class="cifra">3</div><div>
-        <h3>Ampiezza del vocabolario, 6 gruppi</h3>
-        <p>Conta anche <em>quante</em> parole conosci. Per leggere senza dizionario
-        ne serve circa il 98%: questa prova stima a che punto sei.</p></div></div>
+        <h3>Wortschatzumfang, 6 Gruppen</h3>
+        <p>Gezählt wird auch, <em>wie viele</em> Wörter Sie kennen. Zum Lesen ohne Wörterbuch braucht es etwa 98% davon: dieser Teil schätzt, wo Sie stehen.</p></div></div>
       <div class="passo-come"><div class="cifra">4</div><div>
-        <h3>Produzione scritta, un testo breve</h3>
-        <p>Nessuna macchina può valutarla davvero. Quello che scrivi finisce nel tuo
-        profilo così com'è, per rileggerlo o mostrarlo a un insegnante.</p></div></div>
+        <h3>Schreiben, ein kurzer Text</h3>
+        <p>Keine Maschine kann das wirklich bewerten. Was Sie schreiben, steht unverändert in Ihrem Profil — zum Nachlesen oder für eine Lehrkraft.</p></div></div>
     </div>
-    <p class="piccolo">Il risultato è un <strong>orientamento</strong>, non una
-    certificazione. Le certificazioni riconosciute dallo Stato italiano sono CILS,
-    CELI, PLIDA e CERT.IT, e si ottengono solo con un esame in sede.</p>
+    <p class="piccolo">Das Ergebnis ist <strong>eine Orientierung</strong>, kein Zertifikat. Die vom italienischen Staat anerkannten Zertifikate sind CILS, CELI, PLIDA und CERT.IT; sie werden in Präsenz an einem autorisierten Zentrum abgelegt.</p>
   </section>
 
   <section class="sezione wrap">
-    <h2 data-k="h-parole">Perché contano le parole, non solo le regole</h2>
-    <p>Se in una pagina di trecento parole ne incontri sei che non conosci, la lettura
-    resta scorrevole. Se ne incontri trenta, ti fermi a ogni riga: cominci a
-    decifrare invece di leggere. È la soglia del <strong>98%</strong> descritta da
-    Paul Nation.</p>
-    <p>Da qui viene l'idea dei libri graduati: testi scritti con un vocabolario
-    controllato, perché a ogni livello quella soglia sia rispettata.</p>
-    <div class="nota-metodo"><strong>Le quattro corsie di Nation.</strong> Un percorso
-    equilibrato dedica circa un quarto del tempo a ciascuna: leggere e ascoltare cose
-    comprensibili, parlare e scrivere per comunicare davvero, studiare deliberatamente
-    la lingua, allenare la fluidità su materiale facile. Chi studia da solo fa quasi
-    sempre solo la terza, e si chiede perché non riesce a parlare.</div>
+    <h2 data-k="h-parole">Warum Wörter zählen, nicht nur Regeln</h2>
+    <p>Begegnen Ihnen auf einer Seite mit dreihundert Wörtern sechs unbekannte, bleibt das Lesen flüssig. Sind es dreißig, halten Sie in jeder Zeile an: Sie entziffern, statt zu lesen. Das ist die von Paul Nation beschriebene <strong>98%</strong>-Schwelle.</p>
+    <p>Daher kommt die Idee der Lektüren nach Stufen: Texte mit kontrolliertem Wortschatz, damit diese Schwelle auf jeder Stufe eingehalten wird.</p>
+    <div class="nota-metodo"><strong>Nations vier Stränge.</strong> Ein ausgewogener Weg widmet jedem etwa ein Viertel der Zeit: Verständliches lesen und hören, sprechen und schreiben, um wirklich etwas mitzuteilen, die Sprache gezielt studieren und Flüssigkeit an leichtem Material üben. Wer allein lernt, macht fast nur den dritten Strang und wundert sich, warum das Sprechen nicht klappt.</div>
   </section>
 
   <section class="sezione wrap">
@@ -1891,7 +1896,12 @@ body.in-prova .proposta-lingua{bottom:88px}
   </section>
 
   <section class="sezione wrap">
-    <h2 data-k="h-fonti">Fonti</h2>
+    <h2>Wofür machen Sie den Test?</h2>
+    <ul class="intenti"><li><b>Staatsbürgerschaft und Aufenthalt</b><span>B1 ist die für die italienische Staatsbürgerschaft verlangte Stufe. Wer weiß, wo er steht, weiß auch, wie weit der Weg noch ist und ob eine Prüfungssession in diesem Jahr realistisch ist.</span></li><li><b>Arbeit oder Umzug nach Italien</b><span>Für Berufe mit Publikumskontakt erwarten Arbeitgeber B1 bis B2. Der Abstand zwischen Grammatik und Lesen in Ihrem Profil zeigt, wo Sie anfangen sollten.</span></li><li><b>Studium und Prüfungen</b><span>Universitäten verlangen meist B2. Der Test verortet Sie auf derselben Skala wie CILS, CELI, PLIDA und CERT.IT, sodass Sie die passende Session wählen können.</span></li><li><b>Familie, Reisen und Freude an der Sprache</b><span>Keine Frist, keine Prüfung. Hier ist der Wortschatz die nützliche Zahl: er entscheidet, welche Bücher Sie lesen können, ohne in jeder Zeile anzuhalten.</span></li></ul>
+  </section>
+
+  <section class="sezione wrap">
+    <h2 data-k="h-fonti">Quellen</h2>
     <ul class="fonti">
       <li>Consiglio d'Europa, <em>Quadro comune europeo di riferimento per le
       lingue</em> (2001) e <em>Volume complementare</em> (2020): per la scala dei
@@ -1905,9 +1915,7 @@ body.in-prova .proposta-lingua{bottom:88px}
       <li>M. Hu, I.S.P. Nation, <em>Unknown Vocabulary Density and Reading
       Comprehension</em>, Reading in a Foreign Language 13(1), 2000.</li>
     </ul>
-    <p class="piccolo">I testi e le domande sono originali, scritti per questa pagina
-    da un insegnante con doppia laurea magistrale in didattica dell'italiano a
-    stranieri. Non provengono da prove d'esame né da materiali di terzi.</p>
+    <p class="piccolo">Texte und Fragen sind Originale, für diese Seite geschrieben von einem Lehrer mit zwei Masterabschlüssen in der Didaktik des Italienischen als Fremdsprache. Sie stammen nicht aus Prüfungsunterlagen oder Material Dritter.</p>
   </section>
 </main>
 

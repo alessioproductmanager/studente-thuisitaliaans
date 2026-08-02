@@ -1725,7 +1725,7 @@ body.in-prova .proposta-lingua{bottom:88px}
 
 /* --- le tre proposte: due per riga, la terza a tutta larghezza --- */
 .pf-firma-blocco{border-top:2px solid var(--verde);padding-top:11px;margin-bottom:14px}
-.pf-offerta{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));
+.pf-offerta{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
   gap:10px;border-top:0;padding-top:0;margin-bottom:12px}
 .pf-offerta > div{min-width:0}
 .pf-lezioni{grid-column:1 / -1}
@@ -1777,6 +1777,37 @@ body.in-prova .proposta-lingua{bottom:88px}
   .pf-gramm,.pf-passo,.pf-alessio,.pf-offerta > div,.pf-quadranti > div{
     break-inside:avoid;page-break-inside:avoid}
 }
+
+/* ============================================================
+   /* 118-PROPOSTE */  LE TRE PROPOSTE
+   Soglia a 250 punti: due colonne solo se il foglio le regge davvero. Sotto,
+   una sola colonna a tutta larghezza. E nessuna delle tre si spezza fra due
+   pagine: una card tagliata a meta' non si legge e non si clicca.
+   ============================================================ */
+.pf-offerta > div,.pf-lezioni{break-inside:avoid!important;page-break-inside:avoid!important}
+.pf-offerta-eti{break-after:avoid;page-break-after:avoid}
+.pf-offerta b{line-height:1.3}
+.pf-offerta p{margin-bottom:9px}
+.pf-cta{padding:6px 10px}
+@media print{
+  .pf-offerta{gap:9px}
+  .pf-offerta > div{padding:10px 12px 11px}
+  .pf-offerta p{font-size:7.6pt;line-height:1.42}
+}
+
+/* ============================================================
+   /* 119-CORPO */  SEZIONE PER INTENTO
+   Chi cerca "test di livello" lo fa per la cittadinanza, per lavoro, per
+   studio o per passione: sono quattro bisogni diversi, e la pagina deve
+   rispondere a tutti e quattro con parole loro.
+   ============================================================ */
+.intenti{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:14px;margin-top:18px;padding:0;list-style:none}
+.intenti li{border:1px solid var(--linea);border-radius:12px;padding:16px 18px;
+  background:var(--card)}
+.intenti b{display:block;font-family:var(--serif);font-size:1.05rem;
+  color:var(--verde-scuro);margin-bottom:6px}
+.intenti span{font-size:.94rem;line-height:1.5;color:var(--secondario)}
 </style>
 </head>
 <body>
@@ -1808,70 +1839,44 @@ body.in-prova .proposta-lingua{bottom:88px}
   </section>
 
   <section class="sezione wrap">
-    <h2 data-k="h-livelli">Che cosa sono i livelli A1–C2</h2>
-    <p>Sono i sei gradini del <strong>Quadro comune europeo di riferimento per le
-    lingue</strong>. Non misurano quante regole sai a memoria: descrivono <em>che cosa
-    riesci a fare</em> con la lingua: capire un annuncio in stazione, raccontare un
-    film, sostenere una discussione tecnica.</p>
+    <h2 data-k="h-livelli">What the A1–C2 levels mean</h2>
+    <p>They are the six steps of the <strong>Common European Framework of Reference for Languages</strong>. They do not measure how many rules you have memorised: they describe <em>what you can do</em> with the language — follow an announcement at a station, talk about a film, hold your own in a technical discussion.</p>
     <ul class="griglia-livelli">
-      <li><b>A1</b><span>Ti presenti e scambi informazioni molto semplici, se l'altro
-      parla lentamente.</span></li>
-      <li><b>A2</b><span>Te la cavi nelle situazioni di routine: fare la spesa,
-      prenotare, raccontare la giornata.</span></li>
-      <li><b>B1</b><span>Affronti da solo quasi tutte le situazioni di viaggio e
-      spieghi un'opinione. È il livello richiesto per la cittadinanza italiana.</span></li>
-      <li><b>B2</b><span>Segui una discussione articolata e interagisci con
-      naturalezza con chi è madrelingua.</span></li>
-      <li><b>C1</b><span>Usi la lingua con flessibilità per scopi sociali, accademici
-      e professionali, cogliendo i significati impliciti.</span></li>
-      <li><b>C2</b><span>Comprendi senza sforzo quasi tutto e ti esprimi con
-      precisione anche in situazioni complesse.</span></li>
+      <li><b>A1</b><span>You introduce yourself and exchange very simple information, if the other person speaks slowly.</span></li>
+      <li><b>A2</b><span>You cope with everyday routines: shopping, booking, telling someone about your day.</span></li>
+      <li><b>B1</b><span>You handle almost any travel situation on your own and explain an opinion. This is the level required for Italian citizenship.</span></li>
+      <li><b>B2</b><span>You follow an extended discussion and interact naturally with native speakers.</span></li>
+      <li><b>C1</b><span>You use the language flexibly for social, academic and professional purposes, and catch what is implied.</span></li>
+      <li><b>C2</b><span>You understand almost everything effortlessly and express yourself precisely, even in complex situations.</span></li>
     </ul>
-    <p class="piccolo" style="margin-top:16px">Descrizioni riformulate a partire dalla
-    scala globale del Quadro comune europeo di riferimento, Consiglio d'Europa (2001;
-    volume complementare 2020).
-    <a href="https://www.coe.int/en/web/common-european-framework-reference-languages"
-       target="_blank" rel="noopener">Testo ufficiale</a></p>
+    <p class="piccolo" style="margin-top:16px">Descriptions rephrased from the global scale of the Common European Framework of Reference, Council of Europe (2001; companion volume 2020).
+    <a href="https://www.coe.int/en/web/common-european-framework-reference-languages" target="_blank" rel="noopener">Official text</a></p>
   </section>
 
   <section class="sezione wrap">
-    <h2 data-k="h-come">Come è fatto questo test</h2>
+    <h2 data-k="h-come">How this test is built</h2>
     <div class="blocco">
       <div class="passo-come"><div class="cifra">1</div><div>
-        <h3>Grammatica e uso, 12 domande</h3>
-        <p>Frasi da completare, in difficoltà crescente: articoli e presente
-        all'inizio, congiuntivo e connettivi verso la fine.</p></div></div>
+        <h3>Grammar and usage, 12 questions</h3>
+        <p>Sentences to complete, getting harder as you go: articles and the present tense at the start, subjunctive and connectives towards the end.</p></div></div>
       <div class="passo-come"><div class="cifra">2</div><div>
-        <h3>Comprensione della lettura, 6 testi</h3>
-        <p>Sei brani, uno per livello, scritti apposta per questo test. Le domande si
-        risolvono solo avendo capito il senso, non riconoscendo una parola.</p></div></div>
+        <h3>Reading comprehension, 6 texts</h3>
+        <p>Six passages, one per level, written for this test. The questions can only be answered by grasping the meaning, not by recognising a word.</p></div></div>
       <div class="passo-come"><div class="cifra">3</div><div>
-        <h3>Ampiezza del vocabolario, 6 gruppi</h3>
-        <p>Conta anche <em>quante</em> parole conosci. Per leggere senza dizionario
-        ne serve circa il 98%: questa prova stima a che punto sei.</p></div></div>
+        <h3>Vocabulary size, 6 groups</h3>
+        <p>It also counts <em>how many</em> words you know. Reading without a dictionary takes about 98% of them: this part estimates where you stand.</p></div></div>
       <div class="passo-come"><div class="cifra">4</div><div>
-        <h3>Produzione scritta, un testo breve</h3>
-        <p>Nessuna macchina può valutarla davvero. Quello che scrivi finisce nel tuo
-        profilo così com'è, per rileggerlo o mostrarlo a un insegnante.</p></div></div>
+        <h3>Writing, one short text</h3>
+        <p>No machine can really assess it. What you write goes into your profile as it is, to read again or to show a teacher.</p></div></div>
     </div>
-    <p class="piccolo">Il risultato è un <strong>orientamento</strong>, non una
-    certificazione. Le certificazioni riconosciute dallo Stato italiano sono CILS,
-    CELI, PLIDA e CERT.IT, e si ottengono solo con un esame in sede.</p>
+    <p class="piccolo">The result is <strong>an orientation</strong>, not a certificate. The certificates recognised by the Italian state are CILS, CELI, PLIDA and CERT.IT, and they are taken in person at an authorised centre.</p>
   </section>
 
   <section class="sezione wrap">
-    <h2 data-k="h-parole">Perché contano le parole, non solo le regole</h2>
-    <p>Se in una pagina di trecento parole ne incontri sei che non conosci, la lettura
-    resta scorrevole. Se ne incontri trenta, ti fermi a ogni riga: cominci a
-    decifrare invece di leggere. È la soglia del <strong>98%</strong> descritta da
-    Paul Nation.</p>
-    <p>Da qui viene l'idea dei libri graduati: testi scritti con un vocabolario
-    controllato, perché a ogni livello quella soglia sia rispettata.</p>
-    <div class="nota-metodo"><strong>Le quattro corsie di Nation.</strong> Un percorso
-    equilibrato dedica circa un quarto del tempo a ciascuna: leggere e ascoltare cose
-    comprensibili, parlare e scrivere per comunicare davvero, studiare deliberatamente
-    la lingua, allenare la fluidità su materiale facile. Chi studia da solo fa quasi
-    sempre solo la terza, e si chiede perché non riesce a parlare.</div>
+    <h2 data-k="h-parole">Why words matter, not just rules</h2>
+    <p>If you meet six unknown words on a page of three hundred, reading stays fluent. If you meet thirty, you stop at every line: you start decoding instead of reading. This is the <strong>98%</strong> threshold described by Paul Nation.</p>
+    <p>That is where graded readers come from: texts written with a controlled vocabulary, so that the threshold holds at every level.</p>
+    <div class="nota-metodo"><strong>Nation's four strands.</strong> A balanced course gives about a quarter of the time to each: reading and listening to things you understand, speaking and writing to communicate for real, studying the language deliberately, and building fluency on easy material. People studying alone almost always do only the third, and wonder why they cannot speak.</div>
   </section>
 
   <section class="sezione wrap">
@@ -1891,7 +1896,12 @@ body.in-prova .proposta-lingua{bottom:88px}
   </section>
 
   <section class="sezione wrap">
-    <h2 data-k="h-fonti">Fonti</h2>
+    <h2>Why are you taking the test?</h2>
+    <ul class="intenti"><li><b>Citizenship and residency</b><span>B1 is the level required for Italian citizenship. Knowing where you stand now tells you how far there is to go, and whether an exam session this year is realistic.</span></li><li><b>Work or moving to Italy</b><span>For jobs dealing with the public, employers expect B1 to B2. The gap between grammar and reading in your profile shows what to work on first.</span></li><li><b>Study and exams</b><span>Universities usually ask for B2. The test places you on the same scale as CILS, CELI, PLIDA and CERT.IT, so you can see which session to aim for.</span></li><li><b>Family, travel and pleasure</b><span>No deadline, no exam. Here the useful number is your vocabulary size: it decides which books you can read without stopping at every line.</span></li></ul>
+  </section>
+
+  <section class="sezione wrap">
+    <h2 data-k="h-fonti">Sources</h2>
     <ul class="fonti">
       <li>Consiglio d'Europa, <em>Quadro comune europeo di riferimento per le
       lingue</em> (2001) e <em>Volume complementare</em> (2020): per la scala dei
@@ -1905,9 +1915,7 @@ body.in-prova .proposta-lingua{bottom:88px}
       <li>M. Hu, I.S.P. Nation, <em>Unknown Vocabulary Density and Reading
       Comprehension</em>, Reading in a Foreign Language 13(1), 2000.</li>
     </ul>
-    <p class="piccolo">I testi e le domande sono originali, scritti per questa pagina
-    da un insegnante con doppia laurea magistrale in didattica dell'italiano a
-    stranieri. Non provengono da prove d'esame né da materiali di terzi.</p>
+    <p class="piccolo">The texts and questions are original, written for this page by a teacher with two master's degrees in teaching Italian as a second language. They do not come from exam papers or third-party material.</p>
   </section>
 </main>
 
