@@ -103,6 +103,22 @@
 <link rel="alternate" hreflang="ti" href="https://thuisitaliaans.com/test-livello/mefetesha-derejat-italyanenya">
 <link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/test-livello-italiano">
 <link rel="alternate" hreflang="it" href="https://thuisitaliaans.com/test-livello-italiano">
+<link rel="alternate" hreflang="en" href="https://thuisitaliaans.com/test-livello/italian-level-test">
+<link rel="alternate" hreflang="nl" href="https://thuisitaliaans.com/test-livello/italiaans-niveautest">
+<link rel="alternate" hreflang="de" href="https://thuisitaliaans.com/test-livello/italienisch-einstufungstest">
+<link rel="alternate" hreflang="fr" href="https://thuisitaliaans.com/test-livello/test-de-niveau-italien">
+<link rel="alternate" hreflang="es" href="https://thuisitaliaans.com/test-livello/test-de-nivel-italiano">
+<link rel="alternate" hreflang="pt" href="https://thuisitaliaans.com/test-livello/teste-de-nivel-italiano">
+<link rel="alternate" hreflang="ro" href="https://thuisitaliaans.com/test-livello/test-de-nivel-italiana">
+<link rel="alternate" hreflang="uk" href="https://thuisitaliaans.com/test-livello/test-rivnya-italiyskoyi">
+<link rel="alternate" hreflang="zh" href="https://thuisitaliaans.com/test-livello/yidaliyu-shuiping-ceshi">
+<link rel="alternate" hreflang="ar" href="https://thuisitaliaans.com/test-livello/ikhtibar-mustawa-alitaliya">
+<link rel="alternate" hreflang="sq" href="https://thuisitaliaans.com/test-livello/test-niveli-italisht">
+<link rel="alternate" hreflang="bn" href="https://thuisitaliaans.com/test-livello/italian-vasha-star-porikkha">
+<link rel="alternate" hreflang="tl" href="https://thuisitaliaans.com/test-livello/pagsusulit-antas-italyano">
+<link rel="alternate" hreflang="ti" href="https://thuisitaliaans.com/test-livello/mefetesha-derejat-italyanenya">
+<link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/test-livello-italiano">
+<link rel="alternate" hreflang="it" href="https://thuisitaliaans.com/test-livello-italiano">
 <link rel="alternate" hreflang="en" href="https://thuisitaliaans.com/en/italian-level-test">
 <link rel="alternate" hreflang="nl" href="https://thuisitaliaans.com/nl/italiaans-niveautest">
 <link rel="alternate" hreflang="de" href="https://thuisitaliaans.com/de/italienisch-einstufungstest">
@@ -1552,11 +1568,23 @@ html,body{overflow-x:clip}
 /* il marchio: "italiaans" nel verde della sezione, come nel resto del sito */
 .marchio span,.pf-marchio span{color:var(--verde)}
 .pf-marchio span{color:#1F5228!important}
+
+/* la striscia della lingua: sottile, sopra tutto, si chiude e non torna */
+.invito-lingua{display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  background:var(--verde-chiaro);border-bottom:1px solid #CBE0CC;
+  padding:9px max(18px,env(safe-area-inset-left,0px));
+  font-size:.88rem;color:#1F5228}
+.invito-lingua a{color:#1F5228;font-weight:700;text-decoration:underline;
+  text-underline-offset:2px}
+.invito-lingua button{margin-left:auto;background:none;border:0;cursor:pointer;
+  font-size:1.15rem;line-height:1;color:#5F7061;padding:2px 6px;border-radius:6px}
+.invito-lingua button:hover{background:rgba(31,82,40,.1)}
+@media (max-width:520px){
+  .invito-lingua{font-size:.82rem;gap:8px;padding:8px 15px}
+  .invito-lingua button{margin-left:auto}
+}
+@media print{ .invito-lingua{display:none!important} }
 </style>
-<!--icone-sezione-v1-->
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/test-livello/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/test-livello/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/test-livello/apple-touch-icon.png">
 </head>
 <body>
 
@@ -3051,6 +3079,56 @@ var PILL = {
 {"@type":"Question","name":"这个结果算证书吗？","acceptedAnswer":{"@type":"Answer","text":"不算，它只是参考。意大利官方认可的证书是 CILS、CELI、PLIDA 和 CERT.IT，需要在授权考点现场考试。"}},
 {"@type":"Question","name":"达到 B1 需要多久？","acceptedAnswer":{"@type":"Answer","text":"欧洲委员会估计从零开始约需 350 至 400 小时的系统学习。课外阅读和听力可以大幅缩短这个时间。"}},
 {"@type":"Question","name":"可以重新测试吗？","acceptedAnswer":{"@type":"Answer","text":"可以，第二次会出现不同的题目：共有三套题轮换。"}}]}
+
+/* ============================================================
+   INVITO A CAMBIARE LINGUA.
+   Una striscia sottile in cima, non una finestra sopra la pagina: un overlay
+   che copre il contenuto appena si entra e' la cosa che fa chiudere la scheda,
+   e Google lo tratta come interstitial invadente.
+   E soprattutto NON reindirizza da solo. Il redirect automatico per lingua del
+   browser confonde Googlebot, che scansiona quasi sempre da server americani:
+   si rischia che le versioni tradotte non vengano viste affatto. Gli hreflang
+   dicono gia' a Google quali versioni esistono; qui serve solo suggerirlo a
+   una persona.
+   ============================================================ */
+var ALTRE_LINGUE = {
+ it:{u:"/test-livello-italiano", t:"Questa pagina è disponibile in italiano", b:"Vai alla versione italiana"},
+ en:{u:"/test-livello/italian-level-test", t:"This page is available in English", b:"Switch to English"},
+ nl:{u:"/test-livello/italiaans-niveautest", t:"Deze pagina is ook in het Nederlands", b:"Ga naar het Nederlands"},
+ de:{u:"/test-livello/italienisch-einstufungstest", t:"Diese Seite gibt es auch auf Deutsch", b:"Zur deutschen Fassung"},
+ fr:{u:"/test-livello/test-de-niveau-italien", t:"Cette page existe aussi en français", b:"Passer au français"},
+ es:{u:"/test-livello/test-de-nivel-italiano", t:"Esta página también está en español", b:"Ver en español"},
+ pt:{u:"/test-livello/teste-de-nivel-italiano", t:"Esta página também está em português", b:"Ver em português"},
+ ro:{u:"/test-livello/test-de-nivel-italiana", t:"Această pagină există și în română", b:"Vezi în română"},
+ uk:{u:"/test-livello/test-rivnya-italiyskoyi", t:"Ця сторінка є також українською", b:"Перейти до української"},
+ zh:{u:"/test-livello/yidaliyu-shuiping-ceshi", t:"本页面也有中文版", b:"查看中文版"},
+ ar:{u:"/test-livello/ikhtibar-mustawa-alitaliya", t:"هذه الصفحة متوفرة بالعربية", b:"اذهب إلى النسخة العربية"},
+ sq:{u:"/test-livello/test-niveli-italisht", t:"Kjo faqe është edhe në shqip", b:"Shko te shqipja"},
+ bn:{u:"/test-livello/italian-vasha-star-porikkha", t:"এই পাতা বাংলাতেও আছে", b:"বাংলায় দেখুন"},
+ tl:{u:"/test-livello/pagsusulit-antas-italyano", t:"May Filipino din ang pahinang ito", b:"Tingnan sa Filipino"},
+ ti:{u:"/test-livello/mefetesha-derejat-italyanenya", t:"እዛ ገጽ ብትግርኛ እውን ኣላ", b:"ናብ ትግርኛ ኪድ"}
+};
+
+(function invitoLingua(){
+  var pagina=(document.documentElement.lang||"it").slice(0,2);
+  var b=(navigator.language||"").slice(0,2).toLowerCase();
+  if(!b || b===pagina || !ALTRE_LINGUE[b]) return;
+  try{ if(localStorage.getItem("lingua-chiusa")==="1") return; }catch(e){}
+
+  var d=ALTRE_LINGUE[b];
+  var barra=document.createElement("div");
+  barra.className="invito-lingua";
+  barra.setAttribute("lang", b);
+  if(b==="ar") barra.setAttribute("dir","rtl");
+  barra.innerHTML='<span>'+d.t+'</span><a href="'+d.u+'">'+d.b+'</a>'+
+    '<button type="button" aria-label="chiudi">×</button>';
+  barra.querySelector("button").addEventListener("click",function(){
+    barra.remove();
+    try{ localStorage.setItem("lingua-chiusa","1"); }catch(e){}
+  });
+  document.body.insertBefore(barra, document.body.firstChild);
+})();
+
 </script>
 </body>
 </html>
