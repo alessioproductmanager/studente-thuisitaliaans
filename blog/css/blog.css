@@ -622,7 +622,10 @@ gap:0;
 }
 .article-sidebar{
 position:static;
-order:-1;
+/* order:-1 tolto: la colonna commerciale non deve venire prima
+       dell'articolo. Chi arriva da Google ha cercato una risposta,
+       non un insegnante. */
+    order:0;
 margin-bottom:40px;
 }
 .sidebar-card{
@@ -818,30 +821,25 @@ opacity:.85;
 .article-end-cta .button{font-weight:700;}
 .sidebar-card .button{font-weight:700;}
 
+
 /* ==========================================================
    MOBILE — la pagina usciva dallo schermo
-   Misurato nel browser a finestra stretta: .article-main aveva il
-   bordo destro a 721px, cioe' fuori dalla vista, e la pagina si
-   trascinava di lato.
-   La griglia gia' collassava a una colonna sotto i 1000px, quindi il
-   colpevole non era quella: era il max-width:700px di .article-main,
-   che non veniva mai annullato. Un elemento con larghezza fissa resta
-   largo anche quando lo spazio attorno e' minore, e sporge.
-   Qui lo lego alla larghezza disponibile, e metto al riparo le cose
-   che tipicamente sfondano una colonna: immagini, tabelle, blocchi di
-   codice, parole lunghissime e liste con rientro grande.
+   Misurato nel browser: .article-main aveva il bordo destro a 721px,
+   fuori dalla vista. La griglia collassava gia' bene sotto i 1000px:
+   il colpevole era il max-width:700px di .article-main, che non
+   veniva mai annullato. Un elemento con larghezza fissa resta largo
+   anche quando lo spazio attorno e' minore, e sporge.
    ========================================================== */
 @media (max-width:1000px){
   .article-layout{padding:34px 0 70px;min-width:0}
   .article-main,.article-sidebar{
     max-width:100%;min-width:0;width:100%;box-sizing:border-box}
-  .article-body{overflow-wrap:anywhere;word-break:normal}
+  .article-body{overflow-wrap:anywhere}
   .article-body img,.article-body picture,.article-body video,
   .article-body iframe,.article-body .post-img{
     max-width:100%;height:auto;display:block}
   .article-body pre,.article-body table{
     display:block;max-width:100%;overflow-x:auto}
-  /* la lista numerata ha 44px di rientro: su 360px sono tanti */
   .article-body ol{padding:18px 16px 18px 34px}
   .article-body ul,.article-body ol{margin-left:18px}
   .article-body blockquote{padding-left:14px;margin-left:0}
@@ -850,10 +848,28 @@ opacity:.85;
   .article-body h2{padding-left:10px}
   .article-body ol{padding-left:28px}
 }
+
+/* ==========================================================
+   MOBILE — ordine di quello che viene dopo l'articolo
+   L'audit sui 298 articoli ha trovato due ordini diversi: 200 hanno
+   libro → app → lezioni, 38 (gli olandesi) hanno lezioni → app →
+   libro. Qui l'ordine diventa uno solo, senza toccare l'HTML.
+   Prima il libro: costa 4,99 invece di 50 l'ora, non chiede un
+   impegno, ed e' il passo piu' vicino a chi ha appena letto un
+   articolo. La scheda delle lezioni per ultima, quando si e' gia'
+   fidato.
+   ========================================================== */
+@media (max-width:1000px){
+  .article-sidebar{display:flex;flex-direction:column;gap:16px}
+  .article-sidebar .sidebar-card{margin-top:0!important}
+  .article-sidebar .sidebar-card-libro{order:1}
+  .article-sidebar .sidebar-card-app{order:2}
+  .article-sidebar .sidebar-card:not(.sidebar-card-libro):not(.sidebar-card-app){order:3}
+}
+
 /* rete di sicurezza: nessun elemento puo' allargare la pagina.
-   Cura il sintomo, non la causa — ma su 297 articoli scritti in
-   momenti diversi e' la garanzia che nessuno di essi trascini la
-   pagina di lato. */
+   Cura il sintomo, non la causa — ma su 298 articoli scritti in
+   momenti diversi e' la garanzia che nessuno la trascini di lato. */
 @media (max-width:1000px){
   html,body{max-width:100%;overflow-x:clip}
 }
