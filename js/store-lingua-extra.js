@@ -1,11 +1,11 @@
 /* store-lingua-extra.js — gli screenshot dell'app restano nella lingua della
    pagina. Cambiano solo per chi parla una lingua che il sito NON ha ma l'app
-   si': in quel caso vedere le immagini nella propria lingua e' meglio che
-   vederle in una terza lingua che non ha scelto.
+   si': vedere le immagini nella propria lingua e' meglio che vederle in una
+   terza lingua che non si e' scelta.
    Se l'immagine nuova non carica, resta quella di prima. */
 (function () {
-  var SITO = ["it", "en", "nl", "de", "fr", "es", "pl"];      // le lingue in cui il sito esiste gia'
-  var EXTRA = ["ar", "bn", "pt", "ro", "uk", "zh"];    // quelle in piu' coperte dagli screenshot
+  var SITO = ["it", "en", "nl", "de", "fr", "es", "pl"];
+  var EXTRA = ["ar", "bn", "pt", "ro", "uk", "zh"];
 
   var b = (navigator.language || "").slice(0, 2).toLowerCase();
   if (!b || SITO.indexOf(b) !== -1 || EXTRA.indexOf(b) === -1) return;
@@ -21,6 +21,6 @@
       img.setAttribute("src", dopo);
       if (src) src.setAttribute("srcset", dopo.replace(/\.jpg$/, ".webp"));
     };
-    prova.src = dopo;      // se fallisce non facciamo niente: resta l'originale
+    prova.src = dopo;
   });
 })();
