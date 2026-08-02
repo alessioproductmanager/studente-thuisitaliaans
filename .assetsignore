@@ -1,7 +1,8 @@
-.git
-.git/**
-.github
-.wrangler
-node_modules
-.assetsignore
-wrangler.jsoncwrangler.jsonc
+# File che non devono finire online.
+*.md
+*.py
+.DS_Store
+__MACOSX/
+_frammenti/
+.git/
+node_modules/
