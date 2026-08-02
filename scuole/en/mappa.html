@@ -592,33 +592,6 @@ var PRE="../";
  })();
  disegna();
 })();
-</script>
-<script>/*lingua-v1*/
-(function(){
- var LING=["it", "en", "nl", "de", "fr", "es", "pl"];
- var INV={"it": "Leggi questa pagina in italiano", "en": "Read this page in English", "nl": "Lees deze pagina in het Nederlands", "de": "Diese Seite auf Deutsch lesen", "fr": "Lire cette page en français", "es": "Leer esta página en español", "pl": "Przeczytaj tę stronę po polsku"}, CHI={"it": "no, grazie", "en": "no thanks", "nl": "nee, bedankt", "de": "nein, danke", "fr": "non merci", "es": "no, gracias", "pl": "nie, dziękuję"};
- var qui=document.documentElement.lang||'it';
- try{ if(localStorage.getItem('lingua-scelta'))return; }catch(e){}
- // la lingua del browser, solo il codice base
- var pref=(navigator.languages&&navigator.languages[0])||navigator.language||'';
- pref=pref.toLowerCase().split('-')[0];
- if(!pref||pref===qui)return;
- if(LING.indexOf(pref)===-1)return;
- // l'indirizzo della stessa pagina nell'altra lingua: lo prendo dagli hreflang gia' in pagina
- var l=document.querySelector('link[rel="alternate"][hreflang="'+pref+'"]');
- if(!l)return;
- var box=document.createElement('div');
- box.className='avviso-lingua';
- box.innerHTML='<a href="'+l.href+'">'+INV[pref]+'</a>'+
-   '<button type="button" aria-label="'+CHI[pref]+'">'+CHI[pref]+'</button>';
- box.querySelector('a').addEventListener('click',function(){
-   try{localStorage.setItem('lingua-scelta',pref);}catch(e){}});
- box.querySelector('button').addEventListener('click',function(){
-   try{localStorage.setItem('lingua-scelta',qui);}catch(e){}
-   box.classList.remove('mostra');});
- document.body.appendChild(box);
- setTimeout(function(){box.classList.add('mostra');},600);
-})();
 </script><script>/*stelle-v1*/
 (function(){
   var STELLE=/[\u2605\u2606\u2b50\u2729\u272d\u2b51]/;
