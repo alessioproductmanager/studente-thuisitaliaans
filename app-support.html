@@ -207,6 +207,29 @@
 </style>
 <!--geo-webpage-v1--><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://thuisitaliaans.com/app-support#pagina", "url": "https://thuisitaliaans.com/app-support", "inLanguage": "it", "dateModified": "2026-08-01", "publisher": {"@id": "https://thuisitaliaans.com/#organizzazione", "name": "thuisitaliaans"}, "author": {"@id": "https://thuisitaliaans.com/#alessio", "name": "Alessio Are"}}</script>
 <link rel="stylesheet" href="/assets/mobile.css">
+<!--testi-mobile-v1-->
+<style>/*testi-mobile-v1*/
+/* Il piede aveva 115 caratteri su una riga: su mobile diventava una colonna
+   sfilacciata. Non tolgo voci, sono utili: le dispongo su due colonne e
+   nascondo i punti mediani, che in colonna non separano piu' niente. */
+@media (max-width:560px){
+  footer p a{display:block}
+  footer p{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;
+    align-items:start;line-height:1.4}
+  footer p br{display:none}
+}
+/* pulsanti che non devono mai andare a capo male */
+.btn,.bottone,.button,.cta,.app-cta,.ex-passo-link{
+  overflow-wrap:break-word;hyphens:none}
+@media (max-width:420px){
+  .btn,.bottone,.button,.cta,.app-cta,.ex-passo-link{
+    font-size:.94rem;padding-left:14px;padding-right:14px}
+}
+/* pulsante a due righe: l'azione sopra, il documento sotto */
+.btn-due{display:inline-flex;flex-direction:column;align-items:center;
+  line-height:1.25;text-align:center}
+.btn-due small{font-size:.76em;font-weight:500;opacity:.85;margin-top:2px}
+</style>
 </head>
 
 <body>
@@ -275,8 +298,8 @@
 
 
 <p class="legal-updated">Ti — impara l'italiano davvero</p><p>Hai bisogno d'aiuto con l'app Ti? Siamo qui. Ti è sviluppata da una persona sola, quindi le risposte arrivano direttamente da chi ha costruito l'app — non da un bot e non da un call center.</p><h2>Contattaci</h2><p>Il modo più veloce per ricevere aiuto è scrivere a <a href="mailto:thuisitaliaans@gmail.com">thuisitaliaans@gmail.com</a>. Rispondiamo entro 48 ore lavorative, spesso molto prima.</p><h2>Segnala un problema</h2><p>Se l'app si blocca, un contenuto non funziona o hai trovato un errore, scrivici includendo:</p><ul class="legal-list"><li>Il modello di iPhone o iPad e la versione di iOS;</li><li>La versione di Ti (la trovi in Profilo →︎ Info);</li><li>Cosa stavi facendo quando è successo;</li><li>Uno screenshot, se possibile.</li></ul><h2>Acquisti e ripristino</h2><p>I libri dell'edicola sono legati al tuo ID Apple. Se hai acquistato un libro su un dispositivo e non lo vedi su un altro, apri Ti, vai su <strong>Profilo →︎ Ripristina acquisti</strong> e assicurati di essere loggato con lo stesso ID Apple usato al momento dell'acquisto.</p><p>Per rimborsi, Apple gestisce direttamente il processo tramite <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>. Se ti servono chiarimenti prima di fare la richiesta, scrivici pure.</p>
-<!--rec-lato-v1--><aside class="rec-lato"><h3>Cosa dicono gli studenti</h3><p class="rl-conta">★★★★★ · 38 recensioni</p><div class="rl-griglia"><div class="rl-uno"><span class="stars" aria-hidden="true">★★★★★</span><p>“Warmly recommended! Professional teacher who knows how to adapt the material to the student's level. Interesting and attractive in the method and way of studying. The class goes with great pleasure.”</p><span class="rl-chi">Adi 🇮🇱</span></div><div class="rl-uno"><span class="stars" aria-hidden="true">★★★★★</span><p>“Super happy with Alessio and I would definitely recommend him to teach you Italian. Fun and interactive. Not just a text book! Lessons are tailored to your needs.”</p><span class="rl-chi">Anita 🇬🇧</span></div><div class="rl-uno"><span class="stars" aria-hidden="true">★★★★★</span><p>“Great teacher.”</p><span class="rl-chi">Selma 🇳🇱</span></div><div class="rl-uno"><span class="stars" aria-hidden="true">★★★★★</span><p>“Alessio is a very good teacher and the lessons are very fun. There is a systematic work plan and this is very efficient.”</p><span class="rl-chi">Ilhan 🇹🇷</span></div><div class="rl-uno"><span class="stars" aria-hidden="true">★★★★★</span><p>“Alessio is a great teacher. He's organized and professional and creates a welcoming and casual space for learning. Every lesson was a joy. Thank you Alessio!”</p><span class="rl-chi">Sara 🇨🇦</span></div><div class="rl-uno"><span class="stars" aria-hidden="true">★★★★★</span><p>“Very friendly and thorough knowledge to teach you the language. Learned a lot from the first lesson!”</p><span class="rl-chi">Oona 🇳🇱</span></div></div><a class="rl-cta" href="/it/#contact">Prenota una lezione gratuita →︎</a></aside><!--/rec-lato-v1-->
-<h2>Progressi e dati</h2><p>Ti non richiede la creazione di un account. Tutti i tuoi dati — progressi, parole viste, impostazioni, lingua di supporto scelta — restano solo sul tuo dispositivo. Per cancellarli, basta disinstallare l'app.</p><h2>Suggerimenti e richieste</h2><p>Vuoi vedere un nuovo libro nell'edicola? Un romanzo classico che non abbiamo ancora graduato? Una lingua di supporto che manca? Una funzionalità che ti servirebbe? Scrivici. Ti è in crescita costante e ogni suggerimento aiuta a decidere cosa costruire dopo.</p><h2>Risorse per scuole</h2><p>Per gli insegnanti che usano la funzione <strong>Classe</strong> con studenti minorenni: il modulo di consenso genitoriale è generato al volo, nella lingua in cui stai leggendo questa pagina. Cambia lingua qui in alto se ti serve in un'altra.</p><p><button class="button" onclick="ConsensoModulo.apri()" style="margin-top:8px;"><svg class="ico" viewBox="0 0 24 24" role="img" aria-label="Documento"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg> Scarica modulo consenso genitoriale</button></p><h2>Domande frequenti</h2><p><strong>L'app funziona senza connessione?</strong><br>Sì, tutti i contenuti scaricati (percorso, libri dell'edicola, romanzi, dizionario) funzionano offline.</p><p><strong>Devo pagare tutto?</strong><br>No. Scaricare Ti è gratis. Con l'abbonamento (mensile o annuale) o con l'acquisto Lifetime sblocchi il percorso completo A1–C2, il dizionario e i giochi senza limiti; in più scegli 3 titoli con l'abbonamento e 6 con il Lifetime, liberamente fra i corsi a tappe dell'edicola e i romanzi graduati. Gli altri titoli si acquistano singolarmente. I prezzi sono mostrati nell'app prima dell'acquisto.</p><p><strong>Posso cambiare la lingua di supporto?</strong><br>Sì, in qualsiasi momento. Vai su Profilo →︎ Lingua di supporto e scegli tra le 14 disponibili.</p></div>
+<!--rec-lato-v1--><aside class="rec-lato"><h3>Cosa dicono gli studenti</h3><p class="rl-conta">★★★★★ · 38 recensioni</p><div class="rl-griglia"><div class="rl-uno"><span class="stars" aria-hidden="true">★★★★★</span><p>“Warmly recommended! Professional teacher who knows how to adapt the material to the student's level. Interesting and attractive in the method and way of studying. The class goes with great pleasure.”</p><span class="rl-chi">Adi 🇮🇱</span></div><div class="rl-uno"><span class="stars" aria-hidden="true">★★★★★</span><p>“Super happy with Alessio and I would definitely recommend him to teach you Italian. Fun and interactive. Not just a text book! Lessons are tailored to your needs.”</p><span class="rl-chi">Anita 🇬🇧</span></div><div class="rl-uno"><span class="stars" aria-hidden="true">★★★★★</span><p>“Great teacher.”</p><span class="rl-chi">Selma 🇳🇱</span></div><div class="rl-uno"><span class="stars" aria-hidden="true">★★★★★</span><p>“Alessio is a very good teacher and the lessons are very fun. There is a systematic work plan and this is very efficient.”</p><span class="rl-chi">Ilhan 🇹🇷</span></div><div class="rl-uno"><span class="stars" aria-hidden="true">★★★★★</span><p>“Alessio is a great teacher. He's organized and professional and creates a welcoming and casual space for learning. Every lesson was a joy. Thank you Alessio!”</p><span class="rl-chi">Sara 🇨🇦</span></div><div class="rl-uno"><span class="stars" aria-hidden="true">★★★★★</span><p>“Very friendly and thorough knowledge to teach you the language. Learned a lot from the first lesson!”</p><span class="rl-chi">Oona 🇳🇱</span></div></div><a class="rl-cta" href="/it/#contact">Prova gratuita →</a></aside><!--/rec-lato-v1-->
+<h2>Progressi e dati</h2><p>Ti non richiede la creazione di un account. Tutti i tuoi dati — progressi, parole viste, impostazioni, lingua di supporto scelta — restano solo sul tuo dispositivo. Per cancellarli, basta disinstallare l'app.</p><h2>Suggerimenti e richieste</h2><p>Vuoi vedere un nuovo libro nell'edicola? Un romanzo classico che non abbiamo ancora graduato? Una lingua di supporto che manca? Una funzionalità che ti servirebbe? Scrivici. Ti è in crescita costante e ogni suggerimento aiuta a decidere cosa costruire dopo.</p><h2>Risorse per scuole</h2><p>Per gli insegnanti che usano la funzione <strong>Classe</strong> con studenti minorenni: il modulo di consenso genitoriale è generato al volo, nella lingua in cui stai leggendo questa pagina. Cambia lingua qui in alto se ti serve in un'altra.</p><p><button class="button" onclick="ConsensoModulo.apri()" style="margin-top:8px;"><svg class="ico" viewBox="0 0 24 24" role="img" aria-label="Documento"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg> <span class="btn-due">Scarica il modulo<small>consenso dei genitori</small></span></button></p><h2>Domande frequenti</h2><p><strong>L'app funziona senza connessione?</strong><br>Sì, tutti i contenuti scaricati (percorso, libri dell'edicola, romanzi, dizionario) funzionano offline.</p><p><strong>Devo pagare tutto?</strong><br>No. Scaricare Ti è gratis. Con l'abbonamento (mensile o annuale) o con l'acquisto Lifetime sblocchi il percorso completo A1–C2, il dizionario e i giochi senza limiti; in più scegli 3 titoli con l'abbonamento e 6 con il Lifetime, liberamente fra i corsi a tappe dell'edicola e i romanzi graduati. Gli altri titoli si acquistano singolarmente. I prezzi sono mostrati nell'app prima dell'acquisto.</p><p><strong>Posso cambiare la lingua di supporto?</strong><br>Sì, in qualsiasi momento. Vai su Profilo →︎ Lingua di supporto e scegli tra le 14 disponibili.</p></div>
 
                 <div class="legal-actions">
 
@@ -397,7 +420,7 @@
         "titolo": "Risorse per scuole",
         "paragrafi": [
           "Per gli insegnanti che usano la funzione <strong>Classe</strong> con studenti minorenni: il modulo di consenso genitoriale è generato al volo, nella lingua in cui stai leggendo questa pagina. Cambia lingua qui in alto se ti serve in un'altra.",
-          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> Scarica modulo consenso genitoriale</button>"
+          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> <span class="btn-due">Scarica il modulo<small>consenso dei genitori</small></span></button>"
         ]
       },
       {
@@ -456,7 +479,7 @@
         "titolo": "Bronnen voor scholen",
         "paragrafi": [
           "Voor docenten die de functie <strong>Classe</strong> gebruiken met minderjarige leerlingen: het toestemmingsformulier voor ouders wordt on the fly gegenereerd, in de taal waarin je deze pagina leest. Verander bovenaan de taal als je het in een andere nodig hebt.",
-          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> Download toestemmingsformulier ouders</button>"
+          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> <span class="btn-due">Scarica il modulo<small>consenso dei genitori</small></span></button>"
         ]
       },
       {
@@ -516,7 +539,7 @@
         "titolo": "Resources for schools",
         "paragrafi": [
           "For teachers using the <strong>Classe</strong> feature with underage students: the parental consent form is generated on the fly, in the language you are reading this page. Switch language at the top if you need it in another.",
-          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> Download parental consent form</button>"
+          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> <span class="btn-due">Scarica il modulo<small>consenso dei genitori</small></span></button>"
         ]
       },
       {
@@ -576,7 +599,7 @@
         "titolo": "Recursos para escuelas",
         "paragrafi": [
           "Para los docentes que usan la función <strong>Classe</strong> con estudiantes menores: el formulario de consentimiento parental se genera al instante, en el idioma en el que estás leyendo esta página. Cambia el idioma arriba si lo necesitas en otro.",
-          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> Descargar formulario de consentimiento parental</button>"
+          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> <span class="btn-due">Scarica il modulo<small>consenso dei genitori</small></span></button>"
         ]
       },
       {
@@ -636,7 +659,7 @@
         "titolo": "Ressources pour les écoles",
         "paragrafi": [
           "Pour les enseignants utilisant la fonction <strong>Classe</strong> avec des élèves mineurs : le formulaire de consentement parental est généré à la volée, dans la langue dans laquelle tu lis cette page. Change de langue en haut si tu en as besoin dans une autre.",
-          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> Télécharger le formulaire de consentement parental</button>"
+          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> <span class="btn-due">Scarica il modulo<small>consenso dei genitori</small></span></button>"
         ]
       },
       {
@@ -696,7 +719,7 @@
         "titolo": "Ressourcen für Schulen",
         "paragrafi": [
           "Für Lehrpersonen, die die Funktion <strong>Classe</strong> mit minderjährigen Schüler:innen nutzen: Die elterliche Einwilligungserklärung wird on the fly generiert, in der Sprache, in der du diese Seite liest. Wechsle oben die Sprache, wenn du sie in einer anderen benötigst.",
-          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> Elterliche Einwilligungserklärung herunterladen</button>"
+          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> <span class="btn-due">Scarica il modulo<small>consenso dei genitori</small></span></button>"
         ]
       },
       {
@@ -756,7 +779,7 @@
         "titolo": "Recursos para escolas",
         "paragrafi": [
           "Para os professores que usam a funcionalidade <strong>Classe</strong> com alunos menores: o formulário de consentimento parental é gerado na hora, na língua em que estás a ler esta página. Muda a língua no topo se precisares noutra.",
-          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> Descarregar formulário de consentimento parental</button>"
+          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> <span class="btn-due">Scarica il modulo<small>consenso dei genitori</small></span></button>"
         ]
       },
       {
@@ -816,7 +839,7 @@
         "titolo": "Resurse pentru școli",
         "paragrafi": [
           "Pentru profesorii care folosesc funcția <strong>Classe</strong> cu elevi minori: formularul de consimțământ parental este generat instantaneu, în limba în care citești această pagină. Schimbă limba din partea de sus dacă îl vrei în alta.",
-          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> Descarcă formularul de consimțământ parental</button>"
+          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> <span class="btn-due">Scarica il modulo<small>consenso dei genitori</small></span></button>"
         ]
       },
       {
@@ -876,7 +899,7 @@
         "titolo": "Burime për shkollat",
         "paragrafi": [
           "Për mësuesit që përdorin funksionin <strong>Classe</strong> me nxënës të mitur: formulari i pëlqimit prindëror gjenerohet në çast, në gjuhën në të cilën po e lexon këtë faqe. Ndrysho gjuhën në krye nëse të duhet në një tjetër.",
-          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> Shkarko formularin e pëlqimit prindëror</button>"
+          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> <span class="btn-due">Scarica il modulo<small>consenso dei genitori</small></span></button>"
         ]
       },
       {
@@ -936,7 +959,7 @@
         "titolo": "موارد للمدارس",
         "paragrafi": [
           "للمعلّمين الذين يستخدمون ميزة <strong>Classe</strong> مع طلاب قاصرين: تُنشَأ استمارة موافقة الوالدين فورًا، باللغة التي تقرأ بها هذه الصفحة. غيّر اللغة من الأعلى إذا احتجتها بلغة أخرى.",
-          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> تنزيل استمارة موافقة الوالدين</button>"
+          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> <span class="btn-due">Scarica il modulo<small>consenso dei genitori</small></span></button>"
         ]
       },
       {
@@ -996,7 +1019,7 @@
         "titolo": "স্কুলের জন্য রিসোর্স",
         "paragrafi": [
           "যেসব শিক্ষক অপ্রাপ্তবয়স্ক শিক্ষার্থীদের সাথে <strong>Classe</strong> ফিচার ব্যবহার করেন তাদের জন্য: অভিভাবকের সম্মতি ফর্মটি আপনি এই পৃষ্ঠাটি যে ভাষায় পড়ছেন সেই ভাষায় তাৎক্ষণিকভাবে তৈরি হয়। অন্য ভাষায় প্রয়োজন হলে উপরে ভাষা পরিবর্তন করুন।",
-          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> অভিভাবকের সম্মতি ফর্ম ডাউনলোড</button>"
+          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> <span class="btn-due">Scarica il modulo<small>consenso dei genitori</small></span></button>"
         ]
       },
       {
@@ -1056,7 +1079,7 @@
         "titolo": "学校资源",
         "paragrafi": [
           "对使用 <strong>Classe</strong> 功能与未成年学生互动的老师：家长同意书会以你正在阅读本页的语言即时生成。如果需要其他语言，请在顶部切换。",
-          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> 下载家长同意书</button>"
+          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> <span class="btn-due">Scarica il modulo<small>consenso dei genitori</small></span></button>"
         ]
       },
       {
@@ -1116,7 +1139,7 @@
         "titolo": "Mga mapagkukunan para sa mga paaralan",
         "paragrafi": [
           "Para sa mga guro na gumagamit ng tampok na <strong>Classe</strong> kasama ng mga estudyanteng menor de edad: ang form ng pahintulot ng magulang ay agad na ginagawa, sa wika kung saan mo binabasa ang pahinang ito. Palitan ang wika sa itaas kung kailangan mo ito sa iba.",
-          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> I-download ang form ng pahintulot ng magulang</button>"
+          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> <span class="btn-due">Scarica il modulo<small>consenso dei genitori</small></span></button>"
         ]
       },
       {
@@ -1176,7 +1199,7 @@
         "titolo": "ንቤት ትምህርቲ ጸጋታት",
         "paragrafi": [
           "ናይ <strong>Classe</strong> ተግባር ምስ ትሕቲ ዕድመ ተማሃሮ ንዝጥቀሙ መምህራን፦ ናይ ወለዲ ፍቓድ ቅጥዒ ንስኻ ነዛ ገጽ ኣብ እትንብበላ ቋንቋ ኣብ ቦታ ይፍጠር። ብኻልእ ቋንቋ እንተ ደሊኻ ኣብ ላዕሊ ቋንቋ ቀይር።",
-          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> ናይ ወለዲ ፍቓድ ቅጥዒ ኣውርድ</button>"
+          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> <span class="btn-due">Scarica il modulo<small>consenso dei genitori</small></span></button>"
         ]
       },
       {
@@ -1236,7 +1259,7 @@
         "titolo": "Ресурси для шкіл",
         "paragrafi": [
           "Для вчителів, які використовують функцію <strong>Classe</strong> з неповнолітніми учнями: форма батьківської згоди генерується миттєво тією мовою, якою ти читаєш цю сторінку. Зміни мову зверху, якщо потрібна інша.",
-          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> Завантажити форму батьківської згоди</button>"
+          "<button class=\"button\" onclick=\"ConsensoModulo.apri()\" style=\"margin-top:8px;\"><svg class=\"ico\" viewBox=\"0 0 24 24\" role=\"img\" aria-label=\"Documento\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><path d=\"M14 2v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg> <span class="btn-due">Scarica il modulo<small>consenso dei genitori</small></span></button>"
         ]
       },
       {

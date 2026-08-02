@@ -78,6 +78,29 @@
 </style>
 <!--geo-webpage-v1--><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://thuisitaliaans.com/blog/category-italian-classes#pagina", "url": "https://thuisitaliaans.com/blog/category-italian-classes", "inLanguage": "it", "dateModified": "2026-08-01", "publisher": {"@id": "https://thuisitaliaans.com/#organizzazione", "name": "thuisitaliaans"}, "author": {"@id": "https://thuisitaliaans.com/#alessio", "name": "Alessio Are"}}</script>
 <link rel="stylesheet" href="/assets/mobile.css">
+<!--testi-mobile-v1-->
+<style>/*testi-mobile-v1*/
+/* Il piede aveva 115 caratteri su una riga: su mobile diventava una colonna
+   sfilacciata. Non tolgo voci, sono utili: le dispongo su due colonne e
+   nascondo i punti mediani, che in colonna non separano piu' niente. */
+@media (max-width:560px){
+  footer p a{display:block}
+  footer p{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;
+    align-items:start;line-height:1.4}
+  footer p br{display:none}
+}
+/* pulsanti che non devono mai andare a capo male */
+.btn,.bottone,.button,.cta,.app-cta,.ex-passo-link{
+  overflow-wrap:break-word;hyphens:none}
+@media (max-width:420px){
+  .btn,.bottone,.button,.cta,.app-cta,.ex-passo-link{
+    font-size:.94rem;padding-left:14px;padding-right:14px}
+}
+/* pulsante a due righe: l'azione sopra, il documento sotto */
+.btn-due{display:inline-flex;flex-direction:column;align-items:center;
+  line-height:1.25;text-align:center}
+.btn-due small{font-size:.76em;font-weight:500;opacity:.85;margin-top:2px}
+</style>
 </head>
 <body>
 <header class="blog-topbar">
@@ -86,7 +109,7 @@
       <img src="/assets/icons/icon-512.png" alt="Logo thuisitaliaans" width="512" height="512">
       <span>←︎ Torna al sito</span>
     </a>
-    <a href="../#contact" class="button">Prova gratuita →︎</a>
+    <a href="../#contact" class="button">Prova gratuita →</a>
   </div>
 </header>
 <main>

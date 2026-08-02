@@ -109,6 +109,29 @@
 .app-promo-stelle .eti{color:inherit;opacity:.7;font-weight:500}
 </style>
 <link rel="stylesheet" href="/assets/mobile.css">
+<!--testi-mobile-v1-->
+<style>/*testi-mobile-v1*/
+/* Il piede aveva 115 caratteri su una riga: su mobile diventava una colonna
+   sfilacciata. Non tolgo voci, sono utili: le dispongo su due colonne e
+   nascondo i punti mediani, che in colonna non separano piu' niente. */
+@media (max-width:560px){
+  footer p a{display:block}
+  footer p{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;
+    align-items:start;line-height:1.4}
+  footer p br{display:none}
+}
+/* pulsanti che non devono mai andare a capo male */
+.btn,.bottone,.button,.cta,.app-cta,.ex-passo-link{
+  overflow-wrap:break-word;hyphens:none}
+@media (max-width:420px){
+  .btn,.bottone,.button,.cta,.app-cta,.ex-passo-link{
+    font-size:.94rem;padding-left:14px;padding-right:14px}
+}
+/* pulsante a due righe: l'azione sopra, il documento sotto */
+.btn-due{display:inline-flex;flex-direction:column;align-items:center;
+  line-height:1.25;text-align:center}
+.btn-due small{font-size:.76em;font-weight:500;opacity:.85;margin-top:2px}
+</style>
 </head>
 <body>
 
@@ -118,7 +141,7 @@
       <img src="../assets/icons/icon-512.png" alt="Logo Thuis Italiaans" width="512" height="512">
       <span>←︎ Tutti gli esercizi</span>
     </a>
-    <a href="../#contact" class="button">Prenota una lezione gratuita</a>
+    <a href="../#contact" class="button">Prova gratuita →</a>
   </div>
 </header>
 
@@ -178,7 +201,7 @@
     <div class="ex-end-cta">
       <h3>Queste preposizioni sono piccole ma frequenti</h3>
       <p>Le vediamo insieme con esempi pratici su date e stagioni.</p>
-      <a href="../#contact" class="button">Prenota la prova gratuita →︎</a>
+      <a href="../#contact" class="button">Prova gratuita →</a>
     
     </div>
 
