@@ -29,6 +29,22 @@
 <link rel="alternate" hreflang="fr" href="https://thuisitaliaans.com/fr/test-de-niveau-italien">
 <link rel="alternate" hreflang="es" href="https://thuisitaliaans.com/es/test-de-nivel-italiano">
 <link rel="alternate" hreflang="pt" href="https://thuisitaliaans.com/pt/teste-de-nivel-italiano">
+<link rel="alternate" hreflang="ro" href="https://thuisitaliaans.com/ro/test-de-nivel-italiana">
+<link rel="alternate" hreflang="uk" href="https://thuisitaliaans.com/uk/test-rivnya-italiyskoyi">
+<link rel="alternate" hreflang="zh" href="https://thuisitaliaans.com/zh/yidaliyu-shuiping-ceshi">
+<link rel="alternate" hreflang="ar" href="https://thuisitaliaans.com/ar/ikhtibar-mustawa-alitaliya">
+<link rel="alternate" hreflang="sq" href="https://thuisitaliaans.com/sq/test-niveli-italisht">
+<link rel="alternate" hreflang="bn" href="https://thuisitaliaans.com/bn/italian-vasha-star-porikkha">
+<link rel="alternate" hreflang="tl" href="https://thuisitaliaans.com/tl/pagsusulit-antas-italyano">
+<link rel="alternate" hreflang="ti" href="https://thuisitaliaans.com/ti/mefetesha-derejat-italyanenya">
+<link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/test-livello-italiano">
+<link rel="alternate" hreflang="it" href="https://thuisitaliaans.com/test-livello-italiano">
+<link rel="alternate" hreflang="en" href="https://thuisitaliaans.com/en/italian-level-test">
+<link rel="alternate" hreflang="nl" href="https://thuisitaliaans.com/nl/italiaans-niveautest">
+<link rel="alternate" hreflang="de" href="https://thuisitaliaans.com/de/italienisch-einstufungstest">
+<link rel="alternate" hreflang="fr" href="https://thuisitaliaans.com/fr/test-de-niveau-italien">
+<link rel="alternate" hreflang="es" href="https://thuisitaliaans.com/es/test-de-nivel-italiano">
+<link rel="alternate" hreflang="pt" href="https://thuisitaliaans.com/pt/teste-de-nivel-italiano">
 <link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/test-livello-italiano">
 <meta name="theme-color" content="#2F6B3A">
 <meta property="og:type" content="article">
@@ -914,6 +930,28 @@ body:not(.in-prova) .fondo{display:none}
   #profilo{display:block!important}
   a{color:#000;text-decoration:none}
 }
+
+/* ---- rifiniture del profilo ---- */
+.pf-avviso{background:#F1F7F1;border-left:3px solid var(--verde);border-radius:0 6px 6px 0;
+  padding:6px 10px;font-size:7.6pt;color:#3C4A3E;margin:0 0 14px}
+.pf-pallini{display:inline-flex;gap:2.5px;align-items:center;margin-left:2px}
+.pf-pallini i{width:6px;height:6px;border-radius:50%;background:#D4E2D4;display:block}
+.pf-pallini i.si{background:var(--verde)}
+.pf-riga span.conteggio{width:auto;min-width:26px}
+.pf-perche{font-size:8.4pt;line-height:1.45;margin:10px 0 0;color:#3C4A3E;
+  background:#F7FAF7;border-radius:7px;padding:8px 10px}
+#pf-consigli h4{position:relative;padding-left:11px}
+#pf-consigli h4::before{content:"";position:absolute;left:0;top:.42em;width:5px;height:5px;
+  border-radius:50%;background:var(--verde)}
+#pf-consigli p{margin:0 0 9px}
+#pf-consigli > *:last-child{margin-bottom:0}
+#pf-scritto{max-height:none}
+.pf-scritto-nota{font-size:7.2pt;color:#7A8A7C;margin:5px 0 0;line-height:1.4}
+/* la linea che separa la diagnosi dalle proposte */
+.pf-firma-blocco{border-top:2px solid var(--verde)}
+.pf-offerta{border-top:1px dashed #CFDECF;padding-top:11px}
+.pf-offerta-eti{font-size:6.6pt;letter-spacing:.1em;text-transform:uppercase;
+  color:#9AA79B;font-weight:700;margin:0 0 7px}
 </style>
 </head>
 <body>
@@ -1121,6 +1159,8 @@ body:not(.in-prova) .fondo{display:none}
     </div>
   </header>
 
+  <p class="pf-avviso">Autovalutazione orientativa. Non è una certificazione: serve a capire da dove ripartire.</p>
+
   <section class="pf-esito">
     <div class="pf-disco">
       <b id="pf-livello">—</b>
@@ -1129,6 +1169,7 @@ body:not(.in-prova) .fondo{display:none}
     <div class="pf-parole">
       <p id="pf-frase"></p>
       <div class="pf-scala" id="pf-scala"></div>
+      <p class="pf-perche" id="pf-perche"></p>
       <div class="pf-scala-eti">
         <span>base</span><span>autonomia</span><span>padronanza</span>
       </div>
@@ -1172,6 +1213,7 @@ body:not(.in-prova) .fondo{display:none}
   <section class="pf-scritto-box">
     <h3>La tua produzione scritta</h3>
     <div id="pf-scritto"></div>
+    <p class="pf-scritto-nota">Testo acquisito così com'è. La produzione scritta non viene corretta automaticamente: una valutazione vera richiede un insegnante, che guarda scelta delle parole, coerenza e registro, non solo gli errori.</p>
   </section>
 
   <section class="pf-firma-blocco">
@@ -1187,6 +1229,7 @@ body:not(.in-prova) .fondo{display:none}
       </div>
     </div>
 
+    <p class="pf-offerta-eti">Per continuare</p>
     <div class="pf-offerta">
       <div class="pf-app">
         <p class="pf-stelle"><span>★★★★★</span> iOS App Store</p>
@@ -1857,22 +1900,43 @@ function calcola(){
     sc.appendChild(d);
   });
 
+  /* un pallino per domanda: pieno se giusta. Una frazione secca accanto a una
+     barra sembrava un residuo tecnico, e non diceva quante domande fossero. */
   function barre(dati,risp,titolo){
-    var m={},out="<div class='pf-sotto-titolo'>"+titolo+"</div>";
+    var m={},out="<div class='pf-sotto-titolo'>"+titolo+"</div>",vuoto=true;
     dati.forEach(function(q,i){
       if(risp[i]===undefined)return;
-      if(!m[q.liv])m[q.liv]=[0,0];
-      m[q.liv][1]++; if(risp[i]===q.giusta)m[q.liv][0]++;
+      if(!m[q.liv])m[q.liv]=[];
+      m[q.liv].push(risp[i]===q.giusta);
     });
-    var vuoto=true;
     ORDINE.forEach(function(L){
       if(!m[L])return;
       vuoto=false;
-      out+="<div class='pf-riga'><b>"+L+"</b><span class='t'><i style='width:"+
-        Math.round(m[L][0]/m[L][1]*100)+"%'></i></span><span>"+m[L][0]+"/"+m[L][1]+"</span></div>";
+      var pal="";
+      m[L].forEach(function(ok){ pal+="<i class='"+(ok?"si":"")+"'></i>"; });
+      var giuste=m[L].filter(Boolean).length;
+      out+="<div class='pf-riga'><b>"+L+"</b><span class='pf-pallini'>"+pal+
+        "</span><span class='t'><i style='width:"+Math.round(giuste/m[L].length*100)+
+        "%'></i></span></div>";
     });
     return vuoto?"":out;
   }
+
+  /* perche' quel livello: costruito sulle risposte, non una frase fissa */
+  function perche(dati,risp,nome){
+    var ok=[],ko=null;
+    ORDINE.forEach(function(L){
+      var q=[],g=0;
+      dati.forEach(function(x,i){ if(x.liv===L&&risp[i]!==undefined){q.push(i); if(risp[i]===x.giusta)g++;} });
+      if(!q.length)return;
+      if(g/q.length>=0.6)ok.push(L); else if(!ko)ko=L;
+    });
+    if(!ok.length)return "In "+nome+" non hai superato il primo scalino: si riparte dalle basi.";
+    var s="In "+nome+" hai superato "+(ok.length===1?"il livello "+ok[0]:"i livelli da "+ok[0]+" a "+ok[ok.length-1]);
+    if(ko)s+=", e ti sei fermato "+(ko.charAt(0)==="A"?"all'":"al ")+ko;
+    return s+".";
+  }
+
   document.getElementById("pf-barre").innerHTML=
     barre(GRAMMATICA,risposte.gram,"Grammatica")+barre(LETTURE,risposte.lett,"Comprensione");
 
@@ -1885,7 +1949,16 @@ function calcola(){
       : "";
 
   document.getElementById("pf-consigli").innerHTML=consigli(fin,voc);
-  document.getElementById("pf-scritto").textContent=scritto.trim()||"(prova non svolta)";
+  document.getElementById("pf-perche").textContent=
+    perche(GRAMMATICA,risposte.gram,"grammatica")+" "+
+    perche(LETTURE,risposte.lett,"comprensione")+
+    " Il livello complessivo è il più basso fra i due, perché nella lingua è la "+
+    "competenza più debole a frenare.";
+  /* il testo si taglia: un muro di caratteri fa sembrare il documento sciatto */
+  var sc=scritto.trim();
+  document.getElementById("pf-scritto").textContent=
+    sc ? (sc.length>420 ? sc.slice(0,420).replace(/\s+\S*$/,"")+"…" : sc)
+       : "(prova non svolta)";
 
   document.getElementById("motore").classList.add("nascosto");
   document.getElementById("risultato").classList.remove("nascosto");
