@@ -356,9 +356,101 @@
   </url>
   <url>
     <loc>https://thuisitaliaans.com/website-privacy</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://thuisitaliaans.com/website-privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thuisitaliaans.com/website-privacy-en"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://thuisitaliaans.com/website-privacy-it"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thuisitaliaans.com/website-privacy-de"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://thuisitaliaans.com/website-privacy-fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thuisitaliaans.com/website-privacy-es"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://thuisitaliaans.com/website-privacy-pl"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/website-privacy"/>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/website-privacy-de</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://thuisitaliaans.com/website-privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thuisitaliaans.com/website-privacy-en"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://thuisitaliaans.com/website-privacy-it"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thuisitaliaans.com/website-privacy-de"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://thuisitaliaans.com/website-privacy-fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thuisitaliaans.com/website-privacy-es"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://thuisitaliaans.com/website-privacy-pl"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/website-privacy"/>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/website-privacy-en</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://thuisitaliaans.com/website-privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thuisitaliaans.com/website-privacy-en"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://thuisitaliaans.com/website-privacy-it"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thuisitaliaans.com/website-privacy-de"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://thuisitaliaans.com/website-privacy-fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thuisitaliaans.com/website-privacy-es"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://thuisitaliaans.com/website-privacy-pl"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/website-privacy"/>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/website-privacy-es</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://thuisitaliaans.com/website-privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thuisitaliaans.com/website-privacy-en"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://thuisitaliaans.com/website-privacy-it"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thuisitaliaans.com/website-privacy-de"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://thuisitaliaans.com/website-privacy-fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thuisitaliaans.com/website-privacy-es"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://thuisitaliaans.com/website-privacy-pl"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/website-privacy"/>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/website-privacy-fr</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://thuisitaliaans.com/website-privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thuisitaliaans.com/website-privacy-en"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://thuisitaliaans.com/website-privacy-it"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thuisitaliaans.com/website-privacy-de"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://thuisitaliaans.com/website-privacy-fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thuisitaliaans.com/website-privacy-es"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://thuisitaliaans.com/website-privacy-pl"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/website-privacy"/>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/website-privacy-it</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://thuisitaliaans.com/website-privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thuisitaliaans.com/website-privacy-en"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://thuisitaliaans.com/website-privacy-it"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thuisitaliaans.com/website-privacy-de"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://thuisitaliaans.com/website-privacy-fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thuisitaliaans.com/website-privacy-es"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://thuisitaliaans.com/website-privacy-pl"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/website-privacy"/>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/website-privacy-pl</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://thuisitaliaans.com/website-privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thuisitaliaans.com/website-privacy-en"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://thuisitaliaans.com/website-privacy-it"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thuisitaliaans.com/website-privacy-de"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://thuisitaliaans.com/website-privacy-fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://thuisitaliaans.com/website-privacy-es"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://thuisitaliaans.com/website-privacy-pl"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/website-privacy"/>
   </url>
   <url>
     <loc>https://thuisitaliaans.com/why-thuis-italiaans</loc>
