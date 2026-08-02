@@ -1663,6 +1663,120 @@ html,body{overflow-x:clip}
 /* durante il test la barra dei pulsanti sta in fondo: mi sposto piu' su */
 body.in-prova .proposta-lingua{bottom:88px}
 @media print{ .proposta-lingua{display:none!important} }
+
+/* ============================================================
+   /* 117-PROFILO */  IMPAGINAZIONE DEFINITIVA DEL PROFILO
+   Il PDF usciva male stampato dal telefono: li' la pagina non e' larga 700
+   punti ma 390, e ogni griglia a colonne fisse usciva dal foglio. I riquadri
+   venivano tranciati sul bordo destro ("DA LEGGER") e le etichette corte
+   andavano a capo in mezzo alla parola ("LIVELL / O", "A / 1").
+   Rimedio: nessuna colonna fissa. Ogni griglia si conta le colonne da sola
+   con auto-fit, e le etichette brevi non vanno mai a capo.
+   ============================================================ */
+
+/* --- niente puo' uscire dal foglio --- */
+#profilo{max-width:100%;overflow-x:hidden}
+#profilo section,#profilo div{max-width:100%}
+#profilo{font-size:8.8pt;line-height:1.45}
+
+/* --- testata --- */
+.pf-testa{flex-wrap:wrap;gap:6px 14px;align-items:flex-end}
+.pf-tipo{white-space:nowrap}
+.pf-quando{white-space:nowrap}
+
+/* --- esito: il disco non si deforma e la scritta non si spezza --- */
+.pf-esito{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-bottom:12px}
+.pf-disco{flex:0 0 auto;width:96px;height:96px;padding:0;text-align:center}
+.pf-disco b{font-size:29pt;line-height:1}
+.pf-disco span{font-size:5.6pt;letter-spacing:.12em;white-space:nowrap;margin-top:3px;
+  max-width:none}
+.pf-parole{flex:1 1 210px;min-width:190px}
+.pf-parole p{margin-bottom:10px;font-size:9.8pt}
+.pf-perche{margin:0 0 14px;font-size:8.4pt;padding:8px 11px}
+
+/* --- tre riquadri, mai quattro: sotto i 150 punti l'etichetta non ci sta --- */
+.pf-quadranti{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:9px;margin-bottom:15px}
+.pf-quadranti > div{min-width:0;padding:8px 11px 9px}
+.pf-quadranti b{font-size:14pt;line-height:1.15}
+.pf-eti{white-space:nowrap}
+
+/* --- le barre dei livelli: due colonne se c'e' spazio, una se non c'e' --- */
+.pf-diagnosi{margin-bottom:15px}
+.pf-barre-doppie{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:0 24px}
+.pf-barre-doppie > div{min-width:0;break-inside:avoid}
+.pf-riga{display:flex;align-items:center;gap:8px;margin-bottom:5px;min-width:0}
+.pf-riga b{width:auto;min-width:16px;white-space:nowrap;font-size:9pt;flex:0 0 auto}
+.pf-riga .pf-pallini{flex:0 0 auto}
+.pf-riga .t{flex:1 1 auto;min-width:24px}
+.pf-sotto-titolo{margin:2px 0 5px}
+.pf-nota{margin-top:7px}
+
+/* --- valutazione: il pezzo che si conserva --- */
+.pf-valutazione{margin-bottom:15px}
+.pf-val-corpo{columns:1;font-size:8.6pt;line-height:1.5;margin-bottom:10px}
+.pf-val-corpo p{margin:0 0 7px}
+.pf-passo{padding:9px 12px;margin:0}
+.pf-passo p{font-size:8.5pt;line-height:1.48}
+
+/* --- produzione scritta --- */
+.pf-scritto-box{margin-bottom:15px}
+
+/* --- le tre proposte: due per riga, la terza a tutta larghezza --- */
+.pf-firma-blocco{border-top:2px solid var(--verde);padding-top:11px;margin-bottom:14px}
+.pf-offerta{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));
+  gap:10px;border-top:0;padding-top:0;margin-bottom:12px}
+.pf-offerta > div{min-width:0}
+.pf-lezioni{grid-column:1 / -1}
+.pf-cta{white-space:normal}
+.pf-dove{font-size:6.2pt}
+.pf-alessio{grid-template-columns:60px 1fr;gap:12px;margin:0}
+.pf-avatar{width:60px;height:60px}
+.pf-alessio p{font-size:8.2pt;line-height:1.45;margin-bottom:5px}
+
+/* --- la grammatica vista nel test: due o tre colonne, mai piu' --- */
+.pf-gramm{margin-bottom:14px;break-inside:avoid;page-break-inside:avoid}
+.pf-gt-intro{font-size:7.8pt;color:#3A443B;margin:0 0 7px;line-height:1.4}
+.pf-gt-griglia{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));
+  gap:0 22px}
+.pf-gt-voce{display:flex;align-items:baseline;gap:7px;font-size:7.9pt;line-height:1.35;
+  padding:2.5px 0;border-bottom:1px dotted #E2EBE2;min-width:0;break-inside:avoid}
+.pf-gt-voce i{font-style:normal;font-weight:700;font-size:6.9pt;color:#1F5228;
+  flex:0 0 15px;letter-spacing:.03em}
+.pf-gt-voce > span{flex:1 1 auto;min-width:0}
+.pf-gt-voce em{font-style:normal;flex:0 0 auto;font-size:8.2pt;color:#5A655B;
+  line-height:1}
+.pf-gt-voce.ko > span{font-weight:700}
+.pf-gt-voce.ko em{color:#A33A1F}
+.pf-gt-voce.na em{color:#9AA79B}
+.pf-gt-rivedi{font-size:7.9pt;line-height:1.45;margin:8px 0 0;color:#111A12}
+.pf-gt-rivedi b{color:#1F5228}
+
+/* --- metodo --- */
+.pf-metodo{margin-top:12px;padding-top:9px}
+.pf-metodo ul{margin-bottom:8px}
+
+/* --- titoli --- */
+#profilo h3{font-size:7.6pt;margin-bottom:7px}
+
+/* --- tre pagine al massimo, due nella maggior parte dei casi --- */
+@media print{
+  @page{size:A4;margin:11mm 11mm}
+  #profilo{font-size:8.6pt}
+  .pf-esito{gap:14px;margin-bottom:11px}
+  .pf-disco{width:88px;height:88px}
+  .pf-disco b{font-size:26pt}
+  .pf-parole p{font-size:9.4pt}
+  .pf-perche{margin-bottom:12px}
+  .pf-quadranti{margin-bottom:13px}
+  .pf-diagnosi,.pf-valutazione,.pf-scritto-box{margin-bottom:13px}
+  .pf-firma-blocco{margin-bottom:12px}
+  .pf-gramm{margin-bottom:12px}
+  #profilo section{break-inside:auto;page-break-inside:auto}
+  .pf-gramm,.pf-passo,.pf-alessio,.pf-offerta > div,.pf-quadranti > div{
+    break-inside:avoid;page-break-inside:avoid}
+}
 </style>
 </head>
 <body>
@@ -1862,7 +1976,7 @@ body.in-prova .proposta-lingua{bottom:88px}
   <header class="pf-testa">
     <div class="pf-chi">
       <div class="pf-marchio">thuis <span>italiaans</span></div>
-      <div class="pf-tipo">Profilo linguistico · Italiano · QCER</div>
+      <div class="pf-tipo">Profilo linguistico &middot; Italiano &middot; QCER</div>
     </div>
     <div class="pf-quando">
       <div class="pf-nome" id="pf-nome"></div>
@@ -1870,81 +1984,47 @@ body.in-prova .proposta-lingua{bottom:88px}
     </div>
   </header>
 
-  <p class="pf-avviso">Autovalutazione orientativa. Non è una certificazione: serve a capire da dove ripartire.</p>
+  <p class="pf-avviso">Autovalutazione orientativa. Non &egrave; una certificazione: serve a capire da dove ripartire.</p>
 
   <section class="pf-esito">
     <div class="pf-disco">
-      <b id="pf-livello">—</b>
+      <b id="pf-livello">&mdash;</b>
       <span>livello</span>
     </div>
     <div class="pf-parole">
       <p id="pf-frase"></p>
       <div class="pf-scala" id="pf-scala"></div>
-      <p class="pf-perche" id="pf-perche"></p>
-      <div class="pf-scala-eti">
-        <span>base</span><span>autonomia</span><span>padronanza</span>
-      </div>
     </div>
   </section>
+
+  <p class="pf-perche" id="pf-perche"></p>
 
   <section class="pf-quadranti">
     <div>
       <span class="pf-eti">Grammatica</span>
-      <b id="pf-gram">—</b>
+      <b id="pf-gram">&mdash;</b>
       <div class="pf-t"><i id="pf-t-gram"></i></div>
     </div>
     <div>
       <span class="pf-eti">Comprensione</span>
-      <b id="pf-lett">—</b>
+      <b id="pf-lett">&mdash;</b>
       <div class="pf-t"><i id="pf-t-lett"></i></div>
     </div>
     <div>
       <span class="pf-eti">Vocabolario</span>
-      <b id="pf-voc">—</b>
+      <b id="pf-voc">&mdash;</b>
       <div class="pf-t"><i id="pf-t-voc"></i></div>
     </div>
-    <div class="pf-consiglio-lettura">
-      <span class="pf-eti">Da leggere</span>
-      <b id="pf-lettura">—</b>
-    </div>
   </section>
 
-  <section class="pf-colonne">
-    <div>
-      <h3>Dove sei forte, dove no</h3>
-      <div id="pf-barre"></div>
-      <p class="pf-nota" id="pf-nota-stop"></p>
-    </div>
-    <div>
-      <h3>Che cosa conviene fare</h3>
-      <div id="pf-consigli"></div>
-    </div>
+  <section class="pf-diagnosi">
+    <h3>Dove sei forte, dove no</h3>
+    <div id="pf-barre" class="pf-barre-doppie"></div>
+    <p class="pf-nota" id="pf-nota-stop"></p>
   </section>
-
-
-  <section class="pf-scritto-box">
-    <h3>La tua produzione scritta</h3>
-    <div id="pf-scritto"></div>
-    <p class="pf-scritto-nota">Testo acquisito così com'è. La produzione scritta non viene corretta automaticamente: una valutazione vera richiede un insegnante, che guarda scelta delle parole, coerenza e registro, non solo gli errori.</p>
-  </section>
-
-
-  <section class="pf-firma-blocco">
-    <div class="pf-alessio">
-      <img src="/assets/alessio.png" alt="Alessio" class="pf-avatar">
-      <div>
-        <h3 style="margin-top:0" id="pf-bio-tit">Chi ha scritto questo test</h3>
-        <p id="pf-bio-1"><b>Alessio</b> insegna italiano a stranieri. Doppia laurea
-        magistrale in didattica dell'italiano a stranieri: ITALS, Ca' Foscari Venezia,
-        e Università Giustino Fortunato. Fa lezione online e in presenza nei Paesi
-        Bassi, fra Ede e Amsterdam.</p>
-        <p class="pf-nota" id="pf-bio-2">Testi, domande e brani sono originali, scritti per questo test. Non provengono da prove d'esame né da materiali di terzi.</p>
-      </div>
-    </div>
 
   <section class="pf-valutazione">
-    <p class="pf-saluto" id="pf-saluto">La tua valutazione</p>
-    <p class="pf-saluto-sotto" id="pf-val-eti">Valutazione complessiva e consigli</p>
+    <h3 id="pf-val-eti">Valutazione complessiva e consigli</h3>
     <div class="pf-val-corpo" id="pf-valutazione"></div>
     <div class="pf-passo">
       <b id="pf-passo-eti">Il passo successivo</b>
@@ -1952,52 +2032,78 @@ body.in-prova .proposta-lingua{bottom:88px}
     </div>
   </section>
 
+  <section class="pf-scritto-box">
+    <h3>La tua produzione scritta</h3>
+    <div id="pf-scritto"></div>
+    <p class="pf-scritto-nota">Testo acquisito cos&igrave; com'&egrave;. La produzione scritta non viene corretta automaticamente: una valutazione vera richiede un insegnante, che guarda scelta delle parole, coerenza e registro, non solo gli errori.</p>
+  </section>
+
+  <section class="pf-firma-blocco">
     <p class="pf-offerta-eti" id="pf-off-eti">Per continuare</p>
     <div class="pf-offerta">
       <div class="pf-app">
-        <p class="pf-tag-app"><span class="pf-mela"></span> App Store <span class="pf-stelline">★★★★★</span></p>
+        <p class="pf-tag-app"><span class="pf-mela">&#63743;</span> App Store <span class="pf-stelline">&#9733;&#9733;&#9733;&#9733;&#9733;</span></p>
         <b id="pf-app-t">Ti, l'app per iPhone e iPad</b>
-        <p id="pf-app-p">Percorso A1–C2, 25 romanzi graduati, dizionario in 14 lingue. Metà dell'A1 è aperta senza registrarsi.</p>
-        <span class="pf-cta" id="pf-app-c">Scarica e prova l'A1 gratis →</span>
+        <p id="pf-app-p">Percorso A1&ndash;C2, 25 romanzi graduati, dizionario in 14 lingue. Met&agrave; dell'A1 &egrave; aperta senza registrarsi.</p>
+        <span class="pf-cta" id="pf-app-c">Scarica e prova l'A1 gratis &rarr;</span>
         <span class="pf-dove">thuisitaliaans.com/app-ti</span>
       </div>
       <div class="pf-libri">
-        <b id="pf-libri-t">Letture graduate A1–C1</b>
+        <b id="pf-libri-t">Letture graduate A1&ndash;C1</b>
         <p id="pf-libri-p">Classici italiani riscritti per livello, con note e domande. Si legge senza fermarsi a ogni riga.</p>
-        <span class="pf-cta" id="pf-libri-c">Vedi i libri del tuo livello →</span>
+        <span class="pf-cta" id="pf-libri-c">Vedi i libri del tuo livello &rarr;</span>
         <span class="pf-dove">thuisitaliaans.com/libri</span>
       </div>
       <div class="pf-lezioni">
         <b id="pf-lez-t">Lezioni individuali</b>
-        <p id="pf-lez-p">Online o in presenza fra Ede e Amsterdam. La prima lezione è di prova.</p>
-        <span class="pf-cta" id="pf-lez-c">Prenota la prova gratuita →</span>
+        <p id="pf-lez-p">Online o in presenza fra Ede e Amsterdam. La prima lezione &egrave; di prova.</p>
+        <span class="pf-cta" id="pf-lez-c">Prenota la prova gratuita &rarr;</span>
         <span class="pf-dove">thuisitaliaans.com/it/#contact</span>
       </div>
     </div>
 
-    <div class="pf-metodo">
-      <h4 id="pf-met-tit">Metodo e riferimenti</h4>
-      <ul>
-        <li><b>Scala dei livelli</b> — Quadro comune europeo di riferimento per
-        le lingue, Consiglio d'Europa, 2001; volume complementare 2020.</li>
-        <li><b>Stima del vocabolario</b> — fasce di frequenza secondo
-        I.S.P. Nation, <i>How Large a Vocabulary Is Needed for Reading and
-        Listening?</i>, The Canadian Modern Language Review, 63(1), 2006.</li>
-        <li><b>Soglia di comprensione</b> — 98% delle parole note per la lettura
-        senza aiuto: Hu &amp; Nation, <i>Reading in a Foreign Language</i>, 13(1), 2000.</li>
-        <li><b>Testi e domande</b> — originali, scritti per questo test. Non
-        provengono da prove d'esame né da materiali di terzi.</li>
-      </ul>
-      <p class="pf-limite" id="pf-limite"><b>Che cosa non è.</b> Un'autovalutazione
-      orientativa da 24 domande a scelta multipla più una prova scritta non
-      corretta. Non è una certificazione e non ha valore legale. Le certificazioni
-      di italiano riconosciute dallo Stato italiano sono <b>CILS</b> (Università
-      per Stranieri di Siena), <b>CELI</b> (Università per Stranieri di Perugia),
-      <b>PLIDA</b> (Società Dante Alighieri) e <b>CERT.IT</b> (Università Roma
-      Tre), e si conseguono solo con un esame sostenuto in sede.</p>
-      <p class="pf-sito">thuisitaliaans.com</p>
+    <div class="pf-alessio">
+      <img src="/assets/alessio.png" alt="Alessio" class="pf-avatar">
+      <div>
+        <h3 style="margin-top:0" id="pf-bio-tit">Chi ha scritto questo test</h3>
+        <p id="pf-bio-1"><b>Alessio</b> insegna italiano a stranieri. Doppia laurea
+        magistrale in didattica dell'italiano a stranieri: ITALS, Ca' Foscari Venezia,
+        e Universit&agrave; Giustino Fortunato. Fa lezione online e in presenza nei Paesi
+        Bassi, fra Ede e Amsterdam.</p>
+        <p class="pf-nota" id="pf-bio-2">Testi, domande e brani sono originali, scritti per questo test. Non provengono da prove d'esame n&eacute; da materiali di terzi.</p>
+      </div>
     </div>
   </section>
+
+  <section class="pf-gramm" id="pf-gramm">
+    <h3>La grammatica di questo test</h3>
+    <p class="pf-gt-intro" id="pf-gt-intro"></p>
+    <div class="pf-gt-griglia" id="pf-gt-griglia"></div>
+    <p class="pf-gt-rivedi" id="pf-gt-rivedi"></p>
+  </section>
+
+  <div class="pf-metodo">
+    <h4 id="pf-met-tit">Metodo e riferimenti</h4>
+    <ul>
+      <li><b>Scala dei livelli</b> &mdash; Quadro comune europeo di riferimento per
+      le lingue, Consiglio d'Europa, 2001; volume complementare 2020.</li>
+      <li><b>Stima del vocabolario</b> &mdash; fasce di frequenza secondo
+      I.S.P. Nation, <i>How Large a Vocabulary Is Needed for Reading and
+      Listening?</i>, The Canadian Modern Language Review, 63(1), 2006.</li>
+      <li><b>Soglia di comprensione</b> &mdash; 98% delle parole note per la lettura
+      senza aiuto: Hu &amp; Nation, <i>Reading in a Foreign Language</i>, 13(1), 2000.</li>
+      <li><b>Testi e domande</b> &mdash; originali, scritti per questo test. Non
+      provengono da prove d'esame n&eacute; da materiali di terzi.</li>
+    </ul>
+    <p class="pf-limite" id="pf-limite"><b>Che cosa non &egrave;.</b> Un'autovalutazione
+    orientativa da 24 domande a scelta multipla pi&ugrave; una prova scritta non
+    corretta. Non &egrave; una certificazione e non ha valore legale. Le certificazioni
+    di italiano riconosciute dallo Stato italiano sono <b>CILS</b> (Universit&agrave;
+    per Stranieri di Siena), <b>CELI</b> (Universit&agrave; per Stranieri di Perugia),
+    <b>PLIDA</b> (Societ&agrave; Dante Alighieri) e <b>CERT.IT</b> (Universit&agrave; Roma
+    Tre), e si conseguono solo con un esame sostenuto in sede.</p>
+    <p class="pf-sito">thuisitaliaans.com</p>
+  </div>
 </div>
 
 <section class="wrap sezione"><div class="crediti-foto">
@@ -2067,18 +2173,18 @@ Ri, licenza CC BY-SA 4.0. Da <a href="https://commons.wikimedia.org/wiki/File:IT
 var PROVE = [
 { nome:"A",
   gram:[
-   {liv:"A1",d:"___ mattina bevo un caffè al bar.",scena:"Al bar, la mattina presto",chi1:"Barista",ctx:"Sempre in piedi al banco?",chi2:"Cliente",o:["La","Il","Le"],giusta:0},
-   {liv:"A1",d:"Marco e Anna ___ olandesi.",scena:"Presentazioni a una festa",chi1:"Giulia",ctx:"Da dove vengono i tuoi amici?",chi2:"Paolo",o:["è","sono","siete"],giusta:1},
-   {liv:"A2",d:"Ieri ___ al mercato e ho comprato la frutta.",scena:"In cucina, la sera",chi1:"Coinquilino",ctx:"Dove hai preso queste pere?",chi2:"Sara",o:["vado","andavo","sono andato"],giusta:2},
-   {liv:"A2",d:"Non mangio la carne, ma ___ piace il pesce.",o:["mi","me","io"],giusta:0},
-   {liv:"B1",d:"Se avessi tempo, ___ con voi al cinema.",o:["vengo","verrei","venissi"],giusta:1},
-   {liv:"B1",d:"Ho conosciuto una ragazza ___ padre è di Napoli.",o:["che","cui","il cui"],giusta:2},
-   {liv:"B2",d:"Pensavo che Luca ___ già partito.",o:["è","fosse","sarebbe"],giusta:1},
-   {liv:"B2",d:"Il progetto è stato approvato ___ le perplessità di alcuni.",o:["malgrado","siccome","affinché"],giusta:0},
-   {liv:"C1",d:"Non che il film ___ brutto, ma mi aspettavo di più.",o:["era","fosse","sarebbe"],giusta:1},
-   {liv:"C1",d:"___ pure quello che vuoi: non cambierò idea.",o:["Dici","Di'","Dicessi"],giusta:1},
-   {liv:"C2",d:"Fu allora che, ___ ogni previsione, decise di restare.",o:["nonostante","contro","malgrado di"],giusta:1},
-   {liv:"C2",d:"Per poco non ___ : se ne accorse solo all'ultimo.",o:["cadeva","cadde","fosse caduto"],giusta:1}],
+   {liv:"A1",d:"___ mattina bevo un caffè al bar.",tema:"Articolo determinativo",scena:"Al bar, la mattina presto",chi1:"Barista",ctx:"Sempre in piedi al banco?",chi2:"Cliente",o:["La","Il","Le"],giusta:0},
+   {liv:"A1",d:"Marco e Anna ___ olandesi.",tema:"Presente di essere",scena:"Presentazioni a una festa",chi1:"Giulia",ctx:"Da dove vengono i tuoi amici?",chi2:"Paolo",o:["è","sono","siete"],giusta:1},
+   {liv:"A2",d:"Ieri ___ al mercato e ho comprato la frutta.",tema:"Passato prossimo",scena:"In cucina, la sera",chi1:"Coinquilino",ctx:"Dove hai preso queste pere?",chi2:"Sara",o:["vado","andavo","sono andato"],giusta:2},
+   {liv:"A2",d:"Non mangio la carne, ma ___ piace il pesce.",tema:"Pronomi indiretti",o:["mi","me","io"],giusta:0},
+   {liv:"B1",d:"Se avessi tempo, ___ con voi al cinema.",tema:"Periodo ipotetico",o:["vengo","verrei","venissi"],giusta:1},
+   {liv:"B1",d:"Ho conosciuto una ragazza ___ padre è di Napoli.",tema:"Relativo «il cui»",o:["che","cui","il cui"],giusta:2},
+   {liv:"B2",d:"Pensavo che Luca ___ già partito.",tema:"Congiuntivo trapassato",o:["è","fosse","sarebbe"],giusta:1},
+   {liv:"B2",d:"Il progetto è stato approvato ___ le perplessità di alcuni.",tema:"Connettivi concessivi",o:["malgrado","siccome","affinché"],giusta:0},
+   {liv:"C1",d:"Non che il film ___ brutto, ma mi aspettavo di più.",tema:"Congiuntivo dopo «non che»",o:["era","fosse","sarebbe"],giusta:1},
+   {liv:"C1",d:"___ pure quello che vuoi: non cambierò idea.",tema:"Imperativo irregolare",o:["Dici","Di'","Dicessi"],giusta:1},
+   {liv:"C2",d:"Fu allora che, ___ ogni previsione, decise di restare.",tema:"Locuzioni preposizionali",o:["nonostante","contro","malgrado di"],giusta:1},
+   {liv:"C2",d:"Per poco non ___ : se ne accorse solo all'ultimo.",tema:"«Per poco non» + indicativo",o:["cadeva","cadde","fosse caduto"],giusta:1}],
   lett:[
    {liv:"A1",dialogo:true,stile:"parlato",t:"Commessa: Buongiorno! Desidera?|Cliente: Un chilo di mele, grazie. E due limoni.|Commessa: Ecco. Sono quattro euro e cinquanta.",
     d:"Che cosa compra il cliente?",o:["Mele e limoni","Solo mele","Mele e arance"],giusta:0},
@@ -2095,18 +2201,18 @@ var PROVE = [
 
 { nome:"B",
   gram:[
-   {liv:"A1",d:"Questo è ___ mio amico Paolo.",scena:"Davanti al portone",chi1:"Vicina",ctx:"E lui chi è?",chi2:"Anna",o:["il","lo","la"],giusta:0},
-   {liv:"A1",d:"Noi ___ in centro il sabato.",scena:"Al telefono",chi1:"Nonna",ctx:"Che fate nel fine settimana?",chi2:"Nipote",o:["andiamo","andate","vanno"],giusta:0},
-   {liv:"A2",d:"Da bambino ___ sempre in campagna d'estate.",o:["sono andato","andavo","andrò"],giusta:1},
-   {liv:"A2",d:"Il libro ___ ho parlato è in biblioteca.",o:["che","di cui","cui"],giusta:1},
-   {liv:"B1",d:"Spero che tu ___ venire alla festa.",o:["puoi","possa","potresti"],giusta:1},
-   {liv:"B1",d:"Sono stanco ___ aspettare da un'ora.",o:["per","di","da"],giusta:1},
-   {liv:"B2",d:"___ studiato di più, avrebbe passato l'esame.",o:["Se avesse","Avesse","Se aveva"],giusta:0},
-   {liv:"B2",d:"Ti chiamo appena ___ a casa.",o:["arrivo","arriverò","sarò arrivato"],giusta:2},
-   {liv:"C1",d:"Per quanto ___ , non riuscì a convincerlo.",o:["insisteva","insistesse","aveva insistito"],giusta:1},
-   {liv:"C1",d:"Si comportò come se nulla ___ .",o:["era successo","fosse successo","succedeva"],giusta:1},
-   {liv:"C2",d:"Sia detto ___ inciso: la questione resta aperta.",o:["per","in","con"],giusta:0},
-   {liv:"C2",d:"Non v'è chi non ___ quanto sia delicata la faccenda.",o:["vede","veda","vedrebbe"],giusta:1}],
+   {liv:"A1",d:"Questo è ___ mio amico Paolo.",tema:"Articolo e possessivo",scena:"Davanti al portone",chi1:"Vicina",ctx:"E lui chi è?",chi2:"Anna",o:["il","lo","la"],giusta:0},
+   {liv:"A1",d:"Noi ___ in centro il sabato.",tema:"Presente indicativo",scena:"Al telefono",chi1:"Nonna",ctx:"Che fate nel fine settimana?",chi2:"Nipote",o:["andiamo","andate","vanno"],giusta:0},
+   {liv:"A2",d:"Da bambino ___ sempre in campagna d'estate.",tema:"Imperfetto abituale",o:["sono andato","andavo","andrò"],giusta:1},
+   {liv:"A2",d:"Il libro ___ ho parlato è in biblioteca.",tema:"Relativo con preposizione",o:["che","di cui","cui"],giusta:1},
+   {liv:"B1",d:"Spero che tu ___ venire alla festa.",tema:"Congiuntivo presente",o:["puoi","possa","potresti"],giusta:1},
+   {liv:"B1",d:"Sono stanco ___ aspettare da un'ora.",tema:"Preposizioni con aggettivo",o:["per","di","da"],giusta:1},
+   {liv:"B2",d:"___ studiato di più, avrebbe passato l'esame.",tema:"Periodo ipotetico irreale",o:["Se avesse","Avesse","Se aveva"],giusta:0},
+   {liv:"B2",d:"Ti chiamo appena ___ a casa.",tema:"Futuro anteriore",o:["arrivo","arriverò","sarò arrivato"],giusta:2},
+   {liv:"C1",d:"Per quanto ___ , non riuscì a convincerlo.",tema:"Concessive con congiuntivo",o:["insisteva","insistesse","aveva insistito"],giusta:1},
+   {liv:"C1",d:"Si comportò come se nulla ___ .",tema:"«Come se» + congiuntivo",o:["era successo","fosse successo","succedeva"],giusta:1},
+   {liv:"C2",d:"Sia detto ___ inciso: la questione resta aperta.",tema:"Locuzioni fisse",o:["per","in","con"],giusta:0},
+   {liv:"C2",d:"Non v'è chi non ___ quanto sia delicata la faccenda.",tema:"Congiuntivo nelle relative",o:["vede","veda","vedrebbe"],giusta:1}],
   lett:[
    {liv:"A1",dialogo:true,stile:"messaggi",t:"Anna: Ciao Marco! Dove vai?|Marco: Vado in piscina. Tu vieni?|Anna: No, oggi no. Devo studiare.",
     d:"Perché Anna non va in piscina?",o:["Non le piace nuotare","Deve studiare","È malata"],giusta:1},
@@ -2123,18 +2229,18 @@ var PROVE = [
 
 { nome:"C",
   gram:[
-   {liv:"A1",d:"Io ___ un cane e due gatti.",scena:"Dal veterinario",chi1:"Assistente",ctx:"Quanti animali ha in casa?",chi2:"Signora",o:["ho","sono","hai"],giusta:0},
-   {liv:"A1",d:"Il museo apre ___ nove.",scena:"All'ufficio turistico",chi1:"Turista",ctx:"A che ora possiamo entrare?",chi2:"Impiegata",o:["a","alle","dalle"],giusta:1},
-   {liv:"A2",d:"Mentre ___ , è suonato il telefono.",o:["cucinavo","ho cucinato","cucinerò"],giusta:0},
-   {liv:"A2",d:"Questa è la casa ___ sono nato.",o:["che","dove","quando"],giusta:1},
-   {liv:"B1",d:"Credo che ___ meglio partire presto.",o:["è","sia","era"],giusta:1},
-   {liv:"B1",d:"Se piove, ___ a casa.",o:["restiamo","restassimo","resteremmo"],giusta:0},
-   {liv:"B2",d:"Nonostante ___ tardi, decisero di uscire.",o:["era","fosse","sarebbe"],giusta:1},
-   {liv:"B2",d:"Mi sono pentito di ___ così duramente.",o:["aver parlato","parlare","parlassi"],giusta:0},
-   {liv:"C1",d:"Fosse anche l'ultima occasione, non ___ .",o:["accetterei","accetto","accettassi"],giusta:0},
-   {liv:"C1",d:"Si tratta di una scelta ___ conseguenze sono ancora ignote.",o:["che","le cui","di cui"],giusta:1},
-   {liv:"C2",d:"Checché se ne ___ , il metodo funziona.",o:["dice","dica","direbbe"],giusta:1},
-   {liv:"C2",d:"Ebbe un moto di stizza, ___ subito represso.",o:["prontamente","pronto","prontissimo"],giusta:0}],
+   {liv:"A1",d:"Io ___ un cane e due gatti.",tema:"Presente di avere",scena:"Dal veterinario",chi1:"Assistente",ctx:"Quanti animali ha in casa?",chi2:"Signora",o:["ho","sono","hai"],giusta:0},
+   {liv:"A1",d:"Il museo apre ___ nove.",tema:"Preposizioni articolate",scena:"All'ufficio turistico",chi1:"Turista",ctx:"A che ora possiamo entrare?",chi2:"Impiegata",o:["a","alle","dalle"],giusta:1},
+   {liv:"A2",d:"Mentre ___ , è suonato il telefono.",tema:"Imperfetto e passato prossimo",o:["cucinavo","ho cucinato","cucinerò"],giusta:0},
+   {liv:"A2",d:"Questa è la casa ___ sono nato.",tema:"Relativi di luogo",o:["che","dove","quando"],giusta:1},
+   {liv:"B1",d:"Credo che ___ meglio partire presto.",tema:"Congiuntivo presente",o:["è","sia","era"],giusta:1},
+   {liv:"B1",d:"Se piove, ___ a casa.",tema:"Periodo ipotetico reale",o:["restiamo","restassimo","resteremmo"],giusta:0},
+   {liv:"B2",d:"Nonostante ___ tardi, decisero di uscire.",tema:"Concessive con congiuntivo",o:["era","fosse","sarebbe"],giusta:1},
+   {liv:"B2",d:"Mi sono pentito di ___ così duramente.",tema:"Infinito passato",o:["aver parlato","parlare","parlassi"],giusta:0},
+   {liv:"C1",d:"Fosse anche l'ultima occasione, non ___ .",tema:"Concessiva senza congiunzione",o:["accetterei","accetto","accettassi"],giusta:0},
+   {liv:"C1",d:"Si tratta di una scelta ___ conseguenze sono ancora ignote.",tema:"Relativo «le cui»",o:["che","le cui","di cui"],giusta:1},
+   {liv:"C2",d:"Checché se ne ___ , il metodo funziona.",tema:"Congiuntivo in locuzione",o:["dice","dica","direbbe"],giusta:1},
+   {liv:"C2",d:"Ebbe un moto di stizza, ___ subito represso.",tema:"Avverbio e participio",o:["prontamente","pronto","prontissimo"],giusta:0}],
   lett:[
    {liv:"A1",t:"Il bar apre alle sette e chiude alle otto di sera. La domenica è chiuso. In estate c'è anche il tavolo fuori.",formato:"postit",foto:"norbert-balog-the-chestnut-roaster-jpg.jpg",fotoAlt:"Venditore ambulante",fotoDida:"Il bar all'angolo",
     d:"Quando è chiuso il bar?",o:["La domenica","Il sabato","In estate"],giusta:0},
@@ -2953,7 +3059,6 @@ function calcola(){
   document.getElementById("pf-lett").textContent=ll;
   document.getElementById("pf-voc").textContent=
     voc.stima?voc.stima.toLocaleString("it-IT"):"meno di 1.000";
-  document.getElementById("pf-lettura").textContent=LETTURA_CONS[fin];
   document.getElementById("pf-t-gram").style.width=((ORDINE.indexOf(lg)+1)/6*100)+"%";
   document.getElementById("pf-t-lett").style.width=((ORDINE.indexOf(ll)+1)/6*100)+"%";
   document.getElementById("pf-t-voc").style.width=Math.min(100,voc.stima/9000*100)+"%";
@@ -2989,12 +3094,15 @@ function calcola(){
 
   /* perche' quel livello: costruito sulle risposte, non una frase fissa */
   function perche(dati,risp,nome){
-    var ok=[],ko=null;
+    /* i livelli superati sono quelli in fila dal basso: il primo che salta
+       chiude il conto. Prima sommavo anche i livelli sparsi piu' in alto e
+       usciva la frase assurda "hai superato da A1 a C2 e ti sei fermato al C1". */
+    var ok=[],ko=null,chiuso=false;
     ORDINE.forEach(function(L){
-      var q=[],g=0;
-      dati.forEach(function(x,i){ if(x.liv===L&&risp[i]!==undefined){q.push(i); if(risp[i]===x.giusta)g++;} });
-      if(!q.length)return;
-      if(g/q.length>=0.6)ok.push(L); else if(!ko)ko=L;
+      var n=0,g=0;
+      dati.forEach(function(x,i){ if(x.liv===L&&risp[i]!==undefined){n++; if(risp[i]===x.giusta)g++;} });
+      if(!n||chiuso)return;
+      if(g/n>=0.6)ok.push(L); else {ko=L;chiuso=true;}
     });
     if(!ok.length)return "In "+nome+" non hai superato il primo scalino: si riparte dalle basi.";
     var s="In "+nome+" hai superato "+(ok.length===1?"il livello "+ok[0]:"i livelli da "+ok[0]+" a "+ok[ok.length-1]);
@@ -3002,8 +3110,12 @@ function calcola(){
     return s+".";
   }
 
+  /* ogni competenza dentro la sua colonna: la griglia ne mette due affiancate
+     se il foglio e' largo, una sotto l'altra se e' stretto (stampa da telefono) */
+  function colonna(html){ return html ? "<div class='pf-barre-col'>"+html+"</div>" : ""; }
   document.getElementById("pf-barre").innerHTML=
-    barre(GRAMMATICA,risposte.gram,"Grammatica")+barre(LETTURE,risposte.lett,"Comprensione");
+    colonna(barre(GRAMMATICA,risposte.gram,"Grammatica"))+
+    colonna(barre(LETTURE,risposte.lett,"Comprensione"));
 
   /* se la prova si e' fermata presto, il documento lo dice: altrimenti un
      "0/1" sembra un errore invece di una prova interrotta a ragione */
@@ -3013,11 +3125,34 @@ function calcola(){
       ? "La prova si è fermata ai primi livelli: le domande più difficili non sono state poste, perché non avrebbero cambiato il risultato."
       : "";
 
-  document.getElementById("pf-consigli").innerHTML=consigli(fin,voc);
+  /* ---- la grammatica vista nel test, frase per frase ----
+     Il consiglio generico l'ha gia' dato la valutazione: qui serve la cosa che
+     nessun'altra parte del documento dice, cioe' su che cosa si e' sbagliato. */
+  (function(){
+    var righe="",ko=[],n=0;
+    GRAMMATICA.forEach(function(q,i){
+      var r=risposte.gram[i];
+      if(r===undefined)return;
+      n++;
+      var giusta=(r===q.giusta), tema=q.tema||"Grammatica";
+      if(!giusta)ko.push(tema.toLowerCase());
+      righe+="<div class='pf-gt-voce"+(giusta?"":" ko")+"'><i>"+q.liv+"</i>"+
+        "<span>"+tema+"</span><em>"+(giusta?"\u2713":"\u2715")+"</em></div>";
+    });
+    var sez=document.getElementById("pf-gramm");
+    if(!n){ sez.style.display="none"; return; }
+    sez.style.display="";
+    document.getElementById("pf-gt-intro").textContent=
+      "Le "+n+" frasi di grammatica che ti sono state proposte, con l'argomento di ciascuna. "+
+      "Le domande dei livelli oltre il tuo non compaiono: il test si ferma quando il livello \u00e8 deciso.";
+    document.getElementById("pf-gt-griglia").innerHTML=righe;
+    document.getElementById("pf-gt-rivedi").innerHTML = ko.length
+      ? "<b>Da rivedere:</b> "+ko.join(", ")+"."
+      : "<b>Nessun errore</b> sulle frasi proposte: la grammatica non \u00e8 il tuo freno.";
+  })();
 
-  var nomeV=(document.getElementById("nome")?document.getElementById("nome").value:"").trim();
-  document.getElementById("pf-saluto").textContent=
-    nomeV ? nomeV : "La tua valutazione";
+  /* il nome sta gia' in testata: un secondo titolo grande col nome dello
+     studente rubava una decina di righe senza aggiungere niente */
   var voci=valutazione(fin,lg,ll,voc,scritto,
     Object.keys(risposte.gram).length,Object.keys(risposte.lett).length);
   /* al massimo quattro: il quinto paragrafo faceva sforare la seconda pagina,
