@@ -265,9 +265,7 @@ form textarea{min-height:110px;resize:vertical}.nascosto{position:absolute;left:
 /* regola tolta: nascondeva il monitor su
    mobile quando dentro c'era un iframe. Ora c'e' uno screenshot.
    Com'era:
-   @media(max-width:820px){
-  .scena-desk,.scena,.monitor,.monitor-schermo,.monitor-schermo iframe.live,.live-wrap,.live-inner{display:none!important;width:0!important;height:0!important;max-width:0!important;overflow:hidden!important}
-}
+   
 */
 
 .evseo{margin-top:14px;padding-top:12px;border-top:1px dashed var(--linea);font-size:13.5px;color:var(--secondario)}
@@ -549,11 +547,7 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
 .monitor-schermo .live-inner{position:static!important;transform:none!important}
 .monitor-schermo .live-inner:empty{display:none}
 .live-shot{width:100%;height:auto;display:block;background:#141210}
-@media (max-width:820px){
-  .scena-desk,.scena,.monitor,.monitor-schermo,.live-wrap,.live-inner{
-    display:block!important;width:auto!important;height:auto!important;
-    max-width:100%!important}
-  .monitor-schermo{overflow:hidden!important}
+
   .live-wrap{overflow-y:auto!important}
   /* miniatura: il monitor non deve rubare la scena al testo */
   .scena-desk,.scena{margin:14px auto 18px}
@@ -564,13 +558,7 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
   .postit{font-size:13px}
 }
 
-/*monitor-alto-v1*/
-@media (max-width:820px){
-  .monitor-schermo{height:auto!important;aspect-ratio:1280/800;
-    max-height:none!important;overflow:hidden!important}
-  .monitor-schermo .live-wrap{position:absolute!important;inset:0!important;
-    height:auto!important;max-height:none!important}
-}
+
 /*riga-doppia-v1*/
 /* la card del disclaimer ha gia' un bordo: il separatore subito dopo
    diventa una seconda linea ravvicinata */
@@ -592,6 +580,29 @@ footer .sep-bordo{border:0;border-top:1px solid var(--linea);margin:22px 0;width
     overflow-y:auto!important}
   .live-shot{width:100%!important;height:auto!important;max-width:none!important}
 }
+/*monitor-pulito-v1*/
+/* Tolte le media query che si contraddicevano sul monitor.
+   La prima lo nascondeva del tutto: serviva quando dentro c'era un
+   iframe, pesante e spesso rotto. Ora c'e' un'immagine.
+   Le altre due erano miei rattoppi per disfarla, una proprieta' alla
+   volta. Resta solo la regola che allarga il contenitore.
+   Com'erano:
+   la regola che azzera tutto: @media(max-width:820px){
+  .scena-desk,.scena,.monitor,.monitor-schermo,.monitor-schermo iframe.live,.live-wrap,.live-inner{display:none!important;width:0!important;height:0!important;max-width:0!important;overflow:hidden!important}
+}
+   il primo rattoppo: @media (max-width:820px){
+  .scena-desk,.scena,.monitor,.monitor-schermo,.live-wrap,.live-inner{
+    display:block!important;width:auto!important;height:auto!important;
+    max-width:100%!important}
+  .monitor-schermo{overflow:hidden!important}
+   il secondo rattoppo: /*monitor-alto-v1*\/
+@media (max-width:820px){
+  .monitor-schermo{height:auto!important;aspect-ratio:1280/800;
+    max-height:none!important;overflow:hidden!important}
+  .monitor-schermo .live-wrap{position:absolute!important;inset:0!important;
+    height:auto!important;max-height:none!important}
+}
+*/
 </style>
 <link rel="stylesheet" href="/assets/cartoline.css">
 <script src="/assets/cartoline.js" defer></script>
