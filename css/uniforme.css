@@ -628,9 +628,6 @@ html, body{ overflow-x:clip !important; }
 /* la firma: su schermo stretto andava a capo lasciando il punto elenco a
    inizio riga */
 @media (max-width:640px){
-  .u-firma{ display:block; }
-  .u-firma > *{ display:inline; }
-  .u-firma > * + *::before{ content:"  B7 "; margin:0 4px; }
   .u-note{ padding-bottom:36px; }
   .u-piede{ padding-bottom:8px; }
 }
@@ -705,6 +702,29 @@ html body{ overflow-x:clip !important; }
 
 /* le note: mai piu' strette del piede */
 .u-note{ padding-left:20px; padding-right:20px; }
+
+
+/* ---------- la firma ---------------------------------------------------
+   Il reset delle colonne dentro .u-note rendeva ogni voce un blocco: sul
+   desktop la firma usciva incolonnata e stretta invece che distesa, e i
+   puntini di separazione finivano a inizio riga. */
+.u-firma{
+  display:flex !important; flex-wrap:wrap; align-items:baseline;
+  gap:0 0; width:100%;
+  padding-top:14px; margin-top:14px;
+  border-top:1px solid var(--u-bordo);
+}
+.u-firma > *{ display:inline-flex !important; align-items:baseline; }
+.u-firma > * + *::before{
+  content:" B7"; margin:0 10px; color:var(--u-bordo);
+}
+.u-firma a{ color:var(--u-tenue); text-decoration:none; }
+.u-firma a:hover{ color:var(--u-sez); }
+
+@media (max-width:640px){
+  .u-firma{ gap:4px 0; }
+  .u-firma > * + *::before{ margin:0 8px; }
+}
 
 /* fine u-144 ============================================================== */
 /* u-144 fine */
