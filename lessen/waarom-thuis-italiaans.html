@@ -343,7 +343,6 @@
   var STELLE=/[\u2605\u2606\u2b50\u2729\u272d\u2b51]/;
   var CORSA=/[\u2605\u2606\u2b50\u2729\u272d\u2b51\ufe0f]{2,}/g;
   var SALTA={SCRIPT:1,STYLE:1,TEXTAREA:1,NOSCRIPT:1,TITLE:1};
-no i
   function avvolgi(testo){
     var padre=testo.parentNode;
     if(!padre || SALTA[padre.nodeName]) return;
