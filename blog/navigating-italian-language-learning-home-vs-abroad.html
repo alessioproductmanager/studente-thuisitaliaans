@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Navigating Italian Language Learning</title>
+<title>Navigating Italian Language Learning: From Italy vs. Abroad | thuisitaliaans</title>
 <meta name="description" content="Learning Italian: emersion in Italy for natural growth or structured online classes from abroad offers benefits. Learning Italian can be a thrilling…">
 <meta name="theme-color" content="#5E7357">
 <link rel="canonical" href="https://thuisitaliaans.com/blog/navigating-italian-language-learning-home-vs-abroad">
@@ -60,8 +60,6 @@
 .app-promo-stelle .eti{color:inherit;opacity:.7;font-weight:500}
 </style>
 <link rel="stylesheet" href="/assets/mobile.css">
-<!-- 128-banner-app -->
-<meta name="apple-itunes-app" content="app-id=6791650799, app-argument=https://thuisitaliaans.com/blog/navigating-italian-language-learning-home-vs-abroad">
 </head>
 <body>
 <header class="blog-topbar">
@@ -193,10 +191,111 @@
 <footer class="blog-footer">
   <div class="container">
     <p>© 2026 thuisitaliaans. Articles and resources for learning Italian. <a href="../">Back to the main site</a></p>
-<!-- 130-riparazioni -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Italian Classes Near Me | thuisitaliaans</title>
+<meta name="description" content="Are you considering delving into the beautiful language of Italian? Perhaps you've already started your journey but find yourself wondering how long…">
+<meta name="theme-color" content="#31394d">
+<link rel="canonical" href="/why-thuis-italiaans">
+<link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/blog.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Italian Classes Near Me", "datePublished": "2024-01-14", "image": "https://thuisitaliaans.com/blog/media/2024/04/yy-teoh-pnxiwxedj8q-unsplash.jpg", "author": {"@type": "Person", "name": "Alessio"}, "publisher": {"@type": "Organization", "name": "thuisitaliaans", "logo": {"@type": "ImageObject", "url": "https://thuisitaliaans.com/assets/icons/icon-512.png"}}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://thuisitaliaans.com/blog/near-by-me-italian-classes"}, "dateModified": "2024-01-14", "inLanguage": "en"}</script>
+</head>
+<body>
+<header class="blog-topbar">
+  <div class="container">
+    <a href="../" class="blog-back">
+      <img src="../assets/icons/icon-512.png" alt="">
+      <span>←︎ Back to the site</span>
+    </a>
+    <a href="../#contact" class="button">Get in touch →︎</a>
+  </div>
+</header>
+
+<footer class="blog-footer">
+  <div class="container">
+    <p>© 2026 thuisitaliaans. Articles and resources for learning Italian. <a href="../">Back to the main site</a></p>
+<p class="blog-footer-license">The <strong>text</strong> of this article is published under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en" target="_blank" rel="license noopener">CC BY-NC-ND 4.0</a> licence — share and quote it with attribution and a link to <a href="../">thuisitaliaans.com</a>. The <strong>photographs</strong> are not included: they come from Unsplash and Pexels and remain subject to their own licences.</p>  </div>
+</footer>
+<script src="/js/whatsapp.js" defer></script>
+<script>
+/* Screenshot nella lingua del browser, con riserva in inglese.
+   Il markup parte gia' con la lingua del post: questo script interviene
+   solo se il browser dichiara una lingua diversa e disponibile. */
+(function(){
+  var disponibili = ['ar','bn','de','en','es','fr','it','nl','pt','ro','uk','zh'];
+  var lang = (navigator.language || 'en').slice(0,2).toLowerCase();
+  if (disponibili.indexOf(lang) === -1) lang = 'en';
+  document.querySelectorAll('[data-store-track] picture').forEach(function(p){
+    var img = p.querySelector('img'), src = p.querySelector('source');
+    if (!img) return;
+    img.src = img.src.replace(/\/assets\/store\/[a-z_]+\//, '/assets/store/' + lang + '/');
+    if (src) src.srcset = src.srcset.replace(/\/assets\/store\/[a-z_]+\//, '/assets/store/' + lang + '/');
+  });
+})();
+</script>
+<script>/*stelle-v1*/
+(function(){
+  var STELLE=/[\u2605\u2606\u2b50\u2729\u272d\u2b51]/;
+  var CORSA=/[\u2605\u2606\u2b50\u2729\u272d\u2b51\ufe0f]{2,}/g;
+  var SALTA={SCRIPT:1,STYLE:1,TEXTAREA:1,NOSCRIPT:1,TITLE:1};
+
+  function avvolgi(testo){
+    var padre=testo.parentNode;
+    if(!padre || SALTA[padre.nodeName]) return;
+    if(padre.classList && padre.classList.contains("stelle-gialle")) return;
+    var s=testo.nodeValue;
+    if(!s || !STELLE.test(s)) return;
+    CORSA.lastIndex=0;
+    if(!CORSA.test(s)) return;
+    CORSA.lastIndex=0;
+    var pezzi=document.createDocumentFragment(), ultimo=0, m;
+    while((m=CORSA.exec(s))!==null){
+      if(m.index>ultimo)
+        pezzi.appendChild(document.createTextNode(s.slice(ultimo,m.index)));
+      var sp=document.createElement("span");
+      sp.className="stelle-gialle";
+      sp.textContent=m[0];
+      pezzi.appendChild(sp);
+      ultimo=m.index+m[0].length;
+    }
+    if(ultimo<s.length)
+      pezzi.appendChild(document.createTextNode(s.slice(ultimo)));
+    padre.replaceChild(pezzi,testo);
+  }
+
+  function giro(radice){
+    try{
+      if(!radice || (radice.nodeType!==1 && radice.nodeType!==3)) return;
+      if(radice.nodeType===3){ avvolgi(radice); return; }
+      if(SALTA[radice.nodeName]) return;
+      var w=document.createTreeWalker(radice,NodeFilter.SHOW_TEXT,null,false);
+      var lista=[],n;
+      while((n=w.nextNode())) lista.push(n);
+      lista.forEach(avvolgi);
+    }catch(e){}
+  }
+
+  giro(document.body);
+  try{
+    new MutationObserver(function(cambi){
+      cambi.forEach(function(c){
+        Array.prototype.forEach.call(c.addedNodes,giro);
+      });
+    }).observe(document.body,{childList:true,subtree:true});
+  }catch(e){}
+})();
+</script>
+<script src="/js/store-lingua-extra.js" defer></script>
+</body>
+</html>
   </div>
 </footer>
-<!-- 126-cta-app -->
-<script src="/js/ti-cta.js" defer></script>
 </body>
 </html>
