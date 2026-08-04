@@ -168,3 +168,164 @@
 @media (max-width:720px){
   .u-lingue a{ padding:10px 14px;font-size:.9rem; }
 }
+
+/* 133-rifiniture */
+/* --------------------------------------------------------------------------
+   Testo spento senza perdere leggibilita'.
+
+   Dieci regole ottenevano il grigio con opacity su testo permanente.
+   Misurato su fondo bianco: da 2,36:1 a 3,70:1, contro una soglia AA di
+   4,50 per il testo piccolo. Il grigio non era il problema: --secondary
+   da solo fa 4,97:1. Il problema era ricavarlo sbiadendo.
+
+   Qui l'opacity torna a 1 e il colore lo dichiaro. Visivamente cambia
+   pochissimo; a leggerlo su un telefono al sole cambia tutto.
+
+   Restano attenuati, e devono restarlo, gli stati disabilitati e quelli
+   di trascinamento: la norma li esenta e l'attenuazione e' il segnale.
+   -------------------------------------------------------------------------- */
+.blog-footer-license,
+.blog-foto-credit,
+.article-card-date,
+.sidebar-eyebrow,
+.sidebar-libro-liv,
+.sidebar-libro-nota,
+.sb-shots-hint,
+.footer-lingue-tit,
+.footer-lingue-lista a,
+.barra-lingua-no{
+  opacity:1;
+  color:var(--secondary,#667085);
+}
+
+/* Il paragrafo di licenza: tre righe di testo legale centrate a 13,6px
+   sono illeggibili su uno schermo stretto. Allineato, con una misura di
+   riga che non superi le ~70 battute. */
+.blog-footer-license{
+  max-width:64ch;
+  margin-left:auto;margin-right:auto;
+  text-align:left;
+  line-height:1.6;
+}
+@media (max-width:640px){
+  .blog-footer{ text-align:left; }
+  .blog-footer p{ font-size:.875rem; }
+  .blog-footer-license{ font-size:.8125rem; }
+}
+
+/* --------------------------------------------------------------------------
+   Chi ha chiesto meno movimento deve riceverne meno.
+   Nei fogli c'erano 90 transizioni e 7 animazioni, e tre sole
+   dichiarazioni di prefers-reduced-motion.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+    scroll-behavior:auto !important;
+  }
+}
+
+/* Wordwall: su schermo stretto 400px tagliano alcuni template. */
+@media (max-width:640px){
+  .embed-wordwall iframe,.embed-generic iframe{ height:min(78vh,520px); }
+}
+
+/* 134-fondamenta */
+/* ==========================================================================
+   Il pavimento: tastiera, tocco, orientamento.
+   Caricato dopo gli altri fogli, quindi vince sulle regole che
+   spengono l'outline senza rimpiazzarlo.
+   ========================================================================== */
+
+/* --- a) si vede sempre dove sei -----------------------------------------
+   Sei outline:none contro cinque focus-visible: da tastiera si perdeva
+   il segno. :focus-visible non disturba chi usa il mouse, perche' il
+   browser lo attiva solo quando serve davvero. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible{
+  outline:2px solid var(--primary,#31394d);
+  outline-offset:3px;
+  border-radius:6px;
+}
+/* sui fondi scuri l'anello scuro sparirebbe */
+.app-banner a:focus-visible,
+.sidebar-card-app a:focus-visible,
+.ex-app-promo--scatti a:focus-visible{
+  outline-color:var(--gold,#f5b400);
+}
+
+/* --- b) salta al contenuto -----------------------------------------------
+   Invisibile finche' non lo metti a fuoco. Prima voce della pagina. */
+.u-salta{
+  position:absolute;left:-9999px;top:0;
+  z-index:9999;
+  padding:12px 18px;
+  background:var(--primary,#31394d);color:#fff;
+  border-radius:0 0 10px 0;
+  text-decoration:none;font-weight:600;font-size:.95rem;
+}
+.u-salta:focus{ left:0; }
+
+/* --- c) dove sono gia' passato -------------------------------------------
+   700 esercizi e 298 articoli: senza :visited chi studia rifa' le
+   stesse pagine. Solo dove l'elenco e' lungo, non nei menu. */
+.ex-lista a:visited,
+.blog-grid a:visited,
+.u-piede a:visited,
+.sidebar-links a:visited,
+.article-card a:visited{
+  color:#6b5b8a;
+}
+
+/* --- d) il pollice non e' un puntatore -----------------------------------
+   Nove padding sotto i 7px su elementi cliccabili. Invece di gonfiare
+   la grafica allargo solo l'area che risponde, con uno pseudo-elemento
+   che non si vede. */
+@media (pointer:coarse){
+  .ex-btn,.ex-chip,.word-chip,.letter-tile,
+  .u-piede a,.u-lingue a,.sidebar-links a,
+  .lang-switcher a{
+    position:relative;
+  }
+  .ex-btn::after,.ex-chip::after,
+  .u-piede a::after,.u-lingue a::after,.sidebar-links a::after,
+  .lang-switcher a::after{
+    content:"";position:absolute;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    width:100%;height:100%;
+    min-width:44px;min-height:44px;
+  }
+}
+
+/* --- e) la scala tipografica, dichiarata ---------------------------------
+   58 dimensioni distinte in 265 dichiarazioni, dodici delle quali
+   ammassate fra .78 e 1.15rem. Questi sette passi sono la scala che il
+   sito avrebbe dovuto avere: rapporto costante, ogni passo distinguibile.
+   Non riscrivo le regole esistenti — lo decidi tu, con --scala vedi la
+   mappa. Da qui in avanti i componenti nuovi pescano da questi. */
+:root{
+  --t-xs:  .75rem;   /* 12px  didascalie, crediti, licenze */
+  --t-sm:  .875rem;  /* 14px  testo di servizio, piede */
+  --t-md:  1rem;     /* 16px  corpo */
+  --t-lg:  1.125rem; /* 18px  sottotitoli */
+  --t-xl:  1.375rem; /* 22px  titoli di scheda */
+  --t-2xl: 1.75rem;  /* 28px  titoli di sezione */
+  --t-3xl: 2.25rem;  /* 36px  titolo di pagina */
+}
+
+/* --- stampa ---------------------------------------------------------------
+   Chi stampa un esercizio non vuole il richiamo all'app in mezzo. */
+@media print{
+  .ti-cta,.app-banner,.sidebar-card-app,.u-lingue,
+  .proposta-lingua,.u-salta{ display:none !important; }
+  .u-piede{ border-top:1px solid #999; }
+  a[href^="http"]::after{ content:" (" attr(href) ")";font-size:.75em; }
+}
