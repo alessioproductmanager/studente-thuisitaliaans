@@ -848,3 +848,47 @@ body:has(#risultato) .cart-crediti-lungo{
 @media print{ .u-briciole{ display:none; } }
 /* fine u-150 ============================================================== */
 /* u-150 fine */
+/* u-159 inizio */
+/* u-159 — le pagine del test: aria dai bordi e crediti richiudibili
+   ==================================================================== */
+
+/* Tutto quello che sta fuori da .wrap prendeva zero rientro e toccava il
+   bordo dello schermo: la corona, la scala, i numeri, il dialogo, le
+   risposte. env(safe-area-inset) serve per la tacca dei telefoni. */
+.corona, .scala, .numeri, .dialogo, .risposte, .domanda,
+.crediti-foto, .pf-metodo, .sb-shots, .barra-avanzamento{
+  box-sizing:border-box;
+  padding-left:max(20px, env(safe-area-inset-left, 0px));
+  padding-right:max(20px, env(safe-area-inset-right, 0px));
+}
+.wrap .corona, .wrap .scala, .wrap .numeri,
+.wrap .dialogo, .wrap .risposte, .wrap .domanda,
+.wrap .crediti-foto, .wrap .pf-metodo{
+  padding-left:0; padding-right:0;   /* dentro .wrap il rientro c'e' gia' */
+}
+@media (max-width:520px){
+  .corona, .scala, .numeri, .dialogo, .risposte, .domanda{
+    padding-left:max(16px, env(safe-area-inset-left, 0px));
+    padding-right:max(16px, env(safe-area-inset-right, 0px));
+  }
+}
+
+/* i crediti: chiusi, e quando si aprono non diventano la pagina */
+details.crediti-foto{ margin-top:28px; }
+details.crediti-foto > summary{
+  cursor:pointer; list-style:none;
+  font-size:.84rem; font-weight:600; color:var(--secondario, #5A6B5C);
+  padding:10px 0; border-top:1px solid var(--linea, #DCE7DC);
+}
+details.crediti-foto > summary::-webkit-details-marker{ display:none; }
+details.crediti-foto > summary::after{ content:" +"; opacity:.6; }
+details.crediti-foto[open] > summary::after{ content:" −"; }
+details.crediti-foto ul{
+  margin:10px 0 0; padding-left:18px;
+  max-height:320px; overflow:auto;
+  font-size:.78rem; line-height:1.55; color:var(--secondario, #5A6B5C);
+}
+details.crediti-foto li{ margin-bottom:7px; }
+@media print{ details.crediti-foto{ display:none; } }
+/* fine u-159 ============================================================== */
+/* u-159 fine */
