@@ -716,7 +716,7 @@ html body{ overflow-x:clip !important; }
 }
 .u-firma > *{ display:inline-flex !important; align-items:baseline; }
 .u-firma > * + *::before{
-  content:" B7"; margin:0 10px; color:var(--u-bordo);
+  content:"·"; margin:0 10px; color:var(--u-bordo);
 }
 .u-firma a{ color:var(--u-tenue); text-decoration:none; }
 .u-firma a:hover{ color:var(--u-sez); }
@@ -724,6 +724,30 @@ html body{ overflow-x:clip !important; }
 @media (max-width:640px){
   .u-firma{ gap:4px 0; }
   .u-firma > * + *::before{ margin:0 8px; }
+}
+
+
+/* i distintivi esterni: centrati, sotto la firma, di un'altezza sola */
+.u-badge{
+  display:flex !important; flex-wrap:wrap; gap:14px;
+  justify-content:center; align-items:center;
+  margin:22px 0 0; padding-top:18px;
+  border-top:1px solid var(--u-bordo);
+}
+.u-badge a{ display:inline-flex; line-height:0; opacity:.85; }
+.u-badge a:hover{ opacity:1; }
+.u-badge img{ height:36px; width:auto; display:block; }
+.u-badge > a[class*="card"]{
+  display:block; max-width:300px; line-height:1.45; opacity:1;
+  padding:14px 16px; border:1px solid var(--u-bordo); border-radius:14px;
+  text-decoration:none; color:var(--u-tenue); font-size:.85rem; text-align:left;
+}
+.u-badge > a[class*="card"] span{ display:block; }
+
+/* la firma occupa la riga, sempre */
+.u-firma{ justify-content:flex-start; }
+@media (max-width:640px){
+  .u-badge img{ height:30px; }
 }
 
 /* fine u-144 ============================================================== */
