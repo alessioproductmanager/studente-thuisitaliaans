@@ -634,5 +634,77 @@ html, body{ overflow-x:clip !important; }
   .u-note{ padding-bottom:36px; }
   .u-piede{ padding-bottom:8px; }
 }
+
+/* il pannello aperto: sul desktop era un pasticcio. Le voci sono link
+   semplici, non schede: qui si azzera tutto quello che le sezioni
+   applicano ai link dentro un piede. */
+.u-piu[open] > ul > li{ margin:0; padding:0; }
+.u-piu[open] > ul > li > a{
+  display:block; padding:4px 0;
+  background:none !important; border:0 !important; box-shadow:none !important;
+  border-radius:0 !important; text-align:left; font-weight:400;
+  font-size:.88rem; line-height:1.5; color:var(--u-tenue);
+}
+.u-piu[open] > ul > li > a:hover{ color:var(--u-sez); transform:none !important; }
+.u-piu[open] > ul > li > a > span,
+.u-piu[open] > ul > li > a > b,
+.u-piu[open] > ul > li > a > em{ display:inline; font-weight:inherit; }
+
+/* le schede (recensioni Google, distintivi) stanno in fondo, non
+   nell'elenco */
+.u-badge{ align-items:flex-start; }
+.u-badge > a[class*="card"]{
+  display:block; max-width:320px; line-height:1.45;
+  padding:14px 16px; border:1px solid var(--u-bordo); border-radius:14px;
+  text-decoration:none; color:var(--u-tenue); font-size:.85rem;
+}
+.u-badge > a[class*="card"] span{ display:block; }
+
+
+/* ---------- la larghezza, una sola ------------------------------------- */
+/* Ho trovato perche' su scuole la barra sembrava piu' larga: quelle pagine
+   hanno .contenitore{max-width:1100px} nello <style> in linea, mentre la
+   barra stava a 1180. Non era piu' larga in assoluto: era piu' larga del
+   contenuto sotto. Ora tutto il sito sta su 1100, barra e piede compresi. */
+:root{ --u-max: 1100px; }
+.u-bar__in,
+.u-piede__in,
+.u-piu,
+.u-note{ max-width:var(--u-max) !important; }
+
+/* e perche' su scuole non restava incollata: nello stesso <style> c'e'
+   body{overflow-x:hidden!important}, che arriva dopo uniforme.css e vince.
+   html body ha specificita' maggiore di body, quindi passa questa. */
+html body{ overflow-x:clip !important; }
+
+/* il logo: niente angoli tagliati sopra un'icona che ha gia' la sua forma */
+.u-logo img{ border-radius:8px; image-rendering:auto; }
+
+/* ---------- il piede, desktop e telefono ------------------------------- */
+.u-piede__in{
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:40px 48px;
+  padding-left:20px; padding-right:20px;
+}
+@media (max-width:900px){
+  .u-piede__in{ grid-template-columns:repeat(2, minmax(0,1fr)); gap:32px 28px; }
+}
+@media (max-width:560px){
+  .u-piede__in{ grid-template-columns:1fr; gap:26px; }
+}
+
+/* il pannello: colonne che si adattano davvero, e voci che restano voci */
+.u-piu[open] > ul{
+  grid-template-columns:repeat(auto-fill, minmax(200px, 1fr));
+  gap:2px 32px;
+}
+@media (max-width:560px){
+  .u-piu[open] > ul{ grid-template-columns:1fr; }
+}
+.u-piu[open] > ul > li > a{ padding:5px 0; }
+
+/* le note: mai piu' strette del piede */
+.u-note{ padding-left:20px; padding-right:20px; }
+
 /* fine u-144 ============================================================== */
 /* u-144 fine */
