@@ -44,10 +44,40 @@
     fil:"Ang pahinang ito sa ibang wika", ti:"እዛ ገጽ ብኻልኦት ቋንቋታት"
   };
 
+  /* elenco di nomi, usato al contrario per riconoscere un selettore
+     che non ha hreflang: la home ne ha uno cosi', in fondo */
+  var E_LINGUA = {};
+  (function () {
+    for (var k in NOMI) { if (NOMI.hasOwnProperty(k)) E_LINGUA[NOMI[k]] = 1; }
+  })();
+
+  /* Riconoscere un selettore gia' presente non si puo' fare con un elenco
+     di classi: nel sito ce ne sono almeno sei diverse (.lang-switcher,
+     .footer-taal, .footer-lingue-lista, .sotto-menu, .lang-footer...) e
+     domani ce ne sara' una settima. Quindi guardo la forma, non il nome:
+     due o piu' collegamenti con hreflang, oppure due o piu' collegamenti
+     il cui testo e' il nome di una lingua. */
+  function haGiaSelettore() {
+    if (document.querySelector(
+        ".lang-switcher,.lang-switcher-wrap,.lang-footer,.footer-taal," +
+        ".footer-lingue-lista,.footer-lingue-tit,.u-lingue")) return true;
+
+    var corpo = document.body;
+    if (!corpo) return false;
+    if (corpo.querySelectorAll("a[hreflang]").length >= 2) return true;
+
+    var a = corpo.getElementsByTagName("a");
+    var n = 0;
+    for (var i = 0; i < a.length; i++) {
+      var t = (a[i].textContent || "").replace(/\s+/g, " ").trim();
+      if (t && E_LINGUA[t]) { n++; if (n >= 2) return true; }
+    }
+    return false;
+  }
+
   function avvia() {
     /* se la pagina ha gia' un selettore suo, non ne metto un secondo */
-    if (document.querySelector(
-        ".lang-switcher, .lang-footer, .u-lingue")) return;
+    if (haGiaSelettore()) return;
 
     var alt = document.querySelectorAll('link[rel="alternate"][hreflang]');
     if (alt.length < 2) return;
