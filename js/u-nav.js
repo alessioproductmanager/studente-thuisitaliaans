@@ -1,4 +1,4 @@
-/* u-135 — barra, piede, selettore di lingua.
+/* u-143 — barra, piede, selettore di lingua.
    Il selettore legge i <link rel="alternate" hreflang> della pagina:
    nessun elenco da mantenere a mano, e una pagina senza traduzioni non
    mostra niente invece di mostrare un menu vuoto. */
@@ -81,6 +81,29 @@
     });
   }
 
+  function montaCommutatore(bar) {
+    var sw = bar.querySelector(".u-sw");
+    if (!sw) return;
+    var b = sw.querySelector(".u-sw__b");
+    if (!b) return;
+    b.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var ap = sw.hasAttribute("data-aperto");
+      if (ap) { sw.removeAttribute("data-aperto"); b.setAttribute("aria-expanded", "false"); }
+      else    { sw.setAttribute("data-aperto", ""); b.setAttribute("aria-expanded", "true"); }
+    });
+    document.addEventListener("click", function () {
+      sw.removeAttribute("data-aperto");
+      b.setAttribute("aria-expanded", "false");
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        sw.removeAttribute("data-aperto");
+        b.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
   function montaMenu(bar) {
     var apri = bar.querySelector(".u-apri");
     if (!apri) return;
@@ -102,7 +125,7 @@
 
   function via() {
     var bar = document.querySelector(".u-bar");
-    if (bar) { montaMenu(bar); segnaCorrente(bar); }
+    if (bar) { montaCommutatore(bar); montaMenu(bar); segnaCorrente(bar); }
     var l = document.querySelectorAll("[data-u-lang]");
     for (var i = 0; i < l.length; i++) montaLingua(l[i]);
   }
