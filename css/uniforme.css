@@ -760,3 +760,45 @@ html body{ overflow-x:clip !important; }
 
 /* fine u-144 ============================================================== */
 /* u-144 fine */
+/* u-150 inizio */
+/* u-150 ===================================================================
+   Le briciole. Stessa larghezza della barra e del piede, stesso rientro,
+   stessi colori. Nessun bordo nuovo: stanno nell'aria fra la barra e il
+   titolo, e quell'aria e' l'unico segno di cui hanno bisogno.
+   ==================================================================== */
+
+.u-briciole{
+  box-sizing:border-box;
+  max-width:var(--u-max, 1100px); margin:22px auto 0; padding:0 20px;
+  font-size:.82rem; line-height:1.5; color:var(--u-tenue, #667085);
+}
+.u-briciole ol{
+  display:flex; flex-wrap:wrap; align-items:center; gap:0;
+  margin:0; padding:0; list-style:none;
+}
+.u-briciole a{
+  color:var(--u-tenue, #667085); text-decoration:none;
+  padding:2px 0; border-bottom:1px solid transparent;
+}
+.u-briciole a:hover{
+  color:var(--u-sez, #31394d); border-bottom-color:currentColor;
+}
+.u-briciole [aria-current]{ color:var(--u-sez, #31394d); font-weight:600; }
+.u-bric__s{ margin:0 9px; color:var(--u-bordo, #e6eaf2); }
+
+/* sul telefono scorrono invece di andare a capo: cosi' non spingono giu'
+   il titolo, che e' la prima cosa che deve leggersi */
+@media (max-width:640px){
+  .u-briciole{
+    margin-top:16px;
+    overflow-x:auto; -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .u-briciole::-webkit-scrollbar{ display:none; }
+  .u-briciole ol{ flex-wrap:nowrap; white-space:nowrap; }
+  .u-bric__s{ margin:0 7px; }
+}
+
+@media print{ .u-briciole{ display:none; } }
+/* fine u-150 ============================================================== */
+/* u-150 fine */
