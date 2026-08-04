@@ -329,7 +329,6 @@ summary:focus-visible,
   .u-piede{ border-top:1px solid #999; }
   a[href^="http"]::after{ content:" (" attr(href) ")";font-size:.75em; }
 }
-
 /* u-144 inizio */
 /* u-144 ===================================================================
    Il componente unico: barra, piede, selettore di lingua, CTA.
