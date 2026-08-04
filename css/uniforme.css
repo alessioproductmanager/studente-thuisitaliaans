@@ -329,3 +329,192 @@ summary:focus-visible,
   .u-piede{ border-top:1px solid #999; }
   a[href^="http"]::after{ content:" (" attr(href) ")";font-size:.75em; }
 }
+
+/* u-135 inizio */
+/* u-135 ===================================================================
+   Il componente unico: barra, piede, selettore di lingua, CTA.
+
+   Una altezza di barra (64px) invece di tre: erano 82px sulla home,
+   74px su blog ed esercizi, ~58px su lingue.
+   Una taglia di bottone (11/22) invece di due: il .button di style.css
+   era 16/30, il 45% piu' grande, proprio sulle pagine che avevano gia'
+   la barra piu' alta e il menu piu' largo.
+
+   Il colore lo porta la pagina in --u-sez, preso dal theme-color che
+   avevi gia' deciso per ogni sezione e che finora viveva solo nella
+   barra del browser su mobile.
+   ==================================================================== */
+
+:root{
+  --u-h: 64px;
+  --u-sez: #31394d;
+  --u-bordo: #e6eaf2;
+  --u-testo: #31394d;
+  --u-tenue: #667085;
+  --u-fondo: #fff;
+}
+
+/* ---------- la barra --------------------------------------------------- */
+.u-bar{
+  position:sticky; top:0; z-index:200;
+  background:rgba(255,255,255,.94);
+  -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--u-bordo);
+}
+.u-bar__in{
+  max-width:1180px; margin:0 auto; padding:0 20px;
+  height:var(--u-h);
+  display:flex; align-items:center; gap:18px;
+}
+.u-marchio{
+  display:inline-flex; align-items:center; gap:10px;
+  text-decoration:none; color:var(--u-testo); font-weight:700;
+  font-size:.98rem; white-space:nowrap; flex:0 0 auto;
+}
+.u-marchio img{ width:28px; height:28px; border-radius:8px; display:block; }
+.u-marchio b{ font-weight:400; }
+.u-marchio em{
+  font-style:normal; font-weight:600; color:var(--u-sez);
+  padding-left:10px; margin-left:2px; border-left:1px solid var(--u-bordo);
+}
+.u-menu{ display:flex; align-items:center; gap:26px; margin-left:auto; }
+.u-menu a{
+  text-decoration:none; color:var(--u-tenue);
+  font-size:.92rem; font-weight:500; white-space:nowrap;
+  padding:6px 0; border-bottom:2px solid transparent;
+}
+.u-menu a:hover, .u-menu a[aria-current]{ color:var(--u-sez); border-bottom-color:var(--u-sez); }
+
+/* la CTA: una taglia sola, ovunque */
+.u-cta{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:11px 22px; border-radius:999px;
+  background:var(--u-sez); color:#fff; text-decoration:none;
+  font-weight:600; font-size:.9rem; white-space:nowrap;
+  transition:.25s ease; flex:0 0 auto;
+}
+.u-cta:hover{ transform:translateY(-2px); box-shadow:0 10px 24px rgba(49,57,77,.16); }
+
+/* ---------- selettore di lingua ---------------------------------------- */
+.u-lang{ position:relative; flex:0 0 auto; }
+.u-lang:empty{ display:none; }
+.u-lang__b{
+  display:inline-flex; align-items:center; gap:6px;
+  padding:7px 12px; border:1px solid var(--u-bordo); border-radius:999px;
+  background:var(--u-fondo); color:var(--u-tenue);
+  font:inherit; font-size:.85rem; font-weight:600; cursor:pointer;
+}
+.u-lang__b:hover{ border-color:var(--u-sez); color:var(--u-sez); }
+.u-lang__l{
+  position:absolute; right:0; top:calc(100% + 8px);
+  min-width:190px; max-height:60vh; overflow:auto;
+  background:var(--u-fondo); border:1px solid var(--u-bordo);
+  border-radius:14px; box-shadow:0 16px 40px rgba(49,57,77,.14);
+  padding:6px; margin:0; list-style:none; display:none;
+}
+.u-lang[data-aperto] .u-lang__l{ display:block; }
+.u-lang__l a{
+  display:block; padding:8px 12px; border-radius:9px;
+  text-decoration:none; color:var(--u-testo); font-size:.9rem;
+}
+.u-lang__l a:hover{ background:#f5f7fb; }
+.u-lang__l a[aria-current]{ color:var(--u-sez); font-weight:700; }
+
+/* ---------- apertura su telefono --------------------------------------- */
+.u-apri{
+  display:none; width:40px; height:40px; margin-left:auto;
+  border:1px solid var(--u-bordo); border-radius:11px;
+  background:var(--u-fondo); cursor:pointer; padding:0;
+  align-items:center; justify-content:center; flex-direction:column; gap:4px;
+}
+.u-apri span{ display:block; width:17px; height:2px; background:var(--u-testo); border-radius:2px; }
+
+@media (max-width:900px){
+  .u-bar__in{ gap:12px; }
+  .u-apri{ display:flex; }
+  .u-menu{
+    position:absolute; left:0; right:0; top:var(--u-h);
+    flex-direction:column; align-items:stretch; gap:0; margin:0;
+    background:var(--u-fondo); border-bottom:1px solid var(--u-bordo);
+    padding:8px 20px 14px; display:none;
+  }
+  .u-bar[data-aperto] .u-menu{ display:flex; }
+  .u-menu a{ padding:12px 0; border-bottom:1px solid var(--u-bordo); }
+  .u-menu a:last-child{ border-bottom:0; }
+  .u-marchio em{ display:none; }
+  .u-cta{ padding:9px 16px; font-size:.85rem; }
+}
+@media (max-width:520px){
+  .u-marchio span{ display:none; }
+  .u-lang__b span{ display:none; }
+}
+
+/* ---------- il piede ---------------------------------------------------- */
+.u-piede{
+  margin-top:64px; padding:52px 0 0;
+  border-top:1px solid var(--u-bordo);
+  background:#fbfcfe; color:var(--u-tenue);
+  font-size:.92rem; line-height:1.6;
+}
+.u-piede__in{
+  max-width:1180px; margin:0 auto; padding:0 20px;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:34px;
+}
+.u-col h2{
+  margin:0 0 14px; font-size:.78rem; font-weight:700;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--u-testo);
+}
+.u-col ul{ list-style:none; margin:0; padding:0; }
+.u-col li{ margin:0 0 9px; }
+.u-col a{ color:var(--u-tenue); text-decoration:none; }
+.u-col a:hover{ color:var(--u-sez); }
+.u-col--app a:first-child{ color:var(--u-sez); font-weight:600; }
+
+/* le citta': tutti i link restano nell'HTML, chiusi in un dettaglio */
+.u-piu{ margin-top:12px; }
+.u-piu summary{
+  cursor:pointer; font-weight:600; color:var(--u-testo);
+  font-size:.85rem; list-style:none;
+}
+.u-piu summary::-webkit-details-marker{ display:none; }
+.u-piu summary::after{ content:" +"; color:var(--u-sez); }
+.u-piu[open] summary::after{ content:" −"; }
+.u-piu ul{ margin-top:10px; columns:2; column-gap:20px; }
+
+/* la riga di note: qui finiscono licenze, crediti e disclaimer */
+.u-note{
+  max-width:1180px; margin:40px auto 0; padding:20px 20px 30px;
+  border-top:1px solid var(--u-bordo);
+  font-size:.82rem; line-height:1.65; color:var(--u-tenue);
+}
+.u-note > * + *{ margin-top:10px; }
+.u-note a{ color:var(--u-tenue); }
+.u-note b{ color:var(--u-testo); }
+.u-note ul{ padding-left:18px; }
+.u-firma{ display:flex; flex-wrap:wrap; gap:6px 14px; align-items:baseline; }
+
+@media (max-width:820px){
+  .u-piede__in{ grid-template-columns:1fr; gap:26px; }
+  .u-piu ul{ columns:1; }
+  .u-piede{ margin-top:44px; padding-top:38px; }
+}
+
+/* ---------- la CTA nel corpo, quella mirata ---------------------------- */
+.u-appcta{
+  display:block; margin:2.5rem 0 0; padding:24px 26px;
+  background:var(--u-fondo);
+  border:1px solid var(--u-bordo); border-left:3px solid var(--u-sez);
+  border-radius:var(--radius,22px); text-decoration:none;
+  transition:.3s ease;
+}
+.u-appcta b{ display:block; margin-bottom:.45rem; font-size:1.06rem; color:var(--u-testo); }
+.u-appcta span{ display:block; margin-bottom:1rem; font-size:.95rem; color:var(--u-tenue); }
+.u-appcta i{
+  font-style:normal; font-weight:600; color:var(--u-sez);
+  border-bottom:2px solid currentColor; padding-bottom:1px;
+}
+@media (hover:hover) and (pointer:fine){
+  .u-appcta:hover{ transform:translateY(-4px); box-shadow:0 12px 35px rgba(49,57,77,.08); }
+}
+/* fine u-135 ============================================================== */
+/* u-135 fine */

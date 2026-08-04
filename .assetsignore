@@ -7,3 +7,5 @@ node_modules
 .indexnow-stato.json
 .127-titoli-originali.json
 .130-backup/
+.unifica/
+.unifica/*
