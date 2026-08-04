@@ -867,3 +867,8 @@ details.crediti-foto li{ margin-bottom:7px; }
 @media print{ details.crediti-foto{ display:none; } }
 /* fine u-159 ============================================================== */
 /* u-159 fine */
+
+
+/* Il logo nella card di destra ripete il marchio che sta gia' nella barra
+   e lascia il riquadro mezzo vuoto: restano stelle e link, che servono. */
+.sidebar-card img.sidebar-logo{ display:none; }
