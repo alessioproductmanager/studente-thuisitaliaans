@@ -779,31 +779,6 @@ html body{ overflow-x:clip !important; }
 .u-disc b{ display:block; margin-bottom:5px; color:var(--u-testo, #31394d); }
 .u-disc p{ margin:0; }
 
-
-/* Le pagine del test: durante le domande e nel referto alcuni blocchi
-   stavano fuori da .wrap e arrivavano fino al bordo dello schermo. Qui
-   do a tutti la stessa aria, rispettando la tacca dei telefoni. */
-body:has(#risultato) main > *,
-body:has(#risultato) section > .scala,
-body:has(#risultato) .numeri,
-body:has(#risultato) .corona,
-body:has(#risultato) .crediti,
-body:has(#risultato) .cart-crediti-lungo{
-  box-sizing:border-box;
-  padding-left:max(20px, env(safe-area-inset-left, 0px));
-  padding-right:max(20px, env(safe-area-inset-right, 0px));
-}
-/* ripiego per i browser senza :has() */
-.wrap, .scala, .numeri, .corona{
-  box-sizing:border-box;
-}
-@media (max-width:720px){
-  .scala, .numeri, .corona, .crediti{
-    padding-left:max(18px, env(safe-area-inset-left, 0px));
-    padding-right:max(18px, env(safe-area-inset-right, 0px));
-  }
-}
-
 /* fine u-144 ============================================================== */
 /* u-144 fine */
 /* u-150 inizio */
