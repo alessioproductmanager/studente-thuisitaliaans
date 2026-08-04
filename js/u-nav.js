@@ -1,4 +1,4 @@
-/* u-143 — barra, piede, selettore di lingua.
+/* u-144 — barra, piede, selettore di lingua.
    Il selettore legge i <link rel="alternate" hreflang> della pagina:
    nessun elenco da mantenere a mano, e una pagina senza traduzioni non
    mostra niente invece di mostrare un menu vuoto. */

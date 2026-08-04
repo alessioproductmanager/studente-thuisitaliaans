@@ -330,8 +330,8 @@ summary:focus-visible,
   a[href^="http"]::after{ content:" (" attr(href) ")";font-size:.75em; }
 }
 
-/* u-143 inizio */
-/* u-143 ===================================================================
+/* u-144 inizio */
+/* u-144 ===================================================================
    Il componente unico: barra, piede, selettore di lingua, CTA.
 
    Una altezza di barra (64px) invece di tre: erano 82px sulla home,
@@ -585,5 +585,54 @@ summary:focus-visible,
 @media (hover:hover) and (pointer:fine){
   .u-appcta:hover{ transform:translateY(-4px); box-shadow:0 12px 35px rgba(49,57,77,.08); }
 }
-/* fine u-143 ============================================================== */
-/* u-143 fine */
+
+/* ---------- rifiniture del controllo a mano ---------------------------- */
+
+/* position:sticky muore se un antenato ha overflow-x:hidden. style.css ce
+   l'ha sull'elemento radice, ed e' per questo che su alcune sezioni la barra
+   non restava in alto. clip taglia allo stesso modo ma non crea un
+   contenitore di scorrimento, quindi sticky continua a funzionare. */
+html, body{ overflow-x:clip !important; }
+
+/* la barra non deve ereditare il corpo del testo della sezione: su scuole
+   cartoline.css alza la base e la barra usciva piu' alta delle altre */
+.u-bar{ font-size:16px; line-height:1.4; }
+.u-bar *{ box-sizing:border-box; }
+
+/* le due schede in fondo agli esercizi uscivano dal contenitore e il testo
+   toccava il bordo dello schermo */
+.ex-prossimo-passo,
+.ex-back-wrap{
+  box-sizing:border-box;
+  max-width:1140px; margin-left:auto; margin-right:auto;
+}
+@media (max-width:1180px){
+  .ex-prossimo-passo, .ex-back-wrap{ width:calc(100% - 40px); }
+}
+
+/* le briciole erano attaccate al bordo sul telefono */
+.briciole{ padding-left:4vw; padding-right:4vw; }
+@media (min-width:900px){ .briciole{ padding-left:0; padding-right:0; } }
+
+/* nella riga delle note il testo di licenza del blog finiva spezzato in
+   colonne, ereditate da una regola della sezione */
+.u-note, .u-note *{
+  columns:auto !important; column-count:auto !important;
+  display:block;
+}
+.u-note a{ display:inline; }
+.u-note b, .u-note strong, .u-note i, .u-note em{ display:inline; }
+.u-note ul{ display:block; }
+.u-note li{ display:list-item; }
+
+/* la firma: su schermo stretto andava a capo lasciando il punto elenco a
+   inizio riga */
+@media (max-width:640px){
+  .u-firma{ display:block; }
+  .u-firma > *{ display:inline; }
+  .u-firma > * + *::before{ content:"  B7 "; margin:0 4px; }
+  .u-note{ padding-bottom:36px; }
+  .u-piede{ padding-bottom:8px; }
+}
+/* fine u-144 ============================================================== */
+/* u-144 fine */
