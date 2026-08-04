@@ -757,6 +757,14 @@ html body{ overflow-x:clip !important; }
   border-top:0 !important;
 }
 
+
+/* la nota della collana: sta con gli altri blocchi di legge, ma il titolo
+   dell'opera va staccato dal resto, altrimenti si legge come una frase sola */
+.u-collana{ max-width:64ch; }
+.u-collana p{ margin:0 0 8px; }
+.u-collana p:first-child{ color:var(--u-testo, #31394d); font-weight:600; }
+.u-collana__f{ margin-bottom:0 !important; opacity:.75; font-style:italic; }
+
 /* fine u-144 ============================================================== */
 /* u-144 fine */
 /* u-150 inizio */
