@@ -1,0 +1,165 @@
+
+============================================================
+  MODO: INDAGA   sito: /Users/alessio/Documents/Siti Web/studente-thuisitaliaans
+  2026-08-04 21:11
+============================================================
+
+############################################################
+#  126-cta-app.py
+############################################################
+
+126-cta-app — modo: INDAGA
+----------------------------------------------------------
+  js da patchare: blog -> app, test-livello -> app
+
+  esercizi/       706 da fare   (0 gia' a posto)
+  blog/           291 da fare   (0 gia' a posto)
+  test-livello/    14 da fare   (0 gia' a posto)
+  TOTALE         1011
+
+  Niente e' stato scritto. Per applicare:
+      python3 126-cta-app.py applica
+
+
+############################################################
+#  127-titoli.py
+############################################################
+
+127-titoli — modo: INDAGA   limite: 55 caratteri
+--------------------------------------------------------------
+  gia' entro il limite              564
+  accorciati togliendo la marca     367
+  accorciati togliendo sottotitolo   26
+  accorciati togliendo tutta coda    19
+  lasciati stare (da vedere a mano)  28
+  ----------------------------------------
+  esercizi/        291 modificati
+  blog/            121 modificati
+  TOTALE           412
+
+  Da riscrivere a mano, 28 (nessun taglio automatico sicuro):
+   109  Waarom Privé en Kleine Groepslessen de Beste Manier Zijn om Italiaans te Leren in Nederlands | thuisitaliaans
+   109  Private Italian Classes: Unlock Your Italian Language Potential with a Personalized Approach | thuisitaliaans
+   100  Private Italian Lessons: Master the Language with Customized One-on-One Instruction | thuisitaliaans
+    94  Italian Courses for Kids: Play, Learn, and Grow with Tailored Italian Lessons | thuisitaliaans
+    90  Italian Private Classes: Discover the Advantages of Personalized Learning | thuisitaliaans
+    88  Private Italian Course: Exclusive, Tailored Education for Every Learner | thuisitaliaans
+    85  Immerse Yourself in Italian Culture with Customized Language Classes | thuisitaliaans
+    84  Leer overal Italiaans: online lessen en fysieke lessen in Amsterdam | thuisitaliaans
+    83  Valse vrienden: Italiaanse woorden die niet betekenen wat je denkt | thuisitaliaans
+    82  Learn Italian: Comprehensive Guide to Fast and Effective Learning | thuisitaliaans
+    82  CILS, CELI of PLIDA? Zo kies je het juiste Italiaanse certificaat | thuisitaliaans
+    80  Veelgestelde vragen over Italiaans leren in Amsterdam en online | thuisitaliaans
+        ... e altri 16
+
+  Niente e' stato scritto.
+      python3 127-titoli.py --elenco     per vedere ogni cambio
+      python3 127-titoli.py applica
+
+
+############################################################
+#  128-banner-app.py
+############################################################
+
+128-banner-app — modo: INDAGA   app-id=6791650799
+----------------------------------------------------------
+  2770 pagine da fare
+  0 gia' fatte da questo script
+  1 avevano gia' un banner loro (non toccate)
+
+      esercizi                     704
+      lingue                       303
+      blog                         298
+      scuole                       110
+      scuole/pl                    110
+      scuole/nl                    110
+      scuole/de                    110
+      scuole/fr                    110
+      scuole/es                    110
+      scuole/en                    110
+      scuole/pl/citta               56
+      scuole/citta                  56
+      ... e altre 21 cartelle
+
+  Niente e' stato scritto.
+      python3 128-banner-app.py applica
+
+
+############################################################
+#  129-occhiello.py
+############################################################
+
+129-occhiello — modo: INDAGA
+----------------------------------------------------------
+  CSS: 1178 pagine da fare
+
+  Traduzioni (181 pagine, 447 occorrenze):
+      ar      63   نصف مسار A1 متاح بدون تسجيل
+      zh      63   A1 课程已开放一半，无需注册
+      uk      61   Половина курсу A1 відкрита, без реєстрації
+      bn      56   A1 কোর্সের অর্ধেক উন্মুক্ত, নিবন্ধন ছাড়াই
+      ti      54   ፍርቂ መገዲ A1 ክፉት እዩ፡ ብዘይ ምዝገባ
+      sq      47   Gjysma e rrugëtimit A1 është e hapur, pa regjistrim
+      fil     40   Bukas na ang kalahati ng A1, walang sign-up
+      ro      32   Jumătate din parcursul A1 este deschisă, fără înregistrare
+      pt      31   Metade do percurso A1 está aberta, sem registo
+
+  Niente e' stato scritto.
+      python3 129-occhiello.py applica
+
+
+############################################################
+#  130-riparazioni.py
+############################################################
+
+130-riparazioni — modo: INDAGA
+--------------------------------------------------------------
+  DOCUMENTI ANNIDATI
+      blog/navigating-italian-language-learning-home-vs-abroad.html
+          1 documento/i estraneo/i, 5065 caratteri da togliere
+          title intruso:     Italian Classes Near Me | thuisitaliaans
+          canonical intruso: /why-thuis-italiaans   <-- dannoso
+      blog/navigating-italian-learning-courses.html
+          1 documento/i estraneo/i, 16132 caratteri da togliere
+          title intruso:     Italian Classes Near Me | thuisitaliaans
+
+  TESTA INCOMPLETA
+      blog/come-la-pandemia-ha-cambiato-gli-italiani.html
+          manca: title, description
+          title:       Come la pandemia ha cambiato gli italiani
+          description: Abitudini più green, più vita digitale, un rapporto nuovo con il lavor
+
+  DA FARE A MANO (nessuno script puo' farlo)
+      blog/navigating-italian-learning-courses.html
+          tolto l'intruso resta un guscio senza articolo.
+          O riscrivi il corpo, o mettilo in 301 verso
+          blog/near-by-me-italian-classes, che e' la pagina
+          da cui il contenuto era stato copiato.
+
+  Niente e' stato scritto.
+      python3 130-riparazioni.py applica
+
+
+############################################################
+#  131-proposta-lingua.py
+############################################################
+
+131-proposta-lingua — modo: INDAGA
+----------------------------------------------------------
+  x       -> vale solo per la sessione (torna alla visita dopo)
+  Non ora -> vale 30 giorni
+  vecchio "1" eterno -> ripulito al primo caricamento
+
+  pagine che caricano lo script: 1747
+
+  Niente e' stato scritto.
+      python3 131-proposta-lingua.py applica
+
+
+============================================================
+  Tutti gli script sono andati a buon fine.
+
+  Niente e' stato scritto. Quando i numeri ti convincono:
+      /Users/alessio/Documents/Siti Web/studente-thuisitaliaans/tutti.sh applica
+============================================================
+

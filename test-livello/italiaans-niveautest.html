@@ -1289,7 +1289,7 @@ body.in-prova .proposta-lingua{bottom:88px}
 @media print{ .proposta-lingua{display:none!important} }
 
 /* ============================================================
-   /* 117-PROFILO */  IMPAGINAZIONE DEFINITIVA DEL PROFILO
+   117-PROFILO  IMPAGINAZIONE DEFINITIVA DEL PROFILO
    Il PDF usciva male stampato dal telefono: li' la pagina non e' larga 700
    punti ma 390, e ogni griglia a colonne fisse usciva dal foglio. I riquadri
    venivano tranciati sul bordo destro ("DA LEGGER") e le etichette corte
@@ -1403,7 +1403,7 @@ body.in-prova .proposta-lingua{bottom:88px}
 }
 
 /* ============================================================
-   /* 118-PROPOSTE */  LE TRE PROPOSTE
+   118-PROPOSTE  LE TRE PROPOSTE
    Soglia a 250 punti: due colonne solo se il foglio le regge davvero. Sotto,
    una sola colonna a tutta larghezza. E nessuna delle tre si spezza fra due
    pagine: una card tagliata a meta' non si legge e non si clicca.
@@ -1420,7 +1420,7 @@ body.in-prova .proposta-lingua{bottom:88px}
 }
 
 /* ============================================================
-   /* 119-CORPO */  SEZIONE PER INTENTO
+   119-CORPO  SEZIONE PER INTENTO
    Chi cerca "test di livello" lo fa per la cittadinanza, per lavoro, per
    studio o per passione: sono quattro bisogni diversi, e la pagina deve
    rispondere a tutti e quattro con parole loro.
@@ -1432,7 +1432,57 @@ body.in-prova .proposta-lingua{bottom:88px}
 .intenti b{display:block;font-family:var(--serif);font-size:1.05rem;
   color:var(--verde-scuro);margin-bottom:6px}
 .intenti span{font-size:.94rem;line-height:1.5;color:var(--secondario)}
+
+/* ============================================================
+   121-LINGUA  NIENTE SI SPEZZA, E IL DISCO TIENE LA PAROLA DENTRO
+   Le card e la biografia venivano tagliate fra due pagine: "Plan je gratis
+   proefles" restava su una pagina e il pulsante sull'altra. break-inside sui
+   figli di una griglia il motore di stampa lo rispetta poco, quindi le tre
+   proposte non sono piu' celle di griglia: sono blocchi, e un blocco intero
+   passa alla pagina dopo tutto insieme.
+   ============================================================ */
+.pf-offerta{display:block;margin-bottom:12px}
+.pf-coppia{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:10px}
+.pf-coppia > div{flex:1 1 300px;min-width:0;display:flex;flex-direction:column;
+  border-radius:10px}
+.pf-lezioni{display:block;border-radius:10px}
+.pf-offerta > div,.pf-coppia > div,.pf-lezioni,.pf-alessio,.pf-bio-blocco{
+  break-inside:avoid!important;page-break-inside:avoid!important}
+
+/* la biografia a meta' documento, staccata dal resto da una linea sottile */
+.pf-bio-blocco{border-top:1px solid #DEE9DE;padding-top:11px;margin-bottom:15px}
+.pf-bio-blocco .pf-alessio{grid-template-columns:60px 1fr;gap:12px;margin:0}
+
+/* il disco: "livello" usciva dal cerchio */
+.pf-disco{width:100px;height:100px;padding:0 6px}
+.pf-disco b{font-size:27pt}
+.pf-disco span{font-size:5pt;letter-spacing:.06em;white-space:nowrap;margin-top:2px}
+
+/* le cose saltate: stessa griglia della grammatica */
+.pf-saltate{margin-bottom:13px;break-inside:avoid;page-break-inside:avoid}
+.pf-saltate .pf-gt-voce em{color:#8A6D3B}
+
+@media print{
+  .pf-disco{width:94px;height:94px}
+  .pf-disco b{font-size:25pt}
+  .pf-coppia{gap:9px}
+  .pf-bio-blocco{margin-bottom:13px}
+}
+
+/* 122-CARD  le due proposte affiancate, e il contenitore non e' una card
+   Il contenitore ereditava padding, bordo e direzione a colonna dalla regola
+   .pf-offerta > div, che vale per i figli diretti: era diventato una scatola
+   dentro la scatola. Qui e' solo un contenitore. */
+.pf-offerta{display:block!important}
+.pf-coppia{display:flex!important;flex-direction:row!important;flex-wrap:wrap;
+  gap:10px;padding:0!important;background:none!important;border:0!important;
+  box-shadow:none!important;border-radius:0!important;margin-bottom:10px}
+.pf-coppia > div{flex:1 1 300px;min-width:0;display:flex;flex-direction:column;
+  border-radius:10px}
+.pf-lezioni{display:block!important;width:auto}
 </style>
+<!-- 128-banner-app -->
+<meta name="apple-itunes-app" content="app-id=6791650799, app-argument=https://thuisitaliaans.com/test-livello/italiaans-niveautest">
 </head>
 <body>
 
@@ -1649,11 +1699,6 @@ body.in-prova .proposta-lingua{bottom:88px}
     </div>
   </section>
 
-  <section class="pf-diagnosi">
-    <h3>Dove sei forte, dove no</h3>
-    <div id="pf-barre" class="pf-barre-doppie"></div>
-    <p class="pf-nota" id="pf-nota-stop"></p>
-  </section>
 
   <section class="pf-valutazione">
     <h3 id="pf-val-eti">Valutazione complessiva e consigli</h3>
@@ -1665,14 +1710,26 @@ body.in-prova .proposta-lingua{bottom:88px}
   </section>
 
   <section class="pf-scritto-box">
-    <h3>La tua produzione scritta</h3>
+    <h3 id="pf-scritto-tit">La tua produzione scritta</h3>
     <div id="pf-scritto"></div>
-    <p class="pf-scritto-nota">Testo acquisito cos&igrave; com'&egrave;. La produzione scritta non viene corretta automaticamente: una valutazione vera richiede un insegnante, che guarda scelta delle parole, coerenza e registro, non solo gli errori.</p>
+    <p class="pf-scritto-nota" id="pf-scritto-nota"></p>
+  </section>
+
+  <section class="pf-bio-blocco">
+    <div class="pf-alessio">
+      <img src="/assets/alessio.png" alt="Alessio" class="pf-avatar">
+      <div>
+        <h3 style="margin-top:0" id="pf-bio-tit">Chi ha scritto questo test</h3>
+        <p id="pf-bio-1"></p>
+        <p class="pf-nota" id="pf-bio-2"></p>
+      </div>
+    </div>
   </section>
 
   <section class="pf-firma-blocco">
     <p class="pf-offerta-eti" id="pf-off-eti">Per continuare</p>
     <div class="pf-offerta">
+      <div class="pf-coppia">
       <div class="pf-app">
         <p class="pf-tag-app"><span class="pf-mela">&#63743;</span> App Store <span class="pf-stelline">&#9733;&#9733;&#9733;&#9733;&#9733;</span></p>
         <b id="pf-app-t">Ti, l'app per iPhone e iPad</b>
@@ -1686,6 +1743,7 @@ body.in-prova .proposta-lingua{bottom:88px}
         <span class="pf-cta" id="pf-libri-c">Vedi i libri del tuo livello &rarr;</span>
         <span class="pf-dove">thuisitaliaans.com/libri</span>
       </div>
+      </div>
       <div class="pf-lezioni">
         <b id="pf-lez-t">Lezioni individuali</b>
         <p id="pf-lez-p">Online o in presenza fra Ede e Amsterdam. La prima lezione &egrave; di prova.</p>
@@ -1693,47 +1751,26 @@ body.in-prova .proposta-lingua{bottom:88px}
         <span class="pf-dove">thuisitaliaans.com/it/#contact</span>
       </div>
     </div>
-
-    <div class="pf-alessio">
-      <img src="/assets/alessio.png" alt="Alessio" class="pf-avatar">
-      <div>
-        <h3 style="margin-top:0" id="pf-bio-tit">Chi ha scritto questo test</h3>
-        <p id="pf-bio-1"><b>Alessio</b> insegna italiano a stranieri. Doppia laurea
-        magistrale in didattica dell'italiano a stranieri: ITALS, Ca' Foscari Venezia,
-        e Universit&agrave; Giustino Fortunato. Fa lezione online e in presenza nei Paesi
-        Bassi, fra Ede e Amsterdam.</p>
-        <p class="pf-nota" id="pf-bio-2">Testi, domande e brani sono originali, scritti per questo test. Non provengono da prove d'esame n&eacute; da materiali di terzi.</p>
-      </div>
-    </div>
   </section>
 
   <section class="pf-gramm" id="pf-gramm">
-    <h3>La grammatica di questo test</h3>
+    <h3 id="pf-gramm-tit">La grammatica di questo test</h3>
     <p class="pf-gt-intro" id="pf-gt-intro"></p>
     <div class="pf-gt-griglia" id="pf-gt-griglia"></div>
     <p class="pf-gt-rivedi" id="pf-gt-rivedi"></p>
   </section>
 
+
+  <section class="pf-saltate" id="pf-saltate">
+    <h3 id="pf-salt-tit">Che cosa hai saltato</h3>
+    <p class="pf-gt-intro" id="pf-salt-intro"></p>
+    <div class="pf-gt-griglia" id="pf-salt-griglia"></div>
+  </section>
+
   <div class="pf-metodo">
     <h4 id="pf-met-tit">Metodo e riferimenti</h4>
-    <ul>
-      <li><b>Scala dei livelli</b> &mdash; Quadro comune europeo di riferimento per
-      le lingue, Consiglio d'Europa, 2001; volume complementare 2020.</li>
-      <li><b>Stima del vocabolario</b> &mdash; fasce di frequenza secondo
-      I.S.P. Nation, <i>How Large a Vocabulary Is Needed for Reading and
-      Listening?</i>, The Canadian Modern Language Review, 63(1), 2006.</li>
-      <li><b>Soglia di comprensione</b> &mdash; 98% delle parole note per la lettura
-      senza aiuto: Hu &amp; Nation, <i>Reading in a Foreign Language</i>, 13(1), 2000.</li>
-      <li><b>Testi e domande</b> &mdash; originali, scritti per questo test. Non
-      provengono da prove d'esame n&eacute; da materiali di terzi.</li>
-    </ul>
-    <p class="pf-limite" id="pf-limite"><b>Che cosa non &egrave;.</b> Un'autovalutazione
-    orientativa da 24 domande a scelta multipla pi&ugrave; una prova scritta non
-    corretta. Non &egrave; una certificazione e non ha valore legale. Le certificazioni
-    di italiano riconosciute dallo Stato italiano sono <b>CILS</b> (Universit&agrave;
-    per Stranieri di Siena), <b>CELI</b> (Universit&agrave; per Stranieri di Perugia),
-    <b>PLIDA</b> (Societ&agrave; Dante Alighieri) e <b>CERT.IT</b> (Universit&agrave; Roma
-    Tre), e si conseguono solo con un esame sostenuto in sede.</p>
+    <ul id="pf-met-lista"></ul>
+    <p class="pf-limite" id="pf-limite"></p>
     <p class="pf-sito">thuisitaliaans.com</p>
   </div>
 </div>
@@ -2653,6 +2690,18 @@ function traduciProfilo(){
   }
 }
 
+var DOC_LG = {
+ it:{scrittoTit:"La tua produzione scritta",scrittoNota:"Testo acquisito così com'è. La produzione scritta non viene corretta automaticamente: una valutazione vera richiede un insegnante, che guarda scelta delle parole, coerenza e registro, non solo gli errori.",scrittoVuoto:"(prova non svolta)",grammTit:"La grammatica di questo test",grammIntro:"Le %d frasi di grammatica che ti sono state proposte, con l'argomento di ciascuna. Le domande dei livelli oltre il tuo non compaiono: il test si ferma quando il livello è deciso.",rivedi:"Da rivedere:",nessunErr:"<b>Nessun errore</b> sulle frasi proposte: la grammatica non è il tuo freno.",saltTit:"Che cosa hai saltato",saltIntro:"Queste parti non sono state svolte, quindi non entrano nel calcolo. Rifarle cambia la stima.",etGram:"grammatica",etLett:"comprensione",etVoc:"vocabolario, fascia %s",etScritto:"produzione scritta",nonSvolta:"non svolta",metTit:"Metodo e riferimenti",met:["<b>Scala dei livelli</b> — Quadro comune europeo di riferimento per le lingue, Consiglio d'Europa, 2001; volume complementare 2020.","<b>Stima del vocabolario</b> — fasce di frequenza secondo I.S.P. Nation, <i>How Large a Vocabulary Is Needed for Reading and Listening?</i>, The Canadian Modern Language Review, 63(1), 2006.","<b>Soglia di comprensione</b> — 98% delle parole note per la lettura senza aiuto: Hu &amp; Nation, <i>Reading in a Foreign Language</i>, 13(1), 2000.","<b>Testi e domande</b> — originali, scritti per questo test. Non provengono da prove d'esame né da materiali di terzi."],limite:"<b>Che cosa non è.</b> Un'autovalutazione orientativa da 24 domande a scelta multipla più una prova scritta non corretta. Non è una certificazione e non ha valore legale. Le certificazioni di italiano riconosciute dallo Stato italiano sono <b>CILS</b> (Università per Stranieri di Siena), <b>CELI</b> (Università per Stranieri di Perugia), <b>PLIDA</b> (Società Dante Alighieri) e <b>CERT.IT</b> (Università Roma Tre), e si conseguono solo con un esame sostenuto in sede."},
+ en:{scrittoTit:"Your writing",scrittoNota:"The text appears exactly as you wrote it. Writing is not corrected automatically: a real assessment needs a teacher, who looks at word choice, coherence and register, not only at mistakes.",scrittoVuoto:"(not attempted)",grammTit:"The grammar in this test",grammIntro:"The %d grammar sentences you were given, with the topic of each. Questions above your level do not appear: the test stops once the level is decided.",rivedi:"To review:",nessunErr:"<b>No mistakes</b> on the sentences you were given: grammar is not what is holding you back.",saltTit:"What you skipped",saltIntro:"These parts were not completed, so they do not count towards the result. Doing them changes the estimate.",etGram:"grammar",etLett:"reading",etVoc:"vocabulary, band %s",etScritto:"writing task",nonSvolta:"not attempted",metTit:"Method and references",met:["<b>The level scale</b> — Common European Framework of Reference for Languages, Council of Europe, 2001; companion volume 2020.","<b>Vocabulary estimate</b> — frequency bands after I.S.P. Nation, <i>How Large a Vocabulary Is Needed for Reading and Listening?</i>, The Canadian Modern Language Review, 63(1), 2006.","<b>Comprehension threshold</b> — 98% of words known for unaided reading: Hu &amp; Nation, <i>Reading in a Foreign Language</i>, 13(1), 2000.","<b>Texts and questions</b> — original, written for this test. They do not come from exam papers or third-party material."],limite:"<b>What this is not.</b> A self-assessment for orientation: 24 multiple-choice questions plus one uncorrected writing task. It is not a certificate and has no legal value. The Italian certificates recognised by the Italian state are <b>CILS</b> (Università per Stranieri di Siena), <b>CELI</b> (Università per Stranieri di Perugia), <b>PLIDA</b> (Società Dante Alighieri) and <b>CERT.IT</b> (Università Roma Tre), and they are taken in person at an authorised centre."},
+ nl:{scrittoTit:"Je schrijfopdracht",scrittoNota:"De tekst staat er precies zoals je hem schreef. Schrijven wordt niet automatisch nagekeken: een echte beoordeling vraagt om een docent, die kijkt naar woordkeuze, samenhang en register, niet alleen naar fouten.",scrittoVuoto:"(niet gemaakt)",grammTit:"De grammatica in deze test",grammIntro:"De %d grammaticazinnen die je kreeg, met het onderwerp van elke zin. Vragen boven je niveau staan er niet bij: de test stopt zodra het niveau vaststaat.",rivedi:"Nog eens bekijken:",nessunErr:"<b>Geen fouten</b> op de gestelde zinnen: grammatica is niet je rem.",saltTit:"Wat je hebt overgeslagen",saltIntro:"Deze onderdelen zijn niet gemaakt en tellen dus niet mee in de uitslag. Alsnog doen verandert de schatting.",etGram:"grammatica",etLett:"leesvaardigheid",etVoc:"woordenschat, groep %s",etScritto:"schrijfopdracht",nonSvolta:"niet gemaakt",metTit:"Methode en bronnen",met:["<b>De niveauschaal</b> — Europees Referentiekader voor Talen, Raad van Europa, 2001; aanvullend deel 2020.","<b>Schatting van de woordenschat</b> — frequentiegroepen volgens I.S.P. Nation, <i>How Large a Vocabulary Is Needed for Reading and Listening?</i>, The Canadian Modern Language Review, 63(1), 2006.","<b>Drempel voor begrip</b> — 98% van de woorden bekend om zonder hulp te lezen: Hu &amp; Nation, <i>Reading in a Foreign Language</i>, 13(1), 2000.","<b>Teksten en vragen</b> — origineel, geschreven voor deze test. Ze komen niet uit examenbundels of materiaal van derden."],limite:"<b>Wat dit niet is.</b> Een zelftest ter oriëntatie: 24 meerkeuzevragen plus één niet-nagekeken schrijfopdracht. Het is geen certificaat en heeft geen juridische waarde. De door de Italiaanse staat erkende certificaten zijn <b>CILS</b> (Università per Stranieri di Siena), <b>CELI</b> (Università per Stranieri di Perugia), <b>PLIDA</b> (Società Dante Alighieri) en <b>CERT.IT</b> (Università Roma Tre), en die leg je persoonlijk af bij een erkend centrum."},
+ de:{scrittoTit:"Ihr geschriebener Text",scrittoNota:"Der Text steht genau so, wie Sie ihn geschrieben haben. Er wird nicht automatisch korrigiert: eine echte Bewertung braucht eine Lehrkraft, die auf Wortwahl, Kohärenz und Register schaut, nicht nur auf Fehler.",scrittoVuoto:"(nicht bearbeitet)",grammTit:"Die Grammatik in diesem Test",grammIntro:"Die %d Grammatiksätze, die Ihnen gestellt wurden, mit dem jeweiligen Thema. Fragen oberhalb Ihrer Stufe erscheinen nicht: der Test endet, sobald die Stufe feststeht.",rivedi:"Zu wiederholen:",nessunErr:"<b>Kein Fehler</b> bei den gestellten Sätzen: die Grammatik bremst Sie nicht.",saltTit:"Was Sie übersprungen haben",saltIntro:"Diese Teile wurden nicht bearbeitet und zählen daher nicht ins Ergebnis. Wer sie nachholt, verändert die Schätzung.",etGram:"Grammatik",etLett:"Leseverstehen",etVoc:"Wortschatz, Stufe %s",etScritto:"Schreibaufgabe",nonSvolta:"nicht bearbeitet",metTit:"Methode und Quellen",met:["<b>Die Stufenskala</b> — Gemeinsamer Europäischer Referenzrahmen für Sprachen, Europarat, 2001; Begleitband 2020.","<b>Wortschatzschätzung</b> — Frequenzstufen nach I.S.P. Nation, <i>How Large a Vocabulary Is Needed for Reading and Listening?</i>, The Canadian Modern Language Review, 63(1), 2006.","<b>Verstehensschwelle</b> — 98% der Wörter bekannt für das Lesen ohne Hilfe: Hu &amp; Nation, <i>Reading in a Foreign Language</i>, 13(1), 2000.","<b>Texte und Fragen</b> — Originale, für diesen Test geschrieben. Sie stammen nicht aus Prüfungsunterlagen oder Material Dritter."],limite:"<b>Was das nicht ist.</b> Eine Selbsteinschätzung zur Orientierung: 24 Multiple-Choice-Fragen und eine nicht korrigierte Schreibaufgabe. Es ist kein Zertifikat und hat keine Rechtswirkung. Die vom italienischen Staat anerkannten Zertifikate sind <b>CILS</b> (Università per Stranieri di Siena), <b>CELI</b> (Università per Stranieri di Perugia), <b>PLIDA</b> (Società Dante Alighieri) und <b>CERT.IT</b> (Università Roma Tre); sie werden in Präsenz an einem autorisierten Zentrum abgelegt."}
+};
+
+function docLingua(){
+  var lg=(document.documentElement.lang||"it").slice(0,2);
+  return DOC_LG[lg] || DOC_LG.en;
+}
+
 function calcola(){
   var gram=[],lett=[];
   GRAMMATICA.forEach(function(q,i){
@@ -2742,26 +2791,12 @@ function calcola(){
     return s+".";
   }
 
-  /* ogni competenza dentro la sua colonna: la griglia ne mette due affiancate
-     se il foglio e' largo, una sotto l'altra se e' stretto (stampa da telefono) */
-  function colonna(html){ return html ? "<div class='pf-barre-col'>"+html+"</div>" : ""; }
-  document.getElementById("pf-barre").innerHTML=
-    colonna(barre(GRAMMATICA,risposte.gram,"Grammatica"))+
-    colonna(barre(LETTURE,risposte.lett,"Comprensione"));
 
-  /* se la prova si e' fermata presto, il documento lo dice: altrimenti un
-     "0/1" sembra un errore invece di una prova interrotta a ragione */
-  var ng=Object.keys(risposte.gram).length, nl=Object.keys(risposte.lett).length;
-  document.getElementById("pf-nota-stop").textContent=
-    (ng<GRAMMATICA.length||nl<LETTURE.length)
-      ? "La prova si è fermata ai primi livelli: le domande più difficili non sono state poste, perché non avrebbero cambiato il risultato."
-      : "";
-
-  /* ---- la grammatica vista nel test, frase per frase ----
-     Il consiglio generico l'ha gia' dato la valutazione: qui serve la cosa che
-     nessun'altra parte del documento dice, cioe' su che cosa si e' sbagliato. */
+  /* ---- la grammatica vista nel test, e quello che e' stato saltato ----
+     Dalla produzione scritta in giu' il documento parla la lingua dello
+     studente: e' la parte che deve essere capita, non quella che deve pesare. */
   (function(){
-    var righe="",ko=[],n=0;
+    var D=docLingua(), righe="", ko=[], n=0;
     GRAMMATICA.forEach(function(q,i){
       var r=risposte.gram[i];
       if(r===undefined)return;
@@ -2772,15 +2807,45 @@ function calcola(){
         "<span>"+tema+"</span><em>"+(giusta?"\u2713":"\u2715")+"</em></div>";
     });
     var sez=document.getElementById("pf-gramm");
-    if(!n){ sez.style.display="none"; return; }
-    sez.style.display="";
-    document.getElementById("pf-gt-intro").textContent=
-      "Le "+n+" frasi di grammatica che ti sono state proposte, con l'argomento di ciascuna. "+
-      "Le domande dei livelli oltre il tuo non compaiono: il test si ferma quando il livello \u00e8 deciso.";
-    document.getElementById("pf-gt-griglia").innerHTML=righe;
-    document.getElementById("pf-gt-rivedi").innerHTML = ko.length
-      ? "<b>Da rivedere:</b> "+ko.join(", ")+"."
-      : "<b>Nessun errore</b> sulle frasi proposte: la grammatica non \u00e8 il tuo freno.";
+    if(!n){ sez.style.display="none"; }
+    else {
+      sez.style.display="";
+      document.getElementById("pf-gramm-tit").textContent=D.grammTit;
+      document.getElementById("pf-gt-intro").textContent=D.grammIntro.replace("%d",n);
+      document.getElementById("pf-gt-griglia").innerHTML=righe;
+      document.getElementById("pf-gt-rivedi").innerHTML =
+        ko.length ? "<b>"+D.rivedi+"</b> "+ko.join(", ")+"." : D.nessunErr;
+    }
+
+    /* saltato non e' sbagliato: e' fuori dal calcolo, e va detto */
+    var salt="";
+    passi.forEach(function(p){
+      if(saltare(p))return;                       /* non e' stata proposta */
+      if(p.tipo==="gram" && risposte.gram[p.i]===undefined)
+        salt+="<div class='pf-gt-voce'><i>"+p.liv+"</i><span>"+
+          (GRAMMATICA[p.i].tema||D.etGram)+"</span><em>"+D.etGram+"</em></div>";
+      if(p.tipo==="lett" && risposte.lett[p.i]===undefined)
+        salt+="<div class='pf-gt-voce'><i>"+p.liv+"</i><span>"+D.etLett+
+          "</span><em>"+D.nonSvolta+"</em></div>";
+      if(p.tipo==="voc"){
+        var v=risposte.voc[p.i];
+        if(!v || !v.length)
+          salt+="<div class='pf-gt-voce'><i>&mdash;</i><span>"+
+            D.etVoc.replace("%s",VOCABOLARIO[p.i].fascia.toLocaleString())+
+            "</span><em>"+D.nonSvolta+"</em></div>";
+      }
+      if(p.tipo==="scritto" && !scritto.trim())
+        salt+="<div class='pf-gt-voce'><i>&mdash;</i><span>"+D.etScritto+
+          "</span><em>"+D.nonSvolta+"</em></div>";
+    });
+    var ss=document.getElementById("pf-saltate");
+    if(!salt){ ss.style.display="none"; }
+    else {
+      ss.style.display="";
+      document.getElementById("pf-salt-tit").textContent=D.saltTit;
+      document.getElementById("pf-salt-intro").textContent=D.saltIntro;
+      document.getElementById("pf-salt-griglia").innerHTML=salt;
+    }
   })();
 
   /* il nome sta gia' in testata: un secondo titolo grande col nome dello
@@ -2800,10 +2865,16 @@ function calcola(){
     " Il livello complessivo è il più basso fra i due, perché nella lingua è la "+
     "competenza più debole a frenare.";
   /* il testo si taglia: un muro di caratteri fa sembrare il documento sciatto */
-  var sc=scritto.trim();
+  var D2=docLingua(), sc=scritto.trim();
+  document.getElementById("pf-scritto-tit").textContent=D2.scrittoTit;
+  document.getElementById("pf-scritto-nota").textContent=D2.scrittoNota;
   document.getElementById("pf-scritto").textContent=
     sc ? (sc.length>420 ? sc.slice(0,420).replace(/\s+\S*$/,"")+"…" : sc)
-       : "(prova non svolta)";
+       : D2.scrittoVuoto;
+  document.getElementById("pf-met-tit").textContent=D2.metTit;
+  document.getElementById("pf-met-lista").innerHTML=
+    D2.met.map(function(x){return "<li>"+x+"</li>";}).join("");
+  document.getElementById("pf-limite").innerHTML=D2.limite;
 
   document.getElementById("motore").classList.add("nascosto");
   document.getElementById("risultato").classList.remove("nascosto");
@@ -2984,5 +3055,7 @@ var ALTRE_LINGUE = {
 {"@type":"Question","name":"Hoeveel uur kost het om B1 te halen?","acceptedAnswer":{"@type":"Answer","text":"De Raad van Europa gaat uit van ruwweg 350 tot 400 uur begeleide studie vanaf nul. Lezen en luisteren buiten de les korten dat flink in."}},
 {"@type":"Question","name":"Kan ik de test opnieuw doen?","acceptedAnswer":{"@type":"Answer","text":"Ja, en de tweede keer krijg je andere vragen: er zijn drie versies die elkaar afwisselen."}}]}
 </script>
+<!-- 126-cta-app -->
+<script src="/js/ti-cta.js" defer></script>
 </body>
 </html>

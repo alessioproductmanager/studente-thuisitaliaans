@@ -41,12 +41,46 @@
   var RTL = ["ar"];
   var CHIAVE = "lingua-proposta-chiusa";
 
+  /* 131-proposta-lingua */
+  /* La x e il "Non ora" non vogliono dire la stessa cosa, quindi non
+     valgono la stessa cosa. La x dura una sessione: chi la preme per
+     sbaglio ritrova la proposta alla visita dopo. "Non ora" dura 30
+     giorni: e' una scelta, e va rispettata, ma non per sempre.
+     Il vecchio valore "1" era eterno: lo puliamo, cosi' chi era
+     rimasto bloccato torna a vedere la proposta. */
+  var GIORNI = 30;
+
+  function zitta() {
+    try {
+      if (sessionStorage.getItem(CHIAVE) === "1") return true;
+    } catch (e) {}
+    try {
+      var v = localStorage.getItem(CHIAVE);
+      if (!v) return false;
+      if (v === "1") { localStorage.removeItem(CHIAVE); return false; }
+      var fino = parseInt(v, 10);
+      if (!fino || Date.now() > fino) { localStorage.removeItem(CHIAVE); return false; }
+      return true;
+    } catch (e) { return false; }
+  }
+
+  function taci(perSempre) {
+    try {
+      if (perSempre) {
+        localStorage.setItem(CHIAVE,
+          String(Date.now() + GIORNI * 86400000));
+      } else {
+        sessionStorage.setItem(CHIAVE, "1");
+      }
+    } catch (e) {}
+  }
+
   function avvia() {
     var pagina = (document.documentElement.lang || "").slice(0, 2).toLowerCase();
     var browser = (navigator.language || "").slice(0, 2).toLowerCase();
     if (!pagina || !browser || browser === pagina) return;
     if (!FRASI[browser]) return;
-    try { if (localStorage.getItem(CHIAVE) === "1") return; } catch (e) {}
+    if (zitta()) return;
 
     /* le versioni le dichiara la pagina, non io */
     var alt = document.querySelector(
@@ -79,13 +113,17 @@
     si.setAttribute("hreflang", browser);
     box.querySelector(".pl-no").textContent = d.c;
 
-    function chiudi() {
+    function chiudi(perSempre) {
       box.classList.add("pl-via");
       setTimeout(function () { if (box.parentNode) box.remove(); }, 260);
-      try { localStorage.setItem(CHIAVE, "1"); } catch (e) {}
+      taci(perSempre);
     }
-    box.querySelector(".pl-x").addEventListener("click", chiudi);
-    box.querySelector(".pl-no").addEventListener("click", chiudi);
+    box.querySelector(".pl-x").addEventListener("click", function () {
+      chiudi(false);   /* solo questa sessione */
+    });
+    box.querySelector(".pl-no").addEventListener("click", function () {
+      chiudi(true);    /* 30 giorni */
+    });
     document.body.appendChild(box);
     setTimeout(function () { box.classList.add("pl-entra"); }, 700);
   }
