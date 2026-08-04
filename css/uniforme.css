@@ -765,6 +765,20 @@ html body{ overflow-x:clip !important; }
 .u-collana p:first-child{ color:var(--u-testo, #31394d); font-weight:600; }
 .u-collana__f{ margin-bottom:0 !important; opacity:.75; font-style:italic; }
 
+
+/* TROVATO. Le pagine scuola hanno nello <style> in linea:
+       header{padding:16px 0;border-bottom:1px solid var(--linea)}
+   Io su .u-bar la proprieta' padding non la dichiaravo affatto, e una
+   regola che non c'e' non vince per specificita': vinceva quella. Da qui
+   i 32px in piu' di altezza, 64 che diventavano 96. Ora la dichiaro. */
+.u-bar{ padding:0 !important; }
+.u-bar__in{ min-height:var(--u-h); }
+
+/* il disclaimer di sezione */
+.u-disc{ max-width:70ch; }
+.u-disc b{ display:block; margin-bottom:5px; color:var(--u-testo, #31394d); }
+.u-disc p{ margin:0; }
+
 /* fine u-144 ============================================================== */
 /* u-144 fine */
 /* u-150 inizio */
