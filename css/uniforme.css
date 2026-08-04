@@ -750,5 +750,13 @@ html body{ overflow-x:clip !important; }
   .u-badge img{ height:30px; }
 }
 
+
+/* i distintivi stanno fra le colonne e la firma: niente filetto sopra, che
+   ce l'ha gia' .u-note, e un po' d'aria sotto */
+.u-badge{
+  margin:0 0 22px !important; padding-top:0 !important;
+  border-top:0 !important;
+}
+
 /* fine u-144 ============================================================== */
 /* u-144 fine */
