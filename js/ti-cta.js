@@ -328,17 +328,27 @@
    * QUALE BLOCCO SERVE IN QUESTA PAGINA
    * ------------------------------------------------------------------ */
 
+  /* 126-cta-app */
+  /* Il default del blog era 'libri'. I dati dicono che il sito deve
+     spingere l'app: i libri restano solo dove il pezzo parla di lettura,
+     dove il reader e' la risposta naturale alla domanda del lettore. */
+  var CATEGORIE_LIBRI = ['reading-practice', 'modi-di-dire'];
+
   function tipoPerPagina() {
     var p = location.pathname.toLowerCase();
     var eIndice = /(^|\/)(index(\.html)?)?$/.test(p) || p.indexOf('category-') !== -1;
 
     if (p.indexOf('/esercizi') !== -1) return 'esercizi';
 
+    /* il test di livello e' il punto di massima intenzione del sito:
+       chi ha appena scoperto di essere A2 vuole sapere come arrivare a B1 */
+    if (p.indexOf('/test-livello') !== -1) return 'app';
+
     if (p.indexOf('/blog') !== -1) {
       if (eIndice) return null;              /* niente sugli indici e sulle categorie */
       var cat = categoriaPagina();
-      if (cat && CFG.categorieSenzaLibri.indexOf(cat) !== -1) return 'app';
-      return 'libri';
+      if (cat && CATEGORIE_LIBRI.indexOf(cat) !== -1) return 'libri';
+      return 'app';
     }
     return null;
   }
@@ -402,7 +412,12 @@
    * ------------------------------------------------------------------ */
 
   function init() {
-    var lingua = linguaBrowser() || linguaPagina();
+    /* 132-uniforma */
+    /* Vince la lingua della PAGINA. Un articolo italiano e' scritto in
+       italiano: un richiamo in inglese sotto un testo italiano e' una
+       incoerenza, non una cortesia. Il browser serve solo quando la
+       pagina non dichiara una lingua che sappiamo tradurre. */
+    var lingua = linguaPagina() || linguaBrowser();
     var esistenti = document.querySelectorAll('[data-ti-cta]');
 
     if (esistenti.length) {
