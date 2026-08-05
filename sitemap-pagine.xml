@@ -7,10 +7,22 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://thuisitaliaans.com/ar/</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://thuisitaliaans.com/ar/alessio</loc>
     <lastmod>2026-08-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/bn/</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://thuisitaliaans.com/bn/alessio</loc>
@@ -35,6 +47,12 @@
     <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/de/</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://thuisitaliaans.com/de/alessio</loc>
@@ -113,6 +131,12 @@
     <lastmod>2026-08-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/fil/</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://thuisitaliaans.com/fil/alessio</loc>
@@ -457,16 +481,34 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://thuisitaliaans.com/pt/</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://thuisitaliaans.com/pt/alessio</loc>
     <lastmod>2026-08-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://thuisitaliaans.com/ro/</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://thuisitaliaans.com/ro/alessio</loc>
     <lastmod>2026-08-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/sq/</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://thuisitaliaans.com/sq/alessio</loc>
@@ -481,10 +523,22 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://thuisitaliaans.com/ti/</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://thuisitaliaans.com/ti/alessio</loc>
     <lastmod>2026-08-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/uk/</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://thuisitaliaans.com/uk/alessio</loc>
@@ -1180,6 +1234,12 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://thuisitaliaans.com/it/perche-thuis-italiaans"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://thuisitaliaans.com/waarom-thuis-italiaans"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/why-thuis-italiaans"/>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/zh/</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://thuisitaliaans.com/zh/alessio</loc>
