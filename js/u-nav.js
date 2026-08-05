@@ -32,11 +32,20 @@
     return out;
   }
 
-  /*nav-lingua-v1: toggle su pagine solo in italiano.
-  La scelta non naviga (la pagina esiste solo in italiano): viene salvata,
-  la barra si traduce e appare un avviso. Sulle pagine multilingua il click
-  su una lingua viene comunque salvato, cosi' la navigazione e' coerente. */
-  var NAVLOC = {"nl":{"voci":{"/it/":["Lessen","/"],"/app-ti":["De app Ti","/app-ti-nl"],"/test-livello-italiano":["Niveautest","/test-livello/italiaans-niveautest"],"/libri":["Boeken","/boeken"],"/esercizi/":["Oefeningen","/esercizi/"],"/blog/":["Blog","/blog/"],"/scuole/":["Taalscholen","/scuole/nl/"]},"cta":["Gratis proefles","/#contact"],"avviso":"Deze pagina is alleen in het Italiaans beschikbaar."},"en":{"voci":{"/it/":["Lessons","/en/"],"/app-ti":["The Ti app","/app-ti-en"],"/test-livello-italiano":["Level test","/test-livello/italian-level-test"],"/libri":["Books","/books"],"/esercizi/":["Exercises","/esercizi/"],"/blog/":["Blog","/blog/"],"/scuole/":["Schools in Italy","/scuole/en/"]},"cta":["Free trial","/en/#contact"],"avviso":"This page is only available in Italian."},"it":{"voci":{"/it/":["Lezioni","/it/"],"/app-ti":["L'app Ti","/app-ti"],"/test-livello-italiano":["Test di livello","/test-livello-italiano"],"/libri":["Libri","/libri"],"/esercizi/":["Esercizi","/esercizi/"],"/blog/":["Blog","/blog/"],"/scuole/":["Scuole in Italia","/scuole/"]},"cta":["Lezione di prova","/it/#contact"]},"es":{"voci":{"/it/":["Clases","/es/"],"/app-ti":["La app Ti","/app-ti-es"],"/test-livello-italiano":["Test de nivel","/test-livello/test-de-nivel-italiano"],"/libri":["Libros","/books"],"/esercizi/":["Ejercicios","/esercizi/"],"/blog/":["Blog","/blog/"],"/scuole/":["Escuelas en Italia","/scuole/es/"]},"cta":["Clase de prueba","/es/#contact"],"avviso":"Esta página solo está disponible en italiano."},"fr":{"voci":{"/it/":["Cours","/fr/"],"/app-ti":["L'app Ti","/app-ti-fr"],"/test-livello-italiano":["Test de niveau","/test-livello/test-de-niveau-italien"],"/libri":["Livres","/books"],"/esercizi/":["Exercices","/esercizi/"],"/blog/":["Blog","/blog/"],"/scuole/":["Écoles en Italie","/scuole/fr/"]},"cta":["Cours d'essai","/fr/#contact"],"avviso":"Cette page n'est disponible qu'en italien."},"de":{"voci":{"/it/":["Unterricht","/de/"],"/app-ti":["Die Ti-App","/app-ti-de"],"/test-livello-italiano":["Einstufungstest","/test-livello/italienisch-einstufungstest"],"/libri":["Bücher","/books"],"/esercizi/":["Übungen","/esercizi/"],"/blog/":["Blog","/blog/"],"/scuole/":["Sprachschulen in Italien","/scuole/de/"]},"cta":["Probestunde","/de/#contact"],"avviso":"Diese Seite ist nur auf Italienisch verfügbar."},"pt":{"voci":{"/it/":["Aulas","/pt/"],"/app-ti":["A app Ti","/app-ti-pt"],"/test-livello-italiano":["Teste de nível","/test-livello/teste-de-nivel-italiano"],"/libri":["Livros","/books"],"/esercizi/":["Exercícios","/esercizi/"],"/blog/":["Blog","/blog/"],"/scuole/":["Escolas na Itália","/scuole/en/"]},"cta":["Aula experimental","/pt/#contact"],"avviso":"Esta página só está disponível em italiano."},"ro":{"voci":{"/it/":["Lecții","/ro/"],"/app-ti":["Aplicația Ti","/app-ti-ro"],"/test-livello-italiano":["Test de nivel","/test-livello/test-de-nivel-italiana"],"/libri":["Cărți","/books"],"/esercizi/":["Exerciții","/esercizi/"],"/blog/":["Blog","/blog/"],"/scuole/":["Școli în Italia","/scuole/en/"]},"cta":["Lecție de probă","/ro/#contact"],"avviso":"Această pagină este disponibilă doar în italiană."},"sq":{"voci":{"/it/":["Mësime","/sq/"],"/app-ti":["Aplikacioni Ti","/app-ti-sq"],"/test-livello-italiano":["Test niveli","/test-livello/test-niveli-italisht"],"/libri":["Libra","/books"],"/esercizi/":["Ushtrime","/esercizi/"],"/blog/":["Blog","/blog/"],"/scuole/":["Shkolla në Itali","/scuole/en/"]},"cta":["Mësim prove","/sq/#contact"],"avviso":"Kjo faqe është e disponueshme vetëm në italisht."},"uk":{"voci":{"/it/":["Уроки","/uk/"],"/app-ti":["Застосунок Ti","/app-ti-uk"],"/test-livello-italiano":["Тест рівня","/test-livello/test-rivnya-italiyskoyi"],"/libri":["Книжки","/books"],"/esercizi/":["Вправи","/esercizi/"],"/blog/":["Блог","/blog/"],"/scuole/":["Школи в Італії","/scuole/en/"]},"cta":["Пробний урок","/uk/#contact"],"avviso":"Ця сторінка доступна лише італійською."},"zh":{"voci":{"/it/":["课程","/zh/"],"/app-ti":["Ti 应用","/app-ti-zh"],"/test-livello-italiano":["水平测试","/test-livello/yidaliyu-shuiping-ceshi"],"/libri":["图书","/books"],"/esercizi/":["练习","/esercizi/"],"/blog/":["博客","/blog/"],"/scuole/":["意大利的语言学校","/scuole/en/"]},"cta":["试听课","/zh/#contact"],"avviso":"本页面仅提供意大利语版本。"},"ar":{"voci":{"/it/":["الدروس","/ar/"],"/app-ti":["تطبيق Ti","/app-ti-ar"],"/test-livello-italiano":["اختبار المستوى","/test-livello/ikhtibar-mustawa-alitaliya"],"/libri":["كتب","/books"],"/esercizi/":["تمارين","/esercizi/"],"/blog/":["مدونة","/blog/"],"/scuole/":["مدارس في إيطاليا","/scuole/en/"]},"cta":["درس تجريبي","/ar/#contact"],"avviso":"هذه الصفحة متاحة بالإيطالية فقط."},"fil":{"voci":{"/it/":["Mga aralin","/fil/"],"/app-ti":["Ang Ti app","/app-ti-tl"],"/test-livello-italiano":["Pagsusulit sa antas","/test-livello/pagsusulit-antas-italyano"],"/libri":["Mga libro","/books"],"/esercizi/":["Mga ehersisyo","/esercizi/"],"/blog/":["Blog","/blog/"],"/scuole/":["Mga paaralan sa Italya","/scuole/en/"]},"cta":["Libreng trial","/fil/#contact"],"avviso":"Available lang sa Italyano ang pahinang ito."},"bn":{"voci":{"/it/":["পাঠ","/bn/"],"/app-ti":["Ti অ্যাপ","/app-ti-bn"],"/test-livello-italiano":["লেভেল টেস্ট","/test-livello/italian-vasha-star-porikkha"],"/libri":["বই","/books"],"/esercizi/":["অনুশীলন","/esercizi/"],"/blog/":["ব্লগ","/blog/"],"/scuole/":["ইতালির স্কুল","/scuole/en/"]},"cta":["ফ্রি ট্রায়াল","/bn/#contact"],"avviso":"এই পাতাটি শুধু ইতালীয় ভাষায় আছে।"},"ti":{"voci":{"/it/":["ትምህርታት","/ti/"],"/app-ti":["መተግበሪ Ti","/app-ti-ti"],"/test-livello-italiano":["ፊተና ደረጃ","/test-livello/mefetesha-derejat-italyanenya"],"/libri":["መጻሕፍቲ","/books"],"/esercizi/":["ልምምዳት","/esercizi/"],"/blog/":["ብሎግ","/blog/"],"/scuole/":["ኣብ ኢጣልያ ዘለዋ ቤት ትምህርቲ","/scuole/en/"]},"cta":["ናጻ ፊተነ ትምህርቲ","/ti/#contact"],"avviso":"እዛ ገጽ ብጣልያንኛ ጥራይ እያ ዘላ።"}};
+  /*nav-lingua-v2: lingua di navigazione coerente su tutto il sito.
+  Su pagine solo in italiano (esercizi, blog) e su sezioni che non coprono
+  la lingua dell'utente (es. scuole), il toggle elenca comunque tutte le
+  lingue: sceglierne una salva la preferenza, traduce le voci principali
+  della barra e mostra un avviso, senza lasciare la pagina. */
+  var NAVLOC = {"nl":{"voci":[["Lessen","/"],["De app Ti","/app-ti-nl"],["Niveautest","/test-livello/italiaans-niveautest"],["Boeken","/boeken"],["Oefeningen","/esercizi/"],["Blog","/blog/"],["Taalscholen","/scuole/nl/"]],"cta":["Gratis proefles","/#contact"],"sez":"Deze pagina is niet beschikbaar in het Nederlands.","solo":"Deze pagina is alleen in het Italiaans beschikbaar."},"en":{"voci":[["Lessons","/en/"],["The Ti app","/app-ti-en"],["Level test","/test-livello/italian-level-test"],["Books","/books"],["Exercises","/esercizi/"],["Blog","/blog/"],["Schools in Italy","/scuole/en/"]],"cta":["Free trial","/en/#contact"],"sez":"This page is not available in English.","solo":"This page is only available in Italian."},"it":{"voci":[["Lezioni","/it/"],["L'app Ti","/app-ti"],["Test di livello","/test-livello-italiano"],["Libri","/libri"],["Esercizi","/esercizi/"],["Blog","/blog/"],["Scuole in Italia","/scuole/"]],"cta":["Lezione di prova","/it/#contact"],"sez":"Questa pagina non è disponibile in italiano."},"es":{"voci":[["Clases","/es/"],["La app Ti","/app-ti-es"],["Test de nivel","/test-livello/test-de-nivel-italiano"],["Libros","/books"],["Ejercicios","/esercizi/"],["Blog","/blog/"],["Escuelas en Italia","/scuole/es/"]],"cta":["Clase de prueba","/es/#contact"],"sez":"Esta página no está disponible en español.","solo":"Esta página solo está disponible en italiano."},"fr":{"voci":[["Cours","/fr/"],["L'app Ti","/app-ti-fr"],["Test de niveau","/test-livello/test-de-niveau-italien"],["Livres","/books"],["Exercices","/esercizi/"],["Blog","/blog/"],["Écoles en Italie","/scuole/fr/"]],"cta":["Cours d'essai","/fr/#contact"],"sez":"Cette page n'est pas disponible en français.","solo":"Cette page n'est disponible qu'en italien."},"de":{"voci":[["Unterricht","/de/"],["Die Ti-App","/app-ti-de"],["Einstufungstest","/test-livello/italienisch-einstufungstest"],["Bücher","/books"],["Übungen","/esercizi/"],["Blog","/blog/"],["Sprachschulen in Italien","/scuole/de/"]],"cta":["Probestunde","/de/#contact"],"sez":"Diese Seite ist auf Deutsch nicht verfügbar.","solo":"Diese Seite ist nur auf Italienisch verfügbar."},"pt":{"voci":[["Aulas","/pt/"],["A app Ti","/app-ti-pt"],["Teste de nível","/test-livello/teste-de-nivel-italiano"],["Livros","/books"],["Exercícios","/esercizi/"],["Blog","/blog/"],["Escolas na Itália","/scuole/en/"]],"cta":["Aula experimental","/pt/#contact"],"sez":"Esta página não está disponível em português.","solo":"Esta página só está disponível em italiano."},"ro":{"voci":[["Lecții","/ro/"],["Aplicația Ti","/app-ti-ro"],["Test de nivel","/test-livello/test-de-nivel-italiana"],["Cărți","/books"],["Exerciții","/esercizi/"],["Blog","/blog/"],["Școli în Italia","/scuole/en/"]],"cta":["Lecție de probă","/ro/#contact"],"sez":"Această pagină nu este disponibilă în română.","solo":"Această pagină este disponibilă doar în italiană."},"sq":{"voci":[["Mësime","/sq/"],["Aplikacioni Ti","/app-ti-sq"],["Test niveli","/test-livello/test-niveli-italisht"],["Libra","/books"],["Ushtrime","/esercizi/"],["Blog","/blog/"],["Shkolla në Itali","/scuole/en/"]],"cta":["Mësim prove","/sq/#contact"],"sez":"Kjo faqe nuk është e disponueshme në shqip.","solo":"Kjo faqe është e disponueshme vetëm në italisht."},"uk":{"voci":[["Уроки","/uk/"],["Застосунок Ti","/app-ti-uk"],["Тест рівня","/test-livello/test-rivnya-italiyskoyi"],["Книжки","/books"],["Вправи","/esercizi/"],["Блог","/blog/"],["Школи в Італії","/scuole/en/"]],"cta":["Пробний урок","/uk/#contact"],"sez":"Ця сторінка недоступна українською.","solo":"Ця сторінка доступна лише італійською."},"zh":{"voci":[["课程","/zh/"],["Ti 应用","/app-ti-zh"],["水平测试","/test-livello/yidaliyu-shuiping-ceshi"],["图书","/books"],["练习","/esercizi/"],["博客","/blog/"],["意大利的语言学校","/scuole/en/"]],"cta":["试听课","/zh/#contact"],"sez":"此页面暂无中文版本。","solo":"本页面仅提供意大利语版本。"},"ar":{"voci":[["الدروس","/ar/"],["تطبيق Ti","/app-ti-ar"],["اختبار المستوى","/test-livello/ikhtibar-mustawa-alitaliya"],["كتب","/books"],["تمارين","/esercizi/"],["مدونة","/blog/"],["مدارس في إيطاليا","/scuole/en/"]],"cta":["درس تجريبي","/ar/#contact"],"sez":"هذه الصفحة غير متاحة بالعربية.","solo":"هذه الصفحة متاحة بالإيطالية فقط."},"fil":{"voci":[["Mga aralin","/fil/"],["Ang Ti app","/app-ti-tl"],["Pagsusulit sa antas","/test-livello/pagsusulit-antas-italyano"],["Mga libro","/books"],["Mga ehersisyo","/esercizi/"],["Blog","/blog/"],["Mga paaralan sa Italya","/scuole/en/"]],"cta":["Libreng trial","/fil/#contact"],"sez":"Hindi available sa Filipino ang pahinang ito.","solo":"Available lang sa Italyano ang pahinang ito."},"bn":{"voci":[["পাঠ","/bn/"],["Ti অ্যাপ","/app-ti-bn"],["লেভেল টেস্ট","/test-livello/italian-vasha-star-porikkha"],["বই","/books"],["অনুশীলন","/esercizi/"],["ব্লগ","/blog/"],["ইতালির স্কুল","/scuole/en/"]],"cta":["ফ্রি ট্রায়াল","/bn/#contact"],"sez":"এই পাতাটি বাংলায় নেই।","solo":"এই পাতাটি শুধু ইতালীয় ভাষায় আছে।"},"ti":{"voci":[["ትምህርታት","/ti/"],["መተግበሪ Ti","/app-ti-ti"],["ፊተና ደረጃ","/test-livello/mefetesha-derejat-italyanenya"],["መጻሕፍቲ","/books"],["ልምምዳት","/esercizi/"],["ብሎግ","/blog/"],["ኣብ ኢጣልያ ዘለዋ ቤት ትምህርቲ","/scuole/en/"]],"cta":["ናጻ ፊተነ ትምህርቲ","/ti/#contact"],"sez":"እዛ ገጽ ብትግርኛ የላን።","solo":"እዛ ገጽ ብጣልያንኛ ጥራይ እያ ዘላ።"}};
+
+  var VOCE_INVERSA = {};
+  (function () {
+    for (var c in NAVLOC) {
+      var v = NAVLOC[c].voci;
+      for (var i = 0; i < v.length; i++) VOCE_INVERSA[v[i][1]] = i;
+    }
+  })();
 
   function linguaSalvata() {
     try { return localStorage.getItem("linguaNav") || ""; } catch (e) { return ""; }
@@ -46,7 +55,9 @@
   }
 
   function avvisoLingua(testo, codice) {
-    if (!testo || document.querySelector(".u-avviso-lingua")) return;
+    if (!testo) return;
+    var vecchio = document.querySelector(".u-avviso-lingua");
+    if (vecchio) vecchio.parentNode.removeChild(vecchio);
     var div = document.createElement("div");
     div.className = "u-avviso-lingua";
     if (codice === "ar") div.setAttribute("dir", "rtl");
@@ -65,78 +76,121 @@
     else document.body.insertBefore(div, document.body.firstChild);
   }
 
-  function applicaNav(codice) {
+  function applicaNav(codice, sezione) {
     var d = NAVLOC[codice];
     if (!d) return;
     var link = document.querySelectorAll(".u-sw__l a");
     for (var i = 0; i < link.length; i++) {
-      var v = d.voci[link[i].getAttribute("href")];
-      if (v) { link[i].textContent = v[0]; link[i].setAttribute("href", v[1]); link[i].removeAttribute("aria-current"); }
+      var indice = VOCE_INVERSA[link[i].getAttribute("href")];
+      if (indice !== undefined) {
+        link[i].textContent = d.voci[indice][0];
+        link[i].setAttribute("href", d.voci[indice][1]);
+        link[i].removeAttribute("aria-current");
+      }
     }
+    var logo = document.querySelector("a.u-logo");
+    if (logo && VOCE_INVERSA[logo.getAttribute("href")] === 0) logo.setAttribute("href", d.voci[0][1]);
     var cta = document.querySelector("a.u-cta");
-    if (cta && d.cta) { cta.textContent = d.cta[0]; cta.setAttribute("href", d.cta[1]); }
-    avvisoLingua(d.avviso, codice);
+    if (cta) {
+      var h = cta.getAttribute("href") || "";
+      if (h.indexOf("#contact") > -1 && h.charAt(0) === "/") {
+        cta.textContent = d.cta[0];
+        cta.setAttribute("href", d.cta[1]);
+      }
+    }
+    avvisoLingua(sezione ? d.sez : d.solo, codice);
   }
 
-  function montaLinguaSolo(nodo) {
-    if (corrente() !== "it" || nodo.getAttribute("data-montato")) return;
-    nodo.setAttribute("data-montato", "1");
-    var b = document.createElement("button");
-    b.type = "button";
-    b.className = "u-lang__b";
-    b.setAttribute("aria-expanded", "false");
-    b.setAttribute("aria-label", nodo.getAttribute("data-u-lingua") || "Language");
-    b.innerHTML = '<span aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true" focusable="false" style="vertical-align:-4px"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg></span><b aria-hidden="true">\u25be</b>';
-    var ul = document.createElement("ul");
-    ul.className = "u-lang__l";
-    var codici = [];
-    for (var c in NAVLOC) codici.push(c);
-    codici.sort(function (x, y) {
-      return (NOMI[x] || x).localeCompare(NOMI[y] || y);
-    });
-    var scelta = linguaSalvata() || "it";
+  function vociLinguaFerma(ul, codici, attiva, azione) {
     for (var i = 0; i < codici.length; i++) {
       (function (c) {
         var li = document.createElement("li");
         var a = document.createElement("a");
         a.href = "#";
         a.textContent = NOMI[c] || c.toUpperCase();
-        if (c === scelta) a.setAttribute("aria-current", "true");
+        if (c === attiva) a.setAttribute("aria-current", "true");
         a.addEventListener("click", function (e) {
           e.preventDefault();
-          salvaLingua(c);
-          if (c === "it") { location.reload(); return; }
-          applicaNav(c);
-          var attuale = ul.querySelector('[aria-current]');
+          var attuale = ul.querySelector("[aria-current]");
           if (attuale) attuale.removeAttribute("aria-current");
           a.setAttribute("aria-current", "true");
-          nodo.removeAttribute("data-aperto");
-          b.setAttribute("aria-expanded", "false");
+          azione(c);
         });
         li.appendChild(a);
         ul.appendChild(li);
       })(codici[i]);
     }
-    nodo.appendChild(b);
-    nodo.appendChild(ul);
-    b.addEventListener("click", function (e) {
+  }
+
+  function ordina(codici) {
+    codici.sort(function (x, y) {
+      return (NOMI[x] || x).localeCompare(NOMI[y] || y);
+    });
+    return codici;
+  }
+
+  function chiudi(nodo, bot) {
+    nodo.removeAttribute("data-aperto");
+    bot.setAttribute("aria-expanded", "false");
+  }
+
+  function bottoneLingua(nodo) {
+    var bot = document.createElement("button");
+    bot.type = "button";
+    bot.className = "u-lang__b";
+    bot.setAttribute("aria-expanded", "false");
+    bot.setAttribute("aria-label", nodo.getAttribute("data-u-lingua") || "Language");
+    bot.innerHTML = '<span aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true" focusable="false" style="vertical-align:-4px"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg></span><b aria-hidden="true">\u25be</b>';
+    bot.addEventListener("click", function (e) {
       e.stopPropagation();
-      var ap = nodo.hasAttribute("data-aperto");
-      if (ap) { nodo.removeAttribute("data-aperto"); b.setAttribute("aria-expanded", "false"); }
-      else    { nodo.setAttribute("data-aperto", ""); b.setAttribute("aria-expanded", "true"); }
+      if (nodo.hasAttribute("data-aperto")) chiudi(nodo, bot);
+      else { nodo.setAttribute("data-aperto", ""); bot.setAttribute("aria-expanded", "true"); }
     });
-    document.addEventListener("click", function () {
-      nodo.removeAttribute("data-aperto");
-      b.setAttribute("aria-expanded", "false");
-    });
+    document.addEventListener("click", function () { chiudi(nodo, bot); });
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") {
-        nodo.removeAttribute("data-aperto");
-        b.setAttribute("aria-expanded", "false");
-      }
+      if (e.key === "Escape") chiudi(nodo, bot);
     });
+    return bot;
+  }
+
+  function montaLinguaSolo(nodo) {
+    if (corrente() !== "it" || nodo.getAttribute("data-montato")) return;
+    nodo.setAttribute("data-montato", "1");
+    var bot = bottoneLingua(nodo);
+    var lista = document.createElement("ul");
+    lista.className = "u-lang__l";
+    var scelta = linguaSalvata() || "it";
+    var codici = [];
+    for (var c in NAVLOC) codici.push(c);
+    vociLinguaFerma(lista, ordina(codici), NAVLOC[scelta] ? scelta : "it", function (c) {
+      salvaLingua(c);
+      if (c === "it") { location.reload(); return; }
+      applicaNav(c, false);
+      chiudi(nodo, bot);
+    });
+    nodo.appendChild(bot);
+    nodo.appendChild(lista);
     var s = linguaSalvata();
-    if (s && s !== "it" && NAVLOC[s]) applicaNav(s);
+    if (s && s !== "it" && NAVLOC[s]) applicaNav(s, false);
+  }
+
+  function estendiLingueMancanti(nodo, b, ul, alt) {
+    var presenti = {};
+    for (var i = 0; i < alt.length; i++) presenti[alt[i].codice] = 1;
+    var mancanti = [];
+    for (var c in NAVLOC) if (!presenti[c]) mancanti.push(c);
+    if (!mancanti.length) return;
+    var s = linguaSalvata();
+    if (s && !presenti[s] && NAVLOC[s]) {
+      var att = ul.querySelector("[aria-current]");
+      if (att) att.removeAttribute("aria-current");
+    }
+    vociLinguaFerma(ul, ordina(mancanti), presenti[s] ? "" : s, function (c) {
+      salvaLingua(c);
+      applicaNav(c, true);
+      chiudi(nodo, b);
+    });
+    if (s && !presenti[s] && NAVLOC[s]) applicaNav(s, true);
   }
 
   function montaLingua(nodo) {
@@ -170,6 +224,7 @@
 
     nodo.appendChild(b);
     nodo.appendChild(ul);
+    estendiLingueMancanti(nodo, b, ul, alt);
 
     b.addEventListener("click", function (e) {
       e.stopPropagation();
