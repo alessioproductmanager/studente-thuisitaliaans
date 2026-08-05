@@ -1606,7 +1606,7 @@ body:has(#motore) #profilo *{ --r:10px; }
    ========================================================================== */
 .proposta-lingua{
   position:fixed; left:50%; bottom:20px; transform:translate(-50%, 14px);
-  z-index:9997; width:min(430px, calc(100vw - 40px));
+  z-index:9999; width:min(430px, calc(100vw - 40px));
   background:#FBFAF7; border:1px solid #E3DFD5; border-radius:6px;
   padding:16px 18px 14px;
   box-shadow:0 2px 6px rgba(22,33,26,.06),0 18px 40px -16px rgba(22,33,26,.4);
@@ -1631,9 +1631,15 @@ body:has(#motore) #profilo *{ --r:10px; }
 .proposta-lingua .chiudi-x:hover{ background:#F4F2EC; }
 .proposta-lingua[dir="rtl"] .chiudi-x{ right:auto; left:10px; }
 
-/* Su telefono va a tutta larghezza, ma SOPRA i due pulsanti tondi in basso
-   a destra, non sotto: a 20px dal fondo ci finirebbe addosso. */
-@media (max-width:560px){
+/* LA SOGLIA E' 714px, NON 560. Il riquadro e' largo 430 e sta al centro,
+   quindi il suo bordo destro e' a meta' schermo piu' 215. L'avatar comincia
+   a 142 dal bordo destro. I due si toccano quando 430 + 2x142 = 714px.
+   Con WhatsApp la soglia sarebbe 582. Avevo messo 560 e fra i 560 e i 714
+   il riquadro finiva sotto i pulsanti: sotto e non sopra, perche' quelli
+   stanno a z-index 9998 e questo a 9997. Ora e' 9999, e comunque sotto gli
+   820px passa al formato pieno che sale sopra i pulsanti, con un centinaio
+   di pixel di margine invece di sfiorarli. */
+@media (max-width:820px){
   .proposta-lingua{ left:12px; right:12px; width:auto; bottom:88px;
     transform:translate(0, 14px); padding:14px 16px 12px; }
   .proposta-lingua.entra{ transform:translate(0, 0); }
