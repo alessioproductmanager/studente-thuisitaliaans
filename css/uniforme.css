@@ -1491,7 +1491,22 @@ body:has(#motore) .voce .segno{ border-radius:4px; }
 body:has(#motore) .u-sw__l,
 body:has(#motore) .u-lang__l{ border-radius:6px; }
 
-/* --- 3. la barra come nelle altre pagine --------------------------------- */
+/* --- 3. la barra come nelle altre pagine ---------------------------------
+   Il pulsante saltava: il foglio del test gli da' transform:translateY(-2px)
+   al passaggio del mouse e scale(.98) alla pressione, e il 175 quell'effetto
+   lo toglie solo alle pagine che NON sono il test. Qui restava, e su una
+   barra ferma un elemento che si muove attira l'occhio piu' del contenuto.
+   Via l'animazione, e misure identiche a quelle del 185. */
+body:has(#motore) .u-cta,
+body:has(#motore) .pill-app,
+body:has(#motore) .bottone{ transition:none; }
+body:has(#motore) .u-cta:hover,
+body:has(#motore) .u-cta:focus-visible,
+body:has(#motore) .pill-app:hover,
+body:has(#motore) .bottone:hover,
+body:has(#motore) .bottone:active,
+body:has(#motore) .scelta:hover{ transform:none; box-shadow:none; }
+body:has(#motore) .bottone{ box-shadow:none; }
 body:has(#motore) .u-bar{
   --u-h:46px; box-shadow:none; border-bottom:1px solid #E3DFD5; }
 body:has(#motore) .u-bar,
@@ -1499,11 +1514,16 @@ body:has(#motore) .u-bar a,
 body:has(#motore) .u-bar button{
   font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; }
 body:has(#motore) .u-sw__b,
-body:has(#motore) .u-lang__b,
-body:has(#motore) .u-menu a,
-body:has(#motore) .u-cta{
-  font-size:.7rem; font-weight:600; letter-spacing:.12em;
+body:has(#motore) .u-lang__b{
+  border:1px solid #E3DFD5; background:none; padding:4px 9px;
+  font-size:.68rem; font-weight:600; letter-spacing:.11em;
   text-transform:uppercase; }
+body:has(#motore) .u-menu a{
+  font-size:.69rem; font-weight:600; letter-spacing:.13em;
+  text-transform:uppercase; }
+body:has(#motore) .u-cta{
+  font-size:.69rem; font-weight:700; letter-spacing:.09em;
+  text-transform:uppercase; padding:7px 13px; }
 body:has(#motore) .u-logo img{ width:22px; height:22px; border-radius:5px; }
 
 /* --- 4. gli occhielli come nel resto del sito ---------------------------- */
