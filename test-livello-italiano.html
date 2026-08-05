@@ -3035,7 +3035,7 @@ var ALTRE_LINGUE = {
  ti:{u:"/test-livello/mefetesha-derejat-italyanenya", t:"እዛ ገጽ ብትግርኛ እውን ኣላ", b:"ናብ ትግርኛ ኪድ", c:"ሕጂ ኣይኰነን"}
 };
 
-(function proponiLingua(){
+(function proponiLingua(){ /*194*/ return;
   var pagina = (document.documentElement.lang || "it").slice(0,2);
   var b = (navigator.language || "").slice(0,2).toLowerCase();
   if(!b || b === pagina || !ALTRE_LINGUE[b]) return;
@@ -3074,5 +3074,6 @@ var ALTRE_LINGUE = {
 </script>
 <!-- 132-uniforma -->
 
-<script src="/js/u-nav.js" defer></script></body>
+<script src="/js/u-nav.js" defer></script><script src="/js/proposta-lingua.js" defer></script>
+</body>
 </html>

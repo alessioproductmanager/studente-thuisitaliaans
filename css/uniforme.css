@@ -1594,3 +1594,52 @@ body:has(#motore) #profilo *{ --r:10px; }
   body:has(#motore){ background:#fff; }
 }
 /* 193-test fine */
+
+/* 194-proposta-lingua inizio */
+/* ==========================================================================
+   LA PROPOSTA DI LINGUA
+   Fuori dalle pagine del test e dalle schede scuola questa classe non era
+   definita da nessuna parte, e lo script non si inietta il CSS: il riquadro
+   sarebbe comparso come un paragrafo in fondo al documento. Qui prende una
+   forma, e la prende AL CENTRO: a destra ci sono gia' il pulsante WhatsApp
+   e l'avatar dell'autore, e un terzo elemento nello stesso angolo li copre.
+   ========================================================================== */
+.proposta-lingua{
+  position:fixed; left:50%; bottom:20px; transform:translate(-50%, 14px);
+  z-index:9997; width:min(430px, calc(100vw - 40px));
+  background:#FBFAF7; border:1px solid #E3DFD5; border-radius:6px;
+  padding:16px 18px 14px;
+  box-shadow:0 2px 6px rgba(22,33,26,.06),0 18px 40px -16px rgba(22,33,26,.4);
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  opacity:0; transition:opacity .3s ease, transform .3s ease; }
+.proposta-lingua.entra{ opacity:1; transform:translate(-50%, 0); }
+.proposta-lingua.va-via{ opacity:0; transform:translate(-50%, 10px); }
+.proposta-lingua .pl-testo{ margin:0 0 12px; font-size:.92rem; line-height:1.45;
+  padding-right:16px; color:#1F2320; }
+.proposta-lingua .pl-azioni{ display:flex; align-items:center; gap:12px;
+  flex-wrap:wrap; }
+.proposta-lingua .pl-si{ display:inline-block; background:#1F2320; color:#fff;
+  text-decoration:none; border-radius:4px; padding:8px 15px;
+  font-size:.72rem; font-weight:700; letter-spacing:.1em;
+  text-transform:uppercase; }
+.proposta-lingua .pl-no{ background:none; border:0; color:#5C6159;
+  font-size:.84rem; cursor:pointer; font-family:inherit; padding:4px 2px;
+  text-decoration:underline; text-underline-offset:2px; }
+.proposta-lingua .chiudi-x{ position:absolute; top:8px; right:10px;
+  background:none; border:0; font-size:1.2rem; line-height:1; color:#5C6159;
+  cursor:pointer; padding:2px 6px; border-radius:4px; }
+.proposta-lingua .chiudi-x:hover{ background:#F4F2EC; }
+.proposta-lingua[dir="rtl"] .chiudi-x{ right:auto; left:10px; }
+
+/* Su telefono va a tutta larghezza, ma SOPRA i due pulsanti tondi in basso
+   a destra, non sotto: a 20px dal fondo ci finirebbe addosso. */
+@media (max-width:560px){
+  .proposta-lingua{ left:12px; right:12px; width:auto; bottom:88px;
+    transform:translate(0, 14px); padding:14px 16px 12px; }
+  .proposta-lingua.entra{ transform:translate(0, 0); }
+  .proposta-lingua.va-via{ transform:translate(0, 10px); }
+}
+/* durante il test la barra dei pulsanti sta in fondo */
+body.in-prova .proposta-lingua{ bottom:96px; }
+@media print{ .proposta-lingua{ display:none !important; } }
+/* 194-proposta-lingua fine */
