@@ -26,7 +26,9 @@
   var DOVE = {
     it: "/it/alessio",
     en: "/en/alessio",
-    nl: "/lessen/over-alessio"
+    /* non /lessen/over-alessio: il Worker toglie sempre la cartella
+       interna con un 301, e un link che rimbalza e' un link sbagliato */
+    nl: "/over-alessio"
   };
 
   var ETICHETTE = {
