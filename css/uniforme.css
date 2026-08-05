@@ -887,3 +887,65 @@ body:has(#motore) .ti-cta{ max-width:720px; }
    confine vero fra il contenuto e le note. */
 .sezione > .crediti-foto > summary{ border-top:0; padding-top:0; }
 /* 172-rifiniture fine */
+
+/* 174-editoriale inizio */
+/* ==========================================================================
+   IMPIANTO EDITORIALE DEL BLOGtitoli a sinistra, corpo in serif.
+   Agganciato a .article-layout / .article-main / .article-body, che stanno
+   solo negli articoli: il resto del sito non si muove.
+   ========================================================================== */
+
+/* --- 1. i tre stilemi da tema, via ---------------------------------------
+   Angoli tondi da 22px, sollevamento di 4px al passaggio del mouse e ombre
+   a raggio negativo: nessuno li sceglie, si ereditano, e insieme fanno il
+   rumore di fondo del web di adesso. */
+.article-layout .sidebar-card,
+.article-layout .app-banner,
+.article-layout .nota,
+.article-body .nota{ border-radius:10px; box-shadow:none; }
+.article-main .article-cat-badge,
+.article-body .button{ border-radius:6px; }
+.article-layout .sidebar-card:hover,
+.article-layout .app-banner:hover,
+.article-body .button:hover{ transform:none; box-shadow:none; }
+.article-card{ border-radius:10px; }
+.article-card:hover{ transform:none; box-shadow:none; }
+
+/* --- 2. il serif nel corpo ------------------------------------------------
+   Iowan Old Style e Georgia sono gia' sul dispositivo: nessun carattere da
+   scaricare, nessun peso aggiunto alla pagina. */
+.article-body{ font-family:"Iowan Old Style",Georgia,"Times New Roman",serif;
+  font-size:1.16rem; line-height:1.72; }
+.article-body p{ margin:0 0 1.15em; }
+.article-body strong{ font-weight:650; }
+.article-main h1,
+.article-body h2,
+.article-body h3{ font-family:"Iowan Old Style",Georgia,serif;
+  letter-spacing:-.012em; }
+.article-main h1{ line-height:1.12; }
+
+/* --- 3. i titoli escono a sinistra ---------------------------------------
+   La colonna rientra di 90px e i titoli tornano indietro della stessa
+   misura: restano su una verticale loro, staccata dal corpo. E' la
+   disposizione dei libri, e nessun tema la fa da solo.
+   .article-main passa da 700 a 790px cosi' il testo, tolti i 90 di
+   rientro, resta largo come prima. */
+@media (min-width:1000px){
+  .article-main{ max-width:790px; padding-left:90px; }
+  .article-main > h1,
+  .article-main > .article-cat-badge,
+  .article-main > .article-meta,
+  .article-body > h2,
+  .article-body > .foto-meta{ margin-left:-90px; }
+  .article-body > .foto-meta{ width:calc(100% + 90px); }
+  .article-body > h2{ padding-right:90px; }
+}
+/* sotto i 1000px il rientro sparisce: su telefono 90px sarebbero un terzo
+   dello schermo, e resterebbe una colonna di testo strizzata a destra */
+
+/* --- 4. rifiniture coerenti ----------------------------------------------- */
+.article-main .article-cat-badge{ background:none; border:1px solid var(--border);
+  letter-spacing:.09em; }
+.article-body .foto-meta img{ border-radius:6px; }
+.article-main .article-meta{ letter-spacing:.02em; }
+/* 174-editoriale fine */
