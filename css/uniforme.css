@@ -872,3 +872,18 @@ details.crediti-foto li{ margin-bottom:7px; }
 /* Il logo nella card di destra ripete il marchio che sta gia' nella barra
    e lascia il riquadro mezzo vuoto: restano stelle e link, che servono. */
 .sidebar-card img.sidebar-logo{ display:none; }
+/* 172-rifiniture inizio */
+/* Il riquadro dell'app e' tarato su 1140px, la misura della colonna del
+   blog e degli esercizi. Le pagine del test hanno una colonna da 720px, e
+   li' dentro il riquadro sembrava sfondare la pagina: non era largo di
+   suo, seguiva la misura di un'altra sezione del sito. Lo riconosco dal
+   #motore, che esiste solo sulle pagine del test. */
+body:has(#motore) .u-appcta,
+body:has(#motore) .ti-cta{ max-width:720px; }
+
+/* Sopra "Photo credits" comparivano due filetti a un millimetro l'uno
+   dall'altro: uno e' il bordo della sezione, l'altro quello del riassunto
+   pieghevole. Ne basta uno, e tengo quello della sezione, che e' il
+   confine vero fra il contenuto e le note. */
+.sezione > .crediti-foto > summary{ border-top:0; padding-top:0; }
+/* 172-rifiniture fine */
