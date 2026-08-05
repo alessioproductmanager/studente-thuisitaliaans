@@ -1006,4 +1006,36 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/en/alessio"/>
   </url>
   <!--/ 190-sitemap-autore -->
+  <!-- 199-perche -->
+  <url>
+    <loc>https://thuisitaliaans.com/why-thuis-italiaans</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thuisitaliaans.com/why-thuis-italiaans"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://thuisitaliaans.com/it/perche-thuis-italiaans"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://thuisitaliaans.com/waarom-thuis-italiaans"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/why-thuis-italiaans"/>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/it/perche-thuis-italiaans</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thuisitaliaans.com/why-thuis-italiaans"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://thuisitaliaans.com/it/perche-thuis-italiaans"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://thuisitaliaans.com/waarom-thuis-italiaans"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/why-thuis-italiaans"/>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/waarom-thuis-italiaans</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thuisitaliaans.com/why-thuis-italiaans"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://thuisitaliaans.com/it/perche-thuis-italiaans"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://thuisitaliaans.com/waarom-thuis-italiaans"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/why-thuis-italiaans"/>
+  </url>
+  <!--/ 199-perche -->
   </urlset>
