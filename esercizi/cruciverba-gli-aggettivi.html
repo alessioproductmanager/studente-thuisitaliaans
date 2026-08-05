@@ -266,13 +266,14 @@ function sizeCrosswordGrid() {
   const wrap = gridEl.closest('.crossword-wrap');
   const available = (wrap ? wrap.clientWidth : window.innerWidth) - 20;
   const maxCellFromWidth = Math.floor(available / COLS) - 2;
-  const cellSize = Math.max(22, Math.min(38, maxCellFromWidth));
+  const cellSize = Math.max(26, Math.min(38, maxCellFromWidth));
   gridEl.style.setProperty('--cw-cell-size', cellSize + 'px');
   gridEl.style.gridTemplateColumns = `repeat(${COLS}, var(--cw-cell-size))`;
   gridEl.style.gridTemplateRows = `repeat(${ROWS}, var(--cw-cell-size))`;
 }
 sizeCrosswordGrid();
 window.addEventListener('resize', sizeCrosswordGrid);
+gridEl.innerHTML = '';
 for (let r = 0; r < ROWS; r++) {
   for (let c = 0; c < COLS; c++) {
     const cell = document.createElement('div');
@@ -288,7 +289,7 @@ for (let r = 0; r < ROWS; r++) {
         cell.appendChild(span);
       }
       const input = document.createElement('input');
-      input.maxLength = 1;
+      input.maxLength = 1; input.autocapitalize = 'characters';
       input.dataset.row = r; input.dataset.col = c;
       input.addEventListener('input', e => {
         e.target.value = e.target.value.toUpperCase();
@@ -304,6 +305,7 @@ for (let r = 0; r < ROWS; r++) {
 }
 function renderClueList(list, elId) {
   const ol = document.getElementById(elId);
+  ol.innerHTML = '';
   list.forEach(c => {
     const li = document.createElement('li');
     li.innerHTML = `<strong>${c.num}.</strong> ${c.text}`;
