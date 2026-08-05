@@ -1298,3 +1298,86 @@ body:not(:has(#motore)) .blog-firma{ color:#1F2320 !important; }
 body:not(:has(#motore)) .u-note > p,
 body:not(:has(#motore)) .u-disc{ max-width:88ch; }
 /* 179-apparato fine */
+
+/* 185-barra-e-bordi inizio */
+/* ==========================================================================
+   PILLOLE RIMASTE, MARGINI, E LA BARRA
+   ========================================================================== */
+
+/* --- 1. le pillole di testo che il 175 non aveva preso ------------------- */
+body:not(:has(#motore)) .hero-tag,
+body:not(:has(#motore)) .section-tag,
+body:not(:has(#motore)) .ex-hero .section-tag,
+body:not(:has(#motore)) .filter-pill,
+body:not(:has(#motore)) .listen-btn,
+body:not(:has(#motore)) .solution-btn,
+body:not(:has(#motore)) .sort-word,
+body:not(:has(#motore)) .mp-btn,
+body:not(:has(#motore)) .game-mode-bar,
+body:not(:has(#motore)) .level-card .badge{ border-radius:4px; }
+
+/* Restano tondi, perche' li' il raggio e' geometria e non stile:
+   .wheel .wheel-center .spider-center .spider-node .carousel-arrow
+   .quiz-option-letter .num e i cursori delle barre. Non li tocco. */
+
+/* --- 2. il margine dai bordi, dichiarato in pixel -----------------------
+   min(92%) dava il 4% per lato: quindici pixel su un telefono. Ora il
+   rientro e' fisso e non dipende piu' dalla larghezza dello schermo. */
+body:not(:has(#motore)) .container{
+  width:min(100%, var(--container, 1180px));
+  box-sizing:border-box;
+  padding-left:max(20px, env(safe-area-inset-left, 0px));
+  padding-right:max(20px, env(safe-area-inset-right, 0px)); }
+@media (max-width:420px){
+  body:not(:has(#motore)) .container{
+    padding-left:max(16px, env(safe-area-inset-left, 0px));
+    padding-right:max(16px, env(safe-area-inset-right, 0px)); }
+}
+body:not(:has(#motore)){ overflow-x:clip; }
+
+/* --- 3. la barra: da tre pillole a una testata --------------------------- */
+
+/* il nome accanto al marchio, in serif e in minuscolo */
+body:not(:has(#motore)) .u-logo{ display:inline-flex; align-items:center; gap:9px; }
+body:not(:has(#motore)) .u-logo::after{
+  content:"thuisitaliaans";
+  font-family:"Iowan Old Style",Georgia,serif;
+  font-size:1.06rem; letter-spacing:-.01em; color:#1F2320;
+  white-space:nowrap; }
+@media (max-width:640px){
+  body:not(:has(#motore)) .u-logo::after{ display:none; }
+}
+
+/* il commutatore di sezione perde la cornice e resta testo */
+body:not(:has(#motore)) .u-sw__b{
+  border:0; background:none; padding:6px 2px; border-radius:0;
+  font-size:.76rem; font-weight:700; letter-spacing:.14em;
+  text-transform:uppercase; }
+body:not(:has(#motore)) .u-sw__b:hover{ border:0; }
+body:not(:has(#motore)) .u-sw{ gap:14px; }
+body:not(:has(#motore)) .u-sw::after{
+  content:""; width:1px; height:18px; background:#E3DFD5; }
+
+/* le voci in maiuscoletto spaziato: e' la firma delle testate, e nessun
+   tema la usa perche' costa leggibilita' se le voci sono lunghe. Le tue
+   sono corte. */
+body:not(:has(#motore)) .u-menu a,
+body:not(:has(#motore)) .u-lang__b{
+  font-size:.74rem; font-weight:700; letter-spacing:.13em;
+  text-transform:uppercase; }
+body:not(:has(#motore)) .u-lang__b{
+  border:0; background:none; padding:6px 2px; border-radius:0; }
+body:not(:has(#motore)) .u-menu{ gap:26px; }
+
+/* la barra respira di piu' e chiude con un filetto, non con un'ombra */
+body:not(:has(#motore)) .u-bar{
+  --u-h:66px; box-shadow:none; border-bottom:1px solid #E3DFD5; }
+body:not(:has(#motore)) .u-bar__in{ gap:22px; }
+
+/* la CTA resta piena: in una pagina sobria l'unico elemento pieno diventa
+   piu' visibile, non meno. Cambia solo il corpo, per stare in riga con le
+   voci accanto. */
+body:not(:has(#motore)) .u-cta{
+  border-radius:4px; font-size:.78rem; font-weight:700;
+  letter-spacing:.09em; text-transform:uppercase; padding:11px 18px; }
+/* 185-barra-e-bordi fine */
