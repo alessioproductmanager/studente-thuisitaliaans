@@ -1400,3 +1400,57 @@ body:not(:has(#motore)) .u-cta{
   body:not(:has(#motore)) .u-cta{ padding:6px 10px; font-size:.64rem; }
 }
 /* 185-barra-e-bordi fine */
+
+/* 191-tendine-e-scuole inizio */
+/* ==========================================================================
+   LE TENDINE DELLA BARRA E LA SEZIONE SCUOLE
+   ========================================================================== */
+
+/* --- 1. i pannelli che si aprono ----------------------------------------
+   Il 185 aveva squadrato i pulsanti ma non le tendine: un bottone
+   squadrato che apre un pannello tondo si nota piu' di due cose tonde. */
+body:not(:has(#motore)) .u-sw__l,
+body:not(:has(#motore)) .u-lang__l{ border-radius:6px; }
+body:not(:has(#motore)) .u-lingue a{ border-radius:4px; }
+body:not(:has(#motore)) .u-apri{ border-radius:4px; }
+body:not(:has(#motore)) .u-badge > a[class*="card"]{ border-radius:10px; }
+body:not(:has(#motore)) .u-card{ border-radius:10px; }
+
+/* --- 2. le scuole: le due variabili ---------------------------------------
+   Nel foglio in linea delle schede scuola ci sono --r:18px e --r-s:12px,
+   usate da schede, pannelli, moduli, meteo, esiti e FAQ. Riscriverle qui
+   sistema tutto quello che le usa senza toccare una regola per volta. */
+body:not(:has(#motore)){ --r:10px; --r-s:6px; }
+
+/* --- 3. le scuole: le pillole scritte a mano ------------------------------
+   Queste hanno il 999px dentro la regola, e la regola sta in un <style> in
+   linea nella pagina, che vince sul foglio esterno. Per queste serve
+   !important: e' il secondo e ultimo posto dell'impianto dove lo uso, e
+   come per il richiamo dell'app la ragione e' che il file dove andrebbero
+   scritte non ce l'ho. */
+body:not(:has(#motore)) .hl-chip,
+body:not(:has(#motore)) .tag,
+body:not(:has(#motore)) .chip,
+body:not(:has(#motore)) .chip-mappa,
+body:not(:has(#motore)) .app-cta,
+body:not(:has(#motore)) .citta-altre a,
+body:not(:has(#motore)) .mail-piede .bottone,
+body:not(:has(#motore)) .pl-si,
+body:not(:has(#motore)) .barra{ border-radius:4px !important; }
+body:not(:has(#motore)) .avviso-lingua,
+body:not(:has(#motore)) .proposta-lingua{ border-radius:6px !important; }
+
+/* --- 4. i cerchi veri restano cerchi --------------------------------------
+   Non li tocco, e li elenco perche' si veda che e' una scelta:
+   .mail-pallini i, .guida ol li::before, .monitor-schermo, .monitor-base,
+   .cart-bollo, .badge[data-tip]::after.
+   Un francobollo squadrato non e' sobrio, e' un francobollo sbagliato. */
+
+/* --- 5. i titoli delle scuole seguono il resto del sito -------------------
+   Il 175 mette il serif su h1, h2 e h3 dappertutto, ma nelle schede scuola
+   il nome della citta' e il nome della scuola sono in classi loro. */
+body:not(:has(#motore)) .colh2,
+body:not(:has(#motore)) .cart-testo h2{
+  font-family:"Iowan Old Style",Georgia,"Times New Roman",serif;
+  letter-spacing:-.012em; }
+/* 191-tendine-e-scuole fine */
