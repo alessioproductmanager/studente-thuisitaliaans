@@ -1454,3 +1454,123 @@ body:not(:has(#motore)) .cart-testo h2{
   font-family:"Iowan Old Style",Georgia,"Times New Roman",serif;
   letter-spacing:-.012em; }
 /* 191-tendine-e-scuole fine */
+
+/* 193-test inizio */
+/* ==========================================================================
+   LE PAGINE DEL TEST
+   Dentro il test ci sono due cose diverse: la scenografia (post-it, foglietto,
+   telefono, nuvolette, libro, diario, Polaroid) dove il raggio E' l'oggetto,
+   e l'interfaccia (occhielli, pillole, bottoni, riquadri, schede) che e' la
+   stessa del resto del sito. Qui si tocca la seconda e si protegge la prima.
+   ========================================================================== */
+
+/* --- 1. le tre variabili -------------------------------------------------
+   --r, --r-s e --r-xs sono dichiarate nel <style> della pagina e usate da
+   riquadri, schede, scelte, quadranti e moduli. Riscriverle sistema quasi
+   tutto in tre righe. */
+body:has(#motore){
+  --r:10px; --r-s:6px; --r-xs:4px;
+  --carta:#FBFAF7; --inchiostro:#1F2320; --secondario:#5C6159;
+  --linea:#E3DFD5;
+  background:#FBFAF7; }
+
+/* --- 2. le pillole dell'interfaccia -------------------------------------- */
+body:has(#motore) .occhiello,
+body:has(#motore) .dati li,
+body:has(#motore) .bottone,
+body:has(#motore) .pill-app,
+body:has(#motore) select#lingua,
+body:has(#motore) .def-parola,
+body:has(#motore) .pl-si,
+body:has(#motore) .proposta-lingua,
+body:has(#motore) .u-cta,
+body:has(#motore) .u-sw__b,
+body:has(#motore) .u-lang__b{ border-radius:4px; }
+body:has(#motore) .scelta .lettera,
+body:has(#motore) .voce .segno{ border-radius:4px; }
+body:has(#motore) .u-sw__l,
+body:has(#motore) .u-lang__l{ border-radius:6px; }
+
+/* --- 3. la barra come nelle altre pagine --------------------------------- */
+body:has(#motore) .u-bar{
+  --u-h:46px; box-shadow:none; border-bottom:1px solid #E3DFD5; }
+body:has(#motore) .u-bar,
+body:has(#motore) .u-bar a,
+body:has(#motore) .u-bar button{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; }
+body:has(#motore) .u-sw__b,
+body:has(#motore) .u-lang__b,
+body:has(#motore) .u-menu a,
+body:has(#motore) .u-cta{
+  font-size:.7rem; font-weight:600; letter-spacing:.12em;
+  text-transform:uppercase; }
+body:has(#motore) .u-logo img{ width:22px; height:22px; border-radius:5px; }
+
+/* --- 4. gli occhielli come nel resto del sito ---------------------------- */
+body:has(#motore) .occhiello,
+body:has(#motore) .prova-eti,
+body:has(#motore) .etichetta-prova span{
+  background:none; border:0; border-bottom:1px solid var(--inchiostro);
+  border-radius:0; padding:0 0 4px; color:var(--inchiostro);
+  font-size:.7rem; letter-spacing:.16em; }
+body:has(#motore) .prova-eti,
+body:has(#motore) .etichetta-prova span{ border-bottom:0; padding:0; }
+
+/* --- 5. QUELLO CHE RESTA COM'E', e perche' -------------------------------
+   Le rimetto per nome dopo le variabili, cosi' se un giorno qualcuno cambia
+   --r-s non se le porta dietro. Ognuna e' un oggetto, non uno stile.
+
+     .postit          un foglietto adesivo
+     .stampa          una stampa fotografica
+     .foglietto       un foglio strappato
+     .giornale        un ritaglio
+     .libro           una pagina di dizionario
+     .diario          una pagina di diario
+     .bacheca         un avviso appeso
+     .social          una scheda di social
+     .chat.messaggi   un telefono: 34px sono la sua scocca
+     .fumetto         una nuvoletta di fumetto
+     .nuvola          una nuvoletta di pensiero
+     .corona          il disco del livello: e' una medaglia
+     .faccia .cifra   volti e numeri in cerchio
+     .segmenti i      barre di avanzamento: la pillola e' la forma giusta
+     .scala-anteprima span   idem
+   Un telefono con gli angoli vivi non e' un telefono. */
+body:has(#motore) .postit{ border-radius:3px; }
+body:has(#motore) .stampa{ border-radius:2px; }
+body:has(#motore) .foglietto{ border-radius:14px; }
+body:has(#motore) .scheda-carta{ border-radius:14px; }
+body:has(#motore) .giornale{ border-radius:6px; }
+body:has(#motore) .libro{ border-radius:2px 8px 8px 2px; }
+body:has(#motore) .diario{ border-radius:3px 10px 10px 3px; }
+body:has(#motore) .bacheca{ border-radius:4px; }
+body:has(#motore) .social{ border-radius:14px; }
+body:has(#motore) .chat.messaggi{ border-radius:34px; }
+body:has(#motore) .fumetto{ border-radius:16px 16px 16px 4px; }
+body:has(#motore) .battuta.destra .fumetto{ border-radius:16px 16px 4px 16px; }
+body:has(#motore) .chat.parlato .fumetto{ border-radius:20px 20px 20px 6px; }
+body:has(#motore) .chat.parlato .battuta.destra .fumetto{
+  border-radius:20px 20px 6px 20px; }
+body:has(#motore) .chat.messaggi .fumetto{ border-radius:14px 14px 14px 3px; }
+body:has(#motore) .chat.messaggi .battuta.destra .fumetto{
+  border-radius:14px 14px 3px 14px; }
+body:has(#motore) .nuvola{ border-radius:40px; }
+body:has(#motore) .corona,
+body:has(#motore) .faccia,
+body:has(#motore) .cifra,
+body:has(#motore) .etichetta-prova .punto{ border-radius:50%; }
+body:has(#motore) .segmenti i,
+body:has(#motore) .scala-anteprima span,
+body:has(#motore) .scala .barra-liv,
+body:has(#motore) .pf-t,
+body:has(#motore) .pf-riga .t{ border-radius:999px; }
+
+/* --- 6. il profilo in PDF non si tocca -----------------------------------
+   E' un documento stampato, tarato riga per riga su due pagine A4. Cambiargli
+   misure e colori qui vorrebbe dire rifare quel lavoro. */
+body:has(#motore) #profilo,
+body:has(#motore) #profilo *{ --r:10px; }
+@media print{
+  body:has(#motore){ background:#fff; }
+}
+/* 193-test fine */
