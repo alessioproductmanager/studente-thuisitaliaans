@@ -305,7 +305,15 @@
 <meta name="apple-itunes-app" content="app-id=6791650799, app-argument=https://thuisitaliaans.com/en/">
 <!-- 132-uniforma -->
 <link rel="stylesheet" href="/css/uniforme.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://thuisitaliaans.com/"}, {"@type": "ListItem", "position": 2, "name": "Lessons", "item": "https://thuisitaliaans.com/"}, {"@type": "ListItem", "position": 3, "name": "Speak Italian with confidence."}]}</script></head>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://thuisitaliaans.com/"}, {"@type": "ListItem", "position": 2, "name": "Lessons", "item": "https://thuisitaliaans.com/"}, {"@type": "ListItem", "position": 3, "name": "Speak Italian with confidence."}]}</script><style>/* lessen-gruppi-v1: gruppi compatti sotto le carte principali */
+.lesson-groepen{margin-top:36px;display:grid;gap:26px}
+.lesson-groep h3{font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;opacity:.65;margin:0 0 12px}
+.lesson-rij{display:flex;flex-wrap:wrap;gap:10px;margin:0}
+.lesson-rij a{display:inline-block;padding:9px 18px;border:1px solid rgba(49,57,77,.18);border-radius:999px;text-decoration:none;color:inherit;background:rgba(255,255,255,.7);font-size:.95rem;transition:.2s ease}
+.lesson-rij a:hover{border-color:#f5b400;transform:translateY(-1px);box-shadow:0 6px 16px rgba(49,57,77,.10)}
+.lesson-proef{margin-top:34px;text-align:center}
+</style>
+</head>
 <body>
 <!-- 134-fondamenta -->
 <a class="u-salta" href="#u-contenuto">Skip to content</a>
@@ -884,7 +892,7 @@ Genuine student reviews, collected on Preply, Apprentus and italki.
             </div>
         </section>
 
-        <section id="lessons">
+        <section id="lessons"><!--lessen-gruppi-v1-->
             <div class="container">
                 <div class="section-heading">
                     <h2>Every lesson is built around you</h2>
@@ -909,36 +917,18 @@ Genuine student reviews, collected on Preply, Apprentus and italki.
                         <p>Same structure as in person, minus the travel. Worldwide, in your time zone, materials after every lesson.</p>
                         <span class="lesson-meer" aria-hidden="true">→︎</span>
                     </a>
-                    <a class="lesson-card" href="business-italian">
-                        <svg class="lesson-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2.5" y="7.5" width="19" height="12" rx="2"/><path d="M9 7.5V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1.5"/><path d="M2.5 13h19"/></svg>
-                        <h3>Business Italian</h3>
-                        <p>For professionals and teams: negotiating, presenting, emailing, phoning, and the cultural codes around all of it.</p>
-                        <span class="lesson-meer" aria-hidden="true">→︎</span>
-                    </a>
-                    <a class="lesson-card" href="italian-for-children">
-                        <svg class="lesson-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l6 6-6 6-6-6 6-6z"/><path d="M12 15v6"/><path d="M12 21c-1.6 0-2.4-1-2.4-2"/></svg>
-                        <h3>Italian for children</h3>
-                        <p>Learning through games, stories and movement. For bilingual families and children with Italian relatives.</p>
-                        <span class="lesson-meer" aria-hidden="true">→︎</span>
-                    </a>
-                    <a class="lesson-card" href="italian-for-beginners">
-                        <svg class="lesson-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21V11"/><path d="M12 11c0-3 2-5 5-5 0 3-2 5-5 5z"/><path d="M12 14c0-2.6-1.8-4.5-4.5-4.5 0 2.6 1.8 4.5 4.5 4.5z"/><path d="M6 21h12"/></svg>
-                        <h3>Italian for beginners</h3>
-                        <p>From zero, no prior knowledge. From your first sentence to a real conversation, at your own pace.</p>
-                        <span class="lesson-meer" aria-hidden="true">→︎</span>
-                    </a>
-                    <a class="lesson-card" href="italian-exam-preparation">
-                        <svg class="lesson-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="9" r="5.2"/><path d="M9.2 13.6L8 21l4-2 4 2-1.2-7.4"/></svg>
-                        <h3>CILS, CELI, PLIDA exam prep</h3>
-                        <p>Focused training for an official certificate: for study, work, visa or citizenship.</p>
-                        <span class="lesson-meer" aria-hidden="true">→︎</span>
-                    </a>
-                    <a class="lesson-card" href="italian-conversation-lessons">
-                        <svg class="lesson-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 12a7 7 0 0 1-7 7H8l-4 3v-4.6A7 7 0 0 1 8 5h5a7 7 0 0 1 7 7z"/><path d="M9 11h6"/><path d="M9 14.5h3.5"/></svg>
-                        <h3>Italian conversation lessons</h3>
-                        <p>For people who know the grammar but freeze when speaking. Maximum speaking time, correction afterwards.</p>
-                        <span class="lesson-meer" aria-hidden="true">→︎</span>
-                    </a>
+                </div>
+                <div class="lesson-groepen">
+                <div class="lesson-groep">
+                    <h3>Tracks</h3>
+                    <p class="lesson-rij">
+                        <a href="business-italian">Business Italian</a>
+                        <a href="italian-for-children">For children</a>
+                        <a href="italian-for-beginners">For beginners</a>
+                        <a href="italian-exam-preparation">CILS, CELI, PLIDA exam prep</a>
+                        <a href="italian-conversation-lessons">Conversation lessons</a>
+                    </p>
+                </div>
                 </div>
             </div>
         </section>
