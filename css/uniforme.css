@@ -1335,49 +1335,54 @@ body:not(:has(#motore)) .container{
 }
 body:not(:has(#motore)){ overflow-x:clip; }
 
-/* --- 3. la barra: da tre pillole a una testata --------------------------- */
+/* --- 3. la barra: piu' bassa e piu' stretta ------------------------------
+   Il primo tentativo l'aveva alzata a 66px e aggiunto il nome del sito in
+   serif accanto al marchio, togliendo la cornice al commutatore e al
+   selettore lingua. Sbagliato in due modi: il nome ripeteva quello che il
+   logo dice gia', e una barra alta occupa spazio senza dare niente in
+   cambio. La cornice invece serve: dice che quelle due voci si aprono, e
+   senza sembravano testo qualunque.
 
-/* il nome accanto al marchio, in serif e in minuscolo */
-body:not(:has(#motore)) .u-logo{ display:inline-flex; align-items:center; gap:9px; }
-body:not(:has(#motore)) .u-logo::after{
-  content:"thuisitaliaans";
-  font-family:"Iowan Old Style",Georgia,serif;
-  font-size:1.06rem; letter-spacing:-.01em; color:#1F2320;
-  white-space:nowrap; }
-@media (max-width:640px){
-  body:not(:has(#motore)) .u-logo::after{ display:none; }
-}
+   Quindi qui il contrario: barra piu' bassa dell'originale, cornici al
+   loro posto, e le due pillole rimpicciolite finche' non pesano piu'. Il
+   carattere della barra viene dalla misura e dal maiuscoletto, non da un
+   elemento in piu'. */
 
-/* il commutatore di sezione perde la cornice e resta testo */
-body:not(:has(#motore)) .u-sw__b{
-  border:0; background:none; padding:6px 2px; border-radius:0;
-  font-size:.76rem; font-weight:700; letter-spacing:.14em;
-  text-transform:uppercase; }
-body:not(:has(#motore)) .u-sw__b:hover{ border:0; }
-body:not(:has(#motore)) .u-sw{ gap:14px; }
-body:not(:has(#motore)) .u-sw::after{
-  content:""; width:1px; height:18px; background:#E3DFD5; }
+body:not(:has(#motore)) .u-bar{
+  --u-h:52px; box-shadow:none; border-bottom:1px solid #E3DFD5; }
+body:not(:has(#motore)) .u-bar__in{ gap:14px; }
+body:not(:has(#motore)) .u-logo img{ width:26px; height:26px; border-radius:6px; }
+
+/* il commutatore e il selettore lingua: cornice sottile, angolo appena
+   smussato, e un terzo di spazio in meno di prima */
+body:not(:has(#motore)) .u-sw__b,
+body:not(:has(#motore)) .u-lang__b{
+  border:1px solid #E3DFD5; background:none; border-radius:4px;
+  padding:5px 10px; font-size:.72rem; font-weight:700;
+  letter-spacing:.1em; text-transform:uppercase; line-height:1.25; }
+body:not(:has(#motore)) .u-sw__b:hover,
+body:not(:has(#motore)) .u-lang__b:hover{ border-color:#1F2320; }
+body:not(:has(#motore)) .u-sw__b b{ margin-left:2px; }
+body:not(:has(#motore)) .u-sw{ gap:10px; }
 
 /* le voci in maiuscoletto spaziato: e' la firma delle testate, e nessun
    tema la usa perche' costa leggibilita' se le voci sono lunghe. Le tue
    sono corte. */
-body:not(:has(#motore)) .u-menu a,
-body:not(:has(#motore)) .u-lang__b{
-  font-size:.74rem; font-weight:700; letter-spacing:.13em;
+body:not(:has(#motore)) .u-menu a{
+  font-size:.73rem; font-weight:700; letter-spacing:.12em;
   text-transform:uppercase; }
-body:not(:has(#motore)) .u-lang__b{
-  border:0; background:none; padding:6px 2px; border-radius:0; }
-body:not(:has(#motore)) .u-menu{ gap:26px; }
+body:not(:has(#motore)) .u-menu{ gap:22px; }
 
-/* la barra respira di piu' e chiude con un filetto, non con un'ombra */
-body:not(:has(#motore)) .u-bar{
-  --u-h:66px; box-shadow:none; border-bottom:1px solid #E3DFD5; }
-body:not(:has(#motore)) .u-bar__in{ gap:22px; }
-
-/* la CTA resta piena: in una pagina sobria l'unico elemento pieno diventa
-   piu' visibile, non meno. Cambia solo il corpo, per stare in riga con le
-   voci accanto. */
+/* la CTA resta l'unico elemento pieno: in una barra sobria e' quello che
+   si vede, ed e' giusto che sia l'unica cosa da cliccare */
 body:not(:has(#motore)) .u-cta{
-  border-radius:4px; font-size:.78rem; font-weight:700;
-  letter-spacing:.09em; text-transform:uppercase; padding:11px 18px; }
+  border-radius:4px; font-size:.73rem; font-weight:700;
+  letter-spacing:.08em; text-transform:uppercase; padding:8px 14px; }
+
+@media (max-width:640px){
+  body:not(:has(#motore)) .u-bar{ --u-h:48px; }
+  body:not(:has(#motore)) .u-sw__b,
+  body:not(:has(#motore)) .u-lang__b{ padding:4px 8px; font-size:.68rem; }
+  body:not(:has(#motore)) .u-cta{ padding:7px 11px; font-size:.68rem; }
+}
 /* 185-barra-e-bordi fine */
