@@ -974,4 +974,36 @@
     <xhtml:link rel="alternate" hreflang="ti" href="https://thuisitaliaans.com/test-livello/mefetesha-derejat-italyanenya"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/test-livello-italiano"/>
   </url>
-</urlset>
+<!-- 190-sitemap-autore -->
+  <url>
+    <loc>https://thuisitaliaans.com/it/alessio</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://thuisitaliaans.com/it/alessio"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thuisitaliaans.com/en/alessio"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://thuisitaliaans.com/over-alessio"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/en/alessio"/>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/en/alessio</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://thuisitaliaans.com/it/alessio"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thuisitaliaans.com/en/alessio"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://thuisitaliaans.com/over-alessio"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/en/alessio"/>
+  </url>
+  <url>
+    <loc>https://thuisitaliaans.com/over-alessio</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://thuisitaliaans.com/it/alessio"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thuisitaliaans.com/en/alessio"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://thuisitaliaans.com/over-alessio"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/en/alessio"/>
+  </url>
+  <!--/ 190-sitemap-autore -->
+  </urlset>
