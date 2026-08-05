@@ -1196,3 +1196,55 @@ body:not(:has(#motore)) img[src*="/assets/books/"],
 body:not(:has(#motore)) img[src*="/assets/store/"],
 body:not(:has(#motore)) img[src*="/assets/icons/"]{ filter:none; }
 /* 176-carta fine */
+
+/* 177-rifiniture-tipografiche inizio */
+/* ==========================================================================
+   RIFINITURE TIPOGRAFICHE  dopo 174, 175 e 176.
+   ========================================================================== */
+
+/* --- 1. i titoli non restano con una parola sola sull'ultima riga -------- */
+body:not(:has(#motore)) h1,
+body:not(:has(#motore)) h2,
+body:not(:has(#motore)) h3,
+body:not(:has(#motore)) .article-card-body h3{ text-wrap:balance; }
+body:not(:has(#motore)) .article-body p,
+body:not(:has(#motore)) .contenuto p{ text-wrap:pretty; }
+
+/* --- 2. l'attacco -------------------------------------------------------
+   Il primo paragrafo di un grado piu' grande: dice "da qui si comincia"
+   senza bisogno di un sommario. */
+body:not(:has(#motore)) .article-body > p:first-of-type,
+body:not(:has(#motore)) .article-body > .has-text-align-center:first-of-type{
+  font-size:1.26rem; line-height:1.6; color:#1F2320; }
+
+/* --- 3. la sillabazione, solo su schermo stretto ------------------------
+   Le parole italiane sono lunghe e in colonna stretta lasciano buchi
+   bianchi in mezzo alla riga. Sopra i 700px non serve. */
+@media (max-width:700px){
+  body:not(:has(#motore)) .article-body p,
+  body:not(:has(#motore)) .contenuto p,
+  body:not(:has(#motore)) .article-container p{
+    hyphens:auto; -webkit-hyphens:auto; }
+}
+
+/* --- 4. le sottolineature che non tagliano le discendenti ---------------- */
+body:not(:has(#motore)) .article-body a,
+body:not(:has(#motore)) .contenuto a,
+body:not(:has(#motore)) .article-container a{
+  text-decoration-thickness:1px; text-underline-offset:.18em;
+  text-decoration-skip-ink:auto; }
+
+/* --- 5. le cifre in stile antico nel corpo ------------------------------
+   Stanno dentro la riga invece di sporgere. Nei titoli restano allineate:
+   li' devono avere tutte la stessa altezza. */
+body:not(:has(#motore)) .article-body,
+body:not(:has(#motore)) .contenuto p{
+  font-variant-numeric:oldstyle-num;
+  font-feature-settings:"onum" 1; }
+body:not(:has(#motore)) h1,
+body:not(:has(#motore)) h2,
+body:not(:has(#motore)) h3,
+body:not(:has(#motore)) .article-meta{
+  font-variant-numeric:lining-nums;
+  font-feature-settings:"lnum" 1; }
+/* 177-rifiniture-tipografiche fine */
