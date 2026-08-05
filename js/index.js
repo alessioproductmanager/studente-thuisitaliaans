@@ -269,7 +269,7 @@ function redirectPermanente(url) {
  * Per questo qui si chiede sempre la forma SENZA estensione.
  * ------------------------------------------------------------------ */
 const CARTELLE = ["", "lessen/", "niveaus/", "app/"];
-const PASSANTI = /^\/(assets|css|js|esercizi|blog|libri|boeken|books|lingue|it|en|scuole)\//;
+const PASSANTI = /^\/(assets|css|js|esercizi|blog|libri|boeken|books|lingue|it|en|es|fr|de|pt|ro|sq|uk|zh|ar|fil|bn|ti|scuole)\//;
 
 async function trovaIn(nome, url, request, env) {
 	for (const cartella of CARTELLE) {
