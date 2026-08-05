@@ -1248,3 +1248,53 @@ body:not(:has(#motore)) .article-meta{
   font-variant-numeric:lining-nums;
   font-feature-settings:"lnum" 1; }
 /* 177-rifiniture-tipografiche fine */
+
+/* 179-apparato inizio */
+/* ==========================================================================
+   L'APPARATO IN FONDO ALLA PAGINA, COME UN BLOCCO SOLO.
+   Disclaimer, credito foto, firma, licenza, nota marchi e riga fiscale sono
+   la stessa cosa: note. Erano scritti con tre grigi e due misure diverse,
+   perche' arrivano da script scritti in momenti diversi.
+   ========================================================================== */
+
+body:not(:has(#motore)) .u-note{
+  font-size:.83rem; line-height:1.62; color:#5C6159; }
+
+/* Una misura sola, un grigio solo. Le trasparenze sparivano o annerivano a
+   seconda del fondo: un colore dichiarato si misura, opacity no. */
+body:not(:has(#motore)) .u-note p,
+body:not(:has(#motore)) .u-disc p,
+body:not(:has(#motore)) .blog-foto-credit,
+body:not(:has(#motore)) .blog-footer-license,
+body:not(:has(#motore)) .tm-note,
+body:not(:has(#motore)) .u-firma,
+body:not(:has(#motore)) .u-collana p{
+  font-size:.83rem !important; line-height:1.62; opacity:1 !important;
+  color:#5C6159 !important; letter-spacing:0; }
+
+/* i link dentro le note: stesso grigio, sottolineati fini */
+body:not(:has(#motore)) .u-note a{
+  color:#5C6159; text-decoration-thickness:1px; text-underline-offset:.16em; }
+body:not(:has(#motore)) .u-note a:hover{ color:#1F2320; }
+
+/* --- il titolo di una nota non e' un titolo di paragrafo -----------------
+   Maiuscoletto spaziato, come gli occhielli: si capisce a colpo d'occhio
+   che apre una nota. */
+body:not(:has(#motore)) .u-disc b,
+body:not(:has(#motore)) .u-collana p:first-child{
+  font-size:.7rem !important; font-weight:700; letter-spacing:.13em;
+  text-transform:uppercase; color:#1F2320 !important;
+  display:block; margin-bottom:6px; }
+
+/* --- la firma dell'autore e' l'unica riga che deve pesare ----------------
+   E' la credenziale: dentro un apparato tutto uguale sparirebbe. Resta
+   della stessa misura, ma in nero e non in grigio. */
+body:not(:has(#motore)) .blog-firma{ color:#1F2320 !important; }
+
+/* --- misura della riga anche qui ---------------------------------------
+   Le note vanno a tutta larghezza del piede, cioe' oltre 130 caratteri:
+   sono le righe piu' lunghe della pagina proprio dove il testo e' piu'
+   piccolo. */
+body:not(:has(#motore)) .u-note > p,
+body:not(:has(#motore)) .u-disc{ max-width:88ch; }
+/* 179-apparato fine */
