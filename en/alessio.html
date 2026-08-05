@@ -2,146 +2,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Alessio | Teacher of Italian</title>
-<meta name="description" content="Alessio, a teacher of Italian as a foreign language between Ede and Amsterdam: training, how I work, what I have built and how to reach me.">
-<link rel="canonical" href="https://thuisitaliaans.com/en/alessio">
-<link rel="alternate" hreflang="it" href="https://thuisitaliaans.com/libri">
-<link rel="alternate" hreflang="en" href="https://thuisitaliaans.com/books">
-<link rel="alternate" hreflang="nl" href="https://thuisitaliaans.com/boeken">
-<link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/books">
-<meta name="robots" content="index, follow">
-<meta name="author" content="Alessio Insegnante">
-<meta name="theme-color" content="#F7F2E7">
-<!-- Open Graph / social -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="thuisitaliaans">
-<meta property="og:locale" content="en_US">
-<meta property="og:title" content="Alessio, a teacher of Italian as a foreign language">
-<meta property="og:description" content="Alessio, a teacher of Italian as a foreign language between Ede and Amsterdam: training, how I work, what I have built and how to reach me.">
-<meta property="og:url" content="https://thuisitaliaans.com/en/alessio">
-<meta property="og:image" content="https://thuisitaliaans.com/assets/books/PromessiSposi_cover.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Italian Graded Readers: Books to Learn Italian A1–C1">
-<meta name="twitter:image" content="https://thuisitaliaans.com/assets/books/PromessiSposi_cover.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-<style>
-:root{
-  --carta:#F7F2E7;
-  --inchiostro:#1E2529;
-  --laguna:#16697A;
-  --laguna-scuro:#0F4C59;
-  --cotto:#B0592F;
-  --nebbia:#8D8578;
-  --bordo:#E3DAC6;
-  --ombra:0 10px 30px rgba(30,37,41,.14);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--carta);color:var(--inchiostro);font-family:"Source Serif 4",Georgia,serif;font-size:17px;line-height:1.65}
-a{color:var(--laguna)}
-.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-header.sito{border-bottom:1px solid var(--bordo);background:var(--carta);position:sticky;top:0;z-index:20}
-header.sito .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-.logo{font-family:Fraunces,serif;font-weight:700;font-size:1.15rem;color:var(--inchiostro);text-decoration:none}
-.logo em{color:var(--laguna);font-style:normal}
-nav.principale a{font-family:Inter,sans-serif;font-size:.85rem;font-weight:600;text-decoration:none;color:var(--inchiostro);margin-left:22px}
-nav.principale a:hover{color:var(--laguna)}
-.hero{padding:70px 0 40px}
-.occhiello{font-family:Inter,sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--laguna)}
-h1{font-family:Fraunces,serif;font-weight:700;font-size:clamp(2rem,5vw,3.2rem);line-height:1.12;margin:.4em 0 .5em;max-width:16ch}
-.hero p.sotto{max-width:56ch;font-size:1.08rem}
-.cta-riga{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-.btn{font-family:Inter,sans-serif;font-weight:600;font-size:.92rem;text-decoration:none;border-radius:10px;padding:13px 22px;display:inline-block}
-.btn.pieno{background:var(--laguna);color:#fff}
-.btn.pieno:hover{background:var(--laguna-scuro)}
-.btn.vuoto{border:1.5px solid var(--inchiostro);color:var(--inchiostro)}
-.btn.vuoto:hover{border-color:var(--laguna);color:var(--laguna)}
-h2{font-family:Fraunces,serif;font-weight:600;font-size:1.6rem}
-.badge-livello{background:var(--cotto);color:#fff;font-family:Inter,sans-serif;font-weight:600;font-size:.72rem;padding:3px 10px;border-radius:4px;box-shadow:0 2px 6px rgba(0,0,0,.25);z-index:1}
-.griglia-sezione{padding:56px 0 30px}
-.collana-testa{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 20px}
-.ku-nota{font-family:Inter,sans-serif;font-size:.85rem;color:var(--nebbia)}
-.ku-nota strong{color:var(--cotto)}
-.filtri{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
-.filtri button{font-family:Inter,sans-serif;font-size:.85rem;font-weight:600;border:1.5px solid var(--bordo);background:#fff;color:var(--inchiostro);border-radius:999px;padding:7px 16px;cursor:pointer}
-.filtri button:hover{border-color:var(--laguna);color:var(--laguna)}
-.filtri button.attivo{background:var(--laguna);border-color:var(--laguna);color:#fff}
-.griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:30px 22px;margin-top:30px}
-.scheda{background:#fff;border:1px solid var(--bordo);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:12px;position:relative;transition:transform .2s ease,box-shadow .2s ease}
-.scheda:hover{transform:translateY(-4px);box-shadow:var(--ombra)}
-.scheda .badge-livello{position:absolute;top:18px;left:18px}
-.scheda img{width:100%;height:auto;margin:0;aspect-ratio:1600/2560;object-fit:cover;border-radius:4px;box-shadow:0 6px 16px rgba(30,37,41,.16);background:#f2ecdd}
-.scheda a.copri{text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:12px}
-.scheda a.copri:hover .titolo{color:var(--laguna)}
-.scheda .titolo{font-family:Fraunces,serif;font-weight:600;font-size:1.02rem;line-height:1.25}
-.scheda .autore{font-family:Inter,sans-serif;font-size:.8rem;color:var(--nebbia)}
-.scheda .riga-fondo{margin-top:auto;display:flex;align-items:center;justify-content:space-between}
-.scheda .liv{font-family:Inter,sans-serif;font-size:.75rem;font-weight:600;color:var(--cotto)}
-.scheda .compra{font-family:Inter,sans-serif;font-size:.85rem;font-weight:600;text-decoration:none;background:var(--laguna);color:#fff;padding:8px 16px;border-radius:8px;border:1.5px solid transparent;display:inline-flex;align-items:center;justify-content:center;line-height:1;white-space:nowrap}
-.scheda a.compra:hover{background:var(--laguna-scuro)}
-.perche{border-top:1px solid var(--bordo);border-bottom:1px solid var(--bordo);background:#fffdf6;padding:44px 0;margin-top:40px}
-.perche .colonne{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:28px;margin-top:8px}
-.perche h3{font-family:Fraunces,serif;font-weight:600;font-size:1.05rem;margin-bottom:6px}
-.perche p{font-size:.95rem}
-.faq{padding:50px 0 10px}
-.faq details{border-bottom:1px solid var(--bordo);padding:16px 0}
-.faq summary{font-family:Fraunces,serif;font-weight:600;font-size:1.05rem;cursor:pointer}
-.faq p{margin-top:10px;max-width:70ch}
-.fondo{padding:60px 0 70px;text-align:center}
-.fondo p{color:var(--nebbia);max-width:52ch;margin:10px auto 24px}
-footer.sito{border-top:1px solid var(--bordo);padding:26px 0;font-family:Inter,sans-serif;font-size:.8rem;color:var(--nebbia)}
-footer.sito .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-.hero.wrap,.griglia-sezione.wrap,.faq.wrap,.fondo.wrap{padding-left:20px;padding-right:20px}
-@media(max-width:640px){
-  body{font-size:16px}
-  .wrap{padding:0 16px}
-  header.sito{position:static}
-  header.sito .wrap{height:auto;flex-wrap:wrap;padding:10px 16px;gap:4px 0}
-  nav.principale{width:100%;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px}
-  nav.principale::-webkit-scrollbar{display:none}
-  nav.principale a{margin-left:0;margin-right:18px}
-  .hero{padding:32px 0 24px}
-  h1{font-size:1.75rem}
-  .cta-riga{margin-top:20px;gap:10px}
-  .hero p.sotto{font-size:1rem}
-  .cta-riga .btn{width:100%;text-align:center}
-  .griglia-sezione{padding:40px 0 20px}
-  .filtri{gap:6px;margin-top:16px}
-  .filtri button{padding:9px 15px;font-size:.88rem}
-  .griglia{grid-template-columns:repeat(2,1fr);gap:20px 12px;margin-top:22px}
-  .scheda{padding:12px;gap:8px}
-  .scheda img{width:100%}
-  .scheda .badge-livello{top:16px;left:16px}
-  .scheda .titolo{font-size:.92rem}
-  .scheda .autore{font-size:.72rem}
-  .scheda .riga-fondo{flex-direction:column;align-items:stretch;gap:6px}
-  .scheda .liv{text-align:left}
-  .scheda a.compra{text-align:center}
-  .perche{padding:32px 0}
-  .perche .colonne{gap:20px}
-  .faq{padding:36px 0 6px}
-  .fondo{padding:44px 0 50px}
-  h2{font-size:1.35rem}
-  .hero.wrap{padding:28px 16px 22px}
-  .perche{border:1px solid var(--bordo);border-radius:12px;margin:14px 12px;background:#fffdf6}
-  .fondo.wrap{background:#fff;border:1px solid var(--bordo);border-radius:12px;margin:6px 12px 34px;width:auto;padding:34px 16px}
-  .griglia-sezione.wrap{padding-left:16px;padding-right:16px}
-  .prosa{background:#fff;border:1px solid var(--bordo);border-radius:12px;margin:14px 12px;padding:20px 16px !important;width:auto}
-  .faq.wrap{background:#fff;border:1px solid var(--bordo);border-radius:12px;margin:14px 12px;padding:20px 16px 8px;width:auto}
-  .faq details:last-child{border-bottom:none}
-}
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .scheda{transition:none}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Alessio | Teacher of Italian</title>
+    <meta name="description" content="Alessio, a teacher of Italian as a foreign language between Ede and Amsterdam: training, how I work, what I have built and how to reach me.">
+    <meta name="theme-color" content="#31394d">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="author" content="Alessio Are">
 
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="48x48" href="../assets/icons/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="96x96" href="../assets/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png">
 
-<script src="/js/amazon-locale.js" defer></script>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://thuisitaliaans.com/en/alessio">
+    <meta property="og:title" content="Alessio, a teacher of Italian as a foreign language">
+    <meta property="og:description" content="Alessio, a teacher of Italian as a foreign language between Ede and Amsterdam: training, how I work, what I have built and how to reach me.">
+    <meta property="og:image" content="https://thuisitaliaans.com/assets/icons/og-image.png">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:site_name" content="thuisitaliaans">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Italian lesson pricing | thuisitaliaans">
+    <meta name="twitter:description" content="I set the rate for Italian lessons around your situation. No subscription, no packages. We discuss it in a free intake.">
+    <meta name="twitter:image" content="https://thuisitaliaans.com/assets/icons/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="canonical" href="https://thuisitaliaans.com/en/alessio">
+    <link rel="alternate" hreflang="en" href="https://thuisitaliaans.com/en/pricing">
+    <link rel="alternate" hreflang="it" href="https://thuisitaliaans.com/it/prezzi">
+    <link rel="alternate" hreflang="nl" href="https://thuisitaliaans.com/tarieven">
+    <link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/tarieven">
 
     <meta name="copyright" content="© 2026 Thuis Italiaans — All rights reserved">
 <style>/*stelle-v1*/
@@ -153,6 +49,19 @@ footer.sito .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
 .stars svg,.stars path,.stars use,.stelle-gialle svg,.stelle-gialle path,.stelle-gialle use,.rec-stelle svg,.rec-stelle path,.rec-stelle use,.app-stelle-ico svg,.app-stelle-ico path,.app-stelle-ico use,.footer-review-ster svg,.footer-review-ster path,.footer-review-ster use{fill:var(--stelle-giallo)!important;stroke:none}
 .app-promo-stelle{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;font-size:13px;font-weight:600;margin:0 0 8px}
 .app-promo-stelle .eti{color:inherit;opacity:.7;font-weight:500}
+</style>
+<style>/*rec-lato-v1*/
+.rec-lato{clear:both;float:none;width:100%;margin:38px 0;padding:24px 0;
+  border-top:1px solid rgba(0,0,0,.10);border-bottom:1px solid rgba(0,0,0,.10)}
+.rec-lato h3{margin:0 0 2px;font-size:19px}
+.rec-lato .rl-conta{font-size:13px;opacity:.65;margin:0 0 18px}
+.rec-lato .rl-griglia{display:grid;gap:18px;align-items:start;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.rec-lato .rl-uno{border:0;padding:0}
+.rec-lato .rl-uno p{font-size:13.5px;line-height:1.55;margin:6px 0 0}
+.rec-lato .rl-chi{font-size:12.5px;font-weight:600;margin-top:8px;display:block;opacity:.75}
+.rec-lato .rl-cta{display:inline-block;margin-top:18px;font-size:14px;font-weight:600}
+@media (max-width:640px){.rec-lato .rl-griglia{grid-template-columns:1fr}}
 </style>
 <!--geo-webpage-v1-->
 <link rel="stylesheet" href="/assets/mobile.css">
@@ -185,35 +94,50 @@ footer.sito .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
 </style>
 
 <!-- 128-banner-app -->
-<meta name="apple-itunes-app" content="app-id=6791650799, app-argument=https://thuisitaliaans.com/books">
+<meta name="apple-itunes-app" content="app-id=6791650799, app-argument=https://thuisitaliaans.com/en/pricing">
 <!-- 132-uniforma -->
 <link rel="stylesheet" href="/css/uniforme.css">
-<link rel="icon" href="/assets/icons/libri/favicon-32x32.png" sizes="32x32"><link rel="icon" href="/assets/icons/libri/favicon-16x16.png" sizes="16x16"><link rel="apple-touch-icon" href="/assets/icons/libri/apple-touch-icon.png"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "inLanguage": "en", "url": "https://thuisitaliaans.com/en/alessio", "mainEntity": {"@type": "Person", "@id": "https://thuisitaliaans.com/#alessio", "name": "Alessio Are", "url": "https://thuisitaliaans.com/en/alessio", "jobTitle": "Teacher of Italian as a foreign language", "knowsLanguage": [{"@type": "Language", "name": "Italian"}, {"@type": "Language", "name": "English"}, {"@type": "Language", "name": "Dutch"}], "alumniOf": [{"@type": "CollegeOrUniversity", "name": "Università Ca' Foscari Venezia", "sameAs": "https://www.unive.it/"}, {"@type": "CollegeOrUniversity", "name": "Università Giustino Fortunato", "sameAs": "https://www.unifortunato.eu/"}], "worksFor": {"@type": "Organization", "@id": "https://thuisitaliaans.com/#organizzazione", "name": "thuisitaliaans"}, "sameAs": ["https://preply.com/en/tutor/3843955", "https://www.apprentus.com/en/in/italiano.amsterdam", "https://maps.google.com/?cid=1518224867092056834", "https://apps.apple.com/app/id6791650799"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "inLanguage": "en", "url": "https://thuisitaliaans.com/en/alessio", "mainEntity": {"@type": "Person", "@id": "https://thuisitaliaans.com/#alessio", "name": "Alessio Are", "url": "https://thuisitaliaans.com/en/alessio", "jobTitle": "Teacher of Italian as a foreign language", "knowsLanguage": [{"@type": "Language", "name": "Italian"}, {"@type": "Language", "name": "English"}, {"@type": "Language", "name": "Dutch"}], "alumniOf": [{"@type": "CollegeOrUniversity", "name": "Università Ca' Foscari Venezia", "sameAs": "https://www.unive.it/"}, {"@type": "CollegeOrUniversity", "name": "Università Giustino Fortunato", "sameAs": "https://www.unifortunato.eu/"}], "worksFor": {"@type": "Organization", "@id": "https://thuisitaliaans.com/#organizzazione", "name": "thuisitaliaans"}, "sameAs": ["https://preply.com/en/tutor/3843955", "https://www.apprentus.com/en/in/italiano.amsterdam", "https://maps.google.com/?cid=1518224867092056834", "https://apps.apple.com/app/id6791650799"]}}</script>
 </head>
 <body>
 <!-- 134-fondamenta -->
 <a class="u-salta" href="#u-contenuto">Skip to content</a>
+    <header class="u-bar" style="--u-sez:#31394d"><!--u-144--><div class="u-bar__in"><div class="u-sw"><a class="u-logo" href="/en/" aria-label="thuisitaliaans"><img src="/assets/icons/icon-192.png" alt="" width="30" height="30" decoding="async"></a><button class="u-sw__b" type="button" aria-expanded="false" aria-haspopup="true">Lessons<b aria-hidden="true">&#9662;</b></button><ul class="u-sw__l"><li><a href="/en/" style="--u-p:#31394d" aria-current="true">Lessons</a></li><li><a href="/app-ti-en" style="--u-p:#31394d">The Ti app</a></li><li><a href="/test-livello/italian-level-test" style="--u-p:#2f6b3a">Level test</a></li><li><a href="/books" style="--u-p:#2b4a7a">Books</a></li><li><a href="/esercizi/" style="--u-p:#b07c1f">Exercises</a></li><li><a href="/blog/" style="--u-p:#5e7357">Blog</a></li><li><a href="/scuole/en/" style="--u-p:#bc5533">Schools in Italy</a></li></ul></div><button class="u-apri" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button><nav class="u-menu" aria-label="Menu"><a href="/en/pricing">Prices</a><a href="/why-thuis-italiaans">Why</a><a href="/en/#contact">Contact</a></nav><div class="u-lang" data-u-lang data-u-lingua="Language"></div><a class="u-cta" href="/en/#contact">Free trial</a></div></header><nav class="u-briciole" aria-label="Breadcrumb"><!--u-150--><ol><li><a href="/en/">Home</a><span class="u-bric__s" aria-hidden="true">&rsaquo;</span><a href="/en/">Lessons</a><span class="u-bric__s" aria-hidden="true">&rsaquo;</span><span aria-current="page">About Alessio</span></li></ol></nav>
 
+    <main id="u-contenuto"><section class="hero wrap"><span class="occhiello">Who writes this site</span><h1>Alessio, a teacher of Italian as a foreign language</h1><p class="sotto">I teach online and in person between Ede and Amsterdam. This site, the Ti app and the graded reader series are mine, built one at a time, to answer problems I kept seeing in lessons.</p></section><section class="wrap" style="padding:0 0 8px"><figure style="margin:0 0 26px"><img src="/assets/alessio.png" alt="Alessio, a teacher of Italian as a foreign language" loading="lazy" decoding="async" style="width:180px;height:auto;border-radius:6px;display:block"></figure></section><section class="wrap sezione"><h2>What I do</h2><p>One-to-one Italian lessons, online and in person between Ede and Amsterdam. Mostly with adults: people moving to Italy, people preparing the B1 certificate for citizenship, people who need it for work, and people who simply enjoy it.</p><p>Around the lessons I have built three things, each from a concrete problem. <a href="/app-ti-en">The Ti app</a>, because seven days pass between one lesson and the next and a language does not wait. <a href="/books">Twenty-five graded readers</a>, because my students kept stopping on page three of a real novel. A <a href="/test-livello/italian-level-test">free level test</a>, because almost nobody guesses their own level and almost everybody builds a study plan on that guess.</p></section><section class="wrap sezione"><h2>Training</h2><p>I hold two university master’s degrees in teaching Italian to speakers of other languages.</p><p><b>Ca’ Foscari University of Venice</b>, Master in Teaching and Promoting Italian Language and Culture to Foreigners, the master’s of the ITALS laboratory (ANNO_CAF). It covers the principles of language teaching methodology, teaching techniques, cooperative learning and the use of technology, assessment and action research, linguistic foundations and the sociolinguistics of contemporary Italian. It runs two separate tracks, one for Italian taught in Italy (L2) and one for Italian taught abroad (LS). I work in both: with people studying Italian from the Netherlands and with people studying it while living in Italy. They are different jobs. People in Italy get input all day and lack correction; people outside get correction and lack input.</p><p><b>Università Giustino Fortunato, Benevento</b>, one-year first-level master in Teaching Methods for Italian as a Second Language (ANNO_UGF), 1500 hours and 60 ECTS credits. Built on the communicative approach: not transferring rules from teacher to student, but building the ability to use the language.</p><p>I do not list them to fill a line. They are why this site cites the Common European Framework in full rather than by initials, why Nation’s 98% threshold sits behind the graded readers, and why the level test measures four separate skills instead of handing you one letter.</p></section><section class="wrap sezione"><h2>How I teach</h2><p>A lesson with me is not a coursebook turned page by page. We start from what you need to be able to do in Italian over the next few weeks, and choose what to study from there. Grammar arrives when it lets you say something, not before.</p><p>The first lesson is a free trial and it serves us both: you find out whether the approach suits you, I find out where you actually stand. I do not ask for a commitment before that.</p></section><section class="wrap sezione"><h2>Contact</h2><p>The quickest way is the <a href="/en/#contact">contact form</a>, which I answer myself, usually the same day. In writing: <a href="mailto:info@thuisitaliaans.com">info@thuisitaliaans.com</a>.</p><p>Thuis Italiaans is a sole proprietorship registered with the Dutch Chamber of Commerce, KvK 42118745, VAT NL005508294B90. <a href="/en/pricing">Prices are here</a>, without having to ask.</p></section><div class="wrap"><section id="contact">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Book a free intake</h2>
+                    <p>Fill in the form and I'll get back to you as soon as possible.</p>
+                </div>
+                <form id="contactForm" action="/api/contatto" method="POST" class="contact-form" novalidate style="max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:1.5rem">
+                    <div class="form-group" style="display:flex;flex-direction:column;gap:.5rem;text-align:left">
+                        <label for="name" style="font-weight:500">Name</label>
+                        <input type="text" id="name" name="name" required autocomplete="name" style="border-radius:12px;padding:.75rem;border:1px solid #ccc;font-family:inherit">
+                    </div>
+                    <div class="form-group" style="display:flex;flex-direction:column;gap:.5rem;text-align:left">
+                        <label for="email" style="font-weight:500">Email address</label>
+                        <input type="email" id="email" name="email" required autocomplete="email" style="border-radius:12px;padding:.75rem;border:1px solid #ccc;font-family:inherit">
+                    </div>
+                    <div class="form-group" style="display:flex;flex-direction:column;gap:.5rem;text-align:left">
+                        <label for="message" style="font-weight:500">Message</label>
+                        <textarea id="message" name="message" rows="5" required style="border-radius:12px;padding:.75rem;border:1px solid #ccc;font-family:inherit;resize:vertical"></textarea>
+                    </div>
+                    <p style="position:absolute;left:-9999px" aria-hidden="true">
+                        <label>_ <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+                    </p>
+                    <input type="hidden" name="_taal" value="en">
+                    <button type="submit" class="button" style="border-radius:12px;cursor:pointer;border:none;font-family:inherit">Send message</button>
+                </form>
+            </div>
+        </section></div></main>
 
-<header class="u-bar" style="--u-sez:#2b4a7a"><!--u-144--><div class="u-bar__in"><div class="u-sw"><a class="u-logo" href="/en/" aria-label="thuisitaliaans"><img src="/assets/icons/libri/icon-192.png" alt="" width="30" height="30" decoding="async"></a><button class="u-sw__b" type="button" aria-expanded="false" aria-haspopup="true">Books<b aria-hidden="true">&#9662;</b></button><ul class="u-sw__l"><li><a href="/en/" style="--u-p:#31394d">Lessons</a></li><li><a href="/app-ti-en" style="--u-p:#31394d">The Ti app</a></li><li><a href="/test-livello/italian-level-test" style="--u-p:#2f6b3a">Level test</a></li><li><a href="/books" style="--u-p:#2b4a7a" aria-current="true">Books</a></li><li><a href="/esercizi/" style="--u-p:#b07c1f">Exercises</a></li><li><a href="/blog/" style="--u-p:#5e7357">Blog</a></li><li><a href="/scuole/en/" style="--u-p:#bc5533">Schools in Italy</a></li></ul></div><button class="u-apri" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button><nav class="u-menu" aria-label="Menu"><a href="/test-livello/italian-level-test">Level test</a><a href="/app-ti-en">The app</a></nav><div class="u-lang" data-u-lang data-u-lingua="Language"></div><a class="u-cta" href="https://apps.apple.com/app/id6791650799" target="_blank" rel="noopener">Read in the app</a></div></header><nav class="u-briciole" aria-label="Breadcrumb"><!--u-150--><ol><li><a href="/en/">Home</a><span class="u-bric__s" aria-hidden="true">&rsaquo;</span><span aria-current="page">Books</span></li></ol></nav>
+    <a class="u-appcta" href="https://apps.apple.com/app/id6791650799" target="_blank" rel="noopener"><!--u-144--><b>Between two lessons</b><span>Ti keeps you going on the days we don't meet: A1-C2 path, reading, grammar.</span><i>Try the app &rarr;</i></a><footer class="u-piede" style="--u-sez:#31394d"><!--u-144--><div class="u-piede__in"><div class="u-col"><h2>This section</h2><ul><li><a href="/proefles-italiaans">Free trial lesson</a></li><li><a href="/priveles-italiaans">Private lessons</a></li><li><a href="/groepsles-italiaans">Group lessons</a></li><li><a href="/en/italian-lessons-online">Online lessons</a></li><li><a href="/en/pricing">Prices</a></li><li><a href="/en/italian-exam-preparation">CILS · CELI · PLIDA</a></li></ul></div><div class="u-col u-col--app"><h2>The Ti app</h2><ul><li><a href="https://apps.apple.com/app/id6791650799" target="_blank" rel="noopener">Download for iPhone</a></li><li><a href="/app-ti-en">What is Ti</a></li><li><a href="/test-livello/italian-level-test">Free level test</a></li><li><a href="/app-support-en">Support</a></li></ul></div><div class="u-col"><h2>Thuis Italiaans</h2><ul><li><a href="/en/#about">About Alessio</a></li><li><a href="/en/#contact">Contact</a></li><li><a href="/en/pricing">Prices</a></li><li><a href="/website-privacy-en">Privacy</a></li></ul></div></div><div class="u-note"><p class="u-badge"><a class="footer-card footer-card-review" href="https://maps.google.com/?cid=1518224867092056834" target="_blank" rel="noopener"> <span class="footer-review-ster" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <span class="footer-card-title">Leave a review</span> <span class="footer-card-text">on Google &mdash; it helps other students find us.</span> </a></p><div class="u-disc"><b>About the lessons and prices</b><p>Lessons are taught by Alessio, a teacher of Italian as a foreign language with two ITALS master&rsquo;s degrees in teaching Italian as a second language (Universit&agrave; Ca&rsquo; Foscari in Venice and Universit&agrave; Giustino Fortunato in Benevento), teaching online and in person between Ede and Amsterdam since 2019. Prices are per person and include VAT where it applies; location, times and availability are agreed before we start. Thuis Italiaans is a sole proprietorship registered with the Dutch Chamber of Commerce.</p></div><p class="u-firma"><span>&copy; 2026 Thuis Italiaans</span><span>KVK 42118745</span><span>BTW NL005508294B90</span><a href="/website-privacy-en">Privacy</a><a href="/en/#contact">Contact</a></p></div></footer>
 
-<main id="u-contenuto"><section class="hero wrap"><span class="occhiello">Who writes this site</span><h1>Alessio, a teacher of Italian as a foreign language</h1><p class="sotto">I teach online and in person between Ede and Amsterdam. This site, the Ti app and the graded reader series are mine, built one at a time, to answer problems I kept seeing in lessons.</p></section><section class="wrap sezione"><figure class="foto-meta"><img src="/assets/alessio.png" alt="Alessio, a teacher of Italian as a foreign language" loading="lazy" decoding="async"></figure></section><section class="wrap sezione"><h2>What I do</h2><p>One-to-one Italian lessons, online and in person between Ede and Amsterdam. Mostly with adults: people moving to Italy, people preparing the B1 certificate for citizenship, people who need it for work, and people who simply enjoy it.</p><p>Around the lessons I have built three things, each from a concrete problem. <a href="/app-ti-en">The Ti app</a>, because seven days pass between one lesson and the next and a language does not wait. <a href="/books">Twenty-five graded readers</a>, because my students kept stopping on page three of a real novel. A <a href="/test-livello/italian-level-test">free level test</a>, because almost nobody guesses their own level and almost everybody builds a study plan on that guess.</p></section><section class="wrap sezione"><h2>Training</h2><p>I hold two university master’s degrees in teaching Italian to speakers of other languages.</p><p><b>Ca’ Foscari University of Venice</b>, Master in Teaching and Promoting Italian Language and Culture to Foreigners, the master’s of the ITALS laboratory (ANNO_CAF). It covers the principles of language teaching methodology, teaching techniques, cooperative learning and the use of technology, assessment and action research, linguistic foundations and the sociolinguistics of contemporary Italian. It runs two separate tracks, one for Italian taught in Italy (L2) and one for Italian taught abroad (LS). Mine is the second, and it shows in how the lessons are built.</p><p><b>Università Giustino Fortunato, Benevento</b>, one-year first-level master in Teaching Methods for Italian as a Second Language (ANNO_UGF), 1500 hours and 60 ECTS credits. Built on the communicative approach: not transferring rules from teacher to student, but building the ability to use the language.</p><p>I do not list them to fill a line. They are why this site cites the Common European Framework in full rather than by initials, why Nation’s 98% threshold sits behind the graded readers, and why the level test measures four separate skills instead of handing you one letter.</p></section><section class="wrap sezione"><h2>How I teach</h2><p>A lesson with me is not a coursebook turned page by page. We start from what you need to be able to do in Italian over the next few weeks, and choose what to study from there. Grammar arrives when it lets you say something, not before.</p><p>The first lesson is a free trial and it serves us both: you find out whether the approach suits you, I find out where you actually stand. I do not ask for a commitment before that.</p></section><section class="wrap sezione"><h2>Contact</h2><p>The quickest way is the <a href="/en/#contact">contact form</a>, which I answer myself, usually the same day. In writing: <a href="mailto:info@thuisitaliaans.com">info@thuisitaliaans.com</a>.</p><p>Thuis Italiaans is a sole proprietorship registered with the Dutch Chamber of Commerce, KvK 42118745, VAT NL005508294B90. <a href="/en/pricing">Prices are here</a>, without having to ask.</p></section></main>
-
-<a class="u-appcta" href="https://apps.apple.com/app/id6791650799" target="_blank" rel="noopener"><!--u-144--><b>The book, then the screen</b><span>Every novel in the series is also in the app, with tap dictionary and level notes.</span><i>Read in the app &rarr;</i></a><footer class="u-piede" style="--u-sez:#2b4a7a"><!--u-144--><div class="u-piede__in"><div class="u-col"><h2>This section</h2><ul><li><a href="/books">All books</a></li><li><a href="/italian-books-a1">A1 · beginner</a></li><li><a href="/italian-books-b1">B1 · intermediate</a></li><li><a href="/italian-books-c1">C1 · advanced</a></li><li><a href="/books-privacy">Privacy</a></li></ul></div><div class="u-col u-col--app"><h2>The Ti app</h2><ul><li><a href="https://apps.apple.com/app/id6791650799" target="_blank" rel="noopener">Download for iPhone</a></li><li><a href="/app-ti-en">What is Ti</a></li><li><a href="/test-livello/italian-level-test">Free level test</a></li><li><a href="/app-support-en">Support</a></li></ul></div><div class="u-col"><h2>Thuis Italiaans</h2><ul><li><a href="/en/#about">About Alessio</a></li><li><a href="/en/#contact">Contact</a></li><li><a href="/en/pricing">Prices</a></li><li><a href="/website-privacy-en">Privacy</a></li></ul></div></div><div class="u-note"><div class="u-collana"><p>This simplified adaptation (level A1), the notes, the questions and the glossary are &copy; 2026 Alessio &middot; thuisitaliaans. All rights reserved.</p><p class="u-collana__f">thuisitaliaans series: graded readers for learners of Italian, written by Alessio, a teacher of Italian as a foreign language with two ITALS master&rsquo;s degrees in teaching Italian as a second language (Universit&agrave; Ca&rsquo; Foscari in Venice and Universit&agrave; Giustino Fortunato in Benevento).</p></div><p class="u-firma"><span>&copy; 2026 Thuis Italiaans</span><span>KVK 42118745</span><span>BTW NL005508294B90</span><a href="/website-privacy-en">Privacy</a><a href="/en/#contact">Contact</a></p></div></footer>
-
-<script>
-/* Filtri: solo progressive enhancement — senza JS la pagina mostra tutti i libri. */
-const schede = document.querySelectorAll(".scheda");
-document.querySelectorAll(".filtri button").forEach(b => {
-  b.addEventListener("click", () => {
-    const f = b.dataset.filtro;
-    document.querySelectorAll(".filtri button").forEach(x => x.classList.remove("attivo"));
-    b.classList.add("attivo");
-    schede.forEach(c => { c.style.display = (f === "tutti" || c.dataset.livello === f) ? "" : "none"; });
-  });
-});
-document.getElementById("anno").textContent = new Date().getFullYear();
-</script>
+    <script src="../js/script.js"></script>
+    <script src="../js/nav.js"></script>
+    
+    <script src="../js/modulo-contatto.js"></script>
 <script src="/js/whatsapp.js" defer></script>
 <script>/*stelle-v1*/
 (function(){
