@@ -949,3 +949,250 @@ body:has(#motore) .ti-cta{ max-width:720px; }
 .article-body .foto-meta img{ border-radius:6px; }
 .article-main .article-meta{ letter-spacing:.02em; }
 /* 174-editoriale fine */
+
+/* 175-editoriale-sito inizio */
+/* ==========================================================================
+   IMPIANTO EDITORIALE  il resto del sito.
+   Il rientro dei titoli sta nel 174 e riguarda solo il blog: fuori di li'
+   non c'e' una colonna di prosa a cui agganciarlo. Qui ci sono le due cose
+   che valgono ovunque, piu' il serif nel corpo dove si legge davvero.
+
+   Tutto e' dentro body:not(:has(#motore)): le pagine del test hanno un
+   linguaggio visivo loro (post-it, Polaroid, telefono con gli angoli a
+   34px) e arrotondarlo a 10px lo romperebbe.
+   ========================================================================== */
+
+body:not(:has(#motore)){
+
+/* --- 1. angoli: le schede da 16-26px scendono a 10 ----------------------- */
+  --radius:10px;
+}
+body:not(:has(#motore)) .level-card,
+body:not(:has(#motore)) .faq-item,
+body:not(:has(#motore)) .challenge-list li,
+body:not(:has(#motore)) .ti-showcase-card,
+body:not(:has(#motore)) .feature-card,
+body:not(:has(#motore)) .lang-hero .app-icon,
+body:not(:has(#motore)) .ex-feedback,
+body:not(:has(#motore)) .ex-card,
+body:not(:has(#motore)) .match-card,
+body:not(:has(#motore)) .ex-grammar-note,
+body:not(:has(#motore)) .builder-answer,
+body:not(:has(#motore)) .tf-reading,
+body:not(:has(#motore)) .sort-bank,
+body:not(:has(#motore)) .lesson-card,
+body:not(:has(#motore)) .video-card,
+body:not(:has(#motore)) .scheda,
+body:not(:has(#motore)) .card{ border-radius:10px; }
+
+/* --- 2. pillole: da 999px a 4px ------------------------------------------
+   E' la modifica piu' visibile di tutte. Una pillola perfettamente tonda e'
+   la firma dell'interfaccia di prodotto; un rettangolo appena smussato e'
+   la firma della stampa. Quattro pixel e non zero: lo spigolo vivo su un
+   fondo pieno sembra un errore di rendering, quattro pixel si leggono come
+   una scelta.
+   Dentro ci sono anche i tre pulsanti della barra unificata (.u-sw__b,
+   .u-lang__b, .u-cta) e le voci .u-lingue: erano rimasti tondi, ed essendo
+   in cima a ogni pagina erano proprio quelli che si vedevano di piu'. */
+body:not(:has(#motore)) .btn,
+body:not(:has(#motore)) .button,
+body:not(:has(#motore)) .cta-btn,
+body:not(:has(#motore)) .ex-btn,
+body:not(:has(#motore)) .ex-app-btn,
+body:not(:has(#motore)) .ex-app-hero-btn,
+body:not(:has(#motore)) .tf-btn,
+body:not(:has(#motore)) .word-chip,
+body:not(:has(#motore)) .ex-badge,
+body:not(:has(#motore)) .ex-card-level,
+body:not(:has(#motore)) .ex-card-tag,
+body:not(:has(#motore)) .ex-filters a,
+body:not(:has(#motore)) .ex-hero .section-tag,
+body:not(:has(#motore)) .level-card .badge,
+body:not(:has(#motore)) .btn-app-store,
+body:not(:has(#motore)) .lp-cta,
+body:not(:has(#motore)) .u-cta,
+body:not(:has(#motore)) .article-container .article-cta a,
+body:not(:has(#motore)) .u-sw__b,
+body:not(:has(#motore)) .u-lang__b,
+body:not(:has(#motore)) .u-lingue a,
+body:not(:has(#motore)) .button-app,
+body:not(:has(#motore)) .blog-topbar .button,
+body:not(:has(#motore)) .pl-si,
+body:not(:has(#motore)) .article-cat-badge,
+body:not(:has(#motore)) .article-card-cat{ border-radius:4px; }
+
+/* --- 3. via il sollevamento e le ombre sfumate --------------------------- */
+body:not(:has(#motore)) .lesson-card:hover,
+body:not(:has(#motore)) .video-card:hover,
+body:not(:has(#motore)) .feature-card:hover,
+body:not(:has(#motore)) .lang-grid a:hover,
+body:not(:has(#motore)) .ti-showcase-card:hover,
+body:not(:has(#motore)) .ti-showcase-cta:hover,
+body:not(:has(#motore)) .ex-card:hover,
+body:not(:has(#motore)) .ex-btn-primary:hover,
+body:not(:has(#motore)) .ex-topbar .button:hover,
+body:not(:has(#motore)) .ex-end-cta .button:hover,
+body:not(:has(#motore)) .ex-app-btn:hover,
+body:not(:has(#motore)) .ex-app-hero-btn:hover,
+body:not(:has(#motore)) .listen-btn:hover,
+body:not(:has(#motore)) .lang-topbar .cta-btn:hover,
+body:not(:has(#motore)) .btn-primary:hover,
+body:not(:has(#motore)) .btn-gold:hover,
+body:not(:has(#motore)) .btn-app-store:hover,
+body:not(:has(#motore)) .lp-cta:hover,
+body:not(:has(#motore)) .button:hover,
+body:not(:has(#motore)) .article-container .article-cta a:hover,
+body:not(:has(#motore)) .u-cta:hover{
+  transform:none; box-shadow:none; }
+
+/* --- 4. i titoli in serif -------------------------------------------------
+   Iowan Old Style e Georgia sono gia' sul dispositivo: nessun carattere da
+   scaricare. Restano in sans le scritte che sono etichette e non titoli. */
+body:not(:has(#motore)) h1,
+body:not(:has(#motore)) h2,
+body:not(:has(#motore)) h3{
+  font-family:"Iowan Old Style",Georgia,"Times New Roman",serif;
+  letter-spacing:-.012em; }
+body:not(:has(#motore)) .u-piede h2,
+body:not(:has(#motore)) .u-bar h1,
+body:not(:has(#motore)) .u-bar h2,
+body:not(:has(#motore)) .ex-card h3,
+body:not(:has(#motore)) .ex-filters h2,
+body:not(:has(#motore)) .sidebar-eyebrow,
+body:not(:has(#motore)) .section-tag{
+  font-family:inherit; letter-spacing:normal; }
+body:not(:has(#motore)) h1{ line-height:1.14; }
+
+/* --- 5. il corpo in serif dove si legge davvero --------------------------
+   Home, pagine lezioni, it, en (.contenuto) e le pagine /lingue/
+   (.article-container). Sugli esercizi no: li' il testo e' consegna e
+   risposta, non lettura continuata, e il sans si scorre meglio. */
+body:not(:has(#motore)) .contenuto p,
+body:not(:has(#motore)) .contenuto li,
+body:not(:has(#motore)) .article-container p,
+body:not(:has(#motore)) .article-container li{
+  font-family:"Iowan Old Style",Georgia,"Times New Roman",serif;
+  font-size:1.1rem; line-height:1.72; }
+/* 175-editoriale-sito fine */
+
+/* 176-carta inizio */
+/* ==========================================================================
+   PALETTE CARTA E RIFINITURE EDITORIALI
+   Va dopo il 174 e il 175. Tutto dentro body:not(:has(#motore)): le pagine
+   del test hanno una carta loro, gia' calibrata.
+   ========================================================================== */
+
+/* --- 1. la carta ---------------------------------------------------------
+   Bianco pieno e nero pieno non esistono sulla pagina stampata, e accanto a
+   un serif si notano. Fondo avorio, testo antracite caldo. */
+body:not(:has(#motore)){
+  --carta-fondo:#FBFAF7;
+  --carta-testo:#1F2320;
+  --carta-tenue:#5C6159;
+  --carta-linea:#E3DFD5;
+  --carta-riquadro:#F4F2EC;
+  --primary:#1F2320;
+  --secondary:#5C6159;
+  --surface:#F4F2EC;
+  --border:#E3DFD5;
+  --u-fondo:#F4F2EC;
+  --u-bordo:#E3DFD5;
+  --u-testo:#1F2320;
+  --u-tenue:#5C6159;
+  background:#FBFAF7;
+  color:#1F2320;
+}
+body:not(:has(#motore)) .u-bar,
+body:not(:has(#motore)) .blog-topbar,
+body:not(:has(#motore)) .lang-topbar,
+body:not(:has(#motore)) .ex-topbar{
+  background:#FBFAF7; border-bottom:1px solid #E3DFD5; }
+body:not(:has(#motore)) .u-piede{
+  background:#FBFAF7; border-top:1px solid #E3DFD5; }
+
+/* --- 2. i titoli grandi e stretti ----------------------------------------
+   Nei giornali il titolo e' grande e compatto, non grande e spaziato. */
+body:not(:has(#motore)) h1{
+  font-size:clamp(2.1rem,4.4vw,3.35rem); line-height:1.08;
+  letter-spacing:-.022em; }
+body:not(:has(#motore)) h2{
+  font-size:clamp(1.45rem,2.5vw,1.95rem); line-height:1.16;
+  letter-spacing:-.016em; }
+/* Le tre colonne del piede sono <h2> ma sono etichette, non titoli: con la
+   scala qui sopra diventavano enormi e andavano a capo. Nel 175 avevo
+   escluso il carattere e non la misura. */
+body:not(:has(#motore)) .u-piede h2,
+body:not(:has(#motore)) .u-col h2,
+body:not(:has(#motore)) .u-bar h2{
+  font-size:.78rem; line-height:1.3; letter-spacing:.09em;
+  text-transform:uppercase; }
+body:not(:has(#motore)) h3{ letter-spacing:-.008em; }
+
+/* --- 3. la misura della riga ---------------------------------------------
+   68 caratteri: e' la larghezza su cui l'occhio torna a capo senza perdere
+   la riga. Su schermo largo oggi la riga arriva oltre i 90. */
+body:not(:has(#motore)) .article-body,
+body:not(:has(#motore)) .contenuto p,
+body:not(:has(#motore)) .article-container p{ max-width:68ch; }
+body:not(:has(#motore)) .article-body > .foto-meta,
+body:not(:has(#motore)) .article-body > figure{ max-width:none; }
+
+/* --- 4. l'occhiello al posto della pillola ------------------------------- */
+body:not(:has(#motore)) .article-cat-badge,
+body:not(:has(#motore)) .occhiello,
+body:not(:has(#motore)) .section-tag,
+body:not(:has(#motore)) .sidebar-eyebrow{
+  background:none; border:0; border-bottom:1px solid #1F2320;
+  border-radius:0; padding:0 0 4px; color:#1F2320;
+  font-size:.7rem; font-weight:700; letter-spacing:.16em;
+  text-transform:uppercase; }
+
+/* --- 5. filetti al posto degli sfondi pieni ------------------------------ */
+body:not(:has(#motore)) .sidebar-card:not(.sidebar-card-app),
+body:not(:has(#motore)) .u-appcta,
+body:not(:has(#motore)) .ti-cta{
+  background:none; border:0; border-top:1px solid #1F2320;
+  border-radius:0; padding:20px 0 0; }
+body:not(:has(#motore)) .u-appcta{ border-left:0; }
+/* I richiami all'app hanno testo bianco su fondo scuro. Svuotarli lasciava
+   il bianco sulla carta: invisibili. Restano pieni, ma il gradiente blu
+   diventa l'antracite della palette: un blocco solido su avorio e' piu'
+   editoriale del gradiente, e il contrasto resta oltre 14:1. */
+body:not(:has(#motore)) .sidebar-card-app,
+body:not(:has(#motore)) .app-banner,
+body:not(:has(#motore)) .ex-app-promo,
+body:not(:has(#motore)) .ex-app-promo-hero{
+  background:#1F2320; border-color:#1F2320; border-radius:10px; }
+
+/* --- 5-bis. le note in fondo devono restare leggibili --------------------
+   La nota sui marchi porta un colore in linea (#8a8f9c) deciso quando il
+   fondo era bianco: sulla carta scende sotto il rapporto 3:1 e sparisce.
+   Stessa cosa per il credito fotografico, che ha opacity .65. */
+body:not(:has(#motore)) .tm-note,
+body:not(:has(#motore)) .blog-footer-license,
+body:not(:has(#motore)) .u-firma{ color:#5C6159 !important; }
+body:not(:has(#motore)) .blog-foto-credit{ opacity:1; color:#5C6159; }
+
+/* --- 5-ter. l'icona degli esercizi ---------------------------------------
+   E' un SVG dimensionato in em: se per qualsiasi motivo quella misura non
+   viene applicata, il disegno torna alla misura propria (300x150) e i tre
+   cerchi diventano un disco nero grande mezza pagina. Succede in stampa.
+   Una misura in pixel e il fill esplicito lo rendono impossibile. */
+body:not(:has(#motore)) .blog-exercise-link .ico,
+body:not(:has(#motore)) svg.ico{
+  width:18px; height:18px; fill:none; stroke:currentColor; }
+
+/* --- 6. il tono delle foto -----------------------------------------------
+   Trecento foto Unsplash diverse smettono di sembrare trecento foto diverse.
+   Non tocca copertine, loghi e screenshot: quelli sono il prodotto. */
+body:not(:has(#motore)) .article-body img,
+body:not(:has(#motore)) .foto-meta img,
+body:not(:has(#motore)) .article-card-cover,
+body:not(:has(#motore)) .post-img{
+  filter:saturate(.82) sepia(.06) contrast(1.03); }
+body:not(:has(#motore)) .sb-shot img,
+body:not(:has(#motore)) .u-logo img,
+body:not(:has(#motore)) img[src*="/assets/books/"],
+body:not(:has(#motore)) img[src*="/assets/store/"],
+body:not(:has(#motore)) img[src*="/assets/icons/"]{ filter:none; }
+/* 176-carta fine */
