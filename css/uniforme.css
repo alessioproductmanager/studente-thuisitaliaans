@@ -1349,17 +1349,31 @@ body:not(:has(#motore)){ overflow-x:clip; }
    elemento in piu'. */
 
 body:not(:has(#motore)) .u-bar{
-  --u-h:52px; box-shadow:none; border-bottom:1px solid #E3DFD5; }
-body:not(:has(#motore)) .u-bar__in{ gap:14px; }
-body:not(:has(#motore)) .u-logo img{ width:26px; height:26px; border-radius:6px; }
+  --u-h:46px; box-shadow:none; border-bottom:1px solid #E3DFD5; }
+body:not(:has(#motore)) .u-bar__in{ gap:12px; }
+body:not(:has(#motore)) .u-logo img{ width:22px; height:22px; border-radius:5px; }
+
+/* --- il carattere della barra -------------------------------------------
+   Un terzo carattere, diverso sia dal serif dei titoli sia dal sans del
+   corpo. Helvetica Neue e' un grottesco neutro, sta su ogni Mac e ogni
+   iPhone, e su Windows ripiega su Arial che e' della stessa famiglia
+   visiva. Costo: zero, perche' non si scarica niente.
+   Perche' un terzo carattere e non uno dei due che ci sono: la barra non
+   e' contenuto, e' orientamento. Nelle riviste la gabbia di navigazione
+   ha quasi sempre una voce tipografica sua, piu' stretta e piu' neutra
+   del testo, proprio perche' non deve competere con quello che si legge. */
+body:not(:has(#motore)) .u-bar,
+body:not(:has(#motore)) .u-bar button,
+body:not(:has(#motore)) .u-bar a{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; }
 
 /* il commutatore e il selettore lingua: cornice sottile, angolo appena
    smussato, e un terzo di spazio in meno di prima */
 body:not(:has(#motore)) .u-sw__b,
 body:not(:has(#motore)) .u-lang__b{
   border:1px solid #E3DFD5; background:none; border-radius:4px;
-  padding:5px 10px; font-size:.72rem; font-weight:700;
-  letter-spacing:.1em; text-transform:uppercase; line-height:1.25; }
+  padding:4px 9px; font-size:.68rem; font-weight:600;
+  letter-spacing:.11em; text-transform:uppercase; line-height:1.25; }
 body:not(:has(#motore)) .u-sw__b:hover,
 body:not(:has(#motore)) .u-lang__b:hover{ border-color:#1F2320; }
 body:not(:has(#motore)) .u-sw__b b{ margin-left:2px; }
@@ -1369,20 +1383,20 @@ body:not(:has(#motore)) .u-sw{ gap:10px; }
    tema la usa perche' costa leggibilita' se le voci sono lunghe. Le tue
    sono corte. */
 body:not(:has(#motore)) .u-menu a{
-  font-size:.73rem; font-weight:700; letter-spacing:.12em;
+  font-size:.69rem; font-weight:600; letter-spacing:.13em;
   text-transform:uppercase; }
-body:not(:has(#motore)) .u-menu{ gap:22px; }
+body:not(:has(#motore)) .u-menu{ gap:20px; }
 
 /* la CTA resta l'unico elemento pieno: in una barra sobria e' quello che
    si vede, ed e' giusto che sia l'unica cosa da cliccare */
 body:not(:has(#motore)) .u-cta{
-  border-radius:4px; font-size:.73rem; font-weight:700;
-  letter-spacing:.08em; text-transform:uppercase; padding:8px 14px; }
+  border-radius:4px; font-size:.69rem; font-weight:700;
+  letter-spacing:.09em; text-transform:uppercase; padding:7px 13px; }
 
 @media (max-width:640px){
-  body:not(:has(#motore)) .u-bar{ --u-h:48px; }
+  body:not(:has(#motore)) .u-bar{ --u-h:44px; }
   body:not(:has(#motore)) .u-sw__b,
-  body:not(:has(#motore)) .u-lang__b{ padding:4px 8px; font-size:.68rem; }
-  body:not(:has(#motore)) .u-cta{ padding:7px 11px; font-size:.68rem; }
+  body:not(:has(#motore)) .u-lang__b{ padding:3px 7px; font-size:.64rem; }
+  body:not(:has(#motore)) .u-cta{ padding:6px 10px; font-size:.64rem; }
 }
 /* 185-barra-e-bordi fine */
