@@ -96,3 +96,17 @@ body{margin:0;background:var(--fondo);color:var(--inchiostro);font-family:-apple
 .u-piede .u-disc{grid-column:1/-1;flex:1 1 100%;width:100%;max-width:none}
 .u-piede .u-disc p{max-width:none;column-count:1;text-wrap:pretty}
 @media (min-width:900px){.u-piede .u-disc p{font-size:.83rem;line-height:1.6}}
+
+/* 139 · il nome del percorso nel banner: etichetta, non testo qualunque */
+.gr-max .ex-app-promo-body h3{color:var(--inchiostro);display:flex;flex-wrap:wrap;
+  align-items:baseline;gap:8px;line-height:1.3}
+.gr-max .ex-app-promo-body h3 span{display:inline-block;background:#f1eaf4;color:var(--vino);
+  border-radius:999px;padding:2px 12px;font-size:.86em;font-family:-apple-system,
+  BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-weight:700;letter-spacing:.01em;
+  -webkit-text-fill-color:currentColor;opacity:1;border:0}
+/* 139 · piede: aria sotto la firma e crediti fotografici */
+.u-piede .u-note{padding-bottom:26px}
+.u-piede .u-firma{margin-top:16px}
+.u-crediti-foto{font-size:.8rem;line-height:1.5;opacity:.85;margin:0 0 16px}
+.u-crediti-foto b{display:block;margin:0 0 4px;font-size:.82rem}
+.u-crediti-foto p{margin:0}
