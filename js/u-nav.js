@@ -32,7 +32,7 @@
     return out;
   }
 
-  /*nav-lingua-v2: lingua di navigazione coerente su tutto il sito.
+  /*nav-lingua-v3: lingua di navigazione coerente su tutto il sito.
   Su pagine solo in italiano (esercizi, blog) e su sezioni che non coprono
   la lingua dell'utente (es. scuole), il toggle elenca comunque tutte le
   lingue: sceglierne una salva la preferenza, traduce le voci principali
@@ -187,6 +187,11 @@
     }
     vociLinguaFerma(ul, ordina(mancanti), presenti[s] ? "" : s, function (c) {
       salvaLingua(c);
+      if (corrente() !== "en") {
+        for (var j = 0; j < alt.length; j++) {
+          if (alt[j].codice === "en") { location.href = alt[j].href; return; }
+        }
+      }
       applicaNav(c, true);
       chiudi(nodo, b);
     });
