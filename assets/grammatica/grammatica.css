@@ -96,3 +96,23 @@ article.gr-art{min-width:0}
 .gr-sapere ul{margin:0;padding-left:20px}
 .gr-sapere li{margin:0 0 7px;font-size:.94rem}
 .gr-sapere li b{color:var(--vino)}
+
+/* 138 · il disclaimer del piede andava a capo ogni sei parole: su desktop
+   prende tutta la riga invece di stare in una colonna stretta */
+.u-piede .u-disc{grid-column:1/-1;flex:1 1 100%;width:100%;max-width:none}
+.u-piede .u-disc p{max-width:none;column-count:1;text-wrap:pretty}
+@media (min-width:900px){.u-piede .u-disc p{font-size:.83rem;line-height:1.6}}
+
+/* 137 · banner dell'app su fondo chiaro: app-banner.css e' tarato su fondo
+   scuro, qui le scritte devono restare leggibili */
+.gr-max .ex-app-promo-body h3{color:var(--inchiostro)}
+.gr-max .ex-app-promo-body h3 span{color:var(--vino);background:none;border:0;padding:0;
+  display:inline;font:inherit;font-weight:700;opacity:1;-webkit-text-fill-color:currentColor}
+.gr-max .ex-app-promo-body p{color:var(--tenue)}
+.gr-max .ex-app-promo-body p strong,.gr-max .ex-app-promo-body p b{color:var(--inchiostro)}
+.gr-max .ex-app-promo-body em{color:var(--vino);font-style:normal;font-weight:700}
+.gr-max .app-stelle span{color:var(--tenue)}
+.gr-max .app-stelle .stelle-gialle{color:#e8a33d}
+.gr-max .app-scatti{flex-wrap:wrap}
+.gr-max .app-scatto img{width:86px}
+@media (max-width:600px){.gr-max .app-scatto img{width:72px}}

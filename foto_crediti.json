@@ -1,0 +1,258 @@
+{
+ "aggettivi": {
+  "foto_id": "CDLBz2lPpLM",
+  "autore": "Max Harlynking",
+  "autore_url": "https://unsplash.com/@harlynkingm",
+  "foto_url": "https://unsplash.com/photos/a-room-with-a-wall-of-clothes-on-the-wall-CDLBz2lPpLM",
+  "ricerca": "italian fashion atelier clothes",
+  "descrizione": "a room with a wall of clothes on the wall"
+ },
+ "articoli": {
+  "foto_id": "K9q_YonzHFM",
+  "autore": "MAIA WINE",
+  "autore_url": "https://unsplash.com/@maiawine",
+  "foto_url": "https://unsplash.com/photos/a-bottle-of-wine-sitting-on-top-of-a-table-K9q_YonzHFM",
+  "ricerca": "italian dinner table wine food",
+  "descrizione": "a bottle of wine sitting on top of a table"
+ },
+ "ce-e-ci-sono": {
+  "foto_id": "TLYxKBpSPMs",
+  "autore": "luca romano",
+  "autore_url": "https://unsplash.com/@lucaakalu",
+  "foto_url": "https://unsplash.com/photos/elegant-dining-room-set-for-a-meal-TLYxKBpSPMs",
+  "ricerca": "italian apartment interior home",
+  "descrizione": "Elegant dining room set for a meal"
+ },
+ "essere-e-avere": {
+  "foto_id": "smwIh5QGiA4",
+  "autore": "Federico Di Dio photography",
+  "autore_url": "https://unsplash.com/@didiofederico_photographer",
+  "foto_url": "https://unsplash.com/photos/a-cobblestone-street-with-a-stone-building-in-the-background-smwIh5QGiA4",
+  "ricerca": "italian village old family photo",
+  "descrizione": "a cobblestone street with a stone building in the background"
+ },
+ "genere-e-numero": {
+  "foto_id": "3EariUCKobw",
+  "autore": "laura adai",
+  "autore_url": "https://unsplash.com/@lauraadaiphoto",
+  "foto_url": "https://unsplash.com/photos/a-living-room-with-a-couch-a-table-and-a-tv-3EariUCKobw",
+  "ricerca": "italian apartment interior home",
+  "descrizione": "a living room with a couch a table and a tv"
+ },
+ "numeri-date-e-ore": {
+  "foto_id": "3q4V539j_bw",
+  "autore": "2H Media",
+  "autore_url": "https://unsplash.com/@2hmedia",
+  "foto_url": "https://unsplash.com/photos/a-laptop-computer-sitting-on-top-of-a-wooden-desk-3q4V539j_bw",
+  "ricerca": "office desk documents paperwork",
+  "descrizione": "a laptop computer sitting on top of a wooden desk"
+ },
+ "preposizioni-semplici": {
+  "foto_id": "zffvKh2NBW0",
+  "autore": "Nikolai Kolosov",
+  "autore_url": "https://unsplash.com/@nikolaikolosov",
+  "foto_url": "https://unsplash.com/photos/red-high-speed-train-at-a-station-platform-zffvKh2NBW0",
+  "ricerca": "italian train station platform",
+  "descrizione": "Red high-speed train at a station platform."
+ },
+ "pronomi-soggetto": {
+  "foto_id": "GVheioPZdpk",
+  "autore": "Nick van den Berg",
+  "autore_url": "https://unsplash.com/@nngvandenberg",
+  "foto_url": "https://unsplash.com/photos/woman-carrying-baby-statue-clip-art-GVheioPZdpk",
+  "ricerca": "italian marble statue portrait",
+  "descrizione": "woman carrying baby statue clip art"
+ },
+ "futuro-semplice": {
+  "foto_id": "KdeqA3aTnBY",
+  "autore": "Dylan Gillis",
+  "autore_url": "https://unsplash.com/@mainermedia",
+  "foto_url": "https://unsplash.com/photos/people-sitting-on-chair-in-front-of-table-while-holding-pens-during-daytime-KdeqA3aTnBY",
+  "ricerca": "office meeting colleagues desk",
+  "descrizione": "people sitting on chair in front of table while holding pens during daytime"
+ },
+ "imperativo": {
+  "foto_id": "rqdWlkRzerg",
+  "autore": "Navy Medicine",
+  "autore_url": "https://unsplash.com/@navymedicine",
+  "foto_url": "https://unsplash.com/photos/people-waiting-in-a-hallway-with-chairs-and-chairs-rqdWlkRzerg",
+  "ricerca": "doctor clinic waiting room",
+  "descrizione": "People waiting in a hallway with chairs and chairs"
+ },
+ "imperfetto": {
+  "foto_id": "kk58fsi7o4w",
+  "autore": "Benjamin Jopen",
+  "autore_url": "https://unsplash.com/@benjopen",
+  "foto_url": "https://unsplash.com/photos/green-layered-mountain-kk58fsi7o4w",
+  "ricerca": "italian village old family photo",
+  "descrizione": "green layered mountain"
+ },
+ "passato-prossimo": {
+  "foto_id": "hCLvoew1gGQ",
+  "autore": "Tim Photoguy",
+  "autore_url": "https://unsplash.com/@tim0at0unsplash",
+  "foto_url": "https://unsplash.com/photos/a-modern-train-at-a-station-platform-hCLvoew1gGQ",
+  "ricerca": "italian train station platform",
+  "descrizione": "A modern train at a station platform."
+ },
+ "possessivi": {
+  "foto_id": "m8Mz6UjaoEo",
+  "autore": "laura adai",
+  "autore_url": "https://unsplash.com/@lauraadaiphoto",
+  "foto_url": "https://unsplash.com/photos/a-living-room-with-a-couch-a-table-and-chairs-m8Mz6UjaoEo",
+  "ricerca": "italian apartment interior home",
+  "descrizione": "a living room with a couch a table and chairs"
+ },
+ "preposizioni-articolate": {
+  "foto_id": "_u_j_6ahm94",
+  "autore": "Drew Blacow",
+  "autore_url": "https://unsplash.com/@drews_photos",
+  "foto_url": "https://unsplash.com/photos/a-row-of-trees-in-the-middle-of-a-field-_u_j_6ahm94",
+  "ricerca": "italian countryside hills nature",
+  "descrizione": "a row of trees in the middle of a field"
+ },
+ "pronomi-diretti": {
+  "foto_id": "ND_lRZ8jupw",
+  "autore": "MAIA WINE",
+  "autore_url": "https://unsplash.com/@maiawine",
+  "foto_url": "https://unsplash.com/photos/two-bottles-of-champagne-in-a-bucket-of-ice-ND_lRZ8jupw",
+  "ricerca": "italian dinner table wine food",
+  "descrizione": "two bottles of champagne in a bucket of ice"
+ },
+ "pronomi-indiretti": {
+  "foto_id": "VBLHICVh-lI",
+  "autore": "Mario Gogh",
+  "autore_url": "https://unsplash.com/@mariogogh",
+  "foto_url": "https://unsplash.com/photos/group-of-people-having-a-meeting-VBLHICVh-lI",
+  "ricerca": "office meeting colleagues desk",
+  "descrizione": "group of people having a meeting"
+ },
+ "scelta-dell-ausiliare": {
+  "foto_id": "NegMhZXnDHk",
+  "autore": "Valomukitse Arva-Zika",
+  "autore_url": "https://unsplash.com/@valomukitse",
+  "foto_url": "https://unsplash.com/photos/double-decker-train-at-a-station-platform-NegMhZXnDHk",
+  "ricerca": "italian train station platform",
+  "descrizione": "Double-decker train at a station platform"
+ },
+ "stare-piu-gerundio": {
+  "foto_id": "XcvAfCgYX0Y",
+  "autore": "Liam McKay",
+  "autore_url": "https://unsplash.com/@liammckay",
+  "foto_url": "https://unsplash.com/photos/aerial-view-of-soccer-field-XcvAfCgYX0Y",
+  "ricerca": "football stadium crowd italy",
+  "descrizione": "aerial view of soccer field"
+ },
+ "verbi-riflessivi": {
+  "foto_id": "dTb9QbtjaWM",
+  "autore": "Samantha Fernandes",
+  "autore_url": "https://unsplash.com/@samfernandes",
+  "foto_url": "https://unsplash.com/photos/woman-in-gray-sweater-sitting-beside-man-in-black-and-white-stripe-shirt-dTb9QbtjaWM",
+  "ricerca": "friends park picnic leisure",
+  "descrizione": "woman in gray sweater sitting beside man in black and white stripe shirt"
+ },
+ "comparativi-e-superlativi": {
+  "foto_id": "Y2MO0WLJEp8",
+  "autore": "Zach Rowlandson",
+  "autore_url": "https://unsplash.com/@zachr1992",
+  "foto_url": "https://unsplash.com/photos/a-large-crowd-of-people-in-a-stadium-Y2MO0WLJEp8",
+  "ricerca": "football stadium crowd italy",
+  "descrizione": "a large crowd of people in a stadium"
+ },
+ "congiuntivo-presente": {
+  "foto_id": "gIDMmhKARLk",
+  "autore": "Library of Congress",
+  "autore_url": "https://unsplash.com/@libraryofcongress",
+  "foto_url": "https://unsplash.com/photos/carpenter-center-richmond-virginia-gIDMmhKARLk",
+  "ricerca": "opera house theatre stage",
+  "descrizione": "Carpenter Center, Richmond, Virginia"
+ },
+ "connettivi": {
+  "foto_id": "PoE6Q48B-5k",
+  "autore": "Ken Theimer",
+  "autore_url": "https://unsplash.com/@rubik3x",
+  "foto_url": "https://unsplash.com/photos/person-inside-cathedral-PoE6Q48B-5k",
+  "ricerca": "university library students reading",
+  "descrizione": "person inside cathedral"
+ },
+ "modali-al-passato": {
+  "foto_id": "VnK5iT01HYQ",
+  "autore": "2H Media",
+  "autore_url": "https://unsplash.com/@2hmedia",
+  "foto_url": "https://unsplash.com/photos/a-wooden-table-topped-with-papers-and-a-pen-VnK5iT01HYQ",
+  "ricerca": "office desk documents paperwork",
+  "descrizione": "a wooden table topped with papers and a pen"
+ },
+ "passato-prossimo-o-imperfetto": {
+  "foto_id": "1pJt_BLIFBQ",
+  "autore": "Jason Dean Chamberlain",
+  "autore_url": "https://unsplash.com/@jasondeanchamberlain",
+  "foto_url": "https://unsplash.com/photos/a-church-in-the-middle-of-a-mountain-range-1pJt_BLIFBQ",
+  "ricerca": "italian village old family photo",
+  "descrizione": "A church in the middle of a mountain range"
+ },
+ "si-impersonale": {
+  "foto_id": "urqnpYi22X4",
+  "autore": "Iga Palacz",
+  "autore_url": "https://unsplash.com/@igapalacz",
+  "foto_url": "https://unsplash.com/photos/white-motor-scooter-parked-beside-brown-wooden-door-urqnpYi22X4",
+  "ricerca": "vespa rome street dolce vita",
+  "descrizione": "white motor scooter parked beside brown wooden door"
+ },
+ "trapassato-prossimo": {
+  "foto_id": "gKueoYuUvs8",
+  "autore": "FotoFlo",
+  "autore_url": "https://unsplash.com/@flotography_91",
+  "foto_url": "https://unsplash.com/photos/white-concrete-statue-of-man-gKueoYuUvs8",
+  "ricerca": "italian marble statue portrait",
+  "descrizione": "white concrete statue of man"
+ },
+ "concordanza-al-congiuntivo": {
+  "foto_id": "376KN_ISplE",
+  "autore": "krakenimages",
+  "autore_url": "https://unsplash.com/@krakenimages",
+  "foto_url": "https://unsplash.com/photos/man-in-white-dress-shirt-sitting-beside-woman-in-black-long-sleeve-shirt-376KN_ISplE",
+  "ricerca": "office meeting colleagues desk",
+  "descrizione": "man in white dress shirt sitting beside woman in black long sleeve shirt"
+ },
+ "congiuntivo-imperfetto-e-passato": {
+  "foto_id": "wr3398XXHw0",
+  "autore": "The New York Public Library",
+  "autore_url": "https://unsplash.com/@nypl",
+  "foto_url": "https://unsplash.com/photos/an-ornate-theater-filled-with-an-audience-watching-a-performance-wr3398XXHw0",
+  "ricerca": "opera house theatre stage",
+  "descrizione": "An ornate theater filled with an audience watching a performance."
+ },
+ "discorso-indiretto": {
+  "foto_id": "0xx5dxMbT6Y",
+  "autore": "Tzenik",
+  "autore_url": "https://unsplash.com/@tzenik",
+  "foto_url": "https://unsplash.com/photos/man-in-brown-robe-statue-0xx5dxMbT6Y",
+  "ricerca": "italian marble statue portrait",
+  "descrizione": "man in brown robe statue"
+ },
+ "gerundio-e-participio": {
+  "foto_id": "WLpdyIkTQOY",
+  "autore": "Neer Naor",
+  "autore_url": "https://unsplash.com/@neernaor",
+  "foto_url": "https://unsplash.com/photos/green-rolling-hills-with-scattered-houses-and-trees-WLpdyIkTQOY",
+  "ricerca": "italian countryside hills nature",
+  "descrizione": "Green rolling hills with scattered houses and trees."
+ },
+ "periodo-ipotetico-1-e-2": {
+  "foto_id": "a5HB3E0B01g",
+  "autore": "Karsten Winegeart",
+  "autore_url": "https://unsplash.com/@_karsten",
+  "foto_url": "https://unsplash.com/photos/people-playing-soccer-on-field-during-daytime-a5HB3E0B01g",
+  "ricerca": "football stadium crowd italy",
+  "descrizione": "people playing soccer on field during daytime"
+ },
+ "posizione-dell-aggettivo": {
+  "foto_id": "iEpq0F1KEeU",
+  "autore": "John Cameron",
+  "autore_url": "https://unsplash.com/@john_cameron",
+  "foto_url": "https://unsplash.com/photos/womens-red-coat-iEpq0F1KEeU",
+  "ricerca": "italian fashion atelier clothes",
+  "descrizione": "women's red coat"
+ }
+}

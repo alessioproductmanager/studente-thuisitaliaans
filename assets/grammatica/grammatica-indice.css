@@ -90,3 +90,9 @@ body{margin:0;background:var(--fondo);color:var(--inchiostro);font-family:-apple
 .gr-pdf-tasto{background:var(--vino);color:#fff;text-decoration:none;border-radius:10px;padding:11px 18px;font-weight:700;white-space:nowrap;display:inline-block}
 .gr-pdf-tasto:hover{opacity:.92}
 .sc-licenza{font-size:.83rem;color:var(--tenue);border-top:1px solid var(--bordo);padding:14px 0 0;margin:26px 0 0}
+
+/* 138 · il disclaimer del piede andava a capo ogni sei parole: su desktop
+   prende tutta la riga invece di stare in una colonna stretta */
+.u-piede .u-disc{grid-column:1/-1;flex:1 1 100%;width:100%;max-width:none}
+.u-piede .u-disc p{max-width:none;column-count:1;text-wrap:pretty}
+@media (min-width:900px){.u-piede .u-disc p{font-size:.83rem;line-height:1.6}}
