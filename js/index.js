@@ -11,12 +11,6 @@
 //    MAIL_DA  mittente su dominio verificato, es. "modulo@thuisitaliaans.com"
 // ─────────────────────────────────────────────────────────────
 
-const BEACON = `<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "263e866dd6a24216999ef6625771d40a"}'></script><!-- End Cloudflare Web Analytics -->`;
-
-class IniettoreBeacon {
-	element(element) { element.append(BEACON, { html: true }); }
-}
-
 const TESTI = {
 	nl: { ok: "Bedankt! Ik neem zo snel mogelijk contact met je op.", ko: "Er ging iets mis. Mail me gerust rechtstreeks." },
 	en: { ok: "Thanks! I'll get back to you as soon as possible.",    ko: "Something went wrong. Feel free to email me directly." },
@@ -316,7 +310,7 @@ export default {
 		if (!contentType.includes("text/html")) return asset;
 
 		const paese = request.cf && request.cf.country;
-		let rewriter = new HTMLRewriter().on("body", new IniettoreBeacon());
+		let rewriter = new HTMLRewriter();
 		if (paese) rewriter = rewriter.on("html", { element(el) { el.setAttribute("data-paese", paese); } });
 		return rewriter.transform(asset);
 	},
