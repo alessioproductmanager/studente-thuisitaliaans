@@ -28,7 +28,19 @@
     en: "/en/alessio",
     /* non /lessen/over-alessio: il Worker toglie sempre la cartella
        interna con un 301, e un link che rimbalza e' un link sbagliato */
-    nl: "/over-alessio"
+    nl: "/over-alessio",
+    es: "/es/alessio",
+    fr: "/fr/alessio",
+    de: "/de/alessio",
+    pt: "/pt/alessio",
+    ro: "/ro/alessio",
+    sq: "/sq/alessio",
+    uk: "/uk/alessio",
+    zh: "/zh/alessio",
+    ar: "/ar/alessio",
+    fil: "/fil/alessio",
+    bn: "/bn/alessio",
+    ti: "/ti/alessio"
   };
 
   var ETICHETTE = {
@@ -38,12 +50,25 @@
     de: "\u00dcber Alessio",
     fr: "\u00c0 propos d\u2019Alessio",
     es: "Sobre Alessio",
-    pt: "Sobre o Alessio"
+    pt: "Sobre o Alessio",
+    ro: "Despre Alessio",
+    sq: "Rreth Alessio-s",
+    uk: "\u041f\u0440\u043e \u0410\u043b\u0435\u0441\u0441\u0456\u043e",
+    zh: "\u5173\u4e8e Alessio",
+    ar: "\u0639\u0646 \u0623\u0644\u064a\u0633\u064a\u0648",
+    fil: "Tungkol kay Alessio",
+    bn: "\u0986\u09b2\u09c7\u09b8\u09b8\u09bf\u0993 \u09b8\u09ae\u09cd\u09aa\u09b0\u09cd\u0995\u09c7",
+    ti: "\u1265\u12db\u12d5\u1263 \u12a3\u1208\u1235\u12ee"
   };
 
   var FOTO = "/assets/alessio.png";
 
-  var lang = (document.documentElement.lang || "en").slice(0, 2).toLowerCase();
+  var lang = (document.documentElement.lang || "en").toLowerCase();
+  if (!DOVE[lang] && !ETICHETTE[lang]) lang = lang.slice(0, 2);
+  /* la lingua di navigazione scelta dal visitatore vince, se ha la pagina */
+  var salvata = "";
+  try { salvata = localStorage.getItem("linguaNav") || ""; } catch (e) {}
+  if (salvata && DOVE[salvata]) lang = salvata;
   var url = DOVE[lang] || DOVE.en;
   var testo = ETICHETTE[lang] || ETICHETTE.en;
 
