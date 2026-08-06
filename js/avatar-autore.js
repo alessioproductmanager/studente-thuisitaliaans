@@ -24,6 +24,7 @@
      vanno all'inglese: meglio una pagina che si capisce di una in una
      lingua che il visitatore non ha scelto. */
   var DOVE = {
+    tl: "/fil/alessio",
     it: "/it/alessio",
     en: "/en/alessio",
     /* non /lessen/over-alessio: il Worker toglie sempre la cartella
@@ -57,6 +58,7 @@
     zh: "\u5173\u4e8e Alessio",
     ar: "\u0639\u0646 \u0623\u0644\u064a\u0633\u064a\u0648",
     fil: "Tungkol kay Alessio",
+    tl: "Tungkol kay Alessio",
     bn: "\u0986\u09b2\u09c7\u09b8\u09b8\u09bf\u0993 \u09b8\u09ae\u09cd\u09aa\u09b0\u09cd\u0995\u09c7",
     ti: "\u1265\u12db\u12d5\u1263 \u12a3\u1208\u1235\u12ee"
   };
@@ -64,7 +66,10 @@
   var FOTO = "/assets/alessio.png";
 
   var lang = (document.documentElement.lang || "en").toLowerCase();
-  if (!DOVE[lang] && !ETICHETTE[lang]) lang = lang.slice(0, 2);
+  /* 142 */
+  if (!DOVE[lang]) lang = lang.split("-")[0];
+  if (!DOVE[lang] && lang === "tl") lang = "fil";
+  if (!DOVE[lang] && lang === "fil") lang = "tl";
   /* la lingua di navigazione scelta dal visitatore vince, se ha la pagina */
   var salvata = "";
   try { salvata = localStorage.getItem("linguaNav") || ""; } catch (e) {}
