@@ -103,30 +103,31 @@ article.gr-art{min-width:0}
 .u-piede .u-disc p{max-width:none;column-count:1;text-wrap:pretty}
 @media (min-width:900px){.u-piede .u-disc p{font-size:.83rem;line-height:1.6}}
 
-/* 137 · banner dell'app su fondo chiaro: app-banner.css e' tarato su fondo
-   scuro, qui le scritte devono restare leggibili */
-.gr-max .ex-app-promo-body h3{color:var(--inchiostro)}
-.gr-max .ex-app-promo-body h3 span{color:var(--vino);background:none;border:0;padding:0;
-  display:inline;font:inherit;font-weight:700;opacity:1;-webkit-text-fill-color:currentColor}
-.gr-max .ex-app-promo-body p{color:var(--tenue)}
-.gr-max .ex-app-promo-body p strong,.gr-max .ex-app-promo-body p b{color:var(--inchiostro)}
-.gr-max .ex-app-promo-body em{color:var(--vino);font-style:normal;font-weight:700}
-.gr-max .app-stelle span{color:var(--tenue)}
-.gr-max .app-stelle .stelle-gialle{color:#e8a33d}
-.gr-max .app-scatti{flex-wrap:wrap}
-.gr-max .app-scatto img{width:86px}
-@media (max-width:600px){.gr-max .app-scatto img{width:72px}}
-
-/* 139 · il nome del percorso nel banner: etichetta, non testo qualunque */
-.gr-max .ex-app-promo-body h3{color:var(--inchiostro);display:flex;flex-wrap:wrap;
-  align-items:baseline;gap:8px;line-height:1.3}
-.gr-max .ex-app-promo-body h3 span{display:inline-block;background:#f1eaf4;color:var(--vino);
-  border-radius:999px;padding:2px 12px;font-size:.86em;font-family:-apple-system,
-  BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-weight:700;letter-spacing:.01em;
-  -webkit-text-fill-color:currentColor;opacity:1;border:0}
 /* 139 · piede: aria sotto la firma e crediti fotografici */
 .u-piede .u-note{padding-bottom:26px}
 .u-piede .u-firma{margin-top:16px}
 .u-crediti-foto{font-size:.8rem;line-height:1.5;opacity:.85;margin:0 0 16px}
 .u-crediti-foto b{display:block;margin:0 0 4px;font-size:.82rem}
 .u-crediti-foto p{margin:0}
+
+/* 143 · riquadro dell'app: niente pastiglia intorno al percorso, e due serie
+   di colori. Le forzature del 137 e del 139 stavano sopra a queste e sul tema
+   scuro rendevano il titolo illeggibile: le toglie lo script. */
+.gr-max .ex-app-promo-body h3{display:block;color:#2b2620;line-height:1.35}
+.gr-max .ex-app-promo-body h3 span{display:inline;background:none;border:0;padding:0;
+  border-radius:0;font:inherit;font-weight:700;color:#6d4a7c;opacity:1}
+.gr-max .ex-app-promo-body p{color:#6b6259}
+.gr-max .ex-app-promo-body p strong,.gr-max .ex-app-promo-body p b{color:#2b2620}
+.gr-max .ex-app-promo-body em{color:#6d4a7c;font-style:normal;font-weight:700}
+.gr-max .app-stelle span{color:#6b6259}
+.gr-max .app-stelle .stelle-gialle{color:#e8a33d}
+.gr-max .app-scatti{flex-wrap:wrap}
+.gr-max .app-scatto img{width:92px}
+@media (max-width:600px){.gr-max .app-scatto img{width:76px}}
+@media (prefers-color-scheme:dark){
+  .gr-max .ex-app-promo-body h3{color:#f5f1ea}
+  .gr-max .ex-app-promo-body h3 span,.gr-max .ex-app-promo-body em{color:#d3aeea}
+  .gr-max .ex-app-promo-body p{color:#cdc6bc}
+  .gr-max .ex-app-promo-body p strong,.gr-max .ex-app-promo-body p b{color:#f5f1ea}
+  .gr-max .app-stelle span{color:#cdc6bc}
+}
