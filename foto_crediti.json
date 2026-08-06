@@ -254,5 +254,189 @@
   "foto_url": "https://unsplash.com/photos/womens-red-coat-iEpq0F1KEeU",
   "ricerca": "italian fashion atelier clothes",
   "descrizione": "women's red coat"
+ },
+ "alfabeto-e-pronuncia": {
+  "foto_id": "ZXSDMEGipNY",
+  "autore": "Who’s Denilo ?",
+  "autore_url": "https://unsplash.com/@whoisdenilo",
+  "foto_url": "https://unsplash.com/photos/woman-walking-on-street-ZXSDMEGipNY",
+  "ricerca": "italy everyday life",
+  "descrizione": "woman walking on street"
+ },
+ "negazione-e-domande": {
+  "foto_id": "nSp4fnUluLg",
+  "autore": "alexey turenkov",
+  "autore_url": "https://unsplash.com/@2renkov",
+  "foto_url": "https://unsplash.com/photos/red-auto-rickshaw-under-arch-walkway-nSp4fnUluLg",
+  "ricerca": "italy everyday life",
+  "descrizione": "red auto-rickshaw under arch walkway"
+ },
+ "presente-indicativo": {
+  "foto_id": "7GSl1vXINzM",
+  "autore": "Dan Rooney",
+  "autore_url": "https://unsplash.com/@danliamrooney",
+  "foto_url": "https://unsplash.com/photos/a-city-street-filled-with-lots-of-parked-cars-7GSl1vXINzM",
+  "ricerca": "italy everyday life",
+  "descrizione": "A city street filled with lots of parked cars"
+ },
+ "ne-e-ci": {
+  "foto_id": "E7-4VaJ8h6M",
+  "autore": "Sterling Lanier",
+  "autore_url": "https://unsplash.com/@sterlinglanier",
+  "foto_url": "https://unsplash.com/photos/people-sitting-on-the-side-of-the-river-during-daytime-E7-4VaJ8h6M",
+  "ricerca": "italy everyday life",
+  "descrizione": "people sitting on the side of the river during daytime"
+ },
+ "condizionale-presente": {
+  "foto_id": "II9ptuYl2QQ",
+  "autore": "Nick Karvounis",
+  "autore_url": "https://unsplash.com/@nickkarvounis",
+  "foto_url": "https://unsplash.com/photos/clothes-hanged-across-empty-alley-II9ptuYl2QQ",
+  "ricerca": "italy everyday life",
+  "descrizione": "clothes hanged across empty alley"
+ },
+ "imperativo-con-i-pronomi": {
+  "foto_id": "A0dxHqbuDh8",
+  "autore": "Sofia Alberti",
+  "autore_url": "https://unsplash.com/@sofi_alberti",
+  "foto_url": "https://unsplash.com/photos/woman-in-black-leather-jacket-standing-near-black-metal-fence-during-daytime-A0dxHqbuDh8",
+  "ricerca": "italy everyday life",
+  "descrizione": "woman in black leather jacket standing near black metal fence during daytime"
+ },
+ "pronomi-combinati": {
+  "foto_id": "zrV5_RU9TXc",
+  "autore": "Julia Taubitz",
+  "autore_url": "https://unsplash.com/@justmejuliee",
+  "foto_url": "https://unsplash.com/photos/a-motorcycle-parked-in-front-of-a-building-zrV5_RU9TXc",
+  "ricerca": "italy everyday life",
+  "descrizione": "A motorcycle parked in front of a building"
+ },
+ "forma-passiva": {
+  "foto_id": "DnfRSdr3jQE",
+  "autore": "Lida",
+  "autore_url": "https://unsplash.com/@lidagogo",
+  "foto_url": "https://unsplash.com/photos/a-small-village-on-a-cliff-overlooking-the-ocean-DnfRSdr3jQE",
+  "ricerca": "italy everyday life",
+  "descrizione": "a small village on a cliff overlooking the ocean"
+ },
+ "pronomi-relativi": {
+  "foto_id": "nW_JTUeePbc",
+  "autore": "Fabio Fistarol",
+  "autore_url": "https://unsplash.com/@fabiofistarol",
+  "foto_url": "https://unsplash.com/photos/body-of-water-near-mountain-during-daytime-nW_JTUeePbc",
+  "ricerca": "italy everyday life",
+  "descrizione": "body of water near mountain during daytime"
+ },
+ "verbi-pronominali": {
+  "foto_id": "EEi9aGCIm_o",
+  "autore": "Ryan James Christopher",
+  "autore_url": "https://unsplash.com/@rj_christopher",
+  "foto_url": "https://unsplash.com/photos/man-wearing-white-crew-neck-shirt-EEi9aGCIm_o",
+  "ricerca": "italy everyday life",
+  "descrizione": "man wearing white crew-neck shirt"
+ },
+ "alterati": {
+  "foto_id": "R01sI55bmCA",
+  "autore": "Nicole Arango Lang",
+  "autore_url": "https://unsplash.com/@nicolearangolang",
+  "foto_url": "https://unsplash.com/photos/a-row-of-buildings-with-palm-trees-in-front-of-them-R01sI55bmCA",
+  "ricerca": "italy everyday life",
+  "descrizione": "a row of buildings with palm trees in front of them"
+ },
+ "concordanza-dei-tempi": {
+  "foto_id": "DQgthCjQRsY",
+  "autore": "Vladislav Glukhotko",
+  "autore_url": "https://unsplash.com/@azzurobudgie",
+  "foto_url": "https://unsplash.com/photos/a-street-with-trees-and-buildings-on-the-side-DQgthCjQRsY",
+  "ricerca": "italy everyday life",
+  "descrizione": "a street with trees and buildings on the side"
+ },
+ "connettivi-complessi": {
+  "foto_id": "lQNYu51FevI",
+  "autore": "Ekaterina Novitskaya",
+  "autore_url": "https://unsplash.com/@catrionaobrian",
+  "foto_url": "https://unsplash.com/photos/couple-sitting-on-brown-wooden-bench-near-green-trees-and-brown-concrete-building-during-daytime-lQNYu51FevI",
+  "ricerca": "italy everyday life",
+  "descrizione": "couple sitting on brown wooden bench near green trees and brown concrete building during daytime"
+ },
+ "forme-implicite": {
+  "foto_id": "0l1sevEKxZA",
+  "autore": "Vladislav Glukhotko",
+  "autore_url": "https://unsplash.com/@azzurobudgie",
+  "foto_url": "https://unsplash.com/photos/a-building-with-trees-and-bushes-0l1sevEKxZA",
+  "ricerca": "italy everyday life",
+  "descrizione": "a building with trees and bushes"
+ },
+ "passato-remoto": {
+  "foto_id": "bcGkZt3nn3Q",
+  "autore": "Joshi Milestoner",
+  "autore_url": "https://unsplash.com/@joshimilestoner",
+  "foto_url": "https://unsplash.com/photos/a-group-of-people-standing-around-a-bunch-of-pigeons-bcGkZt3nn3Q",
+  "ricerca": "italy everyday life",
+  "descrizione": "A group of people standing around a bunch of pigeons"
+ },
+ "periodo-ipotetico-3-e-misto": {
+  "foto_id": "WC4suJiukl0",
+  "autore": "Joshi Milestoner",
+  "autore_url": "https://unsplash.com/@joshimilestoner",
+  "foto_url": "https://unsplash.com/photos/a-group-of-people-standing-around-a-bunch-of-pigeons-WC4suJiukl0",
+  "ricerca": "italy everyday life",
+  "descrizione": "A group of people standing around a bunch of pigeons"
+ },
+ "registro-formale": {
+  "foto_id": "UwUU77Lk-_c",
+  "autore": "Joshi Milestoner",
+  "autore_url": "https://unsplash.com/@joshimilestoner",
+  "foto_url": "https://unsplash.com/photos/a-crowd-of-people-walking-down-a-street-next-to-tall-buildings-UwUU77Lk-_c",
+  "ricerca": "italy everyday life",
+  "descrizione": "A crowd of people walking down a street next to tall buildings"
+ },
+ "costruzioni-marcate": {
+  "foto_id": "yFVFjzHzLEw",
+  "autore": "Joshi Milestoner",
+  "autore_url": "https://unsplash.com/@joshimilestoner",
+  "foto_url": "https://unsplash.com/photos/a-man-with-a-bird-on-his-arm-in-the-middle-of-a-crowd-of-people-yFVFjzHzLEw",
+  "ricerca": "italy everyday life",
+  "descrizione": "A man with a bird on his arm in the middle of a crowd of people"
+ },
+ "linguaggi-settoriali": {
+  "foto_id": "T1lUDAb2VVA",
+  "autore": "Nicholas Martinelli",
+  "autore_url": "https://unsplash.com/@nickmartinelli98",
+  "foto_url": "https://unsplash.com/photos/a-statue-on-top-of-a-building-with-a-sky-background-T1lUDAb2VVA",
+  "ricerca": "italy everyday life",
+  "descrizione": "a statue on top of a building with a sky background"
+ },
+ "punteggiatura": {
+  "foto_id": "R4jHG3nsFy8",
+  "autore": "Nicholas Martinelli",
+  "autore_url": "https://unsplash.com/@nickmartinelli98",
+  "foto_url": "https://unsplash.com/photos/a-close-up-of-a-fountain-with-statues-around-it-R4jHG3nsFy8",
+  "ricerca": "italy everyday life",
+  "descrizione": "a close up of a fountain with statues around it"
+ },
+ "sintassi-del-periodo": {
+  "foto_id": "NtNMqNgP-30",
+  "autore": "Nicholas Martinelli",
+  "autore_url": "https://unsplash.com/@nickmartinelli98",
+  "foto_url": "https://unsplash.com/photos/a-large-building-with-a-fountain-in-front-of-it-NtNMqNgP-30",
+  "ricerca": "italy everyday life",
+  "descrizione": "a large building with a fountain in front of it"
+ },
+ "tempi-letterari": {
+  "foto_id": "CDwCqgoPCgY",
+  "autore": "Joshi Milestoner",
+  "autore_url": "https://unsplash.com/@joshimilestoner",
+  "foto_url": "https://unsplash.com/photos/a-yellow-and-white-trolley-on-a-city-street-CDwCqgoPCgY",
+  "ricerca": "italy everyday life",
+  "descrizione": "A yellow and white trolley on a city street"
+ },
+ "variazione-regionale": {
+  "foto_id": "9s07FnZ9FgE",
+  "autore": "Leonardo Di Manici",
+  "autore_url": "https://unsplash.com/@_leo_di_ma_",
+  "foto_url": "https://unsplash.com/photos/a-yellow-trolley-car-on-a-city-street-9s07FnZ9FgE",
+  "ricerca": "italy everyday life",
+  "descrizione": "A yellow trolley car on a city street"
  }
 }
