@@ -2,7 +2,7 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
     <loc>https://thuisitaliaans.com/sitemap-pagine.xml</loc>
-    <lastmod>2026-08-02</lastmod>
+    <lastmod>2026-08-07</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://thuisitaliaans.com/sitemap-blog.xml</loc>
@@ -31,5 +31,9 @@
   <sitemap>
     <loc>https://thuisitaliaans.com/sitemap-scuole.xml</loc>
     <lastmod>2026-07-30</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://thuisitaliaans.com/sitemap-grammatica.xml</loc>
+    <lastmod>2026-08-07</lastmod>
   </sitemap>
 </sitemapindex>

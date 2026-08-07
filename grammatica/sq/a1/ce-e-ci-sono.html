@@ -49,8 +49,6 @@
 <!--gr-mob-1--><style>
 /* La barra resta in alto durante lo scorrimento, come nel resto del sito:
    grammatica.css arriva dopo uniforme.css e spegneva lo sticky. */
-html,body{overflow-x:clip !important}
-.u-bar{position:-webkit-sticky !important;position:sticky !important;top:0 !important;z-index:200 !important}
 /* Tabelle scorrevoli sul telefono: colonne leggibili, si scorre col dito. */
 @media (max-width:720px){
 .gr-art table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
@@ -69,6 +67,26 @@ html,body{overflow-x:clip !important}
 .gr-firma{font-size:.86rem;color:#6b6259;margin:-6px 0 18px;line-height:1.5}
 .gr-firma a{color:#6d4a7c;font-weight:600;text-decoration:none}
 .gr-firma a:hover{text-decoration:underline}
+</style>
+<!--gr-sticky-2--><style>
+/* 1 · nessun antenato deve diventare contenitore di scorrimento
+   (clip taglia in orizzontale senza creare uno scroller: hidden invece si') */
+html, body{
+  overflow-x:clip !important; overflow-y:visible !important;
+  height:auto !important; max-height:none !important;
+}
+/* 2 · nessun antenato deve creare un blocco contenitore */
+html, body{
+  transform:none !important; filter:none !important; perspective:none !important;
+  contain:none !important; will-change:auto !important;
+  -webkit-backdrop-filter:none !important; backdrop-filter:none !important;
+}
+/* 3 · la barra, con specificita' alta per battere i fogli della sezione */
+html body header.u-bar{
+  position:-webkit-sticky !important; position:sticky !important;
+  top:0 !important; z-index:900 !important;
+  transform:none !important; will-change:auto !important;
+}
 </style>
 </head>
 <body>
