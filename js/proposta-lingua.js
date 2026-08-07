@@ -20,6 +20,16 @@
 (function () {
   "use strict";
 
+  /* 138-proposta-lingua
+     Il riquadro veniva creato ma restava invisibile ovunque tranne che nelle
+     15 pagine del test, che hanno una copia dello script scritta a mano.
+     Il motivo: i nomi delle classi non coincidevano con quelli del CSS.
+     uniforme.css definisce .proposta-lingua{opacity:0} e la rende visibile
+     solo con .entra, mentre qui si aggiungeva .pl-entra. Stessa cosa per
+     l'uscita (.va-via) e per la x (.chiudi-x). Adesso i nomi sono quelli
+     del foglio di stile. */
+
+
   var FRASI = {
     it: { t: "Questa pagina è disponibile in italiano", b: "Vai all'italiano", c: "Non ora" },
     en: { t: "This page is available in English", b: "Switch to English", c: "Not now" },
@@ -100,7 +110,7 @@
     box.setAttribute("role", "complementary");
     if (RTL.indexOf(browser) > -1) box.setAttribute("dir", "rtl");
     box.innerHTML =
-      '<button class="pl-x" type="button" aria-label="chiudi">&times;</button>' +
+      '<button class="chiudi-x" type="button" aria-label="chiudi">&times;</button>' +
       '<p class="pl-testo"></p>' +
       '<div class="pl-azioni">' +
         '<a class="pl-si"></a>' +
@@ -114,18 +124,18 @@
     box.querySelector(".pl-no").textContent = d.c;
 
     function chiudi(perSempre) {
-      box.classList.add("pl-via");
+      box.classList.add("va-via");
       setTimeout(function () { if (box.parentNode) box.remove(); }, 260);
       taci(perSempre);
     }
-    box.querySelector(".pl-x").addEventListener("click", function () {
+    box.querySelector(".chiudi-x").addEventListener("click", function () {
       chiudi(false);   /* solo questa sessione */
     });
     box.querySelector(".pl-no").addEventListener("click", function () {
       chiudi(true);    /* 30 giorni */
     });
     document.body.appendChild(box);
-    setTimeout(function () { box.classList.add("pl-entra"); }, 700);
+    setTimeout(function () { box.classList.add("entra"); }, 700);
   }
 
   if (document.readyState === "loading") {
