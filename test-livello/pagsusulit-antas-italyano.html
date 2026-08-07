@@ -1467,7 +1467,19 @@ body.in-prova .proposta-lingua{bottom:88px}
 <meta name="apple-itunes-app" content="app-id=6791650799, app-argument=https://thuisitaliaans.com/test-livello/pagsusulit-antas-italyano">
 <!-- 132-uniforma -->
 <link rel="stylesheet" href="/css/uniforme.css">
-<link rel="icon" href="/assets/icons/test-livello/favicon-32x32.png" sizes="32x32"><link rel="icon" href="/assets/icons/test-livello/favicon-16x16.png" sizes="16x16"><link rel="apple-touch-icon" href="/assets/icons/test-livello/apple-touch-icon.png"><!--u-160--></head>
+<link rel="icon" href="/assets/icons/test-livello/favicon-32x32.png" sizes="32x32"><link rel="icon" href="/assets/icons/test-livello/favicon-16x16.png" sizes="16x16"><link rel="apple-touch-icon" href="/assets/icons/test-livello/apple-touch-icon.png"><!--u-160--><style>
+/* i capitoli suggeriti dopo il test */
+.tl-cap{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin:18px 0}
+.tl-cap a{display:flex;align-items:center;gap:10px;padding:11px 14px;border:1.5px solid var(--linea);
+  border-radius:12px;text-decoration:none;color:inherit;background:var(--card);text-align:left}
+.tl-cap a:hover{border-color:#6d4a7c}
+.tl-cap i{font-style:normal;font-weight:700;font-size:.72rem;letter-spacing:.05em;color:#6d4a7c;
+  border:1.5px solid #6d4a7c;border-radius:999px;padding:2px 8px;flex:0 0 auto}
+.tl-cap span{font-size:.93rem;line-height:1.35}
+.tl-azioni{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+@media print{.tl-cap,.tl-azioni{display:none}}
+</style>
+</head>
 <body>
 <!-- 134-fondamenta -->
 <a class="u-salta" href="#u-contenuto">Lumaktaw sa nilalaman</a>
@@ -1653,6 +1665,7 @@ body.in-prova .proposta-lingua{bottom:88px}
   </div></section>
 
   <section class="wrap sezione" id="consigli"></section>
+<section class="wrap sezione" id="tl-piano"></section>
 </main>
 
 <!-- ===================== PROFILO STAMPABILE ===================== -->
@@ -1770,7 +1783,8 @@ body.in-prova .proposta-lingua{bottom:88px}
     <div class="pf-gt-griglia" id="pf-salt-griglia"></div>
   </section>
 
-  <div class="pf-metodo">
+  <div class="pf-piano" id="pf-piano" style="display:none"></div>
+<div class="pf-metodo">
     <h4 id="pf-met-tit">Metodo e riferimenti</h4>
     <ul id="pf-met-lista"></ul>
     <p class="pf-limite" id="pf-limite"></p>
@@ -3058,5 +3072,80 @@ var ALTRE_LINGUE = {
 <!-- 132-uniforma -->
 
 <script src="/js/u-nav.js" defer></script><script src="/js/proposta-lingua.js" defer></script>
+<!--tl-piano-1-->
+<script>
+/* Dal risultato al piano: i capitoli sbagliati diventano link, e il livello
+   porta alle sue schede PDF. I dati arrivano dagli indici della grammatica,
+   cosi' i titoli sono sempre quelli veri della sezione. */
+(function(){
+  var D = {"CAP": {"a1/articoli": {"t": "Ang mga pantukoy: il, lo, la, i, gli, le", "u": "/grammatica/fil/a1/articoli"}, "a1/essere-e-avere": {"t": "Essere at avere", "u": "/grammatica/fil/a1/essere-e-avere"}, "a1/preposizioni-semplici": {"t": "Ang mga payak na pang-ukol", "u": "/grammatica/fil/a1/preposizioni-semplici"}, "a1/presente-indicativo": {"t": "Ang presente ng indikatibo", "u": "/grammatica/fil/a1/presente-indicativo"}, "a2/futuro-semplice": {"t": "Ang payak na hinaharap", "u": "/grammatica/fil/a2/futuro-semplice"}, "a2/imperativo": {"t": "Ang pautos", "u": "/grammatica/fil/a2/imperativo"}, "a2/imperfetto": {"t": "Ang imperfetto", "u": "/grammatica/fil/a2/imperfetto"}, "a2/passato-prossimo": {"t": "Ang passato prossimo", "u": "/grammatica/fil/a2/passato-prossimo"}, "a2/possessivi": {"t": "Ang mga paari", "u": "/grammatica/fil/a2/possessivi"}, "a2/preposizioni-articolate": {"t": "Ang mga pang-ukol na may pantukoy", "u": "/grammatica/fil/a2/preposizioni-articolate"}, "a2/pronomi-indiretti": {"t": "Ang mga di-tuwirang panghalip", "u": "/grammatica/fil/a2/pronomi-indiretti"}, "b1/congiuntivo-presente": {"t": "Ang subhunktibong presente", "u": "/grammatica/fil/b1/congiuntivo-presente"}, "b1/connettivi": {"t": "Ang mga pang-ugnay", "u": "/grammatica/fil/b1/connettivi"}, "b1/passato-prossimo-o-imperfetto": {"t": "Passato prossimo o imperfetto?", "u": "/grammatica/fil/b1/passato-prossimo-o-imperfetto"}, "b2/concordanza-al-congiuntivo": {"t": "Ang pagtutugma sa subhunktibo", "u": "/grammatica/fil/b2/concordanza-al-congiuntivo"}, "b2/congiuntivo-imperfetto-e-passato": {"t": "Ang subhunktibong imperfetto at passato", "u": "/grammatica/fil/b2/congiuntivo-imperfetto-e-passato"}, "b2/gerundio-e-participio": {"t": "Gerundio at participle", "u": "/grammatica/fil/b2/gerundio-e-participio"}, "b2/periodo-ipotetico-1-e-2": {"t": "Ang kondisyonal na pangungusap: uri 1 at 2", "u": "/grammatica/fil/b2/periodo-ipotetico-1-e-2"}, "b2/pronomi-relativi": {"t": "Ang mga panghalip na pang-ugnay", "u": "/grammatica/fil/b2/pronomi-relativi"}, "c1/connettivi-complessi": {"t": "Ang mga komplikadong pang-ugnay", "u": "/grammatica/fil/c1/connettivi-complessi"}, "c1/forme-implicite": {"t": "Ang mga di-hayagang anyo", "u": "/grammatica/fil/c1/forme-implicite"}, "c1/periodo-ipotetico-3-e-misto": {"t": "Ang kondisyonal: uri 3 at halo", "u": "/grammatica/fil/c1/periodo-ipotetico-3-e-misto"}}, "TEMA": {"Articolo determinativo": "a1/articoli", "Articolo e possessivo": "a2/possessivi", "Presente di essere": "a1/essere-e-avere", "Presente di avere": "a1/essere-e-avere", "Presente indicativo": "a1/presente-indicativo", "Preposizioni articolate": "a2/preposizioni-articolate", "Preposizioni con aggettivo": "a1/preposizioni-semplici", "Locuzioni preposizionali": "a1/preposizioni-semplici", "Passato prossimo": "a2/passato-prossimo", "Imperfetto abituale": "a2/imperfetto", "Imperfetto e passato prossimo": "b1/passato-prossimo-o-imperfetto", "Pronomi indiretti": "a2/pronomi-indiretti", "Imperativo irregolare": "a2/imperativo", "Futuro anteriore": "a2/futuro-semplice", "Congiuntivo presente": "b1/congiuntivo-presente", "Congiuntivo trapassato": "b2/congiuntivo-imperfetto-e-passato", "«Come se» + congiuntivo": "b2/congiuntivo-imperfetto-e-passato", "Congiuntivo nelle relative": "b1/congiuntivo-presente", "Congiuntivo dopo «non che»": "b2/concordanza-al-congiuntivo", "Congiuntivo in locuzione": "c1/connettivi-complessi", "Concessive con congiuntivo": "c1/connettivi-complessi", "Connettivi concessivi": "b1/connettivi", "Concessiva senza congiunzione": "c1/forme-implicite", "Periodo ipotetico": "b2/periodo-ipotetico-1-e-2", "Periodo ipotetico reale": "b2/periodo-ipotetico-1-e-2", "Periodo ipotetico irreale": "c1/periodo-ipotetico-3-e-misto", "Relativo «il cui»": "b2/pronomi-relativi", "Relativo «le cui»": "b2/pronomi-relativi", "Relativo con preposizione": "b2/pronomi-relativi", "Relativi di luogo": "b2/pronomi-relativi", "Infinito passato": "c1/forme-implicite", "Avverbio e participio": "b2/gerundio-e-participio"}, "T": {"tit": "Mga kabanatang balikan", "ko": "May natagpuang alinlangan ang pagsusulit dito. Ito ang mga kabanatang pagpapatuloy, ayon sa antas.", "ok": "Walang maling gramatika: ito ang mga kabanata ng iyong antas, para patatagin.", "sch": "I-download ang mga sheet ng %s (PDF)", "tutta": "Lahat ng gramatika, antas por antas", "pdf": "Babalikan"}, "G": "/grammatica/fil/"};
+
+  function elencoCapitoli(){
+    var visti = {}, ko = [];
+    /* GRAMMATICA e risposte sono definiti dallo script del test */
+    if (typeof GRAMMATICA === "undefined" || typeof risposte === "undefined") return null;
+    GRAMMATICA.forEach(function(q, i){
+      var data = risposte.gram[i];
+      if (data === undefined) return;              /* saltata: non e' un errore */
+      if (data === q.giusta) return;
+      var slug = D.TEMA[q.tema];
+      if (!slug || visti[slug]) return;
+      visti[slug] = 1;
+      ko.push(slug);
+    });
+    return ko;
+  }
+
+  function perLivello(liv){
+    var out = [];
+    Object.keys(D.CAP).forEach(function(k){
+      if (k.slice(0,2).toUpperCase() === liv) out.push(k);
+    });
+    return out;
+  }
+
+  function disegna(){
+    var box = document.getElementById("tl-piano");
+    if (!box) return;
+    var liv = (document.getElementById("pf-livello") || {}).textContent || "A1";
+    var ko = elencoCapitoli();
+    var sbagliati = ko && ko.length;
+    var lista = sbagliati ? ko : perLivello(liv);
+    if (!lista.length) lista = perLivello("A1");
+    lista.sort();
+
+    var h = '<h2>' + D.T.tit + '</h2><p class="guida">' +
+            (sbagliati ? D.T.ko : D.T.ok) + '</p><div class="tl-cap">';
+    lista.forEach(function(k){
+      h += '<a href="' + D.CAP[k].u + '"><i>' + k.slice(0,2).toUpperCase() +
+           '</i><span>' + D.CAP[k].t + '</span></a>';
+    });
+    h += '</div><p class="tl-azioni">' +
+         '<a class="bottone vuoto piccolo" href="/assets/grammatica/pdf/schede-' +
+         liv.toLowerCase() + '.zip" download>' + D.T.sch.replace("%s", liv) + '</a> ' +
+         '<a class="bottone vuoto piccolo" href="' + D.G + '">' + D.T.tutta + '</a></p>';
+    box.innerHTML = h;
+
+    /* lo stesso elenco, in fondo al profilo che si scarica in PDF */
+    var pf = document.getElementById("pf-piano");
+    if (pf) {
+      var r = '<div class="pf-sotto-titolo">' + D.T.pdf + '</div><div class="pf-gt-griglia">';
+      lista.forEach(function(k){
+        r += '<div class="pf-gt-voce"><i>' + k.slice(0,2).toUpperCase() +
+             '</i><span>' + D.CAP[k].t + '</span></div>';
+      });
+      pf.innerHTML = r + '</div>';
+      pf.style.display = "";
+    }
+  }
+
+  /* il risultato compare quando #risultato perde la classe "nascosto" */
+  var ris = document.getElementById("risultato");
+  if (!ris) return;
+  new MutationObserver(function(){
+    if (!ris.classList.contains("nascosto")) setTimeout(disegna, 0);
+  }).observe(ris, {attributes:true, attributeFilter:["class"]});
+})();
+</script>
 </body>
 </html>
