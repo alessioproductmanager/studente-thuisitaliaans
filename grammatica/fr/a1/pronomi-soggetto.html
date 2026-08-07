@@ -73,17 +73,27 @@
    sulla barra vincono da sole. Questa riga resta solo come rete di sicurezza. */
 html body header.u-bar{position:-webkit-sticky !important;position:sticky !important;top:0 !important}
 </style>
-<!--gr-abb-1--><style>
-/* l'abbonamento dentro il banner dell'app: informazione, non carrello */
-.gr-abb{margin:12px 0 14px;padding:12px 14px;border-radius:12px;
+<!--gr-abb-2--><style>
+/* stelline: --stelle-giallo arriva da app-banner.css ed e' spento.
+   Qui l'oro chiaro delle valutazioni, per tutta la pagina. */
+:root{--stelle-giallo:#FFC93C}
+.stelle-gialle,.app-stelle-ico,.app-stelle > span[aria-hidden="true"]{color:#FFC93C !important}
+
+/* il prezzo: una gerarchia, non tre cifre in fila */
+.gr-abb{margin:14px 0;padding:13px 15px;border-radius:12px;
   background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18)}
-.gr-abb p{margin:0 0 5px;font-size:.9rem;line-height:1.5;color:rgba(255,255,255,.9)}
-.gr-abb p:last-child{margin:0}
-.gr-abb .gr-abb-prezzo{font-weight:700;color:#fff}
-.gr-abb .gr-abb-prezzo b{color:#f5b400;font-size:1.05rem}
-.gr-abb .gr-abb-gratis{color:#f5b400}
-.gr-abb .gr-abb-nota{font-size:.76rem;color:rgba(255,255,255,.6)}
+.gr-abb p{margin:0;font-size:.88rem;line-height:1.5;color:rgba(255,255,255,.88)}
+.gr-abb .gr-abb-incl{margin-bottom:9px}
+.gr-abb-riga{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:5px}
+.gr-abb-eq{display:inline-block;padding:4px 12px;border-radius:999px;
+  background:rgba(126,231,135,.16);border:1px solid rgba(126,231,135,.5);
+  color:#7ee787;font-weight:800;font-size:1.12rem;letter-spacing:-.01em;white-space:nowrap}
+.gr-abb-ann{color:rgba(255,255,255,.92);font-size:.88rem}
+.gr-abb-altri{font-size:.82rem !important;color:rgba(255,255,255,.66) !important;margin-bottom:7px !important}
+.gr-abb-gratis{color:#FFC93C !important;font-weight:600}
+.gr-abb-nota{font-size:.75rem !important;color:rgba(255,255,255,.55) !important;margin-top:5px !important}
 </style>
+<!--gr-store-1-->
 </head>
 <body>
 <header class="u-bar" style="--u-sez:#6d4a7c"><!--u-144--><div class="u-bar__in"><div class="u-sw"><a class="u-logo" href="/fr/" aria-label="thuisitaliaans"><img src="/assets/icons/grammatica/icon-192.png" alt="" width="30" height="30" decoding="async"></a><button class="u-sw__b" type="button" aria-expanded="false" aria-haspopup="true">Grammaire<b aria-hidden="true">&#9662;</b></button><ul class="u-sw__l"><li><a href="/fr/" style="--u-p:#31394d">Cours</a></li><li><a href="/app-ti-fr" style="--u-p:#31394d">L'app Ti</a></li><li><a href="/test-livello/test-de-niveau-italien" style="--u-p:#2f6b3a">Test de niveau</a></li><li><a href="/grammatica/fr/" style="--u-p:#6d4a7c" aria-current="true">Grammaire</a></li><li><a href="/books" style="--u-p:#2b4a7a">Livres</a></li><li><a href="/esercizi/" style="--u-p:#b07c1f">Exercices</a></li><li><a href="/blog/" style="--u-p:#5e7357">Blog</a></li><li><a href="/scuole/fr/" style="--u-p:#bc5533">Écoles en Italie</a></li></ul></div><button class="u-apri" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button><nav class="u-menu" aria-label="Menu"><a href="/grammatica/fr/">Toute la grammaire</a><a href="/esercizi/">Exercices</a><a href="/grammatica/schede/">Fiches PDF</a></nav><div class="u-lang" data-u-lang data-u-lingua="Langue"></div><a class="u-cta" href="https://apps.apple.com/app/id6791650799" target="_blank" rel="noopener">Télécharger</a></div></header>
@@ -213,7 +223,7 @@ html body header.u-bar{position:-webkit-sticky !important;position:sticky !impor
 
 <!--app-banner--><div class="ex-app-promo ex-app-promo--scatti"><div class="app-scatti" data-store-extra=""><picture class="app-scatto"><source type="image/webp" srcset="/assets/store/fr/08_tappa.webp"><img src="/assets/store/fr/08_tappa.jpg" alt="App Ti" width="600" height="1298" loading="lazy" decoding="async"></picture><picture class="app-scatto"><source type="image/webp" srcset="/assets/store/fr/01_lettore.webp"><img src="/assets/store/fr/01_lettore.jpg" alt="App Ti" width="600" height="1298" loading="lazy" decoding="async"></picture><picture class="app-scatto"><source type="image/webp" srcset="/assets/store/fr/11_esame.webp"><img src="/assets/store/fr/11_esame.jpg" alt="App Ti" width="600" height="1298" loading="lazy" decoding="async"></picture></div><div class="ex-app-promo-body"><p class="app-stelle"><span class="app-stelle-ico" aria-hidden="true"><span class="stelle-gialle">★★★★★</span></span><span>App Store iOS</span></p><h3>Apprendre <span>Italiens célèbres</span> dans l'app Ti</h3>
 <p>Dans l'app Ti, le parcours <em>Italiani famosi</em> vous fait raconter des vies célèbres : <em>lui</em>, <em>lei</em>, <em>loro</em>, avec les verbes à leur place et les pronoms seulement là où il faut.</p>
-<div class="gr-abb"><p>Avec l'abonnement : le parcours complet A1–C2, le dictionnaire, les jeux et 3 titres au choix parmi les romans et l'edicola.</p><p class="gr-abb-prezzo"><b>€69,99</b> par an, soit €5,83 par mois · ou €12,99 par mois · Lifetime €179 en une fois</p><p class="gr-abb-gratis">La moitié du parcours A1 est ouverte sans inscription : on essaie avant de décider.</p><p class="gr-abb-nota">Prix de l'App Store italien ; ils peuvent varier selon le pays.</p></div><a target="_blank" rel="noopener" href="https://apps.apple.com/app/id6791650799" class="button ex-app-btn">Ouvrir le parcours dans l'app ↗︎</a></div></div><!--/app-banner-->
+<div class="gr-abb"><p class="gr-abb-incl">Avec l'abonnement : parcours complet A1–C2, dictionnaire, jeux et 3 titres au choix.</p><div class="gr-abb-riga"><span class="gr-abb-eq">€5,83 par mois</span><span class="gr-abb-ann">avec l'abonnement annuel à €69,99</span></div><p class="gr-abb-altri">Ou €12,99 par mois · Lifetime €179 en une fois</p><p class="gr-abb-gratis">La moitié du parcours A1 est ouverte sans inscription : on essaie avant de décider.</p><p class="gr-abb-nota">Prix de l'App Store italien ; ils peuvent varier selon le pays.</p></div><a target="_blank" rel="noopener" href="https://apps.apple.com/app/id6791650799" class="button ex-app-btn">Ouvrir le parcours dans l'app ↗︎</a></div></div><!--/app-banner-->
 
 <nav class="gr-prossimi" aria-label="Sommaire">
 <a href="/grammatica/fr/a1/aggettivi"><span>← Précédent</span>Les adjectifs et l'accord</a>
@@ -229,6 +239,7 @@ html body header.u-bar{position:-webkit-sticky !important;position:sticky !impor
 <script src="/js/whatsapp.js" defer></script>
 <script src="/js/avatar-autore.js" defer></script>
 <script src="/js/gr-prova.js" defer></script>
+<script src="/js/store-lingua-extra.js" defer></script>
 <script src="/js/u-nav.js" defer></script>
 <script src="/js/proposta-lingua.js" defer></script>
 </body>
