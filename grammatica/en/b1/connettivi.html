@@ -36,7 +36,6 @@
 <link rel="alternate" hreflang="ti" href="https://thuisitaliaans.com/grammatica/ti/b1/connettivi">
 <link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/grammatica/en/b1/connettivi">
 <link rel="icon" href="/assets/icons/grammatica/icon-192.png">
-<link rel="stylesheet" href="/css/uniforme.css">
 <link rel="stylesheet" href="/assets/mobile.css">
 <link rel="stylesheet" href="/assets/app-banner.css">
 <script type="application/ld+json">
@@ -49,6 +48,7 @@
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the difference between perché and siccome?", "acceptedAnswer": {"@type": "Answer", "text": "Position: siccome (and poiché, more formal) opens the sentence with the cause: siccome pioveva, sono rimasto a casa. Perché follows the main clause: sono rimasto a casa perché pioveva. Starting a sentence with perché + cause is the classic mistake to unlearn."}}, {"@type": "Question", "name": "Quindi or allora?", "acceptedAnswer": {"@type": "Answer", "text": "Quindi draws a logical conclusion: piove, quindi prendo l'ombrello. Allora is looser: consequence, but also “at that time” (allora vivevo a Roma) and the conversational “so…” that opens turns (allora, cosa facciamo?). In an essay, quindi; at the bar, allora."}}, {"@type": "Question", "name": "What does anzi do?", "acceptedAnswer": {"@type": "Answer", "text": "It corrects or upgrades what you just said: non è tardi, anzi (on the contrary), è bravo, anzi bravissimo (or rather). A one-word U-turn: English needs “on the contrary / actually / better still”, Italian does it in four letters."}}]}
 </script>
 <link rel="stylesheet" href="/assets/grammatica/grammatica.css">
+<link rel="stylesheet" href="/css/uniforme.css">
 <!--gr-mob-1--><style>
 /* La barra resta in alto durante lo scorrimento, come nel resto del sito:
    grammatica.css arriva dopo uniforme.css e spegneva lo sticky. */
@@ -71,25 +71,10 @@
 .gr-firma a{color:#6d4a7c;font-weight:600;text-decoration:none}
 .gr-firma a:hover{text-decoration:underline}
 </style>
-<!--gr-sticky-2--><style>
-/* 1 · nessun antenato deve diventare contenitore di scorrimento
-   (clip taglia in orizzontale senza creare uno scroller: hidden invece si') */
-html, body{
-  overflow-x:clip !important; overflow-y:visible !important;
-  height:auto !important; max-height:none !important;
-}
-/* 2 · nessun antenato deve creare un blocco contenitore */
-html, body{
-  transform:none !important; filter:none !important; perspective:none !important;
-  contain:none !important; will-change:auto !important;
-  -webkit-backdrop-filter:none !important; backdrop-filter:none !important;
-}
-/* 3 · la barra, con specificita' alta per battere i fogli della sezione */
-html body header.u-bar{
-  position:-webkit-sticky !important; position:sticky !important;
-  top:0 !important; z-index:900 !important;
-  transform:none !important; will-change:auto !important;
-}
+<!--gr-sticky-3--><style>
+/* uniforme.css ora e' l'ultimo foglio, come nel resto del sito, e le sue regole
+   sulla barra vincono da sole. Questa riga resta solo come rete di sicurezza. */
+html body header.u-bar{position:-webkit-sticky !important;position:sticky !important;top:0 !important}
 </style>
 </head>
 <body>

@@ -36,7 +36,6 @@
 <link rel="alternate" hreflang="ti" href="https://thuisitaliaans.com/grammatica/ti/c2/variazione-regionale">
 <link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/grammatica/en/c2/variazione-regionale">
 <link rel="icon" href="/assets/icons/grammatica/icon-192.png">
-<link rel="stylesheet" href="/css/uniforme.css">
 <link rel="stylesheet" href="/assets/mobile.css">
 <link rel="stylesheet" href="/assets/app-banner.css">
 <script type="application/ld+json">
@@ -49,6 +48,7 @@
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are Italian dialects corrupted Italian?", "acceptedAnswer": {"@type": "Answer", "text": "No: they are Latin's other children: Sicilian, Venetian, Neapolitan and the rest evolved directly from spoken Latin in parallel with Florentine, which became the standard for literary prestige, not linguistic superiority. Many have their own literature: sisters of Italian, not its mistakes."}}, {"@type": "Question", "name": "Why do some Italians say la Giulia, with the article?", "acceptedAnswer": {"@type": "Answer", "text": "Northern regional habit: the article before female first names (la Giulia, la Franca) is normal from Lombardy to Tuscany, in some areas for male names too (il Marco). The standard omits it: in formal writing, plain Giulia: at a Milanese dinner table, la Giulia is simply how she is called."}}, {"@type": "Question", "name": "Is scendi il cane wrong?", "acceptedAnswer": {"@type": "Answer", "text": "It is Southern regional Italian: transitive scendere and salire (scendi il cane, sali la spesa) are widespread in the South, listed in dictionaries as regional, and famously discussed by the Crusca. In local informal speech they work: in exams, formal writing and the North, keep portare giù / portare su."}}]}
 </script>
 <link rel="stylesheet" href="/assets/grammatica/grammatica.css">
+<link rel="stylesheet" href="/css/uniforme.css">
 <!--gr-mob-1--><style>
 /* La barra resta in alto durante lo scorrimento, come nel resto del sito:
    grammatica.css arriva dopo uniforme.css e spegneva lo sticky. */
@@ -71,25 +71,10 @@
 .gr-firma a{color:#6d4a7c;font-weight:600;text-decoration:none}
 .gr-firma a:hover{text-decoration:underline}
 </style>
-<!--gr-sticky-2--><style>
-/* 1 · nessun antenato deve diventare contenitore di scorrimento
-   (clip taglia in orizzontale senza creare uno scroller: hidden invece si') */
-html, body{
-  overflow-x:clip !important; overflow-y:visible !important;
-  height:auto !important; max-height:none !important;
-}
-/* 2 · nessun antenato deve creare un blocco contenitore */
-html, body{
-  transform:none !important; filter:none !important; perspective:none !important;
-  contain:none !important; will-change:auto !important;
-  -webkit-backdrop-filter:none !important; backdrop-filter:none !important;
-}
-/* 3 · la barra, con specificita' alta per battere i fogli della sezione */
-html body header.u-bar{
-  position:-webkit-sticky !important; position:sticky !important;
-  top:0 !important; z-index:900 !important;
-  transform:none !important; will-change:auto !important;
-}
+<!--gr-sticky-3--><style>
+/* uniforme.css ora e' l'ultimo foglio, come nel resto del sito, e le sue regole
+   sulla barra vincono da sole. Questa riga resta solo come rete di sicurezza. */
+html body header.u-bar{position:-webkit-sticky !important;position:sticky !important;top:0 !important}
 </style>
 </head>
 <body>

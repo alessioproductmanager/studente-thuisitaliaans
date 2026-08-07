@@ -36,7 +36,6 @@
 <link rel="alternate" hreflang="ti" href="https://thuisitaliaans.com/grammatica/ti/b2/discorso-indiretto">
 <link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/grammatica/en/b2/discorso-indiretto">
 <link rel="icon" href="/assets/icons/grammatica/icon-192.png">
-<link rel="stylesheet" href="/css/uniforme.css">
 <link rel="stylesheet" href="/assets/mobile.css">
 <link rel="stylesheet" href="/assets/app-banner.css">
 <script type="application/ld+json">
@@ -46,6 +45,7 @@
 {"@context": "https://schema.org", "@type": "Article", "headline": "间接引语", "description": "意大利语间接引语（B2）：完整表格、最常见的错误、附答案的练习、可免费打印的 PDF。", "inLanguage": "zh", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://thuisitaliaans.com/grammatica/zh/b2/discorso-indiretto"}, "author": {"@type": "Person", "@id": "https://thuisitaliaans.com/#alessio", "name": "Alessio Are", "jobTitle": "Insegnante di italiano per stranieri", "alumniOf": [{"@type": "CollegeOrUniversity", "name": "Università Ca' Foscari Venezia", "sameAs": "https://www.unive.it/"}, {"@type": "CollegeOrUniversity", "name": "Università Giustino Fortunato", "sameAs": "https://www.unifortunato.eu/"}], "knowsAbout": ["Italian language", "Italian grammar", "Teaching Italian as a foreign language", "CEFR"], "sameAs": ["https://preply.com/en/tutor/3843955", "https://www.apprentus.com/en/in/italiano.amsterdam", "https://maps.google.com/?cid=1518224867092056834", "https://apps.apple.com/app/id6791650799"], "url": "https://thuisitaliaans.com/zh/alessio"}, "publisher": {"@type": "Organization", "@id": "https://thuisitaliaans.com/#organizzazione", "name": "Thuis Italiaans", "url": "https://thuisitaliaans.com", "logo": {"@type": "ImageObject", "url": "https://thuisitaliaans.com/assets/icons/icon-512.png"}}, "dateModified": "2026-08-07", "educationalLevel": "B2", "learningResourceType": "grammar lesson", "isAccessibleForFree": true, "about": {"@type": "Thing", "name": "间接引语"}, "image": "https://thuisitaliaans.com/assets/grammatica/discorso-indiretto.jpg"}
 </script>
 <link rel="stylesheet" href="/assets/grammatica/grammatica.css">
+<link rel="stylesheet" href="/css/uniforme.css">
 <!--gr-mob-1--><style>
 /* La barra resta in alto durante lo scorrimento, come nel resto del sito:
    grammatica.css arriva dopo uniforme.css e spegneva lo sticky. */
@@ -68,25 +68,10 @@
 .gr-firma a{color:#6d4a7c;font-weight:600;text-decoration:none}
 .gr-firma a:hover{text-decoration:underline}
 </style>
-<!--gr-sticky-2--><style>
-/* 1 · nessun antenato deve diventare contenitore di scorrimento
-   (clip taglia in orizzontale senza creare uno scroller: hidden invece si') */
-html, body{
-  overflow-x:clip !important; overflow-y:visible !important;
-  height:auto !important; max-height:none !important;
-}
-/* 2 · nessun antenato deve creare un blocco contenitore */
-html, body{
-  transform:none !important; filter:none !important; perspective:none !important;
-  contain:none !important; will-change:auto !important;
-  -webkit-backdrop-filter:none !important; backdrop-filter:none !important;
-}
-/* 3 · la barra, con specificita' alta per battere i fogli della sezione */
-html body header.u-bar{
-  position:-webkit-sticky !important; position:sticky !important;
-  top:0 !important; z-index:900 !important;
-  transform:none !important; will-change:auto !important;
-}
+<!--gr-sticky-3--><style>
+/* uniforme.css ora e' l'ultimo foglio, come nel resto del sito, e le sue regole
+   sulla barra vincono da sole. Questa riga resta solo come rete di sicurezza. */
+html body header.u-bar{position:-webkit-sticky !important;position:sticky !important;top:0 !important}
 </style>
 </head>
 <body>

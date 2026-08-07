@@ -36,7 +36,6 @@
 <link rel="alternate" hreflang="ti" href="https://thuisitaliaans.com/grammatica/ti/c2/punteggiatura">
 <link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/grammatica/en/c2/punteggiatura">
 <link rel="icon" href="/assets/icons/grammatica/icon-192.png">
-<link rel="stylesheet" href="/css/uniforme.css">
 <link rel="stylesheet" href="/assets/mobile.css">
 <link rel="stylesheet" href="/assets/app-banner.css">
 <script type="application/ld+json">
@@ -49,6 +48,7 @@
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can a comma ever appear before e?", "acceptedAnswer": {"@type": "Answer", "text": "Normally no: Italian does not use the serial comma: pane, latte e uova. But a comma before e is legitimate to close an aside (il progetto, dopo mesi di lavoro, e con pochi fondi, è partito) or to mark a shift: what is banned is the automatic habit, not the deliberate choice."}}, {"@type": "Question", "name": "Is it È or E'?", "acceptedAnswer": {"@type": "Answer", "text": "È: the accented capital is the correct form, and E' (letter + apostrophe) is a typewriter-era workaround that survives out of habit. Every modern keyboard can produce È: careful writing, publishing and the Crusca all expect it. Same for À, Ì, PERCHÉ in headlines."}}, {"@type": "Question", "name": "When does the semicolon earn its place?", "acceptedAnswer": {"@type": "Answer", "text": "Twice, mainly: between independent clauses too related for a full stop (il progetto è fermo; i fondi non bastano), and in lists whose items contain commas. It is the gear between comma and full stop: rarer than both, and precisely for that, a quiet signal of a practised hand."}}]}
 </script>
 <link rel="stylesheet" href="/assets/grammatica/grammatica.css">
+<link rel="stylesheet" href="/css/uniforme.css">
 <!--gr-mob-1--><style>
 /* La barra resta in alto durante lo scorrimento, come nel resto del sito:
    grammatica.css arriva dopo uniforme.css e spegneva lo sticky. */
@@ -71,25 +71,10 @@
 .gr-firma a{color:#6d4a7c;font-weight:600;text-decoration:none}
 .gr-firma a:hover{text-decoration:underline}
 </style>
-<!--gr-sticky-2--><style>
-/* 1 · nessun antenato deve diventare contenitore di scorrimento
-   (clip taglia in orizzontale senza creare uno scroller: hidden invece si') */
-html, body{
-  overflow-x:clip !important; overflow-y:visible !important;
-  height:auto !important; max-height:none !important;
-}
-/* 2 · nessun antenato deve creare un blocco contenitore */
-html, body{
-  transform:none !important; filter:none !important; perspective:none !important;
-  contain:none !important; will-change:auto !important;
-  -webkit-backdrop-filter:none !important; backdrop-filter:none !important;
-}
-/* 3 · la barra, con specificita' alta per battere i fogli della sezione */
-html body header.u-bar{
-  position:-webkit-sticky !important; position:sticky !important;
-  top:0 !important; z-index:900 !important;
-  transform:none !important; will-change:auto !important;
-}
+<!--gr-sticky-3--><style>
+/* uniforme.css ora e' l'ultimo foglio, come nel resto del sito, e le sue regole
+   sulla barra vincono da sole. Questa riga resta solo come rete di sicurezza. */
+html body header.u-bar{position:-webkit-sticky !important;position:sticky !important;top:0 !important}
 </style>
 </head>
 <body>

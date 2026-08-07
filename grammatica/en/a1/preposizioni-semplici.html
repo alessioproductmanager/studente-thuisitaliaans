@@ -36,7 +36,6 @@
 <link rel="alternate" hreflang="ti" href="https://thuisitaliaans.com/grammatica/ti/a1/preposizioni-semplici">
 <link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/grammatica/en/a1/preposizioni-semplici">
 <link rel="icon" href="/assets/icons/grammatica/icon-192.png">
-<link rel="stylesheet" href="/css/uniforme.css">
 <link rel="stylesheet" href="/assets/mobile.css">
 <link rel="stylesheet" href="/assets/app-banner.css">
 <script type="application/ld+json">
@@ -49,6 +48,7 @@
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Sono di Roma or vengo da Roma: which is right?", "acceptedAnswer": {"@type": "Answer", "text": "Both, for different jobs: di gives origin with essere (sono di Roma: I'm from Rome, it's my city), da gives movement or provenance with other verbs (vengo da Roma: I'm coming from Rome, maybe just today). Verb decides preposition."}}, {"@type": "Question", "name": "Why a scuola but in banca?", "acceptedAnswer": {"@type": "Answer", "text": "There is no logic to find, only pairs to memorise: a casa, a scuola, a letto, a teatro, but in banca, in ufficio, in chiesa, in piscina. Learn each place with its preposition, like a surname: after a while the wrong one simply sounds off."}}, {"@type": "Question", "name": "Is there a difference between tra and fra?", "acceptedAnswer": {"@type": "Answer", "text": "None in meaning: both are “between / among / in (time)”. Italians choose by sound, avoiding clumsy repetitions: fra tre minuti flows better than tra tre minuti, and tra fratelli better than fra fratelli."}}]}
 </script>
 <link rel="stylesheet" href="/assets/grammatica/grammatica.css">
+<link rel="stylesheet" href="/css/uniforme.css">
 <!--gr-mob-1--><style>
 /* La barra resta in alto durante lo scorrimento, come nel resto del sito:
    grammatica.css arriva dopo uniforme.css e spegneva lo sticky. */
@@ -71,25 +71,10 @@
 .gr-firma a{color:#6d4a7c;font-weight:600;text-decoration:none}
 .gr-firma a:hover{text-decoration:underline}
 </style>
-<!--gr-sticky-2--><style>
-/* 1 · nessun antenato deve diventare contenitore di scorrimento
-   (clip taglia in orizzontale senza creare uno scroller: hidden invece si') */
-html, body{
-  overflow-x:clip !important; overflow-y:visible !important;
-  height:auto !important; max-height:none !important;
-}
-/* 2 · nessun antenato deve creare un blocco contenitore */
-html, body{
-  transform:none !important; filter:none !important; perspective:none !important;
-  contain:none !important; will-change:auto !important;
-  -webkit-backdrop-filter:none !important; backdrop-filter:none !important;
-}
-/* 3 · la barra, con specificita' alta per battere i fogli della sezione */
-html body header.u-bar{
-  position:-webkit-sticky !important; position:sticky !important;
-  top:0 !important; z-index:900 !important;
-  transform:none !important; will-change:auto !important;
-}
+<!--gr-sticky-3--><style>
+/* uniforme.css ora e' l'ultimo foglio, come nel resto del sito, e le sue regole
+   sulla barra vincono da sole. Questa riga resta solo come rete di sicurezza. */
+html body header.u-bar{position:-webkit-sticky !important;position:sticky !important;top:0 !important}
 </style>
 </head>
 <body>

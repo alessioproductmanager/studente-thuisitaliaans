@@ -36,7 +36,6 @@
 <link rel="alternate" hreflang="ti" href="https://thuisitaliaans.com/grammatica/ti/b2/verbi-pronominali">
 <link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/grammatica/en/b2/verbi-pronominali">
 <link rel="icon" href="/assets/icons/grammatica/icon-192.png">
-<link rel="stylesheet" href="/css/uniforme.css">
 <link rel="stylesheet" href="/assets/mobile.css">
 <link rel="stylesheet" href="/assets/app-banner.css">
 <script type="application/ld+json">
@@ -49,6 +48,7 @@
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the difference between volerci and metterci?", "acceptedAnswer": {"@type": "Answer", "text": "Volerci is impersonal: the time or resource is the subject: ci vuole un'ora, ci vogliono due uova. Metterci is personal: you say how long you take: ci metto un'ora. Same topic, opposite camera angle: the task's requirements versus your performance."}}, {"@type": "Question", "name": "What does entrarci mean?", "acceptedAnswer": {"@type": "Answer", "text": "“To have to do with it”: che c'entra? non c'entra niente, io non c'entro. Indispensable in discussion: it marks relevance. Note the fused spelling c'entra (= ci entra): it literally asks whether something “fits in” the topic."}}, {"@type": "Question", "name": "Avercela con or prendersela con?", "acceptedAnswer": {"@type": "Answer", "text": "Avercela con qualcuno is the state: to have it in for someone (ce l'ha con me da giorni). Prendersela is the reaction: to take offence, get upset (non te la prendere!). One is the grudge, the other is the flare-up."}}]}
 </script>
 <link rel="stylesheet" href="/assets/grammatica/grammatica.css">
+<link rel="stylesheet" href="/css/uniforme.css">
 <!--gr-mob-1--><style>
 /* La barra resta in alto durante lo scorrimento, come nel resto del sito:
    grammatica.css arriva dopo uniforme.css e spegneva lo sticky. */
@@ -71,25 +71,10 @@
 .gr-firma a{color:#6d4a7c;font-weight:600;text-decoration:none}
 .gr-firma a:hover{text-decoration:underline}
 </style>
-<!--gr-sticky-2--><style>
-/* 1 · nessun antenato deve diventare contenitore di scorrimento
-   (clip taglia in orizzontale senza creare uno scroller: hidden invece si') */
-html, body{
-  overflow-x:clip !important; overflow-y:visible !important;
-  height:auto !important; max-height:none !important;
-}
-/* 2 · nessun antenato deve creare un blocco contenitore */
-html, body{
-  transform:none !important; filter:none !important; perspective:none !important;
-  contain:none !important; will-change:auto !important;
-  -webkit-backdrop-filter:none !important; backdrop-filter:none !important;
-}
-/* 3 · la barra, con specificita' alta per battere i fogli della sezione */
-html body header.u-bar{
-  position:-webkit-sticky !important; position:sticky !important;
-  top:0 !important; z-index:900 !important;
-  transform:none !important; will-change:auto !important;
-}
+<!--gr-sticky-3--><style>
+/* uniforme.css ora e' l'ultimo foglio, come nel resto del sito, e le sue regole
+   sulla barra vincono da sole. Questa riga resta solo come rete di sicurezza. */
+html body header.u-bar{position:-webkit-sticky !important;position:sticky !important;top:0 !important}
 </style>
 </head>
 <body>

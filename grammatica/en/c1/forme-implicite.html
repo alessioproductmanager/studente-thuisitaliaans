@@ -36,7 +36,6 @@
 <link rel="alternate" hreflang="ti" href="https://thuisitaliaans.com/grammatica/ti/c1/forme-implicite">
 <link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/grammatica/en/c1/forme-implicite">
 <link rel="icon" href="/assets/icons/grammatica/icon-192.png">
-<link rel="stylesheet" href="/css/uniforme.css">
 <link rel="stylesheet" href="/assets/mobile.css">
 <link rel="stylesheet" href="/assets/app-banner.css">
 <script type="application/ld+json">
@@ -49,6 +48,7 @@
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Senza + infinitive or senza che + subjunctive?", "acceptedAnswer": {"@type": "Answer", "text": "Same subject: infinitive: è uscito senza salutare. Different subjects: senza che + subjunctive: è uscito senza che nessuno se ne accorgesse. The switch is automatic: the moment a second subject appears, the implicit form must open up into a full clause."}}, {"@type": "Question", "name": "What does da + infinitive add to a noun?", "acceptedAnswer": {"@type": "Answer", "text": "Necessity or destiny: qualcosa da bere (to drink), un film da vedere (worth seeing), una decisione da prendere (to be made). It is a pocket-sized passive of obligation: the same meaning as che va visto, folded into two words."}}, {"@type": "Question", "name": "Why il primo ad arrivare and not il primo che arriva?", "acceptedAnswer": {"@type": "Answer", "text": "Both exist, but after ordinals and unico, solo, ultimo, the infinitive with a is the polished choice: è stata la prima a capirlo, l'unico a saperlo. It is lighter than the relative clause: written Italian reaches for it instinctively."}}]}
 </script>
 <link rel="stylesheet" href="/assets/grammatica/grammatica.css">
+<link rel="stylesheet" href="/css/uniforme.css">
 <!--gr-mob-1--><style>
 /* La barra resta in alto durante lo scorrimento, come nel resto del sito:
    grammatica.css arriva dopo uniforme.css e spegneva lo sticky. */
@@ -71,25 +71,10 @@
 .gr-firma a{color:#6d4a7c;font-weight:600;text-decoration:none}
 .gr-firma a:hover{text-decoration:underline}
 </style>
-<!--gr-sticky-2--><style>
-/* 1 · nessun antenato deve diventare contenitore di scorrimento
-   (clip taglia in orizzontale senza creare uno scroller: hidden invece si') */
-html, body{
-  overflow-x:clip !important; overflow-y:visible !important;
-  height:auto !important; max-height:none !important;
-}
-/* 2 · nessun antenato deve creare un blocco contenitore */
-html, body{
-  transform:none !important; filter:none !important; perspective:none !important;
-  contain:none !important; will-change:auto !important;
-  -webkit-backdrop-filter:none !important; backdrop-filter:none !important;
-}
-/* 3 · la barra, con specificita' alta per battere i fogli della sezione */
-html body header.u-bar{
-  position:-webkit-sticky !important; position:sticky !important;
-  top:0 !important; z-index:900 !important;
-  transform:none !important; will-change:auto !important;
-}
+<!--gr-sticky-3--><style>
+/* uniforme.css ora e' l'ultimo foglio, come nel resto del sito, e le sue regole
+   sulla barra vincono da sole. Questa riga resta solo come rete di sicurezza. */
+html body header.u-bar{position:-webkit-sticky !important;position:sticky !important;top:0 !important}
 </style>
 </head>
 <body>

@@ -36,7 +36,6 @@
 <link rel="alternate" hreflang="ti" href="https://thuisitaliaans.com/grammatica/ti/a1/ce-e-ci-sono">
 <link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/grammatica/en/a1/ce-e-ci-sono">
 <link rel="icon" href="/assets/icons/grammatica/icon-192.png">
-<link rel="stylesheet" href="/css/uniforme.css">
 <link rel="stylesheet" href="/assets/mobile.css">
 <link rel="stylesheet" href="/assets/app-banner.css">
 <script type="application/ld+json">
@@ -49,6 +48,7 @@
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the difference between c'è and è?", "acceptedAnswer": {"@type": "Answer", "text": "C'è introduces existence or presence: c'è una farmacia qui vicino? (“is there…”). È links a subject to a description: la farmacia è qui vicino (“the pharmacy is…”). If English needs “there”, Italian needs ci."}}, {"@type": "Question", "name": "How do I say “there was” and “there were”?", "acceptedAnswer": {"@type": "Answer", "text": "C'era and c'erano: c'era molta gente, c'erano due messaggi per te. Same rule as the present: singular with singular, plural with plural. It is also the classic fairy-tale opening: c'era una volta, “once upon a time”."}}, {"@type": "Question", "name": "Can I ask C'è nessuno? — isn't nessuno negative?", "acceptedAnswer": {"@type": "Answer", "text": "In questions, nessuno and niente work like “anyone / anything”: c'è nessuno? (“anybody there?”), serve niente?. They turn negative only with non in the answer: non c'è nessuno."}}]}
 </script>
 <link rel="stylesheet" href="/assets/grammatica/grammatica.css">
+<link rel="stylesheet" href="/css/uniforme.css">
 <!--gr-mob-1--><style>
 /* La barra resta in alto durante lo scorrimento, come nel resto del sito:
    grammatica.css arriva dopo uniforme.css e spegneva lo sticky. */
@@ -71,25 +71,10 @@
 .gr-firma a{color:#6d4a7c;font-weight:600;text-decoration:none}
 .gr-firma a:hover{text-decoration:underline}
 </style>
-<!--gr-sticky-2--><style>
-/* 1 · nessun antenato deve diventare contenitore di scorrimento
-   (clip taglia in orizzontale senza creare uno scroller: hidden invece si') */
-html, body{
-  overflow-x:clip !important; overflow-y:visible !important;
-  height:auto !important; max-height:none !important;
-}
-/* 2 · nessun antenato deve creare un blocco contenitore */
-html, body{
-  transform:none !important; filter:none !important; perspective:none !important;
-  contain:none !important; will-change:auto !important;
-  -webkit-backdrop-filter:none !important; backdrop-filter:none !important;
-}
-/* 3 · la barra, con specificita' alta per battere i fogli della sezione */
-html body header.u-bar{
-  position:-webkit-sticky !important; position:sticky !important;
-  top:0 !important; z-index:900 !important;
-  transform:none !important; will-change:auto !important;
-}
+<!--gr-sticky-3--><style>
+/* uniforme.css ora e' l'ultimo foglio, come nel resto del sito, e le sue regole
+   sulla barra vincono da sole. Questa riga resta solo come rete di sicurezza. */
+html body header.u-bar{position:-webkit-sticky !important;position:sticky !important;top:0 !important}
 </style>
 </head>
 <body>

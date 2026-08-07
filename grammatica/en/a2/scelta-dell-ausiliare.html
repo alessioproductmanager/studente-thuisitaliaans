@@ -36,7 +36,6 @@
 <link rel="alternate" hreflang="ti" href="https://thuisitaliaans.com/grammatica/ti/a2/scelta-dell-ausiliare">
 <link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/grammatica/en/a2/scelta-dell-ausiliare">
 <link rel="icon" href="/assets/icons/grammatica/icon-192.png">
-<link rel="stylesheet" href="/css/uniforme.css">
 <link rel="stylesheet" href="/assets/mobile.css">
 <link rel="stylesheet" href="/assets/app-banner.css">
 <script type="application/ld+json">
@@ -49,6 +48,7 @@
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is it è piovuto or ha piovuto?", "acceptedAnswer": {"@type": "Answer", "text": "Both: with weather verbs (piovere, nevicare) modern grammars and the Accademia della Crusca accept either auxiliary. Ieri è piovuto tutto il giorno and ieri ha piovuto tutto il giorno are equally correct: pick one and do not lose sleep."}}, {"@type": "Question", "name": "Why does cominciare take both auxiliaries?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the object: with one, avere (ho cominciato il corso); without, essere (il corso è cominciato). Same story for finire and cambiare: when the thing itself starts, ends or changes, it takes essere."}}, {"@type": "Question", "name": "Ho vissuto or sono vissuto?", "acceptedAnswer": {"@type": "Answer", "text": "Both are accepted: vivere is one of the verbs with a double passport. Ho vissuto a Roma per dieci anni is the more common choice today, but sono vissuto is equally grammatical, and the participle then agrees: Anna è vissuta a lungo."}}]}
 </script>
 <link rel="stylesheet" href="/assets/grammatica/grammatica.css">
+<link rel="stylesheet" href="/css/uniforme.css">
 <!--gr-mob-1--><style>
 /* La barra resta in alto durante lo scorrimento, come nel resto del sito:
    grammatica.css arriva dopo uniforme.css e spegneva lo sticky. */
@@ -71,25 +71,10 @@
 .gr-firma a{color:#6d4a7c;font-weight:600;text-decoration:none}
 .gr-firma a:hover{text-decoration:underline}
 </style>
-<!--gr-sticky-2--><style>
-/* 1 · nessun antenato deve diventare contenitore di scorrimento
-   (clip taglia in orizzontale senza creare uno scroller: hidden invece si') */
-html, body{
-  overflow-x:clip !important; overflow-y:visible !important;
-  height:auto !important; max-height:none !important;
-}
-/* 2 · nessun antenato deve creare un blocco contenitore */
-html, body{
-  transform:none !important; filter:none !important; perspective:none !important;
-  contain:none !important; will-change:auto !important;
-  -webkit-backdrop-filter:none !important; backdrop-filter:none !important;
-}
-/* 3 · la barra, con specificita' alta per battere i fogli della sezione */
-html body header.u-bar{
-  position:-webkit-sticky !important; position:sticky !important;
-  top:0 !important; z-index:900 !important;
-  transform:none !important; will-change:auto !important;
-}
+<!--gr-sticky-3--><style>
+/* uniforme.css ora e' l'ultimo foglio, come nel resto del sito, e le sue regole
+   sulla barra vincono da sole. Questa riga resta solo come rete di sicurezza. */
+html body header.u-bar{position:-webkit-sticky !important;position:sticky !important;top:0 !important}
 </style>
 </head>
 <body>

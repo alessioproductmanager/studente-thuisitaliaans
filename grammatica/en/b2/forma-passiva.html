@@ -36,7 +36,6 @@
 <link rel="alternate" hreflang="ti" href="https://thuisitaliaans.com/grammatica/ti/b2/forma-passiva">
 <link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/grammatica/en/b2/forma-passiva">
 <link rel="icon" href="/assets/icons/grammatica/icon-192.png">
-<link rel="stylesheet" href="/css/uniforme.css">
 <link rel="stylesheet" href="/assets/mobile.css">
 <link rel="stylesheet" href="/assets/app-banner.css">
 <script type="application/ld+json">
@@ -49,6 +48,7 @@
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why can't I say è venuto lanciato?", "acceptedAnswer": {"@type": "Answer", "text": "Because venire works as a passive auxiliary only in simple tenses: viene lanciato, veniva lanciato, verrà lanciato. In compound tenses the language switches back to essere: è stato lanciato. It is a hard grammatical wall, not a stylistic preference."}}, {"@type": "Question", "name": "Does andare + participle always mean obligation?", "acceptedAnswer": {"@type": "Answer", "text": "Almost always (va verificato: it must be checked), with one family of exceptions: with verbs of losing and destroying, it just reports the outcome: il pacco è andato perso, i documenti andarono distrutti: the parcel got lost, nobody is ordering it to get lost."}}, {"@type": "Question", "name": "Is si vendono case a passive?", "acceptedAnswer": {"@type": "Answer", "text": "Functionally yes: the passive si (si vendono case = le case vengono vendute) is the everyday way to hide the agent, far more common in speech than the full passive. The mechanics live in the chapter on the impersonal si."}}]}
 </script>
 <link rel="stylesheet" href="/assets/grammatica/grammatica.css">
+<link rel="stylesheet" href="/css/uniforme.css">
 <!--gr-mob-1--><style>
 /* La barra resta in alto durante lo scorrimento, come nel resto del sito:
    grammatica.css arriva dopo uniforme.css e spegneva lo sticky. */
@@ -71,25 +71,10 @@
 .gr-firma a{color:#6d4a7c;font-weight:600;text-decoration:none}
 .gr-firma a:hover{text-decoration:underline}
 </style>
-<!--gr-sticky-2--><style>
-/* 1 · nessun antenato deve diventare contenitore di scorrimento
-   (clip taglia in orizzontale senza creare uno scroller: hidden invece si') */
-html, body{
-  overflow-x:clip !important; overflow-y:visible !important;
-  height:auto !important; max-height:none !important;
-}
-/* 2 · nessun antenato deve creare un blocco contenitore */
-html, body{
-  transform:none !important; filter:none !important; perspective:none !important;
-  contain:none !important; will-change:auto !important;
-  -webkit-backdrop-filter:none !important; backdrop-filter:none !important;
-}
-/* 3 · la barra, con specificita' alta per battere i fogli della sezione */
-html body header.u-bar{
-  position:-webkit-sticky !important; position:sticky !important;
-  top:0 !important; z-index:900 !important;
-  transform:none !important; will-change:auto !important;
-}
+<!--gr-sticky-3--><style>
+/* uniforme.css ora e' l'ultimo foglio, come nel resto del sito, e le sue regole
+   sulla barra vincono da sole. Questa riga resta solo come rete di sicurezza. */
+html body header.u-bar{position:-webkit-sticky !important;position:sticky !important;top:0 !important}
 </style>
 </head>
 <body>

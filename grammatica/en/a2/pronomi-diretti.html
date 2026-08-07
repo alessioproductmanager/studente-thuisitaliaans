@@ -36,7 +36,6 @@
 <link rel="alternate" hreflang="ti" href="https://thuisitaliaans.com/grammatica/ti/a2/pronomi-diretti">
 <link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/grammatica/en/a2/pronomi-diretti">
 <link rel="icon" href="/assets/icons/grammatica/icon-192.png">
-<link rel="stylesheet" href="/css/uniforme.css">
 <link rel="stylesheet" href="/assets/mobile.css">
 <link rel="stylesheet" href="/assets/app-banner.css">
 <script type="application/ld+json">
@@ -49,6 +48,7 @@
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why is it lo aiuto and not gli aiuto?", "acceptedAnswer": {"@type": "Answer", "text": "Because aiutare takes a direct object in Italian: aiutare qualcuno, no preposition. The same goes for ascoltare, aspettare, cercare, guardare: all direct, even where English says “listen to, wait for, look for/at”. The Italian verb decides, not the translation."}}, {"@type": "Question", "name": "What is the pronoun for formal “you” as an object?", "acceptedAnswer": {"@type": "Answer", "text": "La, even for a man, and capitalised in formal writing: La ringrazio, dottore; La richiamo domani. It follows Lei, which is grammatically feminine: the courtesy system stays consistent all the way down."}}, {"@type": "Question", "name": "Are mi, ti, ci, vi direct or indirect?", "acceptedAnswer": {"@type": "Answer", "text": "Both: the same four forms serve both jobs, and only context tells you which. Mi vede (direct: he sees me), mi scrive (indirect: he writes to me). The direct/indirect distinction only becomes visible in the third person: lo/la versus gli/le."}}]}
 </script>
 <link rel="stylesheet" href="/assets/grammatica/grammatica.css">
+<link rel="stylesheet" href="/css/uniforme.css">
 <!--gr-mob-1--><style>
 /* La barra resta in alto durante lo scorrimento, come nel resto del sito:
    grammatica.css arriva dopo uniforme.css e spegneva lo sticky. */
@@ -71,25 +71,10 @@
 .gr-firma a{color:#6d4a7c;font-weight:600;text-decoration:none}
 .gr-firma a:hover{text-decoration:underline}
 </style>
-<!--gr-sticky-2--><style>
-/* 1 · nessun antenato deve diventare contenitore di scorrimento
-   (clip taglia in orizzontale senza creare uno scroller: hidden invece si') */
-html, body{
-  overflow-x:clip !important; overflow-y:visible !important;
-  height:auto !important; max-height:none !important;
-}
-/* 2 · nessun antenato deve creare un blocco contenitore */
-html, body{
-  transform:none !important; filter:none !important; perspective:none !important;
-  contain:none !important; will-change:auto !important;
-  -webkit-backdrop-filter:none !important; backdrop-filter:none !important;
-}
-/* 3 · la barra, con specificita' alta per battere i fogli della sezione */
-html body header.u-bar{
-  position:-webkit-sticky !important; position:sticky !important;
-  top:0 !important; z-index:900 !important;
-  transform:none !important; will-change:auto !important;
-}
+<!--gr-sticky-3--><style>
+/* uniforme.css ora e' l'ultimo foglio, come nel resto del sito, e le sue regole
+   sulla barra vincono da sole. Questa riga resta solo come rete di sicurezza. */
+html body header.u-bar{position:-webkit-sticky !important;position:sticky !important;top:0 !important}
 </style>
 </head>
 <body>

@@ -36,7 +36,6 @@
 <link rel="alternate" hreflang="ti" href="https://thuisitaliaans.com/grammatica/ti/c2/linguaggi-settoriali">
 <link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/grammatica/en/c2/linguaggi-settoriali">
 <link rel="icon" href="/assets/icons/grammatica/icon-192.png">
-<link rel="stylesheet" href="/css/uniforme.css">
 <link rel="stylesheet" href="/assets/mobile.css">
 <link rel="stylesheet" href="/assets/app-banner.css">
 <script type="application/ld+json">
@@ -49,6 +48,7 @@
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why is ovvero dangerous?", "acceptedAnswer": {"@type": "Answer", "text": "Because it means two opposite-feeling things: in everyday and academic prose, “that is” (la pragmatica, ovvero lo studio del linguaggio in uso); in legal texts, “or” (il presidente ovvero un suo delegato: either one). Misreading it in a contract changes who does what: in legalese, treat every ovvero as an “or” until proven otherwise."}}, {"@type": "Question", "name": "How do I decode a bureaucratic sentence?", "acceptedAnswer": {"@type": "Answer", "text": "Reverse the three trademarks: unwrap the nominalisation (procedere alla compilazione → compilare), downgrade the vocabulary (munirsi di → portare, istanza → domanda), and give the passive an agent. Si procederà all'erogazione del rimborso is, in Italian, vi rimborseremo."}}, {"@type": "Question", "name": "Why does legal Italian distinguish furto and rapina?", "acceptedAnswer": {"@type": "Answer", "text": "Because the law splits what common speech merges: furto is theft without force, rapina is robbery with violence or threat: different crimes, different penalties. Same precision pairs everywhere: affitto/locazione, omicidio/assassinio. Sector languages are not decoration: they are distinctions with consequences."}}]}
 </script>
 <link rel="stylesheet" href="/assets/grammatica/grammatica.css">
+<link rel="stylesheet" href="/css/uniforme.css">
 <!--gr-mob-1--><style>
 /* La barra resta in alto durante lo scorrimento, come nel resto del sito:
    grammatica.css arriva dopo uniforme.css e spegneva lo sticky. */
@@ -71,25 +71,10 @@
 .gr-firma a{color:#6d4a7c;font-weight:600;text-decoration:none}
 .gr-firma a:hover{text-decoration:underline}
 </style>
-<!--gr-sticky-2--><style>
-/* 1 · nessun antenato deve diventare contenitore di scorrimento
-   (clip taglia in orizzontale senza creare uno scroller: hidden invece si') */
-html, body{
-  overflow-x:clip !important; overflow-y:visible !important;
-  height:auto !important; max-height:none !important;
-}
-/* 2 · nessun antenato deve creare un blocco contenitore */
-html, body{
-  transform:none !important; filter:none !important; perspective:none !important;
-  contain:none !important; will-change:auto !important;
-  -webkit-backdrop-filter:none !important; backdrop-filter:none !important;
-}
-/* 3 · la barra, con specificita' alta per battere i fogli della sezione */
-html body header.u-bar{
-  position:-webkit-sticky !important; position:sticky !important;
-  top:0 !important; z-index:900 !important;
-  transform:none !important; will-change:auto !important;
-}
+<!--gr-sticky-3--><style>
+/* uniforme.css ora e' l'ultimo foglio, come nel resto del sito, e le sue regole
+   sulla barra vincono da sole. Questa riga resta solo come rete di sicurezza. */
+html body header.u-bar{position:-webkit-sticky !important;position:sticky !important;top:0 !important}
 </style>
 </head>
 <body>

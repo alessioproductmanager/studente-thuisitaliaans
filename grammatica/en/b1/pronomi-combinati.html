@@ -36,7 +36,6 @@
 <link rel="alternate" hreflang="ti" href="https://thuisitaliaans.com/grammatica/ti/b1/pronomi-combinati">
 <link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/grammatica/en/b1/pronomi-combinati">
 <link rel="icon" href="/assets/icons/grammatica/icon-192.png">
-<link rel="stylesheet" href="/css/uniforme.css">
 <link rel="stylesheet" href="/assets/mobile.css">
 <link rel="stylesheet" href="/assets/app-banner.css">
 <script type="application/ld+json">
@@ -49,6 +48,7 @@
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Where do combined pronouns go with an infinitive?", "acceptedAnswer": {"@type": "Answer", "text": "Attached to the end, as one word: puoi portarmelo? vado a comprartela. With a modal verb you can also let them climb: me lo puoi portare? Both orders are correct: attached is compact, climbed is more colloquial."}}, {"@type": "Question", "name": "How does ne combine with the indirect pronouns?", "acceptedAnswer": {"@type": "Answer", "text": "Like lo/la: the indirect pronoun shifts its vowel and comes first: me ne, te ne, se ne, ce ne, ve ne, gliene. So: ti servono soldi? Te ne presto io. Gliene ho parlato ieri."}}, {"@type": "Question", "name": "In gliel'ho detto, who is glie-?", "acceptedAnswer": {"@type": "Answer", "text": "Potentially everyone: him, her, formal Lei, and in spoken Italian even “them”. Gliel'ho detto can mean I told him, her, you (formal) or them: context disambiguates. If you need precision in writing, unpack it: l'ho detto a lei, l'ho detto a loro."}}]}
 </script>
 <link rel="stylesheet" href="/assets/grammatica/grammatica.css">
+<link rel="stylesheet" href="/css/uniforme.css">
 <!--gr-mob-1--><style>
 /* La barra resta in alto durante lo scorrimento, come nel resto del sito:
    grammatica.css arriva dopo uniforme.css e spegneva lo sticky. */
@@ -71,25 +71,10 @@
 .gr-firma a{color:#6d4a7c;font-weight:600;text-decoration:none}
 .gr-firma a:hover{text-decoration:underline}
 </style>
-<!--gr-sticky-2--><style>
-/* 1 · nessun antenato deve diventare contenitore di scorrimento
-   (clip taglia in orizzontale senza creare uno scroller: hidden invece si') */
-html, body{
-  overflow-x:clip !important; overflow-y:visible !important;
-  height:auto !important; max-height:none !important;
-}
-/* 2 · nessun antenato deve creare un blocco contenitore */
-html, body{
-  transform:none !important; filter:none !important; perspective:none !important;
-  contain:none !important; will-change:auto !important;
-  -webkit-backdrop-filter:none !important; backdrop-filter:none !important;
-}
-/* 3 · la barra, con specificita' alta per battere i fogli della sezione */
-html body header.u-bar{
-  position:-webkit-sticky !important; position:sticky !important;
-  top:0 !important; z-index:900 !important;
-  transform:none !important; will-change:auto !important;
-}
+<!--gr-sticky-3--><style>
+/* uniforme.css ora e' l'ultimo foglio, come nel resto del sito, e le sue regole
+   sulla barra vincono da sole. Questa riga resta solo come rete di sicurezza. */
+html body header.u-bar{position:-webkit-sticky !important;position:sticky !important;top:0 !important}
 </style>
 </head>
 <body>

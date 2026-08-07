@@ -36,7 +36,6 @@
 <link rel="alternate" hreflang="ti" href="https://thuisitaliaans.com/grammatica/ti/a2/possessivi">
 <link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/grammatica/en/a2/possessivi">
 <link rel="icon" href="/assets/icons/grammatica/icon-192.png">
-<link rel="stylesheet" href="/css/uniforme.css">
 <link rel="stylesheet" href="/assets/mobile.css">
 <link rel="stylesheet" href="/assets/app-banner.css">
 <script type="application/ld+json">
@@ -49,6 +48,7 @@
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can a possessive stand alone, without the noun?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, article included: Di chi è questa giacca? — È la mia. The plural i miei even has a life of its own: it means “my parents / my family” (stasera ceno dai miei)."}}, {"@type": "Question", "name": "How do I say “a friend of mine”?", "acceptedAnswer": {"@type": "Answer", "text": "Un mio amico: indefinite article + possessive + noun, no “of”. Likewise una sua collega, due miei cugini. The English “of mine” construction simply does not exist in Italian: resist the urge to add di."}}, {"@type": "Question", "name": "What is proprio and when do I need it?", "acceptedAnswer": {"@type": "Answer", "text": "It is a possessive meaning “one's own”, and it is the clean choice when the subject is impersonal or generic: ognuno porta il proprio libro. With lui/lei as subject it can replace suo to avoid ambiguity: Marco è uscito con la propria macchina (his own, not someone else's)."}}]}
 </script>
 <link rel="stylesheet" href="/assets/grammatica/grammatica.css">
+<link rel="stylesheet" href="/css/uniforme.css">
 <!--gr-mob-1--><style>
 /* La barra resta in alto durante lo scorrimento, come nel resto del sito:
    grammatica.css arriva dopo uniforme.css e spegneva lo sticky. */
@@ -71,25 +71,10 @@
 .gr-firma a{color:#6d4a7c;font-weight:600;text-decoration:none}
 .gr-firma a:hover{text-decoration:underline}
 </style>
-<!--gr-sticky-2--><style>
-/* 1 · nessun antenato deve diventare contenitore di scorrimento
-   (clip taglia in orizzontale senza creare uno scroller: hidden invece si') */
-html, body{
-  overflow-x:clip !important; overflow-y:visible !important;
-  height:auto !important; max-height:none !important;
-}
-/* 2 · nessun antenato deve creare un blocco contenitore */
-html, body{
-  transform:none !important; filter:none !important; perspective:none !important;
-  contain:none !important; will-change:auto !important;
-  -webkit-backdrop-filter:none !important; backdrop-filter:none !important;
-}
-/* 3 · la barra, con specificita' alta per battere i fogli della sezione */
-html body header.u-bar{
-  position:-webkit-sticky !important; position:sticky !important;
-  top:0 !important; z-index:900 !important;
-  transform:none !important; will-change:auto !important;
-}
+<!--gr-sticky-3--><style>
+/* uniforme.css ora e' l'ultimo foglio, come nel resto del sito, e le sue regole
+   sulla barra vincono da sole. Questa riga resta solo come rete di sicurezza. */
+html body header.u-bar{position:-webkit-sticky !important;position:sticky !important;top:0 !important}
 </style>
 </head>
 <body>

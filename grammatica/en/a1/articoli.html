@@ -36,7 +36,6 @@
 <link rel="alternate" hreflang="ti" href="https://thuisitaliaans.com/grammatica/ti/a1/articoli">
 <link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/grammatica/en/a1/articoli">
 <link rel="icon" href="/assets/icons/grammatica/icon-192.png">
-<link rel="stylesheet" href="/css/uniforme.css">
 <link rel="stylesheet" href="/assets/mobile.css">
 <link rel="stylesheet" href="/assets/app-banner.css">
 <script type="application/ld+json">
@@ -49,6 +48,7 @@
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why is it lo yogurt and not il yogurt?", "acceptedAnswer": {"@type": "Answer", "text": "Because the y here works like the semivowel i: words beginning with i or y followed by another vowel take lo and uno, like lo iodio, uno yogurt. Same logic as lo studente: the article adapts to the sound that follows."}}, {"@type": "Question", "name": "Why do Italians say la domenica with the article?", "acceptedAnswer": {"@type": "Answer", "text": "The article turns one day into a habit: la domenica pranzo dai nonni means every Sunday. Without the article it is a single occasion: domenica vado a Roma is this coming Sunday. One tiny word, two different calendars."}}, {"@type": "Question", "name": "Why is there no article in vado a casa or sono in ufficio?", "acceptedAnswer": {"@type": "Answer", "text": "A small set of everyday places drops the article after a preposition: a casa, a scuola, in ufficio, in banca, in chiesa, a letto. They are fixed expressions, learned as chunks. As soon as you add detail, the article returns: nella casa dei miei nonni."}}]}
 </script>
 <link rel="stylesheet" href="/assets/grammatica/grammatica.css">
+<link rel="stylesheet" href="/css/uniforme.css">
 <!--gr-mob-1--><style>
 /* La barra resta in alto durante lo scorrimento, come nel resto del sito:
    grammatica.css arriva dopo uniforme.css e spegneva lo sticky. */
@@ -71,25 +71,10 @@
 .gr-firma a{color:#6d4a7c;font-weight:600;text-decoration:none}
 .gr-firma a:hover{text-decoration:underline}
 </style>
-<!--gr-sticky-2--><style>
-/* 1 · nessun antenato deve diventare contenitore di scorrimento
-   (clip taglia in orizzontale senza creare uno scroller: hidden invece si') */
-html, body{
-  overflow-x:clip !important; overflow-y:visible !important;
-  height:auto !important; max-height:none !important;
-}
-/* 2 · nessun antenato deve creare un blocco contenitore */
-html, body{
-  transform:none !important; filter:none !important; perspective:none !important;
-  contain:none !important; will-change:auto !important;
-  -webkit-backdrop-filter:none !important; backdrop-filter:none !important;
-}
-/* 3 · la barra, con specificita' alta per battere i fogli della sezione */
-html body header.u-bar{
-  position:-webkit-sticky !important; position:sticky !important;
-  top:0 !important; z-index:900 !important;
-  transform:none !important; will-change:auto !important;
-}
+<!--gr-sticky-3--><style>
+/* uniforme.css ora e' l'ultimo foglio, come nel resto del sito, e le sue regole
+   sulla barra vincono da sole. Questa riga resta solo come rete di sicurezza. */
+html body header.u-bar{position:-webkit-sticky !important;position:sticky !important;top:0 !important}
 </style>
 </head>
 <body>

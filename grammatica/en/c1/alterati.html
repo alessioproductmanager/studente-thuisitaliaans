@@ -36,7 +36,6 @@
 <link rel="alternate" hreflang="ti" href="https://thuisitaliaans.com/grammatica/ti/c1/alterati">
 <link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/grammatica/en/c1/alterati">
 <link rel="icon" href="/assets/icons/grammatica/icon-192.png">
-<link rel="stylesheet" href="/css/uniforme.css">
 <link rel="stylesheet" href="/assets/mobile.css">
 <link rel="stylesheet" href="/assets/app-banner.css">
 <script type="application/ld+json">
@@ -49,6 +48,7 @@
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can suffixes stack?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, and Italian loves it: casa → casetta → casettina, libro → libretto → librettino. Even adverbs take diminutives: bene → benino (so-so), poco → pochino, tardi → tardino. Each layer softens or shrinks a little more: alteration is a dial, not a switch."}}, {"@type": "Question", "name": "What shade does -uccio add?", "acceptedAnswer": {"@type": "Answer", "text": "Warm smallness or gentle pity, depending on the noun: casuccia (a modest, cosy little house), calduccio (pleasant warmth), but avvocatuccio (a small-time lawyer). It is the most emotional of the suffixes: read the speaker's tone before deciding whether it is a caress or a jab."}}, {"@type": "Question", "name": "Do first names take suffixes too?", "acceptedAnswer": {"@type": "Answer", "text": "Constantly: Paolino, Marietta, Giorgione: affection, family habit, sometimes irony. Many stuck and became independent names or nicknames. Art history keeps one forever: Giorgione is “big George”, one -one that entered the museum catalogues."}}]}
 </script>
 <link rel="stylesheet" href="/assets/grammatica/grammatica.css">
+<link rel="stylesheet" href="/css/uniforme.css">
 <!--gr-mob-1--><style>
 /* La barra resta in alto durante lo scorrimento, come nel resto del sito:
    grammatica.css arriva dopo uniforme.css e spegneva lo sticky. */
@@ -71,25 +71,10 @@
 .gr-firma a{color:#6d4a7c;font-weight:600;text-decoration:none}
 .gr-firma a:hover{text-decoration:underline}
 </style>
-<!--gr-sticky-2--><style>
-/* 1 · nessun antenato deve diventare contenitore di scorrimento
-   (clip taglia in orizzontale senza creare uno scroller: hidden invece si') */
-html, body{
-  overflow-x:clip !important; overflow-y:visible !important;
-  height:auto !important; max-height:none !important;
-}
-/* 2 · nessun antenato deve creare un blocco contenitore */
-html, body{
-  transform:none !important; filter:none !important; perspective:none !important;
-  contain:none !important; will-change:auto !important;
-  -webkit-backdrop-filter:none !important; backdrop-filter:none !important;
-}
-/* 3 · la barra, con specificita' alta per battere i fogli della sezione */
-html body header.u-bar{
-  position:-webkit-sticky !important; position:sticky !important;
-  top:0 !important; z-index:900 !important;
-  transform:none !important; will-change:auto !important;
-}
+<!--gr-sticky-3--><style>
+/* uniforme.css ora e' l'ultimo foglio, come nel resto del sito, e le sue regole
+   sulla barra vincono da sole. Questa riga resta solo come rete di sicurezza. */
+html body header.u-bar{position:-webkit-sticky !important;position:sticky !important;top:0 !important}
 </style>
 </head>
 <body>

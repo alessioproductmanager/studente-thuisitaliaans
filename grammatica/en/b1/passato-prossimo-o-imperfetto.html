@@ -36,7 +36,6 @@
 <link rel="alternate" hreflang="ti" href="https://thuisitaliaans.com/grammatica/ti/b1/passato-prossimo-o-imperfetto">
 <link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/grammatica/en/b1/passato-prossimo-o-imperfetto">
 <link rel="icon" href="/assets/icons/grammatica/icon-192.png">
-<link rel="stylesheet" href="/css/uniforme.css">
 <link rel="stylesheet" href="/assets/mobile.css">
 <link rel="stylesheet" href="/assets/app-banner.css">
 <script type="application/ld+json">
@@ -49,6 +48,7 @@
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "“For two years” in the past: which tense?", "acceptedAnswer": {"@type": "Answer", "text": "A closed period, however long, is a point: passato prossimo. Ho vissuto a Londra per due anni, ha piovuto tutta la notte. The imperfetto refuses edges: as soon as you say per + a finished duration, you have drawn the edges yourself."}}, {"@type": "Question", "name": "Which tense for weather, time and age in the past?", "acceptedAnswer": {"@type": "Answer", "text": "The imperfetto, because they are scenery: era una bella giornata, erano le tre, avevo dieci anni. They set the stage on which the passato prossimo then acts: erano le tre quando è arrivato il treno."}}, {"@type": "Question", "name": "Can the imperfetto ever tell the main events?", "acceptedAnswer": {"@type": "Answer", "text": "In one special register, yes: journalists use the so-called imperfetto di cronaca to reconstruct events (il ladro entrava dalla finestra e apriva la cassaforte). It is a stylistic camera effect of news writing: recognise it in the papers, but keep the standard rules in your own Italian."}}]}
 </script>
 <link rel="stylesheet" href="/assets/grammatica/grammatica.css">
+<link rel="stylesheet" href="/css/uniforme.css">
 <!--gr-mob-1--><style>
 /* La barra resta in alto durante lo scorrimento, come nel resto del sito:
    grammatica.css arriva dopo uniforme.css e spegneva lo sticky. */
@@ -71,25 +71,10 @@
 .gr-firma a{color:#6d4a7c;font-weight:600;text-decoration:none}
 .gr-firma a:hover{text-decoration:underline}
 </style>
-<!--gr-sticky-2--><style>
-/* 1 · nessun antenato deve diventare contenitore di scorrimento
-   (clip taglia in orizzontale senza creare uno scroller: hidden invece si') */
-html, body{
-  overflow-x:clip !important; overflow-y:visible !important;
-  height:auto !important; max-height:none !important;
-}
-/* 2 · nessun antenato deve creare un blocco contenitore */
-html, body{
-  transform:none !important; filter:none !important; perspective:none !important;
-  contain:none !important; will-change:auto !important;
-  -webkit-backdrop-filter:none !important; backdrop-filter:none !important;
-}
-/* 3 · la barra, con specificita' alta per battere i fogli della sezione */
-html body header.u-bar{
-  position:-webkit-sticky !important; position:sticky !important;
-  top:0 !important; z-index:900 !important;
-  transform:none !important; will-change:auto !important;
-}
+<!--gr-sticky-3--><style>
+/* uniforme.css ora e' l'ultimo foglio, come nel resto del sito, e le sue regole
+   sulla barra vincono da sole. Questa riga resta solo come rete di sicurezza. */
+html body header.u-bar{position:-webkit-sticky !important;position:sticky !important;top:0 !important}
 </style>
 </head>
 <body>

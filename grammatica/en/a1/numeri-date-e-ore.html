@@ -36,7 +36,6 @@
 <link rel="alternate" hreflang="ti" href="https://thuisitaliaans.com/grammatica/ti/a1/numeri-date-e-ore">
 <link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/grammatica/en/a1/numeri-date-e-ore">
 <link rel="icon" href="/assets/icons/grammatica/icon-192.png">
-<link rel="stylesheet" href="/css/uniforme.css">
 <link rel="stylesheet" href="/assets/mobile.css">
 <link rel="stylesheet" href="/assets/app-banner.css">
 <script type="application/ld+json">
@@ -49,6 +48,7 @@
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why ventuno and ventotto, but ventidue?", "acceptedAnswer": {"@type": "Answer", "text": "Tens drop their final vowel before uno and otto, the two units that begin with a vowel: ventuno, ventotto, trentuno, quarantotto. All the other combinations keep it: ventidue, trentacinque, sessantasei."}}, {"@type": "Question", "name": "How do I read a year out loud?", "acceptedAnswer": {"@type": "Answer", "text": "As one full number: 1990 is millenovecentonovanta, 2026 is duemilaventisei. No splitting into pairs as in English “nineteen ninety”. “In” a year is nel: sono nato nel 1990."}}, {"@type": "Question", "name": "Why do Italian prices use a comma: € 9,50?", "acceptedAnswer": {"@type": "Answer", "text": "Italy, like most of Europe, uses the comma for decimals and the dot (or a space) for thousands: 1.500,50 euro. Read the comma as e: nove e cinquanta. Writing 9.50 in an Italian form can be read as nine thousand five hundred: worth knowing at any counter."}}]}
 </script>
 <link rel="stylesheet" href="/assets/grammatica/grammatica.css">
+<link rel="stylesheet" href="/css/uniforme.css">
 <!--gr-mob-1--><style>
 /* La barra resta in alto durante lo scorrimento, come nel resto del sito:
    grammatica.css arriva dopo uniforme.css e spegneva lo sticky. */
@@ -71,25 +71,10 @@
 .gr-firma a{color:#6d4a7c;font-weight:600;text-decoration:none}
 .gr-firma a:hover{text-decoration:underline}
 </style>
-<!--gr-sticky-2--><style>
-/* 1 · nessun antenato deve diventare contenitore di scorrimento
-   (clip taglia in orizzontale senza creare uno scroller: hidden invece si') */
-html, body{
-  overflow-x:clip !important; overflow-y:visible !important;
-  height:auto !important; max-height:none !important;
-}
-/* 2 · nessun antenato deve creare un blocco contenitore */
-html, body{
-  transform:none !important; filter:none !important; perspective:none !important;
-  contain:none !important; will-change:auto !important;
-  -webkit-backdrop-filter:none !important; backdrop-filter:none !important;
-}
-/* 3 · la barra, con specificita' alta per battere i fogli della sezione */
-html body header.u-bar{
-  position:-webkit-sticky !important; position:sticky !important;
-  top:0 !important; z-index:900 !important;
-  transform:none !important; will-change:auto !important;
-}
+<!--gr-sticky-3--><style>
+/* uniforme.css ora e' l'ultimo foglio, come nel resto del sito, e le sue regole
+   sulla barra vincono da sole. Questa riga resta solo come rete di sicurezza. */
+html body header.u-bar{position:-webkit-sticky !important;position:sticky !important;top:0 !important}
 </style>
 </head>
 <body>

@@ -36,7 +36,6 @@
 <link rel="alternate" hreflang="ti" href="https://thuisitaliaans.com/grammatica/ti/a1/genere-e-numero">
 <link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/grammatica/en/a1/genere-e-numero">
 <link rel="icon" href="/assets/icons/grammatica/icon-192.png">
-<link rel="stylesheet" href="/css/uniforme.css">
 <link rel="stylesheet" href="/assets/mobile.css">
 <link rel="stylesheet" href="/assets/app-banner.css">
 <script type="application/ld+json">
@@ -49,6 +48,7 @@
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is there any way to guess the gender of nouns in -e?", "acceptedAnswer": {"@type": "Answer", "text": "The suffix often helps: nouns in -zione and -sione are feminine (la stazione, la decisione), nouns in -ore are masculine (il colore, il fiore). It is not a guarantee for every noun in -e, but these two families alone cover hundreds of words."}}, {"@type": "Question", "name": "Why is the plural of camicia camicie, but arancia becomes arance?", "acceptedAnswer": {"@type": "Answer", "text": "The spelling rule: -cia and -gia keep the i in the plural when a vowel comes before (camicia → camicie, valigia → valigie), and drop it after a consonant (arancia → arance, spiaggia → spiagge). The i is also kept when it is stressed: farmacia → farmacie."}}, {"@type": "Question", "name": "Which nouns never change in the plural?", "acceptedAnswer": {"@type": "Answer", "text": "Nouns with a final accent (la città → le città, il caffè → i caffè), shortened nouns (la foto, il cinema, la bici) and most loanwords (il film → i film, lo sport → gli sport). Only the article tells you the number: il film, i film."}}]}
 </script>
 <link rel="stylesheet" href="/assets/grammatica/grammatica.css">
+<link rel="stylesheet" href="/css/uniforme.css">
 <!--gr-mob-1--><style>
 /* La barra resta in alto durante lo scorrimento, come nel resto del sito:
    grammatica.css arriva dopo uniforme.css e spegneva lo sticky. */
@@ -71,25 +71,10 @@
 .gr-firma a{color:#6d4a7c;font-weight:600;text-decoration:none}
 .gr-firma a:hover{text-decoration:underline}
 </style>
-<!--gr-sticky-2--><style>
-/* 1 · nessun antenato deve diventare contenitore di scorrimento
-   (clip taglia in orizzontale senza creare uno scroller: hidden invece si') */
-html, body{
-  overflow-x:clip !important; overflow-y:visible !important;
-  height:auto !important; max-height:none !important;
-}
-/* 2 · nessun antenato deve creare un blocco contenitore */
-html, body{
-  transform:none !important; filter:none !important; perspective:none !important;
-  contain:none !important; will-change:auto !important;
-  -webkit-backdrop-filter:none !important; backdrop-filter:none !important;
-}
-/* 3 · la barra, con specificita' alta per battere i fogli della sezione */
-html body header.u-bar{
-  position:-webkit-sticky !important; position:sticky !important;
-  top:0 !important; z-index:900 !important;
-  transform:none !important; will-change:auto !important;
-}
+<!--gr-sticky-3--><style>
+/* uniforme.css ora e' l'ultimo foglio, come nel resto del sito, e le sue regole
+   sulla barra vincono da sole. Questa riga resta solo come rete di sicurezza. */
+html body header.u-bar{position:-webkit-sticky !important;position:sticky !important;top:0 !important}
 </style>
 </head>
 <body>
