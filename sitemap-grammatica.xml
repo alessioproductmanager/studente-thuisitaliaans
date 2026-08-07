@@ -6161,6 +6161,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/grammatica/en/c2/variazione-regionale"/>
   </url>
   <url>
+    <loc>https://thuisitaliaans.com/grammatica/en/schede/</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://thuisitaliaans.com/grammatica/schede/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thuisitaliaans.com/grammatica/en/schede/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/grammatica/en/schede/"/>
+  </url>
+  <url>
     <loc>https://thuisitaliaans.com/grammatica/es/</loc>
     <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
@@ -13557,6 +13566,9 @@
     <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://thuisitaliaans.com/grammatica/schede/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thuisitaliaans.com/grammatica/en/schede/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thuisitaliaans.com/grammatica/en/schede/"/>
   </url>
   <url>
     <loc>https://thuisitaliaans.com/grammatica/sq/</loc>
