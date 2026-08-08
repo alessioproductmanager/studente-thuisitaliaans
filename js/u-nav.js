@@ -9,7 +9,7 @@
     it:"Italiano", en:"English", nl:"Nederlands", de:"Deutsch", fr:"Français",
     es:"Español", pl:"Polski", pt:"Português", ro:"Română", uk:"Українська",
     ru:"Русский", ar:"العربية", zh:"中文", hi:"हिन्दी", bn:"বাংলা",
-    tr:"Türkçe", sq:"Shqip", ti:"ትግርኛ", fil:"Filipino", tl:"Tagalog",
+    tr:"Türkçe", sq:"Shqip", ti:"ትግርኛ", fil:"Filipino", tl:"Filipino",
     am:"አማርኛ", so:"Soomaali", fa:"فارسی", ur:"اردو", vi:"Tiếng Việt",
     th:"ไทย", ja:"日本語", ko:"한국어", id:"Bahasa Indonesia"
   };

@@ -1653,3 +1653,24 @@ body.in-prova .proposta-lingua{ bottom:96px; }
 /*144*/ .u-appcta .u-abbo{display:block;margin:-.35rem 0 1rem;font-size:.85rem;color:var(--u-tenue)}
 .u-appcta .u-abbo b{color:#1a7f4b;font-weight:800;white-space:nowrap}
 .u-appcta .u-abbo .st{color:#FFC93C;letter-spacing:.05em}
+
+
+/*153*/ /* diacritici (Á, Ă) alzavano la riga: altezze uguali per tutti */
+.u-sw__b{line-height:1.15}
+.u-sw__b b{line-height:1;align-self:center}
+
+
+/*159*/ /* card u-appcta: testo a sinistra, ventaglio di telefoni a destra.
+   Il centrale (la tappa) e' il primario: piu' grande e sopra gli altri. */
+.u-appcta{display:grid;grid-template-columns:1fr auto;column-gap:20px;align-items:center}
+.u-appcta > b,.u-appcta > span:not(.u-scatti),.u-appcta > i{grid-column:1}
+.u-appcta .u-scatti{grid-column:2;grid-row:1/9;display:flex;align-items:center;margin:0;padding:6px 4px}
+.u-appcta .u-scatti picture{display:block;flex:0 0 auto;width:58px;border-radius:9px;
+  overflow:hidden;box-shadow:0 6px 16px rgba(49,57,77,.22);background:#fff}
+.u-appcta .u-scatti picture:nth-child(1){transform:rotate(-8deg) translateY(4px)}
+.u-appcta .u-scatti picture:nth-child(2){transform:scale(1.18);z-index:2;
+  margin:0 -14px;box-shadow:0 10px 24px rgba(49,57,77,.3)}
+.u-appcta .u-scatti picture:nth-child(3){transform:rotate(8deg) translateY(4px)}
+.u-appcta .u-scatti img{display:block;width:100%;height:auto}
+@media(max-width:560px){.u-appcta{grid-template-columns:1fr 96px;column-gap:12px}
+  .u-appcta .u-scatti picture{width:44px}}
