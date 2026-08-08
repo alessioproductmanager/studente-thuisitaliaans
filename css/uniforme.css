@@ -1695,3 +1695,12 @@ body.in-prova .proposta-lingua{ bottom:96px; }
 @media (max-width:560px){.card-lang{top:7px;right:7px;font-size:.62rem;padding:4px 6px}}
 @media (prefers-reduced-transparency:reduce){.card-lang{background:#1c202a}}
 @media print{.card-lang{background:none;color:#000;box-shadow:none}}
+
+/*170*/ /* card app della sidebar: stessa gerarchia dei banner grandi */
+.sidebar-card-app .sb-stelle{margin:12px 0 6px;font-size:.82rem;
+  color:var(--u-testo-soft,#5b6273);display:flex;align-items:center;gap:7px}
+.sidebar-card-app .sb-stelle .stelle{color:#FFC93C;letter-spacing:1px}
+.sidebar-card-app .sb-gratis{margin:0 0 6px;font-weight:700;font-size:.86rem;line-height:1.35}
+.sidebar-card-app .sb-prezzo{margin:0 0 12px;font-size:.84rem;line-height:1.5}
+.sidebar-card-app .sb-eq{display:inline-block;background:#1a7f4b;color:#fff;
+  font-weight:700;padding:2px 9px;border-radius:999px;white-space:nowrap}
