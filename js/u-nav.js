@@ -302,3 +302,46 @@
     document.addEventListener("DOMContentLoaded", via);
   } else { via(); }
 })();
+
+/*162*/ /* La lingua scelta segue l'utente nelle sezioni monolingua. */
+(function () {
+  'use strict';
+  var CHIAVE = 'u-lingua';
+  function linguaPagina() {
+    return (document.documentElement.lang || '').split('-')[0];
+  }
+  function alternative() {
+    return document.querySelectorAll('link[rel="alternate"][hreflang]').length > 1;
+  }
+  function normalizza(l) {
+    if (l === 'tl') return 'fil';
+    return l;
+  }
+  function avvia() {
+    var qui = normalizza(linguaPagina());
+    try {
+      if (alternative() && qui) {
+        /* pagina con versioni in piu' lingue: essere qui E' la scelta */
+        localStorage.setItem(CHIAVE, qui);
+        return;
+      }
+      var scelta = normalizza(localStorage.getItem(CHIAVE) || '');
+      if (!scelta || scelta === qui) return;
+      var nav = (typeof NAVLOC !== 'undefined') && NAVLOC[scelta];
+      if (!nav || !nav.voci) return;
+      /* riscrive il menu di sezione: stessa posizione, lingua ricordata */
+      var liste = document.querySelectorAll('ul.u-sw__l');
+      for (var i = 0; i < liste.length; i++) {
+        var voci = liste[i].querySelectorAll('li > a');
+        if (voci.length !== nav.voci.length) continue;
+        for (var j = 0; j < voci.length; j++) {
+          voci[j].textContent = nav.voci[j][0];
+          voci[j].setAttribute('href', nav.voci[j][1]);
+        }
+      }
+    } catch (e) { /* localStorage bloccato: si naviga come prima */ }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', avvia);
+  } else { avvia(); }
+})();
