@@ -1649,3 +1649,7 @@ body:has(#motore) #profilo *{ --r:10px; }
 body.in-prova .proposta-lingua{ bottom:96px; }
 @media print{ .proposta-lingua{ display:none !important; } }
 /* 194-proposta-lingua fine */
+
+/*144*/ .u-appcta .u-abbo{display:block;margin:-.35rem 0 1rem;font-size:.85rem;color:var(--u-tenue)}
+.u-appcta .u-abbo b{color:#1a7f4b;font-weight:800;white-space:nowrap}
+.u-appcta .u-abbo .st{color:#FFC93C;letter-spacing:.05em}

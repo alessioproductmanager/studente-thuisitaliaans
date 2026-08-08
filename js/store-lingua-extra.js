@@ -4,7 +4,7 @@
    terza lingua che non si e' scelta.
    Se l'immagine nuova non carica, resta quella di prima. */
 (function () {
-  var SITO = ["it", "en", "nl", "de", "fr", "es", "pl"];
+  var SITO = ["it", "en", "nl", "de", "fr", "es"] /*148: il pl non ha screenshot, resta l'inglese*/;
   var EXTRA = ["ar", "bn", "pt", "ro", "uk", "zh"];
 
   var b = (navigator.language || "").slice(0, 2).toLowerCase();

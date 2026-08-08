@@ -96,7 +96,7 @@
 <link rel="stylesheet" href="/assets/app-banner.css">
 
 <style>/*stelle-v1*/
-:root{--stelle-giallo:#FFC400}
+:root{--stelle-giallo:#FFC93C}
 /* 1. tutto dentro i contenitori torna al colore normale */
 .hero-rating,.sidebar-rating,.app-stelle,.app-mini-stelle,.trust-grid,.app-promo-stelle,.hero-rating *,.sidebar-rating *,.app-stelle *,.app-mini-stelle *,.trust-grid *,.app-promo-stelle *{color:inherit!important}
 /* 2. solo le stelle diventano gialle: regola piu' in basso, vince */
@@ -140,7 +140,26 @@
 .au-firma a:hover{text-decoration:underline}
 .article-meta .au-firma{margin:4px 0 0}
 </style>
-</head>
+<!--gr-abb-2--><style>
+/* stelline: --stelle-giallo arriva da app-banner.css ed e' spento.
+   Qui l'oro chiaro delle valutazioni, per tutta la pagina. */
+:root{--stelle-giallo:#FFC93C}
+.stelle-gialle,.app-stelle-ico,.app-stelle > span[aria-hidden="true"]{color:#FFC93C !important}
+
+/* il prezzo: una gerarchia, non tre cifre in fila */
+.gr-abb{margin:14px 0;padding:13px 15px;border-radius:12px;
+  background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18)}
+.gr-abb p{margin:0;font-size:.88rem;line-height:1.5;color:rgba(255,255,255,.88)}
+.gr-abb .gr-abb-incl{margin-bottom:9px}
+.gr-abb-riga{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:5px}
+.gr-abb-eq{display:inline-block;padding:4px 12px;border-radius:999px;
+  background:rgba(126,231,135,.16);border:1px solid rgba(126,231,135,.5);
+  color:#7ee787;font-weight:800;font-size:1.12rem;letter-spacing:-.01em;white-space:nowrap}
+.gr-abb-ann{color:rgba(255,255,255,.92);font-size:.88rem}
+.gr-abb-altri{font-size:.82rem !important;color:rgba(255,255,255,.66) !important;margin-bottom:7px !important}
+.gr-abb-gratis{color:#FFC93C !important;font-weight:600}
+.gr-abb-nota{font-size:.75rem !important;color:rgba(255,255,255,.55) !important;margin-top:5px !important}
+</style></head>
 <body>
 <!-- 134-fondamenta -->
 <a class="u-salta" href="#u-contenuto">Salta al contenuto</a>
@@ -184,9 +203,9 @@
     
     </div>
 
-    <!--app-banner--><div class="ex-app-promo ex-app-promo--scatti"><div class="app-scatti" data-store-extra><picture class="app-scatto"><source type="image/webp" srcset="/assets/store/it/05_grammatica.webp"><img src="/assets/store/it/05_grammatica.jpg" alt="App Ti" width="600" height="1298" loading="lazy" decoding="async"></picture><picture class="app-scatto"><source type="image/webp" srcset="/assets/store/it/09_giochi.webp"><img src="/assets/store/it/09_giochi.jpg" alt="App Ti" width="600" height="1298" loading="lazy" decoding="async"></picture><picture class="app-scatto"><source type="image/webp" srcset="/assets/store/it/06_parola.webp"><img src="/assets/store/it/06_parola.jpg" alt="App Ti" width="600" height="1298" loading="lazy" decoding="async"></picture></div><div class="ex-app-promo-body"><p class="app-stelle"><span class="app-stelle-ico" aria-hidden="true">★★★★★</span><span>iOS App Store</span></p><h3>La grammatica, spiegata mentre la usi</h3>
+    <!--app-banner--><div class="ex-app-promo ex-app-promo--scatti"><div class="app-scatti" data-store-extra><picture class="app-scatto"><source type="image/webp" srcset="/assets/store/it/08_tappa.webp"><img src="/assets/store/it/08_tappa.jpg" alt="App Ti" width="600" height="1298" loading="lazy" decoding="async"></picture><picture class="app-scatto"><source type="image/webp" srcset="/assets/store/it/09_giochi.webp"><img src="/assets/store/it/09_giochi.jpg" alt="App Ti" width="600" height="1298" loading="lazy" decoding="async"></picture><picture class="app-scatto"><source type="image/webp" srcset="/assets/store/it/05_grammatica.webp"><img src="/assets/store/it/05_grammatica.jpg" alt="App Ti" width="600" height="1298" loading="lazy" decoding="async"></picture></div><div class="ex-app-promo-body"><h3>La grammatica, spiegata mentre la usi</h3>
         <p>Con l&rsquo;app <strong>Ti</strong>: tutta la grammatica dall&rsquo;A1 al C2 spiegata in italiano e nella tua lingua, esercizi a ogni tappa e un dizionario da toccare mentre leggi.</p>
-        <a target="_blank" rel="noopener" href="https://apps.apple.com/app/id6791650799" class="button ex-app-btn">Continua nell'app ↗︎</a>
+        <p class="app-stelle"><span class="app-stelle-ico" aria-hidden="true">★★★★★</span><span>iOS App Store</span></p><!--142-abb--><div class="gr-abb"><p class="gr-abb-incl">Con l'abbonamento: percorso completo A1–C2, dizionario, giochi e 3 titoli a scelta.</p><div class="gr-abb-riga"><span class="gr-abb-eq">€5,83 al mese</span><span class="gr-abb-ann">con l'abbonamento annuale a €69,99</span></div><p class="gr-abb-altri">Oppure €12,99 al mese · Lifetime €179 una tantum</p><p class="gr-abb-gratis">Metà del percorso A1 è aperta senza registrarsi: si prova prima di decidere.</p><p class="gr-abb-nota">Prezzi dell'App Store italiano; possono variare per paese.</p></div><a target="_blank" rel="noopener" href="https://apps.apple.com/app/id6791650799" class="button ex-app-btn">Continua nell'app ↗︎</a>
       </div></div></div><!--/app-banner-->
 
 

@@ -432,6 +432,14 @@
     var tipo = tipoPerPagina();
     if (!tipo) return;
 
+    /*135*/ /* Se un banner app statico c'e' gia', un secondo box app e'
+       catalogo, non consiglio: le varianti app ed esercizi si fermano.
+       Il blocco libri passa: prodotto diverso. */
+    if ((tipo === 'app' || tipo === 'esercizi') &&
+        document.querySelector('.app-banner-testo, .ex-app-promo, .app-promo, .app-mini, .promo-app')) {
+      return;
+    }
+
     var padre = contenitore();
     if (!padre) return;
 
