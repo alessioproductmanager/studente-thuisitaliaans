@@ -1674,3 +1674,8 @@ body.in-prova .proposta-lingua{ bottom:96px; }
 .u-appcta .u-scatti img{display:block;width:100%;height:auto}
 @media(max-width:560px){.u-appcta{grid-template-columns:1fr 96px;column-gap:12px}
   .u-appcta .u-scatti picture{width:44px}}
+
+/*160*/ /* fondo scuro: il marchio e l'etichetta delle stelline in chiaro */
+.ex-app-promo strong,.ex-app-promo b,
+.app-banner-testo strong,.app-banner-testo b{color:#fff !important}
+.ex-app-promo .app-stelle,.app-banner-testo .app-stelle{color:rgba(255,255,255,.85)}
